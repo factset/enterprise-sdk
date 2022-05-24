@@ -18,7 +18,7 @@ import FrequencyRoot from '../model/FrequencyRoot';
 /**
 * Frequencies service.
 * @module api/FrequenciesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FrequenciesApi {
 
@@ -55,7 +55,10 @@ export default class FrequenciesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FrequencyRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/spar/v3/frequencies', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -66,7 +69,7 @@ export default class FrequenciesApi {
     /**
      * Get SPAR frequencies
      * This endpoint lists all the frequencies that can be applied to a SPAR calculation.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FrequencyRoot}
+     * @return { Promise.< module:model/FrequencyRoot > } a Promise, with data of type {@link module:model/FrequencyRoot }
      */
     getSPARFrequencies() {
       return this.getSPARFrequenciesWithHttpInfo()
@@ -77,3 +80,8 @@ export default class FrequenciesApi {
 
 
 }
+
+
+
+
+

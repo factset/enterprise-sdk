@@ -1,0 +1,1833 @@
+openapi: 3.0.2
+info:
+  contact:
+    email: signals.api@factset.com
+    name: Signals API Support
+  description: Collection of endpoints for providing Signal Events, Definitions and
+    Metadata
+  title: Signals API
+  version: 2.4.0
+servers:
+- description: Production
+  url: https://api.factset.com/signals/v2
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Fetch signal events
+  name: Events
+- description: Fetch signal metadata
+  name: Metadata
+paths:
+  /events/headlines:
+    get:
+      description: Fetch Signals event headlines based on the filtering criteria
+      operationId: getEventHeadlines
+      parameters:
+      - description: A date/time interval for filtering signal events based on their
+          creation date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: created
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - description: A date/time interval for filtering signal events based on their
+          last updated date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: updated
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - example: dilutionTrigger,freeCashFlow
+        explode: true
+        in: query
+        name: signalIds
+        required: false
+        schema:
+          description: Comma delimited string of signalIds
+          type: string
+        style: form
+      - description: Comma delimited string of identifiers. An identifier can be a
+          ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers
+          either via a ids or a portfolios parameter. If both are provided, only ids
+          filter is used.
+        example: FDS-US,AMZN-US
+        explode: true
+        in: query
+        name: ids
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Name of a portfolio file stored by FactSet. If the portfolio
+          contains more than 1,000 ids, only the first 1,000 ids are processed. e.g.
+          client:techstocks.ofdb
+        explode: true
+        in: query
+        name: portfolios
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Comma delimited string of theme ids. Full list of signal themes
+          can be viewed at /themes.
+        explode: true
+        in: query
+        name: themes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Comma delimited string of category ids. Full list of signal categories
+          can be viewed at /categories.
+        explode: true
+        in: query
+        name: categories
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: A range for filtering signal events based on their relevancy
+          score.
+        examples:
+          lowerBound:
+            value:
+              gte: 0
+          upperBound:
+            value:
+              lt: 1
+          bothBounds:
+            value:
+              gt: 0
+              lt: 1
+        explode: true
+        in: query
+        name: userRelevanceScore
+        required: false
+        schema:
+          $ref: '#/components/schemas/RelevanceScoreRange'
+        style: deepObject
+      - description: Comma delimited string of sortable attributes. The sort order
+          for each sort attribute is ascending unless it is prefixed with a minus
+          sign, in which case it is descending. If sort is not provided, the default
+          sort applied is -userRelevanceScore (userRelevanceScore in descending order).
+        example: -userRelevanceScore,-eventDate
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventHeadlines'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Events
+      x-accepts: application/json
+    post:
+      description: Fetch Signals event headlines based on the filtering criteria for
+        up to 1000 identifiers
+      operationId: postEventHeadlines
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/eventRequestBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventHeadlines'
+          description: OK
+      tags:
+      - Events
+      x-contentType: application/json
+      x-accepts: application/json
+  /events/details:
+    get:
+      description: Fetch Signals event headlines plus all additional event details
+        based on the filtering criteria
+      operationId: getEventDetails
+      parameters:
+      - description: A date/time interval for filtering signal events based on their
+          creation date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: created
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - description: A date/time interval for filtering signal events based on their
+          last updated date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: updated
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - example: dilutionTrigger,freeCashFlow
+        explode: true
+        in: query
+        name: signalIds
+        required: false
+        schema:
+          description: Comma delimited string of signalIds
+          type: string
+        style: form
+      - description: Comma delimited string of identifiers. An identifier can be a
+          ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers
+          either via a ids or a portfolios parameter. If both are provided, only ids
+          filter is used.
+        example: FDS-US,AMZN-US
+        explode: true
+        in: query
+        name: ids
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Name of a portfolio file stored by FactSet. If the portfolio
+          contains more than 1,000 ids, only the first 1,000 ids are processed. e.g.
+          client:techstocks.ofdb
+        explode: true
+        in: query
+        name: portfolios
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Comma delimited string of theme ids. Full list of signal themes
+          can be viewed at /themes.
+        explode: true
+        in: query
+        name: themes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Comma delimited string of category ids. Full list of signal categories
+          can be viewed at /categories.
+        explode: true
+        in: query
+        name: categories
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: A range for filtering signal events based on their relevancy
+          score.
+        examples:
+          lowerBound:
+            value:
+              gte: 0
+          upperBound:
+            value:
+              lt: 1
+          bothBounds:
+            value:
+              gt: 0
+              lt: 1
+        explode: true
+        in: query
+        name: userRelevanceScore
+        required: false
+        schema:
+          $ref: '#/components/schemas/RelevanceScoreRange'
+        style: deepObject
+      - description: Comma delimited string of sortable attributes. The sort order
+          for each sort attribute is ascending unless it is prefixed with a minus
+          sign, in which case it is descending. If sort is not provided, the default
+          sort applied is -userRelevanceScore (userRelevanceScore in descending order).
+        example: -userRelevanceScore,-eventDate
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventDetails'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Events
+      x-accepts: application/json
+    post:
+      description: Fetch Signals event headlines plus all additional event details
+        for up to 1000 identifiers
+      operationId: postEventDetails
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/eventRequestBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventDetails'
+          description: OK
+      tags:
+      - Events
+      x-contentType: application/json
+      x-accepts: application/json
+  /events/details/{eventId}:
+    get:
+      description: Fetch Signals event headlines plus all additional event details
+        for a single requested Signal event
+      operationId: getEventDetailById
+      parameters:
+      - description: The UUID of the event to return.
+        explode: false
+        in: path
+        name: eventId
+        required: true
+        schema:
+          format: uuid
+          minimum: 1
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventDetail'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Events
+      x-accepts: application/json
+  /events/adaptive-cards:
+    get:
+      description: Fetch Microsoft's Adaptive Cards, which includes headlines and
+        event details data plus hyperlinks to FactSet reports, based on the filtering
+        criteria
+      operationId: getEventAdaptiveCards
+      parameters:
+      - description: A date/time interval for filtering signal events based on their
+          creation date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: created
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - description: A date/time interval for filtering signal events based on their
+          last updated date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: updated
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - example: dilutionTrigger,freeCashFlow
+        explode: true
+        in: query
+        name: signalIds
+        required: false
+        schema:
+          description: Comma delimited string of signalIds
+          type: string
+        style: form
+      - description: Comma delimited string of identifiers. An identifier can be a
+          ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers
+          either via a ids or a portfolios parameter. If both are provided, only ids
+          filter is used.
+        example: FDS-US,AMZN-US
+        explode: true
+        in: query
+        name: ids
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Name of a portfolio file stored by FactSet. If the portfolio
+          contains more than 1,000 ids, only the first 1,000 ids are processed. e.g.
+          client:techstocks.ofdb
+        explode: true
+        in: query
+        name: portfolios
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Comma delimited string of theme ids. Full list of signal themes
+          can be viewed at /themes.
+        explode: true
+        in: query
+        name: themes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Comma delimited string of category ids. Full list of signal categories
+          can be viewed at /categories.
+        explode: true
+        in: query
+        name: categories
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: A range for filtering signal events based on their relevancy
+          score.
+        examples:
+          lowerBound:
+            value:
+              gte: 0
+          upperBound:
+            value:
+              lt: 1
+          bothBounds:
+            value:
+              gt: 0
+              lt: 1
+        explode: true
+        in: query
+        name: userRelevanceScore
+        required: false
+        schema:
+          $ref: '#/components/schemas/RelevanceScoreRange'
+        style: deepObject
+      - description: Comma delimited string of sortable attributes. The sort order
+          for each sort attribute is ascending unless it is prefixed with a minus
+          sign, in which case it is descending. If sort is not provided, the default
+          sort applied is -userRelevanceScore (userRelevanceScore in descending order).
+        example: -userRelevanceScore,-eventDate
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventAdaptiveCards'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Events
+      x-accepts: application/json
+  /events/adaptive-cards/{eventId}:
+    get:
+      description: Fetch Microsoft's Adaptive Cards, which includes headlines and
+        event details data plus hyperlinks to FactSet reports, for a single requested
+        Signal event
+      operationId: getEventAdaptiveCardById
+      parameters:
+      - description: The UUID of the event to return.
+        explode: false
+        in: path
+        name: eventId
+        required: true
+        schema:
+          format: uuid
+          minimum: 1
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventAdaptiveCard'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Not Found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Events
+      x-accepts: application/json
+  /events/entities:
+    get:
+      description: Fetch FactSet entity IDs for events that match the filtering criteria
+      operationId: getEventEntities
+      parameters:
+      - description: A date/time interval for filtering signal events based on their
+          creation date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: created
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - description: A date/time interval for filtering signal events based on their
+          last updated date. Defaults to NOW - 7 days if omitted.
+        examples:
+          default:
+            value: {}
+          lowerBound:
+            $ref: '#/components/examples/lowerBound'
+          upperBound:
+            $ref: '#/components/examples/upperBound'
+          bothBounds:
+            $ref: '#/components/examples/bothBounds'
+        explode: true
+        in: query
+        name: updated
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateTimeInterval'
+        style: deepObject
+      - example: dilutionTrigger,freeCashFlow
+        explode: true
+        in: query
+        name: signalIds
+        required: false
+        schema:
+          description: Comma delimited string of signalIds
+          type: string
+        style: form
+      - description: Comma delimited string of theme ids. Full list of signal themes
+          can be viewed at /themes.
+        explode: true
+        in: query
+        name: themes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Comma delimited string of category ids. Full list of signal categories
+          can be viewed at /categories.
+        explode: true
+        in: query
+        name: categories
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: A range for filtering signal events based on their relevancy
+          score.
+        examples:
+          lowerBound:
+            value:
+              gte: 0
+          upperBound:
+            value:
+              lt: 1
+          bothBounds:
+            value:
+              gt: 0
+              lt: 1
+        explode: true
+        in: query
+        name: userRelevanceScore
+        required: false
+        schema:
+          $ref: '#/components/schemas/RelevanceScoreRange'
+        style: deepObject
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventsEntities'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Events
+      x-accepts: application/json
+  /data-dictionary:
+    get:
+      description: Fetch a list of all active signals
+      operationId: getDataDictionary
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signalMetaData'
+          description: OK
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Metadata
+      x-accepts: application/json
+  /data-dictionary/{signalId}:
+    get:
+      description: Fetch the metadata and contract for the requested signal
+      operationId: getDataDictionaryById
+      parameters:
+      - example: dilutionTrigger
+        explode: false
+        in: path
+        name: signalId
+        required: true
+        schema:
+          description: A single signalId.
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signalDefinition'
+          description: OK
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Not found
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Metadata
+      x-accepts: application/json
+  /themes:
+    get:
+      description: Fetch a list of available signal themes
+      operationId: getThemes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signalMetaData'
+          description: OK
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Metadata
+      x-accepts: application/json
+  /categories:
+    get:
+      description: Fetch a list of available signal categories
+      operationId: getCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signalMetaData'
+          description: OK
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error
+      tags:
+      - Metadata
+      x-accepts: application/json
+components:
+  examples:
+    lowerBound:
+      value:
+        gt: 2022-01-01T00:00:00.000Z
+    upperBound:
+      value:
+        lt: 2022-01-02T00:00:00.000Z
+    bothBounds:
+      value:
+        gt: 2022-01-01T00:00:00.000Z
+        lt: 2022-01-02T00:00:00.000Z
+  parameters:
+    createdParam:
+      description: A date/time interval for filtering signal events based on their
+        creation date. Defaults to NOW - 7 days if omitted.
+      examples:
+        default:
+          value: {}
+        lowerBound:
+          $ref: '#/components/examples/lowerBound'
+        upperBound:
+          $ref: '#/components/examples/upperBound'
+        bothBounds:
+          $ref: '#/components/examples/bothBounds'
+      explode: true
+      in: query
+      name: created
+      required: false
+      schema:
+        $ref: '#/components/schemas/DateTimeInterval'
+      style: deepObject
+    updatedParam:
+      description: A date/time interval for filtering signal events based on their
+        last updated date. Defaults to NOW - 7 days if omitted.
+      examples:
+        default:
+          value: {}
+        lowerBound:
+          $ref: '#/components/examples/lowerBound'
+        upperBound:
+          $ref: '#/components/examples/upperBound'
+        bothBounds:
+          $ref: '#/components/examples/bothBounds'
+      explode: true
+      in: query
+      name: updated
+      required: false
+      schema:
+        $ref: '#/components/schemas/DateTimeInterval'
+      style: deepObject
+    signalIdsParam:
+      example: dilutionTrigger,freeCashFlow
+      explode: true
+      in: query
+      name: signalIds
+      required: false
+      schema:
+        description: Comma delimited string of signalIds
+        type: string
+      style: form
+    idsParam:
+      description: Comma delimited string of identifiers. An identifier can be a ticker,
+        FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either
+        via a ids or a portfolios parameter. If both are provided, only ids filter
+        is used.
+      example: FDS-US,AMZN-US
+      explode: true
+      in: query
+      name: ids
+      required: false
+      schema:
+        type: string
+      style: form
+    portfoliosParam:
+      description: Name of a portfolio file stored by FactSet. If the portfolio contains
+        more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb
+      explode: true
+      in: query
+      name: portfolios
+      required: false
+      schema:
+        type: string
+      style: form
+    themesParam:
+      description: Comma delimited string of theme ids. Full list of signal themes
+        can be viewed at /themes.
+      explode: true
+      in: query
+      name: themes
+      required: false
+      schema:
+        type: string
+      style: form
+    categoriesParam:
+      description: Comma delimited string of category ids. Full list of signal categories
+        can be viewed at /categories.
+      explode: true
+      in: query
+      name: categories
+      required: false
+      schema:
+        type: string
+      style: form
+    relevanceScoreParam:
+      description: A range for filtering signal events based on their relevancy score.
+      examples:
+        lowerBound:
+          value:
+            gte: 0
+        upperBound:
+          value:
+            lt: 1
+        bothBounds:
+          value:
+            gt: 0
+            lt: 1
+      explode: true
+      in: query
+      name: userRelevanceScore
+      required: false
+      schema:
+        $ref: '#/components/schemas/RelevanceScoreRange'
+      style: deepObject
+    eventIdParam:
+      description: The UUID of the event to return.
+      explode: false
+      in: path
+      name: eventId
+      required: true
+      schema:
+        format: uuid
+        minimum: 1
+        type: string
+      style: simple
+    signalIdParam:
+      example: dilutionTrigger
+      explode: false
+      in: path
+      name: signalId
+      required: true
+      schema:
+        description: A single signalId.
+        type: string
+      style: simple
+    sortParam:
+      description: Comma delimited string of sortable attributes. The sort order for
+        each sort attribute is ascending unless it is prefixed with a minus sign,
+        in which case it is descending. If sort is not provided, the default sort
+        applied is -userRelevanceScore (userRelevanceScore in descending order).
+      example: -userRelevanceScore,-eventDate
+      explode: true
+      in: query
+      name: sort
+      required: false
+      schema:
+        type: string
+      style: form
+  schemas:
+    errorResponse:
+      properties:
+        message:
+          description: A short description of the error.
+          example: There was an error processing your request. Please try again later.
+          type: string
+        errors:
+          description: Optional list of errors. e.g. Validation errors for multiple
+            parameters
+          items:
+            $ref: '#/components/schemas/errorItem'
+          type: array
+      required:
+      - message
+      type: object
+    errorItem:
+      example:
+        code: parameterError
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+        source:
+          parameter: parameter
+        title: Invalid type/value
+      properties:
+        id:
+          format: uuid
+          type: string
+        code:
+          example: parameterError
+          type: string
+        title:
+          example: Invalid type/value
+          type: string
+        detail:
+          example: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          type: string
+        source:
+          $ref: '#/components/schemas/errorItem_source'
+      required:
+      - code
+      - id
+      - title
+      type: object
+    eventMeta:
+      example:
+        signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        idResolutions:
+          tickerRegion:
+            key: tickerRegion
+          regionalPermId:
+            key: regionalPermId
+      properties:
+        signalRequestId:
+          format: uuid
+          type: string
+        idResolutions:
+          $ref: '#/components/schemas/idResolutionsMeta'
+      required:
+      - idResolutions
+      - signalRequestId
+      type: object
+    eventsMeta:
+      example:
+        pagination:
+          total: 6
+          isEstimatedTotal: true
+        signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        idResolutions:
+          tickerRegion:
+            key: tickerRegion
+          regionalPermId:
+            key: regionalPermId
+        dateRange:
+          created:
+            lt: 2021-01-01T00:00:00Z
+            gte: 2021-01-01T00:00:00Z
+            lte: 2021-01-01T00:00:00Z
+            gt: 2021-01-01T00:00:00Z
+          updated:
+            lt: 2021-01-01T00:00:00Z
+            gte: 2021-01-01T00:00:00Z
+            lte: 2021-01-01T00:00:00Z
+            gt: 2021-01-01T00:00:00Z
+        sort:
+        - sort
+        - sort
+      properties:
+        signalRequestId:
+          format: uuid
+          type: string
+        sort:
+          items:
+            type: string
+          type: array
+        pagination:
+          $ref: '#/components/schemas/eventsMeta_pagination'
+        idResolutions:
+          $ref: '#/components/schemas/idResolutionsMeta'
+        dateRange:
+          $ref: '#/components/schemas/eventsMeta_dateRange'
+      required:
+      - dateRange
+      - idResolutions
+      - signalRequestId
+      type: object
+    idResolutionsMeta:
+      example:
+        tickerRegion:
+          key: tickerRegion
+        regionalPermId:
+          key: regionalPermId
+      properties:
+        tickerRegion:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+        regionalPermId:
+          additionalProperties:
+            nullable: true
+            type: string
+          type: object
+      type: object
+    screenMeta:
+      example:
+        signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        dateRange:
+          created:
+            lt: 2021-01-01T00:00:00Z
+            gte: 2021-01-01T00:00:00Z
+            lte: 2021-01-01T00:00:00Z
+            gt: 2021-01-01T00:00:00Z
+          updated:
+            lt: 2021-01-01T00:00:00Z
+            gte: 2021-01-01T00:00:00Z
+            lte: 2021-01-01T00:00:00Z
+            gt: 2021-01-01T00:00:00Z
+      properties:
+        signalRequestId:
+          format: uuid
+          type: string
+        dateRange:
+          $ref: '#/components/schemas/eventsMeta_dateRange'
+      required:
+      - dateRange
+      - signalRequestId
+      type: object
+    eventHeadlineDataItem:
+      example:
+        summary: summary
+        signalName: signalName
+        eventId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        userRelevanceScore: 0.8008282
+        requestId: requestId
+        created: 2021-04-26T06:39:40.094Z
+        signalId: signalId
+        theme: theme
+        source: source
+        eventDate: 2000-01-23
+      properties:
+        requestId:
+          description: The id that was requested. This can be a ticker, cusip or factset
+            entity id.
+          type: string
+        signalId:
+          description: Signal Id for this event. e.g. dilutionTrigger
+          type: string
+        signalName:
+          description: Signal Name for this event. e.g. dilutionTrigger
+          type: string
+        theme:
+          description: Theme name of the signal for this event. e.g. Debt Capital
+            Structure
+          type: string
+        source:
+          description: Primary data provider for the signal this event belongs to.
+            e.g. FactSet, Bitvore
+          type: string
+        eventId:
+          description: A unique id for this event.
+          format: uuid
+          type: string
+        eventDate:
+          description: The UTC date/time of the event in ISO 8601 format.
+          format: date
+          type: string
+        summary:
+          description: One sentence summary of the event.
+          type: string
+        userRelevanceScore:
+          description: Relevancy score of this event for the requesting user on a
+            scale of 0 to 1. Higher value indicates more relevancy.
+          format: float
+          type: number
+        created:
+          description: Date/Time in UTC the event was first recorded in our data store.
+          example: 2021-04-26T06:39:40.094Z
+          format: date-time
+          type: string
+      required:
+      - eventDate
+      - eventId
+      - requestId
+      - signalId
+      - signalName
+      - source
+      - summary
+      - theme
+      - userRelevanceScore
+      type: object
+    eventDetailDataItem:
+      allOf:
+      - $ref: '#/components/schemas/eventHeadlineDataItem'
+      - $ref: '#/components/schemas/eventDetailDataItem_allOf'
+    eventAdaptiveDataItem:
+      example:
+        requestId: FDS-US
+        signalId: dilutionTrigger
+        adaptiveCard:
+          key: '{}'
+      properties:
+        requestId:
+          description: The id that was requested, ticker, cusip, factset entity id
+            etc.
+          example: FDS-US
+          type: string
+        signalId:
+          description: Signal Id for this event.
+          example: dilutionTrigger
+          type: string
+        adaptiveCard:
+          additionalProperties: true
+          description: A JSON object that's compliant with MS adaptive card schema.
+          type: object
+      required:
+      - adaptiveCard
+      - requestId
+      - signalId
+      type: object
+    eventHeadlines:
+      example:
+        data:
+        - summary: summary
+          signalName: signalName
+          eventId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userRelevanceScore: 0.8008282
+          requestId: requestId
+          created: 2021-04-26T06:39:40.094Z
+          signalId: signalId
+          theme: theme
+          source: source
+          eventDate: 2000-01-23
+        - summary: summary
+          signalName: signalName
+          eventId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          userRelevanceScore: 0.8008282
+          requestId: requestId
+          created: 2021-04-26T06:39:40.094Z
+          signalId: signalId
+          theme: theme
+          source: source
+          eventDate: 2000-01-23
+        meta:
+          pagination:
+            total: 6
+            isEstimatedTotal: true
+          signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          idResolutions:
+            tickerRegion:
+              key: tickerRegion
+            regionalPermId:
+              key: regionalPermId
+          dateRange:
+            created:
+              lt: 2021-01-01T00:00:00Z
+              gte: 2021-01-01T00:00:00Z
+              lte: 2021-01-01T00:00:00Z
+              gt: 2021-01-01T00:00:00Z
+            updated:
+              lt: 2021-01-01T00:00:00Z
+              gte: 2021-01-01T00:00:00Z
+              lte: 2021-01-01T00:00:00Z
+              gt: 2021-01-01T00:00:00Z
+          sort:
+          - sort
+          - sort
+        errors:
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/eventHeadlineDataItem'
+          type: array
+        meta:
+          $ref: '#/components/schemas/eventsMeta'
+        errors:
+          items:
+            $ref: '#/components/schemas/errorItem'
+          type: array
+      required:
+      - data
+      - meta
+      type: object
+    eventDetail:
+      example:
+        meta:
+          signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          idResolutions:
+            tickerRegion:
+              key: tickerRegion
+            regionalPermId:
+              key: regionalPermId
+        errors:
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+      properties:
+        data:
+          $ref: '#/components/schemas/eventDetailDataItem'
+        meta:
+          $ref: '#/components/schemas/eventMeta'
+        errors:
+          items:
+            $ref: '#/components/schemas/errorItem'
+          type: array
+      required:
+      - data
+      - meta
+      type: object
+    eventDetails:
+      example:
+        data:
+        - null
+        - null
+        meta:
+          signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          idResolutions:
+            tickerRegion:
+              key: tickerRegion
+            regionalPermId:
+              key: regionalPermId
+        errors:
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/eventDetailDataItem'
+          type: array
+        meta:
+          $ref: '#/components/schemas/eventMeta'
+        errors:
+          items:
+            $ref: '#/components/schemas/errorItem'
+          type: array
+      required:
+      - data
+      - meta
+      type: object
+    eventAdaptiveCard:
+      example:
+        data:
+          requestId: FDS-US
+          signalId: dilutionTrigger
+          adaptiveCard:
+            key: '{}'
+        meta:
+          signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          idResolutions:
+            tickerRegion:
+              key: tickerRegion
+            regionalPermId:
+              key: regionalPermId
+        errors:
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+      properties:
+        data:
+          $ref: '#/components/schemas/eventAdaptiveDataItem'
+        meta:
+          $ref: '#/components/schemas/eventMeta'
+        errors:
+          items:
+            $ref: '#/components/schemas/errorItem'
+          type: array
+      required:
+      - data
+      - meta
+      type: object
+    eventAdaptiveCards:
+      example:
+        data:
+        - requestId: FDS-US
+          signalId: dilutionTrigger
+          adaptiveCard:
+            key: '{}'
+        - requestId: FDS-US
+          signalId: dilutionTrigger
+          adaptiveCard:
+            key: '{}'
+        meta:
+          signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          idResolutions:
+            tickerRegion:
+              key: tickerRegion
+            regionalPermId:
+              key: regionalPermId
+        errors:
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/eventAdaptiveDataItem'
+          type: array
+        meta:
+          $ref: '#/components/schemas/eventMeta'
+        errors:
+          items:
+            $ref: '#/components/schemas/errorItem'
+          type: array
+      required:
+      - data
+      - meta
+      type: object
+    eventRequestBody:
+      properties:
+        created:
+          allOf:
+          - $ref: '#/components/schemas/DateTimeInterval'
+          description: A date/time interval for filtering signal events based on their
+            creation date. Defaults to NOW - 7 days if omitted.
+        updated:
+          allOf:
+          - $ref: '#/components/schemas/DateTimeInterval'
+          description: A date/time interval for filtering signal events based on their
+            last updated date. Defaults to NOW - 24 hours if omitted.
+        signalIds:
+          description: Comma delimited string of signalIds
+          example: dilutionTrigger,freeCashFlow
+          type: string
+        ids:
+          description: Comma delimited string of identifiers. An identifier can be
+            a ticker, FactSet entity id, CUSIP or ISIN. Only the first 1,000 ids are
+            processed. You must provide a list of identifiers either via a ids or
+            a portfolios parameter. If both are provided, only ids filter is used.
+          example: FDS-US,AMZN-US
+          type: string
+        portfolios:
+          description: Name of a portfolio file stored by FactSet. If the portfolio
+            contains more than 1,000 ids, only the first 1,000 ids are processed.
+            e.g. client:techstocks.ofdb
+          type: string
+        themes:
+          description: Comma delimited string of theme ids. Full list of signal themes
+            can be viewed at /themes.
+          type: string
+        categories:
+          description: Comma delimited string of category ids. Full list of signal
+            categories can be viewed at /categories.
+          type: string
+        userRelevanceScore:
+          allOf:
+          - $ref: '#/components/schemas/RelevanceScoreRange'
+          description: A range for filtering signal events based on their relevancy
+            score.
+        sort:
+          description: Comma delimited string of sortable attributes. The sort order
+            for each sort attribute is ascending unless it is prefixed with a minus
+            sign, in which case it is descending.
+          type: string
+      type: object
+    eventsEntities:
+      example:
+        data:
+        - 0016YD-E
+        - 0016YD-E
+        meta:
+          signalRequestId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          dateRange:
+            created:
+              lt: 2021-01-01T00:00:00Z
+              gte: 2021-01-01T00:00:00Z
+              lte: 2021-01-01T00:00:00Z
+              gt: 2021-01-01T00:00:00Z
+            updated:
+              lt: 2021-01-01T00:00:00Z
+              gte: 2021-01-01T00:00:00Z
+              lte: 2021-01-01T00:00:00Z
+              gt: 2021-01-01T00:00:00Z
+        errors:
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+        - code: parameterError
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          detail: Value must be a valid UTC date/time that conforms to ISO 8601 format
+          source:
+            parameter: parameter
+          title: Invalid type/value
+      properties:
+        data:
+          items:
+            description: The FactSet entity ID of a company with an event
+            example: 0016YD-E
+            type: string
+          type: array
+        meta:
+          $ref: '#/components/schemas/screenMeta'
+        errors:
+          items:
+            $ref: '#/components/schemas/errorItem'
+          type: array
+      required:
+      - data
+      - meta
+      type: object
+    signalMetaData:
+      example:
+        data:
+        - name: name
+          description: description
+          id: id
+        - name: name
+          description: description
+          id: id
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/signalMetaData_data'
+          type: array
+      required:
+      - data
+      type: object
+    signalDefinition:
+      example:
+        data:
+          signalId: signalId
+          contract:
+            fields:
+              summary:
+                description: description
+                type: type
+              additionalProperties:
+                description: description
+                optional: true
+                type: type
+                items:
+                  type: type
+              eventDate:
+                description: description
+                type: 2000-01-23T04:56:07.000+00:00
+            version: version
+          theme: theme
+          categories:
+          - categories
+          - categories
+      properties:
+        data:
+          $ref: '#/components/schemas/signalDefinition_data'
+      required:
+      - data
+      type: object
+    contract:
+      example:
+        fields:
+          summary:
+            description: description
+            type: type
+          additionalProperties:
+            description: description
+            optional: true
+            type: type
+            items:
+              type: type
+          eventDate:
+            description: description
+            type: 2000-01-23T04:56:07.000+00:00
+        version: version
+      properties:
+        fields:
+          $ref: '#/components/schemas/contractFields'
+        version:
+          type: string
+      required:
+      - fields
+      - version
+      type: object
+    contractFields:
+      example:
+        summary:
+          description: description
+          type: type
+        additionalProperties:
+          description: description
+          optional: true
+          type: type
+          items:
+            type: type
+        eventDate:
+          description: description
+          type: 2000-01-23T04:56:07.000+00:00
+      properties:
+        summary:
+          $ref: '#/components/schemas/contractFields_summary'
+        eventDate:
+          $ref: '#/components/schemas/contractFields_eventDate'
+        additionalProperties:
+          $ref: '#/components/schemas/contractProperty'
+      required:
+      - eventDate
+      - summary
+      type: object
+    contractProperty:
+      example:
+        description: description
+        optional: true
+        type: type
+        items:
+          type: type
+      properties:
+        description:
+          type: string
+        type:
+          type: string
+        optional:
+          type: boolean
+        items:
+          $ref: '#/components/schemas/contractProperty_items'
+      required:
+      - description
+      - type
+      type: object
+    DateTime:
+      description: A date/time string in ISO 8601 format.
+      example: 2021-01-01T00:00:00Z
+      format: date-time
+      type: string
+    RelevanceScoreRange:
+      description: |
+        Represents a valid range for user relevancy score for signal events. The upper bound of the range is represented by the attribute **gt** or **gte**. The lower bound of the range is presented by **lt** or **lte** The range can contain either of the bounds or both. e.g. { "gt": 0.4, "lt": 0.8 }
+      minProperties: 1
+      properties:
+        gt:
+          format: float
+          type: number
+        gte:
+          format: float
+          type: number
+        lt:
+          format: float
+          type: number
+        lte:
+          format: float
+          type: number
+      type: object
+    DateTimeInterval:
+      description: |
+        Represents a valid date/time interval. The upper bound of the interval is represented by the attribute **gt** or **gte**. The lower bound of the interval is presented by **lt** or **lte** The interval can contain either of the bounds or both. e.g. { "gt": "2021-05-01T00:00:00.000Z", "lt": "2021-05-08T00:00:00.000Z" }
+      example:
+        lt: 2021-01-01T00:00:00Z
+        gte: 2021-01-01T00:00:00Z
+        lte: 2021-01-01T00:00:00Z
+        gt: 2021-01-01T00:00:00Z
+      minProperties: 1
+      properties:
+        gt:
+          description: A date/time string in ISO 8601 format.
+          example: 2021-01-01T00:00:00Z
+          format: date-time
+          type: string
+        gte:
+          description: A date/time string in ISO 8601 format.
+          example: 2021-01-01T00:00:00Z
+          format: date-time
+          type: string
+        lt:
+          description: A date/time string in ISO 8601 format.
+          example: 2021-01-01T00:00:00Z
+          format: date-time
+          type: string
+        lte:
+          description: A date/time string in ISO 8601 format.
+          example: 2021-01-01T00:00:00Z
+          format: date-time
+          type: string
+      type: object
+    errorItem_source:
+      example:
+        parameter: parameter
+      properties:
+        parameter:
+          type: string
+      type: object
+    eventsMeta_pagination:
+      example:
+        total: 6
+        isEstimatedTotal: true
+      properties:
+        total:
+          type: integer
+        isEstimatedTotal:
+          type: boolean
+      type: object
+    eventsMeta_dateRange:
+      example:
+        created:
+          lt: 2021-01-01T00:00:00Z
+          gte: 2021-01-01T00:00:00Z
+          lte: 2021-01-01T00:00:00Z
+          gt: 2021-01-01T00:00:00Z
+        updated:
+          lt: 2021-01-01T00:00:00Z
+          gte: 2021-01-01T00:00:00Z
+          lte: 2021-01-01T00:00:00Z
+          gt: 2021-01-01T00:00:00Z
+      properties:
+        created:
+          $ref: '#/components/schemas/DateTimeInterval'
+        updated:
+          $ref: '#/components/schemas/DateTimeInterval'
+      type: object
+    eventDetailDataItem_allOf:
+      properties:
+        created:
+          description: Date/Time in UTC the event was first recorded in our data store.
+          example: 2021-04-26T06:39:40.094Z
+          format: date-time
+          type: string
+        updated:
+          description: Date/Time in UTC the event was last updated.
+          example: 2021-04-26T06:39:40.094Z
+          format: date-time
+          type: string
+        details:
+          additionalProperties: true
+          description: Signal specific event properties.
+          type: object
+      required:
+      - created
+      - details
+      - updated
+      type: object
+    signalMetaData_data:
+      example:
+        name: name
+        description: description
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+      required:
+      - description
+      - id
+      - name
+      type: object
+    signalDefinition_data:
+      example:
+        signalId: signalId
+        contract:
+          fields:
+            summary:
+              description: description
+              type: type
+            additionalProperties:
+              description: description
+              optional: true
+              type: type
+              items:
+                type: type
+            eventDate:
+              description: description
+              type: 2000-01-23T04:56:07.000+00:00
+          version: version
+        theme: theme
+        categories:
+        - categories
+        - categories
+      properties:
+        signalId:
+          type: string
+        theme:
+          type: string
+        categories:
+          items:
+            type: string
+          type: array
+        contract:
+          $ref: '#/components/schemas/contract'
+      required:
+      - categories
+      - contract
+      - signalId
+      - theme
+      type: object
+    contractFields_summary:
+      example:
+        description: description
+        type: type
+      properties:
+        description:
+          type: string
+        type:
+          type: string
+      type: object
+    contractFields_eventDate:
+      example:
+        description: description
+        type: 2000-01-23T04:56:07.000+00:00
+      properties:
+        description:
+          type: string
+        type:
+          format: date-time
+          type: string
+      type: object
+    contractProperty_items:
+      example:
+        type: type
+      properties:
+        type:
+          type: string
+      required:
+      - type
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

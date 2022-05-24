@@ -16,12 +16,11 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20017Data model module.
  * @module model/InlineResponse20017Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20017Data {
     /**
      * Constructs a new <code>InlineResponse20017Data</code>.
-     * Returns.
      * @alias module:model/InlineResponse20017Data
      */
     constructor() { 
@@ -48,23 +47,8 @@ class InlineResponse20017Data {
         if (data) {
             obj = obj || new InlineResponse20017Data();
 
-            if (data.hasOwnProperty('return1M')) {
-                obj['return1M'] = ApiClient.convertToType(data['return1M'], 'Number');
-            }
-            if (data.hasOwnProperty('return3M')) {
-                obj['return3M'] = ApiClient.convertToType(data['return3M'], 'Number');
-            }
-            if (data.hasOwnProperty('returnYTD')) {
-                obj['returnYTD'] = ApiClient.convertToType(data['returnYTD'], 'Number');
-            }
-            if (data.hasOwnProperty('return1Y')) {
-                obj['return1Y'] = ApiClient.convertToType(data['return1Y'], 'Number');
-            }
-            if (data.hasOwnProperty('return3Y')) {
-                obj['return3Y'] = ApiClient.convertToType(data['return3Y'], 'Number');
-            }
-            if (data.hasOwnProperty('return5Y')) {
-                obj['return5Y'] = ApiClient.convertToType(data['return5Y'], 'Number');
+            if (data.hasOwnProperty('focusCategory')) {
+                obj['focusCategory'] = ApiClient.convertToType(data['focusCategory'], 'String');
             }
         }
         return obj;
@@ -74,40 +58,10 @@ class InlineResponse20017Data {
 }
 
 /**
- * 1 month performance. This data is available for the US regions.
- * @member {Number} return1M
+ * ETP class focus category.
+ * @member {String} focusCategory
  */
-InlineResponse20017Data.prototype['return1M'] = undefined;
-
-/**
- * 3 month performance. This data is available for the US regions.
- * @member {Number} return3M
- */
-InlineResponse20017Data.prototype['return3M'] = undefined;
-
-/**
- * YTD performance. This data is available for the US regions.
- * @member {Number} returnYTD
- */
-InlineResponse20017Data.prototype['returnYTD'] = undefined;
-
-/**
- * 1 year performance. This data is available for the US regions.
- * @member {Number} return1Y
- */
-InlineResponse20017Data.prototype['return1Y'] = undefined;
-
-/**
- * 3 year performance. This data is available for the US regions.
- * @member {Number} return3Y
- */
-InlineResponse20017Data.prototype['return3Y'] = undefined;
-
-/**
- * 5 year performance. This data is available for the US regions.
- * @member {Number} return5Y
- */
-InlineResponse20017Data.prototype['return5Y'] = undefined;
+InlineResponse20017Data.prototype['focusCategory'] = undefined;
 
 
 

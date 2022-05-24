@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -47,21 +47,23 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class RatingConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_AUTHOR = "ratingsVisibleToAuthor";
+  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_AUTHOR = "RatingsVisibleToAuthor";
   private Boolean ratingsVisibleToAuthor;
 
-  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_VIEWERS = "ratingsVisibleToViewers";
+  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_VIEWERS = "RatingsVisibleToViewers";
   private Boolean ratingsVisibleToViewers;
 
-  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_ALL = "ratingsVisibleToAll";
+  public static final String JSON_PROPERTY_RATINGS_VISIBLE_TO_ALL = "RatingsVisibleToAll";
   private Boolean ratingsVisibleToAll;
 
-  public static final String JSON_PROPERTY_VIEWER_IDS = "viewerIds";
+  public static final String JSON_PROPERTY_VIEWER_IDS = "ViewerIds";
   private JsonNullable<java.util.List<java.util.UUID>> viewerIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_OPTION_VALUES = "optionValues";
+  public static final String JSON_PROPERTY_OPTION_VALUES = "OptionValues";
   private JsonNullable<java.util.List<Integer>> optionValues = JsonNullable.<java.util.List<Integer>>undefined();
 
+  public RatingConfigDto() { 
+  }
 
   public RatingConfigDto ratingsVisibleToAuthor(Boolean ratingsVisibleToAuthor) {
     this.ratingsVisibleToAuthor = ratingsVisibleToAuthor;

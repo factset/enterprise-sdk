@@ -43,6 +43,8 @@ public class FlowsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Flows> data = null;
 
+  public FlowsResponse() { 
+  }
 
   public FlowsResponse data(java.util.List<Flows> data) {
     this.data = data;

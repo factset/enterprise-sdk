@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OptionsConfigDto model module.
  * @module model/OptionsConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class OptionsConfigDto {
     /**
@@ -47,14 +47,14 @@ class OptionsConfigDto {
         if (data) {
             obj = obj || new OptionsConfigDto();
 
-            if (data.hasOwnProperty('multiSelectEnabled')) {
-                obj['multiSelectEnabled'] = ApiClient.convertToType(data['multiSelectEnabled'], 'Boolean');
+            if (data.hasOwnProperty('MultiSelectEnabled')) {
+                obj['MultiSelectEnabled'] = ApiClient.convertToType(data['MultiSelectEnabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('onTheFlyEnabled')) {
-                obj['onTheFlyEnabled'] = ApiClient.convertToType(data['onTheFlyEnabled'], 'Boolean');
+            if (data.hasOwnProperty('OnTheFlyEnabled')) {
+                obj['OnTheFlyEnabled'] = ApiClient.convertToType(data['OnTheFlyEnabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('options')) {
-                obj['options'] = ApiClient.convertToType(data['options'], ['String']);
+            if (data.hasOwnProperty('Options')) {
+                obj['Options'] = ApiClient.convertToType(data['Options'], ['String']);
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class OptionsConfigDto {
 }
 
 /**
- * @member {Boolean} multiSelectEnabled
+ * @member {Boolean} MultiSelectEnabled
  */
-OptionsConfigDto.prototype['multiSelectEnabled'] = undefined;
+OptionsConfigDto.prototype['MultiSelectEnabled'] = undefined;
 
 /**
- * @member {Boolean} onTheFlyEnabled
+ * @member {Boolean} OnTheFlyEnabled
  */
-OptionsConfigDto.prototype['onTheFlyEnabled'] = undefined;
+OptionsConfigDto.prototype['OnTheFlyEnabled'] = undefined;
 
 /**
- * @member {Array.<String>} options
+ * @member {Array.<String>} Options
  */
-OptionsConfigDto.prototype['options'] = undefined;
+OptionsConfigDto.prototype['Options'] = undefined;
 
 
 

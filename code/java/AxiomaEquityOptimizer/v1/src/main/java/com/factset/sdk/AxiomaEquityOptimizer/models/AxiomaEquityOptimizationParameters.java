@@ -58,6 +58,18 @@ public class AxiomaEquityOptimizationParameters implements Serializable {
   public static final String JSON_PROPERTY_OUTPUTTYPES = "outputtypes";
   private OptimizerOutputTypes outputtypes;
 
+  public AxiomaEquityOptimizationParameters() { 
+  }
+
+  @JsonCreator
+  public AxiomaEquityOptimizationParameters(
+    @JsonProperty(value=JSON_PROPERTY_STRATEGY, required=true) OptimizerStrategy strategy, 
+    @JsonProperty(value=JSON_PROPERTY_OUTPUTTYPES, required=true) OptimizerOutputTypes outputtypes
+  ) {
+    this();
+    this.strategy = strategy;
+    this.outputtypes = outputtypes;
+  }
 
   public AxiomaEquityOptimizationParameters strategy(OptimizerStrategy strategy) {
     this.strategy = strategy;

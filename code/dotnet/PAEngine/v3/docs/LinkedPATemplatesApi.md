@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a linked PA template
 
-This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
 
 ### Example
 ```csharp
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **linkedPATemplateParametersRoot** | [**LinkedPATemplateParametersRoot**](LinkedPATemplateParametersRoot.md)| Request Parameters | 
 
 ### Return type
-
 [**LinkedPATemplatePostSummaryRoot**](LinkedPATemplatePostSummaryRoot.md)
 
 ### Authorization
@@ -151,7 +150,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
+            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
 
             try
             {
@@ -176,7 +175,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for a linked PA template | [default to &quot;01234567890123456789012345678901&quot;]
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -247,9 +245,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var directory = directory_example;  // string | Get linked PA templates in path. (optional)  (default to "Personal:LinkedPATemplates/")
-            var documentDirectory = documentDirectory_example;  // string | Get linked PA templates for documents in document path (optional) 
-            var documentName = documentName_example;  // string | Get linked PA templates for documents by document name (optional) 
+            var directory = "\"Personal:LinkedPATemplates/\"";  // string | Get linked PA templates in path. (optional)  (default to "Personal:LinkedPATemplates/")
+            var documentDirectory = "documentDirectory_example";  // string | Get linked PA templates for documents in document path (optional) 
+            var documentName = "documentName_example";  // string | Get linked PA templates for documents by document name (optional) 
 
             try
             {
@@ -277,7 +275,6 @@ Name | Type | Description  | Notes
  **documentName** | **string**| Get linked PA templates for documents by document name | [optional] 
 
 ### Return type
-
 [**LinkedPATemplateSummaryRoot**](LinkedPATemplateSummaryRoot.md)
 
 ### Authorization
@@ -348,7 +345,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
+            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
 
             try
             {
@@ -374,7 +371,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for a linked PA template | [default to &quot;01234567890123456789012345678901&quot;]
 
 ### Return type
-
 [**LinkedPATemplateRoot**](LinkedPATemplateRoot.md)
 
 ### Authorization
@@ -408,7 +404,7 @@ Name | Type | Description  | Notes
 
 Update a linked PA template
 
-This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
 
 ### Example
 ```csharp
@@ -445,7 +441,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
+            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for a linked PA template (default to "01234567890123456789012345678901")
             var linkedPATemplateUpdateParametersRoot = new LinkedPATemplateUpdateParametersRoot(); // LinkedPATemplateUpdateParametersRoot | Request Parameters
 
             try
@@ -473,7 +469,6 @@ Name | Type | Description  | Notes
  **linkedPATemplateUpdateParametersRoot** | [**LinkedPATemplateUpdateParametersRoot**](LinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
 
 ### Return type
-
 [**LinkedPATemplatePostSummaryRoot**](LinkedPATemplatePostSummaryRoot.md)
 
 ### Authorization

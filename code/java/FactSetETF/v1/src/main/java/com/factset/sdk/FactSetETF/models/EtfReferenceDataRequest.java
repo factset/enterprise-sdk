@@ -51,6 +51,16 @@ public class EtfReferenceDataRequest implements Serializable {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private java.util.List<Category> categories = null;
 
+  public EtfReferenceDataRequest() { 
+  }
+
+  @JsonCreator
+  public EtfReferenceDataRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public EtfReferenceDataRequest ids(java.util.List<String> ids) {
     this.ids = ids;

@@ -1,0 +1,514 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: teammustang@factset.com
+    name: Team Mustang
+  description: |
+    The Standard Datafeed (SDF) API provides an alternative method for users to request and retrieve SDF packages (schemas & bundles). This service is not a direct replacement and does not have 100% feature parity with the Loader. This API provides an alternative for users who are unable to utilize the Loader due to:
+
+    Unable to install 3rd party executables due to Corporate Security policies
+    Unable to utilize the Loader due to limitations or restrictions with the environment used to consume Standard Datafeed
+    Clients who are utilizing existing delivery method like FTP, who may want to use a more secured & modern solution
+    This API allows users to retrieve SDF packages they have subscriptions for, going back to August 31, 2021. Additional parameters are available to filter requests to get the exact files users are looking for.
+  title: SDF_API
+  version: "1.0"
+servers:
+- url: https://api.factset.com/bulk-documents/sdf
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags: []
+paths:
+  /v1/list-schemas:
+    get:
+      description: |-
+        <a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client
+
+        This API provides a downloadable file for the schema & sequence number (version number of schema) specified
+      operationId: get-v1-list-schemas
+      parameters:
+      - description: 'schema name</p> Default is all schemas & bundles subscribed
+          by the client</p> **Example: acta_v1, fgp_v1, yn_v1**'
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: 'Enter the sequence number associated with a schema</p> Provides
+          a pre-signed url to download the respective schema file</p> "**Example:
+          "8" from acta_v1: [8],**'
+        explode: true
+        in: query
+        name: sequence
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                list-schema200ResposeExample:
+                  $ref: '#/components/examples/list-schema_200ResponseExample'
+              schema:
+                $ref: '#/components/schemas/list-schema_200Response'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                list_schema400ResponseExample:
+                  $ref: '#/components/examples/list-schema_400ResponseExample'
+              schema:
+                $ref: '#/components/schemas/list-schema_400Response'
+          description: Bad Request
+      summary: schemas
+      tags:
+      - schema
+      x-accepts: application/json
+  /v1/list-files:
+    get:
+      description: |
+        <a href=https://api.factset.com/bulk-documents/sdf/v1/list-files>List-Files</a> end point provides the delta & full files in a reverse chronological order for all the schemas & bundles subscribed by the client
+      operationId: get-v1-list-files
+      parameters:
+      - description: 'schema name</p> Default is all schemas & bundles subscribed
+          by the client</p> **Example: acta_v1, fgp_v1, yn_v1**'
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: bundle name</p> Default is all the bundles client is subscribed
+          to</p> **Do not use "schema" parameter** when searching for a specific bundle
+        explode: true
+        in: query
+        name: bundle
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: file type = Full or Delta</p> Full files are weekly files generated
+          every weekend (Saturday). **The date range should include weekend dates
+          if requesting for "Full" files**
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - full
+          - delta
+          type: string
+        style: form
+      - description: The earliest date of the feed file the API should fetch for based
+          on the fileTimestamp.</p> Data requested should be in batches of 10days
+          **(Date range should be less than or equal to 10)**</p>**Date format -  YYYY-MM-DD**
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The latest date of the feed file the API should fetch for based
+          on the fileTimestamp</p>**Date format -  YYYY-MM-DD**
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Specifies the number of results to return per page. Default is
+          20 & Maximum is 500 results per page
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          maximum: 500
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Enables to get the data in ascending or descending order based
+          on startTime. Results are in reverse chronological order if this parameter
+          is not used
+        explode: true
+        in: query
+        name: _sort
+        required: false
+        schema:
+          enum:
+          - startDate
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/list-files_200ResponseExample'
+              schema:
+                $ref: '#/components/schemas/list-files_200Response'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ReponseExample:
+                  $ref: '#/components/examples/list-files_400ResponseExample'
+              schema:
+                $ref: '#/components/schemas/list-files_400Response'
+          description: Bad Request
+      tags:
+      - schemas & bundles
+      x-accepts: application/json
+components:
+  examples:
+    list-schema_200ResponseExample:
+      summary: Sample Response
+      value:
+        schema: acta_v1                         **Example**
+        sequence: 8
+        url: https://fdss3-bulk-data-delivery-sdf.s3.amazonaws.com/schema/acta_v1/8/2020-05-28_14_18_33.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDMSAGCE52%2F20210511%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210511T170435Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECIaCXVzLWVhc3QtMSJIMEYCIQD1He0st1G1qElczFiEEG0DVpLHRkTfIyCgA9pUbHmT4wIhAPyz46DpoaSZDfmk%2FZqbG7xUZjZjDyCbr5uBRw5jlz1JKtkBCKr%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQARoMODUyNTYyNjIwODcwIgzHhlGrM5TOWg50o9IqrQGOySsSusfChhxaGUj7dfJDMdnJBOJtm6O5pAnVMnzuHhyr%2FLg69QHy%2BmxSO6SdqykHRjuLMnUeNgQ34n75gaLQDe7B%2Bsw9jSZV3NI6O6B2G4Gjga4X7%2Fm1OlKbStb0CgTVjYTjSI4vIMMn1jKmGZvosl9ZSJgpEbeYk5kKG4Kmr%2FXDGbn4C0ZKXbdnWY4yZCaZitNAkJ74hQSxlk7DWBrTKY1QZUT7WBvd3hRXRTCY8uqEBjrfAdcXYNIJmuyJRel22QcGZ24xPyUXJyW9%2B3vbmDQx3QHLyyHZq%2BbKGKt0sphxhfna%2Bu9qdApKhkBbk1N1%2Bv%2FXLvItRG5Y38ZPpy4gj6hgs6h5%2Buay1Esb32f4083L8uBL26NuUDg09odjE6sBpuqkJoTiBMXaKdlHbU0GfrOli2dK46rhDmY6m1jbF2Najd1v5rbDW%2FPRzYnpM638paqbwUev%2FcLgGvRI%2FXuWoNH%2FfhXFCZf9G20BGWWyhuOoq0%2BSL0a4BQkZXHNjiCXQrysuQtonI4NF%2BD%2FfwZtPuD%2BEsJg%3D&X-Amz-Signature=58517963bbb5b77b481ce68df391c7e29166ac330c552c79f4df68cfdd0585ab
+        timestamp: 2020-05-28 14:18:33
+    list-schema_400ResponseExample:
+      summary: Sample Response
+      value:
+        id: xxxx-xxxx-xxxx-xxxx                     **Example**
+        error_message: 'parameterError:schema_name : Not a valid schema.'
+    list-files_200ResponseExample:
+      summary: Sample Response
+      value:
+        data:
+        - type: delta                           **Example**
+          bundle: fgp_ca_events_am_v1
+          schema: fgp_v1
+          sequence: "555"
+          related_bundles:
+          - bundle: fgp_ca_events_ap_v1
+            sequence: "523"
+          - bundle: fgp_ca_events_eu_v1
+            sequence: "576"
+          timestamp: 2021-04-22T19:59:53Z
+          url: https://fdss3-sdf-publish-prod.s3.amazonaws.com/prod/04/22/22A8B666-A3A5-11EB-94AA-8CA2536ACF03?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA4NAFRGHDJ4GMEZEZ%2F20210512%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210512T172835Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaCXVzLWVhc3QtMSJHMEUCIQCU337Iqg7hGI84ohliykGkMwyuxkv5ZepMXlOkjFuT0gIgAUfMuxk0Ue7nbo7WdhclIUaUe6dlwHso2lDHKXzbUQkq2QEIw%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw4NTI1NjI2MjA4NzAiDFL7Kj2AKk4MnRzXJiqtAXmh3NCgz9Z%2F%2FgI6ARqtFaKmP%2BpWfojZI6c%2FSLDceZE4q0qRKVU5Nh%2Fk5cH%2FC4E8acrjupEmeaLIsUEm%2F%2F7W1kla6nJ%2B%2Bwx9ViaOBfbP1wjG6dDY%2BMwalM3lq1bCpZbDFvOt1uUMBSUgJd5UJbdvMVtivXkkzKh%2B2dvt0fMHIgIMUnJzsSbFcLgKnS3lYEp5y%2B0622wrK90RIfw7Q8rN6W9OoFJ4UiCJJpE9OH5ZMNGd8IQGOuABNzZAf%2FHtTM9NmNIQwLpMSivjlhLl6chrPWvt4T6OQMN%2B6yaBz%2F%2BOig3Zc29HuR45dZ35QPd30mswAX0Md637pBkB7vjkakp70fbvIlGwsJ0vPq01a3SVfS0wsW6MRgGNdxJbItuZ9XKrV2SRSZFHntOH1BHHHtbR5hpSUg5HTpasOT%2BWNXHJKjTXVjjWmt3t3ATOUOcFluxt6UL5eg2hBY8UsAbgs2zxzRlzeEJU%2Bnq9%2BQc9TSE9Ia%2BOqKWSVUs6qQ0zyZ5G9OL8hs%2B9pdgQemrquBKXZ9FBHiEyr38OY0c%3D&X-Amz-Signature=e76cf34978304834e809144f126830c2fe65cb8301e67659fb281eb4734de3b8
+          fileSize: 25.5MB
+        meta:
+          pagination:
+            total: 256
+            isEstimatedTotal: false
+            limit: 20
+            offset: 20
+          partial:
+            isPartial: true
+    list-files_400ResponseExample:
+      summary: Sample Response
+      value:
+        data: []
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: false
+            limit: 20
+            offset: 20
+          partial:
+            isPartial: false
+  parameters:
+    schema:
+      description: 'schema name</p> Default is all schemas & bundles subscribed by
+        the client</p> **Example: acta_v1, fgp_v1, yn_v1**'
+      explode: true
+      in: query
+      name: schema
+      required: false
+      schema:
+        type: string
+      style: form
+    sequence:
+      description: 'Enter the sequence number associated with a schema</p> Provides
+        a pre-signed url to download the respective schema file</p> "**Example: "8"
+        from acta_v1: [8],**'
+      explode: true
+      in: query
+      name: sequence
+      required: false
+      schema:
+        type: integer
+      style: form
+    bundle:
+      description: bundle name</p> Default is all the bundles client is subscribed
+        to</p> **Do not use "schema" parameter** when searching for a specific bundle
+      explode: true
+      in: query
+      name: bundle
+      required: false
+      schema:
+        type: string
+      style: form
+    type:
+      description: file type = Full or Delta</p> Full files are weekly files generated
+        every weekend (Saturday). **The date range should include weekend dates if
+        requesting for "Full" files**
+      explode: true
+      in: query
+      name: type
+      required: false
+      schema:
+        enum:
+        - full
+        - delta
+        type: string
+      style: form
+    startDate:
+      description: The earliest date of the feed file the API should fetch for based
+        on the fileTimestamp.</p> Data requested should be in batches of 10days **(Date
+        range should be less than or equal to 10)**</p>**Date format -  YYYY-MM-DD**
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: string
+      style: form
+    endDate:
+      description: The latest date of the feed file the API should fetch for based
+        on the fileTimestamp</p>**Date format -  YYYY-MM-DD**
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: string
+      style: form
+    _paginationLimit:
+      description: Specifies the number of results to return per page. Default is
+        20 & Maximum is 500 results per page
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 20
+        maximum: 500
+        type: integer
+      style: form
+    _paginationOffset:
+      description: Specifies the starting point for pagination. This parameter is
+        used to identify the beginning of next set of results
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        type: integer
+      style: form
+    _sort:
+      description: Enables to get the data in ascending or descending order based
+        on startTime. Results are in reverse chronological order if this parameter
+        is not used
+      explode: true
+      in: query
+      name: _sort
+      required: false
+      schema:
+        enum:
+        - startDate
+        type: string
+      style: form
+  schemas:
+    list-schema_200Response:
+      example:
+        schema: schema
+        sequence: 0
+        url: url
+        timestamp: timestamp
+      properties:
+        schema:
+          description: schema name
+          type: string
+        sequence:
+          description: version number of the schema
+          type: integer
+        url:
+          description: pre-signed downloadable url of the schema & sequence
+          type: string
+        timestamp:
+          description: time stamp of when the schema-sequence was last updated
+          type: string
+    list-schema_400Response:
+      properties:
+        id:
+          description: request id
+          type: string
+        error_message:
+          description: message describing the error
+          type: string
+    list-files_200Response:
+      example:
+        data:
+        - schema: schema
+          sequence: 0
+          related_bundles: related_bundles
+          fileSize: fileSize
+          type: type
+          bundle: bundle
+          url: url
+          timestamp: timestamp
+        - schema: schema
+          sequence: 0
+          related_bundles: related_bundles
+          fileSize: fileSize
+          type: type
+          bundle: bundle
+          url: url
+          timestamp: timestamp
+        meta:
+        - pagination:
+            total: 6
+            offset: 5
+            is EstimatedTotal: true
+            limit: 1
+          partial:
+            isPartial: true
+        - pagination:
+            total: 6
+            offset: 5
+            is EstimatedTotal: true
+            limit: 1
+          partial:
+            isPartial: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/data'
+          type: array
+        meta:
+          items:
+            $ref: '#/components/schemas/meta'
+          type: array
+      type: object
+    list-files_400Response:
+      properties:
+        data:
+          type: string
+        meta:
+          type: string
+    data:
+      description: Array of data objects
+      example:
+        schema: schema
+        sequence: 0
+        related_bundles: related_bundles
+        fileSize: fileSize
+        type: type
+        bundle: bundle
+        url: url
+        timestamp: timestamp
+      properties:
+        type:
+          description: file type, full or delta
+          type: string
+        bundle:
+          description: bundle name
+          type: string
+        schema:
+          description: schema name
+          type: string
+        sequence:
+          description: full or delta file sequence
+          type: integer
+        related_bundles:
+          description: bundles related to the sequence number
+          type: string
+        timestamp:
+          description: time stamp of when the bundle was generated
+          type: string
+        url:
+          description: pre-signed downloadable url
+          type: string
+        fileSize:
+          description: file size of the particular bundle
+          type: string
+      title: data
+      type: object
+    meta:
+      description: Array of metadata objects
+      example:
+        pagination:
+          total: 6
+          offset: 5
+          is EstimatedTotal: true
+          limit: 1
+        partial:
+          isPartial: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/pagination'
+        partial:
+          $ref: '#/components/schemas/partial'
+      title: meta
+      type: object
+    pagination:
+      description: List of pagination objects
+      example:
+        total: 6
+        offset: 5
+        is EstimatedTotal: true
+        limit: 1
+      properties:
+        total:
+          description: Total number of files the API returns for a particular query
+          type: integer
+        is EstimatedTotal:
+          description: Boolean value that represents whether the total count of files
+            returned is exact or an estimate. This is defaulted to  “False” as the
+            API should always return the exact count
+          type: boolean
+        limit:
+          description: Number of results returned per page
+          type: integer
+        offset:
+          description: The flag indicating the position in the results array if additional
+            results are available beyond the default value or the value in paginationLimit
+            parameter (if used). This value is passed in the _paginationOffset parameter
+            to retreieve subsequent results
+          type: integer
+      title: pagination
+      type: object
+    partial:
+      description: If the value is true, it indicates additional results are available.
+        False represents that this is the last set of results for this request.
+      example:
+        isPartial: true
+      properties:
+        isPartial:
+          type: boolean
+      title: isPartial
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

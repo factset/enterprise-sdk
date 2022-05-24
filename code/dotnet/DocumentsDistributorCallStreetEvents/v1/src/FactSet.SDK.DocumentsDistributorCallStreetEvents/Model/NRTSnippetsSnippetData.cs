@@ -34,17 +34,36 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NRTSnippetsSnippetData" /> class.
         /// </summary>
-        /// <param name="metadata">metadata.</param>
-        public NRTSnippetsSnippetData(NRTSnippetsMetadata metadata = default(NRTSnippetsMetadata))
+        /// <param name="transcript">The actual transcript snippet.</param>
+        /// <param name="endTime">The number of seconds into the call, when the transcript snippet ended.</param>
+        /// <param name="startTime">The number of seconds into the call,when the transcript snippet started.</param>
+        public NRTSnippetsSnippetData(string transcript = default(string), decimal endTime = default(decimal), decimal startTime = default(decimal))
         {
-            this.Metadata = metadata;
+            this.Transcript = transcript;
+            this.EndTime = endTime;
+            this.StartTime = startTime;
         }
 
         /// <summary>
-        /// Gets or Sets Metadata
+        /// The actual transcript snippet
         /// </summary>
-        [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public NRTSnippetsMetadata Metadata { get; set; }
+        /// <value>The actual transcript snippet</value>
+        [DataMember(Name = "transcript", EmitDefaultValue = false)]
+        public string Transcript { get; set; }
+
+        /// <summary>
+        /// The number of seconds into the call, when the transcript snippet ended
+        /// </summary>
+        /// <value>The number of seconds into the call, when the transcript snippet ended</value>
+        [DataMember(Name = "endTime", EmitDefaultValue = false)]
+        public decimal EndTime { get; set; }
+
+        /// <summary>
+        /// The number of seconds into the call,when the transcript snippet started
+        /// </summary>
+        /// <value>The number of seconds into the call,when the transcript snippet started</value>
+        [DataMember(Name = "startTime", EmitDefaultValue = false)]
+        public decimal StartTime { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,9 +71,11 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NRTSnippetsSnippetData {\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Transcript: ").Append(Transcript).Append("\n");
+            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,13 +107,22 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(NRTSnippetsSnippetData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.Metadata == input.Metadata ||
-                    (this.Metadata != null &&
-                    this.Metadata.Equals(input.Metadata))
+                    this.Transcript == input.Transcript ||
+                    (this.Transcript != null &&
+                    this.Transcript.Equals(input.Transcript))
+                ) && 
+                (
+                    this.EndTime == input.EndTime ||
+                    this.EndTime.Equals(input.EndTime)
+                ) && 
+                (
+                    this.StartTime == input.StartTime ||
+                    this.StartTime.Equals(input.StartTime)
                 );
         }
 
@@ -105,8 +135,12 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Metadata != null)
-                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
+                if (this.Transcript != null)
+                {
+                    hashCode = (hashCode * 59) + this.Transcript.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EndTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.StartTime.GetHashCode();
                 return hashCode;
             }
         }

@@ -25,7 +25,7 @@ import UnlinkedPATemplateUpdateParametersRoot from '../model/UnlinkedPATemplateU
 /**
 * UnlinkedPATemplates service.
 * @module api/UnlinkedPATemplatesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class UnlinkedPATemplatesApi {
 
@@ -44,7 +44,7 @@ export default class UnlinkedPATemplatesApi {
 
     /**
      * Create unlinked PA template
-     * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also       overriding the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {module:model/UnlinkedPATemplateParametersRoot} unlinkedPATemplateParametersRoot Request Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UnlinkedPATemplatePostSummaryRoot} and HTTP response
      */
@@ -67,7 +67,10 @@ export default class UnlinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = UnlinkedPATemplatePostSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/unlinked-templates', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -77,9 +80,9 @@ export default class UnlinkedPATemplatesApi {
 
     /**
      * Create unlinked PA template
-     * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also       overriding the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {module:model/UnlinkedPATemplateParametersRoot} unlinkedPATemplateParametersRoot Request Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UnlinkedPATemplatePostSummaryRoot}
+     * @return { Promise.< module:model/UnlinkedPATemplatePostSummaryRoot > } a Promise, with data of type {@link module:model/UnlinkedPATemplatePostSummaryRoot }
      */
     createUnlinkedPATemplates(unlinkedPATemplateParametersRoot) {
       return this.createUnlinkedPATemplatesWithHttpInfo(unlinkedPATemplateParametersRoot)
@@ -115,7 +118,10 @@ export default class UnlinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/unlinked-templates/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -127,7 +133,7 @@ export default class UnlinkedPATemplatesApi {
      * Delete unlinked PA template
      * This endpoint deletes an existing unliked PA template.
      * @param {String} id Unique identifier for an unlinked PA template
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     deleteUnlinkedPATemplates(id) {
       return this.deleteUnlinkedPATemplatesWithHttpInfo(id)
@@ -157,7 +163,10 @@ export default class UnlinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = UnlinkedPATemplateCategoryAndTypeRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/unlinked-templates/template-types', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -168,7 +177,7 @@ export default class UnlinkedPATemplatesApi {
     /**
      * Get default unlinked PA template types.
      * This endpoint fetches default unlinked PA template types.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UnlinkedPATemplateCategoryAndTypeRoot}
+     * @return { Promise.< module:model/UnlinkedPATemplateCategoryAndTypeRoot > } a Promise, with data of type {@link module:model/UnlinkedPATemplateCategoryAndTypeRoot }
      */
     getDefaultUnlinkedPATemplateTypes() {
       return this.getDefaultUnlinkedPATemplateTypesWithHttpInfo()
@@ -204,7 +213,10 @@ export default class UnlinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = UnlinkedPATemplateCategoryAndTypeDetailsRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/unlinked-templates/template-types/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -216,7 +228,7 @@ export default class UnlinkedPATemplatesApi {
      * Get unlinked PA template type details by id.
      * This endpoint fetches the unlinked PA template type details.
      * @param {String} id Unique identifier for an unlinked PA template type
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UnlinkedPATemplateCategoryAndTypeDetailsRoot}
+     * @return { Promise.< module:model/UnlinkedPATemplateCategoryAndTypeDetailsRoot > } a Promise, with data of type {@link module:model/UnlinkedPATemplateCategoryAndTypeDetailsRoot }
      */
     getDetailsType(id) {
       return this.getDetailsTypeWithHttpInfo(id)
@@ -252,7 +264,10 @@ export default class UnlinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = UnlinkedPATemplateSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/unlinked-templates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -266,7 +281,7 @@ export default class UnlinkedPATemplatesApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.directory Get unlinked PA templates in path. (default to 'Personal:UninkedPATemplates/')
      * @param {String} opts.category Get unlinked PA templates by category. (default to 'Weights')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UnlinkedPATemplateSummaryRoot}
+     * @return { Promise.< module:model/UnlinkedPATemplateSummaryRoot > } a Promise, with data of type {@link module:model/UnlinkedPATemplateSummaryRoot }
      */
     getUnlinkedPATemplates(opts) {
       return this.getUnlinkedPATemplatesWithHttpInfo(opts)
@@ -302,7 +317,10 @@ export default class UnlinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = UnlinkedPATemplateRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/unlinked-templates/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -314,7 +332,7 @@ export default class UnlinkedPATemplatesApi {
      * Get unlinked PA template details by id
      * This endpoint fetches the template settings.
      * @param {String} id Unique identifier for an unlinked PA template
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UnlinkedPATemplateRoot}
+     * @return { Promise.< module:model/UnlinkedPATemplateRoot > } a Promise, with data of type {@link module:model/UnlinkedPATemplateRoot }
      */
     getUnlinkedPATemplatesById(id) {
       return this.getUnlinkedPATemplatesByIdWithHttpInfo(id)
@@ -326,7 +344,7 @@ export default class UnlinkedPATemplatesApi {
 
     /**
      * Update unlinked PA template
-     * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {String} id Unique identifier for an unlinked PA template
      * @param {module:model/UnlinkedPATemplateUpdateParametersRoot} unlinkedPATemplateUpdateParametersRoot Request Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UnlinkedPATemplatePostSummaryRoot} and HTTP response
@@ -355,7 +373,10 @@ export default class UnlinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = UnlinkedPATemplatePostSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/unlinked-templates/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -365,10 +386,10 @@ export default class UnlinkedPATemplatesApi {
 
     /**
      * Update unlinked PA template
-     * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {String} id Unique identifier for an unlinked PA template
      * @param {module:model/UnlinkedPATemplateUpdateParametersRoot} unlinkedPATemplateUpdateParametersRoot Request Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UnlinkedPATemplatePostSummaryRoot}
+     * @return { Promise.< module:model/UnlinkedPATemplatePostSummaryRoot > } a Promise, with data of type {@link module:model/UnlinkedPATemplatePostSummaryRoot }
      */
     updateUnlinkedPATemplates(id, unlinkedPATemplateUpdateParametersRoot) {
       return this.updateUnlinkedPATemplatesWithHttpInfo(id, unlinkedPATemplateUpdateParametersRoot)
@@ -379,3 +400,8 @@ export default class UnlinkedPATemplatesApi {
 
 
 }
+
+
+
+
+

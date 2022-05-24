@@ -8,8 +8,8 @@ Value range of the proportion of the nominal amount protected against loss.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**minimum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum.md) |  |  [optional]
-**maximum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum.md) |  |  [optional]
+**minimum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum.md) |  |  [optional]
+**maximum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum.md) |  |  [optional]
 
 
 ## Implemented Interfaces

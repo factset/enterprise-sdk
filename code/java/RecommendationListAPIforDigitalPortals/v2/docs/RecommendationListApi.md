@@ -1,6 +1,6 @@
 # RecommendationListApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,14 +30,13 @@ import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiException;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.Configuration;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.auth.*;
-import com.factset.sdk.RecommendationListAPIforDigitalPortals.model.*;
+import com.factset.sdk.RecommendationListAPIforDigitalPortals.models.*;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.api.RecommendationListApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -47,14 +46,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of the list.
@@ -63,6 +62,7 @@ public class Example {
         try {
             InlineResponse200 result = apiInstance.getRecommendationListGet(id, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationListApi#getRecommendationListGet");
             System.err.println("Status code: " + e.getCode());
@@ -119,14 +119,13 @@ import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiException;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.Configuration;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.auth.*;
-import com.factset.sdk.RecommendationListAPIforDigitalPortals.model.*;
+import com.factset.sdk.RecommendationListAPIforDigitalPortals.models.*;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.api.RecommendationListApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -136,14 +135,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
         BigDecimal idRevision = new BigDecimal(78); // BigDecimal | Identifier of the revision.
@@ -152,6 +151,7 @@ public class Example {
         try {
             InlineResponse2005 result = apiInstance.getRecommendationListRevisionElementList(idRevision, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationListApi#getRecommendationListRevisionElementList");
             System.err.println("Status code: " + e.getCode());
@@ -208,14 +208,13 @@ import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiException;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.Configuration;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.auth.*;
-import com.factset.sdk.RecommendationListAPIforDigitalPortals.model.*;
+import com.factset.sdk.RecommendationListAPIforDigitalPortals.models.*;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.api.RecommendationListApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -225,14 +224,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of the revision.
@@ -241,6 +240,7 @@ public class Example {
         try {
             InlineResponse2002 result = apiInstance.getRecommendationListRevisionGet(id, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationListApi#getRecommendationListRevisionGet");
             System.err.println("Status code: " + e.getCode());
@@ -296,14 +296,13 @@ import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiException;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.Configuration;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.auth.*;
-import com.factset.sdk.RecommendationListAPIforDigitalPortals.model.*;
+import com.factset.sdk.RecommendationListAPIforDigitalPortals.models.*;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.api.RecommendationListApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -313,14 +312,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
         String idNotation = "idNotation_example"; // String | Restrict the search to revisions containing an element associated with the identified notation.
@@ -330,6 +329,7 @@ public class Example {
         try {
             InlineResponse2004 result = apiInstance.getRecommendationListRevisionSearch(idNotation, idInstrument, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationListApi#getRecommendationListRevisionSearch");
             System.err.println("Status code: " + e.getCode());
@@ -386,14 +386,13 @@ import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiException;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.Configuration;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.auth.*;
-import com.factset.sdk.RecommendationListAPIforDigitalPortals.model.*;
+import com.factset.sdk.RecommendationListAPIforDigitalPortals.models.*;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.api.RecommendationListApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -403,14 +402,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
         String name = "name_example"; // String | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match.
@@ -420,6 +419,7 @@ public class Example {
         try {
             InlineResponse2001 result = apiInstance.getRecommendationListSearch(name, onlyActive, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationListApi#getRecommendationListSearch");
             System.err.println("Status code: " + e.getCode());
@@ -476,14 +476,13 @@ import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.ApiException;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.Configuration;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.auth.*;
-import com.factset.sdk.RecommendationListAPIforDigitalPortals.model.*;
+import com.factset.sdk.RecommendationListAPIforDigitalPortals.models.*;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.api.RecommendationListApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -493,20 +492,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RecommendationListApi apiInstance = new RecommendationListApi(defaultClient);
         InlineObject body = new InlineObject(); // InlineObject | 
         try {
             InlineResponse2003 result = apiInstance.postRecommendationListRevisionList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationListApi#postRecommendationListRevisionList");
             System.err.println("Status code: " + e.getCode());

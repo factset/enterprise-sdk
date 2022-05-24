@@ -21,7 +21,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * ManageMappings service.
 * @module api/ManageMappingsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ManageMappingsApi {
 
@@ -68,7 +68,10 @@ export default class ManageMappingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EntityUniverseResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/entity-universe', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -84,7 +87,7 @@ export default class ManageMappingsApi {
      * @param {Array.<module:model/String>} opts.mapStatus Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
      * @param {Number} opts.offset Starting row for records to return or rows to skip. (default to 0)
      * @param {Number} opts.limit Limits the number of records in the response.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityUniverseResponse}
+     * @return { Promise.< module:model/EntityUniverseResponse > } a Promise, with data of type {@link module:model/EntityUniverseResponse }
      */
     getEntityUniverse(opts) {
       return this.getEntityUniverseWithHttpInfo(opts)
@@ -119,7 +122,10 @@ export default class ManageMappingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntityResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/entity-mapping', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -131,7 +137,7 @@ export default class ManageMappingsApi {
      * Saves a single-mapping specified by the client.
      * Saves a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and clientName are required. 
      * @param {module:model/EntityMappingRequest} entityMappingRequest A request to create a single mapping.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityResponse}
+     * @return { Promise.< module:model/EntityResponse > } a Promise, with data of type {@link module:model/EntityResponse }
      */
     saveEntityMapping(entityMappingRequest) {
       return this.saveEntityMappingWithHttpInfo(entityMappingRequest)
@@ -142,3 +148,8 @@ export default class ManageMappingsApi {
 
 
 }
+
+
+
+
+

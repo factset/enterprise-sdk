@@ -1,6 +1,6 @@
 # fds.sdk.PriceAlertingAPIforDigitalPortals.AlertingApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,40 +40,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
+
     id = "id_example" # str | Identifier of the alert.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Details of an alert.
-        api_response = api_instance.get_alerting_prices_basic_alert_get(id)
-        pprint(api_response)
-    except fds.sdk.PriceAlertingAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling AlertingApi->get_alerting_prices_basic_alert_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Details of an alert.
         api_response = api_instance.get_alerting_prices_basic_alert_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.PriceAlertingAPIforDigitalPortals.ApiException as e:
         print("Exception when calling AlertingApi->get_alerting_prices_basic_alert_get: %s\n" % e)
 ```
@@ -138,34 +130,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    subscription_minimum_interval = 0.0 # float | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional) if omitted the server will use the default value of 0.0
+    subscription_minimum_interval = 0.0 # float | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional) (default to 0.0)
     pagination_cursor = "_paginationCursor_example" # str | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional)
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of alerts.
         api_response = api_instance.get_alerting_prices_basic_alert_list(attributes=attributes, subscription_minimum_interval=subscription_minimum_interval, pagination_cursor=pagination_cursor, pagination_limit=pagination_limit)
         pprint(api_response)
+
     except fds.sdk.PriceAlertingAPIforDigitalPortals.ApiException as e:
         print("Exception when calling AlertingApi->get_alerting_prices_basic_alert_list: %s\n" % e)
 ```
@@ -232,40 +224,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
+
     id = "id_example" # str | Identifier of the trigger.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Details of a trigger.
-        api_response = api_instance.get_alerting_prices_basic_trigger_get(id)
-        pprint(api_response)
-    except fds.sdk.PriceAlertingAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling AlertingApi->get_alerting_prices_basic_trigger_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Details of a trigger.
         api_response = api_instance.get_alerting_prices_basic_trigger_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.PriceAlertingAPIforDigitalPortals.ApiException as e:
         print("Exception when calling AlertingApi->get_alerting_prices_basic_trigger_get: %s\n" % e)
 ```
@@ -331,21 +315,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PriceAlertingAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = alerting_api.AlertingApi(api_client)
+
     body = InlineObject(
         data=AlertingPricesBasicTriggerListData(
             filter=AlertingPricesBasicTriggerListDataFilter(
@@ -365,12 +350,11 @@ with fds.sdk.PriceAlertingAPIforDigitalPortals.ApiClient(configuration) as api_c
         ),
     ) # InlineObject |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of triggers.
         api_response = api_instance.post_alerting_prices_basic_trigger_list(body=body)
         pprint(api_response)
+
     except fds.sdk.PriceAlertingAPIforDigitalPortals.ApiException as e:
         print("Exception when calling AlertingApi->post_alerting_prices_basic_trigger_list: %s\n" % e)
 ```

@@ -48,6 +48,8 @@ public class InlineResponse2005DataPerformanceEndOfDayYears3 implements Serializ
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataPerformanceEndOfDayYears3() { 
+  }
 
   public InlineResponse2005DataPerformanceEndOfDayYears3 minimum(BigDecimal minimum) {
     this.minimum = minimum;

@@ -151,6 +151,29 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
     {
         private FactSet.SDK.FactSetSearchAnswers.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> SearchForAdaptiveCardAnswerResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(AdaptiveCardAnswerSuccessResponse) },
+            { (HttpStatusCode)400, typeof(AnswerFailureResponse) },
+            { (HttpStatusCode)401, typeof(AnswerFailureResponse) },
+            { (HttpStatusCode)500, typeof(AnswerFailureResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> SearchForDataAnswerResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DataAnswerSuccessResponse) },
+            { (HttpStatusCode)400, typeof(AnswerFailureResponse) },
+            { (HttpStatusCode)401, typeof(AnswerFailureResponse) },
+            { (HttpStatusCode)500, typeof(AnswerFailureResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AnswersApi"/> class.
         /// </summary>
@@ -263,7 +286,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <returns>AdaptiveCardAnswerSuccessResponse</returns>
         public AdaptiveCardAnswerSuccessResponse SearchForAdaptiveCardAnswer(string query, bool? includeThumbnail = default(bool?), bool? disableNoAnswerResponses = default(bool?))
         {
-            FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<AdaptiveCardAnswerSuccessResponse> localVarResponse = SearchForAdaptiveCardAnswerWithHttpInfo(query, includeThumbnail, disableNoAnswerResponses);
+            var localVarResponse = SearchForAdaptiveCardAnswerWithHttpInfo(query, includeThumbnail, disableNoAnswerResponses);
             return localVarResponse.Data;
         }
 
@@ -275,11 +298,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <param name="includeThumbnail">Includes thumbnail of Adaptive Card in response (optional, default to false)</param>
         /// <param name="disableNoAnswerResponses">Disables no-result answer responses (no-results and answer without data) (optional, default to true)</param>
         /// <returns>ApiResponse of AdaptiveCardAnswerSuccessResponse</returns>
-        public FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<AdaptiveCardAnswerSuccessResponse> SearchForAdaptiveCardAnswerWithHttpInfo(string query, bool? includeThumbnail = default(bool?), bool? disableNoAnswerResponses = default(bool?))
+        public ApiResponse<AdaptiveCardAnswerSuccessResponse> SearchForAdaptiveCardAnswerWithHttpInfo(string query, bool? includeThumbnail = default(bool?), bool? disableNoAnswerResponses = default(bool?))
         {
             // verify the required parameter 'query' is set
             if (query == null)
+            {
                 throw new FactSet.SDK.FactSetSearchAnswers.Client.ApiException(400, "Missing required parameter 'query' when calling AnswersApi->SearchForAdaptiveCardAnswer");
+            }
 
             FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions();
 
@@ -292,10 +317,16 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (includeThumbnail != null)
@@ -309,13 +340,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -327,15 +358,19 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<AdaptiveCardAnswerSuccessResponse>("/search/answers/v1/adaptive-card", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = SearchForAdaptiveCardAnswerResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            AdaptiveCardAnswerSuccessResponse>("/search/answers/v1/adaptive-card", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchForAdaptiveCardAnswer", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -348,9 +383,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <param name="disableNoAnswerResponses">Disables no-result answer responses (no-results and answer without data) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AdaptiveCardAnswerSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<AdaptiveCardAnswerSuccessResponse> SearchForAdaptiveCardAnswerAsync(string query, bool? includeThumbnail = default(bool?), bool? disableNoAnswerResponses = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AdaptiveCardAnswerSuccessResponse>SearchForAdaptiveCardAnswerAsync(string query, bool? includeThumbnail = default(bool?), bool? disableNoAnswerResponses = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<AdaptiveCardAnswerSuccessResponse> localVarResponse = await SearchForAdaptiveCardAnswerWithHttpInfoAsync(query, includeThumbnail, disableNoAnswerResponses, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SearchForAdaptiveCardAnswerWithHttpInfoAsync(query, includeThumbnail, disableNoAnswerResponses, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -363,11 +398,14 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <param name="disableNoAnswerResponses">Disables no-result answer responses (no-results and answer without data) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AdaptiveCardAnswerSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<AdaptiveCardAnswerSuccessResponse>> SearchForAdaptiveCardAnswerWithHttpInfoAsync(string query, bool? includeThumbnail = default(bool?), bool? disableNoAnswerResponses = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<AdaptiveCardAnswerSuccessResponse>> SearchForAdaptiveCardAnswerWithHttpInfoAsync(string query, bool? includeThumbnail = default(bool?), bool? disableNoAnswerResponses = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
+            {
                 throw new FactSet.SDK.FactSetSearchAnswers.Client.ApiException(400, "Missing required parameter 'query' when calling AnswersApi->SearchForAdaptiveCardAnswer");
+            }
 
 
             FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions();
@@ -380,12 +418,17 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (includeThumbnail != null)
@@ -399,13 +442,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -417,14 +460,18 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = SearchForAdaptiveCardAnswerResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<AdaptiveCardAnswerSuccessResponse>("/search/answers/v1/adaptive-card", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchForAdaptiveCardAnswer", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -438,7 +485,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <returns>DataAnswerSuccessResponse</returns>
         public DataAnswerSuccessResponse SearchForDataAnswer(string query)
         {
-            FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<DataAnswerSuccessResponse> localVarResponse = SearchForDataAnswerWithHttpInfo(query);
+            var localVarResponse = SearchForDataAnswerWithHttpInfo(query);
             return localVarResponse.Data;
         }
 
@@ -448,11 +495,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <exception cref="FactSet.SDK.FactSetSearchAnswers.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Query for desired answer (e.g., \&quot;fds price\&quot;)</param>
         /// <returns>ApiResponse of DataAnswerSuccessResponse</returns>
-        public FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<DataAnswerSuccessResponse> SearchForDataAnswerWithHttpInfo(string query)
+        public ApiResponse<DataAnswerSuccessResponse> SearchForDataAnswerWithHttpInfo(string query)
         {
             // verify the required parameter 'query' is set
             if (query == null)
+            {
                 throw new FactSet.SDK.FactSetSearchAnswers.Client.ApiException(400, "Missing required parameter 'query' when calling AnswersApi->SearchForDataAnswer");
+            }
 
             FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions();
 
@@ -465,22 +514,28 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.ParameterToMultiMap("", "query", query));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -492,15 +547,19 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DataAnswerSuccessResponse>("/search/answers/v1/data", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = SearchForDataAnswerResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DataAnswerSuccessResponse>("/search/answers/v1/data", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchForDataAnswer", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -511,9 +570,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <param name="query">Query for desired answer (e.g., \&quot;fds price\&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DataAnswerSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<DataAnswerSuccessResponse> SearchForDataAnswerAsync(string query, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DataAnswerSuccessResponse>SearchForDataAnswerAsync(string query, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<DataAnswerSuccessResponse> localVarResponse = await SearchForDataAnswerWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SearchForDataAnswerWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -524,11 +583,14 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
         /// <param name="query">Query for desired answer (e.g., \&quot;fds price\&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DataAnswerSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetSearchAnswers.Client.ApiResponse<DataAnswerSuccessResponse>> SearchForDataAnswerWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DataAnswerSuccessResponse>> SearchForDataAnswerWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
+            {
                 throw new FactSet.SDK.FactSetSearchAnswers.Client.ApiException(400, "Missing required parameter 'query' when calling AnswersApi->SearchForDataAnswer");
+            }
 
 
             FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetSearchAnswers.Client.RequestOptions();
@@ -541,24 +603,29 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.ParameterToMultiMap("", "query", query));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetSearchAnswers.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -570,14 +637,18 @@ namespace FactSet.SDK.FactSetSearchAnswers.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = SearchForDataAnswerResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DataAnswerSuccessResponse>("/search/answers/v1/data", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchForDataAnswer", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

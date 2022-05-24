@@ -174,6 +174,8 @@ public class Summaries implements Serializable {
   public static final String JSON_PROPERTY_WEB_SITE = "webSite";
   private String webSite;
 
+  public Summaries() { 
+  }
 
   public Summaries fsymId(String fsymId) {
     this.fsymId = fsymId;

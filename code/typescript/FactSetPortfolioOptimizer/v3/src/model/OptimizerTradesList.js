@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimizerTradesList model module.
  * @module model/OptimizerTradesList
- * @version 0.9.1
+ * @version 0.20.0
  */
 class OptimizerTradesList {
     /**

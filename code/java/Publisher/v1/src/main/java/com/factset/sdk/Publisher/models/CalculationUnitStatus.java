@@ -91,6 +91,8 @@ public class CalculationUnitStatus implements Serializable {
   public static final String JSON_PROPERTY_RESULT = "result";
   private String result;
 
+  public CalculationUnitStatus() { 
+  }
 
   public CalculationUnitStatus status(StatusEnum status) {
     this.status = status;

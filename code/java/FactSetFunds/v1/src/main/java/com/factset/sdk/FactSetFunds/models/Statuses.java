@@ -58,6 +58,8 @@ public class Statuses implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public Statuses() { 
+  }
 
   public Statuses fsymId(String fsymId) {
     this.fsymId = fsymId;

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VaultConfigurationSummary model module.
  * @module model/VaultConfigurationSummary
- * @version 0.8.1
+ * @version 0.8.2
  */
 class VaultConfigurationSummary {
     /**

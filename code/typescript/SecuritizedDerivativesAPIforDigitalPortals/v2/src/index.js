@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -58,7 +57,12 @@ import InlineResponse2004Categorization from './model/InlineResponse2004Categori
 import InlineResponse2004CategorizationDdv from './model/InlineResponse2004CategorizationDdv';
 import InlineResponse2004Data from './model/InlineResponse2004Data';
 import InlineResponse2004Exercise from './model/InlineResponse2004Exercise';
+import InlineResponse2004Fsym from './model/InlineResponse2004Fsym';
+import InlineResponse2004FsymListing from './model/InlineResponse2004FsymListing';
+import InlineResponse2004FsymRegional from './model/InlineResponse2004FsymRegional';
 import InlineResponse2004Instrument from './model/InlineResponse2004Instrument';
+import InlineResponse2004InstrumentFsym from './model/InlineResponse2004InstrumentFsym';
+import InlineResponse2004InstrumentFsymSecurity from './model/InlineResponse2004InstrumentFsymSecurity';
 import InlineResponse2004Issuer from './model/InlineResponse2004Issuer';
 import InlineResponse2004LifeCycle from './model/InlineResponse2004LifeCycle';
 import InlineResponse2004LifeCycleMaturity from './model/InlineResponse2004LifeCycleMaturity';
@@ -345,6 +349,10 @@ import SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle from './mod
 import SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity from './model/SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity';
 import SecuritizedDerivativeNotationRankingIntradayListDataMarket from './model/SecuritizedDerivativeNotationRankingIntradayListDataMarket';
 import SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList from './model/SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList';
+import SecuritizedDerivativeNotationRankingIntradayListDataPerformance from './model/SecuritizedDerivativeNotationRankingIntradayListDataPerformance';
+import SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelative from './model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelative';
+import SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum from './model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum';
+import SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum from './model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum';
 import SecuritizedDerivativeNotationRankingIntradayListDataPrices from './model/SecuritizedDerivativeNotationRankingIntradayListDataPrices';
 import SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry from './model/SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry';
 import SecuritizedDerivativeNotationRankingIntradayListDataUnderlying from './model/SecuritizedDerivativeNotationRankingIntradayListDataUnderlying';
@@ -362,8 +370,6 @@ import SecuritizedDerivativeNotationScreenerSearchMetaPagination from './model/S
 import SecuritizedDerivativeNotationScreenerValueRangesGetData from './model/SecuritizedDerivativeNotationScreenerValueRangesGetData';
 import SecuritizedDerivativeNotationScreenerValueRangesGetDataBreach from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataBreach';
 import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection';
-import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum';
-import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum';
 import SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlow from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlow';
 import SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlowCurrency from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlowCurrency';
 import SecuritizedDerivativeNotationScreenerValueRangesGetDataCategory from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCategory';
@@ -474,6 +480,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUni
 import SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility from './model/SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility';
 import SecuritizedDerivativeNotationScreenerValueRangesGetMeta from './model/SecuritizedDerivativeNotationScreenerValueRangesGetMeta';
 import StatusObject from './model/StatusObject';
+
 import SecuritizedDerivativeApi from './api/SecuritizedDerivativeApi';
 
 
@@ -506,7 +513,7 @@ import SecuritizedDerivativeApi from './api/SecuritizedDerivativeApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.10.0
 */
 export {
     /**
@@ -786,10 +793,40 @@ export {
     InlineResponse2004Exercise,
 
     /**
+     * The InlineResponse2004Fsym model constructor.
+     * @property {module:model/InlineResponse2004Fsym}
+     */
+    InlineResponse2004Fsym,
+
+    /**
+     * The InlineResponse2004FsymListing model constructor.
+     * @property {module:model/InlineResponse2004FsymListing}
+     */
+    InlineResponse2004FsymListing,
+
+    /**
+     * The InlineResponse2004FsymRegional model constructor.
+     * @property {module:model/InlineResponse2004FsymRegional}
+     */
+    InlineResponse2004FsymRegional,
+
+    /**
      * The InlineResponse2004Instrument model constructor.
      * @property {module:model/InlineResponse2004Instrument}
      */
     InlineResponse2004Instrument,
+
+    /**
+     * The InlineResponse2004InstrumentFsym model constructor.
+     * @property {module:model/InlineResponse2004InstrumentFsym}
+     */
+    InlineResponse2004InstrumentFsym,
+
+    /**
+     * The InlineResponse2004InstrumentFsymSecurity model constructor.
+     * @property {module:model/InlineResponse2004InstrumentFsymSecurity}
+     */
+    InlineResponse2004InstrumentFsymSecurity,
 
     /**
      * The InlineResponse2004Issuer model constructor.
@@ -2508,6 +2545,30 @@ export {
     SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList,
 
     /**
+     * The SecuritizedDerivativeNotationRankingIntradayListDataPerformance model constructor.
+     * @property {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPerformance}
+     */
+    SecuritizedDerivativeNotationRankingIntradayListDataPerformance,
+
+    /**
+     * The SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelative model constructor.
+     * @property {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelative}
+     */
+    SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelative,
+
+    /**
+     * The SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum model constructor.
+     * @property {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum}
+     */
+    SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum,
+
+    /**
+     * The SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum model constructor.
+     * @property {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum}
+     */
+    SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum,
+
+    /**
      * The SecuritizedDerivativeNotationRankingIntradayListDataPrices model constructor.
      * @property {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPrices}
      */
@@ -2608,18 +2669,6 @@ export {
      * @property {module:model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection}
      */
     SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection,
-
-    /**
-     * The SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum model constructor.
-     * @property {module:model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum}
-     */
-    SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum,
-
-    /**
-     * The SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum model constructor.
-     * @property {module:model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum}
-     */
-    SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum,
 
     /**
      * The SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlow model constructor.
@@ -3285,5 +3334,6 @@ export {
     * The SecuritizedDerivativeApi service constructor.
     * @property {module:api/SecuritizedDerivativeApi}
     */
-    SecuritizedDerivativeApi
+    SecuritizedDerivativeApi,
+
 };

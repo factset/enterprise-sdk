@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -45,15 +45,17 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class HeadlineFormatConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_STRING = "customString";
+  public static final String JSON_PROPERTY_CUSTOM_STRING = "CustomString";
   private JsonNullable<String> customString = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_NAME = "customFieldName";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_NAME = "CustomFieldName";
   private JsonNullable<String> customFieldName = JsonNullable.<String>undefined();
 
+  public HeadlineFormatConfigDto() { 
+  }
 
   public HeadlineFormatConfigDto name(String name) {
     this.name = JsonNullable.<String>of(name);

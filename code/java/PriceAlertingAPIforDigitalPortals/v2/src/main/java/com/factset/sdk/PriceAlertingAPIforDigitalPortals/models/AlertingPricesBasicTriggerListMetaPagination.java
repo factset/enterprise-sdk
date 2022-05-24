@@ -48,6 +48,8 @@ public class AlertingPricesBasicTriggerListMetaPagination implements Serializabl
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public AlertingPricesBasicTriggerListMetaPagination() { 
+  }
 
   public AlertingPricesBasicTriggerListMetaPagination cursor(String cursor) {
     this.cursor = cursor;

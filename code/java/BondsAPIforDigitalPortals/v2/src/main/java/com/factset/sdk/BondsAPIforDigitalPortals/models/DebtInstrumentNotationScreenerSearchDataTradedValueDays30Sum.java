@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataTradedValueDays30Sum implem
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataTradedValueDays30Sum() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataTradedValueDays30Sum minimum(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMinimum minimum) {
     this.minimum = minimum;

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.CouponHistoryResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.CouponSchedulesResponse;
@@ -24,6 +27,46 @@ public class CouponsApi {
   public CouponsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getCouponHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCouponHistoryResponseTypeMap.put(200, new GenericType<CouponHistoryResponse>(){});
+    getCouponHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCouponHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCouponHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCouponHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCouponHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCouponHistoryForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCouponHistoryForListResponseTypeMap.put(200, new GenericType<CouponHistoryResponse>(){});
+    getCouponHistoryForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCouponHistoryForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCouponHistoryForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCouponHistoryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCouponHistoryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCouponSchedulesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCouponSchedulesResponseTypeMap.put(200, new GenericType<CouponSchedulesResponse>(){});
+    getCouponSchedulesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCouponSchedulesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCouponSchedulesForListResponseTypeMap.put(200, new GenericType<CouponSchedulesResponse>(){});
+    getCouponSchedulesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCouponSchedulesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +158,17 @@ public class CouponsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CouponHistoryResponse> localVarReturnType = new GenericType<CouponHistoryResponse>() {};
 
-    return apiClient.invokeAPI("CouponsApi.getCouponHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CouponHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("CouponsApi.getCouponHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCouponHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return historical Coupon information for a list of Fixed Income securities.
@@ -192,11 +241,17 @@ public class CouponsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CouponHistoryResponse> localVarReturnType = new GenericType<CouponHistoryResponse>() {};
 
-    return apiClient.invokeAPI("CouponsApi.getCouponHistoryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CouponHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("CouponsApi.getCouponHistoryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCouponHistoryForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Coupon Sechedules for a Fixed Income security.
@@ -270,11 +325,17 @@ public class CouponsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CouponSchedulesResponse> localVarReturnType = new GenericType<CouponSchedulesResponse>() {};
 
-    return apiClient.invokeAPI("CouponsApi.getCouponSchedules", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CouponSchedulesResponse
+      
+    > apiResponse = apiClient.invokeAPI("CouponsApi.getCouponSchedules", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCouponSchedulesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Coupon Schedules information for a list of Fixed Income securities.
@@ -347,10 +408,16 @@ public class CouponsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CouponSchedulesResponse> localVarReturnType = new GenericType<CouponSchedulesResponse>() {};
 
-    return apiClient.invokeAPI("CouponsApi.getCouponSchedulesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CouponSchedulesResponse
+      
+    > apiResponse = apiClient.invokeAPI("CouponsApi.getCouponSchedulesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCouponSchedulesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

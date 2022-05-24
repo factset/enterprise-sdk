@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import BloombergTranslation from './model/BloombergTranslation';
 import BloombergTranslationRequest from './model/BloombergTranslationRequest';
@@ -45,6 +44,7 @@ import TickerHistoryTranslationResponse from './model/TickerHistoryTranslationRe
 import TickerTranslation from './model/TickerTranslation';
 import TickerTranslationRequest from './model/TickerTranslationRequest';
 import TickerTranslationResponse from './model/TickerTranslationResponse';
+
 import BloombergFIGIApi from './api/BloombergFIGIApi';
 import CUSIPApi from './api/CUSIPApi';
 import FactSetApi from './api/FactSetApi';
@@ -82,7 +82,7 @@ import TickerApi from './api/TickerApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -317,5 +317,6 @@ export {
     * The TickerApi service constructor.
     * @property {module:api/TickerApi}
     */
-    TickerApi
+    TickerApi,
+
 };

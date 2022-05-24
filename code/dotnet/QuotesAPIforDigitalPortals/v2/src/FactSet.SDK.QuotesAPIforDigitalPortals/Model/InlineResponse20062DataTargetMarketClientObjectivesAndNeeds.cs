@@ -164,7 +164,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds {\n");
             sb.Append("  ReturnProfile: ").Append(ReturnProfile).Append("\n");
             sb.Append("  MaturityDate: ").Append(MaturityDate).Append("\n");
@@ -201,8 +201,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketClientObjectivesAndNeeds input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReturnProfile == input.ReturnProfile ||
@@ -234,11 +235,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.ReturnProfile != null)
-                    hashCode = hashCode * 59 + this.ReturnProfile.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReturnProfile.GetHashCode();
+                }
                 if (this.MaturityDate != null)
-                    hashCode = hashCode * 59 + this.MaturityDate.GetHashCode();
-                hashCode = hashCode * 59 + this.MayBeTerminatedEarly.GetHashCode();
-                hashCode = hashCode * 59 + this.SpecificInvestmentNeed.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MaturityDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MayBeTerminatedEarly.GetHashCode();
+                hashCode = (hashCode * 59) + this.SpecificInvestmentNeed.GetHashCode();
                 return hashCode;
             }
         }

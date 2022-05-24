@@ -47,6 +47,8 @@ public class InlineResponse2006DataInstrument implements Serializable {
   public static final String JSON_PROPERTY_ISIN = "isin";
   private String isin;
 
+  public InlineResponse2006DataInstrument() { 
+  }
 
   public InlineResponse2006DataInstrument id(String id) {
     this.id = id;

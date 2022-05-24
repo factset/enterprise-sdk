@@ -42,6 +42,8 @@ public class SnowflakeEntityMatchResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<java.util.List<Object>> data = null;
 
+  public SnowflakeEntityMatchResponse() { 
+  }
 
   public SnowflakeEntityMatchResponse data(java.util.List<java.util.List<Object>> data) {
     this.data = data;

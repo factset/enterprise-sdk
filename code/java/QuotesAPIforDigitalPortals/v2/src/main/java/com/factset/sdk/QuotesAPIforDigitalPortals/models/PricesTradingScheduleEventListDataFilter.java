@@ -49,6 +49,18 @@ public class PricesTradingScheduleEventListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_RANGE = "range";
   private PricesTradingScheduleEventListDataFilterRange range;
 
+  public PricesTradingScheduleEventListDataFilter() { 
+  }
+
+  @JsonCreator
+  public PricesTradingScheduleEventListDataFilter(
+    @JsonProperty(value=JSON_PROPERTY_TYPES, required=true) java.util.List<BigDecimal> types, 
+    @JsonProperty(value=JSON_PROPERTY_RANGE, required=true) PricesTradingScheduleEventListDataFilterRange range
+  ) {
+    this();
+    this.types = types;
+    this.range = range;
+  }
 
   public PricesTradingScheduleEventListDataFilter types(java.util.List<BigDecimal> types) {
     this.types = types;

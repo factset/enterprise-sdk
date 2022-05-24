@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007Data {\n");
             sb.Append("  Underlyings: ").Append(Underlyings).Append("\n");
             sb.Append("  BarrierTypeConditions: ").Append(BarrierTypeConditions).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Underlyings == input.Underlyings ||
@@ -124,9 +125,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Underlyings != null)
-                    hashCode = hashCode * 59 + this.Underlyings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Underlyings.GetHashCode();
+                }
                 if (this.BarrierTypeConditions != null)
-                    hashCode = hashCode * 59 + this.BarrierTypeConditions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BarrierTypeConditions.GetHashCode();
+                }
                 return hashCode;
             }
         }

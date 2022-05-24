@@ -46,6 +46,8 @@ public class ReferenceAttendeeDto implements Serializable {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
   private JsonNullable<String> emailAddress = JsonNullable.<String>undefined();
 
+  public ReferenceAttendeeDto() { 
+  }
 
   public ReferenceAttendeeDto emailAddress(String emailAddress) {
     this.emailAddress = JsonNullable.<String>of(emailAddress);

@@ -46,6 +46,7 @@ const apiInstance = new FrequenciesApi();
 // Call api endpoint
 apiInstance.getSPARFrequencies().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

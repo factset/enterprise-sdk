@@ -42,6 +42,8 @@ public class VaultConfigurationSummary implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public VaultConfigurationSummary() { 
+  }
 
   public VaultConfigurationSummary name(String name) {
     this.name = name;

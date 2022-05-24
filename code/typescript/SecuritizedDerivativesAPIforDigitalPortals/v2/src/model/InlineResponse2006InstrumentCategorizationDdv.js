@@ -19,7 +19,7 @@ import InlineResponse2006InstrumentCategorizationDdvLevel3 from './InlineRespons
 /**
  * The InlineResponse2006InstrumentCategorizationDdv model module.
  * @module model/InlineResponse2006InstrumentCategorizationDdv
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentCategorizationDdv {
     /**

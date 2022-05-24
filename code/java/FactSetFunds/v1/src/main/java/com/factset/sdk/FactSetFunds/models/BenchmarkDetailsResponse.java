@@ -43,6 +43,8 @@ public class BenchmarkDetailsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<BenchmarkDetails> data = null;
 
+  public BenchmarkDetailsResponse() { 
+  }
 
   public BenchmarkDetailsResponse data(java.util.List<BenchmarkDetails> data) {
     this.data = data;

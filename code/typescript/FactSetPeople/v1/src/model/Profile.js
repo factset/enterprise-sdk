@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Profile model module.
  * @module model/Profile
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Profile {
     /**

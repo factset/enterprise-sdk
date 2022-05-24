@@ -40,7 +40,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
@@ -60,7 +60,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
@@ -100,7 +100,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
@@ -120,7 +120,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
@@ -169,7 +169,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
@@ -190,7 +190,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
@@ -233,7 +233,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
@@ -254,7 +254,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
@@ -302,6 +302,51 @@ namespace FactSet.SDK.FactSetEstimates.Api
     public partial class BrokerDetailApi : IBrokerDetailApi
     {
         private FactSet.SDK.FactSetEstimates.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFixedDetailResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DetailResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFixedDetailForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DetailResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRollingDetailResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DetailResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRollingDetailForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DetailResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BrokerDetailApi"/> class.
@@ -414,7 +459,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
@@ -422,7 +467,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>DetailResponse</returns>
         public DetailResponse GetFixedDetail(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = GetFixedDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency);
+            var localVarResponse = GetFixedDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency);
             return localVarResponse.Data;
         }
 
@@ -435,21 +480,25 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of DetailResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> GetFixedDetailWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string))
+        public ApiResponse<DetailResponse> GetFixedDetailWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling BrokerDetailApi->GetFixedDetail");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'metrics' when calling BrokerDetailApi->GetFixedDetail");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -462,10 +511,16 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
@@ -504,13 +559,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -522,15 +577,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DetailResponse>("/factset-estimates/v2/fixed-detail", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedDetailResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DetailResponse>("/factset-estimates/v2/fixed-detail", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedDetail", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -543,16 +602,16 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailResponse</returns>
-        public async System.Threading.Tasks.Task<DetailResponse> GetFixedDetailAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetailResponse>GetFixedDetailAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = await GetFixedDetailWithHttpInfoAsync(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFixedDetailWithHttpInfoAsync(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -565,22 +624,27 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse>> GetFixedDetailWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DetailResponse>> GetFixedDetailWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling BrokerDetailApi->GetFixedDetail");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'metrics' when calling BrokerDetailApi->GetFixedDetail");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -593,12 +657,17 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
@@ -637,13 +706,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -655,14 +724,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedDetailResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DetailResponse>("/factset-estimates/v2/fixed-detail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedDetail", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -676,7 +749,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>DetailResponse</returns>
         public DetailResponse GetFixedDetailForList(FixedDetailRequest fixedDetailRequest)
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = GetFixedDetailForListWithHttpInfo(fixedDetailRequest);
+            var localVarResponse = GetFixedDetailForListWithHttpInfo(fixedDetailRequest);
             return localVarResponse.Data;
         }
 
@@ -686,11 +759,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
         /// <returns>ApiResponse of DetailResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> GetFixedDetailForListWithHttpInfo(FixedDetailRequest fixedDetailRequest)
+        public ApiResponse<DetailResponse> GetFixedDetailForListWithHttpInfo(FixedDetailRequest fixedDetailRequest)
         {
             // verify the required parameter 'fixedDetailRequest' is set
             if (fixedDetailRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'fixedDetailRequest' when calling BrokerDetailApi->GetFixedDetailForList");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -704,22 +779,28 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fixedDetailRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -731,15 +812,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<DetailResponse>("/factset-estimates/v2/fixed-detail", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedDetailForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            DetailResponse>("/factset-estimates/v2/fixed-detail", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedDetailForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -750,9 +835,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailResponse</returns>
-        public async System.Threading.Tasks.Task<DetailResponse> GetFixedDetailForListAsync(FixedDetailRequest fixedDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetailResponse>GetFixedDetailForListAsync(FixedDetailRequest fixedDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = await GetFixedDetailForListWithHttpInfoAsync(fixedDetailRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFixedDetailForListWithHttpInfoAsync(fixedDetailRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -763,11 +848,14 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse>> GetFixedDetailForListWithHttpInfoAsync(FixedDetailRequest fixedDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DetailResponse>> GetFixedDetailForListWithHttpInfoAsync(FixedDetailRequest fixedDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'fixedDetailRequest' is set
             if (fixedDetailRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'fixedDetailRequest' when calling BrokerDetailApi->GetFixedDetailForList");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -781,24 +869,29 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fixedDetailRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -810,14 +903,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedDetailForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<DetailResponse>("/factset-estimates/v2/fixed-detail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedDetailForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -832,7 +929,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
@@ -840,7 +937,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>DetailResponse</returns>
         public DetailResponse GetRollingDetail(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), int? relativeFiscalStart = default(int?), int? relativeFiscalEnd = default(int?), string currency = default(string))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = GetRollingDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency);
+            var localVarResponse = GetRollingDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency);
             return localVarResponse.Data;
         }
 
@@ -853,21 +950,25 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of DetailResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> GetRollingDetailWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), int? relativeFiscalStart = default(int?), int? relativeFiscalEnd = default(int?), string currency = default(string))
+        public ApiResponse<DetailResponse> GetRollingDetailWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), int? relativeFiscalStart = default(int?), int? relativeFiscalEnd = default(int?), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling BrokerDetailApi->GetRollingDetail");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'metrics' when calling BrokerDetailApi->GetRollingDetail");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -880,10 +981,16 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
@@ -922,13 +1029,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -940,15 +1047,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DetailResponse>("/factset-estimates/v2/rolling-detail", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRollingDetailResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DetailResponse>("/factset-estimates/v2/rolling-detail", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRollingDetail", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -961,16 +1072,16 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailResponse</returns>
-        public async System.Threading.Tasks.Task<DetailResponse> GetRollingDetailAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), int? relativeFiscalStart = default(int?), int? relativeFiscalEnd = default(int?), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetailResponse>GetRollingDetailAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), int? relativeFiscalStart = default(int?), int? relativeFiscalEnd = default(int?), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = await GetRollingDetailWithHttpInfoAsync(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRollingDetailWithHttpInfoAsync(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -983,22 +1094,27 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
-        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (optional, default to ANN)</param>
+        /// <param name="periodicity">The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus     (optional, default to false)</param>
         /// <param name="relativeFiscalStart">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)</param>
         /// <param name="relativeFiscalEnd">Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse>> GetRollingDetailWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), int? relativeFiscalStart = default(int?), int? relativeFiscalEnd = default(int?), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DetailResponse>> GetRollingDetailWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), bool? includeAll = default(bool?), int? relativeFiscalStart = default(int?), int? relativeFiscalEnd = default(int?), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling BrokerDetailApi->GetRollingDetail");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'metrics' when calling BrokerDetailApi->GetRollingDetail");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -1011,12 +1127,17 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
@@ -1055,13 +1176,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1073,14 +1194,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRollingDetailResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DetailResponse>("/factset-estimates/v2/rolling-detail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRollingDetail", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1094,7 +1219,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>DetailResponse</returns>
         public DetailResponse GetRollingDetailForList(RollingDetailRequest rollingDetailRequest)
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = GetRollingDetailForListWithHttpInfo(rollingDetailRequest);
+            var localVarResponse = GetRollingDetailForListWithHttpInfo(rollingDetailRequest);
             return localVarResponse.Data;
         }
 
@@ -1104,11 +1229,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
         /// <returns>ApiResponse of DetailResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> GetRollingDetailForListWithHttpInfo(RollingDetailRequest rollingDetailRequest)
+        public ApiResponse<DetailResponse> GetRollingDetailForListWithHttpInfo(RollingDetailRequest rollingDetailRequest)
         {
             // verify the required parameter 'rollingDetailRequest' is set
             if (rollingDetailRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'rollingDetailRequest' when calling BrokerDetailApi->GetRollingDetailForList");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -1122,22 +1249,28 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = rollingDetailRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1149,15 +1282,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<DetailResponse>("/factset-estimates/v2/rolling-detail", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRollingDetailForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            DetailResponse>("/factset-estimates/v2/rolling-detail", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRollingDetailForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1168,9 +1305,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailResponse</returns>
-        public async System.Threading.Tasks.Task<DetailResponse> GetRollingDetailForListAsync(RollingDetailRequest rollingDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetailResponse>GetRollingDetailForListAsync(RollingDetailRequest rollingDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse> localVarResponse = await GetRollingDetailForListWithHttpInfoAsync(rollingDetailRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRollingDetailForListWithHttpInfoAsync(rollingDetailRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1181,11 +1318,14 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailResponse>> GetRollingDetailForListWithHttpInfoAsync(RollingDetailRequest rollingDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DetailResponse>> GetRollingDetailForListWithHttpInfoAsync(RollingDetailRequest rollingDetailRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'rollingDetailRequest' is set
             if (rollingDetailRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'rollingDetailRequest' when calling BrokerDetailApi->GetRollingDetailForList");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -1199,24 +1339,29 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = rollingDetailRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1228,14 +1373,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRollingDetailForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<DetailResponse>("/factset-estimates/v2/rolling-detail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRollingDetailForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

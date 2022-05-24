@@ -60,6 +60,16 @@ public class SPARCalculationParameters implements Serializable {
   public static final String JSON_PROPERTY_CURRENCYISOCODE = "currencyisocode";
   private String currencyisocode;
 
+  public SPARCalculationParameters() { 
+  }
+
+  @JsonCreator
+  public SPARCalculationParameters(
+    @JsonProperty(value=JSON_PROPERTY_COMPONENTID, required=true) String componentid
+  ) {
+    this();
+    this.componentid = componentid;
+  }
 
   public SPARCalculationParameters componentid(String componentid) {
     this.componentid = componentid;

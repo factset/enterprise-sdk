@@ -47,6 +47,8 @@ public class PercentChangeLabelTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  public PercentChangeLabelTemplateAllOf() { 
+  }
 
   public PercentChangeLabelTemplateAllOf percentChange(PercentChange percentChange) {
     this.percentChange = percentChange;

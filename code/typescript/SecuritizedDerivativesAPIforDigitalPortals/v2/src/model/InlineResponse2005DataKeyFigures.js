@@ -33,7 +33,7 @@ import InlineResponse2005DataKeyFiguresVega from './InlineResponse2005DataKeyFig
 /**
  * The InlineResponse2005DataKeyFigures model module.
  * @module model/InlineResponse2005DataKeyFigures
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKeyFigures {
     /**

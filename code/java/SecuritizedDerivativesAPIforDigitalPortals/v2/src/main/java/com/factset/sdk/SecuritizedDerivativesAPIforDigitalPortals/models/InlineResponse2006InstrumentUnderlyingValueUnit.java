@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentUnderlyingValueUnit implements Serializ
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  public InlineResponse2006InstrumentUnderlyingValueUnit() { 
+  }
 
   public InlineResponse2006InstrumentUnderlyingValueUnit id(BigDecimal id) {
     this.id = id;

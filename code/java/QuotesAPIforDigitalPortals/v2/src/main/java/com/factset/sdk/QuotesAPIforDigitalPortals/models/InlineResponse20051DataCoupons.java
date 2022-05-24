@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -53,6 +53,8 @@ public class InlineResponse20051DataCoupons implements Serializable {
   public static final String JSON_PROPERTY_INTEREST_RATE = "interestRate";
   private InlineResponse20051DataInterestRate interestRate;
 
+  public InlineResponse20051DataCoupons() { 
+  }
 
   public InlineResponse20051DataCoupons period(InlineResponse20051DataPeriod period) {
     this.period = period;

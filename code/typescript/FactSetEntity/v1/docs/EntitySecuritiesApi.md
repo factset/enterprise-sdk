@@ -51,6 +51,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntitySecurities(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -123,6 +124,7 @@ const entitySecuritiesRequest = new factsetentity.EntitySecuritiesRequest(); // 
 // Call api endpoint
 apiInstance.postEntitySecurities(entitySecuritiesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

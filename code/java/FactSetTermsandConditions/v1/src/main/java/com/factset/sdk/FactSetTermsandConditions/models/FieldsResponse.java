@@ -43,6 +43,8 @@ public class FieldsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Field> data = null;
 
+  public FieldsResponse() { 
+  }
 
   public FieldsResponse data(java.util.List<Field> data) {
     this.data = data;

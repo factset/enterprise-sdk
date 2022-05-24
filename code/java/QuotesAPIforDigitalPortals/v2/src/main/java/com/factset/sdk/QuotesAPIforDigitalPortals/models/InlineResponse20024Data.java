@@ -96,6 +96,8 @@ public class InlineResponse20024Data implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  public InlineResponse20024Data() { 
+  }
 
   public InlineResponse20024Data code(String code) {
     this.code = code;

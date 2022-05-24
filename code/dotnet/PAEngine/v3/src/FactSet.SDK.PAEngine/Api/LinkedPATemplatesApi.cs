@@ -32,7 +32,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
@@ -43,7 +43,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
@@ -57,7 +57,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void DeleteLinkedPATemplates(string id);
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
@@ -132,7 +132,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
@@ -152,7 +152,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
@@ -164,7 +164,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
@@ -248,7 +248,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
@@ -261,7 +261,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
@@ -286,6 +286,41 @@ namespace FactSet.SDK.PAEngine.Api
     public partial class LinkedPATemplatesApi : ILinkedPATemplatesApi
     {
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CreateLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(LinkedPATemplatePostSummaryRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(LinkedPATemplateSummaryRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetLinkedPATemplatesByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(LinkedPATemplateRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> UpdateLinkedPATemplatesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(LinkedPATemplatePostSummaryRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LinkedPATemplatesApi"/> class.
@@ -390,28 +425,30 @@ namespace FactSet.SDK.PAEngine.Api
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <returns>LinkedPATemplatePostSummaryRoot</returns>
         public LinkedPATemplatePostSummaryRoot CreateLinkedPATemplates(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = CreateLinkedPATemplatesWithHttpInfo(linkedPATemplateParametersRoot);
+            var localVarResponse = CreateLinkedPATemplatesWithHttpInfo(linkedPATemplateParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <returns>ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> CreateLinkedPATemplatesWithHttpInfo(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
+        public ApiResponse<LinkedPATemplatePostSummaryRoot> CreateLinkedPATemplatesWithHttpInfo(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
         {
             // verify the required parameter 'linkedPATemplateParametersRoot' is set
             if (linkedPATemplateParametersRoot == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'linkedPATemplateParametersRoot' when calling LinkedPATemplatesApi->CreateLinkedPATemplates");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -425,22 +462,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = linkedPATemplateParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -452,43 +495,50 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CreateLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LinkedPATemplatePostSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot> CreateLinkedPATemplatesAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot>CreateLinkedPATemplatesAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = await CreateLinkedPATemplatesWithHttpInfoAsync(linkedPATemplateParametersRoot, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateLinkedPATemplatesWithHttpInfoAsync(linkedPATemplateParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LinkedPATemplatePostSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<LinkedPATemplatePostSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'linkedPATemplateParametersRoot' is set
             if (linkedPATemplateParametersRoot == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'linkedPATemplateParametersRoot' when calling LinkedPATemplatesApi->CreateLinkedPATemplates");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -502,24 +552,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = linkedPATemplateParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -531,14 +586,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CreateLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -549,7 +608,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void DeleteLinkedPATemplates(string id)
         {
             DeleteLinkedPATemplatesWithHttpInfo(id);
@@ -561,11 +620,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<Object> DeleteLinkedPATemplatesWithHttpInfo(string id)
+        public ApiResponse<Object> DeleteLinkedPATemplatesWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling LinkedPATemplatesApi->DeleteLinkedPATemplates");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -580,22 +641,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -607,15 +674,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = DeleteLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -638,11 +709,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<Object>> DeleteLinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling LinkedPATemplatesApi->DeleteLinkedPATemplates");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -657,24 +731,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "text/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -686,14 +765,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = DeleteLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -709,7 +792,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>LinkedPATemplateSummaryRoot</returns>
         public LinkedPATemplateSummaryRoot GetLinkedPATemplates(string directory = default(string), string documentDirectory = default(string), string documentName = default(string))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateSummaryRoot> localVarResponse = GetLinkedPATemplatesWithHttpInfo(directory, documentDirectory, documentName);
+            var localVarResponse = GetLinkedPATemplatesWithHttpInfo(directory, documentDirectory, documentName);
             return localVarResponse.Data;
         }
 
@@ -721,7 +804,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="documentDirectory">Get linked PA templates for documents in document path (optional)</param>
         /// <param name="documentName">Get linked PA templates for documents by document name (optional)</param>
         /// <returns>ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateSummaryRoot> GetLinkedPATemplatesWithHttpInfo(string directory = default(string), string documentDirectory = default(string), string documentName = default(string))
+        public ApiResponse<LinkedPATemplateSummaryRoot> GetLinkedPATemplatesWithHttpInfo(string directory = default(string), string documentDirectory = default(string), string documentName = default(string))
         {
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -734,10 +817,16 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (directory != null)
             {
@@ -754,13 +843,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -772,15 +861,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<LinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            LinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -793,9 +886,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="documentName">Get linked PA templates for documents by document name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<LinkedPATemplateSummaryRoot> GetLinkedPATemplatesAsync(string directory = default(string), string documentDirectory = default(string), string documentName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LinkedPATemplateSummaryRoot>GetLinkedPATemplatesAsync(string directory = default(string), string documentDirectory = default(string), string documentName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateSummaryRoot> localVarResponse = await GetLinkedPATemplatesWithHttpInfoAsync(directory, documentDirectory, documentName, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetLinkedPATemplatesWithHttpInfoAsync(directory, documentDirectory, documentName, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -808,7 +901,8 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="documentName">Get linked PA templates for documents by document name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LinkedPATemplateSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateSummaryRoot>> GetLinkedPATemplatesWithHttpInfoAsync(string directory = default(string), string documentDirectory = default(string), string documentName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateSummaryRoot>> GetLinkedPATemplatesWithHttpInfoAsync(string directory = default(string), string documentDirectory = default(string), string documentName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -821,12 +915,17 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (directory != null)
             {
@@ -843,13 +942,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -861,14 +960,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<LinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -882,7 +985,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>LinkedPATemplateRoot</returns>
         public LinkedPATemplateRoot GetLinkedPATemplatesById(string id)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateRoot> localVarResponse = GetLinkedPATemplatesByIdWithHttpInfo(id);
+            var localVarResponse = GetLinkedPATemplatesByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -892,11 +995,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <returns>ApiResponse of LinkedPATemplateRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateRoot> GetLinkedPATemplatesByIdWithHttpInfo(string id)
+        public ApiResponse<LinkedPATemplateRoot> GetLinkedPATemplatesByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling LinkedPATemplatesApi->GetLinkedPATemplatesById");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -909,22 +1014,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -936,15 +1047,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<LinkedPATemplateRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetLinkedPATemplatesByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            LinkedPATemplateRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLinkedPATemplatesById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -955,9 +1070,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LinkedPATemplateRoot</returns>
-        public async System.Threading.Tasks.Task<LinkedPATemplateRoot> GetLinkedPATemplatesByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LinkedPATemplateRoot>GetLinkedPATemplatesByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateRoot> localVarResponse = await GetLinkedPATemplatesByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetLinkedPATemplatesByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -968,11 +1083,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LinkedPATemplateRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplateRoot>> GetLinkedPATemplatesByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateRoot>> GetLinkedPATemplatesByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling LinkedPATemplatesApi->GetLinkedPATemplatesById");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -985,24 +1103,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1014,21 +1137,25 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetLinkedPATemplatesByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<LinkedPATemplateRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLinkedPATemplatesById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
@@ -1036,26 +1163,30 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>LinkedPATemplatePostSummaryRoot</returns>
         public LinkedPATemplatePostSummaryRoot UpdateLinkedPATemplates(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = UpdateLinkedPATemplatesWithHttpInfo(id, linkedPATemplateUpdateParametersRoot);
+            var localVarResponse = UpdateLinkedPATemplatesWithHttpInfo(id, linkedPATemplateUpdateParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <returns>ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> UpdateLinkedPATemplatesWithHttpInfo(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
+        public ApiResponse<LinkedPATemplatePostSummaryRoot> UpdateLinkedPATemplatesWithHttpInfo(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling LinkedPATemplatesApi->UpdateLinkedPATemplates");
+            }
 
             // verify the required parameter 'linkedPATemplateUpdateParametersRoot' is set
             if (linkedPATemplateUpdateParametersRoot == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'linkedPATemplateUpdateParametersRoot' when calling LinkedPATemplatesApi->UpdateLinkedPATemplates");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -1069,23 +1200,29 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = linkedPATemplateUpdateParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1097,49 +1234,58 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = UpdateLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LinkedPATemplatePostSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot> UpdateLinkedPATemplatesAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot>UpdateLinkedPATemplatesAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = await UpdateLinkedPATemplatesWithHttpInfoAsync(id, linkedPATemplateUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UpdateLinkedPATemplatesWithHttpInfoAsync(id, linkedPATemplateUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LinkedPATemplatePostSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<LinkedPATemplatePostSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<LinkedPATemplatePostSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling LinkedPATemplatesApi->UpdateLinkedPATemplates");
+            }
 
             // verify the required parameter 'linkedPATemplateUpdateParametersRoot' is set
             if (linkedPATemplateUpdateParametersRoot == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'linkedPATemplateUpdateParametersRoot' when calling LinkedPATemplatesApi->UpdateLinkedPATemplates");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -1153,25 +1299,30 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.Data = linkedPATemplateUpdateParametersRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1183,14 +1334,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = UpdateLinkedPATemplatesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PutAsync<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateLinkedPATemplates", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

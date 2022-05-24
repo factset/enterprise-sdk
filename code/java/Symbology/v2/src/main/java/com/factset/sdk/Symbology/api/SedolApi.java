@@ -7,6 +7,9 @@ import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Symbology.models.ErrorResponse;
 import com.factset.sdk.Symbology.models.SedolHistoryTranslationRequest;
@@ -25,6 +28,46 @@ public class SedolApi {
   public SedolApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> batchSedolHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchSedolHistoryResponseTypeMap.put(200, new GenericType<SedolHistoryTranslationResponse>(){});
+    batchSedolHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchSedolHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchSedolHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchSedolHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchSedolHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> batchTranslateSedolResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchTranslateSedolResponseTypeMap.put(200, new GenericType<SedolTranslationResponse>(){});
+    batchTranslateSedolResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchTranslateSedolResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchTranslateSedolResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchTranslateSedolResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchTranslateSedolResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> sedolHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    sedolHistoryResponseTypeMap.put(200, new GenericType<SedolHistoryTranslationResponse>(){});
+    sedolHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    sedolHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    sedolHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    sedolHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    sedolHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> translateSedolResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    translateSedolResponseTypeMap.put(200, new GenericType<SedolTranslationResponse>(){});
+    translateSedolResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    translateSedolResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    translateSedolResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    translateSedolResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    translateSedolResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +158,17 @@ public class SedolApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SedolHistoryTranslationResponse> localVarReturnType = new GenericType<SedolHistoryTranslationResponse>() {};
 
-    return apiClient.invokeAPI("SedolApi.batchSedolHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SedolHistoryTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("SedolApi.batchSedolHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchSedolHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate market security symbols into SEDOL. - Current Only
@@ -192,11 +241,17 @@ public class SedolApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SedolTranslationResponse> localVarReturnType = new GenericType<SedolTranslationResponse>() {};
 
-    return apiClient.invokeAPI("SedolApi.batchTranslateSedol", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SedolTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("SedolApi.batchTranslateSedol", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchTranslateSedolResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieve the full history or as of a specific date of SEDOL changes for the requested ID(s).
@@ -273,11 +328,17 @@ public class SedolApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SedolHistoryTranslationResponse> localVarReturnType = new GenericType<SedolHistoryTranslationResponse>() {};
 
-    return apiClient.invokeAPI("SedolApi.sedolHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SedolHistoryTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("SedolApi.sedolHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, sedolHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate market security symbols into SEDOL. - Current Only
@@ -351,10 +412,16 @@ public class SedolApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SedolTranslationResponse> localVarReturnType = new GenericType<SedolTranslationResponse>() {};
 
-    return apiClient.invokeAPI("SedolApi.translateSedol", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SedolTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("SedolApi.translateSedol", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, translateSedolResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

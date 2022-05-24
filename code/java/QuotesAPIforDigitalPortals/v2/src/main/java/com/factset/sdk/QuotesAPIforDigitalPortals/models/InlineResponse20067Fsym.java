@@ -49,6 +49,8 @@ public class InlineResponse20067Fsym implements Serializable {
   public static final String JSON_PROPERTY_REGIONAL = "regional";
   private InlineResponse20067FsymRegional regional;
 
+  public InlineResponse20067Fsym() { 
+  }
 
   public InlineResponse20067Fsym listing(InlineResponse20067FsymListing listing) {
     this.listing = listing;

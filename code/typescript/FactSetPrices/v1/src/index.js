@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Adjust from './model/Adjust';
 import Batch from './model/Batch';
@@ -60,11 +59,14 @@ import SplitAdjust from './model/SplitAdjust';
 import Splits from './model/Splits';
 import SplitsRequest from './model/SplitsRequest';
 import SplitsResponse from './model/SplitsResponse';
+
 import DatabaseRolloverApi from './api/DatabaseRolloverApi';
 import DividendsApi from './api/DividendsApi';
 import HighLowApi from './api/HighLowApi';
 import MarketValueApi from './api/MarketValueApi';
 import PricesApi from './api/PricesApi';
+import GetSecurityPricesResponseWrapper from './api/PricesApi';
+import GetSecurityPricesForListResponseWrapper from './api/PricesApi';
 import ReferenceApi from './api/ReferenceApi';
 import ReturnsApi from './api/ReturnsApi';
 import SharesApi from './api/SharesApi';
@@ -100,7 +102,7 @@ import SplitsApi from './api/SplitsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -422,6 +424,18 @@ export {
     PricesApi,
 
     /**
+    * The GetSecurityPrices response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    GetSecurityPricesResponseWrapper,
+
+    /**
+    * The GetSecurityPricesForList response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    GetSecurityPricesForListResponseWrapper,
+
+    /**
     * The ReferenceApi service constructor.
     * @property {module:api/ReferenceApi}
     */
@@ -443,5 +457,6 @@ export {
     * The SplitsApi service constructor.
     * @property {module:api/SplitsApi}
     */
-    SplitsApi
+    SplitsApi,
+
 };

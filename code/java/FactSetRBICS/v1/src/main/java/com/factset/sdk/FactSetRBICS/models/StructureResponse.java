@@ -44,6 +44,8 @@ public class StructureResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Structure> data = null;
 
+  public StructureResponse() { 
+  }
 
   public StructureResponse data(java.util.List<Structure> data) {
     this.data = data;

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Author** | [**UserSerialDto**](UserSerialDto.md) |  | 
-**Title** | **string** |  | 
-**Identifier** | **string** |  | 
+**Title** | **string** |  | [optional] 
+**Identifier** | **string** |  | [optional] 
 **Start** | **string** |  | 
 **End** | **string** |  | 
 **Locations** | **List&lt;string&gt;** |  | [optional] 

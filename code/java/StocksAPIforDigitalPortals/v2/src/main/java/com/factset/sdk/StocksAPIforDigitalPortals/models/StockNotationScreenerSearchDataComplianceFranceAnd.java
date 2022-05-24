@@ -47,6 +47,8 @@ public class StockNotationScreenerSearchDataComplianceFranceAnd implements Seria
   public static final String JSON_PROPERTY_NEGATE = "negate";
   private Boolean negate;
 
+  public StockNotationScreenerSearchDataComplianceFranceAnd() { 
+  }
 
   public StockNotationScreenerSearchDataComplianceFranceAnd id(BigDecimal id) {
     this.id = id;

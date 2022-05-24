@@ -70,6 +70,8 @@ public class InlineResponse20065Data implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private InlineResponse20065Status status;
 
+  public InlineResponse20065Data() { 
+  }
 
   public InlineResponse20065Data id(String id) {
     this.id = id;

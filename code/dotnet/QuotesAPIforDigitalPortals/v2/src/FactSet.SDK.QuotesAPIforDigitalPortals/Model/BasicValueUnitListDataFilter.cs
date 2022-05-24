@@ -80,7 +80,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BasicValueUnitListDataFilter {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
@@ -114,8 +114,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(BasicValueUnitListDataFilter input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -132,7 +133,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 return hashCode;
             }
         }

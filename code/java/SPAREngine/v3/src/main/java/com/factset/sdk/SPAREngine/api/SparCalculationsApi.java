@@ -7,6 +7,9 @@ import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SPAREngine.models.CalculationStatusRoot;
 import com.factset.sdk.SPAREngine.models.ClientErrorResponse;
@@ -24,6 +27,235 @@ public class SparCalculationsApi {
   public SparCalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getCalculationParametersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationParametersResponseTypeMap.put(200, new GenericType<SPARCalculationParametersRoot>(){});
+    getCalculationParametersResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getCalculationParametersResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCalculationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationStatusByIdResponseTypeMap.put(200, new GenericType<CalculationStatusRoot>(){});
+    getCalculationStatusByIdResponseTypeMap.put(202, new GenericType<CalculationStatusRoot>(){});
+    getCalculationStatusByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getCalculationStatusByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCalculationUnitResultByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationUnitResultByIdResponseTypeMap.put(200, new GenericType<ObjectRoot>(){});
+    getCalculationUnitResultByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getCalculationUnitResultByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postAndCalculateResponseTypeMap.put(200, new GenericType<CalculationStatusRoot>(){});
+    postAndCalculateResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    postAndCalculateResponseTypeMap.put(202, new GenericType<CalculationStatusRoot>(){});
+    postAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    postAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> putAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    putAndCalculateResponseTypeMap.put(200, new GenericType<CalculationStatusRoot>(){});
+    putAndCalculateResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    putAndCalculateResponseTypeMap.put(202, new GenericType<CalculationStatusRoot>(){});
+    putAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    putAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+    putAndCalculateResponseTypeMap.put(409, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+ /**
+   * Wrapper to support POST /analytics/engines/spar/v3/calculations returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code CalculationStatusRoot }<br>Expected response, if the calculation has one unit and is completed with an error.</li>
+   * 
+   *   <li>201 : {@code ObjectRoot }<br>Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.</li>
+   * 
+   *   <li>202 : {@code CalculationStatusRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PostAndCalculateResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     CalculationStatusRoot data200 = response.getResponse200();
+   *     break;
+   *   case 201:
+   *     ObjectRoot data201 = response.getResponse201();
+   *     break;
+   *   case 202:
+   *     CalculationStatusRoot data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PostAndCalculateResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PostAndCalculateResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public CalculationStatusRoot getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationStatusRoot) this.response;
+    }
+    
+    public ObjectRoot getResponse201() throws ApiException {
+      if (this.statusCode != 201) {
+        throw new ApiException(500, "Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+      }
+      return (ObjectRoot) this.response;
+    }
+    
+    public CalculationStatusRoot getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationStatusRoot) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PostAndCalculateResponseWrapper other = (PostAndCalculateResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PostAndCalculateResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support PUT /analytics/engines/spar/v3/calculations/{id} returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code CalculationStatusRoot }<br>Expected response, if the calculation has one unit and is completed with an error.</li>
+   * 
+   *   <li>201 : {@code ObjectRoot }<br>Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.</li>
+   * 
+   *   <li>202 : {@code CalculationStatusRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PutAndCalculateResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     CalculationStatusRoot data200 = response.getResponse200();
+   *     break;
+   *   case 201:
+   *     ObjectRoot data201 = response.getResponse201();
+   *     break;
+   *   case 202:
+   *     CalculationStatusRoot data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PutAndCalculateResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PutAndCalculateResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public CalculationStatusRoot getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationStatusRoot) this.response;
+    }
+    
+    public ObjectRoot getResponse201() throws ApiException {
+      if (this.statusCode != 201) {
+        throw new ApiException(500, "Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+      }
+      return (ObjectRoot) this.response;
+    }
+    
+    public CalculationStatusRoot getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationStatusRoot) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PutAndCalculateResponseWrapper other = (PutAndCalculateResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PutAndCalculateResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+
 
   /**
    * Get the API client
@@ -116,9 +348,15 @@ public class SparCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("SparCalculationsApi.cancelCalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("SparCalculationsApi.cancelCalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, cancelCalculationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get SPAR calculation parameters by id
@@ -194,11 +432,17 @@ public class SparCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SPARCalculationParametersRoot> localVarReturnType = new GenericType<SPARCalculationParametersRoot>() {};
 
-    return apiClient.invokeAPI("SparCalculationsApi.getCalculationParameters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SPARCalculationParametersRoot
+      
+    > apiResponse = apiClient.invokeAPI("SparCalculationsApi.getCalculationParameters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationParametersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get SPAR calculation status by id
@@ -276,11 +520,17 @@ public class SparCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CalculationStatusRoot> localVarReturnType = new GenericType<CalculationStatusRoot>() {};
 
-    return apiClient.invokeAPI("SparCalculationsApi.getCalculationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CalculationStatusRoot
+      
+    > apiResponse = apiClient.invokeAPI("SparCalculationsApi.getCalculationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationStatusByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get SPAR calculation result by id
@@ -364,11 +614,17 @@ public class SparCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("SparCalculationsApi.getCalculationUnitResultById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ObjectRoot
+      
+    > apiResponse = apiClient.invokeAPI("SparCalculationsApi.getCalculationUnitResultById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationUnitResultByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Create and Run SPAR calculation
@@ -376,7 +632,7 @@ public class SparCalculationsApi {
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param spARCalculationParametersRoot Calculation Parameters (optional)
-   * @return CalculationStatusRoot
+   * @return PostAndCalculateResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -394,7 +650,7 @@ public class SparCalculationsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public CalculationStatusRoot postAndCalculate(Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
+  public PostAndCalculateResponseWrapper postAndCalculate(Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
     return postAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, spARCalculationParametersRoot).getData();
   }
 
@@ -404,7 +660,7 @@ public class SparCalculationsApi {
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param spARCalculationParametersRoot Calculation Parameters (optional)
-   * @return ApiResponse&lt;CalculationStatusRoot&gt;
+   * @return ApiResponse&lt;PostAndCalculateResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -422,7 +678,7 @@ public class SparCalculationsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<CalculationStatusRoot> postAndCalculateWithHttpInfo(Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
+  public ApiResponse<PostAndCalculateResponseWrapper> postAndCalculateWithHttpInfo(Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
     Object localVarPostBody = spARCalculationParametersRoot;
     
     // create path and map variables
@@ -454,11 +710,24 @@ if (cacheControl != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CalculationStatusRoot> localVarReturnType = new GenericType<CalculationStatusRoot>() {};
 
-    return apiClient.invokeAPI("SparCalculationsApi.postAndCalculate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("SparCalculationsApi.postAndCalculate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postAndCalculateResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    PostAndCalculateResponseWrapper responseWrapper = new PostAndCalculateResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PostAndCalculateResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
   /**
    * Create or Update SPAR calculation and run it.
@@ -467,7 +736,7 @@ if (cacheControl != null)
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param spARCalculationParametersRoot Calculation Parameters (optional)
-   * @return CalculationStatusRoot
+   * @return PutAndCalculateResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -486,7 +755,7 @@ if (cacheControl != null)
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public CalculationStatusRoot putAndCalculate(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
+  public PutAndCalculateResponseWrapper putAndCalculate(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
     return putAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, spARCalculationParametersRoot).getData();
   }
 
@@ -497,7 +766,7 @@ if (cacheControl != null)
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param spARCalculationParametersRoot Calculation Parameters (optional)
-   * @return ApiResponse&lt;CalculationStatusRoot&gt;
+   * @return ApiResponse&lt;PutAndCalculateResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -516,7 +785,7 @@ if (cacheControl != null)
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<CalculationStatusRoot> putAndCalculateWithHttpInfo(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
+  public ApiResponse<PutAndCalculateResponseWrapper> putAndCalculateWithHttpInfo(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, SPARCalculationParametersRoot spARCalculationParametersRoot) throws ApiException {
     Object localVarPostBody = spARCalculationParametersRoot;
     
     // verify the required parameter 'id' is set
@@ -554,10 +823,23 @@ if (cacheControl != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CalculationStatusRoot> localVarReturnType = new GenericType<CalculationStatusRoot>() {};
 
-    return apiClient.invokeAPI("SparCalculationsApi.putAndCalculate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("SparCalculationsApi.putAndCalculate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, putAndCalculateResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    PutAndCalculateResponseWrapper responseWrapper = new PutAndCalculateResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PutAndCalculateResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
 }

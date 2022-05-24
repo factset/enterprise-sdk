@@ -47,6 +47,16 @@ public class CompanyPositionsRequest implements Serializable {
   public static final String JSON_PROPERTY_POSITION = "position";
   private Position position = Position.CEO;
 
+  public CompanyPositionsRequest() { 
+  }
+
+  @JsonCreator
+  public CompanyPositionsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public CompanyPositionsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

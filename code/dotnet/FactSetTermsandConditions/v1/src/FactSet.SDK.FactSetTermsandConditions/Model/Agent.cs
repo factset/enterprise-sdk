@@ -116,7 +116,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Agent {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -155,8 +155,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(Agent input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -199,16 +200,26 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.AgentEntityId != null)
-                    hashCode = hashCode * 59 + this.AgentEntityId.GetHashCode();
-                hashCode = hashCode * 59 + this.AgentCommAmt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AgentEntityId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AgentCommAmt.GetHashCode();
                 if (this.AgentName != null)
-                    hashCode = hashCode * 59 + this.AgentName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AgentName.GetHashCode();
+                }
                 if (this.AgentType != null)
-                    hashCode = hashCode * 59 + this.AgentType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AgentType.GetHashCode();
+                }
                 return hashCode;
             }
         }

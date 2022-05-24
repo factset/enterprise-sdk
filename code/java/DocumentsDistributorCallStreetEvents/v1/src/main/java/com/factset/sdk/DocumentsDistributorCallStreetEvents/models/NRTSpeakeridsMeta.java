@@ -52,6 +52,8 @@ public class NRTSpeakeridsMeta implements Serializable {
   public static final String JSON_PROPERTY_PARTIAL = "partial";
   private NRTSnippetsMetaPartial partial;
 
+  public NRTSpeakeridsMeta() { 
+  }
 
   public NRTSpeakeridsMeta sort(java.util.List<String> sort) {
     this.sort = sort;

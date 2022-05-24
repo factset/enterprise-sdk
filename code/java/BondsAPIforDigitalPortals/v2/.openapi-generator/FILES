@@ -232,7 +232,6 @@ src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/ApiClient.java
 src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/ApiException.java
 src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/ApiResponse.java
 src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/Configuration.java
-src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/JSON.java
 src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/BondsAPIforDigitalPortals/Pair.java

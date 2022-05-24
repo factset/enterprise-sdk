@@ -43,6 +43,8 @@ public class InlineResponse200DataTriggerNotation implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public InlineResponse200DataTriggerNotation() { 
+  }
 
   public InlineResponse200DataTriggerNotation id(String id) {
     this.id = id;

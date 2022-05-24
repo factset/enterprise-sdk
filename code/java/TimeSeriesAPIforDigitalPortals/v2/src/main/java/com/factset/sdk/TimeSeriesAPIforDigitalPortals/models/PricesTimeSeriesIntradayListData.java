@@ -171,6 +171,18 @@ public class PricesTimeSeriesIntradayListData implements Serializable {
   public static final String JSON_PROPERTY_APPLY_TICK_CORRECTIONS = "applyTickCorrections";
   private ApplyTickCorrectionsEnum applyTickCorrections = ApplyTickCorrectionsEnum.NONE;
 
+  public PricesTimeSeriesIntradayListData() { 
+  }
+
+  @JsonCreator
+  public PricesTimeSeriesIntradayListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_RANGE, required=true) PricesTimeSeriesIntradayListDataRange range
+  ) {
+    this();
+    this.id = id;
+    this.range = range;
+  }
 
   public PricesTimeSeriesIntradayListData id(String id) {
     this.id = id;

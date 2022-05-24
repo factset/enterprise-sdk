@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -25,8 +25,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.threeten.bp.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -48,18 +48,20 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactEventDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
+  public static final String JSON_PROPERTY_EVENT_TYPE = "EventType";
   private JsonNullable<String> eventType = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DATE = "date";
+  public static final String JSON_PROPERTY_DATE = "Date";
   private OffsetDateTime date;
 
-  public static final String JSON_PROPERTY_FULL_NAME = "fullName";
+  public static final String JSON_PROPERTY_FULL_NAME = "FullName";
   private JsonNullable<String> fullName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DETAILS = "details";
+  public static final String JSON_PROPERTY_DETAILS = "Details";
   private JsonNullable<java.util.List<ContactEventUpdateDto>> details = JsonNullable.<java.util.List<ContactEventUpdateDto>>undefined();
 
+  public ContactEventDto() { 
+  }
 
   public ContactEventDto eventType(String eventType) {
     this.eventType = JsonNullable.<String>of(eventType);

@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import PACalculationColumn from './PACalculationColumn';
+import PACalculationDataSources from './PACalculationDataSources';
 import PACalculationGroup from './PACalculationGroup';
 import PADateParameters from './PADateParameters';
 import PAIdentifier from './PAIdentifier';
@@ -20,7 +21,7 @@ import PAIdentifier from './PAIdentifier';
 /**
  * The PAComponentData model module.
  * @module model/PAComponentData
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PAComponentData {
     /**
@@ -66,6 +67,9 @@ class PAComponentData {
             if (data.hasOwnProperty('dates')) {
                 obj['dates'] = PADateParameters.constructFromObject(data['dates']);
             }
+            if (data.hasOwnProperty('datasources')) {
+                obj['datasources'] = PACalculationDataSources.constructFromObject(data['datasources']);
+            }
             if (data.hasOwnProperty('currencyisocode')) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
             }
@@ -107,6 +111,11 @@ PAComponentData.prototype['columns'] = undefined;
  * @member {module:model/PADateParameters} dates
  */
 PAComponentData.prototype['dates'] = undefined;
+
+/**
+ * @member {module:model/PACalculationDataSources} datasources
+ */
+PAComponentData.prototype['datasources'] = undefined;
 
 /**
  * Currency ISO code for calculation.

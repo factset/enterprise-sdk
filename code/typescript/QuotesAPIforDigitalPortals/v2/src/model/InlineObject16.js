@@ -18,7 +18,7 @@ import NotationCrossReferenceListByInstrumentData from './NotationCrossReference
 /**
  * The InlineObject16 model module.
  * @module model/InlineObject16
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject16 {
     /**

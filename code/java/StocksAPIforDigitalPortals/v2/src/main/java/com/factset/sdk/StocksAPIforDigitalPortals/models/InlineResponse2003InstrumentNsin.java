@@ -47,6 +47,8 @@ public class InlineResponse2003InstrumentNsin implements Serializable {
   public static final String JSON_PROPERTY_VALOR = "valor";
   private String valor;
 
+  public InlineResponse2003InstrumentNsin() { 
+  }
 
   public InlineResponse2003InstrumentNsin wkn(String wkn) {
     this.wkn = wkn;

@@ -60,6 +60,8 @@ public class EntityUniverse implements Serializable {
   public static final String JSON_PROPERTY_ENTITIES = "entities";
   private java.util.List<EntityMapping> entities = null;
 
+  public EntityUniverse() { 
+  }
 
   public EntityUniverse totalCount(Integer totalCount) {
     this.totalCount = totalCount;

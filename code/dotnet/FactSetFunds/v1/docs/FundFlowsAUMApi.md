@@ -56,9 +56,9 @@ namespace Example
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
-            var frequency = frequency_example;  // string | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional)  (default to M)
+            var frequency = "MTD";  // string | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional)  (default to M)
             var currency = USD;  // string | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional)  (default to "LOCAL")
-            var dataType = dataType_example;  // string | The Data Type of the NAV expressed as Raw or Rolled values. (optional)  (default to ROLL)
+            var dataType = "ROLL";  // string | The Data Type of the NAV expressed as Raw or Rolled values. (optional)  (default to ROLL)
 
             try
             {
@@ -89,7 +89,6 @@ Name | Type | Description  | Notes
  **dataType** | **string**| The Data Type of the NAV expressed as Raw or Rolled values. | [optional] [default to ROLL]
 
 ### Return type
-
 [**AumResponse**](AumResponse.md)
 
 ### Authorization
@@ -183,7 +182,6 @@ Name | Type | Description  | Notes
  **aumRequest** | [**AumRequest**](AumRequest.md)| The AUM request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**AumResponse**](AumResponse.md)
 
 ### Authorization
@@ -254,7 +252,7 @@ namespace Example
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
-            var frequency = frequency_example;  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional)  (default to M)
+            var frequency = "D";  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional)  (default to M)
             var currency = USD;  // string | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional)  (default to "LOCAL")
 
             try
@@ -285,7 +283,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. | [optional] [default to &quot;LOCAL&quot;]
 
 ### Return type
-
 [**FlowsResponse**](FlowsResponse.md)
 
 ### Authorization
@@ -379,7 +376,6 @@ Name | Type | Description  | Notes
  **flowsRequest** | [**FlowsRequest**](FlowsRequest.md)| The Fund Flows request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**FlowsResponse**](FlowsResponse.md)
 
 ### Authorization

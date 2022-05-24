@@ -44,6 +44,8 @@ public class NotationCrossReferenceListByInstrumentDataFilterValueUnits implemen
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<BigDecimal> ids = null;
 
+  public NotationCrossReferenceListByInstrumentDataFilterValueUnits() { 
+  }
 
   public NotationCrossReferenceListByInstrumentDataFilterValueUnits ids(java.util.List<BigDecimal> ids) {
     this.ids = ids;

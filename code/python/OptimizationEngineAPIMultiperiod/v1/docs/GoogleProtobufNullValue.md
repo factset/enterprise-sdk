@@ -1,0 +1,12 @@
+# GoogleProtobufNullValue
+
+0 - NULL_VALUE 
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**value** | **float** | 0 - NULL_VALUE  | defaults to 0,  must be one of [0, ]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

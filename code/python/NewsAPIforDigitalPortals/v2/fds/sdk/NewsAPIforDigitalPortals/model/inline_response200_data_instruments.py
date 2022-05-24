@@ -24,10 +24,14 @@ from fds.sdk.NewsAPIforDigitalPortals.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.NewsAPIforDigitalPortals.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.NewsAPIforDigitalPortals.model.inline_response200_data_fsym import InlineResponse200DataFsym
+    globals()['InlineResponse200DataFsym'] = InlineResponse200DataFsym
 
 
 class InlineResponse200DataInstruments(ModelNormal):
@@ -66,6 +70,7 @@ class InlineResponse200DataInstruments(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -80,8 +85,10 @@ class InlineResponse200DataInstruments(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'id': (str,),  # noqa: E501
+            'fsym': (InlineResponse200DataFsym,),  # noqa: E501
         }
 
     @cached_property
@@ -91,6 +98,7 @@ class InlineResponse200DataInstruments(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,6 +143,7 @@ class InlineResponse200DataInstruments(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the instrument.. [optional]  # noqa: E501
+            fsym (InlineResponse200DataFsym): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,6 +226,7 @@ class InlineResponse200DataInstruments(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the instrument.. [optional]  # noqa: E501
+            fsym (InlineResponse200DataFsym): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

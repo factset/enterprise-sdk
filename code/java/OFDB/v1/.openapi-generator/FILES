@@ -33,7 +33,6 @@ src/main/java/com/factset/sdk/OFDB/ApiClient.java
 src/main/java/com/factset/sdk/OFDB/ApiException.java
 src/main/java/com/factset/sdk/OFDB/ApiResponse.java
 src/main/java/com/factset/sdk/OFDB/Configuration.java
-src/main/java/com/factset/sdk/OFDB/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/OFDB/JSON.java
 src/main/java/com/factset/sdk/OFDB/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/OFDB/Pair.java

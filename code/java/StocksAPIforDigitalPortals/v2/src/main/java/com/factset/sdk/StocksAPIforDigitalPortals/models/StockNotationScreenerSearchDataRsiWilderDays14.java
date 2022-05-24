@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRsiWilderDays14 implements Serializa
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataRsiWilderDays14() { 
+  }
 
   public StockNotationScreenerSearchDataRsiWilderDays14 minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

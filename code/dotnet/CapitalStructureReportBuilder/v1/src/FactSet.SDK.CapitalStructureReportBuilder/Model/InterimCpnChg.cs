@@ -52,7 +52,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InterimCpnChg {\n");
             sb.Append("  _InterimCpnChg: ").Append(_InterimCpnChg).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         public bool Equals(InterimCpnChg input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._InterimCpnChg == input._InterimCpnChg ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._InterimCpnChg != null)
-                    hashCode = hashCode * 59 + this._InterimCpnChg.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._InterimCpnChg.GetHashCode();
+                }
                 return hashCode;
             }
         }

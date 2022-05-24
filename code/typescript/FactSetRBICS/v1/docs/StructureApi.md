@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRbicsStructure(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const structureRequest = new factsetrbics.StructureRequest(); // StructureReques
 // Call api endpoint
 apiInstance.getRbicsStructureForList(structureRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

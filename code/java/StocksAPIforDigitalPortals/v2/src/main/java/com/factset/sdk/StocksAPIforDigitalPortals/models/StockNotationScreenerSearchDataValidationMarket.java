@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataValidationMarket implements Serializ
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private StockNotationScreenerSearchDataValidationMarketPriority priority;
 
+  public StockNotationScreenerSearchDataValidationMarket() { 
+  }
 
   public StockNotationScreenerSearchDataValidationMarket selection(StockNotationScreenerSearchDataValidationMarketSelection selection) {
     this.selection = selection;

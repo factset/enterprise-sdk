@@ -50,7 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
-            var document = document_example;  // string | Document Name (default to "Client:Foo")
+            var document = "\"Client:Foo\"";  // string | Document Name (default to "Client:Foo")
 
             try
             {
@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
  **document** | **string**| Document Name | [default to &quot;Client:Foo&quot;]
 
 ### Return type
-
 [**Dictionary&lt;string, ComponentSummary&gt;**](ComponentSummary.md)
 
 ### Authorization

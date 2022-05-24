@@ -89,6 +89,16 @@ public class Input implements Serializable {
   public static final String JSON_PROPERTY_FILTER_TAGS_WITHOUT_ID = "filterTagsWithoutId";
   private Boolean filterTagsWithoutId = true;
 
+  public Input() { 
+  }
+
+  @JsonCreator
+  public Input(
+    @JsonProperty(value=JSON_PROPERTY_TEXT, required=true) String text
+  ) {
+    this();
+    this.text = text;
+  }
 
   public Input text(String text) {
     this.text = text;

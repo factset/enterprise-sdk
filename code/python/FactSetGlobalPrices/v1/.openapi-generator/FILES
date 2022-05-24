@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/Adjust.md
 docs/Calendar.md
+docs/CancelledDividend.md
 docs/CashDividendsResponse.md
 docs/CorporateActionsApi.md
 docs/CorporateActionsRequest.md
@@ -24,6 +25,10 @@ docs/IdsMax50.md
 docs/Price.md
 docs/PricesApi.md
 docs/PricesFields.md
+docs/Returns.md
+docs/ReturnsApi.md
+docs/ReturnsRequest.md
+docs/ReturnsResponse.md
 docs/RightsIssueResponse.md
 docs/SpinoffsResponse.md
 docs/Split.md
@@ -34,6 +39,7 @@ fds/sdk/FactSetGlobalPrices/__init__.py
 fds/sdk/FactSetGlobalPrices/api/__init__.py
 fds/sdk/FactSetGlobalPrices/api/corporate_actions_api.py
 fds/sdk/FactSetGlobalPrices/api/prices_api.py
+fds/sdk/FactSetGlobalPrices/api/returns_api.py
 fds/sdk/FactSetGlobalPrices/api_client.py
 fds/sdk/FactSetGlobalPrices/apis/__init__.py
 fds/sdk/FactSetGlobalPrices/configuration.py
@@ -41,6 +47,7 @@ fds/sdk/FactSetGlobalPrices/exceptions.py
 fds/sdk/FactSetGlobalPrices/model/__init__.py
 fds/sdk/FactSetGlobalPrices/model/adjust.py
 fds/sdk/FactSetGlobalPrices/model/calendar.py
+fds/sdk/FactSetGlobalPrices/model/cancelled_dividend.py
 fds/sdk/FactSetGlobalPrices/model/cash_dividends_response.py
 fds/sdk/FactSetGlobalPrices/model/corporate_actions_request.py
 fds/sdk/FactSetGlobalPrices/model/corporate_actions_response.py
@@ -57,6 +64,9 @@ fds/sdk/FactSetGlobalPrices/model/ids_max100.py
 fds/sdk/FactSetGlobalPrices/model/ids_max50.py
 fds/sdk/FactSetGlobalPrices/model/price.py
 fds/sdk/FactSetGlobalPrices/model/prices_fields.py
+fds/sdk/FactSetGlobalPrices/model/returns.py
+fds/sdk/FactSetGlobalPrices/model/returns_request.py
+fds/sdk/FactSetGlobalPrices/model/returns_response.py
 fds/sdk/FactSetGlobalPrices/model/rights_issue_response.py
 fds/sdk/FactSetGlobalPrices/model/spinoffs_response.py
 fds/sdk/FactSetGlobalPrices/model/split.py

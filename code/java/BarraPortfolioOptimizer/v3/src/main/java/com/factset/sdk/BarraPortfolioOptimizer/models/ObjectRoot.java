@@ -42,6 +42,16 @@ public class ObjectRoot implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private Object data;
 
+  public ObjectRoot() { 
+  }
+
+  @JsonCreator
+  public ObjectRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) Object data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public ObjectRoot data(Object data) {
     this.data = data;

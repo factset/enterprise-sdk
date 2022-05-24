@@ -88,6 +88,8 @@ public class InlineResponse2005Data implements Serializable {
   public static final String JSON_PROPERTY_PRICES = "prices";
   private java.util.List<InlineResponse2005DataPrices> prices = null;
 
+  public InlineResponse2005Data() { 
+  }
 
   public InlineResponse2005Data range(InlineResponse200DataRange range) {
     this.range = range;

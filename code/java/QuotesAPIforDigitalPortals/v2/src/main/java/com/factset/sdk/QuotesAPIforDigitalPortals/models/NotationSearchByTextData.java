@@ -64,6 +64,8 @@ public class NotationSearchByTextData implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private NotationSearchByTextDataTradingValue tradingValue;
 
+  public NotationSearchByTextData() { 
+  }
 
   public NotationSearchByTextData text(NotationSearchByTextDataText text) {
     this.text = text;

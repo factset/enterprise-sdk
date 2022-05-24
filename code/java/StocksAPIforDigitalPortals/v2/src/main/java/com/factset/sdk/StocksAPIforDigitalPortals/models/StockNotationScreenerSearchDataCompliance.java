@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataCompliance implements Serializable {
   public static final String JSON_PROPERTY_FRANCE = "france";
   private StockNotationScreenerSearchDataComplianceFrance france;
 
+  public StockNotationScreenerSearchDataCompliance() { 
+  }
 
   public StockNotationScreenerSearchDataCompliance france(StockNotationScreenerSearchDataComplianceFrance france) {
     this.france = france;

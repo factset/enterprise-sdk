@@ -19,7 +19,7 @@ import ColumnSummary from '../model/ColumnSummary';
 /**
 * Columns service.
 * @module api/ColumnsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ColumnsApi {
 
@@ -62,7 +62,10 @@ export default class ColumnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Column;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/pa/columns/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class ColumnsApi {
      * Get PA column settings
      * This endpoint returns the default settings of a PA column.
      * @param {String} id Unique identifier for a column
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Column}
+     * @return { Promise.< module:model/Column > } a Promise, with data of type {@link module:model/Column }
      */
     getPAColumnById(id) {
       return this.getPAColumnByIdWithHttpInfo(id)
@@ -112,7 +115,10 @@ export default class ColumnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': ColumnSummary};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/pa/columns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -127,7 +133,7 @@ export default class ColumnsApi {
      * @param {String} opts.name  (default to '')
      * @param {String} opts.category  (default to '')
      * @param {String} opts.directory  (default to '')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: ColumnSummary}>}
+     * @return { Promise.< Object.<String, module:model/{String: ColumnSummary}> > } a Promise, with data of type {@link Object.<String, module:model/{String: ColumnSummary}> }
      */
     getPAColumns(opts) {
       return this.getPAColumnsWithHttpInfo(opts)
@@ -138,3 +144,8 @@ export default class ColumnsApi {
 
 
 }
+
+
+
+
+

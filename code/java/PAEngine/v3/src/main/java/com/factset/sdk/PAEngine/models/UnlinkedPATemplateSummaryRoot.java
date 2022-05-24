@@ -51,6 +51,16 @@ public class UnlinkedPATemplateSummaryRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public UnlinkedPATemplateSummaryRoot() { 
+  }
+
+  @JsonCreator
+  public UnlinkedPATemplateSummaryRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, UnlinkedPATemplateSummary> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public UnlinkedPATemplateSummaryRoot data(java.util.Map<String, UnlinkedPATemplateSummary> data) {
     this.data = data;

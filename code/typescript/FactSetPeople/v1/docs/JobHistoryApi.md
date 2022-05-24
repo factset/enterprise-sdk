@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPeopleJobs(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const peopleJobsRequest = new factsetpeople.PeopleJobsRequest(); // PeopleJobsRe
 // Call api endpoint
 apiInstance.getPeopleJobsForList(peopleJobsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

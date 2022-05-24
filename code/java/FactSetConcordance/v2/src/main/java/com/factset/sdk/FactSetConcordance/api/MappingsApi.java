@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetConcordance.models.EntityMappingDeleteRequest;
 import com.factset.sdk.FactSetConcordance.models.EntityMappingDeleteResponse;
@@ -27,6 +30,46 @@ public class MappingsApi {
   public MappingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntityMappingDeleteForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityMappingDeleteForListResponseTypeMap.put(200, new GenericType<EntityMappingDeleteResponse>(){});
+    getEntityMappingDeleteForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityMappingDeleteForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityMappingDeleteForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityMappingDeleteForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityMappingDeleteForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEntityMappingForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityMappingForListResponseTypeMap.put(200, new GenericType<EntityResponse>(){});
+    getEntityMappingForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityMappingForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityMappingForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityMappingForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityMappingForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEntityUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityUniverseResponseTypeMap.put(200, new GenericType<EntityUniverseResponse>(){});
+    getEntityUniverseResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEntityUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityUniverseForListResponseTypeMap.put(200, new GenericType<EntityUniverseResponse>(){});
+    getEntityUniverseForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityUniverseForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityUniverseForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityUniverseForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -117,11 +160,17 @@ public class MappingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityMappingDeleteResponse> localVarReturnType = new GenericType<EntityMappingDeleteResponse>() {};
 
-    return apiClient.invokeAPI("MappingsApi.getEntityMappingDeleteForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityMappingDeleteResponse
+      
+    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityMappingDeleteForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityMappingDeleteForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Saves a single-mapping specified by the client.
@@ -194,11 +243,17 @@ public class MappingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityResponse> localVarReturnType = new GenericType<EntityResponse>() {};
 
-    return apiClient.invokeAPI("MappingsApi.getEntityMappingForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityResponse
+      
+    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityMappingForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityMappingForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieve all saved mappings within a requested universe
@@ -284,11 +339,17 @@ public class MappingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityUniverseResponse> localVarReturnType = new GenericType<EntityUniverseResponse>() {};
 
-    return apiClient.invokeAPI("MappingsApi.getEntityUniverse", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityUniverseResponse
+      
+    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityUniverse", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityUniverseResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieve all saved mappings within a requested universe or large list of client ids
@@ -361,10 +422,16 @@ public class MappingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityUniverseResponse> localVarReturnType = new GenericType<EntityUniverseResponse>() {};
 
-    return apiClient.invokeAPI("MappingsApi.getEntityUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityUniverseResponse
+      
+    > apiResponse = apiClient.invokeAPI("MappingsApi.getEntityUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityUniverseForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -47,6 +47,8 @@ public class InlineResponse2002Data implements Serializable {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private BigDecimal amount;
 
+  public InlineResponse2002Data() { 
+  }
 
   public InlineResponse2002Data name(String name) {
     this.name = name;

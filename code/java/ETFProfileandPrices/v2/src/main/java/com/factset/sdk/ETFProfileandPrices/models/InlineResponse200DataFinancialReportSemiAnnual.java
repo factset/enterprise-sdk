@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
@@ -48,6 +48,8 @@ public class InlineResponse200DataFinancialReportSemiAnnual implements Serializa
   public static final String JSON_PROPERTY_DATE = "date";
   private LocalDate date;
 
+  public InlineResponse200DataFinancialReportSemiAnnual() { 
+  }
 
   public InlineResponse200DataFinancialReportSemiAnnual isAvailable(Boolean isAvailable) {
     this.isAvailable = isAvailable;

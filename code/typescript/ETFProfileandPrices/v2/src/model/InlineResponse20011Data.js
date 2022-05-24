@@ -16,11 +16,12 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20011Data model module.
  * @module model/InlineResponse20011Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20011Data {
     /**
      * Constructs a new <code>InlineResponse20011Data</code>.
+     * Portfolio statistics.
      * @alias module:model/InlineResponse20011Data
      */
     constructor() { 
@@ -47,8 +48,32 @@ class InlineResponse20011Data {
         if (data) {
             obj = obj || new InlineResponse20011Data();
 
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('asOfDate')) {
+                obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
+            }
+            if (data.hasOwnProperty('numberHoldings')) {
+                obj['numberHoldings'] = ApiClient.convertToType(data['numberHoldings'], 'Number');
+            }
+            if (data.hasOwnProperty('concentration')) {
+                obj['concentration'] = ApiClient.convertToType(data['concentration'], 'String');
+            }
+            if (data.hasOwnProperty('dividendYield')) {
+                obj['dividendYield'] = ApiClient.convertToType(data['dividendYield'], 'Number');
+            }
+            if (data.hasOwnProperty('priceEarningsRatio')) {
+                obj['priceEarningsRatio'] = ApiClient.convertToType(data['priceEarningsRatio'], 'Number');
+            }
+            if (data.hasOwnProperty('priceBookRatio')) {
+                obj['priceBookRatio'] = ApiClient.convertToType(data['priceBookRatio'], 'Number');
+            }
+            if (data.hasOwnProperty('marketCapitalization')) {
+                obj['marketCapitalization'] = ApiClient.convertToType(data['marketCapitalization'], 'Number');
+            }
+            if (data.hasOwnProperty('timeToMaturity')) {
+                obj['timeToMaturity'] = ApiClient.convertToType(data['timeToMaturity'], 'Number');
+            }
+            if (data.hasOwnProperty('creditRating')) {
+                obj['creditRating'] = ApiClient.convertToType(data['creditRating'], 'String');
             }
         }
         return obj;
@@ -58,10 +83,58 @@ class InlineResponse20011Data {
 }
 
 /**
- * Name of the geography.
- * @member {String} name
+ * Date the analytics data was published. Available for the regions: US, Europe, and Canada.
+ * @member {Date} asOfDate
  */
-InlineResponse20011Data.prototype['name'] = undefined;
+InlineResponse20011Data.prototype['asOfDate'] = undefined;
+
+/**
+ * A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.
+ * @member {Number} numberHoldings
+ */
+InlineResponse20011Data.prototype['numberHoldings'] = undefined;
+
+/**
+ * A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.
+ * @member {String} concentration
+ */
+InlineResponse20011Data.prototype['concentration'] = undefined;
+
+/**
+ * The annualized weighted average of the current dividend yield of the portfolio's holdings, gross of fees. Available for the regions: US.
+ * @member {Number} dividendYield
+ */
+InlineResponse20011Data.prototype['dividendYield'] = undefined;
+
+/**
+ * Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.
+ * @member {Number} priceEarningsRatio
+ */
+InlineResponse20011Data.prototype['priceEarningsRatio'] = undefined;
+
+/**
+ * Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.
+ * @member {Number} priceBookRatio
+ */
+InlineResponse20011Data.prototype['priceBookRatio'] = undefined;
+
+/**
+ * The weighted average market capitalization of the stocks in the fund's portfolio (USD). Available for regions: US.
+ * @member {Number} marketCapitalization
+ */
+InlineResponse20011Data.prototype['marketCapitalization'] = undefined;
+
+/**
+ * The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.
+ * @member {Number} timeToMaturity
+ */
+InlineResponse20011Data.prototype['timeToMaturity'] = undefined;
+
+/**
+ * Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody's and Standard & Poor's) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.
+ * @member {String} creditRating
+ */
+InlineResponse20011Data.prototype['creditRating'] = undefined;
 
 
 

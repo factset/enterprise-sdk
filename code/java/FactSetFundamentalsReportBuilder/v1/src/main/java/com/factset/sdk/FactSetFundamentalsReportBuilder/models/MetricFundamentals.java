@@ -43,6 +43,8 @@ public class MetricFundamentals implements Serializable {
   public static final String JSON_PROPERTY_METRIC_FUNDAMENTALS = "metricFundamentals";
   private MetricFundamentalsMetricFundamentals metricFundamentals;
 
+  public MetricFundamentals() { 
+  }
 
   public MetricFundamentals metricFundamentals(MetricFundamentalsMetricFundamentals metricFundamentals) {
     this.metricFundamentals = metricFundamentals;

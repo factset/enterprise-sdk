@@ -20,7 +20,7 @@ import UseOfProceedsResponse from '../model/UseOfProceedsResponse';
 /**
 * UseOfProceeds service.
 * @module api/UseOfProceedsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class UseOfProceedsApi {
 
@@ -63,7 +63,10 @@ export default class UseOfProceedsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = UseOfProceedsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/use-of-proceeds', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class UseOfProceedsApi {
      * Return Use of Proceeds for a Fixed Income security.
      * Returns Use of Proceeds for the Fixed Income security. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UseOfProceedsResponse}
+     * @return { Promise.< module:model/UseOfProceedsResponse > } a Promise, with data of type {@link module:model/UseOfProceedsResponse }
      */
     getFixedIncomeUseOfProceeds(ids) {
       return this.getFixedIncomeUseOfProceedsWithHttpInfo(ids)
@@ -110,7 +113,10 @@ export default class UseOfProceedsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = UseOfProceedsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/use-of-proceeds', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class UseOfProceedsApi {
      * Return Use of Proceeds for a list of Fixed Income securities.
      * Returns Use of Proceeds for a list of Fixed Income securities. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Use of Proceeds.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UseOfProceedsResponse}
+     * @return { Promise.< module:model/UseOfProceedsResponse > } a Promise, with data of type {@link module:model/UseOfProceedsResponse }
      */
     getFixedIncomeUseOfProceedsForList(termsAndConditionsScalarRequest) {
       return this.getFixedIncomeUseOfProceedsForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -133,3 +139,8 @@ export default class UseOfProceedsApi {
 
 
 }
+
+
+
+
+

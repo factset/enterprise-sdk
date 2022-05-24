@@ -7,6 +7,9 @@ import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IRNNotes.models.CreateNoteDto;
 import com.factset.sdk.IRNNotes.models.NewItemDto;
@@ -26,6 +29,28 @@ public class NotesApi {
   public NotesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createNoteResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createNoteResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
+    createNoteResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> deleteNoteResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getNoteResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNoteResponseTypeMap.put(200, new GenericType<NoteDto>(){});
+    getNoteResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getNoteResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getNotesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNotesResponseTypeMap.put(200, new GenericType<java.util.List<NoteSummaryDto>>(){});
+    getNotesResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> updateNoteResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -48,9 +73,9 @@ public class NotesApi {
   /**
    * Create a note
    * 
+   * @param createNoteDto  (required)
    * @param xIRNContributorUsername  (optional)
    * @param xIRNContributorSerial  (optional)
-   * @param createNoteDto  (optional)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -60,16 +85,16 @@ public class NotesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public NewItemDto createNote(String xIRNContributorUsername, String xIRNContributorSerial, CreateNoteDto createNoteDto) throws ApiException {
-    return createNoteWithHttpInfo(xIRNContributorUsername, xIRNContributorSerial, createNoteDto).getData();
+  public NewItemDto createNote(CreateNoteDto createNoteDto, String xIRNContributorUsername, String xIRNContributorSerial) throws ApiException {
+    return createNoteWithHttpInfo(createNoteDto, xIRNContributorUsername, xIRNContributorSerial).getData();
   }
 
   /**
    * Create a note
    * 
+   * @param createNoteDto  (required)
    * @param xIRNContributorUsername  (optional)
    * @param xIRNContributorSerial  (optional)
-   * @param createNoteDto  (optional)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -79,8 +104,13 @@ public class NotesApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<NewItemDto> createNoteWithHttpInfo(String xIRNContributorUsername, String xIRNContributorSerial, CreateNoteDto createNoteDto) throws ApiException {
+  public ApiResponse<NewItemDto> createNoteWithHttpInfo(CreateNoteDto createNoteDto, String xIRNContributorUsername, String xIRNContributorSerial) throws ApiException {
     Object localVarPostBody = createNoteDto;
+    
+    // verify the required parameter 'createNoteDto' is set
+    if (createNoteDto == null) {
+      throw new ApiException(400, "Missing the required parameter 'createNoteDto' when calling createNote");
+    }
     
     // create path and map variables
     String localVarPath = "/v1/notes";
@@ -111,11 +141,17 @@ if (xIRNContributorSerial != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<NewItemDto> localVarReturnType = new GenericType<NewItemDto>() {};
 
-    return apiClient.invokeAPI("NotesApi.createNote", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        NewItemDto
+      
+    > apiResponse = apiClient.invokeAPI("NotesApi.createNote", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createNoteResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a Note
@@ -184,9 +220,15 @@ if (xIRNContributorSerial != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("NotesApi.deleteNote", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("NotesApi.deleteNote", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteNoteResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get details of a note
@@ -254,11 +296,17 @@ if (xIRNContributorSerial != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<NoteDto> localVarReturnType = new GenericType<NoteDto>() {};
 
-    return apiClient.invokeAPI("NotesApi.getNote", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        NoteDto
+      
+    > apiResponse = apiClient.invokeAPI("NotesApi.getNote", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNoteResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get all the notes in the specified date range filtered on the given identifiers
@@ -273,9 +321,10 @@ if (xIRNContributorSerial != null)
    * @param limit Limit on the number of notes retrieved (optional)
    * @param offset Fetch notes after the offset (optional)
    * @param modifiedSince Only return notes which have been modified or created since a particular time (optional)
+   * @param states Set of states to filter on (optional)
    * @param filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (optional, default to false)
    * @param xIRNIncludeDeleted  (optional, default to false)
-   * @return java.util.List&lt;NoteSummaryDto&gt;
+   * @return java.util.List<NoteSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -284,8 +333,8 @@ if (xIRNContributorSerial != null)
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<NoteSummaryDto> getNotes(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, Boolean filterOnRelatedSymbols, Boolean xIRNIncludeDeleted) throws ApiException {
-    return getNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, filterOnRelatedSymbols, xIRNIncludeDeleted).getData();
+  public java.util.List<NoteSummaryDto> getNotes(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, java.util.List<String> states, Boolean filterOnRelatedSymbols, Boolean xIRNIncludeDeleted) throws ApiException {
+    return getNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted).getData();
   }
 
   /**
@@ -301,9 +350,10 @@ if (xIRNContributorSerial != null)
    * @param limit Limit on the number of notes retrieved (optional)
    * @param offset Fetch notes after the offset (optional)
    * @param modifiedSince Only return notes which have been modified or created since a particular time (optional)
+   * @param states Set of states to filter on (optional)
    * @param filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (optional, default to false)
    * @param xIRNIncludeDeleted  (optional, default to false)
-   * @return ApiResponse&lt;java.util.List&lt;NoteSummaryDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<NoteSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -312,7 +362,7 @@ if (xIRNContributorSerial != null)
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<NoteSummaryDto>> getNotesWithHttpInfo(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, Boolean filterOnRelatedSymbols, Boolean xIRNIncludeDeleted) throws ApiException {
+  public ApiResponse<java.util.List<NoteSummaryDto>> getNotesWithHttpInfo(String start, String end, java.util.List<String> identifiers, java.util.List<java.util.UUID> authors, java.util.List<java.util.UUID> subjects, java.util.List<java.util.UUID> recommendations, java.util.List<java.util.UUID> sentiments, Integer limit, Integer offset, String modifiedSince, java.util.List<String> states, Boolean filterOnRelatedSymbols, Boolean xIRNIncludeDeleted) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -334,6 +384,7 @@ if (xIRNContributorSerial != null)
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "modifiedSince", modifiedSince));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "states", states));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filterOnRelatedSymbols", filterOnRelatedSymbols));
 
     if (xIRNIncludeDeleted != null)
@@ -353,11 +404,17 @@ if (xIRNContributorSerial != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<NoteSummaryDto>> localVarReturnType = new GenericType<java.util.List<NoteSummaryDto>>() {};
 
-    return apiClient.invokeAPI("NotesApi.getNotes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<NoteSummaryDto>
+      
+    > apiResponse = apiClient.invokeAPI("NotesApi.getNotes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNotesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Update a note
@@ -426,8 +483,14 @@ if (xIRNContributorSerial != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("NotesApi.updateNote", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("NotesApi.updateNote", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, updateNoteResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

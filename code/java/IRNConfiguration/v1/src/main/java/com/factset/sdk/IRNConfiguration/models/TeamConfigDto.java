@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -47,21 +47,23 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class TeamConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DEFAULT_SUBJECT_ID = "defaultSubjectId";
+  public static final String JSON_PROPERTY_DEFAULT_SUBJECT_ID = "DefaultSubjectId";
   private JsonNullable<java.util.UUID> defaultSubjectId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_USER_IDS = "userIds";
+  public static final String JSON_PROPERTY_USER_IDS = "UserIds";
   private JsonNullable<java.util.List<java.util.UUID>> userIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
+  public TeamConfigDto() { 
+  }
 
   public TeamConfigDto id(java.util.UUID id) {
     this.id = id;

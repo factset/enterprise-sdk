@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Country model module.
  * @module model/Country
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Country {
     /**

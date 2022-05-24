@@ -11,12 +11,12 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import ModelAccountAdditionalField from './model/ModelAccountAdditionalField';
 import ModelAccountFields from './model/ModelAccountFields';
 import ModelAccountFieldsRoot from './model/ModelAccountFieldsRoot';
 import ProblemDetails from './model/ProblemDetails';
+
 import ModelAccountsApi from './api/ModelAccountsApi';
 
 
@@ -49,7 +49,7 @@ import ModelAccountsApi from './api/ModelAccountsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -86,5 +86,6 @@ export {
     * The ModelAccountsApi service constructor.
     * @property {module:api/ModelAccountsApi}
     */
-    ModelAccountsApi
+    ModelAccountsApi,
+
 };

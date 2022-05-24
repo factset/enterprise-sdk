@@ -41,39 +41,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_structure_api.EntityStructureApi(api_client)
+
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) if omitted the server will use the default value of -1
-    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) if omitted the server will use the default value of -1
+    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) (default to -1)
+    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) (default to -1)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns all active or inactive entities and respective levels below the requested entity id.
-        api_response = api_instance.get_entity_structure(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetEntity.ApiException as e:
-        print("Exception when calling EntityStructureApi->get_entity_structure: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns all active or inactive entities and respective levels below the requested entity id.
         api_response = api_instance.get_entity_structure(ids, level=level, active=active)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntityStructureApi->get_entity_structure: %s\n" % e)
 ```
@@ -145,39 +137,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_structure_api.EntityStructureApi(api_client)
+
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) if omitted the server will use the default value of -1
-    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) if omitted the server will use the default value of -1
+    level = -1 # int | Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional) (default to -1)
+    active = -1 # int | Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional) (default to -1)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns the full ultimate parent entity hiearachy. Control levels and active status of underlying entities.
-        api_response = api_instance.get_ultimate_entity_structure(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetEntity.ApiException as e:
-        print("Exception when calling EntityStructureApi->get_ultimate_entity_structure: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns the full ultimate parent entity hiearachy. Control levels and active status of underlying entities.
         api_response = api_instance.get_ultimate_entity_structure(ids, level=level, active=active)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntityStructureApi->get_ultimate_entity_structure: %s\n" % e)
 ```
@@ -250,32 +234,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_structure_api.EntityStructureApi(api_client)
+
     entity_structure_request = EntityStructureRequest(
         ids=StructureIds(["FDS-US","0FPWZZ-E","TSLA-US"]),
         level=-1,
         active=Active(1),
     ) # EntityStructureRequest | Request Body to request a list of Entity Structure objects.
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns all active or inactive entities below the requested entity id.
         api_response = api_instance.post_entity_structure(entity_structure_request)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntityStructureApi->post_entity_structure: %s\n" % e)
 ```
@@ -346,32 +331,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_structure_api.EntityStructureApi(api_client)
+
     ultimate_entity_structure_request = UltimateEntityStructureRequest(
         ids=StructureIds(["FDS-US","0FPWZZ-E","TSLA-US"]),
         level=-1,
         active=Active(1),
     ) # UltimateEntityStructureRequest | Request Body to request a list of Ultimate Entity Structure objects.
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns all active or inactive entities and respective levels below the requested entity id.
         api_response = api_instance.post_ultimate_entity_structure(ultimate_entity_structure_request)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntityStructureApi->post_ultimate_entity_structure: %s\n" % e)
 ```

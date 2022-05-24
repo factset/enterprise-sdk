@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.FieldsResponse;
@@ -24,6 +27,37 @@ public class TermsConditionsApi {
   public TermsConditionsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getTermsAndConditionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTermsAndConditionsResponseTypeMap.put(200, new GenericType<TermsAndConditionsResponse>(){});
+    getTermsAndConditionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getTermsAndConditionsFieldsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTermsAndConditionsFieldsResponseTypeMap.put(200, new GenericType<FieldsResponse>(){});
+    getTermsAndConditionsFieldsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsFieldsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsFieldsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsFieldsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsFieldsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getTermsAndConditionsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTermsAndConditionsForListResponseTypeMap.put(200, new GenericType<TermsAndConditionsResponse>(){});
+    getTermsAndConditionsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getTermsAndConditionsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -121,11 +155,17 @@ public class TermsConditionsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TermsAndConditionsResponse> localVarReturnType = new GenericType<TermsAndConditionsResponse>() {};
 
-    return apiClient.invokeAPI("TermsConditionsApi.getTermsAndConditions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TermsAndConditionsResponse
+      
+    > apiResponse = apiClient.invokeAPI("TermsConditionsApi.getTermsAndConditions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getTermsAndConditionsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Available fields for /terms-and-conditions endpoint
@@ -194,11 +234,17 @@ public class TermsConditionsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FieldsResponse> localVarReturnType = new GenericType<FieldsResponse>() {};
 
-    return apiClient.invokeAPI("TermsConditionsApi.getTermsAndConditionsFields", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FieldsResponse
+      
+    > apiResponse = apiClient.invokeAPI("TermsConditionsApi.getTermsAndConditionsFields", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getTermsAndConditionsFieldsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Terms and Conditions for a list of Fixed Income securities.
@@ -271,10 +317,16 @@ public class TermsConditionsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TermsAndConditionsResponse> localVarReturnType = new GenericType<TermsAndConditionsResponse>() {};
 
-    return apiClient.invokeAPI("TermsConditionsApi.getTermsAndConditionsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TermsAndConditionsResponse
+      
+    > apiResponse = apiClient.invokeAPI("TermsConditionsApi.getTermsAndConditionsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getTermsAndConditionsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

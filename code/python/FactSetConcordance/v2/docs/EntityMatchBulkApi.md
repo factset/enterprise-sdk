@@ -40,39 +40,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
+
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
     limit = 10 # int | Limits the number of records in the response. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get the decisions of matches for the requested taskId.
-        api_response = api_instance.get_entity_decisions(task_id)
-        pprint(api_response)
-    except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling EntityMatchBulkApi->get_entity_decisions: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get the decisions of matches for the requested taskId.
         api_response = api_instance.get_entity_decisions(task_id, offset=offset, limit=limit)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling EntityMatchBulkApi->get_entity_decisions: %s\n" % e)
 ```
@@ -144,21 +136,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
+
     universe_id = 1 # int | The id of the universe that entities should be mapped to. Reference the `/universe` endpoint to create a universe, or view available universes via `/universes`.
     task_name = "test31" # str | User defined name for the task that will be used to name the output files.
     input_file = open('/path/to/file', 'rb') # file_type | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
@@ -180,20 +173,11 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         "IB",
     ] # [str] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Input a file with names and attributes, creating a taskId.
-        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column)
-        pprint(api_response)
-    except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling EntityMatchBulkApi->get_entity_task_for_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Input a file with names and attributes, creating a taskId.
         api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling EntityMatchBulkApi->get_entity_task_for_list: %s\n" % e)
 ```
@@ -274,34 +258,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match___bulk_api.EntityMatchBulkApi(api_client)
+
     task_id = 31589 # int | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional)
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
     limit = 10 # int | Limits the number of records in the response. (optional)
     status = [
         "PENDING",
     ] # [str] | Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Gets the status of the requested taskId or all tasks for a User
         api_response = api_instance.get_entity_task_status(task_id=task_id, offset=offset, limit=limit, status=status)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling EntityMatchBulkApi->get_entity_task_status: %s\n" % e)
 ```

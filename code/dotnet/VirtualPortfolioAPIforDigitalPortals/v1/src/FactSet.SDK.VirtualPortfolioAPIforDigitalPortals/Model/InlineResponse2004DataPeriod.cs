@@ -79,7 +79,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataPeriod {\n");
             sb.Append("  ProfitLoss: ").Append(ProfitLoss).Append("\n");
             sb.Append("  Transactions: ").Append(Transactions).Append("\n");
@@ -116,8 +116,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataPeriod input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ProfitLoss == input.ProfitLoss ||
@@ -148,10 +149,12 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.ProfitLoss != null)
-                    hashCode = hashCode * 59 + this.ProfitLoss.GetHashCode();
-                hashCode = hashCode * 59 + this.Transactions.GetHashCode();
-                hashCode = hashCode * 59 + this.Payouts.GetHashCode();
-                hashCode = hashCode * 59 + this.PurchaseValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ProfitLoss.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Transactions.GetHashCode();
+                hashCode = (hashCode * 59) + this.Payouts.GetHashCode();
+                hashCode = (hashCode * 59) + this.PurchaseValue.GetHashCode();
                 return hashCode;
             }
         }

@@ -51,6 +51,8 @@ public class ColoredValueLabelDateTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private String date;
 
+  public ColoredValueLabelDateTemplateAllOf() { 
+  }
 
   public ColoredValueLabelDateTemplateAllOf value(ColoredValue value) {
     this.value = value;

@@ -78,6 +78,8 @@ public class StockNotationRankingIntradayListDataPrices implements Serializable 
   public static final String JSON_PROPERTY_QUALITY = "quality";
   private QualityEnum quality = QualityEnum.DLY;
 
+  public StockNotationRankingIntradayListDataPrices() { 
+  }
 
   public StockNotationRankingIntradayListDataPrices quality(QualityEnum quality) {
     this.quality = quality;

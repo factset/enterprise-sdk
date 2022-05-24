@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004TradePerformance model module.
  * @module model/InlineResponse2004TradePerformance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004TradePerformance {
     /**

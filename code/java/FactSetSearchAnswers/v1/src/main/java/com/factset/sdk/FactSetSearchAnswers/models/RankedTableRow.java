@@ -57,6 +57,16 @@ public class RankedTableRow implements Serializable {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private java.util.List<String> additionalData = null;
 
+  public RankedTableRow() { 
+  }
+
+  @JsonCreator
+  public RankedTableRow(
+    @JsonProperty(value=JSON_PROPERTY_RANK, required=true) BigDecimal rank
+  ) {
+    this();
+    this.rank = rank;
+  }
 
   public RankedTableRow rank(BigDecimal rank) {
     this.rank = rank;

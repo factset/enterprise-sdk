@@ -85,7 +85,6 @@ Name | Type | Description  | Notes
  **frequency** | **string**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  | [optional] [default to D]
 
 ### Return type
-
 [**ForwardsResponse**](ForwardsResponse.md)
 
 ### Authorization
@@ -179,7 +178,6 @@ Name | Type | Description  | Notes
  **forwardsRequest** | [**ForwardsRequest**](ForwardsRequest.md)| Request object for FX Forwards. | 
 
 ### Return type
-
 [**ForwardsResponse**](ForwardsResponse.md)
 
 ### Authorization

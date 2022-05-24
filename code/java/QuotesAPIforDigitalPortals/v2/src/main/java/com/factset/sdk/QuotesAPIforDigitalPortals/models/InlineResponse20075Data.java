@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -76,6 +76,8 @@ public class InlineResponse20075Data implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private InlineResponse20073Status status;
 
+  public InlineResponse20075Data() { 
+  }
 
   public InlineResponse20075Data id(String id) {
     this.id = id;

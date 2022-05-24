@@ -71,6 +71,16 @@ public class ColoredValueLabelDateTemplate implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private String date;
 
+  public ColoredValueLabelDateTemplate() { 
+  }
+
+  @JsonCreator
+  public ColoredValueLabelDateTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public ColoredValueLabelDateTemplate headline(String headline) {
     this.headline = headline;

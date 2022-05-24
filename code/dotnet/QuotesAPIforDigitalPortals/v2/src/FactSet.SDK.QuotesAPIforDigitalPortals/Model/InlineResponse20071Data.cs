@@ -62,7 +62,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20071Data {\n");
             sb.Append("  PermanentIdentifier: ").Append(PermanentIdentifier).Append("\n");
             sb.Append("  Regional: ").Append(Regional).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20071Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PermanentIdentifier == input.PermanentIdentifier ||
@@ -123,9 +124,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.PermanentIdentifier != null)
-                    hashCode = hashCode * 59 + this.PermanentIdentifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PermanentIdentifier.GetHashCode();
+                }
                 if (this.Regional != null)
-                    hashCode = hashCode * 59 + this.Regional.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Regional.GetHashCode();
+                }
                 return hashCode;
             }
         }

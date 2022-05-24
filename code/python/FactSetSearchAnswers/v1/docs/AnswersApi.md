@@ -39,39 +39,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetSearchAnswers.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetSearchAnswers.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = answers_api.AnswersApi(api_client)
+
     query = "query_example" # str | Query for desired answer (e.g., \"fds price\")
-    include_thumbnail = False # bool | Includes thumbnail of Adaptive Card in response (optional) if omitted the server will use the default value of False
-    disable_no_answer_responses = True # bool | Disables no-result answer responses (no-results and answer without data) (optional) if omitted the server will use the default value of True
+    include_thumbnail = False # bool | Includes thumbnail of Adaptive Card in response (optional) (default to False)
+    disable_no_answer_responses = True # bool | Disables no-result answer responses (no-results and answer without data) (optional) (default to True)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Fetch FactSet answer in Adaptive Card format
-        api_response = api_instance.search_for_adaptive_card_answer(query)
-        pprint(api_response)
-    except fds.sdk.FactSetSearchAnswers.ApiException as e:
-        print("Exception when calling AnswersApi->search_for_adaptive_card_answer: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Fetch FactSet answer in Adaptive Card format
         api_response = api_instance.search_for_adaptive_card_answer(query, include_thumbnail=include_thumbnail, disable_no_answer_responses=disable_no_answer_responses)
         pprint(api_response)
+
     except fds.sdk.FactSetSearchAnswers.ApiException as e:
         print("Exception when calling AnswersApi->search_for_adaptive_card_answer: %s\n" % e)
 ```
@@ -141,28 +133,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetSearchAnswers.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetSearchAnswers.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetSearchAnswers.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = answers_api.AnswersApi(api_client)
+
     query = "query_example" # str | Query for desired answer (e.g., \"fds price\")
 
-    # example passing only required values which don't have defaults set
     try:
         # Fetch FactSet answer in data format
         api_response = api_instance.search_for_data_answer(query)
         pprint(api_response)
+
     except fds.sdk.FactSetSearchAnswers.ApiException as e:
         print("Exception when calling AnswersApi->search_for_data_answer: %s\n" % e)
 ```

@@ -64,6 +64,8 @@ public class UnlinkedPATemplateCategoryAndTypeDetails implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public UnlinkedPATemplateCategoryAndTypeDetails() { 
+  }
 
   public UnlinkedPATemplateCategoryAndTypeDetails id(String id) {
     this.id = id;

@@ -43,6 +43,8 @@ public class EntityTaskStatusResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntityTaskStatus> data = null;
 
+  public EntityTaskStatusResponse() { 
+  }
 
   public EntityTaskStatusResponse data(java.util.List<EntityTaskStatus> data) {
     this.data = data;

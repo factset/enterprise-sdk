@@ -12,15 +12,19 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20010DataIndexChange from './InlineResponse20010DataIndexChange';
+import InlineResponse20010DataRisk from './InlineResponse20010DataRisk';
+import InlineResponse20010DataSecurityLending from './InlineResponse20010DataSecurityLending';
 
 /**
  * The InlineResponse20010Data model module.
  * @module model/InlineResponse20010Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20010Data {
     /**
      * Constructs a new <code>InlineResponse20010Data</code>.
+     * Profile analytics.
      * @alias module:model/InlineResponse20010Data
      */
     constructor() { 
@@ -47,8 +51,23 @@ class InlineResponse20010Data {
         if (data) {
             obj = obj || new InlineResponse20010Data();
 
-            if (data.hasOwnProperty('nicheCategory')) {
-                obj['nicheCategory'] = ApiClient.convertToType(data['nicheCategory'], 'String');
+            if (data.hasOwnProperty('asOfDate')) {
+                obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
+            }
+            if (data.hasOwnProperty('securityLending')) {
+                obj['securityLending'] = InlineResponse20010DataSecurityLending.constructFromObject(data['securityLending']);
+            }
+            if (data.hasOwnProperty('risk')) {
+                obj['risk'] = InlineResponse20010DataRisk.constructFromObject(data['risk']);
+            }
+            if (data.hasOwnProperty('benchmarkName')) {
+                obj['benchmarkName'] = ApiClient.convertToType(data['benchmarkName'], 'String');
+            }
+            if (data.hasOwnProperty('indexChange')) {
+                obj['indexChange'] = InlineResponse20010DataIndexChange.constructFromObject(data['indexChange']);
+            }
+            if (data.hasOwnProperty('medianBidAskSpread')) {
+                obj['medianBidAskSpread'] = ApiClient.convertToType(data['medianBidAskSpread'], 'Number');
             }
         }
         return obj;
@@ -58,10 +77,37 @@ class InlineResponse20010Data {
 }
 
 /**
- * ETP class niche category.
- * @member {String} nicheCategory
+ * Date the analytics data was published. Available for the regions: US, Europe, and Canada.
+ * @member {Date} asOfDate
  */
-InlineResponse20010Data.prototype['nicheCategory'] = undefined;
+InlineResponse20010Data.prototype['asOfDate'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20010DataSecurityLending} securityLending
+ */
+InlineResponse20010Data.prototype['securityLending'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20010DataRisk} risk
+ */
+InlineResponse20010Data.prototype['risk'] = undefined;
+
+/**
+ * FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund's performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe.
+ * @member {String} benchmarkName
+ */
+InlineResponse20010Data.prototype['benchmarkName'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20010DataIndexChange} indexChange
+ */
+InlineResponse20010Data.prototype['indexChange'] = undefined;
+
+/**
+ * The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US.
+ * @member {Number} medianBidAskSpread
+ */
+InlineResponse20010Data.prototype['medianBidAskSpread'] = undefined;
 
 
 

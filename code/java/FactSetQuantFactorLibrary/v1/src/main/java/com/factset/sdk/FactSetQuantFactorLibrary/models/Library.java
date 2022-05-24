@@ -66,6 +66,8 @@ public class Library implements Serializable {
   public static final String JSON_PROPERTY_FORMAT = "format";
   private String format;
 
+  public Library() { 
+  }
 
   public Library factor(String factor) {
     this.factor = factor;

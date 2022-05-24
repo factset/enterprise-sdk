@@ -83,6 +83,8 @@ public class InlineResponse2004ReportedKeyFiguresThirdFiscalYear implements Seri
   public static final String JSON_PROPERTY_RATIOS = "ratios";
   private InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios ratios;
 
+  public InlineResponse2004ReportedKeyFiguresThirdFiscalYear() { 
+  }
 
   public InlineResponse2004ReportedKeyFiguresThirdFiscalYear fiscalYear(InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear fiscalYear) {
     this.fiscalYear = fiscalYear;

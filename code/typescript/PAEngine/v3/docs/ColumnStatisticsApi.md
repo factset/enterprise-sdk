@@ -46,6 +46,7 @@ const apiInstance = new ColumnStatisticsApi();
 // Call api endpoint
 apiInstance.getPAColumnStatistics().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

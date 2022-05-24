@@ -50,6 +50,8 @@ public class ComponentBenchmark implements Serializable {
   public static final String JSON_PROPERTY_HOLDINGSMODE = "holdingsmode";
   private String holdingsmode;
 
+  public ComponentBenchmark() { 
+  }
 
   public ComponentBenchmark id(String id) {
     this.id = id;

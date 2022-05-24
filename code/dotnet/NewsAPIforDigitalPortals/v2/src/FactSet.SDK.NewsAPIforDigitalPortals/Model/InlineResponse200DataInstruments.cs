@@ -35,9 +35,11 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="InlineResponse200DataInstruments" /> class.
         /// </summary>
         /// <param name="id">Identifier of the instrument..</param>
-        public InlineResponse200DataInstruments(string id = default(string))
+        /// <param name="fsym">fsym.</param>
+        public InlineResponse200DataInstruments(string id = default(string), InlineResponse200DataFsym fsym = default(InlineResponse200DataFsym))
         {
             this.Id = id;
+            this.Fsym = fsym;
         }
 
         /// <summary>
@@ -48,14 +50,21 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse200DataFsym Fsym { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataInstruments {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,13 +96,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataInstruments input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
                 );
         }
 
@@ -107,7 +122,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -11,6 +11,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.NorthfieldPortfolioOptimizer.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.NorthfieldPortfolioOptimizer.model_utils import (  # noqa: F401
@@ -22,10 +24,120 @@ from fds.sdk.NorthfieldPortfolioOptimizer.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.NorthfieldPortfolioOptimizer.exceptions import ApiException
 from fds.sdk.NorthfieldPortfolioOptimizer.model.calculation_info_root import CalculationInfoRoot
 from fds.sdk.NorthfieldPortfolioOptimizer.model.client_error_response import ClientErrorResponse
 from fds.sdk.NorthfieldPortfolioOptimizer.model.npo_optimization_parameters_root import NPOOptimizationParametersRoot
 from fds.sdk.NorthfieldPortfolioOptimizer.model.object_root import ObjectRoot
+
+
+
+class PostAndOptimizeResponseWrapper:
+    def __init__(self, status_code: int, response: object):
+        """
+        This constructor initializes the new PostAndOptimizeResponseWrapper
+        to status_code, response
+
+        Args:
+            response (object): Raw response
+            status_code (int): Http status code of the response
+        """
+
+        self.status_code = status_code
+        self.response = response
+
+    def get_status_code(self) -> int:
+        """
+        Returns: Http status code of the response
+        """
+        return self.status_code
+
+    def get_response(self) -> object:
+        """
+        Returns: Raw Object response
+        """
+        return self.response
+
+    def get_response_201(self) -> ObjectRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, returns json if optimization is completed in a short span.
+        """
+        if self.status_code != 201:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_201 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+    def get_response_202(self) -> CalculationInfoRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, contains the poll URL in the Location header.
+        """
+        if self.status_code != 202:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_202 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+
+class PutAndOptimizeResponseWrapper:
+    def __init__(self, status_code: int, response: object):
+        """
+        This constructor initializes the new PutAndOptimizeResponseWrapper
+        to status_code, response
+
+        Args:
+            response (object): Raw response
+            status_code (int): Http status code of the response
+        """
+
+        self.status_code = status_code
+        self.response = response
+
+    def get_status_code(self) -> int:
+        """
+        Returns: Http status code of the response
+        """
+        return self.status_code
+
+    def get_response(self) -> object:
+        """
+        Returns: Raw Object response
+        """
+        return self.response
+
+    def get_response_201(self) -> ObjectRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, returns json if optimization is completed in a short span.
+        """
+        if self.status_code != 201:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_201 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+    def get_response_202(self) -> CalculationInfoRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, contains the poll URL in the Location header.
+        """
+        if self.status_code != 202:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_202 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+
 
 
 class NPOOptimizerApi(object):
@@ -95,7 +207,10 @@ class NPOOptimizerApi(object):
         )
         self.get_optimization_parameters_endpoint = _Endpoint(
             settings={
-                'response_type': (NPOOptimizationParametersRoot,),
+                'response_type': (
+                  { 200: (NPOOptimizationParametersRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -147,7 +262,10 @@ class NPOOptimizerApi(object):
         )
         self.get_optimization_result_endpoint = _Endpoint(
             settings={
-                'response_type': (ObjectRoot,),
+                'response_type': (
+                  { 200: (ObjectRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -199,7 +317,10 @@ class NPOOptimizerApi(object):
         )
         self.get_optimization_status_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (ObjectRoot,),
+                'response_type': (
+                  { 201: (ObjectRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -251,7 +372,10 @@ class NPOOptimizerApi(object):
         )
         self.post_and_optimize_endpoint = _Endpoint(
             settings={
-                'response_type': (ObjectRoot,),
+                'response_type': (
+                  { 201: (ObjectRoot,), 202: (CalculationInfoRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  PostAndOptimizeResponseWrapper
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -312,7 +436,10 @@ class NPOOptimizerApi(object):
         )
         self.put_and_optimize_endpoint = _Endpoint(
             settings={
-                'response_type': (ObjectRoot,),
+                'response_type': (
+                  { 201: (ObjectRoot,), 202: (CalculationInfoRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,), 409: (ClientErrorResponse,),  },
+                  PutAndOptimizeResponseWrapper
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -379,26 +506,32 @@ class NPOOptimizerApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def cancel_optimization_by_id(
         self,
         id,
         **kwargs
-    ):
+    ) -> None:
         """Cancel NPO optimization by id  # noqa: E501
 
         This is the endpoint to cancel a previously submitted optimization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.cancel_optimization_by_id(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -412,35 +545,161 @@ class NPOOptimizerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             None
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.cancel_optimization_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def cancel_optimization_by_id_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[None, int, typing.MutableMapping]:
+        """Cancel NPO optimization by id  # noqa: E501
+
+        This is the endpoint to cancel a previously submitted optimization.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.cancel_optimization_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def cancel_optimization_by_id_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[None]":
+        """Cancel NPO optimization by id  # noqa: E501
+
+        This is the endpoint to cancel a previously submitted optimization.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[None]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.cancel_optimization_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def cancel_optimization_by_id_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[None, int, typing.MutableMapping]]":
+        """Cancel NPO optimization by id  # noqa: E501
+
+        This is the endpoint to cancel a previously submitted optimization.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(None, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.cancel_optimization_by_id_endpoint.call_with_http_info(**kwargs)
@@ -449,22 +708,16 @@ class NPOOptimizerApi(object):
         self,
         id,
         **kwargs
-    ):
+    ) -> NPOOptimizationParametersRoot:
         """Get NPO optimization parameters by id  # noqa: E501
 
         This is the endpoint that returns the optimization parameters passed for an optimization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_optimization_parameters(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -478,35 +731,161 @@ class NPOOptimizerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             NPOOptimizationParametersRoot
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_parameters_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_parameters_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[NPOOptimizationParametersRoot, int, typing.MutableMapping]:
+        """Get NPO optimization parameters by id  # noqa: E501
+
+        This is the endpoint that returns the optimization parameters passed for an optimization.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            NPOOptimizationParametersRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_parameters_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_parameters_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[NPOOptimizationParametersRoot]":
+        """Get NPO optimization parameters by id  # noqa: E501
+
+        This is the endpoint that returns the optimization parameters passed for an optimization.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[NPOOptimizationParametersRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_parameters_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_parameters_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[NPOOptimizationParametersRoot, int, typing.MutableMapping]]":
+        """Get NPO optimization parameters by id  # noqa: E501
+
+        This is the endpoint that returns the optimization parameters passed for an optimization.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(NPOOptimizationParametersRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.get_optimization_parameters_endpoint.call_with_http_info(**kwargs)
@@ -515,22 +894,16 @@ class NPOOptimizerApi(object):
         self,
         id,
         **kwargs
-    ):
+    ) -> ObjectRoot:
         """Get NPO optimization result by id  # noqa: E501
 
         This is the endpoint to get the result of a previously requested optimization.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_optimization_result(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Get NPO optimization status by id endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -544,35 +917,161 @@ class NPOOptimizerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             ObjectRoot
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_result_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_result_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[ObjectRoot, int, typing.MutableMapping]:
+        """Get NPO optimization result by id  # noqa: E501
+
+        This is the endpoint to get the result of a previously requested optimization.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Get NPO optimization status by id endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ObjectRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_result_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_result_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[ObjectRoot]":
+        """Get NPO optimization result by id  # noqa: E501
+
+        This is the endpoint to get the result of a previously requested optimization.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Get NPO optimization status by id endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[ObjectRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_result_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_result_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[ObjectRoot, int, typing.MutableMapping]]":
+        """Get NPO optimization result by id  # noqa: E501
+
+        This is the endpoint to get the result of a previously requested optimization.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Get NPO optimization status by id endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(ObjectRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.get_optimization_result_endpoint.call_with_http_info(**kwargs)
@@ -581,22 +1080,16 @@ class NPOOptimizerApi(object):
         self,
         id,
         **kwargs
-    ):
+    ) -> ObjectRoot:
         """Get NPO optimization status by id  # noqa: E501
 
         This is the endpoint to check on the progress of a previously requested optimization.  If the optimization has finished computing, the body of the response will contain result in JSON.  Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_optimization_status_by_id(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -610,35 +1103,161 @@ class NPOOptimizerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             ObjectRoot
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_status_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_status_by_id_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[ObjectRoot, int, typing.MutableMapping]:
+        """Get NPO optimization status by id  # noqa: E501
+
+        This is the endpoint to check on the progress of a previously requested optimization.  If the optimization has finished computing, the body of the response will contain result in JSON.  Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ObjectRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_status_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_status_by_id_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[ObjectRoot]":
+        """Get NPO optimization status by id  # noqa: E501
+
+        This is the endpoint to check on the progress of a previously requested optimization.  If the optimization has finished computing, the body of the response will contain result in JSON.  Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[ObjectRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_optimization_status_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_optimization_status_by_id_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[ObjectRoot, int, typing.MutableMapping]]":
+        """Get NPO optimization status by id  # noqa: E501
+
+        This is the endpoint to check on the progress of a previously requested optimization.  If the optimization has finished computing, the body of the response will contain result in JSON.  Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(ObjectRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.get_optimization_status_by_id_endpoint.call_with_http_info(**kwargs)
@@ -646,23 +1265,17 @@ class NPOOptimizerApi(object):
     def post_and_optimize(
         self,
         **kwargs
-    ):
+    ) -> PostAndOptimizeResponseWrapper:
         """Create and Run NPO optimization  # noqa: E501
 
         This endpoint creates and runs NPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.post_and_optimize(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
             cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
             npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -676,50 +1289,166 @@ class NPOOptimizerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            ObjectRoot
-                If the method is called asynchronously, returns the request
-                thread.
+            PostAndOptimizeResponseWrapper
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.post_and_optimize_endpoint.call_with_http_info(**kwargs)
+
+    def post_and_optimize_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[PostAndOptimizeResponseWrapper, int, typing.MutableMapping]:
+        """Create and Run NPO optimization  # noqa: E501
+
+        This endpoint creates and runs NPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
+            npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            PostAndOptimizeResponseWrapper
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.post_and_optimize_endpoint.call_with_http_info(**kwargs)
+
+    def post_and_optimize_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[PostAndOptimizeResponseWrapper]":
+        """Create and Run NPO optimization  # noqa: E501
+
+        This endpoint creates and runs NPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
+            npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[PostAndOptimizeResponseWrapper]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.post_and_optimize_endpoint.call_with_http_info(**kwargs)
+
+    def post_and_optimize_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[PostAndOptimizeResponseWrapper, int, typing.MutableMapping]]":
+        """Create and Run NPO optimization  # noqa: E501
+
+        This endpoint creates and runs NPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
+            npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(PostAndOptimizeResponseWrapper, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_and_optimize_endpoint.call_with_http_info(**kwargs)
 
     def put_and_optimize(
         self,
         id,
         **kwargs
-    ):
+    ) -> PutAndOptimizeResponseWrapper:
         """Create or Update NPO optimization and run it.  # noqa: E501
 
         This endpoint updates and run the NPO optimization specified in the PUT body parameters. It also allows the creation of new NPO optimization with custom id.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.put_and_optimize(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
@@ -728,8 +1457,6 @@ class NPOOptimizerApi(object):
             x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
             cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
             npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -743,35 +1470,170 @@ class NPOOptimizerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            ObjectRoot
-                If the method is called asynchronously, returns the request
-                thread.
+            PutAndOptimizeResponseWrapper
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.put_and_optimize_endpoint.call_with_http_info(**kwargs)
+
+    def put_and_optimize_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[PutAndOptimizeResponseWrapper, int, typing.MutableMapping]:
+        """Create or Update NPO optimization and run it.  # noqa: E501
+
+        This endpoint updates and run the NPO optimization specified in the PUT body parameters. It also allows the creation of new NPO optimization with custom id.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
+            npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            PutAndOptimizeResponseWrapper
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.put_and_optimize_endpoint.call_with_http_info(**kwargs)
+
+    def put_and_optimize_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[PutAndOptimizeResponseWrapper]":
+        """Create or Update NPO optimization and run it.  # noqa: E501
+
+        This endpoint updates and run the NPO optimization specified in the PUT body parameters. It also allows the creation of new NPO optimization with custom id.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
+            npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[PutAndOptimizeResponseWrapper]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.put_and_optimize_endpoint.call_with_http_info(**kwargs)
+
+    def put_and_optimize_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[PutAndOptimizeResponseWrapper, int, typing.MutableMapping]]":
+        """Create or Update NPO optimization and run it.  # noqa: E501
+
+        This endpoint updates and run the NPO optimization specified in the PUT body parameters. It also allows the creation of new NPO optimization with custom id.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run NPO optimization endpoint
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts no-store, max-age, max-stale.. [optional]
+            npo_optimization_parameters_root (NPOOptimizationParametersRoot): Optimization Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(PutAndOptimizeResponseWrapper, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.put_and_optimize_endpoint.call_with_http_info(**kwargs)

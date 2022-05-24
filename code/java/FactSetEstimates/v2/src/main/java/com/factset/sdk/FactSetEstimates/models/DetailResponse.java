@@ -43,6 +43,8 @@ public class DetailResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<DetailEstimate> data = null;
 
+  public DetailResponse() { 
+  }
 
   public DetailResponse data(java.util.List<DetailEstimate> data) {
     this.data = data;

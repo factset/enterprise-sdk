@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssuerCountry implements Se
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private DebtInstrumentNotationScreenerSearchDataIssuerCountryExclude exclude;
 
+  public DebtInstrumentNotationScreenerSearchDataIssuerCountry() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssuerCountry restrict(DebtInstrumentNotationScreenerSearchDataIssuerCountryRestrict restrict) {
     this.restrict = restrict;

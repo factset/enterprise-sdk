@@ -55,7 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VaultCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
             try
             {
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Vault calculation endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -149,7 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VaultCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
             try
             {
@@ -175,7 +174,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Vault calculation endpoint | 
 
 ### Return type
-
 [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)
 
 ### Authorization
@@ -244,7 +242,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VaultCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
 
             try
             {
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Vault calculation endpoint | 
 
 ### Return type
-
 [**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 ### Authorization
@@ -340,8 +337,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VaultCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
-            var unitId = unitId_example;  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
+            var unitId = "unitId_example";  // string | from url, provided from the location header in the Get Vault calculation status by id endpoint
 
             try
             {
@@ -368,7 +365,6 @@ Name | Type | Description  | Notes
  **unitId** | **string**| from url, provided from the location header in the Get Vault calculation status by id endpoint | 
 
 ### Return type
-
 [**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
@@ -438,14 +434,30 @@ namespace Example
 
             var apiInstance = new VaultCalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create and Run Vault calculation
-                CalculationStatusRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                VaultCalculationsApi.PostAndCalculateResponseWrapper result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -467,8 +479,7 @@ Name | Type | Description  | Notes
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PostAndCalculateResponseWrapper
 
 ### Authorization
 
@@ -540,16 +551,32 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VaultCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create or Update Vault calculation and run it.
-                CalculationStatusRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                VaultCalculationsApi.PutAndCalculateResponseWrapper result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -572,8 +599,7 @@ Name | Type | Description  | Notes
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PutAndCalculateResponseWrapper
 
 ### Authorization
 

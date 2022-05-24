@@ -44,6 +44,8 @@ public class InlineResponse2004EstimatesFirstFiscalYearRatiosEnterpriseValueSale
   public static final String JSON_PROPERTY_MEAN = "mean";
   private BigDecimal mean;
 
+  public InlineResponse2004EstimatesFirstFiscalYearRatiosEnterpriseValueSales() { 
+  }
 
   public InlineResponse2004EstimatesFirstFiscalYearRatiosEnterpriseValueSales mean(BigDecimal mean) {
     this.mean = mean;

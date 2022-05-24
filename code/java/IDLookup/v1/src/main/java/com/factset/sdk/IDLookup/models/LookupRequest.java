@@ -49,6 +49,8 @@ public class LookupRequest implements Serializable {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
   private LookupLimit settings;
 
+  public LookupRequest() { 
+  }
 
   public LookupRequest query(LookupObject query) {
     this.query = query;

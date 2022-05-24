@@ -96,6 +96,16 @@ public class NotationSearchByTextDataText implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
+  public NotationSearchByTextDataText() { 
+  }
+
+  @JsonCreator
+  public NotationSearchByTextDataText(
+    @JsonProperty(value=JSON_PROPERTY_VALUE, required=true) String value
+  ) {
+    this();
+    this.value = value;
+  }
 
   public NotationSearchByTextDataText attributes(java.util.Set<AttributesEnum> attributes) {
     this.attributes = attributes;

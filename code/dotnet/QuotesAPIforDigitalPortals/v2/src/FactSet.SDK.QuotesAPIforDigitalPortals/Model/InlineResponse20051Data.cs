@@ -61,7 +61,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20051Data {\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20051Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Currency == input.Currency ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Coupons != null)
-                    hashCode = hashCode * 59 + this.Coupons.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Coupons.GetHashCode();
+                }
                 return hashCode;
             }
         }

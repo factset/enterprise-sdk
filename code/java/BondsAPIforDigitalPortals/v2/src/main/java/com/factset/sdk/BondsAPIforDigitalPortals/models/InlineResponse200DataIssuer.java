@@ -51,6 +51,8 @@ public class InlineResponse200DataIssuer implements Serializable {
   public static final String JSON_PROPERTY_LEI = "lei";
   private String lei;
 
+  public InlineResponse200DataIssuer() { 
+  }
 
   public InlineResponse200DataIssuer id(String id) {
     this.id = id;

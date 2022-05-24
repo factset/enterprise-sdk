@@ -39,7 +39,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 FactsetEtfAllocationAssetListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        InlineResponse2001 GetFactsetEtfAllocationAssetListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s asset allocations.
@@ -53,7 +53,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> FactsetEtfAllocationAssetListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        ApiResponse<InlineResponse2001> GetFactsetEtfAllocationAssetListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
         /// This endpoint returns selected ETP&#39;s country allocations.
         /// </summary>
@@ -66,7 +66,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 FactsetEtfAllocationCountryListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        InlineResponse2002 GetFactsetEtfAllocationCountryListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s country allocations.
@@ -80,12 +80,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> FactsetEtfAllocationCountryListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        ApiResponse<InlineResponse2002> GetFactsetEtfAllocationCountryListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
-        /// This endpoint returns selected ETP&#39;s exchange allocations.
+        /// This endpoint returns selected ETP&#39;s currency allocations.
         /// </summary>
         /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
@@ -93,7 +93,61 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 FactsetEtfAllocationExchangeListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        InlineResponse2003 GetFactsetEtfAllocationCurrencyListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s currency allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> GetFactsetEtfAllocationCurrencyListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status.
+        /// </summary>
+        /// <remarks>
+        /// List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 GetFactsetEtfAllocationEconomicDevelopmentListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status.
+        /// </summary>
+        /// <remarks>
+        /// List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> GetFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s exchange allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetFactsetEtfAllocationExchangeListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s exchange allocations.
@@ -106,211 +160,380 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> FactsetEtfAllocationExchangeListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 FactsetEtfAllocationRegionListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> FactsetEtfAllocationRegionListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 FactsetEtfAllocationSectorListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> FactsetEtfAllocationSectorListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        ApiResponse<InlineResponse2005> GetFactsetEtfAllocationExchangeListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP.
+        /// This endpoint returns selected ETP&#39;s industry allocations.
         /// </summary>
         /// <remarks>
-        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 FactsetEtfCharacteristicsGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        InlineResponse2006 GetFactsetEtfAllocationIndustryListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP.
+        /// This endpoint returns selected ETP&#39;s industry allocations.
         /// </summary>
         /// <remarks>
-        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> FactsetEtfCharacteristicsGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        ApiResponse<InlineResponse2006> GetFactsetEtfAllocationIndustryListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization.
         /// </summary>
         /// <remarks>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        InlineResponse2008 FactsetEtfClassCategoryBroadListGet(List<string> attributes = default(List<string>));
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2007</returns>
+        InlineResponse2007 GetFactsetEtfAllocationMarketCapitalizationListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization.
         /// </summary>
         /// <remarks>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        ApiResponse<InlineResponse2008> FactsetEtfClassCategoryBroadListGetWithHttpInfo(List<string> attributes = default(List<string>));
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2007</returns>
+        ApiResponse<InlineResponse2007> GetFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s region allocations.
         /// </summary>
         /// <remarks>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2008</returns>
+        InlineResponse2008 GetFactsetEtfAllocationRegionListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s region allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        ApiResponse<InlineResponse2008> GetFactsetEtfAllocationRegionListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s sector allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 FactsetEtfClassCategoryFocusListGet(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        InlineResponse2009 GetFactsetEtfAllocationSectorListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s sector allocations.
         /// </summary>
         /// <remarks>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> FactsetEtfClassCategoryFocusListGetWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        ApiResponse<InlineResponse2009> GetFactsetEtfAllocationSectorListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
-        /// List of ETP class niche categories.
+        /// FactSet proprietary analytics datapoints for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class niche categories.
+        /// FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse20010</returns>
-        InlineResponse20010 FactsetEtfClassCategoryNicheListGet(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        InlineResponse20010 GetFactsetEtfAnalyticsGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
-        /// List of ETP class niche categories.
+        /// FactSet proprietary analytics datapoints for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class niche categories.
+        /// FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse20010</returns>
-        ApiResponse<InlineResponse20010> FactsetEtfClassCategoryNicheListGetWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        ApiResponse<InlineResponse20010> GetFactsetEtfAnalyticsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
-        /// List of ETP class geographies.
+        /// FactSet&#39;s portfolio statistics for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class geographies.
+        /// FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse20011</returns>
-        InlineResponse20011 FactsetEtfClassGeographyListGet(List<string> attributes = default(List<string>));
+        InlineResponse20011 GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
-        /// List of ETP class geographies.
+        /// FactSet&#39;s portfolio statistics for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class geographies.
+        /// FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20011</returns>
-        ApiResponse<InlineResponse20011> FactsetEtfClassGeographyListGetWithHttpInfo(List<string> attributes = default(List<string>));
+        ApiResponse<InlineResponse20011> GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
-        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
+        /// FactSet proprietary ETP rankings.
         /// </summary>
         /// <remarks>
-        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
+        /// FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 FactsetEtfClassGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
-
-        /// <summary>
-        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
-        /// </summary>
-        /// <remarks>
-        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> FactsetEtfClassGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
-        /// <summary>
-        /// Retrieve an ETP&#39;s current distribution details.
-        /// </summary>
-        /// <remarks>
-        /// Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse20012</returns>
-        InlineResponse20012 FactsetEtfDistributionGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        InlineResponse20012 GetFactsetEtfAnalyticsScoreGetBySymbol(string symbol, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// FactSet proprietary ETP rankings.
+        /// </summary>
+        /// <remarks>
+        /// FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20012</returns>
+        ApiResponse<InlineResponse20012> GetFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Trade statistics for specific ETP.
+        /// </summary>
+        /// <remarks>
+        /// Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20013</returns>
+        InlineResponse20013 GetFactsetEtfAnalyticsTradeGetBySymbol(string symbol, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Trade statistics for specific ETP.
+        /// </summary>
+        /// <remarks>
+        /// Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20013</returns>
+        ApiResponse<InlineResponse20013> GetFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP.
+        /// </summary>
+        /// <remarks>
+        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20014</returns>
+        InlineResponse20014 GetFactsetEtfCharacteristicsGetBySymbol(string symbol, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP.
+        /// </summary>
+        /// <remarks>
+        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20014</returns>
+        ApiResponse<InlineResponse20014> GetFactsetEtfCharacteristicsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// List of ETP class broad categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class broad categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20016</returns>
+        InlineResponse20016 GetFactsetEtfClassCategoryBroadList(List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// List of ETP class broad categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class broad categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20016</returns>
+        ApiResponse<InlineResponse20016> GetFactsetEtfClassCategoryBroadListWithHttpInfo(List<string> attributes = default(List<string>));
+        /// <summary>
+        /// List of ETP class focus categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class focus categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse20017</returns>
+        InlineResponse20017 GetFactsetEtfClassCategoryFocusList(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+
+        /// <summary>
+        /// List of ETP class focus categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class focus categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse20017</returns>
+        ApiResponse<InlineResponse20017> GetFactsetEtfClassCategoryFocusListWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <summary>
+        /// List of ETP class niche categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class niche categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse20018</returns>
+        InlineResponse20018 GetFactsetEtfClassCategoryNicheList(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+
+        /// <summary>
+        /// List of ETP class niche categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class niche categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse20018</returns>
+        ApiResponse<InlineResponse20018> GetFactsetEtfClassCategoryNicheListWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <summary>
+        /// List of ETP class geographies.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class geographies.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20019</returns>
+        InlineResponse20019 GetFactsetEtfClassGeographyList(List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// List of ETP class geographies.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class geographies.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20019</returns>
+        ApiResponse<InlineResponse20019> GetFactsetEtfClassGeographyListWithHttpInfo(List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
+        /// </summary>
+        /// <remarks>
+        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20015</returns>
+        InlineResponse20015 GetFactsetEtfClassGetBySymbol(string symbol, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
+        /// </summary>
+        /// <remarks>
+        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20015</returns>
+        ApiResponse<InlineResponse20015> GetFactsetEtfClassGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// FactSet&#39;s proprietary list of competing companies.
+        /// </summary>
+        /// <remarks>
+        /// FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20020</returns>
+        InlineResponse20020 GetFactsetEtfCompetitorsListBySymbol(string symbol, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// FactSet&#39;s proprietary list of competing companies.
+        /// </summary>
+        /// <remarks>
+        /// FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20020</returns>
+        ApiResponse<InlineResponse20020> GetFactsetEtfCompetitorsListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Retrieve an ETP&#39;s current distribution details.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20021</returns>
+        InlineResponse20021 GetFactsetEtfDistributionGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve an ETP&#39;s current distribution details.
@@ -321,8 +544,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        ApiResponse<InlineResponse20012> FactsetEtfDistributionGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20021</returns>
+        ApiResponse<InlineResponse20021> GetFactsetEtfDistributionGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
         /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods.
         /// </summary>
@@ -332,8 +555,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20013</returns>
-        InlineResponse20013 FactsetEtfFundFlowsGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20022</returns>
+        InlineResponse20022 GetFactsetEtfFundFlowsGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods.
@@ -344,8 +567,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        ApiResponse<InlineResponse20013> FactsetEtfFundFlowsGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20022</returns>
+        ApiResponse<InlineResponse20022> GetFactsetEtfFundFlowsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
         /// Retrieve basic profile information for a specified ETP.
         /// </summary>
@@ -356,7 +579,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse200</returns>
-        InlineResponse200 FactsetEtfGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        InlineResponse200 GetFactsetEtfGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve basic profile information for a specified ETP.
@@ -368,7 +591,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> FactsetEtfGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        ApiResponse<InlineResponse200> GetFactsetEtfGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
         /// This endpoint returns selected ETP&#39;s Growth of 10K calculated values.
         /// </summary>
@@ -379,11 +602,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20014</returns>
-        InlineResponse20014 FactsetEtfGrowthOfTenKListBySymbolGet(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>InlineResponse20023</returns>
+        InlineResponse20023 GetFactsetEtfGrowthOfTenKListBySymbol(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s Growth of 10K calculated values.
@@ -395,11 +619,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20014</returns>
-        ApiResponse<InlineResponse20014> FactsetEtfGrowthOfTenKListBySymbolGetWithHttpInfo(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>ApiResponse of InlineResponse20023</returns>
+        ApiResponse<InlineResponse20023> GetFactsetEtfGrowthOfTenKListBySymbolWithHttpInfo(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
         /// Holdings details for an individual ETP.
         /// </summary>
@@ -411,8 +636,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20015</returns>
-        InlineResponse20015 FactsetEtfHoldingsListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>InlineResponse20024</returns>
+        InlineResponse20024 GetFactsetEtfHoldingsListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// Holdings details for an individual ETP.
@@ -425,8 +650,62 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20015</returns>
-        ApiResponse<InlineResponse20015> FactsetEtfHoldingsListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>ApiResponse of InlineResponse20024</returns>
+        ApiResponse<InlineResponse20024> GetFactsetEtfHoldingsListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <summary>
+        /// Market aggregate data for ETPs.
+        /// </summary>
+        /// <remarks>
+        /// Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20025</returns>
+        InlineResponse20025 GetFactsetEtfMarketAggregatesGetBySymbol(string symbol, List<string> attributes = default(List<string>));
+
+        /// <summary>
+        /// Market aggregate data for ETPs.
+        /// </summary>
+        /// <remarks>
+        /// Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20025</returns>
+        ApiResponse<InlineResponse20025> GetFactsetEtfMarketAggregatesGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <summary>
+        /// Summary of ETP premium discount data.
+        /// </summary>
+        /// <remarks>
+        /// Summary of ETP premium discount data.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse20026</returns>
+        InlineResponse20026 GetFactsetEtfPremiumDiscountSummaryListBySymbol(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+
+        /// <summary>
+        /// Summary of ETP premium discount data.
+        /// </summary>
+        /// <remarks>
+        /// Summary of ETP premium discount data.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse20026</returns>
+        ApiResponse<InlineResponse20026> GetFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfo(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
         /// Retrieve historical ETP NAV values.
         /// </summary>
@@ -436,8 +715,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20016</returns>
-        InlineResponse20016 FactsetEtfPriceGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20027</returns>
+        InlineResponse20027 GetFactsetEtfPriceGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve historical ETP NAV values.
@@ -448,33 +727,33 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20016</returns>
-        ApiResponse<InlineResponse20016> FactsetEtfPriceGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20027</returns>
+        ApiResponse<InlineResponse20027> GetFactsetEtfPriceGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
         /// Retrieve total return data for a specified ETP.
         /// </summary>
         /// <remarks>
-        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="returnType">Return type. (optional, default to price)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20017</returns>
-        InlineResponse20017 FactsetEtfReturnsGetBySymbolGet(string symbol, string returnType = default(string), List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20028</returns>
+        InlineResponse20028 GetFactsetEtfReturnsGetBySymbol(string symbol, string returnType = default(string), List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve total return data for a specified ETP.
         /// </summary>
         /// <remarks>
-        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="returnType">Return type. (optional, default to price)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20017</returns>
-        ApiResponse<InlineResponse20017> FactsetEtfReturnsGetBySymbolGetWithHttpInfo(string symbol, string returnType = default(string), List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20028</returns>
+        ApiResponse<InlineResponse20028> GetFactsetEtfReturnsGetBySymbolWithHttpInfo(string symbol, string returnType = default(string), List<string> attributes = default(List<string>));
         /// <summary>
         /// Retrieve various classification details for a specified ETP.
         /// </summary>
@@ -484,8 +763,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20018</returns>
-        InlineResponse20018 FactsetEtfStrategyGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20029</returns>
+        InlineResponse20029 GetFactsetEtfStrategyGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve various classification details for a specified ETP.
@@ -496,8 +775,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20018</returns>
-        ApiResponse<InlineResponse20018> FactsetEtfStrategyGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20029</returns>
+        ApiResponse<InlineResponse20029> GetFactsetEtfStrategyGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
         /// Retrieve a list of ETP strategy segments.
         /// </summary>
@@ -508,8 +787,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20019</returns>
-        InlineResponse20019 FactsetEtfStrategySegmentListGet(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>InlineResponse20030</returns>
+        InlineResponse20030 GetFactsetEtfStrategySegmentList(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// Retrieve a list of ETP strategy segments.
@@ -521,8 +800,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20019</returns>
-        ApiResponse<InlineResponse20019> FactsetEtfStrategySegmentListGetWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>ApiResponse of InlineResponse20030</returns>
+        ApiResponse<InlineResponse20030> GetFactsetEtfStrategySegmentListWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         /// <summary>
         /// Retrieve the basic structure information for a specified ETP.
         /// </summary>
@@ -532,8 +811,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20020</returns>
-        InlineResponse20020 FactsetEtfStructureGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20031</returns>
+        InlineResponse20031 GetFactsetEtfStructureGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve the basic structure information for a specified ETP.
@@ -544,8 +823,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20020</returns>
-        ApiResponse<InlineResponse20020> FactsetEtfStructureGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20031</returns>
+        ApiResponse<InlineResponse20031> GetFactsetEtfStructureGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
         /// Retrieve the tax and fee related information for a specified ETP.
         /// </summary>
@@ -555,8 +834,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20021</returns>
-        InlineResponse20021 FactsetEtfTaxesAndFeesUsGetBySymbolGet(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>InlineResponse20032</returns>
+        InlineResponse20032 GetFactsetEtfTaxesAndFeesUsGetBySymbol(string symbol, List<string> attributes = default(List<string>));
 
         /// <summary>
         /// Retrieve the tax and fee related information for a specified ETP.
@@ -567,8 +846,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20021</returns>
-        ApiResponse<InlineResponse20021> FactsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
+        /// <returns>ApiResponse of InlineResponse20032</returns>
+        ApiResponse<InlineResponse20032> GetFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>));
         /// <summary>
         /// Retrieve historical NAV data for a specified ETP.
         /// </summary>
@@ -578,11 +857,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20022</returns>
-        InlineResponse20022 FactsetEtfTimeSeriesListBySymbolGet(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>InlineResponse20033</returns>
+        InlineResponse20033 GetFactsetEtfTimeSeriesListBySymbol(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
 
         /// <summary>
         /// Retrieve historical NAV data for a specified ETP.
@@ -593,11 +873,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20022</returns>
-        ApiResponse<InlineResponse20022> FactsetEtfTimeSeriesListBySymbolGetWithHttpInfo(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
+        /// <returns>ApiResponse of InlineResponse20033</returns>
+        ApiResponse<InlineResponse20033> GetFactsetEtfTimeSeriesListBySymbolWithHttpInfo(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?));
         #endregion Synchronous Operations
     }
 
@@ -620,7 +901,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> FactsetEtfAllocationAssetListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2001> GetFactsetEtfAllocationAssetListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s asset allocations.
@@ -635,7 +916,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> FactsetEtfAllocationAssetListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetFactsetEtfAllocationAssetListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// This endpoint returns selected ETP&#39;s country allocations.
         /// </summary>
@@ -649,7 +930,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> FactsetEtfAllocationCountryListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2002> GetFactsetEtfAllocationCountryListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s country allocations.
@@ -664,12 +945,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> FactsetEtfAllocationCountryListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetFactsetEtfAllocationCountryListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// This endpoint returns selected ETP&#39;s exchange allocations.
+        /// This endpoint returns selected ETP&#39;s currency allocations.
         /// </summary>
         /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
@@ -678,7 +959,65 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> FactsetEtfAllocationExchangeListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2003> GetFactsetEtfAllocationCurrencyListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s currency allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetFactsetEtfAllocationCurrencyListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status.
+        /// </summary>
+        /// <remarks>
+        /// List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> GetFactsetEtfAllocationEconomicDevelopmentListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status.
+        /// </summary>
+        /// <remarks>
+        /// List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s exchange allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetFactsetEtfAllocationExchangeListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s exchange allocations.
@@ -692,228 +1031,411 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> FactsetEtfAllocationExchangeListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> FactsetEtfAllocationRegionListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> FactsetEtfAllocationRegionListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> FactsetEtfAllocationSectorListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations.
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> FactsetEtfAllocationSectorListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetFactsetEtfAllocationExchangeListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP.
+        /// This endpoint returns selected ETP&#39;s industry allocations.
         /// </summary>
         /// <remarks>
-        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> FactsetEtfCharacteristicsGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2006> GetFactsetEtfAllocationIndustryListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP.
+        /// This endpoint returns selected ETP&#39;s industry allocations.
         /// </summary>
         /// <remarks>
-        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> FactsetEtfCharacteristicsGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetFactsetEtfAllocationIndustryListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization.
         /// </summary>
         /// <remarks>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        System.Threading.Tasks.Task<InlineResponse2008> FactsetEtfClassCategoryBroadListGetAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse2007</returns>
+        System.Threading.Tasks.Task<InlineResponse2007> GetFactsetEtfAllocationMarketCapitalizationListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization.
         /// </summary>
         /// <remarks>
-        /// List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s region allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2008</returns>
+        System.Threading.Tasks.Task<InlineResponse2008> GetFactsetEtfAllocationRegionListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s region allocations.
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> FactsetEtfClassCategoryBroadListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetFactsetEtfAllocationRegionListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s sector allocations.
         /// </summary>
         /// <remarks>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> FactsetEtfClassCategoryFocusListGetAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse2009> GetFactsetEtfAllocationSectorListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s sector allocations.
         /// </summary>
         /// <remarks>
-        /// List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> FactsetEtfClassCategoryFocusListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetFactsetEtfAllocationSectorListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List of ETP class niche categories.
+        /// FactSet proprietary analytics datapoints for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class niche categories.
+        /// FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20010</returns>
-        System.Threading.Tasks.Task<InlineResponse20010> FactsetEtfClassCategoryNicheListGetAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20010> GetFactsetEtfAnalyticsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List of ETP class niche categories.
+        /// FactSet proprietary analytics datapoints for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class niche categories.
+        /// FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> FactsetEtfClassCategoryNicheListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetFactsetEtfAnalyticsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List of ETP class geographies.
+        /// FactSet&#39;s portfolio statistics for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class geographies.
+        /// FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20011</returns>
-        System.Threading.Tasks.Task<InlineResponse20011> FactsetEtfClassGeographyListGetAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20011> GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List of ETP class geographies.
+        /// FactSet&#39;s portfolio statistics for ETPs.
         /// </summary>
         /// <remarks>
-        /// List of ETP class geographies.
+        /// FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> FactsetEtfClassGeographyListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
+        /// FactSet proprietary ETP rankings.
         /// </summary>
         /// <remarks>
-        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
+        /// FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> FactsetEtfClassGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
-        /// </summary>
-        /// <remarks>
-        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> FactsetEtfClassGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Retrieve an ETP&#39;s current distribution details.
-        /// </summary>
-        /// <remarks>
-        /// Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
-        /// </remarks>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20012</returns>
-        System.Threading.Tasks.Task<InlineResponse20012> FactsetEtfDistributionGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse20012> GetFactsetEtfAnalyticsScoreGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// FactSet proprietary ETP rankings.
+        /// </summary>
+        /// <remarks>
+        /// FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Trade statistics for specific ETP.
+        /// </summary>
+        /// <remarks>
+        /// Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20013</returns>
+        System.Threading.Tasks.Task<InlineResponse20013> GetFactsetEtfAnalyticsTradeGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Trade statistics for specific ETP.
+        /// </summary>
+        /// <remarks>
+        /// Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP.
+        /// </summary>
+        /// <remarks>
+        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20014</returns>
+        System.Threading.Tasks.Task<InlineResponse20014> GetFactsetEtfCharacteristicsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP.
+        /// </summary>
+        /// <remarks>
+        /// An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetFactsetEtfCharacteristicsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of ETP class broad categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class broad categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20016</returns>
+        System.Threading.Tasks.Task<InlineResponse20016> GetFactsetEtfClassCategoryBroadListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List of ETP class broad categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class broad categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetFactsetEtfClassCategoryBroadListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of ETP class focus categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class focus categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20017</returns>
+        System.Threading.Tasks.Task<InlineResponse20017> GetFactsetEtfClassCategoryFocusListAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List of ETP class focus categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class focus categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetFactsetEtfClassCategoryFocusListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of ETP class niche categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class niche categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20018</returns>
+        System.Threading.Tasks.Task<InlineResponse20018> GetFactsetEtfClassCategoryNicheListAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List of ETP class niche categories.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class niche categories.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> GetFactsetEtfClassCategoryNicheListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// List of ETP class geographies.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class geographies.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20019</returns>
+        System.Threading.Tasks.Task<InlineResponse20019> GetFactsetEtfClassGeographyListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List of ETP class geographies.
+        /// </summary>
+        /// <remarks>
+        /// List of ETP class geographies.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetFactsetEtfClassGeographyListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
+        /// </summary>
+        /// <remarks>
+        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20015</returns>
+        System.Threading.Tasks.Task<InlineResponse20015> GetFactsetEtfClassGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieve an ETP&#39;s classification specific to asset class, geography, or investment strategy.
+        /// </summary>
+        /// <remarks>
+        /// ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund&#39;s geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP&#39;s investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetFactsetEtfClassGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// FactSet&#39;s proprietary list of competing companies.
+        /// </summary>
+        /// <remarks>
+        /// FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20020</returns>
+        System.Threading.Tasks.Task<InlineResponse20020> GetFactsetEtfCompetitorsListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// FactSet&#39;s proprietary list of competing companies.
+        /// </summary>
+        /// <remarks>
+        /// FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetFactsetEtfCompetitorsListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve an ETP&#39;s current distribution details.
+        /// </summary>
+        /// <remarks>
+        /// Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20021</returns>
+        System.Threading.Tasks.Task<InlineResponse20021> GetFactsetEtfDistributionGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve an ETP&#39;s current distribution details.
@@ -925,8 +1447,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> FactsetEtfDistributionGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetFactsetEtfDistributionGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods.
         /// </summary>
@@ -937,8 +1459,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20013</returns>
-        System.Threading.Tasks.Task<InlineResponse20013> FactsetEtfFundFlowsGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20022</returns>
+        System.Threading.Tasks.Task<InlineResponse20022> GetFactsetEtfFundFlowsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods.
@@ -950,8 +1472,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> FactsetEtfFundFlowsGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetFactsetEtfFundFlowsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve basic profile information for a specified ETP.
         /// </summary>
@@ -963,7 +1485,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> FactsetEtfGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<InlineResponse200> GetFactsetEtfGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve basic profile information for a specified ETP.
@@ -976,7 +1498,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> FactsetEtfGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetFactsetEtfGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// This endpoint returns selected ETP&#39;s Growth of 10K calculated values.
         /// </summary>
@@ -987,12 +1509,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20014</returns>
-        System.Threading.Tasks.Task<InlineResponse20014> FactsetEtfGrowthOfTenKListBySymbolGetAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20023</returns>
+        System.Threading.Tasks.Task<InlineResponse20023> GetFactsetEtfGrowthOfTenKListBySymbolAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// This endpoint returns selected ETP&#39;s Growth of 10K calculated values.
@@ -1004,12 +1527,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> FactsetEtfGrowthOfTenKListBySymbolGetWithHttpInfoAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetFactsetEtfGrowthOfTenKListBySymbolWithHttpInfoAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Holdings details for an individual ETP.
         /// </summary>
@@ -1022,8 +1546,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20015</returns>
-        System.Threading.Tasks.Task<InlineResponse20015> FactsetEtfHoldingsListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20024</returns>
+        System.Threading.Tasks.Task<InlineResponse20024> GetFactsetEtfHoldingsListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Holdings details for an individual ETP.
@@ -1037,8 +1561,66 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> FactsetEtfHoldingsListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetFactsetEtfHoldingsListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Market aggregate data for ETPs.
+        /// </summary>
+        /// <remarks>
+        /// Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20025</returns>
+        System.Threading.Tasks.Task<InlineResponse20025> GetFactsetEtfMarketAggregatesGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Market aggregate data for ETPs.
+        /// </summary>
+        /// <remarks>
+        /// Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetFactsetEtfMarketAggregatesGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Summary of ETP premium discount data.
+        /// </summary>
+        /// <remarks>
+        /// Summary of ETP premium discount data.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20026</returns>
+        System.Threading.Tasks.Task<InlineResponse20026> GetFactsetEtfPremiumDiscountSummaryListBySymbolAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Summary of ETP premium discount data.
+        /// </summary>
+        /// <remarks>
+        /// Summary of ETP premium discount data.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfoAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve historical ETP NAV values.
         /// </summary>
@@ -1049,8 +1631,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20016</returns>
-        System.Threading.Tasks.Task<InlineResponse20016> FactsetEtfPriceGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20027</returns>
+        System.Threading.Tasks.Task<InlineResponse20027> GetFactsetEtfPriceGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve historical ETP NAV values.
@@ -1062,35 +1644,35 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> FactsetEtfPriceGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetFactsetEtfPriceGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve total return data for a specified ETP.
         /// </summary>
         /// <remarks>
-        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="returnType">Return type. (optional, default to price)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20017</returns>
-        System.Threading.Tasks.Task<InlineResponse20017> FactsetEtfReturnsGetBySymbolGetAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20028</returns>
+        System.Threading.Tasks.Task<InlineResponse20028> GetFactsetEtfReturnsGetBySymbolAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve total return data for a specified ETP.
         /// </summary>
         /// <remarks>
-        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
         /// </remarks>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="returnType">Return type. (optional, default to price)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> FactsetEtfReturnsGetBySymbolGetWithHttpInfoAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetFactsetEtfReturnsGetBySymbolWithHttpInfoAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve various classification details for a specified ETP.
         /// </summary>
@@ -1101,8 +1683,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20018</returns>
-        System.Threading.Tasks.Task<InlineResponse20018> FactsetEtfStrategyGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20029</returns>
+        System.Threading.Tasks.Task<InlineResponse20029> GetFactsetEtfStrategyGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve various classification details for a specified ETP.
@@ -1114,8 +1696,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> FactsetEtfStrategyGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetFactsetEtfStrategyGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve a list of ETP strategy segments.
         /// </summary>
@@ -1127,8 +1709,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20019</returns>
-        System.Threading.Tasks.Task<InlineResponse20019> FactsetEtfStrategySegmentListGetAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20030</returns>
+        System.Threading.Tasks.Task<InlineResponse20030> GetFactsetEtfStrategySegmentListAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve a list of ETP strategy segments.
@@ -1141,8 +1723,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> FactsetEtfStrategySegmentListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20030>> GetFactsetEtfStrategySegmentListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the basic structure information for a specified ETP.
         /// </summary>
@@ -1153,8 +1735,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20020</returns>
-        System.Threading.Tasks.Task<InlineResponse20020> FactsetEtfStructureGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20031</returns>
+        System.Threading.Tasks.Task<InlineResponse20031> GetFactsetEtfStructureGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve the basic structure information for a specified ETP.
@@ -1166,8 +1748,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> FactsetEtfStructureGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20031)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20031>> GetFactsetEtfStructureGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve the tax and fee related information for a specified ETP.
         /// </summary>
@@ -1178,8 +1760,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20021</returns>
-        System.Threading.Tasks.Task<InlineResponse20021> FactsetEtfTaxesAndFeesUsGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20032</returns>
+        System.Threading.Tasks.Task<InlineResponse20032> GetFactsetEtfTaxesAndFeesUsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve the tax and fee related information for a specified ETP.
@@ -1191,8 +1773,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> FactsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20032)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20032>> GetFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve historical NAV data for a specified ETP.
         /// </summary>
@@ -1202,12 +1784,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20022</returns>
-        System.Threading.Tasks.Task<InlineResponse20022> FactsetEtfTimeSeriesListBySymbolGetAsync(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of InlineResponse20033</returns>
+        System.Threading.Tasks.Task<InlineResponse20033> GetFactsetEtfTimeSeriesListBySymbolAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve historical NAV data for a specified ETP.
@@ -1218,12 +1801,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> FactsetEtfTimeSeriesListBySymbolGetWithHttpInfoAsync(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (InlineResponse20033)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20033>> GetFactsetEtfTimeSeriesListBySymbolWithHttpInfoAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1241,6 +1825,151 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
     public partial class FactsetApi : IFactsetApi
     {
         private FactSet.SDK.ETFProfileandPrices.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationAssetListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationCountryListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationCurrencyListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationEconomicDevelopmentListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationExchangeListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationIndustryListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2006) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationMarketCapitalizationListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationRegionListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2008) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAllocationSectorListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20010) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20011) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsScoreGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20012) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfAnalyticsTradeGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20013) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfCharacteristicsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20014) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassCategoryBroadListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20016) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassCategoryFocusListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20017) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassCategoryNicheListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20018) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassGeographyListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20019) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfClassGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20015) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfCompetitorsListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20020) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfDistributionGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20021) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfFundFlowsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20022) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfGrowthOfTenKListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20023) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfHoldingsListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20024) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfMarketAggregatesGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20025) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfPremiumDiscountSummaryListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20026) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfPriceGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20027) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfReturnsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20028) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfStrategyGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20029) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfStrategySegmentListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20030) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfStructureGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20031) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfTaxesAndFeesUsGetBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20032) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactsetEtfTimeSeriesListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20033) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FactsetApi"/> class.
@@ -1353,9 +2082,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 FactsetEtfAllocationAssetListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public InlineResponse2001 GetFactsetEtfAllocationAssetListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2001> localVarResponse = FactsetEtfAllocationAssetListBySymbolGetWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfAllocationAssetListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -1368,11 +2097,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2001> FactsetEtfAllocationAssetListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse2001> GetFactsetEtfAllocationAssetListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationAssetListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationAssetListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -1385,10 +2116,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -1406,13 +2143,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1424,15 +2161,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2001>("/factset/etf/allocation/asset/listBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationAssetListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2001>("/factset/etf/allocation/asset/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationAssetListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationAssetListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1446,9 +2187,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> FactsetEtfAllocationAssetListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetFactsetEtfAllocationAssetListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2001> localVarResponse = await FactsetEtfAllocationAssetListBySymbolGetWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfAllocationAssetListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1462,11 +2203,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2001>> FactsetEtfAllocationAssetListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetFactsetEtfAllocationAssetListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationAssetListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationAssetListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -1479,12 +2223,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -1502,13 +2251,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1520,14 +2269,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationAssetListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/factset/etf/allocation/asset/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationAssetListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationAssetListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1542,9 +2295,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 FactsetEtfAllocationCountryListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public InlineResponse2002 GetFactsetEtfAllocationCountryListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2002> localVarResponse = FactsetEtfAllocationCountryListBySymbolGetWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfAllocationCountryListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -1557,11 +2310,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2002> FactsetEtfAllocationCountryListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse2002> GetFactsetEtfAllocationCountryListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationCountryListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationCountryListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -1574,10 +2329,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -1595,13 +2356,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1613,15 +2374,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/factset/etf/allocation/country/listBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationCountryListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/factset/etf/allocation/country/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationCountryListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationCountryListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1635,9 +2400,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> FactsetEtfAllocationCountryListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetFactsetEtfAllocationCountryListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2002> localVarResponse = await FactsetEtfAllocationCountryListBySymbolGetWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfAllocationCountryListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1651,11 +2416,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2002>> FactsetEtfAllocationCountryListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetFactsetEtfAllocationCountryListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationCountryListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationCountryListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -1668,12 +2436,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -1691,13 +2464,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1709,21 +2482,25 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationCountryListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/factset/etf/allocation/country/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationCountryListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationCountryListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// This endpoint returns selected ETP&#39;s exchange allocations. This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// This endpoint returns selected ETP&#39;s currency allocations. This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
@@ -1731,14 +2508,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 FactsetEtfAllocationExchangeListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public InlineResponse2003 GetFactsetEtfAllocationCurrencyListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2003> localVarResponse = FactsetEtfAllocationExchangeListBySymbolGetWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfAllocationCurrencyListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// This endpoint returns selected ETP&#39;s exchange allocations. This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// This endpoint returns selected ETP&#39;s currency allocations. This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
@@ -1746,11 +2523,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2003> FactsetEtfAllocationExchangeListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse2003> GetFactsetEtfAllocationCurrencyListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationExchangeListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationCurrencyListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -1763,10 +2542,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -1784,13 +2569,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1802,20 +2587,24 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2003>("/factset/etf/allocation/exchange/listBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationCurrencyListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2003>("/factset/etf/allocation/currency/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationExchangeListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationCurrencyListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// This endpoint returns selected ETP&#39;s exchange allocations. This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// This endpoint returns selected ETP&#39;s currency allocations. This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
@@ -1824,9 +2613,435 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> FactsetEtfAllocationExchangeListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>GetFactsetEtfAllocationCurrencyListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2003> localVarResponse = await FactsetEtfAllocationExchangeListBySymbolGetWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfAllocationCurrencyListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s currency allocations. This endpoint returns selected ETP&#39;s allocations grouped by currency. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetFactsetEtfAllocationCurrencyListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationCurrencyListBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationCurrencyListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/factset/etf/allocation/currency/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationCurrencyListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status. List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2004</returns>
+        public InlineResponse2004 GetFactsetEtfAllocationEconomicDevelopmentListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            var localVarResponse = GetFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status. List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse<InlineResponse2004> GetFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationEconomicDevelopmentListBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationEconomicDevelopmentListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2004>("/factset/etf/allocation/economicDevelopment/listBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationEconomicDevelopmentListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status. List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004>GetFactsetEtfAllocationEconomicDevelopmentListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of allocations classified by a holding&#39;s economic development status. List of allocations classified by a holding&#39;s economic development status (e.g. developed market, frontier market, emerging market).
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationEconomicDevelopmentListBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationEconomicDevelopmentListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/factset/etf/allocation/economicDevelopment/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationEconomicDevelopmentListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s exchange allocations. This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetFactsetEtfAllocationExchangeListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            var localVarResponse = GetFactsetEtfAllocationExchangeListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s exchange allocations. This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public ApiResponse<InlineResponse2005> GetFactsetEtfAllocationExchangeListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationExchangeListBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationExchangeListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2005>("/factset/etf/allocation/exchange/listBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationExchangeListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s exchange allocations. This endpoint returns selected ETP&#39;s allocations grouped by exchanges. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetFactsetEtfAllocationExchangeListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfAllocationExchangeListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1839,390 +3054,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2003>> FactsetEtfAllocationExchangeListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationExchangeListBySymbolGet");
-
-
-            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
-            if (attributes != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
-            }
-            if (paginationOffset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
-            }
-            if (paginationLimit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
-            }
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/factset/etf/allocation/exchange/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationExchangeListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 FactsetEtfAllocationRegionListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
-        {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2004> localVarResponse = FactsetEtfAllocationRegionListBySymbolGetWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse2004</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2004> FactsetEtfAllocationRegionListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
-        {
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationRegionListBySymbolGet");
-
-            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
-            if (attributes != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
-            }
-            if (paginationOffset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
-            }
-            if (paginationLimit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
-            }
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2004>("/factset/etf/allocation/region/listBySymbol", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationRegionListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> FactsetEtfAllocationRegionListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2004> localVarResponse = await FactsetEtfAllocationRegionListBySymbolGetWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2004>> FactsetEtfAllocationRegionListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationRegionListBySymbolGet");
-
-
-            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
-            if (attributes != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
-            }
-            if (paginationOffset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
-            }
-            if (paginationLimit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
-            }
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null) {
-                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/factset/etf/allocation/region/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationRegionListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 FactsetEtfAllocationSectorListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
-        {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2005> localVarResponse = FactsetEtfAllocationSectorListBySymbolGetWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse2005</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2005> FactsetEtfAllocationSectorListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
-        {
-            // verify the required parameter 'symbol' is set
-            if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationSectorListBySymbolGet");
-
-            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
-            if (attributes != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
-            }
-            if (paginationOffset != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
-            }
-            if (paginationLimit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
-            }
-
-            // authentication (FactSetApiKey) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (FactSetOAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // FactSet Authentication Client required
-            if (this.Configuration.OAuth2Client != null)
-            {
-                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2005>("/factset/etf/allocation/sector/listBySymbol", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationSectorListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> FactsetEtfAllocationSectorListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2005> localVarResponse = await FactsetEtfAllocationSectorListBySymbolGetWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
-        /// </summary>
-        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
-        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2005>> FactsetEtfAllocationSectorListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetFactsetEtfAllocationExchangeListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfAllocationSectorListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationExchangeListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -2235,12 +3075,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -2258,13 +3103,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2276,44 +3121,54 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationExchangeListBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/factset/etf/allocation/sector/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/factset/etf/allocation/exchange/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfAllocationSectorListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationExchangeListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s industry allocations. This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 FactsetEtfCharacteristicsGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        public InlineResponse2006 GetFactsetEtfAllocationIndustryListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2006> localVarResponse = FactsetEtfCharacteristicsGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfAllocationIndustryListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s industry allocations. This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2006> FactsetEtfCharacteristicsGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2006> GetFactsetEtfAllocationIndustryListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfCharacteristicsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationIndustryListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -2326,26 +3181,40 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
             }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2357,45 +3226,56 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2006>("/factset/etf/characteristics/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationIndustryListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2006>("/factset/etf/allocation/industry/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfCharacteristicsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationIndustryListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s industry allocations. This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> FactsetEtfCharacteristicsGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2006>GetFactsetEtfAllocationIndustryListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2006> localVarResponse = await FactsetEtfCharacteristicsGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfAllocationIndustryListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// This endpoint returns selected ETP&#39;s industry allocations. This endpoint returns selected ETP&#39;s allocations grouped by industry. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2006>> FactsetEtfCharacteristicsGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetFactsetEtfAllocationIndustryListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfCharacteristicsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationIndustryListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -2408,28 +3288,41 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
             }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2441,39 +3334,55 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationIndustryListBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/factset/etf/characteristics/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/factset/etf/allocation/industry/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfCharacteristicsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationIndustryListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization. List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse2008</returns>
-        public InlineResponse2008 FactsetEtfClassCategoryBroadListGet(List<string> attributes = default(List<string>))
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2007</returns>
+        public InlineResponse2007 GetFactsetEtfAllocationMarketCapitalizationListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2008> localVarResponse = FactsetEtfClassCategoryBroadListGetWithHttpInfo(attributes);
+            var localVarResponse = GetFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization. List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2008</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2008> FactsetEtfClassCategoryBroadListGetWithHttpInfo(List<string> attributes = default(List<string>))
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2007</returns>
+        public ApiResponse<InlineResponse2007> GetFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationMarketCapitalizationListBySymbol");
+            }
+
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2485,25 +3394,40 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
             }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2515,40 +3439,57 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2008>("/factset/etf/class/category/broad/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationMarketCapitalizationListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2007>("/factset/etf/allocation/marketCapitalization/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassCategoryBroadListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationMarketCapitalizationListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization. List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> FactsetEtfClassCategoryBroadListGetAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse2007</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2007>GetFactsetEtfAllocationMarketCapitalizationListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2008> localVarResponse = await FactsetEtfClassCategoryBroadListGetWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// List of allocations classified by a holding&#39;s total market capitalization. List of allocations classified by a holding&#39;s total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2008>> FactsetEtfClassCategoryBroadListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationMarketCapitalizationListBySymbol");
+            }
+
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -2560,27 +3501,41 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
             }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2592,43 +3547,268 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationMarketCapitalizationListBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2008>("/factset/etf/class/category/broad/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2007>("/factset/etf/allocation/marketCapitalization/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassCategoryBroadListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationMarketCapitalizationListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// List of ETP class focus categories. List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse2008</returns>
+        public InlineResponse2008 GetFactsetEtfAllocationRegionListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            var localVarResponse = GetFactsetEtfAllocationRegionListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse2008</returns>
+        public ApiResponse<InlineResponse2008> GetFactsetEtfAllocationRegionListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationRegionListBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationRegionListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2008>("/factset/etf/allocation/region/listBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationRegionListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse2008</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2008>GetFactsetEtfAllocationRegionListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfAllocationRegionListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s region allocations. This endpoint returns selected ETP&#39;s allocations grouped by region names. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetFactsetEtfAllocationRegionListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationRegionListBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationRegionListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2008>("/factset/etf/allocation/region/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationRegionListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 FactsetEtfClassCategoryFocusListGet(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public InlineResponse2009 GetFactsetEtfAllocationSectorListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2009> localVarResponse = FactsetEtfClassCategoryFocusListGetWithHttpInfo(attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfAllocationSectorListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List of ETP class focus categories. List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2009> FactsetEtfClassCategoryFocusListGetWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse2009> GetFactsetEtfAllocationSectorListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationSectorListBySymbol");
+            }
+
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2640,11 +3820,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
@@ -2660,13 +3847,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2678,30 +3865,1354 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2009>("/factset/etf/class/category/focus/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationSectorListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2009>("/factset/etf/allocation/sector/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassCategoryFocusListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationSectorListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// List of ETP class focus categories. List of ETP class focus categories.
+        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> FactsetEtfClassCategoryFocusListGetAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2009>GetFactsetEtfAllocationSectorListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2009> localVarResponse = await FactsetEtfClassCategoryFocusListGetWithHttpInfoAsync(attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfAllocationSectorListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// This endpoint returns selected ETP&#39;s sector allocations. This endpoint returns selected ETP&#39;s allocations grouped by sector names. The response will be sorted by weight in descending order.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetFactsetEtfAllocationSectorListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAllocationSectorListBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAllocationSectorListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/factset/etf/allocation/sector/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAllocationSectorListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FactSet proprietary analytics datapoints for ETPs. FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20010</returns>
+        public InlineResponse20010 GetFactsetEtfAnalyticsGetBySymbol(string symbol, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfAnalyticsGetBySymbolWithHttpInfo(symbol, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FactSet proprietary analytics datapoints for ETPs. FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20010</returns>
+        public ApiResponse<InlineResponse20010> GetFactsetEtfAnalyticsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20010>("/factset/etf/analytics/getBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FactSet proprietary analytics datapoints for ETPs. FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20010</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20010>GetFactsetEtfAnalyticsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfAnalyticsGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FactSet proprietary analytics datapoints for ETPs. FactSet&#39;s proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetFactsetEtfAnalyticsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsGetBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20010>("/factset/etf/analytics/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FactSet&#39;s portfolio statistics for ETPs. FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20011</returns>
+        public InlineResponse20011 GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol(string symbol, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfo(symbol, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FactSet&#39;s portfolio statistics for ETPs. FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20011</returns>
+        public ApiResponse<InlineResponse20011> GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20011>("/factset/etf/analytics/holdings/statistics/getBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FactSet&#39;s portfolio statistics for ETPs. FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20011</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20011>GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FactSet&#39;s portfolio statistics for ETPs. FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20011>("/factset/etf/analytics/holdings/statistics/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FactSet proprietary ETP rankings. FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20012</returns>
+        public InlineResponse20012 GetFactsetEtfAnalyticsScoreGetBySymbol(string symbol, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfo(symbol, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FactSet proprietary ETP rankings. FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20012</returns>
+        public ApiResponse<InlineResponse20012> GetFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsScoreGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsScoreGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20012>("/factset/etf/analytics/score/getBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsScoreGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// FactSet proprietary ETP rankings. FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20012</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20012>GetFactsetEtfAnalyticsScoreGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// FactSet proprietary ETP rankings. FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsScoreGetBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsScoreGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20012>("/factset/etf/analytics/score/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsScoreGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trade statistics for specific ETP. Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20013</returns>
+        public InlineResponse20013 GetFactsetEtfAnalyticsTradeGetBySymbol(string symbol, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfo(symbol, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trade statistics for specific ETP. Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20013</returns>
+        public ApiResponse<InlineResponse20013> GetFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsTradeGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsTradeGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20013>("/factset/etf/analytics/trade/getBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsTradeGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Trade statistics for specific ETP. Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20013</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20013>GetFactsetEtfAnalyticsTradeGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Trade statistics for specific ETP. Various metrics of an ETP&#39;s liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfAnalyticsTradeGetBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfAnalyticsTradeGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20013>("/factset/etf/analytics/trade/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfAnalyticsTradeGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20014</returns>
+        public InlineResponse20014 GetFactsetEtfCharacteristicsGetBySymbol(string symbol, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfCharacteristicsGetBySymbolWithHttpInfo(symbol, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20014</returns>
+        public ApiResponse<InlineResponse20014> GetFactsetEtfCharacteristicsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfCharacteristicsGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfCharacteristicsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20014>("/factset/etf/characteristics/getBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfCharacteristicsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20014</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20014>GetFactsetEtfCharacteristicsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfCharacteristicsGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve basic characteristic information for a specified ETP. An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETF defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetFactsetEtfCharacteristicsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfCharacteristicsGetBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfCharacteristicsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20014>("/factset/etf/characteristics/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfCharacteristicsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20016</returns>
+        public InlineResponse20016 GetFactsetEtfClassCategoryBroadList(List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfClassCategoryBroadListWithHttpInfo(attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20016</returns>
+        public ApiResponse<InlineResponse20016> GetFactsetEtfClassCategoryBroadListWithHttpInfo(List<string> attributes = default(List<string>))
+        {
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassCategoryBroadListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20016>("/factset/etf/class/category/broad/list", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassCategoryBroadList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20016</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20016>GetFactsetEtfClassCategoryBroadListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfClassCategoryBroadListWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of ETP class broad categories. List of ETP class broad categories.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetFactsetEtfClassCategoryBroadListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassCategoryBroadListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20016>("/factset/etf/class/category/broad/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassCategoryBroadList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of ETP class focus categories. List of ETP class focus categories.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse20017</returns>
+        public InlineResponse20017 GetFactsetEtfClassCategoryFocusList(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            var localVarResponse = GetFactsetEtfClassCategoryFocusListWithHttpInfo(attributes, paginationOffset, paginationLimit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List of ETP class focus categories. List of ETP class focus categories.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse20017</returns>
+        public ApiResponse<InlineResponse20017> GetFactsetEtfClassCategoryFocusListWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        {
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassCategoryFocusListResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20017>("/factset/etf/class/category/focus/list", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassCategoryFocusList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List of ETP class focus categories. List of ETP class focus categories.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20017</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20017>GetFactsetEtfClassCategoryFocusListAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfClassCategoryFocusListWithHttpInfoAsync(attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2713,8 +5224,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2009>> FactsetEtfClassCategoryFocusListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetFactsetEtfClassCategoryFocusListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -2727,12 +5239,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -2749,13 +5266,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2767,14 +5284,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassCategoryFocusListResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/factset/etf/class/category/focus/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20017>("/factset/etf/class/category/focus/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassCategoryFocusListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassCategoryFocusList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2787,10 +5308,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20010</returns>
-        public InlineResponse20010 FactsetEtfClassCategoryNicheListGet(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20018</returns>
+        public InlineResponse20018 GetFactsetEtfClassCategoryNicheList(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20010> localVarResponse = FactsetEtfClassCategoryNicheListGetWithHttpInfo(attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfClassCategoryNicheListWithHttpInfo(attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -2801,8 +5322,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20010</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20010> FactsetEtfClassCategoryNicheListGetWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20018</returns>
+        public ApiResponse<InlineResponse20018> GetFactsetEtfClassCategoryNicheListWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -2815,10 +5336,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -2835,13 +5362,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2853,15 +5380,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20010>("/factset/etf/class/category/niche/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassCategoryNicheListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20018>("/factset/etf/class/category/niche/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassCategoryNicheListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassCategoryNicheList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2873,10 +5404,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20010</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20010> FactsetEtfClassCategoryNicheListGetAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20018</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20018>GetFactsetEtfClassCategoryNicheListAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20010> localVarResponse = await FactsetEtfClassCategoryNicheListGetWithHttpInfoAsync(attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfClassCategoryNicheListWithHttpInfoAsync(attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2888,8 +5419,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20010>> FactsetEtfClassCategoryNicheListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> GetFactsetEtfClassCategoryNicheListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -2902,12 +5434,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -2924,13 +5461,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2942,14 +5479,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassCategoryNicheListResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20010>("/factset/etf/class/category/niche/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20018>("/factset/etf/class/category/niche/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassCategoryNicheListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassCategoryNicheList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2960,10 +5501,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20011</returns>
-        public InlineResponse20011 FactsetEtfClassGeographyListGet(List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20019</returns>
+        public InlineResponse20019 GetFactsetEtfClassGeographyList(List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20011> localVarResponse = FactsetEtfClassGeographyListGetWithHttpInfo(attributes);
+            var localVarResponse = GetFactsetEtfClassGeographyListWithHttpInfo(attributes);
             return localVarResponse.Data;
         }
 
@@ -2972,8 +5513,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20011</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20011> FactsetEtfClassGeographyListGetWithHttpInfo(List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20019</returns>
+        public ApiResponse<InlineResponse20019> GetFactsetEtfClassGeographyListWithHttpInfo(List<string> attributes = default(List<string>))
         {
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -2986,10 +5527,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -2998,13 +5545,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3016,15 +5563,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20011>("/factset/etf/class/geography/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassGeographyListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20019>("/factset/etf/class/geography/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassGeographyListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassGeographyList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3034,10 +5585,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20011> FactsetEtfClassGeographyListGetAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20019</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20019>GetFactsetEtfClassGeographyListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20011> localVarResponse = await FactsetEtfClassGeographyListGetWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfClassGeographyListWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3047,8 +5598,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20011>> FactsetEtfClassGeographyListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetFactsetEtfClassGeographyListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -3061,12 +5613,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -3075,13 +5632,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3093,14 +5650,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassGeographyListResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20011>("/factset/etf/class/geography/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20019>("/factset/etf/class/geography/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassGeographyListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassGeographyList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3112,10 +5673,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 FactsetEtfClassGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20015</returns>
+        public InlineResponse20015 GetFactsetEtfClassGetBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2007> localVarResponse = FactsetEtfClassGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfClassGetBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
@@ -3125,12 +5686,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2007</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2007> FactsetEtfClassGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20015</returns>
+        public ApiResponse<InlineResponse20015> GetFactsetEtfClassGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfClassGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfClassGetBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -3143,10 +5706,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3156,13 +5725,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3174,15 +5743,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2007>("/factset/etf/class/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20015>("/factset/etf/class/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3193,10 +5766,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> FactsetEtfClassGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20015</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20015>GetFactsetEtfClassGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2007> localVarResponse = await FactsetEtfClassGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfClassGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3207,12 +5780,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse2007>> FactsetEtfClassGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetFactsetEtfClassGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfClassGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfClassGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -3225,12 +5801,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3240,13 +5821,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3258,44 +5839,50 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfClassGetBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2007>("/factset/etf/class/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20015>("/factset/etf/class/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfClassGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfClassGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
+        /// FactSet&#39;s proprietary list of competing companies. FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20012</returns>
-        public InlineResponse20012 FactsetEtfDistributionGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20020</returns>
+        public InlineResponse20020 GetFactsetEtfCompetitorsListBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20012> localVarResponse = FactsetEtfDistributionGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfCompetitorsListBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
+        /// FactSet&#39;s proprietary list of competing companies. FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20012</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20012> FactsetEtfDistributionGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20020</returns>
+        public ApiResponse<InlineResponse20020> GetFactsetEtfCompetitorsListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfDistributionGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfCompetitorsListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -3308,10 +5895,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3321,13 +5914,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3339,45 +5932,52 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20012>("/factset/etf/distribution/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfCompetitorsListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20020>("/factset/etf/competitors/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfDistributionGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfCompetitorsListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
+        /// FactSet&#39;s proprietary list of competing companies. FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20012> FactsetEtfDistributionGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20020</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20020>GetFactsetEtfCompetitorsListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20012> localVarResponse = await FactsetEtfDistributionGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfCompetitorsListBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
+        /// FactSet&#39;s proprietary list of competing companies. FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of a security as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20012>> FactsetEtfDistributionGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetFactsetEtfCompetitorsListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfDistributionGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfCompetitorsListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -3390,12 +5990,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3405,13 +6010,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3423,44 +6028,50 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfCompetitorsListBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20012>("/factset/etf/distribution/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20020>("/factset/etf/competitors/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfDistributionGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfCompetitorsListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20013</returns>
-        public InlineResponse20013 FactsetEtfFundFlowsGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20021</returns>
+        public InlineResponse20021 GetFactsetEtfDistributionGetBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20013> localVarResponse = FactsetEtfFundFlowsGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfDistributionGetBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20013</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20013> FactsetEtfFundFlowsGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20021</returns>
+        public ApiResponse<InlineResponse20021> GetFactsetEtfDistributionGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfFundFlowsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfDistributionGetBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -3473,10 +6084,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3486,13 +6103,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3504,45 +6121,52 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20013>("/factset/etf/fundFlows/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfDistributionGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20021>("/factset/etf/distribution/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfFundFlowsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfDistributionGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20013> FactsetEtfFundFlowsGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20021</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20021>GetFactsetEtfDistributionGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20013> localVarResponse = await FactsetEtfFundFlowsGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfDistributionGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// Retrieve an ETP&#39;s current distribution details. Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20013>> FactsetEtfFundFlowsGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetFactsetEtfDistributionGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfFundFlowsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfDistributionGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -3555,12 +6179,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3570,13 +6199,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3588,14 +6217,207 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfDistributionGetBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20013>("/factset/etf/fundFlows/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20021>("/factset/etf/distribution/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfFundFlowsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfDistributionGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20022</returns>
+        public InlineResponse20022 GetFactsetEtfFundFlowsGetBySymbol(string symbol, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfFundFlowsGetBySymbolWithHttpInfo(symbol, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20022</returns>
+        public ApiResponse<InlineResponse20022> GetFactsetEtfFundFlowsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfFundFlowsGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfFundFlowsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20022>("/factset/etf/fundFlows/getBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfFundFlowsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20022</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20022>GetFactsetEtfFundFlowsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfFundFlowsGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve an ETP&#39;s cash inflow/outflows for various time periods. Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetFactsetEtfFundFlowsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfFundFlowsGetBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfFundFlowsGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20022>("/factset/etf/fundFlows/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfFundFlowsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3608,9 +6430,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>InlineResponse200</returns>
-        public InlineResponse200 FactsetEtfGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        public InlineResponse200 GetFactsetEtfGetBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse200> localVarResponse = FactsetEtfGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfGetBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
@@ -3621,11 +6443,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse200> FactsetEtfGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse200> GetFactsetEtfGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfGetBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -3638,10 +6462,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3651,13 +6481,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3669,15 +6499,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse200>("/factset/etf/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse200>("/factset/etf/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3689,9 +6523,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> FactsetEtfGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>GetFactsetEtfGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse200> localVarResponse = await FactsetEtfGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3703,11 +6537,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse200>> FactsetEtfGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetFactsetEtfGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -3720,12 +6557,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -3735,13 +6577,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3753,14 +6595,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/factset/etf/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3773,13 +6619,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20014</returns>
-        public InlineResponse20014 FactsetEtfGrowthOfTenKListBySymbolGet(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20023</returns>
+        public InlineResponse20023 GetFactsetEtfGrowthOfTenKListBySymbol(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20014> localVarResponse = FactsetEtfGrowthOfTenKListBySymbolGetWithHttpInfo(symbol, timePeriod, calculationType, attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfGrowthOfTenKListBySymbolWithHttpInfo(symbol, timePeriod, calculationType, alignment, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -3790,15 +6637,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20014</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20014> FactsetEtfGrowthOfTenKListBySymbolGetWithHttpInfo(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20023</returns>
+        public ApiResponse<InlineResponse20023> GetFactsetEtfGrowthOfTenKListBySymbolWithHttpInfo(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfGrowthOfTenKListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfGrowthOfTenKListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -3811,10 +6661,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (timePeriod != null)
@@ -3825,6 +6681,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "calculationType", calculationType));
             }
+            if (alignment != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "alignment", alignment));
+            }
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
@@ -3840,13 +6700,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3858,15 +6718,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20014>("/factset/etf/growthOfTenK/listBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfGrowthOfTenKListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20023>("/factset/etf/growthOfTenK/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfGrowthOfTenKListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfGrowthOfTenKListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3877,14 +6741,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20014</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20014> FactsetEtfGrowthOfTenKListBySymbolGetAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20023</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20023>GetFactsetEtfGrowthOfTenKListBySymbolAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20014> localVarResponse = await FactsetEtfGrowthOfTenKListBySymbolGetWithHttpInfoAsync(symbol, timePeriod, calculationType, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfGrowthOfTenKListBySymbolWithHttpInfoAsync(symbol, timePeriod, calculationType, alignment, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3895,16 +6760,20 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Historice NAV date value. (optional)</param>
         /// <param name="calculationType">Historice NAV date value. (optional)</param>
+        /// <param name="alignment">Indicates the reference point for growth of 10k data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20014>> FactsetEtfGrowthOfTenKListBySymbolGetWithHttpInfoAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetFactsetEtfGrowthOfTenKListBySymbolWithHttpInfoAsync(string symbol, string timePeriod = default(string), string calculationType = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfGrowthOfTenKListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfGrowthOfTenKListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -3917,12 +6786,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (timePeriod != null)
@@ -3933,6 +6807,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "calculationType", calculationType));
             }
+            if (alignment != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "alignment", alignment));
+            }
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
@@ -3948,13 +6826,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3966,14 +6844,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfGrowthOfTenKListBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20014>("/factset/etf/growthOfTenK/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20023>("/factset/etf/growthOfTenK/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfGrowthOfTenKListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfGrowthOfTenKListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3987,10 +6869,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20015</returns>
-        public InlineResponse20015 FactsetEtfHoldingsListBySymbolGet(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20024</returns>
+        public InlineResponse20024 GetFactsetEtfHoldingsListBySymbol(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20015> localVarResponse = FactsetEtfHoldingsListBySymbolGetWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfHoldingsListBySymbolWithHttpInfo(symbol, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -4002,12 +6884,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20015</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20015> FactsetEtfHoldingsListBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20024</returns>
+        public ApiResponse<InlineResponse20024> GetFactsetEtfHoldingsListBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfHoldingsListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfHoldingsListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -4020,10 +6904,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4041,13 +6931,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4059,15 +6949,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20015>("/factset/etf/holdings/listBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfHoldingsListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20024>("/factset/etf/holdings/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfHoldingsListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfHoldingsListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4080,10 +6974,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20015> FactsetEtfHoldingsListBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20024</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20024>GetFactsetEtfHoldingsListBySymbolAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20015> localVarResponse = await FactsetEtfHoldingsListBySymbolGetWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfHoldingsListBySymbolWithHttpInfoAsync(symbol, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4096,12 +6990,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20015>> FactsetEtfHoldingsListBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetFactsetEtfHoldingsListBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfHoldingsListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfHoldingsListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -4114,12 +7011,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4137,13 +7039,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4155,44 +7057,50 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfHoldingsListBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20015>("/factset/etf/holdings/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20024>("/factset/etf/holdings/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfHoldingsListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfHoldingsListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// Market aggregate data for ETPs. Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20016</returns>
-        public InlineResponse20016 FactsetEtfPriceGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20025</returns>
+        public InlineResponse20025 GetFactsetEtfMarketAggregatesGetBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20016> localVarResponse = FactsetEtfPriceGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfMarketAggregatesGetBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// Market aggregate data for ETPs. Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20016</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20016> FactsetEtfPriceGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20025</returns>
+        public ApiResponse<InlineResponse20025> GetFactsetEtfMarketAggregatesGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfPriceGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfMarketAggregatesGetBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -4205,10 +7113,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4218,13 +7132,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4236,45 +7150,52 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20016>("/factset/etf/price/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfMarketAggregatesGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20025>("/factset/etf/marketAggregates/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfPriceGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfMarketAggregatesGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// Market aggregate data for ETPs. Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20016</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20016> FactsetEtfPriceGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20025</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20025>GetFactsetEtfMarketAggregatesGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20016> localVarResponse = await FactsetEtfPriceGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfMarketAggregatesGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// Market aggregate data for ETPs. Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="symbol">Ticker-region of an ETP as defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20016>> FactsetEtfPriceGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetFactsetEtfMarketAggregatesGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfPriceGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfMarketAggregatesGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -4287,12 +7208,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4302,13 +7228,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4320,46 +7246,58 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfMarketAggregatesGetBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20016>("/factset/etf/price/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20025>("/factset/etf/marketAggregates/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfPriceGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfMarketAggregatesGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// Summary of ETP premium discount data. Summary of ETP premium discount data.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="returnType">Return type. (optional, default to price)</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20017</returns>
-        public InlineResponse20017 FactsetEtfReturnsGetBySymbolGet(string symbol, string returnType = default(string), List<string> attributes = default(List<string>))
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>InlineResponse20026</returns>
+        public InlineResponse20026 GetFactsetEtfPremiumDiscountSummaryListBySymbol(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20017> localVarResponse = FactsetEtfReturnsGetBySymbolGetWithHttpInfo(symbol, returnType, attributes);
+            var localVarResponse = GetFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfo(symbol, timePeriod, alignment, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// Summary of ETP premium discount data. Summary of ETP premium discount data.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
-        /// <param name="returnType">Return type. (optional, default to price)</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20017</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20017> FactsetEtfReturnsGetBySymbolGetWithHttpInfo(string symbol, string returnType = default(string), List<string> attributes = default(List<string>))
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <returns>ApiResponse of InlineResponse20026</returns>
+        public ApiResponse<InlineResponse20026> GetFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfo(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfReturnsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfPremiumDiscountSummaryListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -4372,10 +7310,436 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (timePeriod != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "timePeriod", timePeriod));
+            }
+            if (alignment != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "alignment", alignment));
+            }
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfPremiumDiscountSummaryListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20026>("/factset/etf/premiumDiscount/summary/listBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfPremiumDiscountSummaryListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Summary of ETP premium discount data. Summary of ETP premium discount data.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20026</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20026>GetFactsetEtfPremiumDiscountSummaryListBySymbolAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfoAsync(symbol, timePeriod, alignment, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Summary of ETP premium discount data. Summary of ETP premium discount data.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="timePeriod">Time frame of the data. (optional, default to YTD)</param>
+        /// <param name="alignment">Indicates the reference point for the historical NAV and price values. (optional, default to quarter-end)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
+        /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfoAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfPremiumDiscountSummaryListBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (timePeriod != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "timePeriod", timePeriod));
+            }
+            if (alignment != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "alignment", alignment));
+            }
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfPremiumDiscountSummaryListBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20026>("/factset/etf/premiumDiscount/summary/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfPremiumDiscountSummaryListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20027</returns>
+        public InlineResponse20027 GetFactsetEtfPriceGetBySymbol(string symbol, List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfPriceGetBySymbolWithHttpInfo(symbol, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20027</returns>
+        public ApiResponse<InlineResponse20027> GetFactsetEtfPriceGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfPriceGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfPriceGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20027>("/factset/etf/price/getBySymbol", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfPriceGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InlineResponse20027</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20027>GetFactsetEtfPriceGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetFactsetEtfPriceGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve historical ETP NAV values. Retrieve an ETP&#39;s historical NAV and shares outstanding for a specified time range.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetFactsetEtfPriceGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfPriceGetBySymbol");
+            }
+
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
+            if (attributes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfPriceGetBySymbolResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20027>("/factset/etf/price/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfPriceGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="returnType">Return type. (optional, default to price)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>InlineResponse20028</returns>
+        public InlineResponse20028 GetFactsetEtfReturnsGetBySymbol(string symbol, string returnType = default(string), List<string> attributes = default(List<string>))
+        {
+            var localVarResponse = GetFactsetEtfReturnsGetBySymbolWithHttpInfo(symbol, returnType, attributes);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
+        /// <param name="returnType">Return type. (optional, default to price)</param>
+        /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20028</returns>
+        public ApiResponse<InlineResponse20028> GetFactsetEtfReturnsGetBySymbolWithHttpInfo(string symbol, string returnType = default(string), List<string> attributes = default(List<string>))
+        {
+            // verify the required parameter 'symbol' is set
+            if (symbol == null)
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfReturnsGetBySymbol");
+            }
+
+            FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (returnType != null)
@@ -4389,13 +7753,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4407,47 +7771,54 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20017>("/factset/etf/returns/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfReturnsGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20028>("/factset/etf/returns/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfReturnsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfReturnsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="returnType">Return type. (optional, default to price)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20017</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20017> FactsetEtfReturnsGetBySymbolGetAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20028</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20028>GetFactsetEtfReturnsGetBySymbolAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20017> localVarResponse = await FactsetEtfReturnsGetBySymbolGetWithHttpInfoAsync(symbol, returnType, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfReturnsGetBySymbolWithHttpInfoAsync(symbol, returnType, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+        /// Retrieve total return data for a specified ETP. An ETP&#39;s total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
         /// </summary>
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="returnType">Return type. (optional, default to price)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20017>> FactsetEtfReturnsGetBySymbolGetWithHttpInfoAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetFactsetEtfReturnsGetBySymbolWithHttpInfoAsync(string symbol, string returnType = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfReturnsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfReturnsGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -4460,12 +7831,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (returnType != null)
@@ -4479,13 +7855,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4497,14 +7873,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfReturnsGetBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20017>("/factset/etf/returns/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20028>("/factset/etf/returns/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfReturnsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfReturnsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4516,10 +7896,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20018</returns>
-        public InlineResponse20018 FactsetEtfStrategyGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20029</returns>
+        public InlineResponse20029 GetFactsetEtfStrategyGetBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20018> localVarResponse = FactsetEtfStrategyGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfStrategyGetBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
@@ -4529,12 +7909,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20018</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20018> FactsetEtfStrategyGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20029</returns>
+        public ApiResponse<InlineResponse20029> GetFactsetEtfStrategyGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfStrategyGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfStrategyGetBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -4547,10 +7929,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4560,13 +7948,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4578,15 +7966,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20018>("/factset/etf/strategy/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfStrategyGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20029>("/factset/etf/strategy/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfStrategyGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfStrategyGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4597,10 +7989,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20018</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20018> FactsetEtfStrategyGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20029</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20029>GetFactsetEtfStrategyGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20018> localVarResponse = await FactsetEtfStrategyGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfStrategyGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4611,12 +8003,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20018>> FactsetEtfStrategyGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetFactsetEtfStrategyGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfStrategyGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfStrategyGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -4629,12 +8024,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4644,13 +8044,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4662,14 +8062,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfStrategyGetBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20018>("/factset/etf/strategy/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20029>("/factset/etf/strategy/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfStrategyGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfStrategyGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4682,10 +8086,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20019</returns>
-        public InlineResponse20019 FactsetEtfStrategySegmentListGet(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20030</returns>
+        public InlineResponse20030 GetFactsetEtfStrategySegmentList(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20019> localVarResponse = FactsetEtfStrategySegmentListGetWithHttpInfo(attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfStrategySegmentListWithHttpInfo(attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -4696,8 +8100,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20019</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20019> FactsetEtfStrategySegmentListGetWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20030</returns>
+        public ApiResponse<InlineResponse20030> GetFactsetEtfStrategySegmentListWithHttpInfo(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -4710,10 +8114,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -4730,13 +8140,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4748,15 +8158,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20019>("/factset/etf/strategy/segment/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfStrategySegmentListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20030>("/factset/etf/strategy/segment/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfStrategySegmentListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfStrategySegmentList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4768,10 +8182,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20019</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20019> FactsetEtfStrategySegmentListGetAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20030</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20030>GetFactsetEtfStrategySegmentListAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20019> localVarResponse = await FactsetEtfStrategySegmentListGetWithHttpInfoAsync(attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfStrategySegmentListWithHttpInfoAsync(attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4783,8 +8197,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20019>> FactsetEtfStrategySegmentListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20030>> GetFactsetEtfStrategySegmentListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -4797,12 +8212,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -4819,13 +8239,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4837,14 +8257,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfStrategySegmentListResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20019>("/factset/etf/strategy/segment/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20030>("/factset/etf/strategy/segment/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfStrategySegmentListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfStrategySegmentList", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4856,10 +8280,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20020</returns>
-        public InlineResponse20020 FactsetEtfStructureGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20031</returns>
+        public InlineResponse20031 GetFactsetEtfStructureGetBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20020> localVarResponse = FactsetEtfStructureGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfStructureGetBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
@@ -4869,12 +8293,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20020</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20020> FactsetEtfStructureGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20031</returns>
+        public ApiResponse<InlineResponse20031> GetFactsetEtfStructureGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfStructureGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfStructureGetBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -4887,10 +8313,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4900,13 +8332,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4918,15 +8350,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20020>("/factset/etf/structure/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfStructureGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20031>("/factset/etf/structure/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfStructureGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfStructureGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4937,10 +8373,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20020</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20020> FactsetEtfStructureGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20031</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20031>GetFactsetEtfStructureGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20020> localVarResponse = await FactsetEtfStructureGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfStructureGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4951,12 +8387,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20020>> FactsetEtfStructureGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20031)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20031>> GetFactsetEtfStructureGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfStructureGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfStructureGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -4969,12 +8408,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -4984,13 +8428,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5002,14 +8446,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfStructureGetBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20020>("/factset/etf/structure/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20031>("/factset/etf/structure/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfStructureGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfStructureGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -5021,10 +8469,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>InlineResponse20021</returns>
-        public InlineResponse20021 FactsetEtfTaxesAndFeesUsGetBySymbolGet(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>InlineResponse20032</returns>
+        public InlineResponse20032 GetFactsetEtfTaxesAndFeesUsGetBySymbol(string symbol, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20021> localVarResponse = FactsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfo(symbol, attributes);
+            var localVarResponse = GetFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfo(symbol, attributes);
             return localVarResponse.Data;
         }
 
@@ -5034,12 +8482,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20021</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20021> FactsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
+        /// <returns>ApiResponse of InlineResponse20032</returns>
+        public ApiResponse<InlineResponse20032> GetFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfo(string symbol, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfTaxesAndFeesUsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfTaxesAndFeesUsGetBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -5052,10 +8502,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -5065,13 +8521,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5083,15 +8539,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20021>("/factset/etf/taxesAndFees/us/getBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfTaxesAndFeesUsGetBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20032>("/factset/etf/taxesAndFees/us/getBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfTaxesAndFeesUsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfTaxesAndFeesUsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5102,10 +8562,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20021</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20021> FactsetEtfTaxesAndFeesUsGetBySymbolGetAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20032</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20032>GetFactsetEtfTaxesAndFeesUsGetBySymbolAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20021> localVarResponse = await FactsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfoAsync(symbol, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5116,12 +8576,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20021>> FactsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20032)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20032>> GetFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfoAsync(string symbol, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfTaxesAndFeesUsGetBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfTaxesAndFeesUsGetBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -5134,12 +8597,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (attributes != null)
@@ -5149,13 +8617,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5167,14 +8635,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfTaxesAndFeesUsGetBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20021>("/factset/etf/taxesAndFees/us/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20032>("/factset/etf/taxesAndFees/us/getBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfTaxesAndFeesUsGetBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfTaxesAndFeesUsGetBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -5186,13 +8658,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>InlineResponse20022</returns>
-        public InlineResponse20022 FactsetEtfTimeSeriesListBySymbolGet(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>InlineResponse20033</returns>
+        public InlineResponse20033 GetFactsetEtfTimeSeriesListBySymbol(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20022> localVarResponse = FactsetEtfTimeSeriesListBySymbolGetWithHttpInfo(symbol, timePeriod, attributes, paginationOffset, paginationLimit);
+            var localVarResponse = GetFactsetEtfTimeSeriesListBySymbolWithHttpInfo(symbol, timePeriod, alignment, attributes, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -5202,15 +8675,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
-        /// <returns>ApiResponse of InlineResponse20022</returns>
-        public FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20022> FactsetEtfTimeSeriesListBySymbolGetWithHttpInfo(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        /// <returns>ApiResponse of InlineResponse20033</returns>
+        public ApiResponse<InlineResponse20033> GetFactsetEtfTimeSeriesListBySymbolWithHttpInfo(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfTimeSeriesListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfTimeSeriesListBySymbol");
+            }
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
 
@@ -5223,16 +8699,26 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (timePeriod != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "timePeriod", timePeriod));
             }
+            if (alignment != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "alignment", alignment));
+            }
             if (attributes != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("csv", "_attributes", attributes));
@@ -5248,13 +8734,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5266,15 +8752,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20022>("/factset/etf/timeSeries/listBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfTimeSeriesListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20033>("/factset/etf/timeSeries/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfTimeSeriesListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfTimeSeriesListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5284,14 +8774,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of InlineResponse20022</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20022> FactsetEtfTimeSeriesListBySymbolGetAsync(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of InlineResponse20033</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20033>GetFactsetEtfTimeSeriesListBySymbolAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20022> localVarResponse = await FactsetEtfTimeSeriesListBySymbolGetWithHttpInfoAsync(symbol, timePeriod, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactsetEtfTimeSeriesListBySymbolWithHttpInfoAsync(symbol, timePeriod, alignment, attributes, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5301,16 +8792,20 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
         /// <exception cref="FactSet.SDK.ETFProfileandPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="symbol">Market symbol of ETP defined by FactSet.</param>
         /// <param name="timePeriod">Time frame of the data. (optional, default to 1Y)</param>
+        /// <param name="alignment">Indicates the reference point for the time series data. (optional)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ETFProfileandPrices.Client.ApiResponse<InlineResponse20022>> FactsetEtfTimeSeriesListBySymbolGetWithHttpInfoAsync(string symbol, string timePeriod = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (InlineResponse20033)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20033>> GetFactsetEtfTimeSeriesListBySymbolWithHttpInfoAsync(string symbol, string timePeriod = default(string), string alignment = default(string), List<string> attributes = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'symbol' is set
             if (symbol == null)
-                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->FactsetEtfTimeSeriesListBySymbolGet");
+            {
+                throw new FactSet.SDK.ETFProfileandPrices.Client.ApiException(400, "Missing required parameter 'symbol' when calling FactsetApi->GetFactsetEtfTimeSeriesListBySymbol");
+            }
 
 
             FactSet.SDK.ETFProfileandPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ETFProfileandPrices.Client.RequestOptions();
@@ -5323,17 +8818,26 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "symbol", symbol));
             if (timePeriod != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "timePeriod", timePeriod));
+            }
+            if (alignment != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.ParameterToMultiMap("", "alignment", alignment));
             }
             if (attributes != null)
             {
@@ -5350,13 +8854,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ETFProfileandPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5368,14 +8872,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactsetEtfTimeSeriesListBySymbolResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20022>("/factset/etf/timeSeries/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20033>("/factset/etf/timeSeries/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("FactsetEtfTimeSeriesListBySymbolGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetFactsetEtfTimeSeriesListBySymbol", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

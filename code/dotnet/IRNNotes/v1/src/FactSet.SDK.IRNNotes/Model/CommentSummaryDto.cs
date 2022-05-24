@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "Id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets UserId
         /// </summary>
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        [DataMember(Name = "UserId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
+        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Subcomments
         /// </summary>
-        [DataMember(Name = "subcomments", EmitDefaultValue = true)]
+        [DataMember(Name = "Subcomments", EmitDefaultValue = true)]
         public List<SubcommentSummaryDto> Subcomments { get; set; }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CommentSummaryDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(CommentSummaryDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -149,13 +150,21 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.UserId != null)
-                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UserId.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Subcomments != null)
-                    hashCode = hashCode * 59 + this.Subcomments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subcomments.GetHashCode();
+                }
                 return hashCode;
             }
         }

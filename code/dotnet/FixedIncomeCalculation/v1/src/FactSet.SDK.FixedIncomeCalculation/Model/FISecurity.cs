@@ -145,7 +145,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FISecurity {\n");
             sb.Append("  SettlementDate: ").Append(SettlementDate).Append("\n");
             sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
@@ -185,8 +185,9 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         public bool Equals(FISecurity input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SettlementDate == input.SettlementDate ||
@@ -232,16 +233,24 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
             {
                 int hashCode = 41;
                 if (this.SettlementDate != null)
-                    hashCode = hashCode * 59 + this.SettlementDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SettlementDate.GetHashCode();
+                }
                 if (this.CalcFromMethod != null)
-                    hashCode = hashCode * 59 + this.CalcFromMethod.GetHashCode();
-                hashCode = hashCode * 59 + this.CalcFromValue.GetHashCode();
-                hashCode = hashCode * 59 + this.Face.GetHashCode();
-                hashCode = hashCode * 59 + this.FaceType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CalcFromMethod.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CalcFromValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.Face.GetHashCode();
+                hashCode = (hashCode * 59) + this.FaceType.GetHashCode();
                 if (this.Symbol != null)
-                    hashCode = hashCode * 59 + this.Symbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                }
                 if (this.DiscountCurve != null)
-                    hashCode = hashCode * 59 + this.DiscountCurve.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DiscountCurve.GetHashCode();
+                }
                 return hashCode;
             }
         }

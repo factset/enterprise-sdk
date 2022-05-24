@@ -9,6 +9,7 @@ Instrument of the underlying.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Identifier of the instrument. |  [optional]
+**fsym** | [**InlineResponse2004InstrumentFsym**](InlineResponse2004InstrumentFsym.md) |  |  [optional]
 **typeComposite** | [**TypeCompositeEnum**](#TypeCompositeEnum) | Type of composite instrument, in case the underlying is a composite instrument. |  [optional]
 
 

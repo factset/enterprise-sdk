@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresOutperformancePoint implements Seri
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresOutperformancePoint() { 
+  }
 
   public InlineResponse2005DataKeyFiguresOutperformancePoint minimum(BigDecimal minimum) {
     this.minimum = minimum;

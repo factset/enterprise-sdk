@@ -133,7 +133,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InstrumentID {\n");
             sb.Append("  BBG: ").Append(BBG).Append("\n");
             sb.Append("  CUSIP: ").Append(CUSIP).Append("\n");
@@ -177,8 +177,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(InstrumentID input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BBG == input.BBG ||
@@ -247,27 +248,49 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.BBG != null)
-                    hashCode = hashCode * 59 + this.BBG.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BBG.GetHashCode();
+                }
                 if (this.CUSIP != null)
-                    hashCode = hashCode * 59 + this.CUSIP.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CUSIP.GetHashCode();
+                }
                 if (this.FDS_ID != null)
-                    hashCode = hashCode * 59 + this.FDS_ID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FDS_ID.GetHashCode();
+                }
                 if (this.FDS_TICKER_REGION != null)
-                    hashCode = hashCode * 59 + this.FDS_TICKER_REGION.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FDS_TICKER_REGION.GetHashCode();
+                }
                 if (this.FDS_TICKER_EXCHANGE != null)
-                    hashCode = hashCode * 59 + this.FDS_TICKER_EXCHANGE.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FDS_TICKER_EXCHANGE.GetHashCode();
+                }
                 if (this.FIGI != null)
-                    hashCode = hashCode * 59 + this.FIGI.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FIGI.GetHashCode();
+                }
                 if (this.ISIN != null)
-                    hashCode = hashCode * 59 + this.ISIN.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ISIN.GetHashCode();
+                }
                 if (this.PERMID != null)
-                    hashCode = hashCode * 59 + this.PERMID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PERMID.GetHashCode();
+                }
                 if (this.RIC != null)
-                    hashCode = hashCode * 59 + this.RIC.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RIC.GetHashCode();
+                }
                 if (this.SEDOL != null)
-                    hashCode = hashCode * 59 + this.SEDOL.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SEDOL.GetHashCode();
+                }
                 if (this.Ticker != null)
-                    hashCode = hashCode * 59 + this.Ticker.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ticker.GetHashCode();
+                }
                 return hashCode;
             }
         }

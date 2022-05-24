@@ -47,6 +47,7 @@ const path = "'Client:folder1/folder2'"; // String | The directory to get the do
 // Call api endpoint
 apiInstance.getPubDocuments(path).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSnowflakeEntityMatch(name, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const snowflakeEntityMatchRequest = new factsetconcordance.SnowflakeEntityMatchR
 // Call api endpoint
 apiInstance.getSnowflakeEntityMatchForList(snowflakeEntityMatchRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

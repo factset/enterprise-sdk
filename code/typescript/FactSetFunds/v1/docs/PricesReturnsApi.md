@@ -62,6 +62,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFundsPrices(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -139,6 +140,7 @@ const fundsPricesRequest = new factsetfunds.FundsPricesRequest(); // FundsPrices
 // Call api endpoint
 apiInstance.getFundsPricesForList(fundsPricesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -217,6 +219,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFundsReturns(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -293,6 +296,7 @@ const fundsReturnsRequest = new factsetfunds.FundsReturnsRequest(); // FundsRetu
 // Call api endpoint
 apiInstance.getFundsReturnsForList(fundsReturnsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -369,6 +373,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFundsReturnsRange(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -443,6 +448,7 @@ const returnsRangeRequest = new factsetfunds.ReturnsRangeRequest(); // ReturnsRa
 // Call api endpoint
 apiInstance.getFundsReturnsRangeForList(returnsRangeRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -518,6 +524,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFundsReturnsSnapshot(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -591,6 +598,7 @@ const fundsReturnsSnapshotRequest = new factsetfunds.FundsReturnsSnapshotRequest
 // Call api endpoint
 apiInstance.getFundsReturnsSnapshotForList(fundsReturnsSnapshotRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

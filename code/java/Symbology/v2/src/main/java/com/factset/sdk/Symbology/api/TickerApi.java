@@ -7,6 +7,9 @@ import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Symbology.models.ErrorResponse;
 import com.factset.sdk.Symbology.models.TickerHistoryTranslationRequest;
@@ -25,6 +28,46 @@ public class TickerApi {
   public TickerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> batchTickerHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchTickerHistoryResponseTypeMap.put(200, new GenericType<TickerHistoryTranslationResponse>(){});
+    batchTickerHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchTickerHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchTickerHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchTickerHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchTickerHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> batchTranslateTickerResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchTranslateTickerResponseTypeMap.put(200, new GenericType<TickerTranslationResponse>(){});
+    batchTranslateTickerResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchTranslateTickerResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchTranslateTickerResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchTranslateTickerResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchTranslateTickerResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> tickerHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    tickerHistoryResponseTypeMap.put(200, new GenericType<TickerHistoryTranslationResponse>(){});
+    tickerHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    tickerHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    tickerHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    tickerHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    tickerHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> translateTickerResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    translateTickerResponseTypeMap.put(200, new GenericType<TickerTranslationResponse>(){});
+    translateTickerResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    translateTickerResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    translateTickerResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    translateTickerResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    translateTickerResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +158,17 @@ public class TickerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TickerHistoryTranslationResponse> localVarReturnType = new GenericType<TickerHistoryTranslationResponse>() {};
 
-    return apiClient.invokeAPI("TickerApi.batchTickerHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TickerHistoryTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("TickerApi.batchTickerHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchTickerHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the Ticker-Exchange or Ticker-Region for a given security.
@@ -192,11 +241,17 @@ public class TickerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TickerTranslationResponse> localVarReturnType = new GenericType<TickerTranslationResponse>() {};
 
-    return apiClient.invokeAPI("TickerApi.batchTranslateTicker", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TickerTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("TickerApi.batchTranslateTicker", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchTranslateTickerResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
@@ -276,11 +331,17 @@ public class TickerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TickerHistoryTranslationResponse> localVarReturnType = new GenericType<TickerHistoryTranslationResponse>() {};
 
-    return apiClient.invokeAPI("TickerApi.tickerHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TickerHistoryTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("TickerApi.tickerHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, tickerHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the Ticker-Exchange or Ticker-Region for a given security. - Current Only
@@ -357,10 +418,16 @@ public class TickerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TickerTranslationResponse> localVarReturnType = new GenericType<TickerTranslationResponse>() {};
 
-    return apiClient.invokeAPI("TickerApi.translateTicker", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TickerTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("TickerApi.translateTicker", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, translateTickerResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

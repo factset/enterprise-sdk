@@ -24,7 +24,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Mappings service.
 * @module api/MappingsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class MappingsApi {
 
@@ -66,7 +66,10 @@ export default class MappingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntityMappingDeleteResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/entity-mapping-delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -78,7 +81,7 @@ export default class MappingsApi {
      * Deletes mapping specified by the client.
      * Delete a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and universeId are required. 
      * @param {module:model/EntityMappingDeleteRequest} entityMappingDeleteRequest A request to delete entity mappings specified by the client
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityMappingDeleteResponse}
+     * @return { Promise.< module:model/EntityMappingDeleteResponse > } a Promise, with data of type {@link module:model/EntityMappingDeleteResponse }
      */
     getEntityMappingDeleteForList(entityMappingDeleteRequest) {
       return this.getEntityMappingDeleteForListWithHttpInfo(entityMappingDeleteRequest)
@@ -113,7 +116,10 @@ export default class MappingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntityResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/entity-mapping', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -125,7 +131,7 @@ export default class MappingsApi {
      * Saves a single-mapping specified by the client.
      * Saves a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and clientName are required. 
      * @param {module:model/EntityMappingRequest} entityMappingRequest A request to create a single mapping.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityResponse}
+     * @return { Promise.< module:model/EntityResponse > } a Promise, with data of type {@link module:model/EntityResponse }
      */
     getEntityMappingForList(entityMappingRequest) {
       return this.getEntityMappingForListWithHttpInfo(entityMappingRequest)
@@ -171,7 +177,10 @@ export default class MappingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EntityUniverseResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/entity-universe', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -188,7 +197,7 @@ export default class MappingsApi {
      * @param {Array.<module:model/String>} opts.mapStatus Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. 
      * @param {Number} opts.offset Starting row for records to return or rows to skip. (default to 0)
      * @param {Number} opts.limit Limits the number of records in the response.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityUniverseResponse}
+     * @return { Promise.< module:model/EntityUniverseResponse > } a Promise, with data of type {@link module:model/EntityUniverseResponse }
      */
     getEntityUniverse(universeId, opts) {
       return this.getEntityUniverseWithHttpInfo(universeId, opts)
@@ -223,7 +232,10 @@ export default class MappingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntityUniverseResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/entity-universe', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -235,7 +247,7 @@ export default class MappingsApi {
      * Retrieve all saved mappings within a requested universe or large list of client ids
      * Retrieves all entity mappings that were saved in a given universe. Supports filtering by a large number of `clientId`s 
      * @param {module:model/EntityUniverseRequest} entityUniverseRequest A request to fetch all entities of a given universe
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityUniverseResponse}
+     * @return { Promise.< module:model/EntityUniverseResponse > } a Promise, with data of type {@link module:model/EntityUniverseResponse }
      */
     getEntityUniverseForList(entityUniverseRequest) {
       return this.getEntityUniverseForListWithHttpInfo(entityUniverseRequest)
@@ -246,3 +258,8 @@ export default class MappingsApi {
 
 
 }
+
+
+
+
+

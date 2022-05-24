@@ -43,6 +43,8 @@ public class NewsArticleSearchByTextDataInstruments implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<String> ids = null;
 
+  public NewsArticleSearchByTextDataInstruments() { 
+  }
 
   public NewsArticleSearchByTextDataInstruments ids(java.util.Set<String> ids) {
     this.ids = ids;

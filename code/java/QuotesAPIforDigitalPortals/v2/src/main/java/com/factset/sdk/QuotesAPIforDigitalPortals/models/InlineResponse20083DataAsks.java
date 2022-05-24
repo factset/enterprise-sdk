@@ -59,6 +59,8 @@ public class InlineResponse20083DataAsks implements Serializable {
   public static final String JSON_PROPERTY_TIME = "time";
   private String time;
 
+  public InlineResponse20083DataAsks() { 
+  }
 
   public InlineResponse20083DataAsks type(BigDecimal type) {
     this.type = type;

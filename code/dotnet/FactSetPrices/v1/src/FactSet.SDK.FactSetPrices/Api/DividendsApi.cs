@@ -159,6 +159,33 @@ namespace FactSet.SDK.FactSetPrices.Api
     {
         private FactSet.SDK.FactSetPrices.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetSecurityDividendsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DividendsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSecurityDividendsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DividendsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DividendsApi"/> class.
         /// </summary>
@@ -273,7 +300,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <returns>DividendsResponse</returns>
         public DividendsResponse GetSecurityDividends(List<string> ids, string startDate = default(string), string endDate = default(string), string currency = default(string), string adjust = default(string))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse> localVarResponse = GetSecurityDividendsWithHttpInfo(ids, startDate, endDate, currency, adjust);
+            var localVarResponse = GetSecurityDividendsWithHttpInfo(ids, startDate, endDate, currency, adjust);
             return localVarResponse.Data;
         }
 
@@ -287,11 +314,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <returns>ApiResponse of DividendsResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse> GetSecurityDividendsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string currency = default(string), string adjust = default(string))
+        public ApiResponse<DividendsResponse> GetSecurityDividendsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string currency = default(string), string adjust = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling DividendsApi->GetSecurityDividends");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -304,10 +333,16 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -329,13 +364,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -347,15 +382,19 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DividendsResponse>("/factset-prices/v1/dividends", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityDividendsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DividendsResponse>("/factset-prices/v1/dividends", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityDividends", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -370,9 +409,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DividendsResponse</returns>
-        public async System.Threading.Tasks.Task<DividendsResponse> GetSecurityDividendsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string currency = default(string), string adjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DividendsResponse>GetSecurityDividendsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string currency = default(string), string adjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse> localVarResponse = await GetSecurityDividendsWithHttpInfoAsync(ids, startDate, endDate, currency, adjust, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecurityDividendsWithHttpInfoAsync(ids, startDate, endDate, currency, adjust, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -387,11 +426,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DividendsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse>> GetSecurityDividendsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string currency = default(string), string adjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DividendsResponse>> GetSecurityDividendsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string currency = default(string), string adjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling DividendsApi->GetSecurityDividends");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -404,12 +446,17 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -431,13 +478,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -449,14 +496,18 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityDividendsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DividendsResponse>("/factset-prices/v1/dividends", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityDividends", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -470,7 +521,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <returns>DividendsResponse</returns>
         public DividendsResponse GetSecurityDividendsForList(DividendsRequest dividendsRequest)
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse> localVarResponse = GetSecurityDividendsForListWithHttpInfo(dividendsRequest);
+            var localVarResponse = GetSecurityDividendsForListWithHttpInfo(dividendsRequest);
             return localVarResponse.Data;
         }
 
@@ -480,11 +531,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dividendsRequest">Request object for &#x60;Security&#x60; dividends.</param>
         /// <returns>ApiResponse of DividendsResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse> GetSecurityDividendsForListWithHttpInfo(DividendsRequest dividendsRequest)
+        public ApiResponse<DividendsResponse> GetSecurityDividendsForListWithHttpInfo(DividendsRequest dividendsRequest)
         {
             // verify the required parameter 'dividendsRequest' is set
             if (dividendsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'dividendsRequest' when calling DividendsApi->GetSecurityDividendsForList");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -498,22 +551,28 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = dividendsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -525,15 +584,19 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<DividendsResponse>("/factset-prices/v1/dividends", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityDividendsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            DividendsResponse>("/factset-prices/v1/dividends", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityDividendsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -544,9 +607,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="dividendsRequest">Request object for &#x60;Security&#x60; dividends.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DividendsResponse</returns>
-        public async System.Threading.Tasks.Task<DividendsResponse> GetSecurityDividendsForListAsync(DividendsRequest dividendsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DividendsResponse>GetSecurityDividendsForListAsync(DividendsRequest dividendsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse> localVarResponse = await GetSecurityDividendsForListWithHttpInfoAsync(dividendsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecurityDividendsForListWithHttpInfoAsync(dividendsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -557,11 +620,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="dividendsRequest">Request object for &#x60;Security&#x60; dividends.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DividendsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<DividendsResponse>> GetSecurityDividendsForListWithHttpInfoAsync(DividendsRequest dividendsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DividendsResponse>> GetSecurityDividendsForListWithHttpInfoAsync(DividendsRequest dividendsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'dividendsRequest' is set
             if (dividendsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'dividendsRequest' when calling DividendsApi->GetSecurityDividendsForList");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -575,24 +641,29 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = dividendsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -604,14 +675,18 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityDividendsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<DividendsResponse>("/factset-prices/v1/dividends", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityDividendsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

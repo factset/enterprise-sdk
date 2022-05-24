@@ -48,6 +48,8 @@ public class InlineResponse2007DataCalculationLevel implements Serializable {
   public static final String JSON_PROPERTY_TIME = "time";
   private String time;
 
+  public InlineResponse2007DataCalculationLevel() { 
+  }
 
   public InlineResponse2007DataCalculationLevel value(BigDecimal value) {
     this.value = value;

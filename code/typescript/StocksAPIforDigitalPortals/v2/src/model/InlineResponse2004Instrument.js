@@ -20,7 +20,7 @@ import InlineResponse2004InstrumentNsin from './InlineResponse2004InstrumentNsin
 /**
  * The InlineResponse2004Instrument model module.
  * @module model/InlineResponse2004Instrument
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2004Instrument {
     /**

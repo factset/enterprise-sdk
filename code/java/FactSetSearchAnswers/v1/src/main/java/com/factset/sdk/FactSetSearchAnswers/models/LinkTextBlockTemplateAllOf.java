@@ -46,6 +46,8 @@ public class LinkTextBlockTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_BLURB = "blurb";
   private String blurb;
 
+  public LinkTextBlockTemplateAllOf() { 
+  }
 
   public LinkTextBlockTemplateAllOf link(String link) {
     this.link = link;

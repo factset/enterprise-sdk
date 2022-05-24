@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -40,24 +40,30 @@ import com.factset.sdk.IRNConfiguration.JSON;
   SentimentConfigDto.JSON_PROPERTY_ID,
   SentimentConfigDto.JSON_PROPERTY_NAME,
   SentimentConfigDto.JSON_PROPERTY_CODE,
+  SentimentConfigDto.JSON_PROPERTY_COLOR,
   SentimentConfigDto.JSON_PROPERTY_IS_HIDDEN
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SentimentConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private Integer code;
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
+  public static final String JSON_PROPERTY_COLOR = "Color";
+  private JsonNullable<String> color = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
   private Boolean isHidden;
 
+  public SentimentConfigDto() { 
+  }
 
   public SentimentConfigDto id(java.util.UUID id) {
     this.id = id;
@@ -145,6 +151,40 @@ public class SentimentConfigDto implements Serializable {
   }
 
 
+  public SentimentConfigDto color(String color) {
+    this.color = JsonNullable.<String>of(color);
+    return this;
+  }
+
+   /**
+   * Get color
+   * @return color
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getColor() {
+        return color.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COLOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getColor_JsonNullable() {
+    return color;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_COLOR)
+  public void setColor_JsonNullable(JsonNullable<String> color) {
+    this.color = color;
+  }
+
+  public void setColor(String color) {
+    this.color = JsonNullable.<String>of(color);
+  }
+
+
   public SentimentConfigDto isHidden(Boolean isHidden) {
     this.isHidden = isHidden;
     return this;
@@ -186,6 +226,7 @@ public class SentimentConfigDto implements Serializable {
     return Objects.equals(this.id, sentimentConfigDto.id) &&
         equalsNullable(this.name, sentimentConfigDto.name) &&
         Objects.equals(this.code, sentimentConfigDto.code) &&
+        equalsNullable(this.color, sentimentConfigDto.color) &&
         Objects.equals(this.isHidden, sentimentConfigDto.isHidden);
   }
 
@@ -195,7 +236,7 @@ public class SentimentConfigDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), code, isHidden);
+    return Objects.hash(id, hashCodeNullable(name), code, hashCodeNullable(color), isHidden);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,6 +253,7 @@ public class SentimentConfigDto implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
     sb.append("}");
     return sb.toString();

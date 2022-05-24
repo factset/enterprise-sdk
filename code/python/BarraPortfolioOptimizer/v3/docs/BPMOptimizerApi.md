@@ -42,24 +42,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bpm_optimizer_api.BPMOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run BPM optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel BPM optimization by id
         api_instance.cancel_optimization_by_id(id)
@@ -133,28 +133,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bpm_optimizer_api.BPMOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run BPM optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get BPM optimization parameters by id
         api_response = api_instance.get_optimization_parameters(id)
         pprint(api_response)
+
     except fds.sdk.BarraPortfolioOptimizer.ApiException as e:
         print("Exception when calling BPMOptimizerApi->get_optimization_parameters: %s\n" % e)
 ```
@@ -225,28 +226,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bpm_optimizer_api.BPMOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Get BPM optimization status by id endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get BPM optimization result by id
         api_response = api_instance.get_optimization_result(id)
         pprint(api_response)
+
     except fds.sdk.BarraPortfolioOptimizer.ApiException as e:
         print("Exception when calling BPMOptimizerApi->get_optimization_result: %s\n" % e)
 ```
@@ -317,28 +319,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bpm_optimizer_api.BPMOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run BPM optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get BPM optimization status by id
         api_response = api_instance.get_optimization_status_by_id(id)
         pprint(api_response)
+
     except fds.sdk.BarraPortfolioOptimizer.ApiException as e:
         print("Exception when calling BPMOptimizerApi->get_optimization_status_by_id: %s\n" % e)
 ```
@@ -412,21 +415,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bpm_optimizer_api.BPMOptimizerApi(api_client)
+
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
     bpm_optimization_parameters_root = BPMOptimizationParametersRoot(
@@ -487,12 +491,15 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
         meta={},
     ) # BPMOptimizationParametersRoot | Optimization Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create and Run BPM optimization
         api_response = api_instance.post_and_optimize(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, bpm_optimization_parameters_root=bpm_optimization_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.BarraPortfolioOptimizer.ApiException as e:
         print("Exception when calling BPMOptimizerApi->post_and_optimize: %s\n" % e)
 ```
@@ -570,21 +577,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BarraPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bpm_optimizer_api.BPMOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run BPM optimization endpoint
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
@@ -646,20 +654,15 @@ with fds.sdk.BarraPortfolioOptimizer.ApiClient(configuration) as api_client:
         meta={},
     ) # BPMOptimizationParametersRoot | Optimization Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create or Update BPM optimization and run it.
-        api_response = api_instance.put_and_optimize(id)
-        pprint(api_response)
-    except fds.sdk.BarraPortfolioOptimizer.ApiException as e:
-        print("Exception when calling BPMOptimizerApi->put_and_optimize: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create or Update BPM optimization and run it.
         api_response = api_instance.put_and_optimize(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, bpm_optimization_parameters_root=bpm_optimization_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.BarraPortfolioOptimizer.ApiException as e:
         print("Exception when calling BPMOptimizerApi->put_and_optimize: %s\n" % e)
 ```

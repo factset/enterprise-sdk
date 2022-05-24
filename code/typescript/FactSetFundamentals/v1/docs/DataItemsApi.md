@@ -51,6 +51,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFdsFundamentalsMetrics(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -123,6 +124,7 @@ const metricsRequest = new factsetfundamentals.MetricsRequest(); // MetricsReque
 // Call api endpoint
 apiInstance.getFdsFundamentalsMetricsForList(metricsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

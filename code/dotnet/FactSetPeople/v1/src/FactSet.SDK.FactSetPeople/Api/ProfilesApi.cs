@@ -140,6 +140,33 @@ namespace FactSet.SDK.FactSetPeople.Api
     {
         private FactSet.SDK.FactSetPeople.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleProfilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PeopleProfilesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleProfilesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PeopleProfilesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ProfilesApi"/> class.
         /// </summary>
@@ -250,7 +277,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>PeopleProfilesResponse</returns>
         public PeopleProfilesResponse GetPeopleProfiles(List<string> ids)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse> localVarResponse = GetPeopleProfilesWithHttpInfo(ids);
+            var localVarResponse = GetPeopleProfilesWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -260,11 +287,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of FactSet Person Entity identifier.</param>
         /// <returns>ApiResponse of PeopleProfilesResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse> GetPeopleProfilesWithHttpInfo(List<string> ids)
+        public ApiResponse<PeopleProfilesResponse> GetPeopleProfilesWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling ProfilesApi->GetPeopleProfiles");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -277,22 +306,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -304,15 +339,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PeopleProfilesResponse>("/factset-people/v1/profiles", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleProfilesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            PeopleProfilesResponse>("/factset-people/v1/profiles", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleProfiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -323,9 +362,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="ids">List of FactSet Person Entity identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PeopleProfilesResponse</returns>
-        public async System.Threading.Tasks.Task<PeopleProfilesResponse> GetPeopleProfilesAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PeopleProfilesResponse>GetPeopleProfilesAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse> localVarResponse = await GetPeopleProfilesWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPeopleProfilesWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -336,11 +375,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="ids">List of FactSet Person Entity identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PeopleProfilesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse>> GetPeopleProfilesWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PeopleProfilesResponse>> GetPeopleProfilesWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling ProfilesApi->GetPeopleProfiles");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -353,24 +395,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -382,14 +429,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleProfilesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<PeopleProfilesResponse>("/factset-people/v1/profiles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleProfiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -403,7 +454,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>PeopleProfilesResponse</returns>
         public PeopleProfilesResponse GetPeopleProfilesForList(PeopleProfilesRequest peopleProfilesRequest)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse> localVarResponse = GetPeopleProfilesForListWithHttpInfo(peopleProfilesRequest);
+            var localVarResponse = GetPeopleProfilesForListWithHttpInfo(peopleProfilesRequest);
             return localVarResponse.Data;
         }
 
@@ -413,11 +464,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="peopleProfilesRequest"></param>
         /// <returns>ApiResponse of PeopleProfilesResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse> GetPeopleProfilesForListWithHttpInfo(PeopleProfilesRequest peopleProfilesRequest)
+        public ApiResponse<PeopleProfilesResponse> GetPeopleProfilesForListWithHttpInfo(PeopleProfilesRequest peopleProfilesRequest)
         {
             // verify the required parameter 'peopleProfilesRequest' is set
             if (peopleProfilesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'peopleProfilesRequest' when calling ProfilesApi->GetPeopleProfilesForList");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -431,22 +484,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = peopleProfilesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -458,15 +517,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PeopleProfilesResponse>("/factset-people/v1/profiles", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleProfilesForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            PeopleProfilesResponse>("/factset-people/v1/profiles", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleProfilesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -477,9 +540,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="peopleProfilesRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PeopleProfilesResponse</returns>
-        public async System.Threading.Tasks.Task<PeopleProfilesResponse> GetPeopleProfilesForListAsync(PeopleProfilesRequest peopleProfilesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PeopleProfilesResponse>GetPeopleProfilesForListAsync(PeopleProfilesRequest peopleProfilesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse> localVarResponse = await GetPeopleProfilesForListWithHttpInfoAsync(peopleProfilesRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPeopleProfilesForListWithHttpInfoAsync(peopleProfilesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -490,11 +553,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="peopleProfilesRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PeopleProfilesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleProfilesResponse>> GetPeopleProfilesForListWithHttpInfoAsync(PeopleProfilesRequest peopleProfilesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PeopleProfilesResponse>> GetPeopleProfilesForListWithHttpInfoAsync(PeopleProfilesRequest peopleProfilesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'peopleProfilesRequest' is set
             if (peopleProfilesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'peopleProfilesRequest' when calling ProfilesApi->GetPeopleProfilesForList");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -508,24 +574,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = peopleProfilesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -537,14 +608,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleProfilesForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<PeopleProfilesResponse>("/factset-people/v1/profiles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleProfilesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

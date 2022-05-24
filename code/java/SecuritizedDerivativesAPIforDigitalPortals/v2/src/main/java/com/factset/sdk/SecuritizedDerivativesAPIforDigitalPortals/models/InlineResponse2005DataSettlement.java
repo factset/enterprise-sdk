@@ -84,6 +84,8 @@ public class InlineResponse2005DataSettlement implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataSettlement() { 
+  }
 
   public InlineResponse2005DataSettlement value(ValueEnum value) {
     this.value = value;

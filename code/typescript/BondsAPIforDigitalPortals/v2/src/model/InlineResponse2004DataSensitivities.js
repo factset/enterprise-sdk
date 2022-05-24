@@ -20,7 +20,7 @@ import InlineResponse2004DataSensitivitiesModifiedDuration from './InlineRespons
 /**
  * The InlineResponse2004DataSensitivities model module.
  * @module model/InlineResponse2004DataSensitivities
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataSensitivities {
     /**

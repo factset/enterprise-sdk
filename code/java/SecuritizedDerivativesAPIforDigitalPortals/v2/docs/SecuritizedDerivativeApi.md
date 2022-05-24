@@ -1,6 +1,6 @@
 # SecuritizedDerivativeApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,14 +31,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -48,20 +47,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse2001 result = apiInstance.getSecuritizedDerivativeBarrierTypeList(attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#getSecuritizedDerivativeBarrierTypeList");
             System.err.println("Status code: " + e.getCode());
@@ -115,14 +115,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -132,14 +131,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         String id = "id_example"; // String | Identifier of the instrument.
@@ -148,6 +147,7 @@ public class Example {
         try {
             InlineResponse200 result = apiInstance.getSecuritizedDerivativeGet(id, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#getSecuritizedDerivativeGet");
             System.err.println("Status code: " + e.getCode());
@@ -215,14 +215,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -232,14 +231,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         String id = "id_example"; // String | Identifier of a notation.
@@ -248,6 +247,7 @@ public class Example {
         try {
             InlineResponse2003 result = apiInstance.getSecuritizedDerivativeKeyFiguresNotationGet(id, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#getSecuritizedDerivativeKeyFiguresNotationGet");
             System.err.println("Status code: " + e.getCode());
@@ -303,14 +303,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -320,14 +319,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         String id = "id_example"; // String | Identifier of an instrument.
@@ -336,6 +335,7 @@ public class Example {
         try {
             InlineResponse2007 result = apiInstance.getSecuritizedDerivativeUnderlyingList(id, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#getSecuritizedDerivativeUnderlyingList");
             System.err.println("Status code: " + e.getCode());
@@ -391,14 +391,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -408,20 +407,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         InlineObject body = new InlineObject(); // InlineObject | 
         try {
             InlineResponse2002 result = apiInstance.postSecuritizedDerivativeIssuerSearch(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#postSecuritizedDerivativeIssuerSearch");
             System.err.println("Status code: " + e.getCode());
@@ -483,14 +483,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -500,20 +499,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         InlineObject1 body = new InlineObject1(); // InlineObject1 | 
         try {
             InlineResponse2004 result = apiInstance.postSecuritizedDerivativeNotationRankingIntradayList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#postSecuritizedDerivativeNotationRankingIntradayList");
             System.err.println("Status code: " + e.getCode());
@@ -573,14 +573,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -590,20 +589,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         InlineObject3 body = new InlineObject3(); // InlineObject3 | 
         try {
             InlineResponse2006 result = apiInstance.postSecuritizedDerivativeNotationScreenerSearch(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#postSecuritizedDerivativeNotationScreenerSearch");
             System.err.println("Status code: " + e.getCode());
@@ -647,7 +647,7 @@ Name | Type | Description  | Notes
 
 Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
 
-The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter `market.priority`) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.
+The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.
 
  Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term "level" is used instead of "price", e.g. underlying level instead of underlying price.
 
@@ -663,14 +663,13 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.*;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.*;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.api.SecuritizedDerivativeApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -680,20 +679,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecuritizedDerivativeApi apiInstance = new SecuritizedDerivativeApi(defaultClient);
         InlineObject2 body = new InlineObject2(); // InlineObject2 | 
         try {
             InlineResponse2005 result = apiInstance.postSecuritizedDerivativeNotationScreenerValueRangesGet(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecuritizedDerivativeApi#postSecuritizedDerivativeNotationScreenerValueRangesGet");
             System.err.println("Status code: " + e.getCode());

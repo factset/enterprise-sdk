@@ -47,6 +47,8 @@ public class InlineResponse20085DataEvents implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private InlineResponse20085DataType type;
 
+  public InlineResponse20085DataEvents() { 
+  }
 
   public InlineResponse20085DataEvents time(String time) {
     this.time = time;

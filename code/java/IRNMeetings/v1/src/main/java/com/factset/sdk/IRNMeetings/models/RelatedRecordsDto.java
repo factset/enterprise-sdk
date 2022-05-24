@@ -50,6 +50,8 @@ public class RelatedRecordsDto implements Serializable {
   public static final String JSON_PROPERTY_MEETING_IDS = "meetingIds";
   private JsonNullable<java.util.List<java.util.UUID>> meetingIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
+  public RelatedRecordsDto() { 
+  }
 
   public RelatedRecordsDto noteIds(java.util.List<java.util.UUID> noteIds) {
     this.noteIds = JsonNullable.<java.util.List<java.util.UUID>>of(noteIds);

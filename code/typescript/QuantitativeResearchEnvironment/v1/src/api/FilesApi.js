@@ -18,7 +18,7 @@ import FileUploadStatus from '../model/FileUploadStatus';
 /**
 * Files service.
 * @module api/FilesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FilesApi {
 
@@ -70,7 +70,10 @@ export default class FilesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['*'];
       let accepts = ['application/json'];
+
+
       let returnType = FileUploadStatus;
+
       return this.apiClient.callApi(
         '/analytics/quant/qre/v1/files/{server}/{file}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -85,7 +88,7 @@ export default class FilesApi {
      * @param {String} file The file name to upload the file to. Existing directory can be specified.
      * @param {Object} opts Optional parameters
      * @param {File} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FileUploadStatus}
+     * @return { Promise.< module:model/FileUploadStatus > } a Promise, with data of type {@link module:model/FileUploadStatus }
      */
     analyticsQuantQreV1FilesServerFilePost(server, file, opts) {
       return this.analyticsQuantQreV1FilesServerFilePostWithHttpInfo(server, file, opts)
@@ -121,7 +124,10 @@ export default class FilesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FileUploadStatus;
+
       return this.apiClient.callApi(
         '/analytics/quant/qre/v1/files/uploads/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -133,7 +139,7 @@ export default class FilesApi {
      * Get upload status by id
      * This is the endpoint to check on the progress of a previous upload request.
      * @param {String} id From url, provided by location header or response body in the upload start endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FileUploadStatus}
+     * @return { Promise.< module:model/FileUploadStatus > } a Promise, with data of type {@link module:model/FileUploadStatus }
      */
     analyticsQuantQreV1FilesUploadsIdGet(id) {
       return this.analyticsQuantQreV1FilesUploadsIdGetWithHttpInfo(id)
@@ -144,3 +150,8 @@ export default class FilesApi {
 
 
 }
+
+
+
+
+

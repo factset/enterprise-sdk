@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.ConsensusApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ConsensusApi apiInstance = new ConsensusApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
@@ -62,11 +61,12 @@ public class Example {
         String frequency = "D"; // String | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  
         String fiscalPeriodStart = "2019"; // String | Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
         String fiscalPeriodEnd = "2020"; // String | Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
-        String periodicity = "ANN"; // String | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail. 
+        String periodicity = "ANN"; // String | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.    
         String currency = "USD"; // String | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         try {
             ConsensusResponse result = apiInstance.getFixedConsensus(ids, metrics, startDate, endDate, frequency, fiscalPeriodStart, fiscalPeriodEnd, periodicity, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ConsensusApi#getFixedConsensus");
             System.err.println("Status code: " + e.getCode());
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
  **frequency** | **String**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to D] [enum: D, W, AM, AQ, AY]
  **fiscalPeriodStart** | **String**| Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  | [optional]
  **fiscalPeriodEnd** | **String**| Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  | [optional]
- **periodicity** | **String**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  | [optional] [default to ANN] [enum: ANN, QTR, SEMI, NTMA, LTMA]
+ **periodicity** | **String**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     | [optional] [default to ANN] [enum: ANN, QTR, SEMI, NTMA, LTMA]
  **currency** | **String**| Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional]
 
 ### Return type
@@ -134,14 +134,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.ConsensusApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -151,20 +150,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ConsensusApi apiInstance = new ConsensusApi(defaultClient);
         FixedConsensusRequest fixedConsensusRequest = new FixedConsensusRequest(); // FixedConsensusRequest | Request object for Estimate Data Items.
         try {
             ConsensusResponse result = apiInstance.getFixedConsensusForList(fixedConsensusRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ConsensusApi#getFixedConsensusForList");
             System.err.println("Status code: " + e.getCode());
@@ -224,14 +224,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.ConsensusApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -241,14 +240,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ConsensusApi apiInstance = new ConsensusApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
@@ -258,11 +257,12 @@ public class Example {
         String frequency = "D"; // String | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  
         Integer relativeFiscalStart = 1; // Integer | Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).
         Integer relativeFiscalEnd = 3; // Integer | Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).
-        String periodicity = "ANN"; // String | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail. 
+        String periodicity = "ANN"; // String | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.    
         String currency = "USD"; // String | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
         try {
             ConsensusResponse result = apiInstance.getRollingConsensus(ids, metrics, startDate, endDate, frequency, relativeFiscalStart, relativeFiscalEnd, periodicity, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ConsensusApi#getRollingConsensus");
             System.err.println("Status code: " + e.getCode());
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
  **frequency** | **String**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to D] [enum: D, W, AM, AQ, AY]
  **relativeFiscalStart** | **Integer**| Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). | [optional]
  **relativeFiscalEnd** | **Integer**| Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). | [optional]
- **periodicity** | **String**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  | [optional] [default to ANN] [enum: ANN, QTR, SEMI, NTMA, LTMA]
+ **periodicity** | **String**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     | [optional] [default to ANN] [enum: ANN, QTR, SEMI, NTMA, LTMA]
  **currency** | **String**| Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional]
 
 ### Return type
@@ -330,14 +330,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.ConsensusApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -347,20 +346,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ConsensusApi apiInstance = new ConsensusApi(defaultClient);
         RollingConsensusRequest rollingConsensusRequest = new RollingConsensusRequest(); // RollingConsensusRequest | Request object for Rolling Conensus estimates.
         try {
             ConsensusResponse result = apiInstance.getRollingConsensusForList(rollingConsensusRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ConsensusApi#getRollingConsensusForList");
             System.err.println("Status code: " + e.getCode());

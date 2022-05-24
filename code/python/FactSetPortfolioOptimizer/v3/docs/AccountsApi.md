@@ -37,15 +37,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -53,11 +53,13 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = accounts_api.AccountsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    path = "Client:Foo/Bar" # str | The directory to get the accounts and sub-directories in (default to "Client:Foo/Bar")
+
     try:
         # Get accounts and sub-directories in a directory
-        api_response = api_instance.get_accounts()
+        api_response = api_instance.get_accounts(path)
         pprint(api_response)
+
     except fds.sdk.FactSetPortfolioOptimizer.ApiException as e:
         print("Exception when calling AccountsApi->get_accounts: %s\n" % e)
 ```

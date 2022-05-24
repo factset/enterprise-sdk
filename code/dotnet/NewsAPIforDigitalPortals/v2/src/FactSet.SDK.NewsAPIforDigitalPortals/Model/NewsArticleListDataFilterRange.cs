@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.NewsAPIforDigitalPortals.Client.OpenAPI
 namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Time range for matching the news article&#39;s date. At most one of the attributes &#x60;start&#x60; or &#x60;end&#x60; may be null.
+    /// Time range for matching the news article&#39;s date. At most one of the attributes &#x60;start&#x60; or &#x60;end&#x60; may be &#x60;null&#x60;.
     /// </summary>
     [DataContract(Name = "_news_article_list_data_filter_range")]
     public partial class NewsArticleListDataFilterRange : IEquatable<NewsArticleListDataFilterRange>, IValidatableObject
@@ -75,7 +75,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsArticleListDataFilterRange {\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
             sb.Append("  End: ").Append(End).Append("\n");
@@ -110,8 +110,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsArticleListDataFilterRange input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Start == input.Start ||
@@ -135,9 +136,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Start != null)
-                    hashCode = hashCode * 59 + this.Start.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
+                }
                 if (this.End != null)
-                    hashCode = hashCode * 59 + this.End.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.End.GetHashCode();
+                }
                 return hashCode;
             }
         }

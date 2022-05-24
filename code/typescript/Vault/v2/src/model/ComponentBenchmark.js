@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ComponentBenchmark model module.
  * @module model/ComponentBenchmark
- * @version 0.8.1
+ * @version 0.8.2
  */
 class ComponentBenchmark {
     /**

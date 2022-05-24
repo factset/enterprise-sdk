@@ -110,7 +110,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataExercise {\n");
             sb.Append("  Right: ").Append(Right).Append("\n");
             sb.Append("  Style: ").Append(Style).Append("\n");
@@ -145,8 +145,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataExercise input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Right == input.Right ||
@@ -167,8 +168,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Right.GetHashCode();
-                hashCode = hashCode * 59 + this.Style.GetHashCode();
+                hashCode = (hashCode * 59) + this.Right.GetHashCode();
+                hashCode = (hashCode * 59) + this.Style.GetHashCode();
                 return hashCode;
             }
         }

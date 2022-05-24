@@ -58,6 +58,7 @@ const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet I
 // Call api endpoint
 apiInstance.getFundsBenchmarkDetails(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const benchmarkDetailsRequest = new factsetfunds.BenchmarkDetailsRequest(); // B
 // Call api endpoint
 apiInstance.getFundsBenchmarkDetailsForList(benchmarkDetailsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -200,6 +202,7 @@ const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet I
 // Call api endpoint
 apiInstance.getFundsClassifications(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -271,6 +274,7 @@ const classificationsRequest = new factsetfunds.ClassificationsRequest(); // Cla
 // Call api endpoint
 apiInstance.getFundsClassificationsForList(classificationsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -346,6 +350,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFundsCostsFees(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -419,6 +424,7 @@ const costsFeesRequest = new factsetfunds.CostsFeesRequest(); // CostsFeesReques
 // Call api endpoint
 apiInstance.getFundsCostsFeesForList(costsFeesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -490,6 +496,7 @@ const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet I
 // Call api endpoint
 apiInstance.getFundsManagers(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -561,6 +568,7 @@ const managersRequest = new factsetfunds.ManagersRequest(); // ManagersRequest |
 // Call api endpoint
 apiInstance.getFundsManagersForList(managersRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -632,6 +640,7 @@ const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet I
 // Call api endpoint
 apiInstance.getFundsSummary(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -703,6 +712,7 @@ const summariesRequest = new factsetfunds.SummariesRequest(); // SummariesReques
 // Call api endpoint
 apiInstance.getFundsSummaryForList(summariesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -774,6 +784,7 @@ const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet I
 // Call api endpoint
 apiInstance.getRelatedFunds(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -845,6 +856,7 @@ const relatedFundsRequest = new factsetfunds.RelatedFundsRequest(); // RelatedFu
 // Call api endpoint
 apiInstance.getRelatedFundsForList(relatedFundsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

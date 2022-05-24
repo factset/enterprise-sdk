@@ -165,7 +165,7 @@ namespace FactSet.SDK.FactSetGeoRev.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Country {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -211,8 +211,9 @@ namespace FactSet.SDK.FactSetGeoRev.Model
         public bool Equals(Country input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Date == input.Date ||
@@ -287,27 +288,45 @@ namespace FactSet.SDK.FactSetGeoRev.Model
             {
                 int hashCode = 41;
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.CountryId != null)
-                    hashCode = hashCode * 59 + this.CountryId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryId.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.CountryCertaintyClass != null)
-                    hashCode = hashCode * 59 + this.CountryCertaintyClass.GetHashCode();
-                hashCode = hashCode * 59 + this.CountryCertaintyRank.GetHashCode();
-                hashCode = hashCode * 59 + this.CountryConfidence.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryCertaintyClass.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CountryCertaintyRank.GetHashCode();
+                hashCode = (hashCode * 59) + this.CountryConfidence.GetHashCode();
                 if (this.CountryName != null)
-                    hashCode = hashCode * 59 + this.CountryName.GetHashCode();
-                hashCode = hashCode * 59 + this.CountryPercent.GetHashCode();
-                hashCode = hashCode * 59 + this.CountryRevenue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CountryPercent.GetHashCode();
+                hashCode = (hashCode * 59) + this.CountryRevenue.GetHashCode();
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.FiscalEndDate != null)
-                    hashCode = hashCode * 59 + this.FiscalEndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FiscalEndDate.GetHashCode();
+                }
                 if (this.ReportDate != null)
-                    hashCode = hashCode * 59 + this.ReportDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -11,6 +11,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.PAEngine.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.PAEngine.model_utils import (  # noqa: F401
@@ -22,10 +24,146 @@ from fds.sdk.PAEngine.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.PAEngine.exceptions import ApiException
 from fds.sdk.PAEngine.model.calculation_status_root import CalculationStatusRoot
 from fds.sdk.PAEngine.model.client_error_response import ClientErrorResponse
 from fds.sdk.PAEngine.model.object_root import ObjectRoot
 from fds.sdk.PAEngine.model.pa_calculation_parameters_root import PACalculationParametersRoot
+
+
+
+class PostAndCalculateResponseWrapper:
+    def __init__(self, status_code: int, response: object):
+        """
+        This constructor initializes the new PostAndCalculateResponseWrapper
+        to status_code, response
+
+        Args:
+            response (object): Raw response
+            status_code (int): Http status code of the response
+        """
+
+        self.status_code = status_code
+        self.response = response
+
+    def get_status_code(self) -> int:
+        """
+        Returns: Http status code of the response
+        """
+        return self.status_code
+
+    def get_response(self) -> object:
+        """
+        Returns: Raw Object response
+        """
+        return self.response
+
+    def get_response_200(self) -> CalculationStatusRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, if the calculation has one unit and is completed with an error.
+        """
+        if self.status_code != 200:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_200 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+    def get_response_201(self) -> ObjectRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.
+        """
+        if self.status_code != 201:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_201 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+    def get_response_202(self) -> CalculationStatusRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, contains the poll URL in the Location header.
+        """
+        if self.status_code != 202:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_202 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+
+class PutAndCalculateResponseWrapper:
+    def __init__(self, status_code: int, response: object):
+        """
+        This constructor initializes the new PutAndCalculateResponseWrapper
+        to status_code, response
+
+        Args:
+            response (object): Raw response
+            status_code (int): Http status code of the response
+        """
+
+        self.status_code = status_code
+        self.response = response
+
+    def get_status_code(self) -> int:
+        """
+        Returns: Http status code of the response
+        """
+        return self.status_code
+
+    def get_response(self) -> object:
+        """
+        Returns: Raw Object response
+        """
+        return self.response
+
+    def get_response_200(self) -> CalculationStatusRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, if the calculation has one unit and is completed with an error.
+        """
+        if self.status_code != 200:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_200 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+    def get_response_201(self) -> ObjectRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.
+        """
+        if self.status_code != 201:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_201 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+    def get_response_202(self) -> CalculationStatusRoot:
+        """
+        Raises: ApiException: Invalid response getter called.
+
+        Returns: Expected response, contains the poll URL in the Location header.
+        """
+        if self.status_code != 202:
+            raise ApiException(
+                status=500,
+                reason="Invalid response getter called. get_response_202 can't return a " + self.status_code + " response"
+            )
+        return self.response
+
+
 
 
 class PACalculationsApi(object):
@@ -95,7 +233,10 @@ class PACalculationsApi(object):
         )
         self.get_calculation_parameters_endpoint = _Endpoint(
             settings={
-                'response_type': (PACalculationParametersRoot,),
+                'response_type': (
+                  { 200: (PACalculationParametersRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -147,7 +288,10 @@ class PACalculationsApi(object):
         )
         self.get_calculation_status_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (CalculationStatusRoot,),
+                'response_type': (
+                  { 200: (CalculationStatusRoot,), 202: (CalculationStatusRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -199,7 +343,10 @@ class PACalculationsApi(object):
         )
         self.get_calculation_unit_result_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (ObjectRoot,),
+                'response_type': (
+                  { 200: (ObjectRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -258,7 +405,10 @@ class PACalculationsApi(object):
         )
         self.post_and_calculate_endpoint = _Endpoint(
             settings={
-                'response_type': (CalculationStatusRoot,),
+                'response_type': (
+                  { 200: (CalculationStatusRoot,), 201: (ObjectRoot,), 202: (CalculationStatusRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,),  },
+                  PostAndCalculateResponseWrapper
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -320,7 +470,10 @@ class PACalculationsApi(object):
         )
         self.put_and_calculate_endpoint = _Endpoint(
             settings={
-                'response_type': (CalculationStatusRoot,),
+                'response_type': (
+                  { 200: (CalculationStatusRoot,), 201: (ObjectRoot,), 202: (CalculationStatusRoot,), 400: (ClientErrorResponse,), 404: (ClientErrorResponse,), 409: (ClientErrorResponse,),  },
+                  PutAndCalculateResponseWrapper
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -388,26 +541,32 @@ class PACalculationsApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def cancel_calculation_by_id(
         self,
         id,
         **kwargs
-    ):
+    ) -> None:
         """Cancel PA calculation by id  # noqa: E501
 
         This is the endpoint to cancel a previously submitted calculation.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.cancel_calculation_by_id(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -421,35 +580,161 @@ class PACalculationsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             None
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.cancel_calculation_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def cancel_calculation_by_id_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[None, int, typing.MutableMapping]:
+        """Cancel PA calculation by id  # noqa: E501
+
+        This is the endpoint to cancel a previously submitted calculation.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.cancel_calculation_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def cancel_calculation_by_id_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[None]":
+        """Cancel PA calculation by id  # noqa: E501
+
+        This is the endpoint to cancel a previously submitted calculation.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[None]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.cancel_calculation_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def cancel_calculation_by_id_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[None, int, typing.MutableMapping]]":
+        """Cancel PA calculation by id  # noqa: E501
+
+        This is the endpoint to cancel a previously submitted calculation.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(None, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.cancel_calculation_by_id_endpoint.call_with_http_info(**kwargs)
@@ -458,22 +743,16 @@ class PACalculationsApi(object):
         self,
         id,
         **kwargs
-    ):
+    ) -> PACalculationParametersRoot:
         """Get PA calculation parameters by id  # noqa: E501
 
         This is the endpoint that returns the calculation parameters passed for a calculation.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_calculation_parameters(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -487,35 +766,161 @@ class PACalculationsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             PACalculationParametersRoot
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_calculation_parameters_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_parameters_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[PACalculationParametersRoot, int, typing.MutableMapping]:
+        """Get PA calculation parameters by id  # noqa: E501
+
+        This is the endpoint that returns the calculation parameters passed for a calculation.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            PACalculationParametersRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_calculation_parameters_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_parameters_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[PACalculationParametersRoot]":
+        """Get PA calculation parameters by id  # noqa: E501
+
+        This is the endpoint that returns the calculation parameters passed for a calculation.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[PACalculationParametersRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_calculation_parameters_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_parameters_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[PACalculationParametersRoot, int, typing.MutableMapping]]":
+        """Get PA calculation parameters by id  # noqa: E501
+
+        This is the endpoint that returns the calculation parameters passed for a calculation.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(PACalculationParametersRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.get_calculation_parameters_endpoint.call_with_http_info(**kwargs)
@@ -524,22 +929,16 @@ class PACalculationsApi(object):
         self,
         id,
         **kwargs
-    ):
+    ) -> CalculationStatusRoot:
         """Get PA calculation status by id  # noqa: E501
 
         This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the location header will point to the result url.  Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_calculation_status_by_id(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -553,35 +952,161 @@ class PACalculationsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             CalculationStatusRoot
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_calculation_status_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_status_by_id_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[CalculationStatusRoot, int, typing.MutableMapping]:
+        """Get PA calculation status by id  # noqa: E501
+
+        This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the location header will point to the result url.  Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            CalculationStatusRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_calculation_status_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_status_by_id_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[CalculationStatusRoot]":
+        """Get PA calculation status by id  # noqa: E501
+
+        This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the location header will point to the result url.  Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[CalculationStatusRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_calculation_status_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_status_by_id_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[CalculationStatusRoot, int, typing.MutableMapping]]":
+        """Get PA calculation status by id  # noqa: E501
+
+        This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the location header will point to the result url.  Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(CalculationStatusRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.get_calculation_status_by_id_endpoint.call_with_http_info(**kwargs)
@@ -591,23 +1116,17 @@ class PACalculationsApi(object):
         id,
         unit_id,
         **kwargs
-    ):
+    ) -> ObjectRoot:
         """Get PA calculation result by id  # noqa: E501
 
         This is the endpoint to get the result of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_calculation_unit_result_by_id(id, unit_id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
             unit_id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -621,35 +1140,173 @@ class PACalculationsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             ObjectRoot
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        kwargs['unit_id'] = \
+            unit_id
+        return self.get_calculation_unit_result_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_unit_result_by_id_with_http_info(
+        self,
+        id,
+        unit_id,
+        **kwargs
+    ) -> typing.Tuple[ObjectRoot, int, typing.MutableMapping]:
+        """Get PA calculation result by id  # noqa: E501
+
+        This is the endpoint to get the result of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
+            unit_id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ObjectRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        kwargs['unit_id'] = \
+            unit_id
+        return self.get_calculation_unit_result_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_unit_result_by_id_async(
+        self,
+        id,
+        unit_id,
+        **kwargs
+    ) -> "ApplyResult[ObjectRoot]":
+        """Get PA calculation result by id  # noqa: E501
+
+        This is the endpoint to get the result of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
+            unit_id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[ObjectRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        kwargs['unit_id'] = \
+            unit_id
+        return self.get_calculation_unit_result_by_id_endpoint.call_with_http_info(**kwargs)
+
+    def get_calculation_unit_result_by_id_with_http_info_async(
+        self,
+        id,
+        unit_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[ObjectRoot, int, typing.MutableMapping]]":
+        """Get PA calculation result by id  # noqa: E501
+
+        This is the endpoint to get the result of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
+            unit_id (str): from url, provided from the location header in the Get PA calculation status by id endpoint
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(ObjectRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         kwargs['unit_id'] = \
@@ -659,23 +1316,17 @@ class PACalculationsApi(object):
     def post_and_calculate(
         self,
         **kwargs
-    ):
+    ) -> PostAndCalculateResponseWrapper:
         """Create and Run PA calculation  # noqa: E501
 
-        This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.post_and_calculate(async_req=True)
-        >>> result = thread.get()
+        This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -689,50 +1340,166 @@ class PACalculationsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            CalculationStatusRoot
-                If the method is called asynchronously, returns the request
-                thread.
+            PostAndCalculateResponseWrapper
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.post_and_calculate_endpoint.call_with_http_info(**kwargs)
+
+    def post_and_calculate_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[PostAndCalculateResponseWrapper, int, typing.MutableMapping]:
+        """Create and Run PA calculation  # noqa: E501
+
+        This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
+            pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            PostAndCalculateResponseWrapper
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.post_and_calculate_endpoint.call_with_http_info(**kwargs)
+
+    def post_and_calculate_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[PostAndCalculateResponseWrapper]":
+        """Create and Run PA calculation  # noqa: E501
+
+        This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
+            pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[PostAndCalculateResponseWrapper]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.post_and_calculate_endpoint.call_with_http_info(**kwargs)
+
+    def post_and_calculate_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[PostAndCalculateResponseWrapper, int, typing.MutableMapping]]":
+        """Create and Run PA calculation  # noqa: E501
+
+        This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the POST body.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
+            pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(PostAndCalculateResponseWrapper, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.post_and_calculate_endpoint.call_with_http_info(**kwargs)
 
     def put_and_calculate(
         self,
         id,
         **kwargs
-    ):
+    ) -> PutAndCalculateResponseWrapper:
         """Create or Update PA calculation and run it.  # noqa: E501
 
-        This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.put_and_calculate(id, async_req=True)
-        >>> result = thread.get()
+        This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
@@ -741,8 +1508,6 @@ class PACalculationsApi(object):
             x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
             cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
             pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -756,35 +1521,170 @@ class PACalculationsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            CalculationStatusRoot
-                If the method is called asynchronously, returns the request
-                thread.
+            PutAndCalculateResponseWrapper
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.put_and_calculate_endpoint.call_with_http_info(**kwargs)
+
+    def put_and_calculate_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[PutAndCalculateResponseWrapper, int, typing.MutableMapping]:
+        """Create or Update PA calculation and run it.  # noqa: E501
+
+        This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
+            pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            PutAndCalculateResponseWrapper
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.put_and_calculate_endpoint.call_with_http_info(**kwargs)
+
+    def put_and_calculate_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[PutAndCalculateResponseWrapper]":
+        """Create or Update PA calculation and run it.  # noqa: E501
+
+        This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
+            pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[PutAndCalculateResponseWrapper]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.put_and_calculate_endpoint.call_with_http_info(**kwargs)
+
+    def put_and_calculate_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[PutAndCalculateResponseWrapper, int, typing.MutableMapping]]":
+        """Create or Update PA calculation and run it.  # noqa: E501
+
+        This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): from url, provided from the location header in the Create and Run PA calculation endpoint
+
+        Keyword Args:
+            x_fact_set_api_long_running_deadline (int): Long running deadline in seconds when only one unit is passed in the PUT body.. [optional]
+            cache_control (str): Standard HTTP header.  Accepts max-stale.. [optional]
+            pa_calculation_parameters_root (PACalculationParametersRoot): Calculation Parameters. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(PutAndCalculateResponseWrapper, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.put_and_calculate_endpoint.call_with_http_info(**kwargs)

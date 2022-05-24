@@ -13,6 +13,7 @@ docs/EventsAudioApi.md
 docs/EventsAudioData.md
 docs/EventsAudioMeta.md
 docs/EventsAudioMetaPagination.md
+docs/IndexedNRT.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -27,8 +28,8 @@ docs/NRTSnippetsData.md
 docs/NRTSnippetsMeta.md
 docs/NRTSnippetsMetaPagination.md
 docs/NRTSnippetsMetaPartial.md
-docs/NRTSnippetsMetadata.md
 docs/NRTSnippetsSnippetData.md
+docs/NRTSnippetsTranscriptData.md
 docs/NRTSpeakerids.md
 docs/NRTSpeakerids400Response.md
 docs/NRTSpeakerids400ResponseDetails.md
@@ -66,6 +67,7 @@ src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/EventsAudio400Respons
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/EventsAudioData.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/EventsAudioMeta.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/EventsAudioMetaPagination.cs
+src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/IndexedNRT.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTCalls.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTCalls400Response.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTCalls400ResponseDetails.cs
@@ -80,8 +82,8 @@ src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSnippetsData.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSnippetsMeta.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSnippetsMetaPagination.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSnippetsMetaPartial.cs
-src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSnippetsMetadata.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSnippetsSnippetData.cs
+src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSnippetsTranscriptData.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSpeakerids.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSpeakerids400Response.cs
 src/FactSet.SDK.DocumentsDistributorCallStreetEvents/Model/NRTSpeakerids400ResponseDetails.cs

@@ -60,7 +60,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorResponse {\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         public bool Equals(ErrorResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Errors == input.Errors ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this.Errors != null)
-                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

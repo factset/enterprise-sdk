@@ -63,7 +63,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AccountDirectories {\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  Directories: ").Append(Directories).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.SPAREngine.Model
         public bool Equals(AccountDirectories input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Accounts == input.Accounts ||
@@ -125,9 +126,13 @@ namespace FactSet.SDK.SPAREngine.Model
             {
                 int hashCode = 41;
                 if (this.Accounts != null)
-                    hashCode = hashCode * 59 + this.Accounts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
+                }
                 if (this.Directories != null)
-                    hashCode = hashCode * 59 + this.Directories.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Directories.GetHashCode();
+                }
                 return hashCode;
             }
         }

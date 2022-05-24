@@ -53,7 +53,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004Nsin {\n");
             sb.Append("  Sedol: ").Append(Sedol).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004Nsin input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sedol == input.Sedol ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Sedol != null)
-                    hashCode = hashCode * 59 + this.Sedol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sedol.GetHashCode();
+                }
                 return hashCode;
             }
         }

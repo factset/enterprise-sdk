@@ -43,6 +43,8 @@ public class TermsAndConditionsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<TermsAndConditions> data = null;
 
+  public TermsAndConditionsResponse() { 
+  }
 
   public TermsAndConditionsResponse data(java.util.List<TermsAndConditions> data) {
     this.data = data;

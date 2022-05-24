@@ -23,7 +23,7 @@ import InlineResponse200DataTypes from './InlineResponse200DataTypes';
 /**
  * The InlineResponse200Data model module.
  * @module model/InlineResponse200Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200Data {
     /**
@@ -60,6 +60,9 @@ class InlineResponse200Data {
             }
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
+            }
+            if (data.hasOwnProperty('summary')) {
+                obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
             }
             if (data.hasOwnProperty('body')) {
                 obj['body'] = ApiClient.convertToType(data['body'], 'String');
@@ -103,6 +106,12 @@ InlineResponse200Data.prototype['time'] = undefined;
  * @member {String} headline
  */
 InlineResponse200Data.prototype['headline'] = undefined;
+
+/**
+ * Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.
+ * @member {String} summary
+ */
+InlineResponse200Data.prototype['summary'] = undefined;
 
 /**
  * Text body of the news article.

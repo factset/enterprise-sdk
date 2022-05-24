@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20089InstrumentAssetClass model module.
  * @module model/InlineResponse20089InstrumentAssetClass
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20089InstrumentAssetClass {
     /**

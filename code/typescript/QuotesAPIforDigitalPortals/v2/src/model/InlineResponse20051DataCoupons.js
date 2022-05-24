@@ -18,7 +18,7 @@ import InlineResponse20051DataPeriod from './InlineResponse20051DataPeriod';
 /**
  * The InlineResponse20051DataCoupons model module.
  * @module model/InlineResponse20051DataCoupons
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20051DataCoupons {
     /**

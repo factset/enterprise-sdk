@@ -60,7 +60,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DebtInstrumentNotationScreenerValueRangesGetDataRating {\n");
             sb.Append("  System: ").Append(System).Append("\n");
             sb.Append("  Grade: ").Append(Grade).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(DebtInstrumentNotationScreenerValueRangesGetDataRating input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.System == input.System ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.System != null)
-                    hashCode = hashCode * 59 + this.System.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.System.GetHashCode();
+                }
                 if (this.Grade != null)
-                    hashCode = hashCode * 59 + this.Grade.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Grade.GetHashCode();
+                }
                 return hashCode;
             }
         }

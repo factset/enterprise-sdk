@@ -81,7 +81,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Column {\n");
             sb.Append("  Defaultstatisticsids: ").Append(Defaultstatisticsids).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(Column input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Defaultstatisticsids == input.Defaultstatisticsids ||
@@ -154,13 +155,21 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Defaultstatisticsids != null)
-                    hashCode = hashCode * 59 + this.Defaultstatisticsids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Defaultstatisticsids.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Directory != null)
-                    hashCode = hashCode * 59 + this.Directory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Directory.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 return hashCode;
             }
         }

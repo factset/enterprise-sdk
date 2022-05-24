@@ -43,6 +43,8 @@ public class InlineObject1 implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Object> data = null;
 
+  public InlineObject1() { 
+  }
 
   public InlineObject1 data(java.util.List<Object> data) {
     this.data = data;

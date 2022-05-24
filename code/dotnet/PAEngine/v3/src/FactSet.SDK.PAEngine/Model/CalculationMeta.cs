@@ -225,7 +225,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationMeta {\n");
             sb.Append("  Contentorganization: ").Append(Contentorganization).Append("\n");
             sb.Append("  StachContentOrganization: ").Append(StachContentOrganization).Append("\n");
@@ -262,8 +262,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(CalculationMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Contentorganization == input.Contentorganization ||
@@ -292,10 +293,10 @@ namespace FactSet.SDK.PAEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Contentorganization.GetHashCode();
-                hashCode = hashCode * 59 + this.StachContentOrganization.GetHashCode();
-                hashCode = hashCode * 59 + this.Contenttype.GetHashCode();
-                hashCode = hashCode * 59 + this.Format.GetHashCode();
+                hashCode = (hashCode * 59) + this.Contentorganization.GetHashCode();
+                hashCode = (hashCode * 59) + this.StachContentOrganization.GetHashCode();
+                hashCode = (hashCode * 59) + this.Contenttype.GetHashCode();
+                hashCode = (hashCode * 59) + this.Format.GetHashCode();
                 return hashCode;
             }
         }

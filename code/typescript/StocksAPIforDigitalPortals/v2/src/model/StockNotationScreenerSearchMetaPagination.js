@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchMetaPagination model module.
  * @module model/StockNotationScreenerSearchMetaPagination
- * @version 0.9.1
+ * @version 0.9.2
  */
 class StockNotationScreenerSearchMetaPagination {
     /**

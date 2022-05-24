@@ -47,6 +47,8 @@ public class RecommendationListRevisionListMeta implements Serializable {
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
+  public RecommendationListRevisionListMeta() { 
+  }
 
   public RecommendationListRevisionListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationVa
   public static final String JSON_PROPERTY_SELECTION = "selection";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelection selection;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnit() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnit selection(SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelection selection) {
     this.selection = selection;

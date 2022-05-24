@@ -88,6 +88,8 @@ public class StockNotationScreenerSearchDataValidationPrices implements Serializ
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private StockNotationScreenerSearchDataValidationPricesPrevious previous;
 
+  public StockNotationScreenerSearchDataValidationPrices() { 
+  }
 
   public StockNotationScreenerSearchDataValidationPrices quality(QualityEnum quality) {
     this.quality = quality;

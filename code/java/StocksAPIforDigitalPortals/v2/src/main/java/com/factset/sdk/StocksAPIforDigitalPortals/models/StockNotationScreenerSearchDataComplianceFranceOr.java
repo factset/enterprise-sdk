@@ -43,6 +43,8 @@ public class StockNotationScreenerSearchDataComplianceFranceOr implements Serial
   public static final String JSON_PROPERTY_AND = "and";
   private java.util.Set<StockNotationScreenerSearchDataComplianceFranceAnd> and = null;
 
+  public StockNotationScreenerSearchDataComplianceFranceOr() { 
+  }
 
   public StockNotationScreenerSearchDataComplianceFranceOr and(java.util.Set<StockNotationScreenerSearchDataComplianceFranceAnd> and) {
     this.and = and;

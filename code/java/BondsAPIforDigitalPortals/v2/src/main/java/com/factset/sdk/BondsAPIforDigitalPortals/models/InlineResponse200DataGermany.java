@@ -43,6 +43,8 @@ public class InlineResponse200DataGermany implements Serializable {
   public static final String JSON_PROPERTY_IS_TRUSTEE_ELIGIBLE = "isTrusteeEligible";
   private Boolean isTrusteeEligible;
 
+  public InlineResponse200DataGermany() { 
+  }
 
   public InlineResponse200DataGermany isTrusteeEligible(Boolean isTrusteeEligible) {
     this.isTrusteeEligible = isTrusteeEligible;

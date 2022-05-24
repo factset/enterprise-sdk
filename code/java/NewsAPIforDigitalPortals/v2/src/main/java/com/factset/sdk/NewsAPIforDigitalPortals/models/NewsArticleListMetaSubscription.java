@@ -44,6 +44,16 @@ public class NewsArticleListMetaSubscription implements Serializable {
   public static final String JSON_PROPERTY_MINIMUM_INTERVAL = "minimumInterval";
   private BigDecimal minimumInterval;
 
+  public NewsArticleListMetaSubscription() { 
+  }
+
+  @JsonCreator
+  public NewsArticleListMetaSubscription(
+    @JsonProperty(value=JSON_PROPERTY_MINIMUM_INTERVAL, required=true) BigDecimal minimumInterval
+  ) {
+    this();
+    this.minimumInterval = minimumInterval;
+  }
 
   public NewsArticleListMetaSubscription minimumInterval(BigDecimal minimumInterval) {
     this.minimumInterval = minimumInterval;

@@ -44,6 +44,8 @@ public class IsinTranslationResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<IsinTranslation> data = null;
 
+  public IsinTranslationResponse() { 
+  }
 
   public IsinTranslationResponse data(java.util.List<IsinTranslation> data) {
     this.data = data;

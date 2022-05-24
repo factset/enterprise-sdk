@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the segment. |  [optional]
+**name** | **String** | Name of the geography. |  [optional]
 
 
 ## Implemented Interfaces

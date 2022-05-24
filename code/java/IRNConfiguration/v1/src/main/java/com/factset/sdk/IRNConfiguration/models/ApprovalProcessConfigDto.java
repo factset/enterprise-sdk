@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -53,36 +53,38 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ApprovalProcessConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_APPROVAL_LEVELS = "approvalLevels";
+  public static final String JSON_PROPERTY_APPROVAL_LEVELS = "ApprovalLevels";
   private JsonNullable<java.util.List<ApprovalLevelConfigDto>> approvalLevels = JsonNullable.<java.util.List<ApprovalLevelConfigDto>>undefined();
 
-  public static final String JSON_PROPERTY_VIEWER_IDS = "viewerIds";
+  public static final String JSON_PROPERTY_VIEWER_IDS = "ViewerIds";
   private JsonNullable<java.util.List<java.util.UUID>> viewerIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_SUBMITTED_FOR_APPROVAL = "shouldSendEmailAlertsWhenSubmittedForApproval";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_SUBMITTED_FOR_APPROVAL = "ShouldSendEmailAlertsWhenSubmittedForApproval";
   private Boolean shouldSendEmailAlertsWhenSubmittedForApproval;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_APPROVED = "shouldSendEmailAlertsWhenApproved";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_APPROVED = "ShouldSendEmailAlertsWhenApproved";
   private Boolean shouldSendEmailAlertsWhenApproved;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_DENIED = "shouldSendEmailAlertsWhenDenied";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_WHEN_DENIED = "ShouldSendEmailAlertsWhenDenied";
   private Boolean shouldSendEmailAlertsWhenDenied;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR = "shouldSendEmailAlertsToAuthor";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_AUTHOR = "ShouldSendEmailAlertsToAuthor";
   private Boolean shouldSendEmailAlertsToAuthor;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_APPROVERS = "shouldSendEmailAlertsToApprovers";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_APPROVERS = "ShouldSendEmailAlertsToApprovers";
   private Boolean shouldSendEmailAlertsToApprovers;
 
-  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_VIEWERS = "shouldSendEmailAlertsToViewers";
+  public static final String JSON_PROPERTY_SHOULD_SEND_EMAIL_ALERTS_TO_VIEWERS = "ShouldSendEmailAlertsToViewers";
   private Boolean shouldSendEmailAlertsToViewers;
 
-  public static final String JSON_PROPERTY_CAN_AUTHOR_SELF_APPROVE = "canAuthorSelfApprove";
+  public static final String JSON_PROPERTY_CAN_AUTHOR_SELF_APPROVE = "CanAuthorSelfApprove";
   private Boolean canAuthorSelfApprove;
 
-  public static final String JSON_PROPERTY_CAN_AUTHOR_EDIT_PENDING = "canAuthorEditPending";
+  public static final String JSON_PROPERTY_CAN_AUTHOR_EDIT_PENDING = "CanAuthorEditPending";
   private Boolean canAuthorEditPending;
 
+  public ApprovalProcessConfigDto() { 
+  }
 
   public ApprovalProcessConfigDto approvalLevels(java.util.List<ApprovalLevelConfigDto> approvalLevels) {
     this.approvalLevels = JsonNullable.<java.util.List<ApprovalLevelConfigDto>>of(approvalLevels);

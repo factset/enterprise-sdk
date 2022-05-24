@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **totalReturnLevel** | **Double** | Index Level Total Return Amount |  [optional]
 **totalReturnPercent** | **Double** | Index Level Total Return Percent Change |  [optional]
 **returnType** | **String** | The requested Return Type - GROSS or NET |  [optional]
+**hedgeType** | **String** | The requested Hedge Type - HEDGED or UNHEDGED |  [optional]
 **requestId** | **String** | Benchmark Identifier specified in the request |  [optional]
 
 

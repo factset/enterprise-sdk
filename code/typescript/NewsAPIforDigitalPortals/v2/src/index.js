@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -29,6 +28,9 @@ import InlineResponse2001Categories from './model/InlineResponse2001Categories';
 import InlineResponse2001Chain from './model/InlineResponse2001Chain';
 import InlineResponse2001Data from './model/InlineResponse2001Data';
 import InlineResponse2001Distributor from './model/InlineResponse2001Distributor';
+import InlineResponse2001Fsym from './model/InlineResponse2001Fsym';
+import InlineResponse2001FsymSecurity from './model/InlineResponse2001FsymSecurity';
+import InlineResponse2001Instruments from './model/InlineResponse2001Instruments';
 import InlineResponse2001Language from './model/InlineResponse2001Language';
 import InlineResponse2001Meta from './model/InlineResponse2001Meta';
 import InlineResponse2001Publisher from './model/InlineResponse2001Publisher';
@@ -57,6 +59,8 @@ import InlineResponse2009Data from './model/InlineResponse2009Data';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse200DataCategories from './model/InlineResponse200DataCategories';
 import InlineResponse200DataDistributor from './model/InlineResponse200DataDistributor';
+import InlineResponse200DataFsym from './model/InlineResponse200DataFsym';
+import InlineResponse200DataFsymSecurity from './model/InlineResponse200DataFsymSecurity';
 import InlineResponse200DataInstruments from './model/InlineResponse200DataInstruments';
 import InlineResponse200DataLanguage from './model/InlineResponse200DataLanguage';
 import InlineResponse200DataMedia from './model/InlineResponse200DataMedia';
@@ -101,6 +105,7 @@ import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutp
 import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
 import PartialOutputObject from './model/PartialOutputObject';
 import StatusObject from './model/StatusObject';
+
 import NewsApi from './api/NewsApi';
 
 
@@ -133,7 +138,7 @@ import NewsApi from './api/NewsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.10.0
 */
 export {
     /**
@@ -237,6 +242,24 @@ export {
      * @property {module:model/InlineResponse2001Distributor}
      */
     InlineResponse2001Distributor,
+
+    /**
+     * The InlineResponse2001Fsym model constructor.
+     * @property {module:model/InlineResponse2001Fsym}
+     */
+    InlineResponse2001Fsym,
+
+    /**
+     * The InlineResponse2001FsymSecurity model constructor.
+     * @property {module:model/InlineResponse2001FsymSecurity}
+     */
+    InlineResponse2001FsymSecurity,
+
+    /**
+     * The InlineResponse2001Instruments model constructor.
+     * @property {module:model/InlineResponse2001Instruments}
+     */
+    InlineResponse2001Instruments,
 
     /**
      * The InlineResponse2001Language model constructor.
@@ -405,6 +428,18 @@ export {
      * @property {module:model/InlineResponse200DataDistributor}
      */
     InlineResponse200DataDistributor,
+
+    /**
+     * The InlineResponse200DataFsym model constructor.
+     * @property {module:model/InlineResponse200DataFsym}
+     */
+    InlineResponse200DataFsym,
+
+    /**
+     * The InlineResponse200DataFsymSecurity model constructor.
+     * @property {module:model/InlineResponse200DataFsymSecurity}
+     */
+    InlineResponse200DataFsymSecurity,
 
     /**
      * The InlineResponse200DataInstruments model constructor.
@@ -674,5 +709,6 @@ export {
     * The NewsApi service constructor.
     * @property {module:api/NewsApi}
     */
-    NewsApi
+    NewsApi,
+
 };

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataConstantLeverage model module.
  * @module model/InlineResponse2005DataConstantLeverage
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataConstantLeverage {
     /**

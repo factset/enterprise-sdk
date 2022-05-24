@@ -121,6 +121,8 @@ public class InlineResponse2001TriggerPrice implements Serializable {
   public static final String JSON_PROPERTY_QUALITY = "quality";
   private QualityEnum quality;
 
+  public InlineResponse2001TriggerPrice() { 
+  }
 
   public InlineResponse2001TriggerPrice type(TypeEnum type) {
     this.type = type;

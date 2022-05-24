@@ -48,6 +48,8 @@ public class VendorChartIQTimeSeriesEodListMeta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private VendorChartIQTimeSeriesEodListMetaPagination pagination;
 
+  public VendorChartIQTimeSeriesEodListMeta() { 
+  }
 
   public VendorChartIQTimeSeriesEodListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

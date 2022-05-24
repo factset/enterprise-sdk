@@ -43,6 +43,8 @@ public class InlineResponse200DataReferenceDebtorInstrument implements Serializa
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public InlineResponse200DataReferenceDebtorInstrument() { 
+  }
 
   public InlineResponse200DataReferenceDebtorInstrument id(String id) {
     this.id = id;

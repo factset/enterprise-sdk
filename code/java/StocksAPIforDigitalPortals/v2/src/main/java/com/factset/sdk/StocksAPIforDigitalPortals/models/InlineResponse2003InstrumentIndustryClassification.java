@@ -44,6 +44,8 @@ public class InlineResponse2003InstrumentIndustryClassification implements Seria
   public static final String JSON_PROPERTY_RBICS = "rbics";
   private java.util.List<InlineResponse2003InstrumentIndustryClassificationRbics> rbics = null;
 
+  public InlineResponse2003InstrumentIndustryClassification() { 
+  }
 
   public InlineResponse2003InstrumentIndustryClassification rbics(java.util.List<InlineResponse2003InstrumentIndustryClassificationRbics> rbics) {
     this.rbics = rbics;

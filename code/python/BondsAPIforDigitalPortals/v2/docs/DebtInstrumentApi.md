@@ -1,6 +1,6 @@
 # fds.sdk.BondsAPIforDigitalPortals.DebtInstrumentApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -41,41 +41,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
+
     id = "id_example" # str | Identifier of the instrument.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Fundamental data for a debt instrument.
-        api_response = api_instance.get_debt_instrument_get(id)
-        pprint(api_response)
-    except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling DebtInstrumentApi->get_debt_instrument_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Fundamental data for a debt instrument.
         api_response = api_instance.get_debt_instrument_get(id, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling DebtInstrumentApi->get_debt_instrument_get: %s\n" % e)
 ```
@@ -141,40 +133,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
+
     id = "id_example" # str | Identifier of a notation.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Key figures of a debt instrument.
-        api_response = api_instance.get_debt_instrument_key_figures_notation_get(id)
-        pprint(api_response)
-    except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling DebtInstrumentApi->get_debt_instrument_key_figures_notation_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Key figures of a debt instrument.
         api_response = api_instance.get_debt_instrument_key_figures_notation_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling DebtInstrumentApi->get_debt_instrument_key_figures_notation_get: %s\n" % e)
 ```
@@ -240,21 +224,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
+
     body = InlineObject(
         data=DebtInstrumentIssuerSearchData(
             name=DebtInstrumentIssuerSearchDataName(
@@ -285,12 +270,11 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for issuers of debt instruments.
         api_response = api_instance.post_debt_instrument_issuer_search(body=body)
         pprint(api_response)
+
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling DebtInstrumentApi->post_debt_instrument_issuer_search: %s\n" % e)
 ```
@@ -355,21 +339,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
+
     body = InlineObject1(
         data=DebtInstrumentNotationScreenerSearchData(
             validation=DebtInstrumentNotationScreenerSearchDataValidation(
@@ -704,12 +689,11 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject1 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Screener for debt instruments' notations based on debt instrument-specific parameters.
         api_response = api_instance.post_debt_instrument_notation_screener_search(body=body)
         pprint(api_response)
+
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling DebtInstrumentApi->post_debt_instrument_notation_screener_search: %s\n" % e)
 ```
@@ -774,21 +758,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.BondsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = debt_instrument_api.DebtInstrumentApi(api_client)
+
     body = InlineObject2(
         data=DebtInstrumentNotationScreenerValueRangesGetData(
             validation=DebtInstrumentNotationScreenerSearchDataValidation(
@@ -1121,12 +1106,11 @@ with fds.sdk.BondsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject2 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/debtInstrument/notation/screener/search.`
         api_response = api_instance.post_debt_instrument_notation_screener_value_ranges_get(body=body)
         pprint(api_response)
+
     except fds.sdk.BondsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling DebtInstrumentApi->post_debt_instrument_notation_screener_value_ranges_get: %s\n" % e)
 ```

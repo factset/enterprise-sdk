@@ -17,7 +17,7 @@ import GetFilesErrorDetail from './GetFilesErrorDetail';
 /**
  * The GetFilesStatus model module.
  * @module model/GetFilesStatus
- * @version 0.9.1
+ * @version 0.20.0
  */
 class GetFilesStatus {
     /**

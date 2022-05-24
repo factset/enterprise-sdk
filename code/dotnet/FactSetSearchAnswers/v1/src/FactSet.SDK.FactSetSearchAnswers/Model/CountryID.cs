@@ -53,7 +53,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CountryID {\n");
             sb.Append("  ISOALPHA2: ").Append(ISOALPHA2).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(CountryID input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ISOALPHA2 == input.ISOALPHA2 ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.ISOALPHA2 != null)
-                    hashCode = hashCode * 59 + this.ISOALPHA2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ISOALPHA2.GetHashCode();
+                }
                 return hashCode;
             }
         }

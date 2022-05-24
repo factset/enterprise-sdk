@@ -50,6 +50,20 @@ public class ApplicationLink implements Serializable {
   public static final String JSON_PROPERTY_WEB_LINK = "webLink";
   private String webLink;
 
+  public ApplicationLink() { 
+  }
+
+  @JsonCreator
+  public ApplicationLink(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name, 
+    @JsonProperty(value=JSON_PROPERTY_WORKSTATION_LINK, required=true) String workstationLink, 
+    @JsonProperty(value=JSON_PROPERTY_WEB_LINK, required=true) String webLink
+  ) {
+    this();
+    this.name = name;
+    this.workstationLink = workstationLink;
+    this.webLink = webLink;
+  }
 
   public ApplicationLink name(String name) {
     this.name = name;

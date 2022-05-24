@@ -357,7 +357,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Summaries {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  FsymEntityId: ").Append(FsymEntityId).Append("\n");
@@ -424,8 +424,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(Summaries input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -605,69 +606,129 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.FsymEntityId != null)
-                    hashCode = hashCode * 59 + this.FsymEntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymEntityId.GetHashCode();
+                }
                 if (this.FsymRegionalId != null)
-                    hashCode = hashCode * 59 + this.FsymRegionalId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymRegionalId.GetHashCode();
+                }
                 if (this.FsymTickerRegion != null)
-                    hashCode = hashCode * 59 + this.FsymTickerRegion.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymTickerRegion.GetHashCode();
+                }
                 if (this.FsymUltimateParentId != null)
-                    hashCode = hashCode * 59 + this.FsymUltimateParentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymUltimateParentId.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
-                hashCode = hashCode * 59 + this.ActiveFlag.GetHashCode();
-                hashCode = hashCode * 59 + this.ActivelyManagedFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ActiveFlag.GetHashCode();
+                hashCode = (hashCode * 59) + this.ActivelyManagedFlag.GetHashCode();
                 if (this.Brand != null)
-                    hashCode = hashCode * 59 + this.Brand.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Brand.GetHashCode();
+                }
                 if (this.CountryDomicile != null)
-                    hashCode = hashCode * 59 + this.CountryDomicile.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryDomicile.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.DescInfo != null)
-                    hashCode = hashCode * 59 + this.DescInfo.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DescInfo.GetHashCode();
+                }
                 if (this.FundOfFundsId != null)
-                    hashCode = hashCode * 59 + this.FundOfFundsId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FundOfFundsId.GetHashCode();
+                }
                 if (this.InceptionDate != null)
-                    hashCode = hashCode * 59 + this.InceptionDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InceptionDate.GetHashCode();
+                }
                 if (this.Insight != null)
-                    hashCode = hashCode * 59 + this.Insight.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Insight.GetHashCode();
+                }
                 if (this.IssuerId != null)
-                    hashCode = hashCode * 59 + this.IssuerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IssuerId.GetHashCode();
+                }
                 if (this.IssuerName != null)
-                    hashCode = hashCode * 59 + this.IssuerName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IssuerName.GetHashCode();
+                }
                 if (this.LegalStructure != null)
-                    hashCode = hashCode * 59 + this.LegalStructure.GetHashCode();
-                hashCode = hashCode * 59 + this.LeverageFactor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LegalStructure.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LeverageFactor.GetHashCode();
                 if (this.LeverageInverse != null)
-                    hashCode = hashCode * 59 + this.LeverageInverse.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LeverageInverse.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.NavCurrency != null)
-                    hashCode = hashCode * 59 + this.NavCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NavCurrency.GetHashCode();
+                }
                 if (this.Objective != null)
-                    hashCode = hashCode * 59 + this.Objective.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Objective.GetHashCode();
+                }
                 if (this.PriceFirstDate != null)
-                    hashCode = hashCode * 59 + this.PriceFirstDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceFirstDate.GetHashCode();
+                }
                 if (this.PriceRecentDate != null)
-                    hashCode = hashCode * 59 + this.PriceRecentDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceRecentDate.GetHashCode();
+                }
                 if (this.ShrClass != null)
-                    hashCode = hashCode * 59 + this.ShrClass.GetHashCode();
-                hashCode = hashCode * 59 + this.ShrClassActiveFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShrClass.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ShrClassActiveFlag.GetHashCode();
                 if (this.ShrClsCurrency != null)
-                    hashCode = hashCode * 59 + this.ShrClsCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShrClsCurrency.GetHashCode();
+                }
                 if (this.ShrClsInceptDate != null)
-                    hashCode = hashCode * 59 + this.ShrClsInceptDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShrClsInceptDate.GetHashCode();
+                }
                 if (this.ShrClsName != null)
-                    hashCode = hashCode * 59 + this.ShrClsName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShrClsName.GetHashCode();
+                }
                 if (this.ShrClsTermDate != null)
-                    hashCode = hashCode * 59 + this.ShrClsTermDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShrClsTermDate.GetHashCode();
+                }
                 if (this.TerminationDate != null)
-                    hashCode = hashCode * 59 + this.TerminationDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TerminationDate.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.WebSite != null)
-                    hashCode = hashCode * 59 + this.WebSite.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.WebSite.GetHashCode();
+                }
                 return hashCode;
             }
         }

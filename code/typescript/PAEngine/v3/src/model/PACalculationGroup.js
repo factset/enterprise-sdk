@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PACalculationGroup model module.
  * @module model/PACalculationGroup
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PACalculationGroup {
     /**
@@ -50,6 +50,9 @@ class PACalculationGroup {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('frequency')) {
+                obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
+            }
         }
         return obj;
     }
@@ -62,6 +65,12 @@ class PACalculationGroup {
  * @member {String} id
  */
 PACalculationGroup.prototype['id'] = undefined;
+
+/**
+ * Grouping frequency
+ * @member {String} frequency
+ */
+PACalculationGroup.prototype['frequency'] = undefined;
 
 
 

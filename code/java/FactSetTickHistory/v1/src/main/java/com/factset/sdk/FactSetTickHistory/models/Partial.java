@@ -43,6 +43,8 @@ public class Partial implements Serializable {
   public static final String JSON_PROPERTY_IS_PARTIAL = "isPartial";
   private Boolean isPartial;
 
+  public Partial() { 
+  }
 
   public Partial isPartial(Boolean isPartial) {
     this.isPartial = isPartial;

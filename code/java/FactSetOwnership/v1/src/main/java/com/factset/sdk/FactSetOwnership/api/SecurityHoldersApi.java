@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetOwnership.models.ErrorResponse;
 import com.factset.sdk.FactSetOwnership.models.SecurityHoldersRequest;
@@ -23,6 +26,28 @@ public class SecurityHoldersApi {
   public SecurityHoldersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSecurityHoldersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityHoldersResponseTypeMap.put(200, new GenericType<SecurityHoldersResponse>(){});
+    getSecurityHoldersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityHoldersResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityHoldersResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityHoldersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityHoldersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postSecurityHoldersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postSecurityHoldersResponseTypeMap.put(200, new GenericType<SecurityHoldersResponse>(){});
+    postSecurityHoldersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postSecurityHoldersResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postSecurityHoldersResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postSecurityHoldersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postSecurityHoldersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -126,11 +151,17 @@ public class SecurityHoldersApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SecurityHoldersResponse> localVarReturnType = new GenericType<SecurityHoldersResponse>() {};
 
-    return apiClient.invokeAPI("SecurityHoldersApi.getSecurityHolders", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SecurityHoldersResponse
+      
+    > apiResponse = apiClient.invokeAPI("SecurityHoldersApi.getSecurityHolders", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityHoldersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get security ownership data for a list of requested securities.
@@ -203,10 +234,16 @@ public class SecurityHoldersApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SecurityHoldersResponse> localVarReturnType = new GenericType<SecurityHoldersResponse>() {};
 
-    return apiClient.invokeAPI("SecurityHoldersApi.postSecurityHolders", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SecurityHoldersResponse
+      
+    > apiResponse = apiClient.invokeAPI("SecurityHoldersApi.postSecurityHolders", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postSecurityHoldersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

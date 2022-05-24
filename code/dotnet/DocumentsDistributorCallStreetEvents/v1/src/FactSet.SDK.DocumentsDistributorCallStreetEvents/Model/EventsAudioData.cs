@@ -188,7 +188,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EventsAudioData {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
@@ -237,8 +237,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(EventsAudioData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Url == input.Url ||
@@ -324,29 +325,45 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             {
                 int hashCode = 41;
                 if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
                 if (this.FileName != null)
-                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
-                hashCode = hashCode * 59 + this.DurationSecs.GetHashCode();
-                hashCode = hashCode * 59 + this.EndOffsetSeconds.GetHashCode();
-                hashCode = hashCode * 59 + this.StartOffsetSeconds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DurationSecs.GetHashCode();
+                hashCode = (hashCode * 59) + this.EndOffsetSeconds.GetHashCode();
+                hashCode = (hashCode * 59) + this.StartOffsetSeconds.GetHashCode();
                 if (this.SourceCode != null)
-                    hashCode = hashCode * 59 + this.SourceCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SourceCode.GetHashCode();
+                }
                 if (this.StartTime != null)
-                    hashCode = hashCode * 59 + this.StartTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartTime.GetHashCode();
+                }
                 if (this.EndTime != null)
-                    hashCode = hashCode * 59 + this.EndTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndTime.GetHashCode();
+                }
                 if (this.UploadTime != null)
-                    hashCode = hashCode * 59 + this.UploadTime.GetHashCode();
-                hashCode = hashCode * 59 + this.FileSize.GetHashCode();
-                hashCode = hashCode * 59 + this.ReportId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UploadTime.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FileSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReportId.GetHashCode();
                 if (this.Ticker != null)
-                    hashCode = hashCode * 59 + this.Ticker.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ticker.GetHashCode();
+                }
                 if (this.EntityId != null)
-                    hashCode = hashCode * 59 + this.EntityId.GetHashCode();
-                hashCode = hashCode * 59 + this.Trimmed.GetHashCode();
-                hashCode = hashCode * 59 + this.SampleRate.GetHashCode();
-                hashCode = hashCode * 59 + this.Bitrate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Trimmed.GetHashCode();
+                hashCode = (hashCode * 59) + this.SampleRate.GetHashCode();
+                hashCode = (hashCode * 59) + this.Bitrate.GetHashCode();
                 return hashCode;
             }
         }

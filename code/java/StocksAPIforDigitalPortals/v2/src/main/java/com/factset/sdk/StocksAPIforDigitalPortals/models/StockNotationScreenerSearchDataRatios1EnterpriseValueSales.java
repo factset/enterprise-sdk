@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataRatios1EnterpriseValueSales implemen
   public static final String JSON_PROPERTY_MEAN = "mean";
   private StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean mean;
 
+  public StockNotationScreenerSearchDataRatios1EnterpriseValueSales() { 
+  }
 
   public StockNotationScreenerSearchDataRatios1EnterpriseValueSales mean(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean mean) {
     this.mean = mean;

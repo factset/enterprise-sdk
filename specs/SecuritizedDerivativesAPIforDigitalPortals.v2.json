@@ -1672,7 +1672,8 @@
                     "underlying",
                     "factorCertificates",
                     "knockedOut",
-                    "knockedIn"
+                    "knockedIn",
+                    "performance"
                   ],
                   "description": "The data member contains the request's primary data.",
                   "properties": {
@@ -2040,6 +2041,74 @@
                         "include",
                         "exclude"
                       ]
+                    },
+                    "performance": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "relative"
+                      ],
+                      "description": "Performance of the most recent price calculated against the latest price which has occurred before the start of the current trading day.\n",
+                      "properties": {
+                        "relative": {
+                          "type": "object",
+                          "format": "relativeValueRange",
+                          "properties": {
+                            "minimum": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "value",
+                                "inclusive"
+                              ],
+                              "description": "The minimum of the range, or `null` to indicate that there is no minimum.",
+                              "properties": {
+                                "value": {
+                                  "type": "number",
+                                  "format": "relativeValue",
+                                  "description": "The minimum value."
+                                },
+                                "inclusive": {
+                                  "type": "boolean",
+                                  "description": "Indicates whether the minimum value is included in the range or not.",
+                                  "default": true
+                                }
+                              },
+                              "required": [
+                                "value"
+                              ],
+                              "x-allowNullValue": true
+                            },
+                            "maximum": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "value",
+                                "inclusive"
+                              ],
+                              "description": "The maximum of the range, or `null` to indicate that there is no maximum.",
+                              "properties": {
+                                "value": {
+                                  "type": "number",
+                                  "format": "relativeValue",
+                                  "description": "The maximum value."
+                                },
+                                "inclusive": {
+                                  "type": "boolean",
+                                  "description": "Indicates whether the maximum value is included in the range or not.",
+                                  "default": true
+                                }
+                              },
+                              "required": [
+                                "value"
+                              ],
+                              "x-allowNullValue": true
+                            }
+                          },
+                          "x-property-sort": [
+                            "minimum",
+                            "maximum"
+                          ],
+                          "description": "Value range for the relative performance."
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -2133,6 +2202,7 @@
                     "x-property-sort": [
                       "id",
                       "symbol",
+                      "fsym",
                       "market",
                       "valueUnit",
                       "trade",
@@ -2158,6 +2228,62 @@
                       "symbol": {
                         "type": "string",
                         "description": "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market."
+                      },
+                      "fsym": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "listing",
+                          "regional"
+                        ],
+                        "description": "Notation-level FactSet identifiers of the financial instrument used primarily in FactSet products other than the MDG.",
+                        "properties": {
+                          "listing": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "permanentIdentifier",
+                              "tickerExchange",
+                              "isPrimary"
+                            ],
+                            "description": "Listing-level identifiers.",
+                            "properties": {
+                              "permanentIdentifier": {
+                                "type": "string",
+                                "description": "FactSet Permanent Identifier for a notation. The format is six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L)."
+                              },
+                              "tickerExchange": {
+                                "type": "string",
+                                "description": "FactSet market symbol of the notation, usually consisting of the ticker (e.g. \"DAI\" for Daimler AG) and the three-character code of the exchange on which the listing is traded (example: DAI-ETR)."
+                              },
+                              "isPrimary": {
+                                "type": "boolean",
+                                "description": "Indicates whether the notation is the primary notation among all notations within the same region (`true`) or not (`false`)."
+                              }
+                            }
+                          },
+                          "regional": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "permanentIdentifier",
+                              "tickerRegion",
+                              "isPrimary"
+                            ],
+                            "description": "Regional-level identifiers.",
+                            "properties": {
+                              "permanentIdentifier": {
+                                "type": "string",
+                                "description": "FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R)."
+                              },
+                              "tickerRegion": {
+                                "type": "string",
+                                "description": "FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: DAI-DE)."
+                              },
+                              "isPrimary": {
+                                "type": "boolean",
+                                "description": "Indicates whether the notation is in the primary region of the security (`true`) or not (`false`)."
+                              }
+                            }
+                          }
+                        }
                       },
                       "market": {
                         "type": "object",
@@ -2314,7 +2440,8 @@
                           "name",
                           "shortName",
                           "isin",
-                          "nsin"
+                          "nsin",
+                          "fsym"
                         ],
                         "description": "Instrument data of the notation.",
                         "properties": {
@@ -2353,6 +2480,28 @@
                               "valor": {
                                 "type": "string",
                                 "description": "The Valor number (German: Valorennummer) of the instrument. The Valor number is an integer number that uniquely identifies an instrument."
+                              }
+                            }
+                          },
+                          "fsym": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "security"
+                            ],
+                            "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                            "properties": {
+                              "security": {
+                                "type": "object",
+                                "x-property-sort": [
+                                  "permanentIdentifier"
+                                ],
+                                "description": "Security-level identifier.",
+                                "properties": {
+                                  "permanentIdentifier": {
+                                    "type": "string",
+                                    "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)."
+                                  }
+                                }
                               }
                             }
                           }
@@ -2662,7 +2811,7 @@
         "x-maxSortParameterCount": 10,
         "x-supportsPermissionDeniedResponse": false,
         "summary": "Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.",
-        "description": "The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter `market.priority`) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.\n\n Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.\n\n The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.\n\n The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.",
+        "description": "The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.\n\n Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.\n\n The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.\n\n The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.",
         "parameters": [
           {
             "name": "body",
@@ -2899,7 +3048,7 @@
                               }
                             },
                             "priority": {
-                              "description": "Sequence of markets specifying the priority order of the markets for the selection of one notation per instrument. If for a given instrument with two matching notations, A and B, the market of notation A precedes the market of notation B in this list, A will be selected. The list does not restrict the request to only those markets (use the parameter `market.selection` for that purpose).",
+                              "description": "Sequence of markets specifying the priority order of the markets for the selection of one notation per instrument. If for a given instrument with two matching notations, A and B, the market of notation A precedes the market of notation B in this list or if the market of notation B is not in this list, A is selected. If neither of the markets is in this list, the notation with the highest trading volume, averaged over one month, is selected.        \n The list does not restrict the request to only those markets (use the parameter `market.selection` for that purpose).",
                               "type": "object",
                               "x-property-sort": [
                                 "ids"
@@ -11076,7 +11225,7 @@
                               }
                             },
                             "priority": {
-                              "description": "Sequence of markets specifying the priority order of the markets for the selection of one notation per instrument. If for a given instrument with two matching notations, A and B, the market of notation A precedes the market of notation B in this list, A will be selected. The list does not restrict the request to only those markets (use the parameter `market.selection` for that purpose).",
+                              "description": "Sequence of markets specifying the priority order of the markets for the selection of one notation per instrument. If for a given instrument with two matching notations, A and B, the market of notation A precedes the market of notation B in this list or if the market of notation B is not in this list, A is selected. If neither of the markets is in this list, the notation with the highest trading volume, averaged over one month, is selected.        \n The list does not restrict the request to only those markets (use the parameter `market.selection` for that purpose).",
                               "type": "object",
                               "x-property-sort": [
                                 "ids"
@@ -16029,6 +16178,7 @@
                     "x-property-sort": [
                       "id",
                       "symbol",
+                      "fsym",
                       "valueUnit",
                       "market",
                       "instrument",
@@ -16047,6 +16197,62 @@
                         "x-sortable": true,
                         "type": "string",
                         "description": "The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market."
+                      },
+                      "fsym": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "listing",
+                          "regional"
+                        ],
+                        "description": "Notation-level FactSet identifiers of the financial instrument used primarily in FactSet products other than the MDG.",
+                        "properties": {
+                          "listing": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "permanentIdentifier",
+                              "tickerExchange",
+                              "isPrimary"
+                            ],
+                            "description": "Listing-level identifiers.",
+                            "properties": {
+                              "permanentIdentifier": {
+                                "type": "string",
+                                "description": "FactSet Permanent Identifier for a notation. The format is six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L)."
+                              },
+                              "tickerExchange": {
+                                "type": "string",
+                                "description": "FactSet market symbol of the notation, usually consisting of the ticker (e.g. \"DAI\" for Daimler AG) and the three-character code of the exchange on which the listing is traded (example: DAI-ETR)."
+                              },
+                              "isPrimary": {
+                                "type": "boolean",
+                                "description": "Indicates whether the notation is the primary notation among all notations within the same region (`true`) or not (`false`)."
+                              }
+                            }
+                          },
+                          "regional": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "permanentIdentifier",
+                              "tickerRegion",
+                              "isPrimary"
+                            ],
+                            "description": "Regional-level identifiers.",
+                            "properties": {
+                              "permanentIdentifier": {
+                                "type": "string",
+                                "description": "FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R)."
+                              },
+                              "tickerRegion": {
+                                "type": "string",
+                                "description": "FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: DAI-DE)."
+                              },
+                              "isPrimary": {
+                                "type": "boolean",
+                                "description": "Indicates whether the notation is in the primary region of the security (`true`) or not (`false`)."
+                              }
+                            }
+                          }
+                        }
                       },
                       "valueUnit": {
                         "type": "object",
@@ -16098,6 +16304,7 @@
                           "shortName",
                           "isin",
                           "nsin",
+                          "fsym",
                           "categorization",
                           "lifeCycle",
                           "issuer",
@@ -16163,6 +16370,28 @@
                               "valor": {
                                 "type": "string",
                                 "description": "The Valor number (German: Valorennummer) of the instrument. The Valor number is an integer number that uniquely identifies an instrument."
+                              }
+                            }
+                          },
+                          "fsym": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "security"
+                            ],
+                            "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                            "properties": {
+                              "security": {
+                                "type": "object",
+                                "x-property-sort": [
+                                  "permanentIdentifier"
+                                ],
+                                "description": "Security-level identifier.",
+                                "properties": {
+                                  "permanentIdentifier": {
+                                    "type": "string",
+                                    "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)."
+                                  }
+                                }
                               }
                             }
                           },
@@ -18001,6 +18230,7 @@
                             "type": "object",
                             "x-property-sort": [
                               "id",
+                              "fsym",
                               "instrument"
                             ],
                             "description": "Notation of the underlying. If there is no notation for the underlying, the object is null.",
@@ -18011,10 +18241,67 @@
                                 "x-positive": true,
                                 "description": "Identifier of the notation."
                               },
+                              "fsym": {
+                                "type": "object",
+                                "x-property-sort": [
+                                  "listing",
+                                  "regional"
+                                ],
+                                "description": "Notation-level FactSet identifiers of the financial instrument used primarily in FactSet products other than the MDG.",
+                                "properties": {
+                                  "listing": {
+                                    "type": "object",
+                                    "x-property-sort": [
+                                      "permanentIdentifier",
+                                      "tickerExchange",
+                                      "isPrimary"
+                                    ],
+                                    "description": "Listing-level identifiers.",
+                                    "properties": {
+                                      "permanentIdentifier": {
+                                        "type": "string",
+                                        "description": "FactSet Permanent Identifier for a notation. The format is six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L)."
+                                      },
+                                      "tickerExchange": {
+                                        "type": "string",
+                                        "description": "FactSet market symbol of the notation, usually consisting of the ticker (e.g. \"DAI\" for Daimler AG) and the three-character code of the exchange on which the listing is traded (example: DAI-ETR)."
+                                      },
+                                      "isPrimary": {
+                                        "type": "boolean",
+                                        "description": "Indicates whether the notation is the primary notation among all notations within the same region (`true`) or not (`false`)."
+                                      }
+                                    }
+                                  },
+                                  "regional": {
+                                    "type": "object",
+                                    "x-property-sort": [
+                                      "permanentIdentifier",
+                                      "tickerRegion",
+                                      "isPrimary"
+                                    ],
+                                    "description": "Regional-level identifiers.",
+                                    "properties": {
+                                      "permanentIdentifier": {
+                                        "type": "string",
+                                        "description": "FactSet Permanent Identifier for a set of one or more notations of the same region with the same value unit. The format is six alpha numeric characters, excluding vowels, with an R suffix (XXXXXX-R)."
+                                      },
+                                      "tickerRegion": {
+                                        "type": "string",
+                                        "description": "FactSet regional symbol of the notation, consisting of the ticker and the two-character code of the country or region where the listing is traded (example: DAI-DE)."
+                                      },
+                                      "isPrimary": {
+                                        "type": "boolean",
+                                        "description": "Indicates whether the notation is in the primary region of the security (`true`) or not (`false`)."
+                                      }
+                                    }
+                                  }
+                                }
+                              },
                               "instrument": {
                                 "type": "object",
                                 "x-property-sort": [
                                   "id",
+                                  "fsym",
                                   "typeComposite"
                                 ],
                                 "description": "Instrument of the underlying.",
@@ -18024,6 +18311,28 @@
                                     "format": "id64",
                                     "x-positive": true,
                                     "description": "Identifier of the instrument."
+                                  },
+                                  "fsym": {
+                                    "type": "object",
+                                    "x-property-sort": [
+                                      "security"
+                                    ],
+                                    "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                                    "properties": {
+                                      "security": {
+                                        "type": "object",
+                                        "x-property-sort": [
+                                          "permanentIdentifier"
+                                        ],
+                                        "description": "Security-level identifier.",
+                                        "properties": {
+                                          "permanentIdentifier": {
+                                            "type": "string",
+                                            "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S)."
+                                          }
+                                        }
+                                      }
+                                    }
                                   },
                                   "typeComposite": {
                                     "type": "string",
@@ -18595,8 +18904,8 @@
     "version": "v1"
   },
   "x-interface-version": 1,
-  "x-documenter-version": "5.38.0",
-  "x-api-version": "2.9.0",
+  "x-documenter-version": "5.38.1",
+  "x-api-version": "2.9.1",
   "tags": [
     {
       "name": "securitizedDerivative",
@@ -18723,15 +19032,15 @@
         },
         "isEstimatedTotal": {
           "type": "boolean",
-          "description": "Flag indicating that the value of \"total\" is estimated."
+          "description": "Flag indicating that the value of `total` is estimated."
         },
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -18753,11 +19062,11 @@
       "properties": {
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -18826,6 +19135,9 @@
     }
   },
   "basePath": "/wealth/v1",
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "FactSetApiKey": {
       "type": "basic"

@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -44,12 +44,14 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class FormulaConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FORMULA = "formula";
+  public static final String JSON_PROPERTY_FORMULA = "Formula";
   private JsonNullable<String> formula = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FORMULA_TYPE = "formulaType";
+  public static final String JSON_PROPERTY_FORMULA_TYPE = "FormulaType";
   private JsonNullable<String> formulaType = JsonNullable.<String>undefined();
 
+  public FormulaConfigDto() { 
+  }
 
   public FormulaConfigDto formula(String formula) {
     this.formula = JsonNullable.<String>of(formula);

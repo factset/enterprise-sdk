@@ -11,12 +11,12 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Fields from './model/Fields';
 import Intervals from './model/Intervals';
 import Specialfield from './model/Specialfield';
 import TickhistoryResponse from './model/TickhistoryResponse';
+
 import FirstTradeApi from './api/FirstTradeApi';
 import LastTradeApi from './api/LastTradeApi';
 import QuoteAtTimeApi from './api/QuoteAtTimeApi';
@@ -53,7 +53,7 @@ import TradesAtTimeApi from './api/TradesAtTimeApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -114,5 +114,6 @@ export {
     * The TradesAtTimeApi service constructor.
     * @property {module:api/TradesAtTimeApi}
     */
-    TradesAtTimeApi
+    TradesAtTimeApi,
+
 };

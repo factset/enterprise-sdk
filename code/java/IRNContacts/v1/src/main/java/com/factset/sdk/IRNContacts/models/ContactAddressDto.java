@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -48,24 +48,26 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactAddressDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_GOOGLE_MAPS_PLACE_ID = "googleMapsPlaceId";
+  public static final String JSON_PROPERTY_GOOGLE_MAPS_PLACE_ID = "GoogleMapsPlaceId";
   private JsonNullable<String> googleMapsPlaceId = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FORMATTED_ADDRESS = "formattedAddress";
+  public static final String JSON_PROPERTY_FORMATTED_ADDRESS = "FormattedAddress";
   private JsonNullable<String> formattedAddress = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CITY = "city";
+  public static final String JSON_PROPERTY_CITY = "City";
   private JsonNullable<String> city = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_STATE_PROVINCE = "stateProvince";
+  public static final String JSON_PROPERTY_STATE_PROVINCE = "StateProvince";
   private JsonNullable<String> stateProvince = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
+  public static final String JSON_PROPERTY_POSTAL_CODE = "PostalCode";
   private JsonNullable<String> postalCode = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_COUNTRY = "country";
+  public static final String JSON_PROPERTY_COUNTRY = "Country";
   private JsonNullable<String> country = JsonNullable.<String>undefined();
 
+  public ContactAddressDto() { 
+  }
 
   public ContactAddressDto googleMapsPlaceId(String googleMapsPlaceId) {
     this.googleMapsPlaceId = JsonNullable.<String>of(googleMapsPlaceId);

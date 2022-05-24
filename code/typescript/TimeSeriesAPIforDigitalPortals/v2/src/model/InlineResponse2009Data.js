@@ -17,7 +17,7 @@ import InlineResponse2009DataSubsample from './InlineResponse2009DataSubsample';
 /**
  * The InlineResponse2009Data model module.
  * @module model/InlineResponse2009Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2009Data {
     /**

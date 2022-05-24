@@ -42,24 +42,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = npo_optimizer_api.NPOOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run NPO optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel NPO optimization by id
         api_instance.cancel_optimization_by_id(id)
@@ -133,28 +133,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = npo_optimizer_api.NPOOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run NPO optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get NPO optimization parameters by id
         api_response = api_instance.get_optimization_parameters(id)
         pprint(api_response)
+
     except fds.sdk.NorthfieldPortfolioOptimizer.ApiException as e:
         print("Exception when calling NPOOptimizerApi->get_optimization_parameters: %s\n" % e)
 ```
@@ -225,28 +226,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = npo_optimizer_api.NPOOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Get NPO optimization status by id endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get NPO optimization result by id
         api_response = api_instance.get_optimization_result(id)
         pprint(api_response)
+
     except fds.sdk.NorthfieldPortfolioOptimizer.ApiException as e:
         print("Exception when calling NPOOptimizerApi->get_optimization_result: %s\n" % e)
 ```
@@ -317,28 +319,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = npo_optimizer_api.NPOOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run NPO optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get NPO optimization status by id
         api_response = api_instance.get_optimization_status_by_id(id)
         pprint(api_response)
+
     except fds.sdk.NorthfieldPortfolioOptimizer.ApiException as e:
         print("Exception when calling NPOOptimizerApi->get_optimization_status_by_id: %s\n" % e)
 ```
@@ -412,21 +415,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = npo_optimizer_api.NPOOptimizerApi(api_client)
+
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
     npo_optimization_parameters_root = NPOOptimizationParametersRoot(
@@ -484,12 +488,15 @@ with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client
         meta={},
     ) # NPOOptimizationParametersRoot | Optimization Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create and Run NPO optimization
         api_response = api_instance.post_and_optimize(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, npo_optimization_parameters_root=npo_optimization_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.NorthfieldPortfolioOptimizer.ApiException as e:
         print("Exception when calling NPOOptimizerApi->post_and_optimize: %s\n" % e)
 ```
@@ -567,21 +574,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NorthfieldPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = npo_optimizer_api.NPOOptimizerApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run NPO optimization endpoint
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)
@@ -640,20 +648,15 @@ with fds.sdk.NorthfieldPortfolioOptimizer.ApiClient(configuration) as api_client
         meta={},
     ) # NPOOptimizationParametersRoot | Optimization Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create or Update NPO optimization and run it.
-        api_response = api_instance.put_and_optimize(id)
-        pprint(api_response)
-    except fds.sdk.NorthfieldPortfolioOptimizer.ApiException as e:
-        print("Exception when calling NPOOptimizerApi->put_and_optimize: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create or Update NPO optimization and run it.
         api_response = api_instance.put_and_optimize(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, npo_optimization_parameters_root=npo_optimization_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.NorthfieldPortfolioOptimizer.ApiException as e:
         print("Exception when calling NPOOptimizerApi->put_and_optimize: %s\n" % e)
 ```

@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresSpreadHarmonized implements Seriali
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresSpreadHarmonized() { 
+  }
 
   public InlineResponse2005DataKeyFiguresSpreadHarmonized minimum(BigDecimal minimum) {
     this.minimum = minimum;

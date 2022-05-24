@@ -49,6 +49,8 @@ public class InlineResponse20062DataCostsAndChargesExPostOngoingCostAccumulated 
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit valueUnit;
 
+  public InlineResponse20062DataCostsAndChargesExPostOngoingCostAccumulated() { 
+  }
 
   public InlineResponse20062DataCostsAndChargesExPostOngoingCostAccumulated value(BigDecimal value) {
     this.value = value;

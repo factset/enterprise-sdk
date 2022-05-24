@@ -129,7 +129,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationUnitStatus {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
@@ -167,8 +167,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(CalculationUnitStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -205,14 +206,20 @@ namespace FactSet.SDK.PAEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Errors != null)
-                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
                 if (this.Result != null)
-                    hashCode = hashCode * 59 + this.Result.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Result.GetHashCode();
+                }
                 if (this.Progress != null)
-                    hashCode = hashCode * 59 + this.Progress.GetHashCode();
-                hashCode = hashCode * 59 + this.Points.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Progress.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Points.GetHashCode();
                 return hashCode;
             }
         }

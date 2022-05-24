@@ -10,6 +10,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.RecommendationListAPIforDigitalPortals.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.RecommendationListAPIforDigitalPortals.model_utils import (  # noqa: F401
@@ -21,6 +23,7 @@ from fds.sdk.RecommendationListAPIforDigitalPortals.model_utils import (  # noqa
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.RecommendationListAPIforDigitalPortals.exceptions import ApiException
 from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_object import InlineObject
 from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response200 import InlineResponse200
 from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2001 import InlineResponse2001
@@ -28,6 +31,9 @@ from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2002 im
 from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2003 import InlineResponse2003
 from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2004 import InlineResponse2004
 from fds.sdk.RecommendationListAPIforDigitalPortals.model.inline_response2005 import InlineResponse2005
+
+
+
 
 
 class RecommendationListApi(object):
@@ -43,7 +49,10 @@ class RecommendationListApi(object):
         self.api_client = api_client
         self.get_recommendation_list_get_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse200,),
+                'response_type': (
+                  { 200: (InlineResponse200,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -116,7 +125,10 @@ class RecommendationListApi(object):
         )
         self.get_recommendation_list_revision_element_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2005,),
+                'response_type': (
+                  { 200: (InlineResponse2005,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -189,7 +201,10 @@ class RecommendationListApi(object):
         )
         self.get_recommendation_list_revision_get_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2002,),
+                'response_type': (
+                  { 200: (InlineResponse2002,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -262,7 +277,10 @@ class RecommendationListApi(object):
         )
         self.get_recommendation_list_revision_search_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2004,),
+                'response_type': (
+                  { 200: (InlineResponse2004,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -338,7 +356,10 @@ class RecommendationListApi(object):
         )
         self.get_recommendation_list_search_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2001,),
+                'response_type': (
+                  { 200: (InlineResponse2001,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -414,7 +435,10 @@ class RecommendationListApi(object):
         )
         self.post_recommendation_list_revision_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2003,),
+                'response_type': (
+                  { 200: (InlineResponse2003,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -466,19 +490,27 @@ class RecommendationListApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def get_recommendation_list_get(
         self,
         id,
         **kwargs
-    ):
+    ) -> InlineResponse200:
         """Attributes of a single list.  # noqa: E501
 
         Attributes of a single list, including data about its active revision.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_recommendation_list_get(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (float): Identifier of the list.
@@ -486,8 +518,6 @@ class RecommendationListApi(object):
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             language (str): ISO 639-1 code of the language.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -501,35 +531,167 @@ class RecommendationListApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse200
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_recommendation_list_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_get_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
+        """Attributes of a single list.  # noqa: E501
+
+        Attributes of a single list, including data about its active revision.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (float): Identifier of the list.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse200
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_recommendation_list_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_get_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse200]":
+        """Attributes of a single list.  # noqa: E501
+
+        Attributes of a single list, including data about its active revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (float): Identifier of the list.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse200]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_recommendation_list_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_get_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
+        """Attributes of a single list.  # noqa: E501
+
+        Attributes of a single list, including data about its active revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (float): Identifier of the list.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse200, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.get_recommendation_list_get_endpoint.call_with_http_info(**kwargs)
@@ -538,15 +700,11 @@ class RecommendationListApi(object):
         self,
         id_revision,
         **kwargs
-    ):
+    ) -> InlineResponse2005:
         """List of elements of a given revision.  # noqa: E501
 
         List of elements of a given revision.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_recommendation_list_revision_element_list(id_revision, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id_revision (float): Identifier of the revision.
@@ -554,8 +712,6 @@ class RecommendationListApi(object):
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             language (str): ISO 639-1 code of the language.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -569,35 +725,167 @@ class RecommendationListApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse2005
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id_revision'] = \
+            id_revision
+        return self.get_recommendation_list_revision_element_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_element_list_with_http_info(
+        self,
+        id_revision,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
+        """List of elements of a given revision.  # noqa: E501
+
+        List of elements of a given revision.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id_revision (float): Identifier of the revision.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2005
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id_revision'] = \
+            id_revision
+        return self.get_recommendation_list_revision_element_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_element_list_async(
+        self,
+        id_revision,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2005]":
+        """List of elements of a given revision.  # noqa: E501
+
+        List of elements of a given revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id_revision (float): Identifier of the revision.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2005]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id_revision'] = \
+            id_revision
+        return self.get_recommendation_list_revision_element_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_element_list_with_http_info_async(
+        self,
+        id_revision,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
+        """List of elements of a given revision.  # noqa: E501
+
+        List of elements of a given revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id_revision (float): Identifier of the revision.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id_revision'] = \
             id_revision
         return self.get_recommendation_list_revision_element_list_endpoint.call_with_http_info(**kwargs)
@@ -606,15 +894,11 @@ class RecommendationListApi(object):
         self,
         id,
         **kwargs
-    ):
+    ) -> InlineResponse2002:
         """Attributes of a single revision.  # noqa: E501
 
         Attributes of a single revision.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_recommendation_list_revision_get(id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             id (float): Identifier of the revision.
@@ -622,8 +906,6 @@ class RecommendationListApi(object):
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             language (str): ISO 639-1 code of the language.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -637,35 +919,167 @@ class RecommendationListApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse2002
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_recommendation_list_revision_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_get_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
+        """Attributes of a single revision.  # noqa: E501
+
+        Attributes of a single revision.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (float): Identifier of the revision.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2002
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.get_recommendation_list_revision_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_get_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2002]":
+        """Attributes of a single revision.  # noqa: E501
+
+        Attributes of a single revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (float): Identifier of the revision.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2002]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.get_recommendation_list_revision_get_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_get_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
+        """Attributes of a single revision.  # noqa: E501
+
+        Attributes of a single revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (float): Identifier of the revision.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2002, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['id'] = \
             id
         return self.get_recommendation_list_revision_get_endpoint.call_with_http_info(**kwargs)
@@ -673,15 +1087,11 @@ class RecommendationListApi(object):
     def get_recommendation_list_revision_search(
         self,
         **kwargs
-    ):
+    ) -> InlineResponse2004:
         """Search for revisions of a recommendation list.  # noqa: E501
 
         Search for revisions of a recommendation list.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_recommendation_list_revision_search(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
@@ -689,8 +1099,6 @@ class RecommendationListApi(object):
             id_instrument (str): Restrict the search to revisions pointing to the identified instrument.. [optional]
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             language (str): ISO 639-1 code of the language.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -704,49 +1112,168 @@ class RecommendationListApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse2004
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_recommendation_list_revision_search_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_search_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
+        """Search for revisions of a recommendation list.  # noqa: E501
+
+        Search for revisions of a recommendation list.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            id_notation (str): Restrict the search to revisions containing an element associated with the identified notation.. [optional]
+            id_instrument (str): Restrict the search to revisions pointing to the identified instrument.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2004
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_recommendation_list_revision_search_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_search_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2004]":
+        """Search for revisions of a recommendation list.  # noqa: E501
+
+        Search for revisions of a recommendation list.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            id_notation (str): Restrict the search to revisions containing an element associated with the identified notation.. [optional]
+            id_instrument (str): Restrict the search to revisions pointing to the identified instrument.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2004]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_recommendation_list_revision_search_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_revision_search_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
+        """Search for revisions of a recommendation list.  # noqa: E501
+
+        Search for revisions of a recommendation list.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            id_notation (str): Restrict the search to revisions containing an element associated with the identified notation.. [optional]
+            id_instrument (str): Restrict the search to revisions pointing to the identified instrument.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2004, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_recommendation_list_revision_search_endpoint.call_with_http_info(**kwargs)
 
     def get_recommendation_list_search(
         self,
         **kwargs
-    ):
+    ) -> InlineResponse2001:
         """Search for recommendation lists.  # noqa: E501
 
         Search for recommendation lists, delivering an array of recommendation lists matching the specified filter criteria. The data provided for each recommendation list includes the currently active revision (or null in case no active revision exists).  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_recommendation_list_search(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
@@ -754,8 +1281,6 @@ class RecommendationListApi(object):
             only_active (bool): Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state.. [optional]
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             language (str): ISO 639-1 code of the language.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -769,57 +1294,174 @@ class RecommendationListApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse2001
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_recommendation_list_search_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_search_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
+        """Search for recommendation lists.  # noqa: E501
+
+        Search for recommendation lists, delivering an array of recommendation lists matching the specified filter criteria. The data provided for each recommendation list includes the currently active revision (or null in case no active revision exists).  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            name (str): Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match.. [optional]
+            only_active (bool): Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2001
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_recommendation_list_search_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_search_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2001]":
+        """Search for recommendation lists.  # noqa: E501
+
+        Search for recommendation lists, delivering an array of recommendation lists matching the specified filter criteria. The data provided for each recommendation list includes the currently active revision (or null in case no active revision exists).  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            name (str): Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match.. [optional]
+            only_active (bool): Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2001]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_recommendation_list_search_endpoint.call_with_http_info(**kwargs)
+
+    def get_recommendation_list_search_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
+        """Search for recommendation lists.  # noqa: E501
+
+        Search for recommendation lists, delivering an array of recommendation lists matching the specified filter criteria. The data provided for each recommendation list includes the currently active revision (or null in case no active revision exists).  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            name (str): Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match.. [optional]
+            only_active (bool): Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            language (str): ISO 639-1 code of the language.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2001, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_recommendation_list_search_endpoint.call_with_http_info(**kwargs)
 
     def post_recommendation_list_revision_list(
         self,
         body,
         **kwargs
-    ):
+    ) -> InlineResponse2003:
         """List of revisions of a recommendation list.  # noqa: E501
 
         List of revisions of a recommendation list, excluding the elements of each revision.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.post_recommendation_list_revision_list(body, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             body (InlineObject):
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -833,35 +1475,161 @@ class RecommendationListApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse2003
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['body'] = \
+            body
+        return self.post_recommendation_list_revision_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_recommendation_list_revision_list_with_http_info(
+        self,
+        body,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
+        """List of revisions of a recommendation list.  # noqa: E501
+
+        List of revisions of a recommendation list, excluding the elements of each revision.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            body (InlineObject):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2003
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['body'] = \
+            body
+        return self.post_recommendation_list_revision_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_recommendation_list_revision_list_async(
+        self,
+        body,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2003]":
+        """List of revisions of a recommendation list.  # noqa: E501
+
+        List of revisions of a recommendation list, excluding the elements of each revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            body (InlineObject):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2003]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['body'] = \
+            body
+        return self.post_recommendation_list_revision_list_endpoint.call_with_http_info(**kwargs)
+
+    def post_recommendation_list_revision_list_with_http_info_async(
+        self,
+        body,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
+        """List of revisions of a recommendation list.  # noqa: E501
+
+        List of revisions of a recommendation list, excluding the elements of each revision.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            body (InlineObject):
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2003, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['body'] = \
             body
         return self.post_recommendation_list_revision_list_endpoint.call_with_http_info(**kwargs)

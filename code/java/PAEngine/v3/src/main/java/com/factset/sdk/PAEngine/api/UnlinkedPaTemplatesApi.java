@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.ClientErrorResponse;
 import com.factset.sdk.PAEngine.models.UnlinkedPATemplateCategoryAndTypeDetailsRoot;
@@ -29,6 +32,43 @@ public class UnlinkedPaTemplatesApi {
     this.apiClient = apiClient;
   }
 
+    private static final Map<Integer, GenericType> createUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createUnlinkedPATemplatesResponseTypeMap.put(201, new GenericType<UnlinkedPATemplatePostSummaryRoot>(){});
+    createUnlinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> deleteUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getDefaultUnlinkedPATemplateTypesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDefaultUnlinkedPATemplateTypesResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateCategoryAndTypeRoot>(){});
+  }
+  private static final Map<Integer, GenericType> getDetailsTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDetailsTypeResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateCategoryAndTypeDetailsRoot>(){});
+    getDetailsTypeResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getDetailsTypeResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getUnlinkedPATemplatesResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateSummaryRoot>(){});
+    getUnlinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getUnlinkedPATemplatesByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getUnlinkedPATemplatesByIdResponseTypeMap.put(200, new GenericType<UnlinkedPATemplateRoot>(){});
+    getUnlinkedPATemplatesByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getUnlinkedPATemplatesByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> updateUnlinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    updateUnlinkedPATemplatesResponseTypeMap.put(200, new GenericType<UnlinkedPATemplatePostSummaryRoot>(){});
+    updateUnlinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    updateUnlinkedPATemplatesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
+
   /**
    * Get the API client
    *
@@ -49,7 +89,7 @@ public class UnlinkedPaTemplatesApi {
 
   /**
    * Create unlinked PA template
-   * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also       overriding the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param unlinkedPATemplateParametersRoot Request Parameters (required)
    * @return UnlinkedPATemplatePostSummaryRoot
    * @throws ApiException if fails to make API call
@@ -72,7 +112,7 @@ public class UnlinkedPaTemplatesApi {
 
   /**
    * Create unlinked PA template
-   * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also       overriding the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param unlinkedPATemplateParametersRoot Request Parameters (required)
    * @return ApiResponse&lt;UnlinkedPATemplatePostSummaryRoot&gt;
    * @throws ApiException if fails to make API call
@@ -122,11 +162,17 @@ public class UnlinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UnlinkedPATemplatePostSummaryRoot> localVarReturnType = new GenericType<UnlinkedPATemplatePostSummaryRoot>() {};
 
-    return apiClient.invokeAPI("UnlinkedPaTemplatesApi.createUnlinkedPATemplates", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UnlinkedPATemplatePostSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("UnlinkedPaTemplatesApi.createUnlinkedPATemplates", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createUnlinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete unlinked PA template
@@ -205,9 +251,15 @@ public class UnlinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("UnlinkedPaTemplatesApi.deleteUnlinkedPATemplates", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("UnlinkedPaTemplatesApi.deleteUnlinkedPATemplates", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteUnlinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get default unlinked PA template types.
@@ -275,11 +327,17 @@ public class UnlinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UnlinkedPATemplateCategoryAndTypeRoot> localVarReturnType = new GenericType<UnlinkedPATemplateCategoryAndTypeRoot>() {};
 
-    return apiClient.invokeAPI("UnlinkedPaTemplatesApi.getDefaultUnlinkedPATemplateTypes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UnlinkedPATemplateCategoryAndTypeRoot
+      
+    > apiResponse = apiClient.invokeAPI("UnlinkedPaTemplatesApi.getDefaultUnlinkedPATemplateTypes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDefaultUnlinkedPATemplateTypesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get unlinked PA template type details by id.
@@ -359,11 +417,17 @@ public class UnlinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UnlinkedPATemplateCategoryAndTypeDetailsRoot> localVarReturnType = new GenericType<UnlinkedPATemplateCategoryAndTypeDetailsRoot>() {};
 
-    return apiClient.invokeAPI("UnlinkedPaTemplatesApi.getDetailsType", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UnlinkedPATemplateCategoryAndTypeDetailsRoot
+      
+    > apiResponse = apiClient.invokeAPI("UnlinkedPaTemplatesApi.getDetailsType", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDetailsTypeResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get unlinked PA templates
@@ -439,11 +503,17 @@ public class UnlinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UnlinkedPATemplateSummaryRoot> localVarReturnType = new GenericType<UnlinkedPATemplateSummaryRoot>() {};
 
-    return apiClient.invokeAPI("UnlinkedPaTemplatesApi.getUnlinkedPATemplates", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UnlinkedPATemplateSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("UnlinkedPaTemplatesApi.getUnlinkedPATemplates", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getUnlinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get unlinked PA template details by id
@@ -523,15 +593,21 @@ public class UnlinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UnlinkedPATemplateRoot> localVarReturnType = new GenericType<UnlinkedPATemplateRoot>() {};
 
-    return apiClient.invokeAPI("UnlinkedPaTemplatesApi.getUnlinkedPATemplatesById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UnlinkedPATemplateRoot
+      
+    > apiResponse = apiClient.invokeAPI("UnlinkedPaTemplatesApi.getUnlinkedPATemplatesById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getUnlinkedPATemplatesByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Update unlinked PA template
-   * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param id Unique identifier for an unlinked PA template (required)
    * @param unlinkedPATemplateUpdateParametersRoot Request Parameters (required)
    * @return UnlinkedPATemplatePostSummaryRoot
@@ -556,7 +632,7 @@ public class UnlinkedPaTemplatesApi {
 
   /**
    * Update unlinked PA template
-   * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param id Unique identifier for an unlinked PA template (required)
    * @param unlinkedPATemplateUpdateParametersRoot Request Parameters (required)
    * @return ApiResponse&lt;UnlinkedPATemplatePostSummaryRoot&gt;
@@ -614,10 +690,16 @@ public class UnlinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UnlinkedPATemplatePostSummaryRoot> localVarReturnType = new GenericType<UnlinkedPATemplatePostSummaryRoot>() {};
 
-    return apiClient.invokeAPI("UnlinkedPaTemplatesApi.updateUnlinkedPATemplates", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UnlinkedPATemplatePostSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("UnlinkedPaTemplatesApi.updateUnlinkedPATemplates", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, updateUnlinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

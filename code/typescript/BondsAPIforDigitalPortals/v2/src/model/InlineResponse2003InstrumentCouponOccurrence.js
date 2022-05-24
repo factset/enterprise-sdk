@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentCouponOccurrenceFrequency from './InlineRespo
 /**
  * The InlineResponse2003InstrumentCouponOccurrence model module.
  * @module model/InlineResponse2003InstrumentCouponOccurrence
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentCouponOccurrence {
     /**

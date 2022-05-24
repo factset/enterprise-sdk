@@ -48,6 +48,8 @@ public class InlineResponse2005DataCategorization implements Serializable {
   public static final String JSON_PROPERTY_EUSIPA = "eusipa";
   private java.util.List<InlineResponse2005DataCategorizationDdv> eusipa = null;
 
+  public InlineResponse2005DataCategorization() { 
+  }
 
   public InlineResponse2005DataCategorization ddv(java.util.List<InlineResponse2005DataCategorizationDdv> ddv) {
     this.ddv = ddv;

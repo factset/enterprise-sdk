@@ -54,6 +54,8 @@ public class InlineResponse2006InstrumentCategorizationEusipa implements Seriali
   public static final String JSON_PROPERTY_LEVEL3 = "level3";
   private InlineResponse2006InstrumentCategorizationDdvLevel3 level3;
 
+  public InlineResponse2006InstrumentCategorizationEusipa() { 
+  }
 
   public InlineResponse2006InstrumentCategorizationEusipa level1(InlineResponse2006InstrumentCategorizationDdvLevel1 level1) {
     this.level1 = level1;

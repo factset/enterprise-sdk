@@ -144,7 +144,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConsensusRatings {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  EstimateDate: ").Append(EstimateDate).Append("\n");
@@ -188,8 +188,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(ConsensusRatings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -251,20 +252,28 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.EstimateDate != null)
-                    hashCode = hashCode * 59 + this.EstimateDate.GetHashCode();
-                hashCode = hashCode * 59 + this.BuyCount.GetHashCode();
-                hashCode = hashCode * 59 + this.OverweightCount.GetHashCode();
-                hashCode = hashCode * 59 + this.HoldCount.GetHashCode();
-                hashCode = hashCode * 59 + this.UnderweightCount.GetHashCode();
-                hashCode = hashCode * 59 + this.SellCount.GetHashCode();
-                hashCode = hashCode * 59 + this.RatingsNestTotal.GetHashCode();
-                hashCode = hashCode * 59 + this.RatingsNote.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EstimateDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.BuyCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.OverweightCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.HoldCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.UnderweightCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.SellCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.RatingsNestTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.RatingsNote.GetHashCode();
                 if (this.RatingsNoteText != null)
-                    hashCode = hashCode * 59 + this.RatingsNoteText.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RatingsNoteText.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

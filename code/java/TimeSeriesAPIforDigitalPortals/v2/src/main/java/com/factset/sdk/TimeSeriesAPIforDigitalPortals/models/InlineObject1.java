@@ -48,6 +48,16 @@ public class InlineObject1 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private VendorChartIQTimeSeriesEodSubsampleGetMeta meta;
 
+  public InlineObject1() { 
+  }
+
+  @JsonCreator
+  public InlineObject1(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) VendorChartIQTimeSeriesEodSubsampleGetData data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public InlineObject1 data(VendorChartIQTimeSeriesEodSubsampleGetData data) {
     this.data = data;

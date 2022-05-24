@@ -54,6 +54,8 @@ public class InlineResponse2005DataLifeCycleMaturity implements Serializable {
   public static final String JSON_PROPERTY_PERPETUAL = "perpetual";
   private java.util.List<InlineResponse2005DataLifeCycleMaturityPerpetual> perpetual = null;
 
+  public InlineResponse2005DataLifeCycleMaturity() { 
+  }
 
   public InlineResponse2005DataLifeCycleMaturity date(InlineResponse2005DataLifeCycleMaturityDate date) {
     this.date = date;

@@ -43,6 +43,16 @@ public class SedolTranslationRequest implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<String> ids = new java.util.ArrayList<>();
 
+  public SedolTranslationRequest() { 
+  }
+
+  @JsonCreator
+  public SedolTranslationRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public SedolTranslationRequest ids(java.util.List<String> ids) {
     this.ids = ids;

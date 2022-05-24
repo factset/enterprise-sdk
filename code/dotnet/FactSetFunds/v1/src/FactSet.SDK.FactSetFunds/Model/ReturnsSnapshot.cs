@@ -154,7 +154,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ReturnsSnapshot {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  OneWeek: ").Append(OneWeek).Append("\n");
@@ -199,8 +199,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(ReturnsSnapshot input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -265,20 +266,26 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
-                hashCode = hashCode * 59 + this.OneWeek.GetHashCode();
-                hashCode = hashCode * 59 + this.OneMonth.GetHashCode();
-                hashCode = hashCode * 59 + this.ThreeMonth.GetHashCode();
-                hashCode = hashCode * 59 + this.YearToDate.GetHashCode();
-                hashCode = hashCode * 59 + this.OneYear.GetHashCode();
-                hashCode = hashCode * 59 + this.ThreeYear.GetHashCode();
-                hashCode = hashCode * 59 + this.ThreeYearAnnualized.GetHashCode();
-                hashCode = hashCode * 59 + this.FiveYear.GetHashCode();
-                hashCode = hashCode * 59 + this.FiveYearAnnualized.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.OneWeek.GetHashCode();
+                hashCode = (hashCode * 59) + this.OneMonth.GetHashCode();
+                hashCode = (hashCode * 59) + this.ThreeMonth.GetHashCode();
+                hashCode = (hashCode * 59) + this.YearToDate.GetHashCode();
+                hashCode = (hashCode * 59) + this.OneYear.GetHashCode();
+                hashCode = (hashCode * 59) + this.ThreeYear.GetHashCode();
+                hashCode = (hashCode * 59) + this.ThreeYearAnnualized.GetHashCode();
+                hashCode = (hashCode * 59) + this.FiveYear.GetHashCode();
+                hashCode = (hashCode * 59) + this.FiveYearAnnualized.GetHashCode();
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

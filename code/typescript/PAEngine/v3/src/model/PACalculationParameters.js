@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import PACalculationColumn from './PACalculationColumn';
+import PACalculationDataSources from './PACalculationDataSources';
 import PACalculationGroup from './PACalculationGroup';
 import PADateParameters from './PADateParameters';
 import PAIdentifier from './PAIdentifier';
@@ -20,7 +21,7 @@ import PAIdentifier from './PAIdentifier';
 /**
  * The PACalculationParameters model module.
  * @module model/PACalculationParameters
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PACalculationParameters {
     /**
@@ -74,6 +75,9 @@ class PACalculationParameters {
             if (data.hasOwnProperty('columns')) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], [PACalculationColumn]);
             }
+            if (data.hasOwnProperty('datasources')) {
+                obj['datasources'] = PACalculationDataSources.constructFromObject(data['datasources']);
+            }
             if (data.hasOwnProperty('componentdetail')) {
                 obj['componentdetail'] = ApiClient.convertToType(data['componentdetail'], 'String');
             }
@@ -124,6 +128,11 @@ PACalculationParameters.prototype['currencyisocode'] = undefined;
  * @member {Array.<module:model/PACalculationColumn>} columns
  */
 PACalculationParameters.prototype['columns'] = undefined;
+
+/**
+ * @member {module:model/PACalculationDataSources} datasources
+ */
+PACalculationParameters.prototype['datasources'] = undefined;
 
 /**
  * Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES.

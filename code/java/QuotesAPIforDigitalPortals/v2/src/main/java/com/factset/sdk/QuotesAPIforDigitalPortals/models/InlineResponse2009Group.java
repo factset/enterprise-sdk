@@ -48,6 +48,8 @@ public class InlineResponse2009Group implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2009Group() { 
+  }
 
   public InlineResponse2009Group id(BigDecimal id) {
     this.id = id;

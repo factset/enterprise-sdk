@@ -48,6 +48,8 @@ public class InlineResponse20047Data implements Serializable {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private java.util.List<InlineResponse20038DataCategories> categories = null;
 
+  public InlineResponse20047Data() { 
+  }
 
   public InlineResponse20047Data dataset(InlineResponse20047Dataset dataset) {
     this.dataset = dataset;

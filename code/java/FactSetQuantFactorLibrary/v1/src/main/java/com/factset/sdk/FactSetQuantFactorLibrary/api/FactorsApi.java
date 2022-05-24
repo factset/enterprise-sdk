@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetQuantFactorLibrary.Configuration;
 import com.factset.sdk.FactSetQuantFactorLibrary.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetQuantFactorLibrary.models.ErrorResponse;
 import com.factset.sdk.FactSetQuantFactorLibrary.models.FactorsRequest;
@@ -23,6 +26,28 @@ public class FactorsApi {
   public FactorsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFactorsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFactorsResponseTypeMap.put(200, new GenericType<FactorsResponse>(){});
+    getFactorsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFactorsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFactorsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFactorsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFactorsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFactorsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFactorsForListResponseTypeMap.put(200, new GenericType<FactorsResponse>(){});
+    getFactorsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFactorsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFactorsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFactorsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFactorsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -144,11 +169,17 @@ public class FactorsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FactorsResponse> localVarReturnType = new GenericType<FactorsResponse>() {};
 
-    return apiClient.invokeAPI("FactorsApi.getFactors", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FactorsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FactorsApi.getFactors", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFactorsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieves Quant Factors for a large list of ids.
@@ -221,10 +252,16 @@ public class FactorsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FactorsResponse> localVarReturnType = new GenericType<FactorsResponse>() {};
 
-    return apiClient.invokeAPI("FactorsApi.getFactorsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FactorsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FactorsApi.getFactorsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFactorsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -49,6 +49,8 @@ public class InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossover impl
   public static final String JSON_PROPERTY_SMA50VS200 = "sma50vs200";
   private InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 sma50vs200;
 
+  public InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossover() { 
+  }
 
   public InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossover sma20vs50(InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma20vs50 sma20vs50) {
     this.sma20vs50 = sma20vs50;

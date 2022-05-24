@@ -29,14 +29,13 @@ import com.factset.sdk.FixedIncomeCalculation.ApiClient;
 import com.factset.sdk.FixedIncomeCalculation.ApiException;
 import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.auth.*;
-import com.factset.sdk.FixedIncomeCalculation.model.*;
+import com.factset.sdk.FixedIncomeCalculation.models.*;
 import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,19 +45,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FiCalculationsApi apiInstance = new FiCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FI calculation endpoint
         try {
             apiInstance.cancelCalculationById(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FiCalculationsApi#cancelCalculationById");
             System.err.println("Status code: " + e.getCode());
@@ -118,14 +118,13 @@ import com.factset.sdk.FixedIncomeCalculation.ApiClient;
 import com.factset.sdk.FixedIncomeCalculation.ApiException;
 import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.auth.*;
-import com.factset.sdk.FixedIncomeCalculation.model.*;
+import com.factset.sdk.FixedIncomeCalculation.models.*;
 import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,20 +134,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FiCalculationsApi apiInstance = new FiCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FI calculation endpoint
         try {
             FICalculationParametersRoot result = apiInstance.getCalculationParameters(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FiCalculationsApi#getCalculationParameters");
             System.err.println("Status code: " + e.getCode());
@@ -209,14 +209,13 @@ import com.factset.sdk.FixedIncomeCalculation.ApiClient;
 import com.factset.sdk.FixedIncomeCalculation.ApiException;
 import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.auth.*;
-import com.factset.sdk.FixedIncomeCalculation.model.*;
+import com.factset.sdk.FixedIncomeCalculation.models.*;
 import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -226,20 +225,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FiCalculationsApi apiInstance = new FiCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Get FI calculation status by id endpoint
         try {
             ObjectRoot result = apiInstance.getCalculationResult(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FiCalculationsApi#getCalculationResult");
             System.err.println("Status code: " + e.getCode());
@@ -301,14 +301,13 @@ import com.factset.sdk.FixedIncomeCalculation.ApiClient;
 import com.factset.sdk.FixedIncomeCalculation.ApiException;
 import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.auth.*;
-import com.factset.sdk.FixedIncomeCalculation.model.*;
+import com.factset.sdk.FixedIncomeCalculation.models.*;
 import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -318,20 +317,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FiCalculationsApi apiInstance = new FiCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FI calculation endpoint
         try {
             ObjectRoot result = apiInstance.getCalculationStatusById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FiCalculationsApi#getCalculationStatusById");
             System.err.println("Status code: " + e.getCode());
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ## postAndCalculate
 
-> ObjectRoot postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot)
+> PostAndCalculateResponseWrapper postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot)
 
 Create and Run FI calculation
 
@@ -392,14 +392,14 @@ import com.factset.sdk.FixedIncomeCalculation.ApiClient;
 import com.factset.sdk.FixedIncomeCalculation.ApiException;
 import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.auth.*;
-import com.factset.sdk.FixedIncomeCalculation.model.*;
+import com.factset.sdk.FixedIncomeCalculation.models.*;
 import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi;
+import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi.PostAndCalculateResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -409,22 +409,31 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FiCalculationsApi apiInstance = new FiCalculationsApi(defaultClient);
         Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         FICalculationParametersRoot fiCalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters
         try {
-            ObjectRoot result = apiInstance.postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot);
-            System.out.println(result);
+            PostAndCalculateResponseWrapper result = apiInstance.postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationInfoRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FiCalculationsApi#postAndCalculate");
             System.err.println("Status code: " + e.getCode());
@@ -447,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+PostAndCalculateResponseWrapper
 
 ### Authorization
 
@@ -475,7 +484,7 @@ Name | Type | Description  | Notes
 
 ## putAndCalculate
 
-> ObjectRoot putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot)
+> PutAndCalculateResponseWrapper putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot)
 
 Create or Update FI calculation and run it.
 
@@ -489,14 +498,14 @@ import com.factset.sdk.FixedIncomeCalculation.ApiClient;
 import com.factset.sdk.FixedIncomeCalculation.ApiException;
 import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.auth.*;
-import com.factset.sdk.FixedIncomeCalculation.model.*;
+import com.factset.sdk.FixedIncomeCalculation.models.*;
 import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi;
+import com.factset.sdk.FixedIncomeCalculation.api.FiCalculationsApi.PutAndCalculateResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -506,14 +515,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FiCalculationsApi apiInstance = new FiCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FI calculation endpoint
@@ -521,8 +530,17 @@ public class Example {
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         FICalculationParametersRoot fiCalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters
         try {
-            ObjectRoot result = apiInstance.putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot);
-            System.out.println(result);
+            PutAndCalculateResponseWrapper result = apiInstance.putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationInfoRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FiCalculationsApi#putAndCalculate");
             System.err.println("Status code: " + e.getCode());
@@ -546,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+PutAndCalculateResponseWrapper
 
 ### Authorization
 

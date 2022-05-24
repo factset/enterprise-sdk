@@ -24,10 +24,14 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.ETFProfileandPrices.model.inline_response2008_data_regions import InlineResponse2008DataRegions
+    globals()['InlineResponse2008DataRegions'] = InlineResponse2008DataRegions
 
 
 class InlineResponse2008Data(ModelNormal):
@@ -58,6 +62,8 @@ class InlineResponse2008Data(ModelNormal):
     }
 
     validations = {
+        ('regions',): {
+        },
     }
 
     @cached_property
@@ -66,6 +72,7 @@ class InlineResponse2008Data(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -80,8 +87,10 @@ class InlineResponse2008Data(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'broad_category': (str,),  # noqa: E501
+            'report_date': (date,),  # noqa: E501
+            'regions': ([InlineResponse2008DataRegions],),  # noqa: E501
         }
 
     @cached_property
@@ -90,7 +99,8 @@ class InlineResponse2008Data(ModelNormal):
 
 
     attribute_map = {
-        'broad_category': 'broadCategory',  # noqa: E501
+        'report_date': 'reportDate',  # noqa: E501
+        'regions': 'regions',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,7 +144,8 @@ class InlineResponse2008Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            broad_category (str): ETP class broad category.. [optional]  # noqa: E501
+            report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
+            regions ([InlineResponse2008DataRegions]): List of allocations by region.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -216,7 +227,8 @@ class InlineResponse2008Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            broad_category (str): ETP class broad category.. [optional]  # noqa: E501
+            report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
+            regions ([InlineResponse2008DataRegions]): List of allocations by region.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

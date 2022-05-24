@@ -18,7 +18,7 @@ import InlineResponse2007DataConditions from './InlineResponse2007DataConditions
 /**
  * The InlineResponse2007DataBarrierTypeConditions model module.
  * @module model/InlineResponse2007DataBarrierTypeConditions
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataBarrierTypeConditions {
     /**

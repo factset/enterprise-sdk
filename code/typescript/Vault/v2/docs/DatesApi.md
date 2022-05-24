@@ -52,6 +52,7 @@ const opts = {
 // Call api endpoint
 apiInstance.convertVaultDatesToAbsoluteFormat(enddate, componentid, account, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

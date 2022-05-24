@@ -39,28 +39,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = redemptions_api.RedemptionsApi(api_client)
-    ids = ["30231GBJ","88579EAA"] # [str] | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
 
-    # example passing only required values which don't have defaults set
+    ids = ["30231GBJ","88579EAA"] # [str] | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
+    categories = "ALL" # str | Filters the list of Redemption Prices Categories -   * **CALL** = Call prices.   * **PUT** = Put prices.   * **SF** = Sinking Fund prices.  (default to "ALL")
+
     try:
         # Return Redemption Prices for a Fixed Income security.
-        api_response = api_instance.get_fixed_income_redemption_prices(ids, )
+        api_response = api_instance.get_fixed_income_redemption_prices(ids, categories)
         pprint(api_response)
+
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
         print("Exception when calling RedemptionsApi->get_fixed_income_redemption_prices: %s\n" % e)
 ```
@@ -132,21 +134,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = redemptions_api.RedemptionsApi(api_client)
+
     redemption_prices_request = RedemptionPricesRequest(
         ids=[
             "ids_example",
@@ -154,11 +157,11 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         categories="ALL",
     ) # RedemptionPricesRequest | Request object for Fixed Income Redemption Prices.
 
-    # example passing only required values which don't have defaults set
     try:
         # Return Redemption Prices for a list of Fixed Income securities.
         api_response = api_instance.get_fixed_income_redemption_prices_for_list(redemption_prices_request)
         pprint(api_response)
+
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
         print("Exception when calling RedemptionsApi->get_fixed_income_redemption_prices_for_list: %s\n" % e)
 ```

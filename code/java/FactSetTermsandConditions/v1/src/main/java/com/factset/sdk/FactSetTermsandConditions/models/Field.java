@@ -93,6 +93,8 @@ public class Field implements Serializable {
   public static final String JSON_PROPERTY_DATA_TYPE = "dataType";
   private String dataType;
 
+  public Field() { 
+  }
 
   public Field field(String field) {
     this.field = field;

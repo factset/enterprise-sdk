@@ -47,6 +47,7 @@ const path = "''"; // String | The directory to get the strategy documents and s
 // Call api endpoint
 apiInstance.getAxiomaEquityStrategyDocuments(path).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

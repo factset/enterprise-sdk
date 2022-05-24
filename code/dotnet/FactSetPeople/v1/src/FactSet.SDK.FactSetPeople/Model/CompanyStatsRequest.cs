@@ -71,7 +71,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CompanyStatsRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  MbType: ").Append(MbType).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(CompanyStatsRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -132,9 +133,13 @@ namespace FactSet.SDK.FactSetPeople.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.MbType != null)
-                    hashCode = hashCode * 59 + this.MbType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MbType.GetHashCode();
+                }
                 return hashCode;
             }
         }

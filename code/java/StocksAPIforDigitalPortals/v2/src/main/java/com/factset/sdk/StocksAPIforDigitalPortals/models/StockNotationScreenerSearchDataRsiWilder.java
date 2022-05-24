@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataRsiWilder implements Serializable {
   public static final String JSON_PROPERTY_DAYS14 = "days14";
   private StockNotationScreenerSearchDataRsiWilderDays14 days14;
 
+  public StockNotationScreenerSearchDataRsiWilder() { 
+  }
 
   public StockNotationScreenerSearchDataRsiWilder days14(StockNotationScreenerSearchDataRsiWilderDays14 days14) {
     this.days14 = days14;

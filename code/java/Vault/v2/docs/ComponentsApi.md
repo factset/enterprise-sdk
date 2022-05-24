@@ -25,14 +25,13 @@ import com.factset.sdk.Vault.ApiClient;
 import com.factset.sdk.Vault.ApiException;
 import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.auth.*;
-import com.factset.sdk.Vault.model.*;
+import com.factset.sdk.Vault.models.*;
 import com.factset.sdk.Vault.api.ComponentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -42,20 +41,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ComponentsApi apiInstance = new ComponentsApi(defaultClient);
         String id = "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935"; // String | Unique identifier for a vault component
         try {
             VaultComponent result = apiInstance.getVaultComponentById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ComponentsApi#getVaultComponentById");
             System.err.println("Status code: " + e.getCode());
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ## getVaultComponents
 
-> java.util.Map&lt;String, ComponentSummary&gt; getVaultComponents(document)
+> java.util.Map<String, ComponentSummary> getVaultComponents(document)
 
 Get Vault components
 
@@ -117,14 +117,13 @@ import com.factset.sdk.Vault.ApiClient;
 import com.factset.sdk.Vault.ApiException;
 import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.auth.*;
-import com.factset.sdk.Vault.model.*;
+import com.factset.sdk.Vault.models.*;
 import com.factset.sdk.Vault.api.ComponentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -134,20 +133,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ComponentsApi apiInstance = new ComponentsApi(defaultClient);
         String document = "Client:Foo"; // String | Document Name
         try {
             java.util.Map<String, ComponentSummary> result = apiInstance.getVaultComponents(document);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ComponentsApi#getVaultComponents");
             System.err.println("Status code: " + e.getCode());

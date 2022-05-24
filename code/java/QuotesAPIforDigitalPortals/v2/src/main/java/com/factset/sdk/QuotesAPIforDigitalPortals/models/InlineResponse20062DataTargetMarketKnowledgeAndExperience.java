@@ -173,6 +173,8 @@ public class InlineResponse20062DataTargetMarketKnowledgeAndExperience implement
   public static final String JSON_PROPERTY_GERMANY = "germany";
   private InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany germany;
 
+  public InlineResponse20062DataTargetMarketKnowledgeAndExperience() { 
+  }
 
   public InlineResponse20062DataTargetMarketKnowledgeAndExperience basicInvestor(BasicInvestorEnum basicInvestor) {
     this.basicInvestor = basicInvestor;

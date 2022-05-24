@@ -62,7 +62,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataTradingAverage {\n");
             sb.Append("  Volume: ").Append(Volume).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataTradingAverage input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Volume == input.Volume ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Volume.GetHashCode();
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.Volume.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 return hashCode;
             }
         }

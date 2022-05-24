@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDi
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountRelative relative;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscount() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscount absolute(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountAbsolute absolute) {
     this.absolute = absolute;

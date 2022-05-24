@@ -63,7 +63,7 @@ namespace FactSet.SDK.OFDB.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineObject2 {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.OFDB.Model
         public bool Equals(InlineObject2 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Date == input.Date ||
@@ -124,9 +125,13 @@ namespace FactSet.SDK.OFDB.Model
             {
                 int hashCode = 41;
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 return hashCode;
             }
         }

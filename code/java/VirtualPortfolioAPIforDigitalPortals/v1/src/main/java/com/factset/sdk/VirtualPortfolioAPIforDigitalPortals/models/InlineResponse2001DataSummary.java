@@ -62,6 +62,8 @@ public class InlineResponse2001DataSummary implements Serializable {
   public static final String JSON_PROPERTY_CASH = "cash";
   private InlineResponse2001DataSummaryCash cash;
 
+  public InlineResponse2001DataSummary() { 
+  }
 
   public InlineResponse2001DataSummary totalValue(BigDecimal totalValue) {
     this.totalValue = totalValue;

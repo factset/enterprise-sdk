@@ -17,7 +17,7 @@ import InlineResponse20080LatestPerformance from './InlineResponse20080LatestPer
 /**
  * The InlineResponse20080Latest model module.
  * @module model/InlineResponse20080Latest
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20080Latest {
     /**

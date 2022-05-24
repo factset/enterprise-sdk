@@ -69,6 +69,8 @@ public class InlineResponse20062DataTargetMarket implements Serializable {
   public static final String JSON_PROPERTY_RECOMMENDED_HOLDING_PERIOD = "recommendedHoldingPeriod";
   private InlineResponse20062DataTargetMarketRecommendedHoldingPeriod recommendedHoldingPeriod;
 
+  public InlineResponse20062DataTargetMarket() { 
+  }
 
   public InlineResponse20062DataTargetMarket investorType(InlineResponse20062DataTargetMarketInvestorType investorType) {
     this.investorType = investorType;

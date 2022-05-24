@@ -47,6 +47,8 @@ public class InlineResponse2005Description implements Serializable {
   public static final String JSON_PROPERTY_LONG = "long";
   private String _long;
 
+  public InlineResponse2005Description() { 
+  }
 
   public InlineResponse2005Description _short(String _short) {
     this._short = _short;

@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -50,6 +50,7 @@ import com.factset.sdk.IRNConfiguration.JSON;
   CustomFieldConfigDto.JSON_PROPERTY_USE_PREVIOUS_VALUE,
   CustomFieldConfigDto.JSON_PROPERTY_IS_MANDATORY,
   CustomFieldConfigDto.JSON_PROPERTY_IS_HIDDEN,
+  CustomFieldConfigDto.JSON_PROPERTY_IS_FILE_PATH,
   CustomFieldConfigDto.JSON_PROPERTY_FORMULA_CONFIG,
   CustomFieldConfigDto.JSON_PROPERTY_NUMERIC_CONFIG,
   CustomFieldConfigDto.JSON_PROPERTY_INTEGER_CONFIG,
@@ -60,45 +61,50 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class CustomFieldConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_SOURCE = "source";
+  public static final String JSON_PROPERTY_SOURCE = "Source";
   private JsonNullable<String> source = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
+  public static final String JSON_PROPERTY_TYPE = "Type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_USE_PREVIOUS_VALUE = "usePreviousValue";
+  public static final String JSON_PROPERTY_USE_PREVIOUS_VALUE = "UsePreviousValue";
   private Boolean usePreviousValue;
 
-  public static final String JSON_PROPERTY_IS_MANDATORY = "isMandatory";
+  public static final String JSON_PROPERTY_IS_MANDATORY = "IsMandatory";
   private Boolean isMandatory;
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
   private Boolean isHidden;
 
-  public static final String JSON_PROPERTY_FORMULA_CONFIG = "formulaConfig";
+  public static final String JSON_PROPERTY_IS_FILE_PATH = "IsFilePath";
+  private Boolean isFilePath;
+
+  public static final String JSON_PROPERTY_FORMULA_CONFIG = "FormulaConfig";
   private FormulaConfigDto formulaConfig;
 
-  public static final String JSON_PROPERTY_NUMERIC_CONFIG = "numericConfig";
+  public static final String JSON_PROPERTY_NUMERIC_CONFIG = "NumericConfig";
   private NumericConfigDto numericConfig;
 
-  public static final String JSON_PROPERTY_INTEGER_CONFIG = "integerConfig";
+  public static final String JSON_PROPERTY_INTEGER_CONFIG = "IntegerConfig";
   private IntegerConfigDto integerConfig;
 
-  public static final String JSON_PROPERTY_EXTENDED_TEXT_CONFIG = "extendedTextConfig";
+  public static final String JSON_PROPERTY_EXTENDED_TEXT_CONFIG = "ExtendedTextConfig";
   private ExtendedTextConfigDto extendedTextConfig;
 
-  public static final String JSON_PROPERTY_OPTIONS_CONFIG = "optionsConfig";
+  public static final String JSON_PROPERTY_OPTIONS_CONFIG = "OptionsConfig";
   private OptionsConfigDto optionsConfig;
 
+  public CustomFieldConfigDto() { 
+  }
 
   public CustomFieldConfigDto id(java.util.UUID id) {
     this.id = id;
@@ -340,6 +346,32 @@ public class CustomFieldConfigDto implements Serializable {
   }
 
 
+  public CustomFieldConfigDto isFilePath(Boolean isFilePath) {
+    this.isFilePath = isFilePath;
+    return this;
+  }
+
+   /**
+   * Get isFilePath
+   * @return isFilePath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_IS_FILE_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsFilePath() {
+    return isFilePath;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_FILE_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsFilePath(Boolean isFilePath) {
+    this.isFilePath = isFilePath;
+  }
+
+
   public CustomFieldConfigDto formulaConfig(FormulaConfigDto formulaConfig) {
     this.formulaConfig = formulaConfig;
     return this;
@@ -490,6 +522,7 @@ public class CustomFieldConfigDto implements Serializable {
         Objects.equals(this.usePreviousValue, customFieldConfigDto.usePreviousValue) &&
         Objects.equals(this.isMandatory, customFieldConfigDto.isMandatory) &&
         Objects.equals(this.isHidden, customFieldConfigDto.isHidden) &&
+        Objects.equals(this.isFilePath, customFieldConfigDto.isFilePath) &&
         Objects.equals(this.formulaConfig, customFieldConfigDto.formulaConfig) &&
         Objects.equals(this.numericConfig, customFieldConfigDto.numericConfig) &&
         Objects.equals(this.integerConfig, customFieldConfigDto.integerConfig) &&
@@ -503,7 +536,7 @@ public class CustomFieldConfigDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(code), hashCodeNullable(name), hashCodeNullable(source), hashCodeNullable(type), usePreviousValue, isMandatory, isHidden, formulaConfig, numericConfig, integerConfig, extendedTextConfig, optionsConfig);
+    return Objects.hash(id, hashCodeNullable(code), hashCodeNullable(name), hashCodeNullable(source), hashCodeNullable(type), usePreviousValue, isMandatory, isHidden, isFilePath, formulaConfig, numericConfig, integerConfig, extendedTextConfig, optionsConfig);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -525,6 +558,7 @@ public class CustomFieldConfigDto implements Serializable {
     sb.append("    usePreviousValue: ").append(toIndentedString(usePreviousValue)).append("\n");
     sb.append("    isMandatory: ").append(toIndentedString(isMandatory)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
+    sb.append("    isFilePath: ").append(toIndentedString(isFilePath)).append("\n");
     sb.append("    formulaConfig: ").append(toIndentedString(formulaConfig)).append("\n");
     sb.append("    numericConfig: ").append(toIndentedString(numericConfig)).append("\n");
     sb.append("    integerConfig: ").append(toIndentedString(integerConfig)).append("\n");

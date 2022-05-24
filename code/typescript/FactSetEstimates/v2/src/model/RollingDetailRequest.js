@@ -13,12 +13,12 @@
 
 import ApiClient from '../ApiClient';
 import Frequency from './Frequency';
-import Periodicity from './Periodicity';
+import PeriodicityDetail from './PeriodicityDetail';
 
 /**
  * The RollingDetailRequest model module.
  * @module model/RollingDetailRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RollingDetailRequest {
     /**
@@ -76,7 +76,7 @@ class RollingDetailRequest {
                 obj['relativeFiscalEnd'] = ApiClient.convertToType(data['relativeFiscalEnd'], 'Number');
             }
             if (data.hasOwnProperty('periodicity')) {
-                obj['periodicity'] = Periodicity.constructFromObject(data['periodicity']);
+                obj['periodicity'] = PeriodicityDetail.constructFromObject(data['periodicity']);
             }
             if (data.hasOwnProperty('metrics')) {
                 obj['metrics'] = ApiClient.convertToType(data['metrics'], ['String']);
@@ -134,7 +134,7 @@ RollingDetailRequest.prototype['relativeFiscalStart'] = undefined;
 RollingDetailRequest.prototype['relativeFiscalEnd'] = undefined;
 
 /**
- * @member {module:model/Periodicity} periodicity
+ * @member {module:model/PeriodicityDetail} periodicity
  */
 RollingDetailRequest.prototype['periodicity'] = undefined;
 

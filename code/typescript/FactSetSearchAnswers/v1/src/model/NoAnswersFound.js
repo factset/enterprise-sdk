@@ -18,7 +18,7 @@ import NoAnswersFoundAllOf from './NoAnswersFoundAllOf';
 /**
  * The NoAnswersFound model module.
  * @module model/NoAnswersFound
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NoAnswersFound {
     /**

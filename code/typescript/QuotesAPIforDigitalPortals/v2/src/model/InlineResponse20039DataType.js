@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20039DataType model module.
  * @module model/InlineResponse20039DataType
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20039DataType {
     /**

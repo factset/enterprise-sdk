@@ -17,7 +17,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataLevel from './Secu
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataLower model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataLower
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataLower {
     /**

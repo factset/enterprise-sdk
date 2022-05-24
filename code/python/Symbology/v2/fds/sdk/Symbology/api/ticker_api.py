@@ -11,6 +11,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.Symbology.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.Symbology.model_utils import (  # noqa: F401
@@ -22,11 +24,15 @@ from fds.sdk.Symbology.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.Symbology.exceptions import ApiException
 from fds.sdk.Symbology.model.error_response import ErrorResponse
 from fds.sdk.Symbology.model.ticker_history_translation_request import TickerHistoryTranslationRequest
 from fds.sdk.Symbology.model.ticker_history_translation_response import TickerHistoryTranslationResponse
 from fds.sdk.Symbology.model.ticker_translation_request import TickerTranslationRequest
 from fds.sdk.Symbology.model.ticker_translation_response import TickerTranslationResponse
+
+
+
 
 
 class TickerApi(object):
@@ -42,7 +48,10 @@ class TickerApi(object):
         self.api_client = api_client
         self.batch_ticker_history_endpoint = _Endpoint(
             settings={
-                'response_type': (TickerHistoryTranslationResponse,),
+                'response_type': (
+                  { 200: (TickerHistoryTranslationResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -95,7 +104,10 @@ class TickerApi(object):
         )
         self.batch_translate_ticker_endpoint = _Endpoint(
             settings={
-                'response_type': (TickerTranslationResponse,),
+                'response_type': (
+                  { 200: (TickerTranslationResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -148,7 +160,10 @@ class TickerApi(object):
         )
         self.ticker_history_endpoint = _Endpoint(
             settings={
-                'response_type': (TickerHistoryTranslationResponse,),
+                'response_type': (
+                  { 200: (TickerHistoryTranslationResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -223,7 +238,10 @@ class TickerApi(object):
         )
         self.translate_ticker_endpoint = _Endpoint(
             settings={
-                'response_type': (TickerTranslationResponse,),
+                'response_type': (
+                  { 200: (TickerTranslationResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -292,26 +310,32 @@ class TickerApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def batch_ticker_history(
         self,
         ticker_history_translation_request,
         **kwargs
-    ):
+    ) -> TickerHistoryTranslationResponse:
         """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
 
         Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.batch_ticker_history(ticker_history_translation_request, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             ticker_history_translation_request (TickerHistoryTranslationRequest): Response Body for Ticker History
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -325,35 +349,161 @@ class TickerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             TickerHistoryTranslationResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['ticker_history_translation_request'] = \
+            ticker_history_translation_request
+        return self.batch_ticker_history_endpoint.call_with_http_info(**kwargs)
+
+    def batch_ticker_history_with_http_info(
+        self,
+        ticker_history_translation_request,
+        **kwargs
+    ) -> typing.Tuple[TickerHistoryTranslationResponse, int, typing.MutableMapping]:
+        """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
+
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            ticker_history_translation_request (TickerHistoryTranslationRequest): Response Body for Ticker History
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TickerHistoryTranslationResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['ticker_history_translation_request'] = \
+            ticker_history_translation_request
+        return self.batch_ticker_history_endpoint.call_with_http_info(**kwargs)
+
+    def batch_ticker_history_async(
+        self,
+        ticker_history_translation_request,
+        **kwargs
+    ) -> "ApplyResult[TickerHistoryTranslationResponse]":
+        """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
+
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            ticker_history_translation_request (TickerHistoryTranslationRequest): Response Body for Ticker History
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TickerHistoryTranslationResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['ticker_history_translation_request'] = \
+            ticker_history_translation_request
+        return self.batch_ticker_history_endpoint.call_with_http_info(**kwargs)
+
+    def batch_ticker_history_with_http_info_async(
+        self,
+        ticker_history_translation_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TickerHistoryTranslationResponse, int, typing.MutableMapping]]":
+        """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
+
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            ticker_history_translation_request (TickerHistoryTranslationRequest): Response Body for Ticker History
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TickerHistoryTranslationResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['ticker_history_translation_request'] = \
             ticker_history_translation_request
         return self.batch_ticker_history_endpoint.call_with_http_info(**kwargs)
@@ -362,22 +512,16 @@ class TickerApi(object):
         self,
         ticker_translation_request,
         **kwargs
-    ):
+    ) -> TickerTranslationResponse:
         """Returns the Ticker-Exchange or Ticker-Region for a given security.  # noqa: E501
 
         Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.batch_translate_ticker(ticker_translation_request, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             ticker_translation_request (TickerTranslationRequest): Request Body for Ticker History
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -391,35 +535,161 @@ class TickerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             TickerTranslationResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['ticker_translation_request'] = \
+            ticker_translation_request
+        return self.batch_translate_ticker_endpoint.call_with_http_info(**kwargs)
+
+    def batch_translate_ticker_with_http_info(
+        self,
+        ticker_translation_request,
+        **kwargs
+    ) -> typing.Tuple[TickerTranslationResponse, int, typing.MutableMapping]:
+        """Returns the Ticker-Exchange or Ticker-Region for a given security.  # noqa: E501
+
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            ticker_translation_request (TickerTranslationRequest): Request Body for Ticker History
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TickerTranslationResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['ticker_translation_request'] = \
+            ticker_translation_request
+        return self.batch_translate_ticker_endpoint.call_with_http_info(**kwargs)
+
+    def batch_translate_ticker_async(
+        self,
+        ticker_translation_request,
+        **kwargs
+    ) -> "ApplyResult[TickerTranslationResponse]":
+        """Returns the Ticker-Exchange or Ticker-Region for a given security.  # noqa: E501
+
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            ticker_translation_request (TickerTranslationRequest): Request Body for Ticker History
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TickerTranslationResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['ticker_translation_request'] = \
+            ticker_translation_request
+        return self.batch_translate_ticker_endpoint.call_with_http_info(**kwargs)
+
+    def batch_translate_ticker_with_http_info_async(
+        self,
+        ticker_translation_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TickerTranslationResponse, int, typing.MutableMapping]]":
+        """Returns the Ticker-Exchange or Ticker-Region for a given security.  # noqa: E501
+
+        Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            ticker_translation_request (TickerTranslationRequest): Request Body for Ticker History
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TickerTranslationResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['ticker_translation_request'] = \
             ticker_translation_request
         return self.batch_translate_ticker_endpoint.call_with_http_info(**kwargs)
@@ -428,15 +698,11 @@ class TickerApi(object):
         self,
         ids,
         **kwargs
-    ):
+    ) -> TickerHistoryTranslationResponse:
         """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
 
         Return the full history of Ticker changes for a given market security or FactSet Permanent Id. <p> *GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it's advised to use POST method to retrieve the same response model.*</p>  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.ticker_history(ids, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
@@ -444,8 +710,6 @@ class TickerApi(object):
         Keyword Args:
             ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
             as_of_date (str): As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -459,35 +723,167 @@ class TickerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             TickerHistoryTranslationResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['ids'] = \
+            ids
+        return self.ticker_history_endpoint.call_with_http_info(**kwargs)
+
+    def ticker_history_with_http_info(
+        self,
+        ids,
+        **kwargs
+    ) -> typing.Tuple[TickerHistoryTranslationResponse, int, typing.MutableMapping]:
+        """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
+
+        Return the full history of Ticker changes for a given market security or FactSet Permanent Id. <p> *GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it's advised to use POST method to retrieve the same response model.*</p>  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+
+        Keyword Args:
+            ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
+            as_of_date (str): As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TickerHistoryTranslationResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['ids'] = \
+            ids
+        return self.ticker_history_endpoint.call_with_http_info(**kwargs)
+
+    def ticker_history_async(
+        self,
+        ids,
+        **kwargs
+    ) -> "ApplyResult[TickerHistoryTranslationResponse]":
+        """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
+
+        Return the full history of Ticker changes for a given market security or FactSet Permanent Id. <p> *GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it's advised to use POST method to retrieve the same response model.*</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+
+        Keyword Args:
+            ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
+            as_of_date (str): As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TickerHistoryTranslationResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['ids'] = \
+            ids
+        return self.ticker_history_endpoint.call_with_http_info(**kwargs)
+
+    def ticker_history_with_http_info_async(
+        self,
+        ids,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TickerHistoryTranslationResponse, int, typing.MutableMapping]]":
+        """Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.  # noqa: E501
+
+        Return the full history of Ticker changes for a given market security or FactSet Permanent Id. <p> *GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it's advised to use POST method to retrieve the same response model.*</p>  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+
+        Keyword Args:
+            ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
+            as_of_date (str): As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TickerHistoryTranslationResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['ids'] = \
             ids
         return self.ticker_history_endpoint.call_with_http_info(**kwargs)
@@ -496,23 +892,17 @@ class TickerApi(object):
         self,
         ids,
         **kwargs
-    ):
+    ) -> TickerTranslationResponse:
         """Returns the Ticker-Exchange or Ticker-Region for a given security. - Current Only  # noqa: E501
 
         Returns the Ticker-Exchange or Ticker-Region for a given security.\\   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.translate_ticker(ids, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
 
         Keyword Args:
             ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -526,35 +916,164 @@ class TickerApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             TickerTranslationResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['ids'] = \
+            ids
+        return self.translate_ticker_endpoint.call_with_http_info(**kwargs)
+
+    def translate_ticker_with_http_info(
+        self,
+        ids,
+        **kwargs
+    ) -> typing.Tuple[TickerTranslationResponse, int, typing.MutableMapping]:
+        """Returns the Ticker-Exchange or Ticker-Region for a given security. - Current Only  # noqa: E501
+
+        Returns the Ticker-Exchange or Ticker-Region for a given security.\\   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+
+        Keyword Args:
+            ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            TickerTranslationResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['ids'] = \
+            ids
+        return self.translate_ticker_endpoint.call_with_http_info(**kwargs)
+
+    def translate_ticker_async(
+        self,
+        ids,
+        **kwargs
+    ) -> "ApplyResult[TickerTranslationResponse]":
+        """Returns the Ticker-Exchange or Ticker-Region for a given security. - Current Only  # noqa: E501
+
+        Returns the Ticker-Exchange or Ticker-Region for a given security.\\   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+
+        Keyword Args:
+            ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[TickerTranslationResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['ids'] = \
+            ids
+        return self.translate_ticker_endpoint.call_with_http_info(**kwargs)
+
+    def translate_ticker_with_http_info_async(
+        self,
+        ids,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[TickerTranslationResponse, int, typing.MutableMapping]]":
+        """Returns the Ticker-Exchange or Ticker-Region for a given security. - Current Only  # noqa: E501
+
+        Returns the Ticker-Exchange or Ticker-Region for a given security.\\   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            ids ([str]): Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+
+        Keyword Args:
+            ticker_type (str): Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS) . [optional] if omitted the server will use the default value of "REGION"
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(TickerTranslationResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['ids'] = \
             ids
         return self.translate_ticker_endpoint.call_with_http_info(**kwargs)

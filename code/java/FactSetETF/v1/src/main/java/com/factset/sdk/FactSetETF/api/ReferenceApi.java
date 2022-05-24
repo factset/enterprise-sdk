@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetETF.Configuration;
 import com.factset.sdk.FactSetETF.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetETF.models.Category;
 import com.factset.sdk.FactSetETF.models.ErrorResponse;
@@ -24,6 +27,28 @@ public class ReferenceApi {
   public ReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEtfReferenceDataResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEtfReferenceDataResponseTypeMap.put(200, new GenericType<EtfReferenceDataResponse>(){});
+    getEtfReferenceDataResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEtfReferenceDataForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEtfReferenceDataForListResponseTypeMap.put(200, new GenericType<EtfReferenceDataResponse>(){});
+    getEtfReferenceDataForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEtfReferenceDataForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -121,11 +146,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EtfReferenceDataResponse> localVarReturnType = new GenericType<EtfReferenceDataResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getEtfReferenceData", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EtfReferenceDataResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getEtfReferenceData", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEtfReferenceDataResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Fetch Reference Data for a large list of ETF securities.
@@ -198,10 +229,16 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EtfReferenceDataResponse> localVarReturnType = new GenericType<EtfReferenceDataResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getEtfReferenceDataForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EtfReferenceDataResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getEtfReferenceDataForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEtfReferenceDataForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

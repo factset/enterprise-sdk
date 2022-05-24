@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.NRTSnippetsSnippetData;
+import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.NRTSnippetsTranscriptData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,7 +36,7 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
 @JsonPropertyOrder({
   NRTSnippetsData.JSON_PROPERTY_REPORT_ID,
   NRTSnippetsData.JSON_PROPERTY_SNIPPET_END_TIMESTAMP,
-  NRTSnippetsData.JSON_PROPERTY_SNIPPET_DATA,
+  NRTSnippetsData.JSON_PROPERTY_TRANSCRIPT_DATA,
   NRTSnippetsData.JSON_PROPERTY_SNIPPET_SEQUENCE,
   NRTSnippetsData.JSON_PROPERTY_AUDIO_SOURCE_ID
 })
@@ -50,8 +50,8 @@ public class NRTSnippetsData implements Serializable {
   public static final String JSON_PROPERTY_SNIPPET_END_TIMESTAMP = "snippetEndTimestamp";
   private String snippetEndTimestamp;
 
-  public static final String JSON_PROPERTY_SNIPPET_DATA = "snippetData";
-  private java.util.List<NRTSnippetsSnippetData> snippetData = null;
+  public static final String JSON_PROPERTY_TRANSCRIPT_DATA = "transcriptData";
+  private java.util.List<NRTSnippetsTranscriptData> transcriptData = null;
 
   public static final String JSON_PROPERTY_SNIPPET_SEQUENCE = "snippetSequence";
   private Integer snippetSequence;
@@ -59,6 +59,8 @@ public class NRTSnippetsData implements Serializable {
   public static final String JSON_PROPERTY_AUDIO_SOURCE_ID = "audioSourceId";
   private Integer audioSourceId;
 
+  public NRTSnippetsData() { 
+  }
 
   public NRTSnippetsData reportId(Integer reportId) {
     this.reportId = reportId;
@@ -112,37 +114,37 @@ public class NRTSnippetsData implements Serializable {
   }
 
 
-  public NRTSnippetsData snippetData(java.util.List<NRTSnippetsSnippetData> snippetData) {
-    this.snippetData = snippetData;
+  public NRTSnippetsData transcriptData(java.util.List<NRTSnippetsTranscriptData> transcriptData) {
+    this.transcriptData = transcriptData;
     return this;
   }
 
-  public NRTSnippetsData addSnippetDataItem(NRTSnippetsSnippetData snippetDataItem) {
-    if (this.snippetData == null) {
-      this.snippetData = new java.util.ArrayList<>();
+  public NRTSnippetsData addTranscriptDataItem(NRTSnippetsTranscriptData transcriptDataItem) {
+    if (this.transcriptData == null) {
+      this.transcriptData = new java.util.ArrayList<>();
     }
-    this.snippetData.add(snippetDataItem);
+    this.transcriptData.add(transcriptDataItem);
     return this;
   }
 
    /**
-   * Get snippetData
-   * @return snippetData
+   * Get transcriptData
+   * @return transcriptData
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SNIPPET_DATA)
+  @JsonProperty(JSON_PROPERTY_TRANSCRIPT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<NRTSnippetsSnippetData> getSnippetData() {
-    return snippetData;
+  public java.util.List<NRTSnippetsTranscriptData> getTranscriptData() {
+    return transcriptData;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SNIPPET_DATA)
+  @JsonProperty(JSON_PROPERTY_TRANSCRIPT_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSnippetData(java.util.List<NRTSnippetsSnippetData> snippetData) {
-    this.snippetData = snippetData;
+  public void setTranscriptData(java.util.List<NRTSnippetsTranscriptData> transcriptData) {
+    this.transcriptData = transcriptData;
   }
 
 
@@ -212,14 +214,14 @@ public class NRTSnippetsData implements Serializable {
     NRTSnippetsData nrTSnippetsData = (NRTSnippetsData) o;
     return Objects.equals(this.reportId, nrTSnippetsData.reportId) &&
         Objects.equals(this.snippetEndTimestamp, nrTSnippetsData.snippetEndTimestamp) &&
-        Objects.equals(this.snippetData, nrTSnippetsData.snippetData) &&
+        Objects.equals(this.transcriptData, nrTSnippetsData.transcriptData) &&
         Objects.equals(this.snippetSequence, nrTSnippetsData.snippetSequence) &&
         Objects.equals(this.audioSourceId, nrTSnippetsData.audioSourceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reportId, snippetEndTimestamp, snippetData, snippetSequence, audioSourceId);
+    return Objects.hash(reportId, snippetEndTimestamp, transcriptData, snippetSequence, audioSourceId);
   }
 
   @Override
@@ -228,7 +230,7 @@ public class NRTSnippetsData implements Serializable {
     sb.append("class NRTSnippetsData {\n");
     sb.append("    reportId: ").append(toIndentedString(reportId)).append("\n");
     sb.append("    snippetEndTimestamp: ").append(toIndentedString(snippetEndTimestamp)).append("\n");
-    sb.append("    snippetData: ").append(toIndentedString(snippetData)).append("\n");
+    sb.append("    transcriptData: ").append(toIndentedString(transcriptData)).append("\n");
     sb.append("    snippetSequence: ").append(toIndentedString(snippetSequence)).append("\n");
     sb.append("    audioSourceId: ").append(toIndentedString(audioSourceId)).append("\n");
     sb.append("}");

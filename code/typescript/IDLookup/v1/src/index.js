@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import ErrorResponse from './model/ErrorResponse';
 import FilterParams from './model/FilterParams';
@@ -23,6 +22,7 @@ import LookupObject from './model/LookupObject';
 import LookupRequest from './model/LookupRequest';
 import LookupResponse from './model/LookupResponse';
 import ResponseDetails from './model/ResponseDetails';
+
 import FactSetIDLookupApi from './api/FactSetIDLookupApi';
 
 
@@ -55,7 +55,7 @@ import FactSetIDLookupApi from './api/FactSetIDLookupApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -128,5 +128,6 @@ export {
     * The FactSetIDLookupApi service constructor.
     * @property {module:api/FactSetIDLookupApi}
     */
-    FactSetIDLookupApi
+    FactSetIDLookupApi,
+
 };

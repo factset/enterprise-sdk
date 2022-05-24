@@ -82,7 +82,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2009Data {\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
             sb.Append("  Subsample: ").Append(Subsample).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2009Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Quality == input.Quality ||
@@ -140,9 +141,11 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Subsample != null)
-                    hashCode = hashCode * 59 + this.Subsample.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subsample.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -18,7 +18,7 @@ import DocumentDirectories from '../model/DocumentDirectories';
 /**
 * Documents service.
 * @module api/DocumentsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class DocumentsApi {
 
@@ -61,7 +61,10 @@ export default class DocumentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DocumentDirectories;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/spar/documents/{path}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -73,7 +76,7 @@ export default class DocumentsApi {
      * Gets SPAR3 documents and sub-directories in a directory
      * This endpoint looks up all SPAR3 documents and sub-directories in a given directory.
      * @param {String} path The directory to get the documents in
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DocumentDirectories}
+     * @return { Promise.< module:model/DocumentDirectories > } a Promise, with data of type {@link module:model/DocumentDirectories }
      */
     getSPAR3Documents(path) {
       return this.getSPAR3DocumentsWithHttpInfo(path)
@@ -84,3 +87,8 @@ export default class DocumentsApi {
 
 
 }
+
+
+
+
+

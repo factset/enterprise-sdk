@@ -64,6 +64,8 @@ public class InlineResponse2005DataKnockIn implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private InlineResponse2005DataCapCashFlow cashFlow;
 
+  public InlineResponse2005DataKnockIn() { 
+  }
 
   public InlineResponse2005DataKnockIn observation(java.util.List<InlineResponse2005DataKnockOutObservation> observation) {
     this.observation = observation;

@@ -17,7 +17,7 @@ import InlineResponse2006InstrumentStrikeDistance from './InlineResponse2006Inst
 /**
  * The InlineResponse2006InstrumentStrike model module.
  * @module model/InlineResponse2006InstrumentStrike
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentStrike {
     /**

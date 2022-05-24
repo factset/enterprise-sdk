@@ -48,6 +48,8 @@ public class InlineResponse2005DataIndustryClassification implements Serializabl
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private java.util.List<InlineResponse2005DataCategories> categories = null;
 
+  public InlineResponse2005DataIndustryClassification() { 
+  }
 
   public InlineResponse2005DataIndustryClassification level(InlineResponse2005DataLevel level) {
     this.level = level;

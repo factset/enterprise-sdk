@@ -70,7 +70,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationCrossReferenceListBySymbolData {\n");
             sb.Append("  Symbol: ").Append(Symbol).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationCrossReferenceListBySymbolData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Symbol == input.Symbol ||
@@ -130,9 +131,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Symbol != null)
-                    hashCode = hashCode * 59 + this.Symbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                }
                 if (this.Filter != null)
-                    hashCode = hashCode * 59 + this.Filter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -145,13 +150,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Symbol (string) maxLength
-            if(this.Symbol != null && this.Symbol.Length > 32)
+            if (this.Symbol != null && this.Symbol.Length > 32)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Symbol, length must be less than 32.", new [] { "Symbol" });
             }
 
             // Symbol (string) minLength
-            if(this.Symbol != null && this.Symbol.Length < 1)
+            if (this.Symbol != null && this.Symbol.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Symbol, length must be greater than 1.", new [] { "Symbol" });
             }

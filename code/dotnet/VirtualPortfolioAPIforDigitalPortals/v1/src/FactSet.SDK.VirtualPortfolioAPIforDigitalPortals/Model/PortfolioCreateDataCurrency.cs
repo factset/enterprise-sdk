@@ -54,7 +54,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PortfolioCreateDataCurrency {\n");
             sb.Append("  IsoCode: ").Append(IsoCode).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(PortfolioCreateDataCurrency input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IsoCode == input.IsoCode ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.IsoCode != null)
-                    hashCode = hashCode * 59 + this.IsoCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IsoCode.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -121,7 +124,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // IsoCode (string) maxLength
-            if(this.IsoCode != null && this.IsoCode.Length > 3)
+            if (this.IsoCode != null && this.IsoCode.Length > 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IsoCode, length must be less than 3.", new [] { "IsoCode" });
             }

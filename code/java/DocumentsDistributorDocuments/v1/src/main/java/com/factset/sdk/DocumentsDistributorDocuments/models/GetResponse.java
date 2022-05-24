@@ -1,6 +1,6 @@
 /*
  * Documents Distributor - Documents API
- * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. The API also provides relevant metadata such as document source, company identifiers and form type around each filings document. Filings providers currently include EDGAR and SYMEX WebDisclosure.      StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.   Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
+ * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.DocumentsDistributorDocuments.JSON;
@@ -39,7 +39,8 @@ import com.factset.sdk.DocumentsDistributorDocuments.JSON;
   GetResponse.JSON_PROPERTY_END_DATE,
   GetResponse.JSON_PROPERTY_JOB_I_D,
   GetResponse.JSON_PROPERTY_STATUS,
-  GetResponse.JSON_PROPERTY_URL
+  GetResponse.JSON_PROPERTY_URL,
+  GetResponse.JSON_PROPERTY_PART
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetResponse implements Serializable {
@@ -63,6 +64,11 @@ public class GetResponse implements Serializable {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  public static final String JSON_PROPERTY_PART = "part";
+  private Integer part;
+
+  public GetResponse() { 
+  }
 
   public GetResponse product(String product) {
     this.product = product;
@@ -220,6 +226,32 @@ public class GetResponse implements Serializable {
   }
 
 
+  public GetResponse part(Integer part) {
+    this.part = part;
+    return this;
+  }
+
+   /**
+   * Returns the part number of the jobID
+   * @return part
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Returns the part number of the jobID")
+  @JsonProperty(JSON_PROPERTY_PART)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getPart() {
+    return part;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PART)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPart(Integer part) {
+    this.part = part;
+  }
+
+
   /**
    * Return true if this getResponse object is equal to o.
    */
@@ -237,12 +269,13 @@ public class GetResponse implements Serializable {
         Objects.equals(this.endDate, getResponse.endDate) &&
         Objects.equals(this.jobID, getResponse.jobID) &&
         Objects.equals(this.status, getResponse.status) &&
-        Objects.equals(this.url, getResponse.url);
+        Objects.equals(this.url, getResponse.url) &&
+        Objects.equals(this.part, getResponse.part);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(product, startDate, endDate, jobID, status, url);
+    return Objects.hash(product, startDate, endDate, jobID, status, url, part);
   }
 
   @Override
@@ -255,6 +288,7 @@ public class GetResponse implements Serializable {
     sb.append("    jobID: ").append(toIndentedString(jobID)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    part: ").append(toIndentedString(part)).append("\n");
     sb.append("}");
     return sb.toString();
   }

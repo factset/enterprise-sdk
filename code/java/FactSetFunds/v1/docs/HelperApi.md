@@ -26,14 +26,13 @@ import com.factset.sdk.FactSetFunds.ApiClient;
 import com.factset.sdk.FactSetFunds.ApiException;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
-import com.factset.sdk.FactSetFunds.model.*;
+import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.HelperApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,20 +42,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         HelperApi apiInstance = new HelperApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
         try {
             StatusesResponse result = apiInstance.getStatuses(ids);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling HelperApi#getStatuses");
             System.err.println("Status code: " + e.getCode());
@@ -116,14 +116,13 @@ import com.factset.sdk.FactSetFunds.ApiClient;
 import com.factset.sdk.FactSetFunds.ApiException;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
-import com.factset.sdk.FactSetFunds.model.*;
+import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.HelperApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -133,20 +132,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         HelperApi apiInstance = new HelperApi(defaultClient);
         StatusesRequest statusesRequest = new StatusesRequest(); // StatusesRequest | The Statuses request body, allowing the user to specify a list of ids.
         try {
             StatusesResponse result = apiInstance.getStatusesForList(statusesRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling HelperApi#getStatusesForList");
             System.err.println("Status code: " + e.getCode());

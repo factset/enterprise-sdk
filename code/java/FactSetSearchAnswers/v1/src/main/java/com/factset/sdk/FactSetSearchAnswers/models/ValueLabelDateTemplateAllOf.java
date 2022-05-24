@@ -50,6 +50,8 @@ public class ValueLabelDateTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private String date;
 
+  public ValueLabelDateTemplateAllOf() { 
+  }
 
   public ValueLabelDateTemplateAllOf value(String value) {
     this.value = value;

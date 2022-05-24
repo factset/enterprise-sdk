@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HeadlineFormatConfigDto model module.
  * @module model/HeadlineFormatConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class HeadlineFormatConfigDto {
     /**
@@ -47,14 +47,14 @@ class HeadlineFormatConfigDto {
         if (data) {
             obj = obj || new HeadlineFormatConfigDto();
 
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('customString')) {
-                obj['customString'] = ApiClient.convertToType(data['customString'], 'String');
+            if (data.hasOwnProperty('CustomString')) {
+                obj['CustomString'] = ApiClient.convertToType(data['CustomString'], 'String');
             }
-            if (data.hasOwnProperty('customFieldName')) {
-                obj['customFieldName'] = ApiClient.convertToType(data['customFieldName'], 'String');
+            if (data.hasOwnProperty('CustomFieldName')) {
+                obj['CustomFieldName'] = ApiClient.convertToType(data['CustomFieldName'], 'String');
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class HeadlineFormatConfigDto {
 }
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-HeadlineFormatConfigDto.prototype['name'] = undefined;
+HeadlineFormatConfigDto.prototype['Name'] = undefined;
 
 /**
- * @member {String} customString
+ * @member {String} CustomString
  */
-HeadlineFormatConfigDto.prototype['customString'] = undefined;
+HeadlineFormatConfigDto.prototype['CustomString'] = undefined;
 
 /**
- * @member {String} customFieldName
+ * @member {String} CustomFieldName
  */
-HeadlineFormatConfigDto.prototype['customFieldName'] = undefined;
+HeadlineFormatConfigDto.prototype['CustomFieldName'] = undefined;
 
 
 

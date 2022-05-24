@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **endDate** | **String** | Requested end date for Range expressed in YYYY-MM-DD format. | [optional] 
 **frequency** | [**Frequency**](Frequency.md) |  | [optional] 
 **returnType** | [**ReturnType**](ReturnType.md) |  | [optional] 
+**hedgeType** | [**HedgeType**](HedgeType.md) |  | [optional] 
 **currency** | **String** | Currency for response. | [optional] 
 **calendar** | [**Calendar**](Calendar.md) |  | [optional] 
 

@@ -12,18 +12,17 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2007DataCategory from './InlineResponse2007DataCategory';
-import InlineResponse2007DataGeography from './InlineResponse2007DataGeography';
+import InlineResponse2007DataClassifications from './InlineResponse2007DataClassifications';
 
 /**
  * The InlineResponse2007Data model module.
  * @module model/InlineResponse2007Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007Data {
     /**
      * Constructs a new <code>InlineResponse2007Data</code>.
-     * Class information of given ETP.
+     * List of allocations.
      * @alias module:model/InlineResponse2007Data
      */
     constructor() { 
@@ -50,17 +49,11 @@ class InlineResponse2007Data {
         if (data) {
             obj = obj || new InlineResponse2007Data();
 
-            if (data.hasOwnProperty('asset')) {
-                obj['asset'] = ApiClient.convertToType(data['asset'], 'String');
+            if (data.hasOwnProperty('reportDate')) {
+                obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('economicDevelopment')) {
-                obj['economicDevelopment'] = ApiClient.convertToType(data['economicDevelopment'], 'String');
-            }
-            if (data.hasOwnProperty('geography')) {
-                obj['geography'] = InlineResponse2007DataGeography.constructFromObject(data['geography']);
-            }
-            if (data.hasOwnProperty('category')) {
-                obj['category'] = InlineResponse2007DataCategory.constructFromObject(data['category']);
+            if (data.hasOwnProperty('classifications')) {
+                obj['classifications'] = ApiClient.convertToType(data['classifications'], [InlineResponse2007DataClassifications]);
             }
         }
         return obj;
@@ -70,107 +63,19 @@ class InlineResponse2007Data {
 }
 
 /**
- * Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
- * @member {module:model/InlineResponse2007Data.AssetEnum} asset
+ * Reporting date for the allocations.
+ * @member {Date} reportDate
  */
-InlineResponse2007Data.prototype['asset'] = undefined;
+InlineResponse2007Data.prototype['reportDate'] = undefined;
 
 /**
- * The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
- * @member {module:model/InlineResponse2007Data.EconomicDevelopmentEnum} economicDevelopment
+ * List of allocations classified by a holding's total market capitalization (e.g. small caps, large caps).
+ * @member {Array.<module:model/InlineResponse2007DataClassifications>} classifications
  */
-InlineResponse2007Data.prototype['economicDevelopment'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007DataGeography} geography
- */
-InlineResponse2007Data.prototype['geography'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2007DataCategory} category
- */
-InlineResponse2007Data.prototype['category'] = undefined;
+InlineResponse2007Data.prototype['classifications'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>asset</code> property.
- * @enum {String}
- * @readonly
- */
-InlineResponse2007Data['AssetEnum'] = {
-
-    /**
-     * value: "Equity"
-     * @const
-     */
-    "Equity": "Equity",
-
-    /**
-     * value: "Alternatives"
-     * @const
-     */
-    "Alternatives": "Alternatives",
-
-    /**
-     * value: "Fixed Income"
-     * @const
-     */
-    "Fixed Income": "Fixed Income",
-
-    /**
-     * value: "Commodities"
-     * @const
-     */
-    "Commodities": "Commodities",
-
-    /**
-     * value: "Currency"
-     * @const
-     */
-    "Currency": "Currency",
-
-    /**
-     * value: "Asset Allocation"
-     * @const
-     */
-    "Asset Allocation": "Asset Allocation"
-};
-
-
-/**
- * Allowed values for the <code>economicDevelopment</code> property.
- * @enum {String}
- * @readonly
- */
-InlineResponse2007Data['EconomicDevelopmentEnum'] = {
-
-    /**
-     * value: "Developed Markets"
-     * @const
-     */
-    "Developed Markets": "Developed Markets",
-
-    /**
-     * value: "Blended Development"
-     * @const
-     */
-    "Blended Development": "Blended Development",
-
-    /**
-     * value: "Emerging Markets"
-     * @const
-     */
-    "Emerging Markets": "Emerging Markets",
-
-    /**
-     * value: "Frontier Markets"
-     * @const
-     */
-    "Frontier Markets": "Frontier Markets"
-};
 
 
 

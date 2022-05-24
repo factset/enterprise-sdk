@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MetricsRequest {\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Subcategory: ").Append(Subcategory).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(MetricsRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Category == input.Category ||
@@ -121,9 +122,13 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 if (this.Subcategory != null)
-                    hashCode = hashCode * 59 + this.Subcategory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subcategory.GetHashCode();
+                }
                 return hashCode;
             }
         }

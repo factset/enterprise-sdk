@@ -18,7 +18,7 @@ import InlineResponse200Meta from './InlineResponse200Meta';
 /**
  * The InlineResponse20011 model module.
  * @module model/InlineResponse20011
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20011 {
     /**
@@ -50,7 +50,7 @@ class InlineResponse20011 {
             obj = obj || new InlineResponse20011();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20011Data]);
+                obj['data'] = InlineResponse20011Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -63,8 +63,7 @@ class InlineResponse20011 {
 }
 
 /**
- * List of class geographies.
- * @member {Array.<module:model/InlineResponse20011Data>} data
+ * @member {module:model/InlineResponse20011Data} data
  */
 InlineResponse20011.prototype['data'] = undefined;
 

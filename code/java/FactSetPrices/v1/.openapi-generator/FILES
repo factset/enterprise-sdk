@@ -75,7 +75,6 @@ src/main/java/com/factset/sdk/FactSetPrices/ApiClient.java
 src/main/java/com/factset/sdk/FactSetPrices/ApiException.java
 src/main/java/com/factset/sdk/FactSetPrices/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetPrices/Configuration.java
-src/main/java/com/factset/sdk/FactSetPrices/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetPrices/JSON.java
 src/main/java/com/factset/sdk/FactSetPrices/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetPrices/Pair.java

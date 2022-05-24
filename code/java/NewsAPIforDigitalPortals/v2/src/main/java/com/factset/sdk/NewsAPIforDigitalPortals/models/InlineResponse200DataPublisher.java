@@ -48,6 +48,8 @@ public class InlineResponse200DataPublisher implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse200DataPublisher() { 
+  }
 
   public InlineResponse200DataPublisher id(BigDecimal id) {
     this.id = id;

@@ -110,6 +110,8 @@ public class FrequencyFrequency implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private ValueEnum value;
 
+  public FrequencyFrequency() { 
+  }
 
   public FrequencyFrequency value(ValueEnum value) {
     this.value = value;

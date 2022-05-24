@@ -52,7 +52,7 @@ namespace FactSet.SDK.IDLookup.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LookupLimit {\n");
             sb.Append("  ResultLimit: ").Append(ResultLimit).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.IDLookup.Model
         public bool Equals(LookupLimit input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ResultLimit == input.ResultLimit ||
@@ -104,7 +105,7 @@ namespace FactSet.SDK.IDLookup.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ResultLimit.GetHashCode();
+                hashCode = (hashCode * 59) + this.ResultLimit.GetHashCode();
                 return hashCode;
             }
         }

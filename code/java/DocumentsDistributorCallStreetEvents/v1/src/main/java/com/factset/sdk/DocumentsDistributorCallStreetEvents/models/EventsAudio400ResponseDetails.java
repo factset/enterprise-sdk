@@ -43,6 +43,8 @@ public class EventsAudio400ResponseDetails implements Serializable {
   public static final String JSON_PROPERTY_VALID_PARAMETERS = "validParameters";
   private EventsAudio400ResponseDetailsValidParameters validParameters;
 
+  public EventsAudio400ResponseDetails() { 
+  }
 
   public EventsAudio400ResponseDetails validParameters(EventsAudio400ResponseDetailsValidParameters validParameters) {
     this.validParameters = validParameters;

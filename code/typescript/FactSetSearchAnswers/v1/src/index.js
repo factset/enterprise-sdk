@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AdaptiveCardAnswerSuccessResponse from './model/AdaptiveCardAnswerSuccessResponse';
 import AdaptiveCardDataItem from './model/AdaptiveCardDataItem';
@@ -77,6 +76,7 @@ import ValueLabelDateTextBlockTemplate from './model/ValueLabelDateTextBlockTemp
 import ValueLabelDateTextBlockTemplateAllOf from './model/ValueLabelDateTextBlockTemplateAllOf';
 import ValueLabelTemplate from './model/ValueLabelTemplate';
 import ValueLabelTemplateAllOf from './model/ValueLabelTemplateAllOf';
+
 import AnswersApi from './api/AnswersApi';
 
 
@@ -109,7 +109,7 @@ import AnswersApi from './api/AnswersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -506,5 +506,6 @@ export {
     * The AnswersApi service constructor.
     * @property {module:api/AnswersApi}
     */
-    AnswersApi
+    AnswersApi,
+
 };

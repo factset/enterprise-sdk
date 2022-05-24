@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Table model module.
  * @module model/Table
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Table {
     /**

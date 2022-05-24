@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-securitizedderivativesapifordigitalportals",
-  "projectVersion": "0.9.1",
+  "projectVersion": "0.10.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Securitized Derivatives API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "securitizedderivativesapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/SecuritizedDerivativesAPIforDigitalPortals/0.9.1",
+  "httpUserAgent": "fds-sdk/javascript/SecuritizedDerivativesAPIforDigitalPortals/0.10.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

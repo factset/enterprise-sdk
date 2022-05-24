@@ -43,6 +43,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataUnderlyingNotat
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<String> ids = null;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataUnderlyingNotation() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataUnderlyingNotation ids(java.util.Set<String> ids) {
     this.ids = ids;

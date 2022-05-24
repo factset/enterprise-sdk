@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataIndustryClassificationExclude implem
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<BigDecimal> ids = null;
 
+  public StockNotationScreenerSearchDataIndustryClassificationExclude() { 
+  }
 
   public StockNotationScreenerSearchDataIndustryClassificationExclude ids(java.util.List<BigDecimal> ids) {
     this.ids = ids;

@@ -52,6 +52,8 @@ public class InlineResponse2005RecommendationClass implements Serializable {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public InlineResponse2005RecommendationClass() { 
+  }
 
   public InlineResponse2005RecommendationClass id(BigDecimal id) {
     this.id = id;

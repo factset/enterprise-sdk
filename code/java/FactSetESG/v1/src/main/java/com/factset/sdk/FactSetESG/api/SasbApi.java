@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetESG.models.ErrorResponse;
 import com.factset.sdk.FactSetESG.models.SasbRanksRequest;
@@ -27,6 +30,64 @@ public class SasbApi {
   public SasbApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSasbRanksResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSasbRanksResponseTypeMap.put(200, new GenericType<SasbRanksResponse>(){});
+    getSasbRanksResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSasbRanksResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSasbRanksResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSasbRanksResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSasbRanksResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSasbRanksPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSasbRanksPostResponseTypeMap.put(200, new GenericType<SasbRanksResponse>(){});
+    getSasbRanksPostResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSasbRanksPostResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSasbRanksPostResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSasbRanksPostResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSasbRanksPostResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSasbScoresResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSasbScoresResponseTypeMap.put(200, new GenericType<SasbScoresResponse>(){});
+    getSasbScoresResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSasbScoresResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSasbScoresResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSasbScoresResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSasbScoresResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSasbScoresAllResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSasbScoresAllResponseTypeMap.put(200, new GenericType<SasbScoresAllResponse>(){});
+    getSasbScoresAllResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSasbScoresAllPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSasbScoresAllPostResponseTypeMap.put(200, new GenericType<SasbScoresAllResponse>(){});
+    getSasbScoresAllPostResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllPostResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllPostResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllPostResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSasbScoresAllPostResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSasbScoresPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSasbScoresPostResponseTypeMap.put(200, new GenericType<SasbScoresResponse>(){});
+    getSasbScoresPostResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSasbScoresPostResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSasbScoresPostResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSasbScoresPostResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSasbScoresPostResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -130,11 +191,17 @@ public class SasbApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SasbRanksResponse> localVarReturnType = new GenericType<SasbRanksResponse>() {};
 
-    return apiClient.invokeAPI("SasbApi.getSasbRanks", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SasbRanksResponse
+      
+    > apiResponse = apiClient.invokeAPI("SasbApi.getSasbRanks", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSasbRanksResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get ESG Ranks for a large list of ids and specified date range.
@@ -207,11 +274,17 @@ public class SasbApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SasbRanksResponse> localVarReturnType = new GenericType<SasbRanksResponse>() {};
 
-    return apiClient.invokeAPI("SasbApi.getSasbRanksPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SasbRanksResponse
+      
+    > apiResponse = apiClient.invokeAPI("SasbApi.getSasbRanksPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSasbRanksPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets short-term, long-term, and momentum scores based on the 26 ESG categories defined by the Sustainability Accounting Standards Board (SASB).
@@ -300,11 +373,17 @@ public class SasbApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SasbScoresResponse> localVarReturnType = new GenericType<SasbScoresResponse>() {};
 
-    return apiClient.invokeAPI("SasbApi.getSasbScores", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SasbScoresResponse
+      
+    > apiResponse = apiClient.invokeAPI("SasbApi.getSasbScores", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSasbScoresResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets a flat key value array of scores for named categories of the input scoreType(s).
@@ -390,11 +469,17 @@ public class SasbApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SasbScoresAllResponse> localVarReturnType = new GenericType<SasbScoresAllResponse>() {};
 
-    return apiClient.invokeAPI("SasbApi.getSasbScoresAll", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SasbScoresAllResponse
+      
+    > apiResponse = apiClient.invokeAPI("SasbApi.getSasbScoresAll", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSasbScoresAllResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets a flat key value array of scores for named categories of the input score type(s).
@@ -467,11 +552,17 @@ public class SasbApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SasbScoresAllResponse> localVarReturnType = new GenericType<SasbScoresAllResponse>() {};
 
-    return apiClient.invokeAPI("SasbApi.getSasbScoresAllPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SasbScoresAllResponse
+      
+    > apiResponse = apiClient.invokeAPI("SasbApi.getSasbScoresAllPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSasbScoresAllPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * For a large list of ids, gets short-term, long-term, and momentum scores based on the 26 ESG categories defined by the Sustainability Accounting Standards Board (SASB).
@@ -544,10 +635,16 @@ public class SasbApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SasbScoresResponse> localVarReturnType = new GenericType<SasbScoresResponse>() {};
 
-    return apiClient.invokeAPI("SasbApi.getSasbScoresPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SasbScoresResponse
+      
+    > apiResponse = apiClient.invokeAPI("SasbApi.getSasbScoresPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSasbScoresPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

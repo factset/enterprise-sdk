@@ -58,6 +58,16 @@ public class TemplateWithLinks implements Serializable {
   public static final String JSON_PROPERTY_APPLICATION_LINKS = "applicationLinks";
   private java.util.List<ApplicationLink> applicationLinks = null;
 
+  public TemplateWithLinks() { 
+  }
+
+  @JsonCreator
+  public TemplateWithLinks(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public TemplateWithLinks headline(String headline) {
     this.headline = headline;

@@ -58,6 +58,8 @@ public class Prices implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public Prices() { 
+  }
 
   public Prices fsymId(String fsymId) {
     this.fsymId = fsymId;

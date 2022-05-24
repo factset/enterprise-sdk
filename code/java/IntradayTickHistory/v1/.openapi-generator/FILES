@@ -28,7 +28,6 @@ src/main/java/com/factset/sdk/IntradayTickHistory/ApiClient.java
 src/main/java/com/factset/sdk/IntradayTickHistory/ApiException.java
 src/main/java/com/factset/sdk/IntradayTickHistory/ApiResponse.java
 src/main/java/com/factset/sdk/IntradayTickHistory/Configuration.java
-src/main/java/com/factset/sdk/IntradayTickHistory/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/IntradayTickHistory/JSON.java
 src/main/java/com/factset/sdk/IntradayTickHistory/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/IntradayTickHistory/Pair.java

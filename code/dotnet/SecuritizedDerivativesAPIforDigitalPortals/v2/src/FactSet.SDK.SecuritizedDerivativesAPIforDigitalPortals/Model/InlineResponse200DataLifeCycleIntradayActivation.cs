@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataLifeCycleIntradayActivation {\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
             sb.Append("  IsActivated: ").Append(IsActivated).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataLifeCycleIntradayActivation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Time == input.Time ||
@@ -121,8 +122,10 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
-                hashCode = hashCode * 59 + this.IsActivated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Time.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsActivated.GetHashCode();
                 return hashCode;
             }
         }

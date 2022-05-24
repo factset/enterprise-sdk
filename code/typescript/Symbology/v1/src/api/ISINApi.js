@@ -22,7 +22,7 @@ import IsinTranslationResponse from '../model/IsinTranslationResponse';
 /**
 * ISIN service.
 * @module api/ISINApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ISINApi {
 
@@ -64,7 +64,10 @@ export default class ISINApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = IsinHistoryTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/isin-history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class ISINApi {
      * Retrieve the full history or as of a specific date of ISIN changes for a requested ID.
      * Return the full history of ISIN changes for a given market security or FactSet Permanent Id. 
      * @param {module:model/IsinHistoryTranslationRequest} isinHistoryTranslationRequest Request Body for ISIN History
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IsinHistoryTranslationResponse}
+     * @return { Promise.< module:model/IsinHistoryTranslationResponse > } a Promise, with data of type {@link module:model/IsinHistoryTranslationResponse }
      */
     batchIsinHistory(isinHistoryTranslationRequest) {
       return this.batchIsinHistoryWithHttpInfo(isinHistoryTranslationRequest)
@@ -111,7 +114,10 @@ export default class ISINApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = IsinTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/isin', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class ISINApi {
      * Translate market security symbols into ISIN.
      * Translate market security symbols into ISIN and FactSet Permanent Identifiers. 
      * @param {module:model/IsinTranslationRequest} isinTranslationRequest Request Body for ISIN Symbology Translation
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IsinTranslationResponse}
+     * @return { Promise.< module:model/IsinTranslationResponse > } a Promise, with data of type {@link module:model/IsinTranslationResponse }
      */
     batchTranslateIsin(isinTranslationRequest) {
       return this.batchTranslateIsinWithHttpInfo(isinTranslationRequest)
@@ -159,7 +165,10 @@ export default class ISINApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = IsinHistoryTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/isin-history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -171,7 +180,7 @@ export default class ISINApi {
      * Retrieve the full history or as of a specific date of ISIN changes for the requested ID(s).
      * Returns the full history of ISIN changes for a given security. 
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IsinHistoryTranslationResponse}
+     * @return { Promise.< module:model/IsinHistoryTranslationResponse > } a Promise, with data of type {@link module:model/IsinHistoryTranslationResponse }
      */
     isinHistory(ids) {
       return this.isinHistoryWithHttpInfo(ids)
@@ -211,7 +220,10 @@ export default class ISINApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = IsinTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/isin', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -225,7 +237,7 @@ export default class ISINApi {
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
      * @param {Object} opts Optional parameters
      * @param {String} opts.asOfDate As-Of date for historical symbol request in YYYY-MM-DD format.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IsinTranslationResponse}
+     * @return { Promise.< module:model/IsinTranslationResponse > } a Promise, with data of type {@link module:model/IsinTranslationResponse }
      */
     translateIsin(ids, opts) {
       return this.translateIsinWithHttpInfo(ids, opts)
@@ -236,3 +248,8 @@ export default class ISINApi {
 
 
 }
+
+
+
+
+

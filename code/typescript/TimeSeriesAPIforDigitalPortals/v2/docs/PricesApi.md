@@ -59,6 +59,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesTimeSeriesIntradaySubsampleGet(id, from, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -135,6 +136,7 @@ const body = new timeseriesapifordigitalportals.InlineObject4(); // InlineObject
 // Call api endpoint
 apiInstance.postPricesTimeSeriesEodList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -206,6 +208,7 @@ const body = new timeseriesapifordigitalportals.InlineObject5(); // InlineObject
 // Call api endpoint
 apiInstance.postPricesTimeSeriesEodSubsampleGet(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -277,6 +280,7 @@ const body = new timeseriesapifordigitalportals.InlineObject6(); // InlineObject
 // Call api endpoint
 apiInstance.postPricesTimeSeriesEodSubsampleList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -348,6 +352,7 @@ const body = new timeseriesapifordigitalportals.InlineObject7(); // InlineObject
 // Call api endpoint
 apiInstance.postPricesTimeSeriesIntradayList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -419,6 +424,7 @@ const body = new timeseriesapifordigitalportals.InlineObject8(); // InlineObject
 // Call api endpoint
 apiInstance.postPricesTimeSeriesIntradaySubsampleList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

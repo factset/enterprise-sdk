@@ -43,6 +43,8 @@ public class NegativeCovenantsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<NegativeCovenant> data = null;
 
+  public NegativeCovenantsResponse() { 
+  }
 
   public NegativeCovenantsResponse data(java.util.List<NegativeCovenant> data) {
     this.data = data;

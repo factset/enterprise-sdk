@@ -24,8 +24,8 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 

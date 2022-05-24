@@ -53,6 +53,8 @@ public class DebtInstrumentNotationScreenerSearchDataLifeCycle implements Serial
   public static final String JSON_PROPERTY_CALLABLE = "callable";
   private Boolean callable;
 
+  public DebtInstrumentNotationScreenerSearchDataLifeCycle() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataLifeCycle issue(DebtInstrumentNotationScreenerSearchDataLifeCycleIssue issue) {
     this.issue = issue;

@@ -15,6 +15,7 @@ docs/EventsAudioApi.md
 docs/EventsAudioData.md
 docs/EventsAudioMeta.md
 docs/EventsAudioMetaPagination.md
+docs/IndexedNRT.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -29,8 +30,8 @@ docs/NRTSnippetsData.md
 docs/NRTSnippetsMeta.md
 docs/NRTSnippetsMetaPagination.md
 docs/NRTSnippetsMetaPartial.md
-docs/NRTSnippetsMetadata.md
 docs/NRTSnippetsSnippetData.md
+docs/NRTSnippetsTranscriptData.md
 docs/NRTSpeakerids.md
 docs/NRTSpeakerids400Response.md
 docs/NRTSpeakerids400ResponseDetails.md
@@ -52,7 +53,6 @@ src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/ApiClient.jav
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/ApiException.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/ApiResponse.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/Configuration.java
-src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/JSON.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/Pair.java
@@ -78,6 +78,7 @@ src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/Events
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/EventsAudioData.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/EventsAudioMeta.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/EventsAudioMetaPagination.java
+src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/IndexedNRT.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTCalls.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTCalls400Response.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTCalls400ResponseDetails.java
@@ -92,8 +93,8 @@ src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSni
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSnippetsMeta.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSnippetsMetaPagination.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSnippetsMetaPartial.java
-src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSnippetsMetadata.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSnippetsSnippetData.java
+src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSnippetsTranscriptData.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSpeakerids.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSpeakerids400Response.java
 src/main/java/com/factset/sdk/DocumentsDistributorCallStreetEvents/models/NRTSpeakerids400ResponseDetails.java

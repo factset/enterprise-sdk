@@ -42,31 +42,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cusip_api.CUSIPApi(api_client)
+
     cusip_history_translation_request = CusipHistoryTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
         as_of_date="2010-01-01",
     ) # CusipHistoryTranslationRequest | Request Body for CUSIP History
 
-    # example passing only required values which don't have defaults set
     try:
         # Retrieve the full history or as of a specific date of CUSIP changes for the requested ID(s).
         api_response = api_instance.batch_cusip_history(cusip_history_translation_request)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling CUSIPApi->batch_cusip_history: %s\n" % e)
 ```
@@ -137,30 +138,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cusip_api.CUSIPApi(api_client)
+
     cusip_translation_request = CusipTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
     ) # CusipTranslationRequest | Request Body for current only CUSIP Symbology Translation
 
-    # example passing only required values which don't have defaults set
     try:
         # Translate market security symbols into CUSIP - Current Only
         api_response = api_instance.batch_translate_cusips(cusip_translation_request)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling CUSIPApi->batch_translate_cusips: %s\n" % e)
 ```
@@ -230,38 +232,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cusip_api.CUSIPApi(api_client)
+
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
     as_of_date = "2010-01-01" # str | As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve the full history or as of a requested date of CUSIP changes for the requested ID(s).
-        api_response = api_instance.cusip_history(ids)
-        pprint(api_response)
-    except fds.sdk.Symbology.ApiException as e:
-        print("Exception when calling CUSIPApi->cusip_history: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve the full history or as of a requested date of CUSIP changes for the requested ID(s).
         api_response = api_instance.cusip_history(ids, as_of_date=as_of_date)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling CUSIPApi->cusip_history: %s\n" % e)
 ```
@@ -332,28 +326,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cusip_api.CUSIPApi(api_client)
+
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
 
-    # example passing only required values which don't have defaults set
     try:
         # Translate market security symbols into CUSIPs - Current Only
         api_response = api_instance.translate_cusip(ids)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling CUSIPApi->translate_cusip: %s\n" % e)
 ```

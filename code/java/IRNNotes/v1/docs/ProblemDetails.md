@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **status** | **Integer** |  |  [optional]
 **detail** | **String** |  |  [optional]
 **instance** | **String** |  |  [optional]
-**extensions** | **Map&lt;String, Object&gt;** |  |  [optional] [readonly]
 
 
 ## Implemented Interfaces

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EntityMappingDeleteRequest model module.
  * @module model/EntityMappingDeleteRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EntityMappingDeleteRequest {
     /**

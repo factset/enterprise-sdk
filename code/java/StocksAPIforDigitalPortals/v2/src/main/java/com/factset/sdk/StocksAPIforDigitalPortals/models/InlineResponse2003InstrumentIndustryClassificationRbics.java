@@ -47,6 +47,8 @@ public class InlineResponse2003InstrumentIndustryClassificationRbics implements 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2003InstrumentIndustryClassificationRbics() { 
+  }
 
   public InlineResponse2003InstrumentIndustryClassificationRbics id(BigDecimal id) {
     this.id = id;

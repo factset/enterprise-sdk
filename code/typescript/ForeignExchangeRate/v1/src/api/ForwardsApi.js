@@ -20,7 +20,7 @@ import ForwardsResponse from '../model/ForwardsResponse';
 /**
 * Forwards service.
 * @module api/ForwardsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ForwardsApi {
 
@@ -73,7 +73,10 @@ export default class ForwardsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ForwardsResponse;
+
       return this.apiClient.callApi(
         '/foreign-exchange/v1/forwards', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -90,7 +93,7 @@ export default class ForwardsApi {
      * @param {String} opts.startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. 
      * @param {String} opts.endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. 
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (default to 'D')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ForwardsResponse}
+     * @return { Promise.< module:model/ForwardsResponse > } a Promise, with data of type {@link module:model/ForwardsResponse }
      */
     getFXForwards(ids, opts) {
       return this.getFXForwardsWithHttpInfo(ids, opts)
@@ -125,7 +128,10 @@ export default class ForwardsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ForwardsResponse;
+
       return this.apiClient.callApi(
         '/foreign-exchange/v1/forwards', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -137,7 +143,7 @@ export default class ForwardsApi {
      * Gets Forwards for a list of currency pairs
      * Forward rates are provided in 80+ currencies against the U.S. dollar, British pound, and euro. Forward quotes are provided by Reuters and coverage is determined by the amount of reliable currency trading in a particular currency. Bid, offer, and mid rates are available for 11 `forwardPeriod` periods - Overnight, Tomorrow Next, 1 Week (Spot Week), 1 month, 2 month, 3 month, 6 month, 9 month, 1 year, 2 year, 5 year. All identifiers have spot rates, but not all identifiers have forward rate data. 
      * @param {module:model/ForwardsRequest} forwardsRequest Request object for FX Forwards.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ForwardsResponse}
+     * @return { Promise.< module:model/ForwardsResponse > } a Promise, with data of type {@link module:model/ForwardsResponse }
      */
     getFXForwardsForList(forwardsRequest) {
       return this.getFXForwardsForListWithHttpInfo(forwardsRequest)
@@ -148,3 +154,8 @@ export default class ForwardsApi {
 
 
 }
+
+
+
+
+

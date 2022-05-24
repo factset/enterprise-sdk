@@ -43,6 +43,8 @@ public class SecuritizedDerivativeIssuerSearchDataName implements Serializable {
   public static final String JSON_PROPERTY_SEARCH_VALUE = "searchValue";
   private String searchValue;
 
+  public SecuritizedDerivativeIssuerSearchDataName() { 
+  }
 
   public SecuritizedDerivativeIssuerSearchDataName searchValue(String searchValue) {
     this.searchValue = searchValue;

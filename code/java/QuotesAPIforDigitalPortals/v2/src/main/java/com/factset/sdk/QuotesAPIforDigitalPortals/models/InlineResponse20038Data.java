@@ -44,6 +44,8 @@ public class InlineResponse20038Data implements Serializable {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private java.util.List<InlineResponse20038DataCategories> categories = null;
 
+  public InlineResponse20038Data() { 
+  }
 
   public InlineResponse20038Data categories(java.util.List<InlineResponse20038DataCategories> categories) {
     this.categories = categories;

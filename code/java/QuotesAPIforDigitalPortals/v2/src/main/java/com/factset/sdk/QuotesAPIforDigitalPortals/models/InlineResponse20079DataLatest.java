@@ -65,6 +65,8 @@ public class InlineResponse20079DataLatest implements Serializable {
   public static final String JSON_PROPERTY_PERFORMANCE = "performance";
   private InlineResponse20079DataLatestPerformance performance;
 
+  public InlineResponse20079DataLatest() { 
+  }
 
   public InlineResponse20079DataLatest time(String time) {
     this.time = time;

@@ -17,7 +17,7 @@ import InlineResponse2004ComplianceFrance from './InlineResponse2004ComplianceFr
 /**
  * The InlineResponse2004Compliance model module.
  * @module model/InlineResponse2004Compliance
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2004Compliance {
     /**

@@ -62,7 +62,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Inclusive: ").Append(Inclusive).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Value == input.Value ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
-                hashCode = hashCode * 59 + this.Inclusive.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.Inclusive.GetHashCode();
                 return hashCode;
             }
         }

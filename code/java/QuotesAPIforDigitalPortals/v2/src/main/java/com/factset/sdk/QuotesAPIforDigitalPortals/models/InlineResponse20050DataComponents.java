@@ -108,6 +108,8 @@ public class InlineResponse20050DataComponents implements Serializable {
   public static final String JSON_PROPERTY_CONSTANT_LEVERAGE = "constantLeverage";
   private BigDecimal constantLeverage;
 
+  public InlineResponse20050DataComponents() { 
+  }
 
   public InlineResponse20050DataComponents name(String name) {
     this.name = name;

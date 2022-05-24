@@ -61,7 +61,7 @@ namespace Example
 
             var apiInstance = new StockApi(config);
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -88,7 +88,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -151,10 +150,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
-            var id = id_example;  // string | Identifier of the notation.
+            var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -183,7 +182,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -246,10 +244,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
-            var id = id_example;  // string | Identifier of the notation.
+            var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -278,7 +276,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -341,10 +338,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
-            var id = id_example;  // string | Identifier of the notation.
+            var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -373,7 +370,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -436,10 +432,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
-            var id = id_example;  // string | Identifier of the notation.
+            var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -468,7 +464,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -531,10 +526,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
-            var id = id_example;  // string | Identifier of the notation.
+            var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -563,7 +558,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -626,10 +620,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StockApi(config);
-            var id = id_example;  // string | Identifier of the notation.
+            var id = "id_example";  // string | Identifier of the notation.
             var idNotationBenchmark = new List<string>(); // List<string> | List of identifiers of benchmark notations.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -658,7 +652,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -747,7 +740,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -836,7 +828,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -925,7 +916,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
@@ -1014,7 +1004,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization

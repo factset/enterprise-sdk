@@ -49,6 +49,8 @@ public class InlineResponse200DataIssue implements Serializable {
   public static final String JSON_PROPERTY_VOLUME = "volume";
   private InlineResponse200DataIssueVolume volume;
 
+  public InlineResponse200DataIssue() { 
+  }
 
   public InlineResponse200DataIssue price(InlineResponse200DataIssuePrice price) {
     this.price = price;

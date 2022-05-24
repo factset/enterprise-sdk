@@ -43,6 +43,8 @@ public class InterimStatus implements Serializable {
   public static final String JSON_PROPERTY_INTERIM_STATUS = "interimStatus";
   private InterimStatusInterimStatus interimStatus;
 
+  public InterimStatus() { 
+  }
 
   public InterimStatus interimStatus(InterimStatusInterimStatus interimStatus) {
     this.interimStatus = interimStatus;

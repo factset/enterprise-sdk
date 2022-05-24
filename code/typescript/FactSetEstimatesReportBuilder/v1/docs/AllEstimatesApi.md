@@ -58,6 +58,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesBalanceSheet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -135,6 +136,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesCashFlow(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -212,6 +214,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesGeographicSegments(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -289,6 +292,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesIncomeStatement(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -366,6 +370,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesIndustryMetrics(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -443,6 +448,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesPerShare(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -520,6 +526,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesProductSegments(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -597,6 +604,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimatesValuation(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

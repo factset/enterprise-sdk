@@ -19,7 +19,7 @@ import VaultComponent from '../model/VaultComponent';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ComponentsApi {
 
@@ -62,7 +62,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = VaultComponent;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/vault/components/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class ComponentsApi {
      * Get Vault component by id
      * This endpoint returns the default settings of a Vault component.
      * @param {String} id Unique identifier for a vault component
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/VaultComponent}
+     * @return { Promise.< module:model/VaultComponent > } a Promise, with data of type {@link module:model/VaultComponent }
      */
     getVaultComponentById(id) {
       return this.getVaultComponentByIdWithHttpInfo(id)
@@ -110,7 +113,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': ComponentSummary};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/vault/components', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class ComponentsApi {
      * Get Vault components
      * This endpoint returns the list of Vault components in a given Vault document.
      * @param {String} document Document Name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: ComponentSummary}>}
+     * @return { Promise.< Object.<String, module:model/{String: ComponentSummary}> > } a Promise, with data of type {@link Object.<String, module:model/{String: ComponentSummary}> }
      */
     getVaultComponents(document) {
       return this.getVaultComponentsWithHttpInfo(document)
@@ -133,3 +139,8 @@ export default class ComponentsApi {
 
 
 }
+
+
+
+
+

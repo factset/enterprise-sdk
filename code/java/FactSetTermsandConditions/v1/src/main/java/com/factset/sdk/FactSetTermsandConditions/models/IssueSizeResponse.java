@@ -43,6 +43,8 @@ public class IssueSizeResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<IssueSize> data = null;
 
+  public IssueSizeResponse() { 
+  }
 
   public IssueSizeResponse data(java.util.List<IssueSize> data) {
     this.data = data;

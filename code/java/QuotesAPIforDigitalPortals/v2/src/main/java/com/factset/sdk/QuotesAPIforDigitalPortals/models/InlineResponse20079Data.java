@@ -125,6 +125,8 @@ public class InlineResponse20079Data implements Serializable {
   public static final String JSON_PROPERTY_ACCUMULATED = "accumulated";
   private InlineResponse20079DataAccumulated accumulated;
 
+  public InlineResponse20079Data() { 
+  }
 
   public InlineResponse20079Data valueUnit(InlineResponse20079DataValueUnit valueUnit) {
     this.valueUnit = valueUnit;

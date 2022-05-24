@@ -46,6 +46,8 @@ public class CreateBodyDto implements Serializable {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private JsonNullable<String> content = JsonNullable.<String>undefined();
 
+  public CreateBodyDto() { 
+  }
 
   public CreateBodyDto content(String content) {
     this.content = JsonNullable.<String>of(content);

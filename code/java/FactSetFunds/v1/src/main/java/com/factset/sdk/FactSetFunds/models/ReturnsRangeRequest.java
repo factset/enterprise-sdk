@@ -56,6 +56,16 @@ public class ReturnsRangeRequest implements Serializable {
   public static final String JSON_PROPERTY_DIVIDEND_ADJUST = "dividendAdjust";
   private DividendAdjust dividendAdjust = DividendAdjust.DIV;
 
+  public ReturnsRangeRequest() { 
+  }
+
+  @JsonCreator
+  public ReturnsRangeRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public ReturnsRangeRequest ids(java.util.List<String> ids) {
     this.ids = ids;

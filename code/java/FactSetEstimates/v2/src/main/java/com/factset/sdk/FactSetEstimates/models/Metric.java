@@ -58,6 +58,8 @@ public class Metric implements Serializable {
   public static final String JSON_PROPERTY_OAURL = "OAurl";
   private String oaurl;
 
+  public Metric() { 
+  }
 
   public Metric metric(String metric) {
     this.metric = metric;

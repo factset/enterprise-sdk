@@ -24,16 +24,14 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response2007_data_category import InlineResponse2007DataCategory
-    from fds.sdk.ETFProfileandPrices.model.inline_response2007_data_geography import InlineResponse2007DataGeography
-    globals()['InlineResponse2007DataCategory'] = InlineResponse2007DataCategory
-    globals()['InlineResponse2007DataGeography'] = InlineResponse2007DataGeography
+    from fds.sdk.ETFProfileandPrices.model.inline_response2007_data_classifications import InlineResponse2007DataClassifications
+    globals()['InlineResponse2007DataClassifications'] = InlineResponse2007DataClassifications
 
 
 class InlineResponse2007Data(ModelNormal):
@@ -61,23 +59,11 @@ class InlineResponse2007Data(ModelNormal):
     """
 
     allowed_values = {
-        ('asset',): {
-            'EQUITY': "Equity",
-            'ALTERNATIVES': "Alternatives",
-            'FIXED_INCOME': "Fixed Income",
-            'COMMODITIES': "Commodities",
-            'CURRENCY': "Currency",
-            'ASSET_ALLOCATION': "Asset Allocation",
-        },
-        ('economic_development',): {
-            'DEVELOPED_MARKETS': "Developed Markets",
-            'BLENDED_DEVELOPMENT': "Blended Development",
-            'EMERGING_MARKETS': "Emerging Markets",
-            'FRONTIER_MARKETS': "Frontier Markets",
-        },
     }
 
     validations = {
+        ('classifications',): {
+        },
     }
 
     @cached_property
@@ -103,10 +89,8 @@ class InlineResponse2007Data(ModelNormal):
         """
         lazy_import()
         return {
-            'asset': (str,),  # noqa: E501
-            'economic_development': (str,),  # noqa: E501
-            'geography': (InlineResponse2007DataGeography,),  # noqa: E501
-            'category': (InlineResponse2007DataCategory,),  # noqa: E501
+            'report_date': (date,),  # noqa: E501
+            'classifications': ([InlineResponse2007DataClassifications],),  # noqa: E501
         }
 
     @cached_property
@@ -115,10 +99,8 @@ class InlineResponse2007Data(ModelNormal):
 
 
     attribute_map = {
-        'asset': 'asset',  # noqa: E501
-        'economic_development': 'economicDevelopment',  # noqa: E501
-        'geography': 'geography',  # noqa: E501
-        'category': 'category',  # noqa: E501
+        'report_date': 'reportDate',  # noqa: E501
+        'classifications': 'classifications',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,10 +144,8 @@ class InlineResponse2007Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            asset (str): Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            economic_development (str): The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            geography (InlineResponse2007DataGeography): [optional]  # noqa: E501
-            category (InlineResponse2007DataCategory): [optional]  # noqa: E501
+            report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
+            classifications ([InlineResponse2007DataClassifications]): List of allocations classified by a holding's total market capitalization (e.g. small caps, large caps).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,10 +227,8 @@ class InlineResponse2007Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            asset (str): Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            economic_development (str): The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            geography (InlineResponse2007DataGeography): [optional]  # noqa: E501
-            category (InlineResponse2007DataCategory): [optional]  # noqa: E501
+            report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
+            classifications ([InlineResponse2007DataClassifications]): List of allocations classified by a holding's total market capitalization (e.g. small caps, large caps).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004InstrumentFsym;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,6 +36,7 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
 @ApiModel(description = "Instrument of the underlying.")
 @JsonPropertyOrder({
   InlineResponse2007DataNotationInstrument.JSON_PROPERTY_ID,
+  InlineResponse2007DataNotationInstrument.JSON_PROPERTY_FSYM,
   InlineResponse2007DataNotationInstrument.JSON_PROPERTY_TYPE_COMPOSITE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -43,6 +45,9 @@ public class InlineResponse2007DataNotationInstrument implements Serializable {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2004InstrumentFsym fsym;
 
   /**
    * Type of composite instrument, in case the underlying is a composite instrument.
@@ -86,6 +91,8 @@ public class InlineResponse2007DataNotationInstrument implements Serializable {
   public static final String JSON_PROPERTY_TYPE_COMPOSITE = "typeComposite";
   private TypeCompositeEnum typeComposite;
 
+  public InlineResponse2007DataNotationInstrument() { 
+  }
 
   public InlineResponse2007DataNotationInstrument id(String id) {
     this.id = id;
@@ -110,6 +117,32 @@ public class InlineResponse2007DataNotationInstrument implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public InlineResponse2007DataNotationInstrument fsym(InlineResponse2004InstrumentFsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2004InstrumentFsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse2004InstrumentFsym fsym) {
+    this.fsym = fsym;
   }
 
 
@@ -152,12 +185,13 @@ public class InlineResponse2007DataNotationInstrument implements Serializable {
     }
     InlineResponse2007DataNotationInstrument inlineResponse2007DataNotationInstrument = (InlineResponse2007DataNotationInstrument) o;
     return Objects.equals(this.id, inlineResponse2007DataNotationInstrument.id) &&
+        Objects.equals(this.fsym, inlineResponse2007DataNotationInstrument.fsym) &&
         Objects.equals(this.typeComposite, inlineResponse2007DataNotationInstrument.typeComposite);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, typeComposite);
+    return Objects.hash(id, fsym, typeComposite);
   }
 
   @Override
@@ -165,6 +199,7 @@ public class InlineResponse2007DataNotationInstrument implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2007DataNotationInstrument {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("    typeComposite: ").append(toIndentedString(typeComposite)).append("\n");
     sb.append("}");
     return sb.toString();

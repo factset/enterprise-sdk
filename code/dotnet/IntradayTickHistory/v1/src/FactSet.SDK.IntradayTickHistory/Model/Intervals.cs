@@ -162,7 +162,7 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Intervals {\n");
             sb.Append("  _0: ").Append(_0).Append("\n");
             sb.Append("  _1S: ").Append(_1S).Append("\n");
@@ -208,8 +208,9 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         public bool Equals(Intervals input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._0 == input._0 ||
@@ -288,31 +289,57 @@ namespace FactSet.SDK.IntradayTickHistory.Model
             {
                 int hashCode = 41;
                 if (this._0 != null)
-                    hashCode = hashCode * 59 + this._0.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._0.GetHashCode();
+                }
                 if (this._1S != null)
-                    hashCode = hashCode * 59 + this._1S.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._1S.GetHashCode();
+                }
                 if (this._5S != null)
-                    hashCode = hashCode * 59 + this._5S.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._5S.GetHashCode();
+                }
                 if (this._10S != null)
-                    hashCode = hashCode * 59 + this._10S.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._10S.GetHashCode();
+                }
                 if (this._15S != null)
-                    hashCode = hashCode * 59 + this._15S.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._15S.GetHashCode();
+                }
                 if (this._30S != null)
-                    hashCode = hashCode * 59 + this._30S.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._30S.GetHashCode();
+                }
                 if (this._1M != null)
-                    hashCode = hashCode * 59 + this._1M.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._1M.GetHashCode();
+                }
                 if (this._2M != null)
-                    hashCode = hashCode * 59 + this._2M.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._2M.GetHashCode();
+                }
                 if (this._5M != null)
-                    hashCode = hashCode * 59 + this._5M.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._5M.GetHashCode();
+                }
                 if (this._10M != null)
-                    hashCode = hashCode * 59 + this._10M.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._10M.GetHashCode();
+                }
                 if (this._15M != null)
-                    hashCode = hashCode * 59 + this._15M.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._15M.GetHashCode();
+                }
                 if (this._30M != null)
-                    hashCode = hashCode * 59 + this._30M.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._30M.GetHashCode();
+                }
                 if (this._1H != null)
-                    hashCode = hashCode * 59 + this._1H.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._1H.GetHashCode();
+                }
                 return hashCode;
             }
         }

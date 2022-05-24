@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.DividendsRequest;
 import com.factset.sdk.FactSetPrices.models.DividendsResponse;
@@ -23,6 +26,28 @@ public class DividendsApi {
   public DividendsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSecurityDividendsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityDividendsResponseTypeMap.put(200, new GenericType<DividendsResponse>(){});
+    getSecurityDividendsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSecurityDividendsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityDividendsForListResponseTypeMap.put(200, new GenericType<DividendsResponse>(){});
+    getSecurityDividendsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityDividendsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -126,11 +151,17 @@ public class DividendsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DividendsResponse> localVarReturnType = new GenericType<DividendsResponse>() {};
 
-    return apiClient.invokeAPI("DividendsApi.getSecurityDividends", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DividendsResponse
+      
+    > apiResponse = apiClient.invokeAPI("DividendsApi.getSecurityDividends", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityDividendsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Requests dividend information for a given date range and list of securities
@@ -203,10 +234,16 @@ public class DividendsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DividendsResponse> localVarReturnType = new GenericType<DividendsResponse>() {};
 
-    return apiClient.invokeAPI("DividendsApi.getSecurityDividendsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DividendsResponse
+      
+    > apiResponse = apiClient.invokeAPI("DividendsApi.getSecurityDividendsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityDividendsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

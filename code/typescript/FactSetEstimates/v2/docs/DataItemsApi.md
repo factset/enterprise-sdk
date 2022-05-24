@@ -51,6 +51,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimateMetrics(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -123,6 +124,7 @@ const metricsRequest = new factsetestimates.MetricsRequest(); // MetricsRequest 
 // Call api endpoint
 apiInstance.getEstimateMetricsForList(metricsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

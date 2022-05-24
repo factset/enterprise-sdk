@@ -77,7 +77,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2002Data {\n");
             sb.Append("  Calculation: ").Append(Calculation).Append("\n");
             sb.Append("  Yield: ").Append(Yield).Append("\n");
@@ -114,8 +114,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2002Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Calculation == input.Calculation ||
@@ -148,12 +149,18 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Calculation != null)
-                    hashCode = hashCode * 59 + this.Calculation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Calculation.GetHashCode();
+                }
                 if (this.Yield != null)
-                    hashCode = hashCode * 59 + this.Yield.GetHashCode();
-                hashCode = hashCode * 59 + this.MacaulayDuration.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Yield.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MacaulayDuration.GetHashCode();
                 if (this.Sensitivities != null)
-                    hashCode = hashCode * 59 + this.Sensitivities.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sensitivities.GetHashCode();
+                }
                 return hashCode;
             }
         }

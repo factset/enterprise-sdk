@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2001TriggerStatus model module.
  * @module model/InlineResponse2001TriggerStatus
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2001TriggerStatus {
     /**

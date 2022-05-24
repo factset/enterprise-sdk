@@ -52,6 +52,8 @@ public class InlineResponse20080High implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VOLUME = "tradingVolume";
   private BigDecimal tradingVolume;
 
+  public InlineResponse20080High() { 
+  }
 
   public InlineResponse20080High time(String time) {
     this.time = time;

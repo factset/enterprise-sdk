@@ -24,7 +24,7 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * Comments service.
 * @module api/CommentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CommentsApi {
 
@@ -69,7 +69,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
+
+
       let returnType = NewItemDto;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -82,7 +85,7 @@ export default class CommentsApi {
      * @param {String} meetingId 
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateCommentDto} opts.createCommentDto 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NewItemDto}
+     * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
     createComment(meetingId, opts) {
       return this.createCommentWithHttpInfo(meetingId, opts)
@@ -129,7 +132,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['multipart/form-data'];
       let accepts = ['application/json'];
+
+
       let returnType = NewItemDto;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments/{commentId}/attachments', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -142,7 +148,7 @@ export default class CommentsApi {
      * @param {String} meetingId 
      * @param {String} commentId 
      * @param {File} file 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NewItemDto}
+     * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
     createCommentAttachment(meetingId, commentId, file) {
       return this.createCommentAttachmentWithHttpInfo(meetingId, commentId, file)
@@ -183,7 +189,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments/{commentId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -195,7 +204,7 @@ export default class CommentsApi {
      * Delete a Comment from a Meeting
      * @param {String} meetingId 
      * @param {String} commentId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     deleteComment(meetingId, commentId) {
       return this.deleteCommentWithHttpInfo(meetingId, commentId)
@@ -242,7 +251,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments/{commentId}/attachments/{attachmentId}/download', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -255,7 +267,7 @@ export default class CommentsApi {
      * @param {String} meetingId 
      * @param {String} commentId 
      * @param {String} attachmentId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     downloadCommentAttachmentForComment(meetingId, commentId, attachmentId) {
       return this.downloadCommentAttachmentForCommentWithHttpInfo(meetingId, commentId, attachmentId)
@@ -296,7 +308,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CommentDto;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments/{commentId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -308,7 +323,7 @@ export default class CommentsApi {
      * Get details of a comment belonging to a meeting
      * @param {String} meetingId 
      * @param {String} commentId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CommentDto}
+     * @return { Promise.< module:model/CommentDto > } a Promise, with data of type {@link module:model/CommentDto }
      */
     getComment(meetingId, commentId) {
       return this.getCommentWithHttpInfo(meetingId, commentId)
@@ -349,7 +364,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [AttachmentSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments/{commentId}/attachments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -361,7 +379,7 @@ export default class CommentsApi {
      * Get attachments summary of a comment belonging to a meeting
      * @param {String} meetingId 
      * @param {String} commentId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/AttachmentSummaryDto>}
+     * @return { Promise.< Array.<module:model/AttachmentSummaryDto> > } a Promise, with data of type {@link Array.<module:model/AttachmentSummaryDto> }
      */
     getCommentAttachments(meetingId, commentId) {
       return this.getCommentAttachmentsWithHttpInfo(meetingId, commentId)
@@ -396,7 +414,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [CommentSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -407,7 +428,7 @@ export default class CommentsApi {
     /**
      * Get all comments for a meeting
      * @param {String} meetingId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/CommentSummaryDto>}
+     * @return { Promise.< Array.<module:model/CommentSummaryDto> > } a Promise, with data of type {@link Array.<module:model/CommentSummaryDto> }
      */
     getComments(meetingId) {
       return this.getCommentsWithHttpInfo(meetingId)
@@ -451,7 +472,10 @@ export default class CommentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/comments/{commentId}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -465,7 +489,7 @@ export default class CommentsApi {
      * @param {String} commentId 
      * @param {Object} opts Optional parameters
      * @param {Array.<module:model/Operation>} opts.operation 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     patchComment(meetingId, commentId, opts) {
       return this.patchCommentWithHttpInfo(meetingId, commentId, opts)
@@ -476,3 +500,8 @@ export default class CommentsApi {
 
 
 }
+
+
+
+
+

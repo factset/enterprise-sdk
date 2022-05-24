@@ -22,7 +22,7 @@ import UltimateEntityStructureResponse from '../model/UltimateEntityStructureRes
 /**
 * EntityStructure service.
 * @module api/EntityStructureApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EntityStructureApi {
 
@@ -71,7 +71,10 @@ export default class EntityStructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EntityStructureResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/entity-structures', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -86,7 +89,7 @@ export default class EntityStructureApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.level Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (default to -1)
      * @param {Number} opts.active Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (default to -1)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityStructureResponse}
+     * @return { Promise.< module:model/EntityStructureResponse > } a Promise, with data of type {@link module:model/EntityStructureResponse }
      */
     getEntityStructure(ids, opts) {
       return this.getEntityStructureWithHttpInfo(ids, opts)
@@ -128,7 +131,10 @@ export default class EntityStructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = UltimateEntityStructureResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/ultimate-entity-structures', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -143,7 +149,7 @@ export default class EntityStructureApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.level Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (default to -1)
      * @param {Number} opts.active Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (default to -1)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UltimateEntityStructureResponse}
+     * @return { Promise.< module:model/UltimateEntityStructureResponse > } a Promise, with data of type {@link module:model/UltimateEntityStructureResponse }
      */
     getUltimateEntityStructure(ids, opts) {
       return this.getUltimateEntityStructureWithHttpInfo(ids, opts)
@@ -178,7 +184,10 @@ export default class EntityStructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntityStructureResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/entity-structures', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -190,7 +199,7 @@ export default class EntityStructureApi {
      * Returns all active or inactive entities below the requested entity id.
      * Returns all active or inactive entities and respective levels below the requested entity id. 
      * @param {module:model/EntityStructureRequest} entityStructureRequest Request Body to request a list of Entity Structure objects.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityStructureResponse}
+     * @return { Promise.< module:model/EntityStructureResponse > } a Promise, with data of type {@link module:model/EntityStructureResponse }
      */
     postEntityStructure(entityStructureRequest) {
       return this.postEntityStructureWithHttpInfo(entityStructureRequest)
@@ -225,7 +234,10 @@ export default class EntityStructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = UltimateEntityStructureResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/ultimate-entity-structures', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -237,7 +249,7 @@ export default class EntityStructureApi {
      * Returns all active or inactive entities and respective levels below the requested entity id.
      * Returns all active or inactive entities and respective levels below the requested entity id. 
      * @param {module:model/UltimateEntityStructureRequest} ultimateEntityStructureRequest Request Body to request a list of Ultimate Entity Structure objects.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UltimateEntityStructureResponse}
+     * @return { Promise.< module:model/UltimateEntityStructureResponse > } a Promise, with data of type {@link module:model/UltimateEntityStructureResponse }
      */
     postUltimateEntityStructure(ultimateEntityStructureRequest) {
       return this.postUltimateEntityStructureWithHttpInfo(ultimateEntityStructureRequest)
@@ -248,3 +260,8 @@ export default class EntityStructureApi {
 
 
 }
+
+
+
+
+

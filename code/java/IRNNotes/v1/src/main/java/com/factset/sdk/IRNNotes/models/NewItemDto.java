@@ -39,9 +39,11 @@ import com.factset.sdk.IRNNotes.JSON;
 public class NewItemDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
+  public NewItemDto() { 
+  }
 
   public NewItemDto id(java.util.UUID id) {
     this.id = id;

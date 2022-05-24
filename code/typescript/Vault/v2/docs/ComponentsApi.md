@@ -48,6 +48,7 @@ const id = "'7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935'";
 // Call api endpoint
 apiInstance.getVaultComponentById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const document = "'Client:Foo'"; // String | Document Name
 // Call api endpoint
 apiInstance.getVaultComponents(document).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

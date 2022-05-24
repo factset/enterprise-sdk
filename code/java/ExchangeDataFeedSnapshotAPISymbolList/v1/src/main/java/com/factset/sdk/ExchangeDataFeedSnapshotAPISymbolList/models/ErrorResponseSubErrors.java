@@ -47,6 +47,8 @@ public class ErrorResponseSubErrors implements Serializable {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
+  public ErrorResponseSubErrors() { 
+  }
 
   public ErrorResponseSubErrors field(String field) {
     this.field = field;

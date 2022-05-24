@@ -173,6 +173,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetData implements 
   public static final String JSON_PROPERTY_VOLATILITY = "volatility";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility volatility;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetData() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetData validation(SecuritizedDerivativeNotationScreenerValueRangesGetDataValidation validation) {
     this.validation = validation;

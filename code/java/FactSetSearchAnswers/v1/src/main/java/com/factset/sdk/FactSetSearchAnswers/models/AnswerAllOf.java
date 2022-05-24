@@ -47,6 +47,18 @@ public class AnswerAllOf implements Serializable {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
+  public AnswerAllOf() { 
+  }
+
+  @JsonCreator
+  public AnswerAllOf(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_DATA, required=true) TemplateData templateData, 
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+  ) {
+    this();
+    this.templateData = templateData;
+    this.title = title;
+  }
 
   public AnswerAllOf templateData(TemplateData templateData) {
     this.templateData = templateData;

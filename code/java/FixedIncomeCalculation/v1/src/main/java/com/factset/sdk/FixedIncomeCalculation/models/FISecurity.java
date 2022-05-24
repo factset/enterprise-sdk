@@ -101,6 +101,22 @@ public class FISecurity implements Serializable {
   public static final String JSON_PROPERTY_DISCOUNT_CURVE = "discountCurve";
   private String discountCurve;
 
+  public FISecurity() { 
+  }
+
+  @JsonCreator
+  public FISecurity(
+    @JsonProperty(value=JSON_PROPERTY_SETTLEMENT_DATE, required=true) String settlementDate, 
+    @JsonProperty(value=JSON_PROPERTY_CALC_FROM_METHOD, required=true) String calcFromMethod, 
+    @JsonProperty(value=JSON_PROPERTY_CALC_FROM_VALUE, required=true) Double calcFromValue, 
+    @JsonProperty(value=JSON_PROPERTY_SYMBOL, required=true) String symbol
+  ) {
+    this();
+    this.settlementDate = settlementDate;
+    this.calcFromMethod = calcFromMethod;
+    this.calcFromValue = calcFromValue;
+    this.symbol = symbol;
+  }
 
   public FISecurity settlementDate(String settlementDate) {
     this.settlementDate = settlementDate;

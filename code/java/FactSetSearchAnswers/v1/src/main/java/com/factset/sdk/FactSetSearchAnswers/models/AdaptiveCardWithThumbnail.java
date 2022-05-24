@@ -50,6 +50,8 @@ public class AdaptiveCardWithThumbnail implements Serializable {
   public static final String JSON_PROPERTY_THUMBNAIL = "thumbnail";
   private JsonNullable<Object> thumbnail = JsonNullable.<Object>undefined();
 
+  public AdaptiveCardWithThumbnail() { 
+  }
 
   public AdaptiveCardWithThumbnail adaptiveCard(Object adaptiveCard) {
     this.adaptiveCard = adaptiveCard;

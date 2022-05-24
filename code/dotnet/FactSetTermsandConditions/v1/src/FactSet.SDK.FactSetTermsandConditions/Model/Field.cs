@@ -114,7 +114,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Field {\n");
             sb.Append("  _Field: ").Append(_Field).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -151,8 +151,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(Field input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._Field == input._Field ||
@@ -185,12 +186,18 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this._Field != null)
-                    hashCode = hashCode * 59 + this._Field.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._Field.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Category.GetHashCode();
                 if (this.DataType != null)
-                    hashCode = hashCode * 59 + this.DataType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DataType.GetHashCode();
+                }
                 return hashCode;
             }
         }

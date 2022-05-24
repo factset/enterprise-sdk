@@ -55,7 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
             try
             {
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Pub calculation endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -149,7 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
             try
             {
@@ -175,7 +174,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Pub calculation endpoint | 
 
 ### Return type
-
 [**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)
 
 ### Authorization
@@ -244,7 +242,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
             try
             {
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Pub calculation endpoint | 
 
 ### Return type
-
 [**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 ### Authorization
@@ -340,9 +337,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Get Pub calculation status by id endpoint
-            var unitId = unitId_example;  // string | from url, provided from the location header in the Get Pub calculation status by id endpoint
-            var accept = accept_example;  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
+            var id = "id_example";  // string | from url, provided from the location header in the Get Pub calculation status by id endpoint
+            var unitId = "unitId_example";  // string | from url, provided from the location header in the Get Pub calculation status by id endpoint
+            var accept = "accept_example";  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
 
             try
             {
@@ -370,7 +367,6 @@ Name | Type | Description  | Notes
  **accept** | **string**| Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * | [optional] 
 
 ### Return type
-
 [**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
@@ -440,14 +436,30 @@ namespace Example
 
             var apiInstance = new PubCalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
             var pubCalculationParametersRoot = new PubCalculationParametersRoot(); // PubCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create and Run Pub calculation
-                CalculationStatusRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                PubCalculationsApi.PostAndCalculateResponseWrapper result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -469,8 +481,7 @@ Name | Type | Description  | Notes
  **pubCalculationParametersRoot** | [**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PostAndCalculateResponseWrapper
 
 ### Authorization
 
@@ -542,16 +553,32 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PubCalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
             var pubCalculationParametersRoot = new PubCalculationParametersRoot(); // PubCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create or Update Pub calculation and run it.
-                CalculationStatusRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                PubCalculationsApi.PutAndCalculateResponseWrapper result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -574,8 +601,7 @@ Name | Type | Description  | Notes
  **pubCalculationParametersRoot** | [**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PutAndCalculateResponseWrapper
 
 ### Authorization
 

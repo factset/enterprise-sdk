@@ -51,6 +51,8 @@ public class InlineResponse20067FsymRegional implements Serializable {
   public static final String JSON_PROPERTY_IS_PRIMARY = "isPrimary";
   private Boolean isPrimary;
 
+  public InlineResponse20067FsymRegional() { 
+  }
 
   public InlineResponse20067FsymRegional permanentIdentifier(String permanentIdentifier) {
     this.permanentIdentifier = permanentIdentifier;

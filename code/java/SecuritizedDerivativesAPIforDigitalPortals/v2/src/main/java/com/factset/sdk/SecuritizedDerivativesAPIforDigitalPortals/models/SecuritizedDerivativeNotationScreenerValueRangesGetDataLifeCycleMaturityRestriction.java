@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMat
   public static final String JSON_PROPERTY_REMAINING_TERM_DAYS = "remainingTermDays";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityRestrictionRemainingTermDays remainingTermDays;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityRestriction() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityRestriction date(SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityRestrictionDate date) {
     this.date = date;

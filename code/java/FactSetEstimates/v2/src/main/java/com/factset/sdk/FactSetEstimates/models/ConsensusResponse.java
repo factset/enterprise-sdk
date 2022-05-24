@@ -43,6 +43,8 @@ public class ConsensusResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ConsensusEstimate> data = null;
 
+  public ConsensusResponse() { 
+  }
 
   public ConsensusResponse data(java.util.List<ConsensusEstimate> data) {
     this.data = data;

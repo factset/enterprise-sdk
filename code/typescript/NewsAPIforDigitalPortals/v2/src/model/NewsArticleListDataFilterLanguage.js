@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleListDataFilterLanguage model module.
  * @module model/NewsArticleListDataFilterLanguage
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListDataFilterLanguage {
     /**

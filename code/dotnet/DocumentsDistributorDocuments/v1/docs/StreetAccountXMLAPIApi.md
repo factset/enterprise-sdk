@@ -52,7 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StreetAccountXMLAPIApi(config);
-            var jobID = jobID_example;  // string | jobID returned by the request-files endpoint to know the status and percentDone
+            var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to know the status and percentDone
 
             try
             {
@@ -78,7 +78,6 @@ Name | Type | Description  | Notes
  **jobID** | **string**| jobID returned by the request-files endpoint to know the status and percentDone | 
 
 ### Return type
-
 [**CheckstatusResponse**](CheckstatusResponse.md)
 
 ### Authorization
@@ -142,7 +141,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StreetAccountXMLAPIApi(config);
-            var jobID = jobID_example;  // string | jobID returned by the request-files endpoint to collect the results of the query
+            var jobID = "jobID_example";  // string | jobID returned by the request-files endpoint to collect the results of the query
 
             try
             {
@@ -168,7 +167,6 @@ Name | Type | Description  | Notes
  **jobID** | **string**| jobID returned by the request-files endpoint to collect the results of the query | 
 
 ### Return type
-
 [**GetfilesResponse**](GetfilesResponse.md)
 
 ### Authorization
@@ -195,7 +193,7 @@ Name | Type | Description  | Notes
 
 Returns the jobID
 
-Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
 
 ### Example
 ```csharp
@@ -232,8 +230,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new StreetAccountXMLAPIApi(config);
-            var startDate = 2013-10-20;  // DateTime | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
-            var endDate = 2013-10-20;  // DateTime | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
+            var startDate = DateTime.Parse("2013-10-20");  // DateTime | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
+            var endDate = DateTime.Parse("2013-10-20");  // DateTime | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
 
             try
             {
@@ -260,7 +258,6 @@ Name | Type | Description  | Notes
  **endDate** | **DateTime**| The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format | 
 
 ### Return type
-
 [**RequestfilesResponse**](RequestfilesResponse.md)
 
 ### Authorization

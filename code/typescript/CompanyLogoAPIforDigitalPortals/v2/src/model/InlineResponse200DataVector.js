@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataVector model module.
  * @module model/InlineResponse200DataVector
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse200DataVector {
     /**

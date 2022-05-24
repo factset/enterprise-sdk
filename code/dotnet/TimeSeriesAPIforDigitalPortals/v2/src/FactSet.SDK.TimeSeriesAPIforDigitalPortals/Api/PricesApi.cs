@@ -338,6 +338,39 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
     {
         private FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesTimeSeriesIntradaySubsampleGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTimeSeriesEodListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTimeSeriesEodSubsampleGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2006) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTimeSeriesEodSubsampleListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTimeSeriesIntradayListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2008) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTimeSeriesIntradaySubsampleListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20010) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PricesApi"/> class.
         /// </summary>
@@ -453,7 +486,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2009</returns>
         public InlineResponse2009 GetPricesTimeSeriesIntradaySubsampleGet(string id, string from, string type = default(string), string quality = default(string), string granularity = default(string), List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(id, from, type, quality, granularity, attributes);
+            var localVarResponse = GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(id, from, type, quality, granularity, attributes);
             return localVarResponse.Data;
         }
 
@@ -468,15 +501,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="granularity">Subsample granularities suitable for intraday data. (optional, default to 1h)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(string id, string from, string type = default(string), string quality = default(string), string granularity = default(string), List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2009> GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(string id, string from, string type = default(string), string quality = default(string), string granularity = default(string), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesTimeSeriesIntradaySubsampleGet");
+            }
 
             // verify the required parameter 'from' is set
             if (from == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'from' when calling PricesApi->GetPricesTimeSeriesIntradaySubsampleGet");
+            }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -489,10 +526,16 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (type != null)
@@ -515,13 +558,13 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -533,15 +576,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2009>("/prices/timeSeries/intraday/subsample/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesTimeSeriesIntradaySubsampleGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2009>("/prices/timeSeries/intraday/subsample/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesTimeSeriesIntradaySubsampleGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -557,9 +604,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> GetPricesTimeSeriesIntradaySubsampleGetAsync(string id, string from, string type = default(string), string quality = default(string), string granularity = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2009>GetPricesTimeSeriesIntradaySubsampleGetAsync(string id, string from, string type = default(string), string quality = default(string), string granularity = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = await GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(id, from, type, quality, granularity, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(id, from, type, quality, granularity, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -575,15 +622,20 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009>> GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(string id, string from, string type = default(string), string quality = default(string), string granularity = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetPricesTimeSeriesIntradaySubsampleGetWithHttpInfoAsync(string id, string from, string type = default(string), string quality = default(string), string granularity = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesTimeSeriesIntradaySubsampleGet");
+            }
 
             // verify the required parameter 'from' is set
             if (from == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'from' when calling PricesApi->GetPricesTimeSeriesIntradaySubsampleGet");
+            }
 
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -596,12 +648,17 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (type != null)
@@ -624,13 +681,13 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -642,14 +699,18 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesTimeSeriesIntradaySubsampleGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/prices/timeSeries/intraday/subsample/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesTimeSeriesIntradaySubsampleGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -663,7 +724,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 PostPricesTimeSeriesEodList(InlineObject4 body)
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = PostPricesTimeSeriesEodListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesEodListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -673,11 +734,13 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> PostPricesTimeSeriesEodListWithHttpInfo(InlineObject4 body)
+        public ApiResponse<InlineResponse2005> PostPricesTimeSeriesEodListWithHttpInfo(InlineObject4 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodList");
+            }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -691,22 +754,28 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -718,15 +787,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2005>("/prices/timeSeries/eod/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesEodListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2005>("/prices/timeSeries/eod/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesEodList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -737,9 +810,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> PostPricesTimeSeriesEodListAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2005>PostPricesTimeSeriesEodListAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = await PostPricesTimeSeriesEodListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesEodListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -750,11 +823,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005>> PostPricesTimeSeriesEodListWithHttpInfoAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostPricesTimeSeriesEodListWithHttpInfoAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodList");
+            }
 
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -768,24 +844,29 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -797,14 +878,18 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesEodListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2005>("/prices/timeSeries/eod/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesEodList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -818,7 +903,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2006</returns>
         public InlineResponse2006 PostPricesTimeSeriesEodSubsampleGet(InlineObject5 body)
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -828,11 +913,13 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject5 body)
+        public ApiResponse<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetWithHttpInfo(InlineObject5 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleGet");
+            }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -846,22 +933,28 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -873,15 +966,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2006>("/prices/timeSeries/eod/subsample/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesEodSubsampleGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2006>("/prices/timeSeries/eod/subsample/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesEodSubsampleGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -892,9 +989,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> PostPricesTimeSeriesEodSubsampleGetAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2006>PostPricesTimeSeriesEodSubsampleGetAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = await PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -905,11 +1002,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006>> PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostPricesTimeSeriesEodSubsampleGetWithHttpInfoAsync(InlineObject5 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleGet");
+            }
 
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -923,24 +1023,29 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -952,14 +1057,18 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesEodSubsampleGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2006>("/prices/timeSeries/eod/subsample/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesEodSubsampleGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -973,7 +1082,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2007</returns>
         public InlineResponse2007 PostPricesTimeSeriesEodSubsampleList(InlineObject6 body)
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = PostPricesTimeSeriesEodSubsampleListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesEodSubsampleListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -983,11 +1092,13 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        public FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListWithHttpInfo(InlineObject6 body)
+        public ApiResponse<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListWithHttpInfo(InlineObject6 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleList");
+            }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1001,22 +1112,28 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1028,15 +1145,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2007>("/prices/timeSeries/eod/subsample/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesEodSubsampleListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2007>("/prices/timeSeries/eod/subsample/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesEodSubsampleList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1047,9 +1168,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> PostPricesTimeSeriesEodSubsampleListAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2007>PostPricesTimeSeriesEodSubsampleListAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = await PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1060,11 +1181,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007>> PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PostPricesTimeSeriesEodSubsampleListWithHttpInfoAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesEodSubsampleList");
+            }
 
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -1078,24 +1202,29 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1107,14 +1236,18 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesEodSubsampleListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2007>("/prices/timeSeries/eod/subsample/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesEodSubsampleList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1128,7 +1261,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2008</returns>
         public InlineResponse2008 PostPricesTimeSeriesIntradayList(InlineObject7 body)
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> localVarResponse = PostPricesTimeSeriesIntradayListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesIntradayListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1138,11 +1271,13 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2008</returns>
-        public FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> PostPricesTimeSeriesIntradayListWithHttpInfo(InlineObject7 body)
+        public ApiResponse<InlineResponse2008> PostPricesTimeSeriesIntradayListWithHttpInfo(InlineObject7 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradayList");
+            }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1156,22 +1291,28 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1183,15 +1324,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2008>("/prices/timeSeries/intraday/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesIntradayListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2008>("/prices/timeSeries/intraday/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesIntradayList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1202,9 +1347,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> PostPricesTimeSeriesIntradayListAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2008>PostPricesTimeSeriesIntradayListAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> localVarResponse = await PostPricesTimeSeriesIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1215,11 +1360,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008>> PostPricesTimeSeriesIntradayListWithHttpInfoAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PostPricesTimeSeriesIntradayListWithHttpInfoAsync(InlineObject7 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradayList");
+            }
 
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -1233,24 +1381,29 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1262,14 +1415,18 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesIntradayListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2008>("/prices/timeSeries/intraday/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesIntradayList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1283,7 +1440,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20010</returns>
         public InlineResponse20010 PostPricesTimeSeriesIntradaySubsampleList(InlineObject8 body)
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010> localVarResponse = PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(body);
+            var localVarResponse = PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1293,11 +1450,13 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse20010</returns>
-        public FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject8 body)
+        public ApiResponse<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfo(InlineObject8 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleList");
+            }
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1311,22 +1470,28 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1338,15 +1503,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20010>("/prices/timeSeries/intraday/subsample/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesIntradaySubsampleListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20010>("/prices/timeSeries/intraday/subsample/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesIntradaySubsampleList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1357,9 +1526,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20010</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20010> PostPricesTimeSeriesIntradaySubsampleListAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20010>PostPricesTimeSeriesIntradaySubsampleListAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010> localVarResponse = await PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1370,11 +1539,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010>> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> PostPricesTimeSeriesIntradaySubsampleListWithHttpInfoAsync(InlineObject8 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTimeSeriesIntradaySubsampleList");
+            }
 
 
             FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.RequestOptions();
@@ -1388,24 +1560,29 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.TimeSeriesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1417,14 +1594,18 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTimeSeriesIntradaySubsampleListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20010>("/prices/timeSeries/intraday/subsample/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTimeSeriesIntradaySubsampleList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

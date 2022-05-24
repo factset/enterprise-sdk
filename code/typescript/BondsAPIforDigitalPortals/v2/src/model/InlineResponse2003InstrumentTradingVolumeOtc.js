@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003InstrumentTradingVolumeOtc model module.
  * @module model/InlineResponse2003InstrumentTradingVolumeOtc
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentTradingVolumeOtc {
     /**

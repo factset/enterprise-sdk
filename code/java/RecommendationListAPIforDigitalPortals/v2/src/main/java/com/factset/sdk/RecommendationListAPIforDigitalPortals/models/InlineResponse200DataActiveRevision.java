@@ -53,6 +53,8 @@ public class InlineResponse200DataActiveRevision implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE_RANGE = "activeRange";
   private InlineResponse200DataActiveRevisionActiveRange activeRange;
 
+  public InlineResponse200DataActiveRevision() { 
+  }
 
   public InlineResponse200DataActiveRevision id(BigDecimal id) {
     this.id = id;

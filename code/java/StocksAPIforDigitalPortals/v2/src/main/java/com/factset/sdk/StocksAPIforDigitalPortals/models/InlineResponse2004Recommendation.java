@@ -49,6 +49,8 @@ public class InlineResponse2004Recommendation implements Serializable {
   public static final String JSON_PROPERTY_CONSENSUS = "consensus";
   private BigDecimal consensus;
 
+  public InlineResponse2004Recommendation() { 
+  }
 
   public InlineResponse2004Recommendation counts(InlineResponse2004RecommendationCounts counts) {
     this.counts = counts;

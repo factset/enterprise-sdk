@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004EstimatesFirstFiscalYearRatiosDividendYield model module.
  * @module model/InlineResponse2004EstimatesFirstFiscalYearRatiosDividendYield
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2004EstimatesFirstFiscalYearRatiosDividendYield {
     /**

@@ -58,7 +58,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PartialOutputObject {\n");
             sb.Append("  IsPartial: ").Append(IsPartial).Append("\n");
             sb.Append("}\n");
@@ -92,8 +92,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         public bool Equals(PartialOutputObject input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IsPartial == input.IsPartial ||
@@ -110,7 +111,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IsPartial.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsPartial.GetHashCode();
                 return hashCode;
             }
         }

@@ -60,7 +60,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataTrading {\n");
             sb.Append("  Average: ").Append(Average).Append("\n");
             sb.Append("  Median: ").Append(Median).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataTrading input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Average == input.Average ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Average != null)
-                    hashCode = hashCode * 59 + this.Average.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Average.GetHashCode();
+                }
                 if (this.Median != null)
-                    hashCode = hashCode * 59 + this.Median.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Median.GetHashCode();
+                }
                 return hashCode;
             }
         }

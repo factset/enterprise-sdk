@@ -60,6 +60,8 @@ public class InlineResponse20082Bid implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private BigDecimal tradingValue;
 
+  public InlineResponse20082Bid() { 
+  }
 
   public InlineResponse20082Bid time(String time) {
     this.time = time;

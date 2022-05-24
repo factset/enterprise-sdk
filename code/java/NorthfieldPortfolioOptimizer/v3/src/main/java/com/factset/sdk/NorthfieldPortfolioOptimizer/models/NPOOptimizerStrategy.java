@@ -47,6 +47,16 @@ public class NPOOptimizerStrategy implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public NPOOptimizerStrategy() { 
+  }
+
+  @JsonCreator
+  public NPOOptimizerStrategy(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public NPOOptimizerStrategy overrides(NPOOptimizerStrategyOverrides overrides) {
     this.overrides = overrides;

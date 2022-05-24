@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2009DataSectors;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,48 +25,90 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * InlineResponse2009Data
+ * ETP sector allocation data.
  */
+@ApiModel(description = "ETP sector allocation data.")
 @JsonPropertyOrder({
-  InlineResponse2009Data.JSON_PROPERTY_FOCUS_CATEGORY
+  InlineResponse2009Data.JSON_PROPERTY_REPORT_DATE,
+  InlineResponse2009Data.JSON_PROPERTY_SECTORS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2009Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FOCUS_CATEGORY = "focusCategory";
-  private String focusCategory;
+  public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
+  private LocalDate reportDate;
 
+  public static final String JSON_PROPERTY_SECTORS = "sectors";
+  private java.util.Set<InlineResponse2009DataSectors> sectors = null;
 
-  public InlineResponse2009Data focusCategory(String focusCategory) {
-    this.focusCategory = focusCategory;
+  public InlineResponse2009Data() { 
+  }
+
+  public InlineResponse2009Data reportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
     return this;
   }
 
    /**
-   * ETP class focus category.
-   * @return focusCategory
+   * Reporting date for the allocations.
+   * @return reportDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ETP class focus category.")
-  @JsonProperty(JSON_PROPERTY_FOCUS_CATEGORY)
+  @ApiModelProperty(value = "Reporting date for the allocations.")
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getFocusCategory() {
-    return focusCategory;
+  public LocalDate getReportDate() {
+    return reportDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FOCUS_CATEGORY)
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFocusCategory(String focusCategory) {
-    this.focusCategory = focusCategory;
+  public void setReportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
+  }
+
+
+  public InlineResponse2009Data sectors(java.util.Set<InlineResponse2009DataSectors> sectors) {
+    this.sectors = sectors;
+    return this;
+  }
+
+  public InlineResponse2009Data addSectorsItem(InlineResponse2009DataSectors sectorsItem) {
+    if (this.sectors == null) {
+      this.sectors = new java.util.LinkedHashSet<>();
+    }
+    this.sectors.add(sectorsItem);
+    return this;
+  }
+
+   /**
+   * List of allocations by sector.
+   * @return sectors
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of allocations by sector.")
+  @JsonProperty(JSON_PROPERTY_SECTORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.Set<InlineResponse2009DataSectors> getSectors() {
+    return sectors;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECTORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSectors(java.util.Set<InlineResponse2009DataSectors> sectors) {
+    this.sectors = sectors;
   }
 
 
@@ -81,19 +124,21 @@ public class InlineResponse2009Data implements Serializable {
       return false;
     }
     InlineResponse2009Data inlineResponse2009Data = (InlineResponse2009Data) o;
-    return Objects.equals(this.focusCategory, inlineResponse2009Data.focusCategory);
+    return Objects.equals(this.reportDate, inlineResponse2009Data.reportDate) &&
+        Objects.equals(this.sectors, inlineResponse2009Data.sectors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(focusCategory);
+    return Objects.hash(reportDate, sectors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2009Data {\n");
-    sb.append("    focusCategory: ").append(toIndentedString(focusCategory)).append("\n");
+    sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
+    sb.append("    sectors: ").append(toIndentedString(sectors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

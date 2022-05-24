@@ -7,6 +7,9 @@ import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IRNMeetings.models.CreateMeetingDto;
 import com.factset.sdk.IRNMeetings.models.MeetingDto;
@@ -26,6 +29,29 @@ public class MeetingsApi {
   public MeetingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createMeetingResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
+    createMeetingResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    createMeetingResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> deleteMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getMeetingResponseTypeMap.put(200, new GenericType<MeetingDto>(){});
+    getMeetingResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getMeetingResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getMeetingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getMeetingsResponseTypeMap.put(200, new GenericType<java.util.List<MeetingSummaryDto>>(){});
+    getMeetingsResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> updateMeetingResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -105,11 +131,17 @@ public class MeetingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<NewItemDto> localVarReturnType = new GenericType<NewItemDto>() {};
 
-    return apiClient.invokeAPI("MeetingsApi.createMeeting", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        NewItemDto
+      
+    > apiResponse = apiClient.invokeAPI("MeetingsApi.createMeeting", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createMeetingResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a Meeting
@@ -178,9 +210,15 @@ public class MeetingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("MeetingsApi.deleteMeeting", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("MeetingsApi.deleteMeeting", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteMeetingResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get details of a meeting
@@ -248,11 +286,17 @@ public class MeetingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MeetingDto> localVarReturnType = new GenericType<MeetingDto>() {};
 
-    return apiClient.invokeAPI("MeetingsApi.getMeeting", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MeetingDto
+      
+    > apiResponse = apiClient.invokeAPI("MeetingsApi.getMeeting", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getMeetingResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get all the meetings in the specified date range filtered on the given identifiers
@@ -263,7 +307,7 @@ public class MeetingsApi {
    * @param limit Limit on the number of meetings retrieved (optional)
    * @param modifiedSince Only return meetings which have been modified or created since a particular time (optional)
    * @param xIRNIncludeDeleted Includes deleted meetings in results when set to true (optional, default to false)
-   * @return java.util.List&lt;MeetingSummaryDto&gt;
+   * @return java.util.List<MeetingSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -285,7 +329,7 @@ public class MeetingsApi {
    * @param limit Limit on the number of meetings retrieved (optional)
    * @param modifiedSince Only return meetings which have been modified or created since a particular time (optional)
    * @param xIRNIncludeDeleted Includes deleted meetings in results when set to true (optional, default to false)
-   * @return ApiResponse&lt;java.util.List&lt;MeetingSummaryDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<MeetingSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -329,11 +373,17 @@ public class MeetingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<MeetingSummaryDto>> localVarReturnType = new GenericType<java.util.List<MeetingSummaryDto>>() {};
 
-    return apiClient.invokeAPI("MeetingsApi.getMeetings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<MeetingSummaryDto>
+      
+    > apiResponse = apiClient.invokeAPI("MeetingsApi.getMeetings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getMeetingsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Update meeting
@@ -344,7 +394,7 @@ public class MeetingsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
@@ -364,7 +414,7 @@ public class MeetingsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 204 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
@@ -404,8 +454,14 @@ public class MeetingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("MeetingsApi.updateMeeting", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("MeetingsApi.updateMeeting", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, updateMeetingResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

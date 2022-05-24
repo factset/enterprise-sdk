@@ -52,7 +52,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorObjectLinks {\n");
             sb.Append("  About: ").Append(About).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         public bool Equals(ErrorObjectLinks input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.About == input.About ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this.About != null)
-                    hashCode = hashCode * 59 + this.About.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.About.GetHashCode();
+                }
                 return hashCode;
             }
         }

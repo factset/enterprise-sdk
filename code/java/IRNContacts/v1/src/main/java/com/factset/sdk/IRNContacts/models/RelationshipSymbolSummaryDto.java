@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -46,15 +46,17 @@ import com.factset.sdk.IRNContacts.JSON;
 public class RelationshipSymbolSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
+  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
   private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TYPE = "type";
+  public static final String JSON_PROPERTY_TYPE = "Type";
   private SymbolType type;
 
+  public RelationshipSymbolSummaryDto() { 
+  }
 
   public RelationshipSymbolSummaryDto identifier(String identifier) {
     this.identifier = JsonNullable.<String>of(identifier);

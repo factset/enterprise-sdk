@@ -43,6 +43,8 @@ public class Frequency implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private FrequencyFrequency frequency;
 
+  public Frequency() { 
+  }
 
   public Frequency frequency(FrequencyFrequency frequency) {
     this.frequency = frequency;

@@ -53,7 +53,7 @@ namespace Example
 
             var apiInstance = new EntityMatchBulkApi(config);
             var taskId = 31589;  // int | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
-            var offset = 56;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
+            var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 
 
             try
@@ -82,7 +82,6 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Limits the number of records in the response. | [optional] 
 
 ### Return type
-
 [**EntityDecisionsResponse**](EntityDecisionsResponse.md)
 
 ### Authorization
@@ -151,13 +150,13 @@ namespace Example
 
             var apiInstance = new EntityMatchBulkApi(config);
             var universeId = 56;  // int | The id of the universe that entities should be mapped to. Reference the `/universe` endpoint to create a universe, or view available universes via `/universes`.
-            var taskName = taskName_example;  // string | User defined name for the task that will be used to name the output files.
-            var inputFile = BINARY_DATA_HERE;  // System.IO.Stream | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
-            var clientIdColumn = clientIdColumn_example;  // string | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
-            var nameColumn = nameColumn_example;  // string | Header name of the column in the input file that contains the Entity Name to be matched. 
-            var countryColumn = countryColumn_example;  // string | Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision.  (optional) 
-            var urlColumn = urlColumn_example;  // string | Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  (optional) 
-            var stateColumn = stateColumn_example;  // string | Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  (optional) 
+            var taskName = "taskName_example";  // string | User defined name for the task that will be used to name the output files.
+            var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
+            var clientIdColumn = "clientIdColumn_example";  // string | Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
+            var nameColumn = "nameColumn_example";  // string | Header name of the column in the input file that contains the Entity Name to be matched. 
+            var countryColumn = "countryColumn_example";  // string | Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision.  (optional) 
+            var urlColumn = "urlColumn_example";  // string | Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match.  (optional) 
+            var stateColumn = "stateColumn_example";  // string | Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported.  (optional) 
             var includeEntityType = new List<string>(); // List<string> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
             var excludeEntityType = new List<string>(); // List<string> | Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.**  (optional) 
             var includeEntitySubType = new List<string>(); // List<string> | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.**  (optional) 
@@ -198,7 +197,6 @@ Name | Type | Description  | Notes
  **excludeEntitySubType** | [**List&lt;string&gt;**](string.md)| Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  | [optional] 
 
 ### Return type
-
 [**EntityTaskResponse**](EntityTaskResponse.md)
 
 ### Authorization
@@ -267,7 +265,7 @@ namespace Example
 
             var apiInstance = new EntityMatchBulkApi(config);
             var taskId = 31589;  // int? | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint. (optional) 
-            var offset = 56;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
+            var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 
             var status = new List<string>(); // List<string> | Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional) 
 
@@ -298,7 +296,6 @@ Name | Type | Description  | Notes
  **status** | [**List&lt;string&gt;**](string.md)| Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  | [optional] 
 
 ### Return type
-
 [**EntityTaskStatusResponse**](EntityTaskStatusResponse.md)
 
 ### Authorization

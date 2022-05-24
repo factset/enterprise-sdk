@@ -143,6 +143,33 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
     {
         private FactSet.SDK.FactSetTermsandConditions.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetCovenantDetailsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CovenantDetailsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCovenantDetailsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CovenantDetailsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CovenantsApi"/> class.
         /// </summary>
@@ -253,7 +280,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <returns>CovenantDetailsResponse</returns>
         public CovenantDetailsResponse GetCovenantDetails(List<string> ids)
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse> localVarResponse = GetCovenantDetailsWithHttpInfo(ids);
+            var localVarResponse = GetCovenantDetailsWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -263,11 +290,13 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <exception cref="FactSet.SDK.FactSetTermsandConditions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. </param>
         /// <returns>ApiResponse of CovenantDetailsResponse</returns>
-        public FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse> GetCovenantDetailsWithHttpInfo(List<string> ids)
+        public ApiResponse<CovenantDetailsResponse> GetCovenantDetailsWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'ids' when calling CovenantsApi->GetCovenantDetails");
+            }
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
 
@@ -280,22 +309,28 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -307,15 +342,19 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CovenantDetailsResponse>("/factset-terms-and-conditions/v1/covenant-details", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCovenantDetailsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CovenantDetailsResponse>("/factset-terms-and-conditions/v1/covenant-details", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCovenantDetails", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -326,9 +365,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CovenantDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<CovenantDetailsResponse> GetCovenantDetailsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CovenantDetailsResponse>GetCovenantDetailsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse> localVarResponse = await GetCovenantDetailsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCovenantDetailsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -339,11 +378,14 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CovenantDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse>> GetCovenantDetailsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CovenantDetailsResponse>> GetCovenantDetailsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'ids' when calling CovenantsApi->GetCovenantDetails");
+            }
 
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
@@ -356,24 +398,29 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -385,14 +432,18 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCovenantDetailsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CovenantDetailsResponse>("/factset-terms-and-conditions/v1/covenant-details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCovenantDetails", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -406,7 +457,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <returns>CovenantDetailsResponse</returns>
         public CovenantDetailsResponse GetCovenantDetailsForList(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse> localVarResponse = GetCovenantDetailsForListWithHttpInfo(termsAndConditionsScalarRequest);
+            var localVarResponse = GetCovenantDetailsForListWithHttpInfo(termsAndConditionsScalarRequest);
             return localVarResponse.Data;
         }
 
@@ -416,11 +467,13 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <exception cref="FactSet.SDK.FactSetTermsandConditions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="termsAndConditionsScalarRequest">Request object for Fixed Income Covenant Details.</param>
         /// <returns>ApiResponse of CovenantDetailsResponse</returns>
-        public FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse> GetCovenantDetailsForListWithHttpInfo(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
+        public ApiResponse<CovenantDetailsResponse> GetCovenantDetailsForListWithHttpInfo(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
         {
             // verify the required parameter 'termsAndConditionsScalarRequest' is set
             if (termsAndConditionsScalarRequest == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'termsAndConditionsScalarRequest' when calling CovenantsApi->GetCovenantDetailsForList");
+            }
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
 
@@ -434,22 +487,28 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = termsAndConditionsScalarRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -461,15 +520,19 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CovenantDetailsResponse>("/factset-terms-and-conditions/v1/covenant-details", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCovenantDetailsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CovenantDetailsResponse>("/factset-terms-and-conditions/v1/covenant-details", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCovenantDetailsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -480,9 +543,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="termsAndConditionsScalarRequest">Request object for Fixed Income Covenant Details.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CovenantDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<CovenantDetailsResponse> GetCovenantDetailsForListAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CovenantDetailsResponse>GetCovenantDetailsForListAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse> localVarResponse = await GetCovenantDetailsForListWithHttpInfoAsync(termsAndConditionsScalarRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCovenantDetailsForListWithHttpInfoAsync(termsAndConditionsScalarRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -493,11 +556,14 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="termsAndConditionsScalarRequest">Request object for Fixed Income Covenant Details.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CovenantDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<CovenantDetailsResponse>> GetCovenantDetailsForListWithHttpInfoAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CovenantDetailsResponse>> GetCovenantDetailsForListWithHttpInfoAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'termsAndConditionsScalarRequest' is set
             if (termsAndConditionsScalarRequest == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'termsAndConditionsScalarRequest' when calling CovenantsApi->GetCovenantDetailsForList");
+            }
 
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
@@ -511,24 +577,29 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = termsAndConditionsScalarRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -540,14 +611,18 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCovenantDetailsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CovenantDetailsResponse>("/factset-terms-and-conditions/v1/covenant-details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCovenantDetailsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

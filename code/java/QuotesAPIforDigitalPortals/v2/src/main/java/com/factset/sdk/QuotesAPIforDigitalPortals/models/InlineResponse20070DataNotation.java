@@ -53,6 +53,8 @@ public class InlineResponse20070DataNotation implements Serializable {
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse20066DataValueUnit valueUnit;
 
+  public InlineResponse20070DataNotation() { 
+  }
 
   public InlineResponse20070DataNotation id(String id) {
     this.id = id;

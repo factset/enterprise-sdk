@@ -50,6 +50,8 @@ public class DatabaseSchema implements Serializable {
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private java.util.List<Object> fields = null;
 
+  public DatabaseSchema() { 
+  }
 
   public DatabaseSchema path(String path) {
     this.path = path;

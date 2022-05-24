@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PercentChangeLabelTemplateAllOf {\n");
             sb.Append("  PercentChange: ").Append(PercentChange).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(PercentChangeLabelTemplateAllOf input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PercentChange == input.PercentChange ||
@@ -121,9 +122,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.PercentChange != null)
-                    hashCode = hashCode * 59 + this.PercentChange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PercentChange.GetHashCode();
+                }
                 if (this.Label != null)
-                    hashCode = hashCode * 59 + this.Label.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Label.GetHashCode();
+                }
                 return hashCode;
             }
         }

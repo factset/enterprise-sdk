@@ -55,6 +55,8 @@ public class StructureRequest implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private String date;
 
+  public StructureRequest() { 
+  }
 
   public StructureRequest rbicsIds(java.util.List<String> rbicsIds) {
     this.rbicsIds = rbicsIds;

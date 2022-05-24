@@ -47,6 +47,8 @@ public class InlineResponse20038DataCategories implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20038DataCategories() { 
+  }
 
   public InlineResponse20038DataCategories id(BigDecimal id) {
     this.id = id;

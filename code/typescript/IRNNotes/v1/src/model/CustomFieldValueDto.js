@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomFieldValueDto model module.
  * @module model/CustomFieldValueDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CustomFieldValueDto {
     /**
@@ -47,17 +47,17 @@ class CustomFieldValueDto {
         if (data) {
             obj = obj || new CustomFieldValueDto();
 
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('Code')) {
+                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], 'String');
+            if (data.hasOwnProperty('Value')) {
+                obj['Value'] = ApiClient.convertToType(data['Value'], 'String');
             }
-            if (data.hasOwnProperty('options')) {
-                obj['options'] = ApiClient.convertToType(data['options'], ['String']);
+            if (data.hasOwnProperty('Options')) {
+                obj['Options'] = ApiClient.convertToType(data['Options'], ['String']);
             }
-            if (data.hasOwnProperty('contactValues')) {
-                obj['contactValues'] = ApiClient.convertToType(data['contactValues'], ['String']);
+            if (data.hasOwnProperty('ContactValues')) {
+                obj['ContactValues'] = ApiClient.convertToType(data['ContactValues'], ['String']);
             }
         }
         return obj;
@@ -67,24 +67,24 @@ class CustomFieldValueDto {
 }
 
 /**
- * @member {String} code
+ * @member {String} Code
  */
-CustomFieldValueDto.prototype['code'] = undefined;
+CustomFieldValueDto.prototype['Code'] = undefined;
 
 /**
- * @member {String} value
+ * @member {String} Value
  */
-CustomFieldValueDto.prototype['value'] = undefined;
+CustomFieldValueDto.prototype['Value'] = undefined;
 
 /**
- * @member {Array.<String>} options
+ * @member {Array.<String>} Options
  */
-CustomFieldValueDto.prototype['options'] = undefined;
+CustomFieldValueDto.prototype['Options'] = undefined;
 
 /**
- * @member {Array.<String>} contactValues
+ * @member {Array.<String>} ContactValues
  */
-CustomFieldValueDto.prototype['contactValues'] = undefined;
+CustomFieldValueDto.prototype['ContactValues'] = undefined;
 
 
 

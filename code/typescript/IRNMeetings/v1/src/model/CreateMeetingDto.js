@@ -21,21 +21,19 @@ import UserSerialDto from './UserSerialDto';
 /**
  * The CreateMeetingDto model module.
  * @module model/CreateMeetingDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CreateMeetingDto {
     /**
      * Constructs a new <code>CreateMeetingDto</code>.
      * @alias module:model/CreateMeetingDto
      * @param author {module:model/UserSerialDto} 
-     * @param title {String} 
-     * @param identifier {String} 
      * @param start {String} 
      * @param end {String} 
      */
-    constructor(author, title, identifier, start, end) { 
+    constructor(author, start, end) { 
         
-        CreateMeetingDto.initialize(this, author, title, identifier, start, end);
+        CreateMeetingDto.initialize(this, author, start, end);
     }
 
     /**
@@ -43,10 +41,8 @@ class CreateMeetingDto {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, author, title, identifier, start, end) { 
+    static initialize(obj, author, start, end) { 
         obj['author'] = author;
-        obj['title'] = title;
-        obj['identifier'] = identifier;
         obj['start'] = start;
         obj['end'] = end;
     }

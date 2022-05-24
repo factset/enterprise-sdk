@@ -59,6 +59,8 @@ public class InlineResponse2007DataSingle implements Serializable {
   public static final String JSON_PROPERTY_PARTICIPATION_FACTOR = "participationFactor";
   private InlineResponse2007DataSingleParticipationFactor participationFactor;
 
+  public InlineResponse2007DataSingle() { 
+  }
 
   public InlineResponse2007DataSingle level(InlineResponse2007DataSingleLevel level) {
     this.level = level;

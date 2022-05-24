@@ -86,7 +86,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Factors {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
@@ -123,8 +123,9 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         public bool Equals(Factors input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return base.Equals(input) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -153,11 +154,17 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
             {
                 int hashCode = base.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 return hashCode;
             }
         }

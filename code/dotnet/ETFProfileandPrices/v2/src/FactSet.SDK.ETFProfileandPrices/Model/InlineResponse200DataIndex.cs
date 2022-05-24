@@ -155,7 +155,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataIndex {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Family: ").Append(Family).Append("\n");
@@ -194,8 +194,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataIndex input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -238,16 +239,26 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Family != null)
-                    hashCode = hashCode * 59 + this.Family.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Family.GetHashCode();
+                }
                 if (this.Website != null)
-                    hashCode = hashCode * 59 + this.Website.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Website.GetHashCode();
+                }
                 if (this.DistributionTreatment != null)
-                    hashCode = hashCode * 59 + this.DistributionTreatment.GetHashCode();
-                hashCode = hashCode * 59 + this.RebalancingFrequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DistributionTreatment.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RebalancingFrequency.GetHashCode();
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -7,6 +7,9 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.AFIOptimizationParametersRoot;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.CalculationInfoRoot;
@@ -24,6 +27,208 @@ public class AfiOptimizerApi {
   public AfiOptimizerApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> cancelOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getOptimizationParametersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getOptimizationParametersResponseTypeMap.put(200, new GenericType<AFIOptimizationParametersRoot>(){});
+    getOptimizationParametersResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getOptimizationParametersResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getOptimizationResultResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getOptimizationResultResponseTypeMap.put(200, new GenericType<ObjectRoot>(){});
+    getOptimizationResultResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getOptimizationResultResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getOptimizationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getOptimizationStatusByIdResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    getOptimizationStatusByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getOptimizationStatusByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postAndOptimizeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postAndOptimizeResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    postAndOptimizeResponseTypeMap.put(202, new GenericType<CalculationInfoRoot>(){});
+    postAndOptimizeResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    postAndOptimizeResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> putAndOptimizeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    putAndOptimizeResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    putAndOptimizeResponseTypeMap.put(202, new GenericType<CalculationInfoRoot>(){});
+    putAndOptimizeResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    putAndOptimizeResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+    putAndOptimizeResponseTypeMap.put(409, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+ /**
+   * Wrapper to support POST /analytics/engines/afi/v3/optimizations returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>201 : {@code ObjectRoot }<br>Expected response, returns json if optimization is completed in a short span.</li>
+   * 
+   *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PostAndOptimizeResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 201:
+   *     ObjectRoot data201 = response.getResponse201();
+   *     break;
+   *   case 202:
+   *     CalculationInfoRoot data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PostAndOptimizeResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PostAndOptimizeResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public ObjectRoot getResponse201() throws ApiException {
+      if (this.statusCode != 201) {
+        throw new ApiException(500, "Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+      }
+      return (ObjectRoot) this.response;
+    }
+    
+    public CalculationInfoRoot getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationInfoRoot) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PostAndOptimizeResponseWrapper other = (PostAndOptimizeResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PostAndOptimizeResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support PUT /analytics/engines/afi/v3/optimizations/{id} returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>201 : {@code ObjectRoot }<br>Expected response, returns json if optimization is completed in a short span.</li>
+   * 
+   *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PutAndOptimizeResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 201:
+   *     ObjectRoot data201 = response.getResponse201();
+   *     break;
+   *   case 202:
+   *     CalculationInfoRoot data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PutAndOptimizeResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PutAndOptimizeResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public ObjectRoot getResponse201() throws ApiException {
+      if (this.statusCode != 201) {
+        throw new ApiException(500, "Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+      }
+      return (ObjectRoot) this.response;
+    }
+    
+    public CalculationInfoRoot getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationInfoRoot) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PutAndOptimizeResponseWrapper other = (PutAndOptimizeResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PutAndOptimizeResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+
 
   /**
    * Get the API client
@@ -116,9 +321,15 @@ public class AfiOptimizerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("AfiOptimizerApi.cancelOptimizationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("AfiOptimizerApi.cancelOptimizationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, cancelOptimizationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get AFI optimization parameters by id
@@ -194,11 +405,17 @@ public class AfiOptimizerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AFIOptimizationParametersRoot> localVarReturnType = new GenericType<AFIOptimizationParametersRoot>() {};
 
-    return apiClient.invokeAPI("AfiOptimizerApi.getOptimizationParameters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AFIOptimizationParametersRoot
+      
+    > apiResponse = apiClient.invokeAPI("AfiOptimizerApi.getOptimizationParameters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getOptimizationParametersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get AFI optimization result by id
@@ -274,11 +491,17 @@ public class AfiOptimizerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("AfiOptimizerApi.getOptimizationResult", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ObjectRoot
+      
+    > apiResponse = apiClient.invokeAPI("AfiOptimizerApi.getOptimizationResult", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getOptimizationResultResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get AFI optimization status by id
@@ -356,11 +579,17 @@ public class AfiOptimizerApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("AfiOptimizerApi.getOptimizationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ObjectRoot
+      
+    > apiResponse = apiClient.invokeAPI("AfiOptimizerApi.getOptimizationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getOptimizationStatusByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Create and Run AFI optimization
@@ -368,7 +597,7 @@ public class AfiOptimizerApi {
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param afIOptimizationParametersRoot Optimization Parameters (optional)
-   * @return ObjectRoot
+   * @return PostAndOptimizeResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -385,7 +614,7 @@ public class AfiOptimizerApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ObjectRoot postAndOptimize(Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
+  public PostAndOptimizeResponseWrapper postAndOptimize(Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
     return postAndOptimizeWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot).getData();
   }
 
@@ -395,7 +624,7 @@ public class AfiOptimizerApi {
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param afIOptimizationParametersRoot Optimization Parameters (optional)
-   * @return ApiResponse&lt;ObjectRoot&gt;
+   * @return ApiResponse&lt;PostAndOptimizeResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -412,7 +641,7 @@ public class AfiOptimizerApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<ObjectRoot> postAndOptimizeWithHttpInfo(Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
+  public ApiResponse<PostAndOptimizeResponseWrapper> postAndOptimizeWithHttpInfo(Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
     Object localVarPostBody = afIOptimizationParametersRoot;
     
     // create path and map variables
@@ -444,11 +673,24 @@ if (cacheControl != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("AfiOptimizerApi.postAndOptimize", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("AfiOptimizerApi.postAndOptimize", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postAndOptimizeResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    PostAndOptimizeResponseWrapper responseWrapper = new PostAndOptimizeResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PostAndOptimizeResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
   /**
    * Create or Update AFI optimization and run it.
@@ -457,7 +699,7 @@ if (cacheControl != null)
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param afIOptimizationParametersRoot Optimization Parameters (optional)
-   * @return ObjectRoot
+   * @return PutAndOptimizeResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -475,7 +717,7 @@ if (cacheControl != null)
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ObjectRoot putAndOptimize(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
+  public PutAndOptimizeResponseWrapper putAndOptimize(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
     return putAndOptimizeWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot).getData();
   }
 
@@ -486,7 +728,7 @@ if (cacheControl != null)
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param afIOptimizationParametersRoot Optimization Parameters (optional)
-   * @return ApiResponse&lt;ObjectRoot&gt;
+   * @return ApiResponse&lt;PutAndOptimizeResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -504,7 +746,7 @@ if (cacheControl != null)
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<ObjectRoot> putAndOptimizeWithHttpInfo(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
+  public ApiResponse<PutAndOptimizeResponseWrapper> putAndOptimizeWithHttpInfo(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, AFIOptimizationParametersRoot afIOptimizationParametersRoot) throws ApiException {
     Object localVarPostBody = afIOptimizationParametersRoot;
     
     // verify the required parameter 'id' is set
@@ -542,10 +784,23 @@ if (cacheControl != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("AfiOptimizerApi.putAndOptimize", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("AfiOptimizerApi.putAndOptimize", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, putAndOptimizeResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    PutAndOptimizeResponseWrapper responseWrapper = new PutAndOptimizeResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PutAndOptimizeResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
 }

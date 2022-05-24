@@ -17,7 +17,7 @@ import InlineResponse2004DataIssueVolume from './InlineResponse2004DataIssueVolu
 /**
  * The InlineResponse2004DataIssue model module.
  * @module model/InlineResponse2004DataIssue
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataIssue {
     /**

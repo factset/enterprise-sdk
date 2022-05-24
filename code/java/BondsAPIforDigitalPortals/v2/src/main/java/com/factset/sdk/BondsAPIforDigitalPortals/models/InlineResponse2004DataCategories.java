@@ -56,6 +56,8 @@ public class InlineResponse2004DataCategories implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2004DataCategories() { 
+  }
 
   public InlineResponse2004DataCategories id(BigDecimal id) {
     this.id = id;

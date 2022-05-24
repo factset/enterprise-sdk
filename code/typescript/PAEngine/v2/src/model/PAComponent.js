@@ -18,7 +18,7 @@ import PAIdentifier from './PAIdentifier';
 /**
  * The PAComponent model module.
  * @module model/PAComponent
- * @version 0.8.1
+ * @version 0.8.2
  */
 class PAComponent {
     /**

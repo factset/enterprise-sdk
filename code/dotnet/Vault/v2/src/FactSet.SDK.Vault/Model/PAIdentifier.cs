@@ -72,7 +72,7 @@ namespace FactSet.SDK.Vault.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PAIdentifier {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Holdingsmode: ").Append(Holdingsmode).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.Vault.Model
         public bool Equals(PAIdentifier input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -132,9 +133,13 @@ namespace FactSet.SDK.Vault.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Holdingsmode != null)
-                    hashCode = hashCode * 59 + this.Holdingsmode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Holdingsmode.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -60,7 +60,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataRedemption {\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataRedemption input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Price == input.Price ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Price != null)
-                    hashCode = hashCode * 59 + this.Price.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 return hashCode;
             }
         }

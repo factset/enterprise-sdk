@@ -81,7 +81,7 @@ namespace FactSet.SDK.Symbology.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TickerTranslation {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.Symbology.Model
         public bool Equals(TickerTranslation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -153,13 +154,21 @@ namespace FactSet.SDK.Symbology.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Ticker != null)
-                    hashCode = hashCode * 59 + this.Ticker.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ticker.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

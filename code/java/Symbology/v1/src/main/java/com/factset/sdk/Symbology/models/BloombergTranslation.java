@@ -71,6 +71,8 @@ public class BloombergTranslation implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public BloombergTranslation() { 
+  }
 
   public BloombergTranslation fsymId(String fsymId) {
     this.fsymId = fsymId;

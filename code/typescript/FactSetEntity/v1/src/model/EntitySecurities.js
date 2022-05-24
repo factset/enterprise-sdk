@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EntitySecurities model module.
  * @module model/EntitySecurities
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EntitySecurities {
     /**

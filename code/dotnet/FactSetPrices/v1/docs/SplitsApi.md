@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  2000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* | 
 
 ### Return type
-
 [**SplitsResponse**](SplitsResponse.md)
 
 ### Authorization
@@ -171,7 +170,6 @@ Name | Type | Description  | Notes
  **splitsRequest** | [**SplitsRequest**](SplitsRequest.md)| Request object for &#x60;Security&#x60; split factors. | 
 
 ### Return type
-
 [**SplitsResponse**](SplitsResponse.md)
 
 ### Authorization

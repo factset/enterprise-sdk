@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Column model module.
  * @module model/Column
- * @version 0.8.1
+ * @version 0.8.2
  */
 class Column {
     /**

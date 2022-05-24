@@ -44,6 +44,8 @@ public class StockNotationRankingIntradayListDataIndustryClassification implemen
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public StockNotationRankingIntradayListDataIndustryClassification() { 
+  }
 
   public StockNotationRankingIntradayListDataIndustryClassification ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

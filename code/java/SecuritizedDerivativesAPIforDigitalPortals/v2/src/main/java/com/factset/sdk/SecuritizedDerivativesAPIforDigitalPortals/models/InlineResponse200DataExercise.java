@@ -119,6 +119,8 @@ public class InlineResponse200DataExercise implements Serializable {
   public static final String JSON_PROPERTY_STYLE = "style";
   private StyleEnum style;
 
+  public InlineResponse200DataExercise() { 
+  }
 
   public InlineResponse200DataExercise right(RightEnum right) {
     this.right = right;

@@ -26,81 +26,129 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// InlineResponse20015Data
+    /// Class information of given ETP.
     /// </summary>
     [DataContract(Name = "inline_response_200_15_data")]
     public partial class InlineResponse20015Data : IEquatable<InlineResponse20015Data>, IValidatableObject
     {
         /// <summary>
+        /// Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
+        /// </summary>
+        /// <value>Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AssetEnum
+        {
+            /// <summary>
+            /// Enum Equity for value: Equity
+            /// </summary>
+            [EnumMember(Value = "Equity")]
+            Equity = 1,
+
+            /// <summary>
+            /// Enum Alternatives for value: Alternatives
+            /// </summary>
+            [EnumMember(Value = "Alternatives")]
+            Alternatives = 2,
+
+            /// <summary>
+            /// Enum FixedIncome for value: Fixed Income
+            /// </summary>
+            [EnumMember(Value = "Fixed Income")]
+            FixedIncome = 3,
+
+            /// <summary>
+            /// Enum Commodities for value: Commodities
+            /// </summary>
+            [EnumMember(Value = "Commodities")]
+            Commodities = 4,
+
+            /// <summary>
+            /// Enum Currency for value: Currency
+            /// </summary>
+            [EnumMember(Value = "Currency")]
+            Currency = 5,
+
+            /// <summary>
+            /// Enum AssetAllocation for value: Asset Allocation
+            /// </summary>
+            [EnumMember(Value = "Asset Allocation")]
+            AssetAllocation = 6
+
+        }
+
+
+        /// <summary>
+        /// Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
+        /// </summary>
+        /// <value>Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.</value>
+        [DataMember(Name = "asset", EmitDefaultValue = false)]
+        public AssetEnum? Asset { get; set; }
+        /// <summary>
+        /// The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
+        /// </summary>
+        /// <value>The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EconomicDevelopmentEnum
+        {
+            /// <summary>
+            /// Enum DevelopedMarkets for value: Developed Markets
+            /// </summary>
+            [EnumMember(Value = "Developed Markets")]
+            DevelopedMarkets = 1,
+
+            /// <summary>
+            /// Enum BlendedDevelopment for value: Blended Development
+            /// </summary>
+            [EnumMember(Value = "Blended Development")]
+            BlendedDevelopment = 2,
+
+            /// <summary>
+            /// Enum EmergingMarkets for value: Emerging Markets
+            /// </summary>
+            [EnumMember(Value = "Emerging Markets")]
+            EmergingMarkets = 3,
+
+            /// <summary>
+            /// Enum FrontierMarkets for value: Frontier Markets
+            /// </summary>
+            [EnumMember(Value = "Frontier Markets")]
+            FrontierMarkets = 4
+
+        }
+
+
+        /// <summary>
+        /// The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
+        /// </summary>
+        /// <value>The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.</value>
+        [DataMember(Name = "economicDevelopment", EmitDefaultValue = false)]
+        public EconomicDevelopmentEnum? EconomicDevelopment { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20015Data" /> class.
         /// </summary>
-        /// <param name="symbol">Identifier of the holding. (when available)..</param>
-        /// <param name="name">Name of the holding..</param>
-        /// <param name="reportDate">Reporting date of the holding..</param>
-        /// <param name="shares">Number of shares held, unadjusted for corporate actions..</param>
-        /// <param name="marketValue">Market value of the holding, unadjusted for corporate actions..</param>
-        /// <param name="currencyCode">Code representing the currency of the ETP and  it&#39;s in format ISO 4217.</param>
-        /// <param name="weight">Weight of the holding within the ETP..</param>
-        public InlineResponse20015Data(string symbol = default(string), string name = default(string), DateTime reportDate = default(DateTime), decimal shares = default(decimal), decimal marketValue = default(decimal), string currencyCode = default(string), decimal weight = default(decimal))
+        /// <param name="asset">Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions..</param>
+        /// <param name="economicDevelopment">The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions..</param>
+        /// <param name="geography">geography.</param>
+        /// <param name="category">category.</param>
+        public InlineResponse20015Data(AssetEnum? asset = default(AssetEnum?), EconomicDevelopmentEnum? economicDevelopment = default(EconomicDevelopmentEnum?), InlineResponse20015DataGeography geography = default(InlineResponse20015DataGeography), InlineResponse20015DataCategory category = default(InlineResponse20015DataCategory))
         {
-            this.Symbol = symbol;
-            this.Name = name;
-            this.ReportDate = reportDate;
-            this.Shares = shares;
-            this.MarketValue = marketValue;
-            this.CurrencyCode = currencyCode;
-            this.Weight = weight;
+            this.Asset = asset;
+            this.EconomicDevelopment = economicDevelopment;
+            this.Geography = geography;
+            this.Category = category;
         }
 
         /// <summary>
-        /// Identifier of the holding. (when available).
+        /// Gets or Sets Geography
         /// </summary>
-        /// <value>Identifier of the holding. (when available).</value>
-        [DataMember(Name = "symbol", EmitDefaultValue = false)]
-        public string Symbol { get; set; }
+        [DataMember(Name = "geography", EmitDefaultValue = false)]
+        public InlineResponse20015DataGeography Geography { get; set; }
 
         /// <summary>
-        /// Name of the holding.
+        /// Gets or Sets Category
         /// </summary>
-        /// <value>Name of the holding.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Reporting date of the holding.
-        /// </summary>
-        /// <value>Reporting date of the holding.</value>
-        [DataMember(Name = "reportDate", EmitDefaultValue = false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime ReportDate { get; set; }
-
-        /// <summary>
-        /// Number of shares held, unadjusted for corporate actions.
-        /// </summary>
-        /// <value>Number of shares held, unadjusted for corporate actions.</value>
-        [DataMember(Name = "shares", EmitDefaultValue = false)]
-        public decimal Shares { get; set; }
-
-        /// <summary>
-        /// Market value of the holding, unadjusted for corporate actions.
-        /// </summary>
-        /// <value>Market value of the holding, unadjusted for corporate actions.</value>
-        [DataMember(Name = "marketValue", EmitDefaultValue = false)]
-        public decimal MarketValue { get; set; }
-
-        /// <summary>
-        /// Code representing the currency of the ETP and  it&#39;s in format ISO 4217
-        /// </summary>
-        /// <value>Code representing the currency of the ETP and  it&#39;s in format ISO 4217</value>
-        [DataMember(Name = "currencyCode", EmitDefaultValue = false)]
-        public string CurrencyCode { get; set; }
-
-        /// <summary>
-        /// Weight of the holding within the ETP.
-        /// </summary>
-        /// <value>Weight of the holding within the ETP.</value>
-        [DataMember(Name = "weight", EmitDefaultValue = false)]
-        public decimal Weight { get; set; }
+        [DataMember(Name = "category", EmitDefaultValue = false)]
+        public InlineResponse20015DataCategory Category { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,15 +156,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20015Data {\n");
-            sb.Append("  Symbol: ").Append(Symbol).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
-            sb.Append("  Shares: ").Append(Shares).Append("\n");
-            sb.Append("  MarketValue: ").Append(MarketValue).Append("\n");
-            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
-            sb.Append("  Weight: ").Append(Weight).Append("\n");
+            sb.Append("  Asset: ").Append(Asset).Append("\n");
+            sb.Append("  EconomicDevelopment: ").Append(EconomicDevelopment).Append("\n");
+            sb.Append("  Geography: ").Append(Geography).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,40 +193,27 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20015Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.Symbol == input.Symbol ||
-                    (this.Symbol != null &&
-                    this.Symbol.Equals(input.Symbol))
+                    this.Asset == input.Asset ||
+                    this.Asset.Equals(input.Asset)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.EconomicDevelopment == input.EconomicDevelopment ||
+                    this.EconomicDevelopment.Equals(input.EconomicDevelopment)
                 ) && 
                 (
-                    this.ReportDate == input.ReportDate ||
-                    (this.ReportDate != null &&
-                    this.ReportDate.Equals(input.ReportDate))
+                    this.Geography == input.Geography ||
+                    (this.Geography != null &&
+                    this.Geography.Equals(input.Geography))
                 ) && 
                 (
-                    this.Shares == input.Shares ||
-                    this.Shares.Equals(input.Shares)
-                ) && 
-                (
-                    this.MarketValue == input.MarketValue ||
-                    this.MarketValue.Equals(input.MarketValue)
-                ) && 
-                (
-                    this.CurrencyCode == input.CurrencyCode ||
-                    (this.CurrencyCode != null &&
-                    this.CurrencyCode.Equals(input.CurrencyCode))
-                ) && 
-                (
-                    this.Weight == input.Weight ||
-                    this.Weight.Equals(input.Weight)
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
                 );
         }
 
@@ -194,17 +226,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Symbol != null)
-                    hashCode = hashCode * 59 + this.Symbol.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.ReportDate != null)
-                    hashCode = hashCode * 59 + this.ReportDate.GetHashCode();
-                hashCode = hashCode * 59 + this.Shares.GetHashCode();
-                hashCode = hashCode * 59 + this.MarketValue.GetHashCode();
-                if (this.CurrencyCode != null)
-                    hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
-                hashCode = hashCode * 59 + this.Weight.GetHashCode();
+                hashCode = (hashCode * 59) + this.Asset.GetHashCode();
+                hashCode = (hashCode * 59) + this.EconomicDevelopment.GetHashCode();
+                if (this.Geography != null)
+                {
+                    hashCode = (hashCode * 59) + this.Geography.GetHashCode();
+                }
+                if (this.Category != null)
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 return hashCode;
             }
         }

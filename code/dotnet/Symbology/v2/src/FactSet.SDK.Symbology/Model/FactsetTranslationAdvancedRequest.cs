@@ -40,7 +40,7 @@ namespace FactSet.SDK.Symbology.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FactsetTranslationAdvancedRequest" /> class.
         /// </summary>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. (required).</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. (required).</param>
         /// <param name="symbolType">symbolType.</param>
         public FactsetTranslationAdvancedRequest(List<string> ids = default(List<string>), GetSymbolType symbolType = default(GetSymbolType))
         {
@@ -53,9 +53,9 @@ namespace FactSet.SDK.Symbology.Model
         }
 
         /// <summary>
-        /// Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.
+        /// Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.
         /// </summary>
-        /// <value>Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.</value>
+        /// <value>Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.</value>
         [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Ids { get; set; }
 
@@ -71,7 +71,7 @@ namespace FactSet.SDK.Symbology.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FactsetTranslationAdvancedRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  SymbolType: ").Append(SymbolType).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.Symbology.Model
         public bool Equals(FactsetTranslationAdvancedRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -132,9 +133,13 @@ namespace FactSet.SDK.Symbology.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.SymbolType != null)
-                    hashCode = hashCode * 59 + this.SymbolType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SymbolType.GetHashCode();
+                }
                 return hashCode;
             }
         }

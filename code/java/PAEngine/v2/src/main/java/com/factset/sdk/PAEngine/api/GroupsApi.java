@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.Group;
 
@@ -21,6 +24,14 @@ public class GroupsApi {
   public GroupsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPAGroupsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAGroupsResponseTypeMap.put(200, new GenericType<java.util.Map<String, Group>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -43,7 +54,7 @@ public class GroupsApi {
   /**
    * Get PA groups
    * This endpoint lists all the PA groups that can be applied to a PA calculation.
-   * @return java.util.Map&lt;String, Group&gt;
+   * @return java.util.Map<String, Group>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,7 +75,7 @@ public class GroupsApi {
   /**
    * Get PA groups
    * This endpoint lists all the PA groups that can be applied to a PA calculation.
-   * @return ApiResponse&lt;java.util.Map&lt;String, Group&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, Group>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -106,10 +117,16 @@ public class GroupsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, Group>> localVarReturnType = new GenericType<java.util.Map<String, Group>>() {};
 
-    return apiClient.invokeAPI("GroupsApi.getPAGroups", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, Group>
+      
+    > apiResponse = apiClient.invokeAPI("GroupsApi.getPAGroups", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAGroupsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

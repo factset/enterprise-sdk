@@ -331,7 +331,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityTaskStatus {\n");
             sb.Append("  TaskId: ").Append(TaskId).Append("\n");
             sb.Append("  TaskName: ").Append(TaskName).Append("\n");
@@ -391,8 +391,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(EntityTaskStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TaskId == input.TaskId ||
@@ -534,50 +535,84 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TaskId.GetHashCode();
+                hashCode = (hashCode * 59) + this.TaskId.GetHashCode();
                 if (this.TaskName != null)
-                    hashCode = hashCode * 59 + this.TaskName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TaskName.GetHashCode();
+                }
                 if (this.TaskAction != null)
-                    hashCode = hashCode * 59 + this.TaskAction.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TaskAction.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.InputFile != null)
-                    hashCode = hashCode * 59 + this.InputFile.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InputFile.GetHashCode();
+                }
                 if (this.ClientIdColumn != null)
-                    hashCode = hashCode * 59 + this.ClientIdColumn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientIdColumn.GetHashCode();
+                }
                 if (this.NameColumn != null)
-                    hashCode = hashCode * 59 + this.NameColumn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NameColumn.GetHashCode();
+                }
                 if (this.CountryColumn != null)
-                    hashCode = hashCode * 59 + this.CountryColumn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryColumn.GetHashCode();
+                }
                 if (this.StateColumn != null)
-                    hashCode = hashCode * 59 + this.StateColumn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StateColumn.GetHashCode();
+                }
                 if (this.UrlColumn != null)
-                    hashCode = hashCode * 59 + this.UrlColumn.GetHashCode();
-                hashCode = hashCode * 59 + this.HasResult.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UrlColumn.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.HasResult.GetHashCode();
                 if (this.TaskSubmitTime != null)
-                    hashCode = hashCode * 59 + this.TaskSubmitTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TaskSubmitTime.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                hashCode = hashCode * 59 + this.InputCount.GetHashCode();
-                hashCode = hashCode * 59 + this.MappedCount.GetHashCode();
-                hashCode = hashCode * 59 + this.UnmappedCount.GetHashCode();
-                hashCode = hashCode * 59 + this.IndeterminateCount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.InputCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.MappedCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.UnmappedCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.IndeterminateCount.GetHashCode();
                 if (this.ProcessStartTime != null)
-                    hashCode = hashCode * 59 + this.ProcessStartTime.GetHashCode();
-                hashCode = hashCode * 59 + this.ProcessDuration.GetHashCode();
-                hashCode = hashCode * 59 + this.TryCount.GetHashCode();
-                hashCode = hashCode * 59 + this.DecisionRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ProcessStartTime.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ProcessDuration.GetHashCode();
+                hashCode = (hashCode * 59) + this.TryCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.DecisionRate.GetHashCode();
                 if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                }
                 if (this.ErrorTitle != null)
-                    hashCode = hashCode * 59 + this.ErrorTitle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorTitle.GetHashCode();
+                }
                 if (this.IncludeEntityType != null)
-                    hashCode = hashCode * 59 + this.IncludeEntityType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IncludeEntityType.GetHashCode();
+                }
                 if (this.ExcludeEntityType != null)
-                    hashCode = hashCode * 59 + this.ExcludeEntityType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExcludeEntityType.GetHashCode();
+                }
                 if (this.IncludeEntitySubType != null)
-                    hashCode = hashCode * 59 + this.IncludeEntitySubType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IncludeEntitySubType.GetHashCode();
+                }
                 if (this.ExcludeEntitySubType != null)
-                    hashCode = hashCode * 59 + this.ExcludeEntitySubType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExcludeEntitySubType.GetHashCode();
+                }
                 return hashCode;
             }
         }

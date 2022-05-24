@@ -47,7 +47,6 @@ src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/ApiClient.java
 src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/ApiException.java
 src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/Configuration.java
-src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/JSON.java
 src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetPortfolioOptimizer/Pair.java

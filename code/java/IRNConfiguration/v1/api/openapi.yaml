@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  description: Allows users to create, update and configure IRN data.
+  description: Allows users to extract, create, update and configure IRN data.
   title: IRN API v1
   version: "1"
 servers:
@@ -8,9 +8,21 @@ servers:
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- name: Contacts - CustomFields
+- name: Contacts - PhoneNumberTypes
+- name: Contacts - Relationship Category
+- name: Contacts - Relationships
+- name: Contacts - Roles
+- name: Contacts - Types
+- name: CustomSymbols - CustomFields
+- name: CustomSymbols - Relationships
+- name: CustomSymbols - Types
+- name: Notes - Configuration
 paths:
   /v1/authors:
     get:
+      operationId: GetAuthors
       parameters:
       - explode: false
         in: header
@@ -26,7 +38,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/UserConfigDto'
+                  $ref: '#/components/schemas/AuthorConfigDto'
                 type: array
           description: Success
         "403":
@@ -37,10 +49,334 @@ paths:
           description: Forbidden
       summary: Get all Authors
       tags:
-      - Authors
+      - Notes - Configuration
+      x-accepts: application/json
+  /v1/contact-custom-fields:
+    get:
+      operationId: GetContactCustomFields
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactCustomFieldDto'
+                type: array
+          description: Success
+      summary: Get all the contact custom fields
+      tags:
+      - Contacts - CustomFields
+      x-accepts: application/json
+    post:
+      operationId: CreateContactCustomField
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ContactCustomFieldSaveDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactCustomFieldSaveDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ContactCustomFieldSaveDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ContactCustomFieldSaveDto'
+        description: ContactCustomFieldSaveDto object to save
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a contact custom field
+      tags:
+      - Contacts - CustomFields
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/contact-custom-fields/{contactCustomFieldId}:
+    delete:
+      operationId: DeleteContactCustomField
+      parameters:
+      - description: contactCustomFieldId to delete associated record
+        explode: false
+        in: path
+        name: contactCustomFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a contact custom field
+      tags:
+      - Contacts - CustomFields
+      x-accepts: application/json
+    get:
+      operationId: GetContactCustomField
+      parameters:
+      - description: contactCustomFieldId to get associated record
+        explode: false
+        in: path
+        name: contactCustomFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactCustomFieldDto'
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get a specific Contact custom field's details
+      tags:
+      - Contacts - CustomFields
+      x-accepts: application/json
+    patch:
+      operationId: PatchContactCustomField
+      parameters:
+      - description: contactCustomFieldId to update associated record
+        explode: false
+        in: path
+        name: contactCustomFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          text/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/*+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+        description: contactCustomFieldUpdateDto object to update
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a contact custom field
+      tags:
+      - Contacts - CustomFields
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/contact-roles:
+    get:
+      operationId: GetContactRoles
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactRoleDto'
+                type: array
+          description: Success
+      summary: Get list of the contact roles configured in your group
+      tags:
+      - Contacts - Roles
+      x-accepts: application/json
+    post:
+      operationId: CreateContactRole
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          text/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/*+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+        description: Contact role name
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create contact roles
+      tags:
+      - Contacts - Roles
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/contact-types:
+    get:
+      operationId: GetContactTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContactTypeDto'
+                type: array
+          description: Success
+      summary: Get list of the contact types configured in your group
+      tags:
+      - Contacts - Types
+      x-accepts: application/json
+    post:
+      operationId: CreateContactType
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          text/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/*+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+        description: Contact type name
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create contact types
+      tags:
+      - Contacts - Types
+      x-contentType: application/json-patch+json
       x-accepts: application/json
   /v1/custom-fields:
     get:
+      operationId: GetCustomFields
       parameters:
       - explode: false
         in: header
@@ -67,10 +403,423 @@ paths:
           description: Forbidden
       summary: Get all Custom Fields
       tags:
-      - CustomFields
+      - Notes - Configuration
+      x-accepts: application/json
+  /v1/custom-symbol-custom-fields:
+    get:
+      operationId: GetCustomSymbolCustomFields
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomSymbolCustomFieldConfigDto'
+                type: array
+          description: Success
+      summary: Get all the Custom symbol custom fields
+      tags:
+      - CustomSymbols - CustomFields
+      x-accepts: application/json
+    post:
+      operationId: CreateCustomSymbolCustomField
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomSymbolCustomFieldDto'
+        description: createCustomSymbolCustomFieldDto object to save
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a Custom symbol custom field
+      tags:
+      - CustomSymbols - CustomFields
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/custom-symbol-custom-fields/{customSymbolCustomFieldId}:
+    delete:
+      operationId: DeleteCustomSymbolCustomField
+      parameters:
+      - description: customSymbolCustomFieldId to delete associated record
+        explode: false
+        in: path
+        name: customSymbolCustomFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a Custom symbol custom field
+      tags:
+      - CustomSymbols - CustomFields
+      x-accepts: application/json
+    get:
+      operationId: GetCustomSymbolCustomField
+      parameters:
+      - description: customSymbolCustomFieldId to get associated record
+        explode: false
+        in: path
+        name: customSymbolCustomFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomSymbolCustomFieldConfigDto'
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get a specific Custom symbol custom field's details
+      tags:
+      - CustomSymbols - CustomFields
+      x-accepts: application/json
+    patch:
+      operationId: PatchCustomSymbolCustomField
+      parameters:
+      - description: customSymbolCustomFieldId to update associated record
+        explode: false
+        in: path
+        name: customSymbolCustomFieldId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          text/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+          application/*+json:
+            schema:
+              items:
+                $ref: '#/components/schemas/Operation'
+              type: array
+        description: customSymbolCustomFieldUpdateDto object to update
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a Custom symbol custom field
+      tags:
+      - CustomSymbols - CustomFields
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/custom-symbol-types:
+    get:
+      operationId: GetCustomSymbolTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomSymbolTypeDto'
+                type: array
+          description: Success
+      summary: Get all the custom symbol types
+      tags:
+      - CustomSymbols - Types
+      x-accepts: application/json
+    post:
+      operationId: CreateCustomSymbolType
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SaveCustomSymbolTypeDto'
+        description: saveCustomSymbolTypeDto object to save
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a Custom symbol type
+      tags:
+      - CustomSymbols - Types
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/custom-symbol-types/{customSymbolTypeId}:
+    delete:
+      operationId: DeleteCustomSymbolTypeAsync
+      parameters:
+      - description: customSymbolTypeId to delete associated record
+        explode: false
+        in: path
+        name: customSymbolTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a Custom symbol type
+      tags:
+      - CustomSymbols - Types
+      x-accepts: application/json
+    get:
+      operationId: GetCustomSymbolType
+      parameters:
+      - description: customSymbolTypeId to get associated record
+        explode: false
+        in: path
+        name: customSymbolTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomSymbolTypeDetailDto'
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get a specific Custom symbol type's details
+      tags:
+      - CustomSymbols - Types
+      x-accepts: application/json
+    put:
+      operationId: UpdateCustomSymbolType
+      parameters:
+      - description: customSymbolTypeId to update associated record
+        explode: false
+        in: path
+        name: customSymbolTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomSymbolTypeDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomSymbolTypeDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomSymbolTypeDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomSymbolTypeDto'
+        description: updateCustomSymbolTypeDto object to update
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a Custom symbol type
+      tags:
+      - CustomSymbols - Types
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/custom-symbol-types/{customSymbolTypeId}/custom-fields:
+    get:
+      operationId: GetSymbolCustomFieldsForCustomSymbolType
+      parameters:
+      - description: customSymbolTypeId to get associated Custom fileds
+        explode: false
+        in: path
+        name: customSymbolTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CustomSymbolCustomFieldConfigDto'
+                type: array
+          description: Success
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Get Custom fields for Custom Symbol type
+      tags:
+      - CustomSymbols - Types
       x-accepts: application/json
   /v1/group:
     get:
+      operationId: GetGroup
       responses:
         "200":
           content:
@@ -80,10 +829,11 @@ paths:
           description: Success
       summary: Get Group details
       tags:
-      - Group
+      - Notes - Configuration
       x-accepts: application/json
   /v1/group/client-sales-representative:
     get:
+      operationId: GetClientsSalesRepresentative
       responses:
         "200":
           content:
@@ -98,10 +848,77 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
           description: Not Found
       tags:
-      - Group
+      - Notes - Configuration
+      x-accepts: application/json
+  /v1/phone-number-types:
+    get:
+      operationId: GetPhoneNumberTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PhoneNumberTypeDto'
+                type: array
+          description: Success
+      summary: Get list of the phone types configured in your group
+      tags:
+      - Contacts - PhoneNumberTypes
+      x-accepts: application/json
+    post:
+      operationId: CreatePhoneNumberType
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          text/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/*+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+        description: To add phoneNumberType
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a phone type
+      tags:
+      - Contacts - PhoneNumberTypes
+      x-contentType: application/json-patch+json
       x-accepts: application/json
   /v1/recommendations:
     get:
+      operationId: GetRecommendations
       responses:
         "200":
           content:
@@ -113,10 +930,133 @@ paths:
           description: Success
       summary: Get all Recommendations
       tags:
-      - Recommendations
+      - Notes - Configuration
+      x-accepts: application/json
+  /v1/relationship-categories:
+    get:
+      operationId: GetRelationshipCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RelationshipCategoryDto'
+                type: array
+          description: Success
+      summary: Get list of the relationship categories configured in your group
+      tags:
+      - Contacts - Relationship Category
+      x-accepts: application/json
+    post:
+      operationId: CreateRelationshipCategory
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+        description: RelationshipCategorySaveDto object to save
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a relationship category
+      tags:
+      - Contacts - Relationship Category
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/relationships:
+    get:
+      operationId: GetRelationships
+      parameters:
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: '#/components/schemas/RelationshipType'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RelationshipDto'
+                type: array
+          description: Success
+      summary: Get list of the relationships configured in your group
+      tags:
+      - Contacts - Relationships
+      x-accepts: application/json
+    post:
+      operationId: CreateContactRelationshipType
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+        description: RelationshipSaveDto object to save
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a relationship type
+      tags:
+      - Contacts - Relationships
+      x-contentType: application/json-patch+json
       x-accepts: application/json
   /v1/sentiments:
     get:
+      operationId: GetSentiments
       responses:
         "200":
           content:
@@ -128,10 +1068,11 @@ paths:
           description: Success
       summary: Get all Sentiments
       tags:
-      - Sentiments
+      - Notes - Configuration
       x-accepts: application/json
   /v1/subjects:
     get:
+      operationId: GetSubjects
       parameters:
       - explode: false
         in: header
@@ -158,10 +1099,11 @@ paths:
           description: Forbidden
       summary: Get all Subjects
       tags:
-      - Subjects
+      - Notes - Configuration
       x-accepts: application/json
   /v1/subjects/{subjectId}:
     get:
+      operationId: GetSubject
       parameters:
       - description: Id
         explode: false
@@ -201,10 +1143,68 @@ paths:
           description: Not Found
       summary: Get Subject details for the given Id provided
       tags:
-      - Subjects
+      - Notes - Configuration
+      x-accepts: application/json
+  /v1/symbols-relationships:
+    get:
+      operationId: GetSymbolsRelationships
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SymbolsRelationshipDto'
+                type: array
+          description: Success
+      summary: Get all the Symbols Relationships
+      tags:
+      - CustomSymbols - Relationships
+      x-accepts: application/json
+    post:
+      operationId: CreateSymbolRelationshipType
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+        description: symbolsRelationshipSaveDto object to save
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewItemDto'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Create a symbol relationship
+      tags:
+      - CustomSymbols - Relationships
+      x-contentType: application/json-patch+json
       x-accepts: application/json
   /v1/teams:
     get:
+      operationId: GetTeams
       parameters:
       - explode: false
         in: header
@@ -231,10 +1231,11 @@ paths:
           description: Forbidden
       summary: Get all Teams
       tags:
-      - Teams
+      - Notes - Configuration
       x-accepts: application/json
   /v1/teams/{teamId}:
     get:
+      operationId: GetTeam
       parameters:
       - description: Id
         explode: false
@@ -274,10 +1275,11 @@ paths:
           description: Not Found
       summary: Get Team details for the given Id provided
       tags:
-      - Teams
+      - Notes - Configuration
       x-accepts: application/json
   /v1/users:
     get:
+      operationId: GetAssignedFactSetUsers
       responses:
         "200":
           content:
@@ -289,64 +1291,1632 @@ paths:
           description: Success
       summary: Get all assigned FactSet users
       tags:
-      - Users
+      - Notes - Configuration
+      x-accepts: application/json
+  /v1/custom-symbol-types/reorder:
+    post:
+      operationId: UpdateCustomSymbolTypeOrder
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ReorderCustomSymbolTypeDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReorderCustomSymbolTypeDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ReorderCustomSymbolTypeDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ReorderCustomSymbolTypeDto'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      tags:
+      - CustomSymbols - Types
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/relationship-categories/reorder:
+    post:
+      operationId: UpdateRelationshipCategoryOrder
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategoryListDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategoryListDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategoryListDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategoryListDto'
+        description: List of Guid
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Reorder relationship categories
+      tags:
+      - Contacts - Relationship Category
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/contact-roles/{contactRoleId}:
+    delete:
+      operationId: DeleteContactRole
+      parameters:
+      - description: contactRoleId to delete associated record
+        explode: false
+        in: path
+        name: contactRoleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a contact role
+      tags:
+      - Contacts - Roles
+      x-accepts: application/json
+    put:
+      operationId: UpdateContactRole
+      parameters:
+      - description: contactRoleId to update associated record
+        explode: false
+        in: path
+        name: contactRoleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          text/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/*+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+        description: Updated contact role name
+        required: true
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a contact role
+      tags:
+      - Contacts - Roles
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/contact-types/{contactTypeId}:
+    delete:
+      operationId: DeleteContactType
+      parameters:
+      - description: contactTypeId to delete associated record
+        explode: false
+        in: path
+        name: contactTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a contact type
+      tags:
+      - Contacts - Types
+      x-accepts: application/json
+    put:
+      operationId: UpdateContactType
+      parameters:
+      - description: contactTypeId to update associated record
+        explode: false
+        in: path
+        name: contactTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          text/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/*+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+        description: Updated contact type name
+        required: true
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a contact type
+      tags:
+      - Contacts - Types
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/phone-number-types/{phoneNumberTypeId}:
+    delete:
+      operationId: DeletePhoneNumberType
+      parameters:
+      - description: phoneNumberTypeId for deleting associated record
+        explode: false
+        in: path
+        name: phoneNumberTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a phone type
+      tags:
+      - Contacts - PhoneNumberTypes
+      x-accepts: application/json
+    put:
+      operationId: UpdatePhoneNumberType
+      parameters:
+      - description: phoneNumberTypeId to update associated record
+        explode: false
+        in: path
+        name: phoneNumberTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          text/json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+          application/*+json:
+            schema:
+              maxLength: 50
+              minLength: 0
+              type: string
+        description: Update with phoneNumberType
+        required: true
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a phone type
+      tags:
+      - Contacts - PhoneNumberTypes
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/relationship-categories/{relationshipCategoryId}:
+    delete:
+      operationId: DeleteRelationshipCategory
+      parameters:
+      - description: relationshipCategoryId to delete associated record
+        explode: false
+        in: path
+        name: relationshipCategoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a relationship category
+      tags:
+      - Contacts - Relationship Category
+      x-accepts: application/json
+    put:
+      operationId: EditRelationshipCategory
+      parameters:
+      - description: relationshipCategoryId to update associated record
+        explode: false
+        in: path
+        name: relationshipCategoryId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipCategorySaveDto'
+        description: RelationshipCategorySaveDto object to update
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a relationship category
+      tags:
+      - Contacts - Relationship Category
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/relationships/{relationshipId}:
+    delete:
+      operationId: DeleteRelationship
+      parameters:
+      - description: relationshipId to delete associated record
+        explode: false
+        in: path
+        name: relationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a relationship type
+      tags:
+      - Contacts - Relationships
+      x-accepts: application/json
+    put:
+      operationId: EditRelationship
+      parameters:
+      - description: relationshipId to update associated record
+        explode: false
+        in: path
+        name: relationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RelationshipSaveDto'
+        description: RelationshipSaveDto object to update
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a relationship type
+      tags:
+      - Contacts - Relationships
+      x-contentType: application/json-patch+json
+      x-accepts: application/json
+  /v1/symbols-relationships/{symbolsRelationshipId}:
+    delete:
+      operationId: DeleteSymbolsRelationship
+      parameters:
+      - description: symbolsRelationshipId to delete associated record
+        explode: false
+        in: path
+        name: symbolsRelationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Delete a symbol relationship
+      tags:
+      - CustomSymbols - Relationships
+      x-accepts: application/json
+    put:
+      operationId: EditSymbolsRelationship
+      parameters:
+      - description: symbolsRelationshipId to update associated record
+        explode: false
+        in: path
+        name: symbolsRelationshipId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SymbolsRelationShipSaveDto'
+        description: SymbolsRelationShipSaveDto object to update
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Error
+      summary: Edit a symbol relationship
+      tags:
+      - CustomSymbols - Relationships
+      x-contentType: application/json-patch+json
       x-accepts: application/json
 components:
   schemas:
-    TeamSummaryDto:
+    ApprovalLevelConfigDto:
       additionalProperties: false
       example:
-        code: code
-        name: name
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        ApproverIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
       properties:
-        id:
-          format: uuid
-          type: string
-        name:
+        Name:
           nullable: true
           type: string
-        code:
+        ApproverIds:
+          items:
+            format: uuid
+            type: string
           nullable: true
-          type: string
+          type: array
       type: object
-    UserConfigDto:
+    ApprovalProcessConfigDto:
       additionalProperties: false
       example:
-        firstName: firstName
-        lastName: lastName
-        emailAddress: emailAddress
-        serialNumber: serialNumber
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        team:
-          code: code
-          name: name
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        userName: userName
+        ShouldSendEmailAlertsToAuthor: true
+        ViewerIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        ShouldSendEmailAlertsWhenDenied: true
+        CanAuthorSelfApprove: true
+        ShouldSendEmailAlertsWhenSubmittedForApproval: true
+        ShouldSendEmailAlertsWhenApproved: true
+        ApprovalLevels:
+        - ApproverIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        - ApproverIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        ShouldSendEmailAlertsToApprovers: true
+        ShouldSendEmailAlertsToViewers: true
+        CanAuthorEditPending: true
       properties:
-        id:
+        ApprovalLevels:
+          items:
+            $ref: '#/components/schemas/ApprovalLevelConfigDto'
+          nullable: true
+          type: array
+        ViewerIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        ShouldSendEmailAlertsWhenSubmittedForApproval:
+          type: boolean
+        ShouldSendEmailAlertsWhenApproved:
+          type: boolean
+        ShouldSendEmailAlertsWhenDenied:
+          type: boolean
+        ShouldSendEmailAlertsToAuthor:
+          type: boolean
+        ShouldSendEmailAlertsToApprovers:
+          type: boolean
+        ShouldSendEmailAlertsToViewers:
+          type: boolean
+        CanAuthorSelfApprove:
+          type: boolean
+        CanAuthorEditPending:
+          type: boolean
+      type: object
+    AuthorConfigDto:
+      additionalProperties: false
+      example:
+        UserName: UserName
+        SerialNumber: SerialNumber
+        FirstName: FirstName
+        IsActive: true
+        Team:
+          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Code: Code
+          Name: Name
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        LastName: LastName
+        EmailAddress: EmailAddress
+      properties:
+        Id:
           format: uuid
           type: string
-        userName:
+        UserName:
           nullable: true
           type: string
-        serialNumber:
+        SerialNumber:
           nullable: true
           type: string
-        firstName:
+        FirstName:
           nullable: true
           type: string
-        lastName:
+        LastName:
           nullable: true
           type: string
-        emailAddress:
+        EmailAddress:
           nullable: true
           type: string
-        team:
+        IsActive:
+          type: boolean
+        Team:
           $ref: '#/components/schemas/TeamSummaryDto'
       type: object
-    ProblemDetails:
+    ClientSalesRepresentativeDto:
       additionalProperties: false
+      example:
+        Fullname: Fullname
+        EmailAddress: EmailAddress
+      properties:
+        Fullname:
+          nullable: true
+          type: string
+        EmailAddress:
+          nullable: true
+          type: string
+      type: object
+    CommentaryConfigDto:
+      additionalProperties: false
+      example:
+        ShouldSendEmailAlertsToAuthor: true
+        ShouldSendEmailAlertsToAll: true
+        ShouldSendEmailAlertsToCommenters: true
+      properties:
+        ShouldSendEmailAlertsToAuthor:
+          type: boolean
+        ShouldSendEmailAlertsToCommenters:
+          type: boolean
+        ShouldSendEmailAlertsToAll:
+          type: boolean
+      type: object
+    ContactCustomFieldDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        Type: Type
+        IsMandatory: true
+        FormulaConfig:
+          Formula: Formula
+          FormulaType: FormulaType
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        ContactCustomFieldOptions:
+        - Order: 0
+          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        - Order: 0
+          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        Code: Code
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Code:
+          nullable: true
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Type:
+          nullable: true
+          type: string
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        FormulaConfig:
+          $ref: '#/components/schemas/FormulaConfigDto'
+        ContactCustomFieldOptions:
+          items:
+            $ref: '#/components/schemas/ContactCustomFieldOptionDto'
+          nullable: true
+          type: array
+      type: object
+    ContactCustomFieldFormulaDto:
+      additionalProperties: false
+      example:
+        Formula: Formula
+        Symbol: Symbol
+        IsScreening: false
+      properties:
+        Formula:
+          maxLength: 2040
+          nullable: true
+          type: string
+        IsScreening:
+          default: false
+          type: boolean
+        Symbol:
+          nullable: true
+          type: string
+      type: object
+    ContactCustomFieldOptionDto:
+      additionalProperties: false
+      example:
+        Order: 0
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Order:
+          format: int32
+          type: integer
+      type: object
+    ContactCustomFieldOptionSaveDto:
+      additionalProperties: false
+      example:
+        Name: Name
+      properties:
+        Name:
+          maxLength: 255
+          type: string
+      required:
+      - Name
+      type: object
+    ContactCustomFieldSaveDto:
+      additionalProperties: false
+      example:
+        IsHidden: false
+        IsMandatory: false
+        FieldFormula:
+          Formula: Formula
+          Symbol: Symbol
+          IsScreening: false
+        ContactCustomFieldOptions:
+        - Name: Name
+        - Name: Name
+        Code: Code
+        Name: Name
+      properties:
+        Code:
+          maxLength: 32
+          type: string
+        Name:
+          maxLength: 100
+          type: string
+        Type:
+          $ref: '#/components/schemas/ContactCustomFieldType'
+        IsHidden:
+          default: false
+          type: boolean
+        IsMandatory:
+          default: false
+          type: boolean
+        FieldFormula:
+          $ref: '#/components/schemas/ContactCustomFieldFormulaDto'
+        ContactCustomFieldOptions:
+          items:
+            $ref: '#/components/schemas/ContactCustomFieldOptionSaveDto'
+          nullable: true
+          type: array
+      required:
+      - Code
+      - IsHidden
+      - IsMandatory
+      - Name
+      - Type
+      type: object
+    ContactCustomFieldType:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      format: int32
+      type: integer
+    ContactRoleDto:
+      additionalProperties: false
+      example:
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          maxLength: 50
+          minLength: 0
+          type: string
+      required:
+      - Id
+      - Name
+      type: object
+    ContactTypeDto:
+      additionalProperties: false
+      example:
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          maxLength: 50
+          minLength: 0
+          type: string
+      required:
+      - Id
+      - Name
+      type: object
+    CreateCustomSymbolCustomFieldDto:
+      additionalProperties: false
+      example:
+        IsHidden: false
+        Type: Type
+        IsShownInInfobox: true
+        IsMandatory: false
+        FormulaConfig:
+          Formula: Formula
+          FormulaType: FormulaType
+        OptionsConfig:
+        - OptionsConfig
+        - OptionsConfig
+        Code: Code
+        CustomSymbolTypes:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Code:
+          maxLength: 32
+          type: string
+        Name:
+          maxLength: 100
+          type: string
+        Type:
+          description: Type can be one of Text, SingleOption, MultiOptions, Numeric,
+            Date, ExtendedText, ContactLookup
+          type: string
+        IsHidden:
+          default: false
+          type: boolean
+        IsMandatory:
+          default: false
+          type: boolean
+        IsShownInInfobox:
+          default: true
+          type: boolean
+        FormulaConfig:
+          $ref: '#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto'
+        OptionsConfig:
+          items:
+            type: string
+          nullable: true
+          type: array
+        CustomSymbolTypes:
+          items:
+            format: uuid
+            type: string
+          type: array
+      required:
+      - Code
+      - CustomSymbolTypes
+      - IsHidden
+      - IsMandatory
+      - IsShownInInfobox
+      - Name
+      - Type
+      type: object
+    CustomFieldConfigDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        UsePreviousValue: true
+        OptionsConfig:
+          OnTheFlyEnabled: true
+          Options:
+          - Options
+          - Options
+          MultiSelectEnabled: true
+        Code: Code
+        Source: Source
+        Name: Name
+        Type: Type
+        IsMandatory: true
+        FormulaConfig:
+          Formula: Formula
+          FormulaType: FormulaType
+        IntegerConfig:
+          SplitType: SplitType
+        NumericConfig:
+          SplitType: SplitType
+          Decimals: 0
+        ExtendedTextConfig:
+          MaxChars: 6
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        IsFilePath: true
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Code:
+          nullable: true
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Source:
+          nullable: true
+          type: string
+        Type:
+          nullable: true
+          type: string
+        UsePreviousValue:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        IsHidden:
+          type: boolean
+        IsFilePath:
+          type: boolean
+        FormulaConfig:
+          $ref: '#/components/schemas/FormulaConfigDto'
+        NumericConfig:
+          $ref: '#/components/schemas/NumericConfigDto'
+        IntegerConfig:
+          $ref: '#/components/schemas/IntegerConfigDto'
+        ExtendedTextConfig:
+          $ref: '#/components/schemas/ExtendedTextConfigDto'
+        OptionsConfig:
+          $ref: '#/components/schemas/OptionsConfigDto'
+      type: object
+    CustomSymbolCustomFieldConfigDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        Type: Type
+        IsShownInInfobox: true
+        IsMandatory: true
+        FormulaConfig:
+          Formula: Formula
+          FormulaType: FormulaType
+        OptionsConfig:
+        - OptionsConfig
+        - OptionsConfig
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Code: Code
+        CustomSymbolTypes:
+        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Code:
+          nullable: true
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Type:
+          nullable: true
+          type: string
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        IsShownInInfobox:
+          type: boolean
+        FormulaConfig:
+          $ref: '#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto'
+        OptionsConfig:
+          items:
+            type: string
+          nullable: true
+          type: array
+        CustomSymbolTypes:
+          items:
+            $ref: '#/components/schemas/CustomSymbolTypeSummaryDto'
+          nullable: true
+          type: array
+      type: object
+    CustomSymbolCustomFieldFormulaConfigDto:
+      additionalProperties: false
+      example:
+        Formula: Formula
+        FormulaType: FormulaType
+      properties:
+        Formula:
+          maxLength: 2040
+          type: string
+        FormulaType:
+          type: string
+      required:
+      - Formula
+      - FormulaType
+      type: object
+    CustomSymbolSubTypeDto:
+      additionalProperties: false
+      example:
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+      type: object
+    CustomSymbolTypeDetailDto:
+      additionalProperties: false
+      example:
+        IsDefault: true
+        HideSymbolSubType: true
+        SubTypes:
+        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        HideAddressField: true
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        HideAddressField:
+          type: boolean
+        HideSymbolSubType:
+          type: boolean
+        IsDefault:
+          type: boolean
+        DueDiligenceSymbolEntityType:
+          $ref: '#/components/schemas/EntityType'
+        SubTypes:
+          items:
+            $ref: '#/components/schemas/CustomSymbolSubTypeDto'
+          nullable: true
+          type: array
+      type: object
+    CustomSymbolTypeDto:
+      additionalProperties: false
+      example:
+        IsDefault: true
+        Order: 0
+        HideSymbolSubType: true
+        HideAddressField: true
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        HideAddressField:
+          type: boolean
+        HideSymbolSubType:
+          type: boolean
+        IsDefault:
+          type: boolean
+        Order:
+          format: int32
+          type: integer
+        DueDiligenceSymbolEntityType:
+          $ref: '#/components/schemas/EntityType'
+      type: object
+    CustomSymbolTypeSummaryDto:
+      additionalProperties: false
+      example:
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+      type: object
+    DateSettingsDto:
+      additionalProperties: false
+      example:
+        AllowEdit: true
+        IsLocked: true
+      properties:
+        AllowEdit:
+          type: boolean
+        IsLocked:
+          type: boolean
+      type: object
+    EntityType:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      format: int32
+      type: integer
+    ExtendedTextConfigDto:
+      additionalProperties: false
+      example:
+        MaxChars: 6
+      properties:
+        MaxChars:
+          format: int32
+          type: integer
+      type: object
+    FormulaConfigDto:
+      additionalProperties: false
+      example:
+        Formula: Formula
+        FormulaType: FormulaType
+      properties:
+        Formula:
+          nullable: true
+          type: string
+        FormulaType:
+          nullable: true
+          type: string
+      type: object
+    GroupConfigDto:
+      additionalProperties: false
+      example:
+        Fields:
+          RelatedContacts:
+            IsHidden: true
+            IsMandatory: true
+            UsePrevious: true
+          RelatedResearch:
+            IsHidden: true
+            IsMandatory: true
+            UsePrevious: true
+          Organizer:
+            IsHidden: true
+            IsMandatory: true
+          Title:
+            UsePrevious: true
+          Date:
+            AllowEdit: true
+            IsLocked: true
+          Subject:
+            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Recommendation:
+            IsHidden: true
+            IsMandatory: true
+            UsePrevious: true
+            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Sentiment:
+            IsHidden: true
+            IsMandatory: true
+            UsePrevious: true
+            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Source:
+            IsHidden: true
+            IsMandatory: true
+            UsePrevious: true
+          RelatedSymbols:
+            IsHidden: true
+            IsMandatory: true
+            UsePrevious: true
+          Identifier:
+            AllowEdit: true
+          Note:
+            IsHidden: true
+            DefaultStatus: DefaultStatus
+            IsMandatory: true
+            UsePrevious: true
+            AllowPersonal: true
+            AlternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Team:
+            DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Link:
+            IsHidden: true
+            IsMandatory: true
+            UsePrevious: true
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Fields:
+          $ref: '#/components/schemas/GroupFieldsDto'
+      type: object
+    GroupFieldsDto:
+      additionalProperties: false
+      example:
+        RelatedContacts:
+          IsHidden: true
+          IsMandatory: true
+          UsePrevious: true
+        RelatedResearch:
+          IsHidden: true
+          IsMandatory: true
+          UsePrevious: true
+        Organizer:
+          IsHidden: true
+          IsMandatory: true
+        Title:
+          UsePrevious: true
+        Date:
+          AllowEdit: true
+          IsLocked: true
+        Subject:
+          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Recommendation:
+          IsHidden: true
+          IsMandatory: true
+          UsePrevious: true
+          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Sentiment:
+          IsHidden: true
+          IsMandatory: true
+          UsePrevious: true
+          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Source:
+          IsHidden: true
+          IsMandatory: true
+          UsePrevious: true
+        RelatedSymbols:
+          IsHidden: true
+          IsMandatory: true
+          UsePrevious: true
+        Identifier:
+          AllowEdit: true
+        Note:
+          IsHidden: true
+          DefaultStatus: DefaultStatus
+          IsMandatory: true
+          UsePrevious: true
+          AllowPersonal: true
+          AlternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Team:
+          DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Link:
+          IsHidden: true
+          IsMandatory: true
+          UsePrevious: true
+      properties:
+        Title:
+          $ref: '#/components/schemas/TitleSettingsDto'
+        Date:
+          $ref: '#/components/schemas/DateSettingsDto'
+        Identifier:
+          $ref: '#/components/schemas/IdentifierSettingsDto'
+        Subject:
+          $ref: '#/components/schemas/SubjectSettingsDto'
+        Recommendation:
+          $ref: '#/components/schemas/RecommendationSettingsDto'
+        Sentiment:
+          $ref: '#/components/schemas/SentimentSettingsDto'
+        Link:
+          $ref: '#/components/schemas/LinkSettingsDto'
+        Note:
+          $ref: '#/components/schemas/NoteSettingsDto'
+        Source:
+          $ref: '#/components/schemas/SourceSettingsDto'
+        RelatedSymbols:
+          $ref: '#/components/schemas/RelatedSymbolsSettingsDto'
+        RelatedResearch:
+          $ref: '#/components/schemas/RelatedResearchSettingsDto'
+        RelatedContacts:
+          $ref: '#/components/schemas/RelatedContactsSettingsDto'
+        Team:
+          $ref: '#/components/schemas/TeamSettingsDto'
+        Organizer:
+          $ref: '#/components/schemas/OrganizerSettingsDto'
+      type: object
+    HeadlineFormatConfigDto:
+      additionalProperties: false
+      example:
+        CustomFieldName: CustomFieldName
+        CustomString: CustomString
+        Name: Name
+      properties:
+        Name:
+          nullable: true
+          type: string
+        CustomString:
+          nullable: true
+          type: string
+        CustomFieldName:
+          nullable: true
+          type: string
+      type: object
+    IdentifierSettingsDto:
+      additionalProperties: false
+      example:
+        AllowEdit: true
+      properties:
+        AllowEdit:
+          type: boolean
+      type: object
+    IntegerConfigDto:
+      additionalProperties: false
+      example:
+        SplitType: SplitType
+      properties:
+        SplitType:
+          nullable: true
+          type: string
+      type: object
+    LinkSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+        UsePrevious: true
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+      type: object
+    NewItemDto:
+      additionalProperties: false
+      example:
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        Id:
+          format: uuid
+          type: string
+      type: object
+    NoteSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        DefaultStatus: DefaultStatus
+        IsMandatory: true
+        UsePrevious: true
+        AllowPersonal: true
+        AlternativeCustomFieldId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+        AllowPersonal:
+          type: boolean
+        DefaultStatus:
+          nullable: true
+          type: string
+        AlternativeCustomFieldId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    NumericConfigDto:
+      additionalProperties: false
+      example:
+        SplitType: SplitType
+        Decimals: 0
+      properties:
+        Decimals:
+          format: int32
+          type: integer
+        SplitType:
+          nullable: true
+          type: string
+      type: object
+    Operation:
+      additionalProperties: false
+      example:
+        path: path
+        op: op
+        from: from
+        value: ""
+      properties:
+        OperationType:
+          $ref: '#/components/schemas/OperationType'
+        path:
+          nullable: true
+          type: string
+        op:
+          nullable: true
+          type: string
+        from:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+      type: object
+    OperationType:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      format: int32
+      type: integer
+    OptionsConfigDto:
+      additionalProperties: false
+      example:
+        OnTheFlyEnabled: true
+        Options:
+        - Options
+        - Options
+        MultiSelectEnabled: true
+      properties:
+        MultiSelectEnabled:
+          type: boolean
+        OnTheFlyEnabled:
+          type: boolean
+        Options:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    OrganizerSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+      type: object
+    PhoneNumberTypeDto:
+      additionalProperties: false
+      example:
+        IsStandard: true
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        IsStandard:
+          type: boolean
+      type: object
+    ProblemDetails:
+      additionalProperties: {}
       properties:
         type:
           nullable: true
@@ -364,544 +2934,802 @@ components:
         instance:
           nullable: true
           type: string
-        extensions:
-          additionalProperties:
-            additionalProperties: false
-            type: object
-          nullable: true
-          readOnly: true
-          type: object
-      type: object
-    FormulaConfigDto:
-      additionalProperties: false
-      example:
-        formulaType: formulaType
-        formula: formula
-      properties:
-        formula:
-          nullable: true
-          type: string
-        formulaType:
-          nullable: true
-          type: string
-      type: object
-    NumericConfigDto:
-      additionalProperties: false
-      example:
-        decimals: 0
-        splitType: splitType
-      properties:
-        decimals:
-          format: int32
-          type: integer
-        splitType:
-          nullable: true
-          type: string
-      type: object
-    IntegerConfigDto:
-      additionalProperties: false
-      example:
-        splitType: splitType
-      properties:
-        splitType:
-          nullable: true
-          type: string
-      type: object
-    ExtendedTextConfigDto:
-      additionalProperties: false
-      example:
-        maxChars: 6
-      properties:
-        maxChars:
-          format: int32
-          type: integer
-      type: object
-    OptionsConfigDto:
-      additionalProperties: false
-      example:
-        multiSelectEnabled: true
-        options:
-        - options
-        - options
-        onTheFlyEnabled: true
-      properties:
-        multiSelectEnabled:
-          type: boolean
-        onTheFlyEnabled:
-          type: boolean
-        options:
-          items:
-            type: string
-          nullable: true
-          type: array
-      type: object
-    CustomFieldConfigDto:
-      additionalProperties: false
-      example:
-        usePreviousValue: true
-        code: code
-        optionsConfig:
-          multiSelectEnabled: true
-          options:
-          - options
-          - options
-          onTheFlyEnabled: true
-        source: source
-        type: type
-        isHidden: true
-        extendedTextConfig:
-          maxChars: 6
-        formulaConfig:
-          formulaType: formulaType
-          formula: formula
-        numericConfig:
-          decimals: 0
-          splitType: splitType
-        integerConfig:
-          splitType: splitType
-        name: name
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        isMandatory: true
-      properties:
-        id:
-          format: uuid
-          type: string
-        code:
-          nullable: true
-          type: string
-        name:
-          nullable: true
-          type: string
-        source:
-          nullable: true
-          type: string
-        type:
-          nullable: true
-          type: string
-        usePreviousValue:
-          type: boolean
-        isMandatory:
-          type: boolean
-        isHidden:
-          type: boolean
-        formulaConfig:
-          $ref: '#/components/schemas/FormulaConfigDto'
-        numericConfig:
-          $ref: '#/components/schemas/NumericConfigDto'
-        integerConfig:
-          $ref: '#/components/schemas/IntegerConfigDto'
-        extendedTextConfig:
-          $ref: '#/components/schemas/ExtendedTextConfigDto'
-        optionsConfig:
-          $ref: '#/components/schemas/OptionsConfigDto'
-      type: object
-    SubjectSettingsDto:
-      additionalProperties: false
-      example:
-        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        defaultId:
-          format: uuid
-          nullable: true
-          type: string
-      type: object
-    RecommendationSettingsDto:
-      additionalProperties: false
-      example:
-        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        defaultId:
-          format: uuid
-          nullable: true
-          type: string
-      type: object
-    SentimentSettingsDto:
-      additionalProperties: false
-      example:
-        defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        defaultId:
-          format: uuid
-          nullable: true
-          type: string
-      type: object
-    GroupFieldsDto:
-      additionalProperties: false
-      example:
-        sentiment:
-          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        subject:
-          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        recommendation:
-          defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        subject:
-          $ref: '#/components/schemas/SubjectSettingsDto'
-        recommendation:
-          $ref: '#/components/schemas/RecommendationSettingsDto'
-        sentiment:
-          $ref: '#/components/schemas/SentimentSettingsDto'
-      type: object
-    GroupConfigDto:
-      additionalProperties: false
-      example:
-        name: name
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        fields:
-          sentiment:
-            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          subject:
-            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          recommendation:
-            defaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      properties:
-        id:
-          format: uuid
-          type: string
-        name:
-          nullable: true
-          type: string
-        fields:
-          $ref: '#/components/schemas/GroupFieldsDto'
-      type: object
-    ClientSalesRepresentativeDto:
-      additionalProperties: false
-      example:
-        emailAddress: emailAddress
-        fullname: fullname
-      properties:
-        fullname:
-          nullable: true
-          type: string
-        emailAddress:
-          nullable: true
-          type: string
-      type: object
-    RecommendationConfigDto:
-      additionalProperties: false
-      example:
-        code: 0
-        name: name
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        isHidden: true
-      properties:
-        id:
-          format: uuid
-          type: string
-        name:
-          nullable: true
-          type: string
-        code:
-          format: int32
-          type: integer
-        isHidden:
-          type: boolean
-      type: object
-    SentimentConfigDto:
-      additionalProperties: false
-      example:
-        code: 0
-        name: name
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        isHidden: true
-      properties:
-        id:
-          format: uuid
-          type: string
-        name:
-          nullable: true
-          type: string
-        code:
-          format: int32
-          type: integer
-        isHidden:
-          type: boolean
-      type: object
-    SubjectSummaryDto:
-      additionalProperties: false
-      example:
-        code: code
-        name: name
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        identifierType: identifierType
-        isHidden: true
-      properties:
-        id:
-          format: uuid
-          type: string
-        name:
-          nullable: true
-          type: string
-        code:
-          nullable: true
-          type: string
-        identifierType:
-          nullable: true
-          type: string
-        isHidden:
-          type: boolean
-      type: object
-    ApprovalLevelConfigDto:
-      additionalProperties: false
-      example:
-        approverIds:
-        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        name: name
-      properties:
-        name:
-          nullable: true
-          type: string
-        approverIds:
-          items:
-            format: uuid
-            type: string
-          nullable: true
-          type: array
-      type: object
-    ApprovalProcessConfigDto:
-      additionalProperties: false
-      example:
-        shouldSendEmailAlertsWhenSubmittedForApproval: true
-        shouldSendEmailAlertsWhenApproved: true
-        shouldSendEmailAlertsToAuthor: true
-        viewerIds:
-        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        shouldSendEmailAlertsToApprovers: true
-        shouldSendEmailAlertsToViewers: true
-        canAuthorEditPending: true
-        approvalLevels:
-        - approverIds:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
-        - approverIds:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
-        shouldSendEmailAlertsWhenDenied: true
-        canAuthorSelfApprove: true
-      properties:
-        approvalLevels:
-          items:
-            $ref: '#/components/schemas/ApprovalLevelConfigDto'
-          nullable: true
-          type: array
-        viewerIds:
-          items:
-            format: uuid
-            type: string
-          nullable: true
-          type: array
-        shouldSendEmailAlertsWhenSubmittedForApproval:
-          type: boolean
-        shouldSendEmailAlertsWhenApproved:
-          type: boolean
-        shouldSendEmailAlertsWhenDenied:
-          type: boolean
-        shouldSendEmailAlertsToAuthor:
-          type: boolean
-        shouldSendEmailAlertsToApprovers:
-          type: boolean
-        shouldSendEmailAlertsToViewers:
-          type: boolean
-        canAuthorSelfApprove:
-          type: boolean
-        canAuthorEditPending:
-          type: boolean
-      type: object
-    CommentaryConfigDto:
-      additionalProperties: false
-      example:
-        shouldSendEmailAlertsToAuthor: true
-        shouldSendEmailAlertsToCommenters: true
-        shouldSendEmailAlertsToAll: true
-      properties:
-        shouldSendEmailAlertsToAuthor:
-          type: boolean
-        shouldSendEmailAlertsToCommenters:
-          type: boolean
-        shouldSendEmailAlertsToAll:
-          type: boolean
-      type: object
-    HeadlineFormatConfigDto:
-      additionalProperties: false
-      example:
-        name: name
-        customFieldName: customFieldName
-        customString: customString
-      properties:
-        name:
-          nullable: true
-          type: string
-        customString:
-          nullable: true
-          type: string
-        customFieldName:
-          nullable: true
-          type: string
       type: object
     RatingConfigDto:
       additionalProperties: false
       example:
-        viewerIds:
+        RatingsVisibleToAuthor: true
+        ViewerIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        ratingsVisibleToAll: true
-        ratingsVisibleToViewers: true
-        ratingsVisibleToAuthor: true
-        optionValues:
+        OptionValues:
         - 0
         - 0
+        RatingsVisibleToViewers: true
+        RatingsVisibleToAll: true
       properties:
-        ratingsVisibleToAuthor:
+        RatingsVisibleToAuthor:
           type: boolean
-        ratingsVisibleToViewers:
+        RatingsVisibleToViewers:
           type: boolean
-        ratingsVisibleToAll:
+        RatingsVisibleToAll:
           type: boolean
-        viewerIds:
+        ViewerIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        optionValues:
+        OptionValues:
           items:
             format: int32
             type: integer
           nullable: true
           type: array
       type: object
-    SubjectConfigDto:
+    RecommendationConfigDto:
       additionalProperties: false
       example:
-        code: code
-        customFieldIds:
-        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        name: name
-        commentaryConfig:
-          shouldSendEmailAlertsToAuthor: true
-          shouldSendEmailAlertsToCommenters: true
-          shouldSendEmailAlertsToAll: true
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        identifierType: identifierType
-        approvalProcessConfig:
-          shouldSendEmailAlertsWhenSubmittedForApproval: true
-          shouldSendEmailAlertsWhenApproved: true
-          shouldSendEmailAlertsToAuthor: true
-          viewerIds:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          shouldSendEmailAlertsToApprovers: true
-          shouldSendEmailAlertsToViewers: true
-          canAuthorEditPending: true
-          approvalLevels:
-          - approverIds:
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            name: name
-          - approverIds:
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            name: name
-          shouldSendEmailAlertsWhenDenied: true
-          canAuthorSelfApprove: true
-        ratingConfig:
-          viewerIds:
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          ratingsVisibleToAll: true
-          ratingsVisibleToViewers: true
-          ratingsVisibleToAuthor: true
-          optionValues:
-          - 0
-          - 0
-        newsHeadlineFormat:
-        - name: name
-          customFieldName: customFieldName
-          customString: customString
-        - name: name
-          customFieldName: customFieldName
-          customString: customString
-        isHidden: true
-        emailHeadlineFormat:
-        - name: name
-          customFieldName: customFieldName
-          customString: customString
-        - name: name
-          customFieldName: customFieldName
-          customString: customString
+        IsHidden: true
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Code: 0
+        Name: Name
       properties:
-        id:
+        Id:
           format: uuid
           type: string
-        name:
+        Name:
           nullable: true
           type: string
-        code:
-          nullable: true
-          type: string
-        isHidden:
+        Code:
+          format: int32
+          type: integer
+        IsHidden:
           type: boolean
-        identifierType:
+      type: object
+    RecommendationSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+        UsePrevious: true
+        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+        DefaultId:
+          format: uuid
           nullable: true
           type: string
-        customFieldIds:
+      type: object
+    RelatedContactsSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+        UsePrevious: true
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+      type: object
+    RelatedResearchSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+        UsePrevious: true
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+      type: object
+    RelatedSymbolsSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+        UsePrevious: true
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+      type: object
+    RelationshipCategoryDto:
+      additionalProperties: false
+      example:
+        IsStandard: true
+        Relationships:
+        - RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          RightToLeftName: RightToLeftName
+          RelationshipCode: RelationshipCode
+          LeftToRightName: LeftToRightName
+          HideCompany: true
+          IsCustomisable: true
+          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          BidirectionalName: BidirectionalName
+          HideDates: true
+          HideComment: true
+        - RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          RightToLeftName: RightToLeftName
+          RelationshipCode: RelationshipCode
+          LeftToRightName: LeftToRightName
+          HideCompany: true
+          IsCustomisable: true
+          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          BidirectionalName: BidirectionalName
+          HideDates: true
+          HideComment: true
+        IsContactToSymbol: true
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        IsContactToContact: true
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        IsStandard:
+          type: boolean
+        IsContactToContact:
+          type: boolean
+        IsContactToSymbol:
+          type: boolean
+        Relationships:
+          items:
+            $ref: '#/components/schemas/RelationshipDto'
+          nullable: true
+          type: array
+      type: object
+    RelationshipCategoryListDto:
+      additionalProperties: false
+      example:
+        Ids:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        Ids:
+          items:
+            format: uuid
+            type: string
+          type: array
+      required:
+      - Ids
+      type: object
+    RelationshipCategorySaveDto:
+      additionalProperties: false
+      example:
+        IsContactToSymbol: false
+        CategoryName: CategoryName
+        IsContactToContact: false
+      properties:
+        CategoryName:
+          maxLength: 50
+          minLength: 0
+          type: string
+        IsContactToContact:
+          default: false
+          type: boolean
+        IsContactToSymbol:
+          default: false
+          type: boolean
+      required:
+      - CategoryName
+      type: object
+    RelationshipDto:
+      additionalProperties: false
+      example:
+        RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        RightToLeftName: RightToLeftName
+        RelationshipCode: RelationshipCode
+        LeftToRightName: LeftToRightName
+        HideCompany: true
+        IsCustomisable: true
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        BidirectionalName: BidirectionalName
+        HideDates: true
+        HideComment: true
+      properties:
+        Id:
+          format: uuid
+          type: string
+        RelationshipCategoryId:
+          format: uuid
+          type: string
+        RelationshipCode:
+          nullable: true
+          type: string
+        BidirectionalName:
+          nullable: true
+          type: string
+        LeftToRightName:
+          nullable: true
+          type: string
+        RightToLeftName:
+          nullable: true
+          type: string
+        HideDates:
+          type: boolean
+        HideComment:
+          type: boolean
+        HideCompany:
+          type: boolean
+        IsCustomisable:
+          type: boolean
+      type: object
+    RelationshipSaveDto:
+      additionalProperties: false
+      example:
+        RelationshipCategoryId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        RightToLeftName: RightToLeftName
+        RelationshipCode: RelationshipCode
+        LeftToRightName: LeftToRightName
+        HideCompany: false
+        BidirectionalName: BidirectionalName
+        HideDates: false
+        HideComment: false
+      properties:
+        RelationshipCategoryId:
+          format: uuid
+          type: string
+        RelationshipCode:
+          maxLength: 5
+          minLength: 0
+          nullable: true
+          type: string
+        BidirectionalName:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        LeftToRightName:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        RightToLeftName:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        HideDates:
+          default: false
+          type: boolean
+        HideComment:
+          default: false
+          type: boolean
+        HideCompany:
+          default: false
+          type: boolean
+      required:
+      - HideComment
+      - HideCompany
+      - HideDates
+      - RelationshipCategoryId
+      type: object
+    RelationshipType:
+      enum:
+      - 0
+      - 1
+      - 2
+      format: int32
+      type: integer
+    ReorderCustomSymbolTypeDto:
+      additionalProperties: false
+      example:
+        Ids:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        Ids:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
-        approvalProcessConfig:
+      type: object
+    SaveCustomSymbolTypeDto:
+      additionalProperties: false
+      example:
+        IsDefault: false
+        HideSymbolSubtype: true
+        SubTypes:
+        - SubTypes
+        - SubTypes
+        HideAddressField: true
+        CustomFieldIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Name:
+          maxLength: 100
+          minLength: 0
+          type: string
+        HideAddressField:
+          type: boolean
+        HideSymbolSubtype:
+          type: boolean
+        IsDefault:
+          default: false
+          type: boolean
+        DueDiligenceSymbolEntityType:
+          $ref: '#/components/schemas/EntityType'
+        SubTypes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        CustomFieldIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+      required:
+      - Name
+      type: object
+    SentimentConfigDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        Color: Color
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Code: 0
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Code:
+          format: int32
+          type: integer
+        Color:
+          nullable: true
+          type: string
+        IsHidden:
+          type: boolean
+      type: object
+    SentimentSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+        UsePrevious: true
+        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+        DefaultId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    SourceSettingsDto:
+      additionalProperties: false
+      example:
+        IsHidden: true
+        IsMandatory: true
+        UsePrevious: true
+      properties:
+        IsHidden:
+          type: boolean
+        IsMandatory:
+          type: boolean
+        UsePrevious:
+          type: boolean
+      type: object
+    SubjectConfigDto:
+      additionalProperties: false
+      example:
+        IdentifierTypes:
+        - IdentifierTypes
+        - IdentifierTypes
+        IsHidden: true
+        NoteLengthLimit: 6
+        NewsHeadlineFormat:
+        - CustomFieldName: CustomFieldName
+          CustomString: CustomString
+          Name: Name
+        - CustomFieldName: CustomFieldName
+          CustomString: CustomString
+          Name: Name
+        EmailHeadlineFormat:
+        - CustomFieldName: CustomFieldName
+          CustomString: CustomString
+          Name: Name
+        - CustomFieldName: CustomFieldName
+          CustomString: CustomString
+          Name: Name
+        Code: Code
+        IdentifierType: IdentifierType
+        Name: Name
+        RatingConfig:
+          RatingsVisibleToAuthor: true
+          ViewerIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          OptionValues:
+          - 0
+          - 0
+          RatingsVisibleToViewers: true
+          RatingsVisibleToAll: true
+        Type: Type
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        ApprovalProcessConfig:
+          ShouldSendEmailAlertsToAuthor: true
+          ViewerIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          ShouldSendEmailAlertsWhenDenied: true
+          CanAuthorSelfApprove: true
+          ShouldSendEmailAlertsWhenSubmittedForApproval: true
+          ShouldSendEmailAlertsWhenApproved: true
+          ApprovalLevels:
+          - ApproverIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            Name: Name
+          - ApproverIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            Name: Name
+          ShouldSendEmailAlertsToApprovers: true
+          ShouldSendEmailAlertsToViewers: true
+          CanAuthorEditPending: true
+        CustomFieldIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        CommentaryConfig:
+          ShouldSendEmailAlertsToAuthor: true
+          ShouldSendEmailAlertsToAll: true
+          ShouldSendEmailAlertsToCommenters: true
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Code:
+          nullable: true
+          type: string
+        IsHidden:
+          type: boolean
+        IdentifierType:
+          nullable: true
+          type: string
+        IdentifierTypes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        Type:
+          nullable: true
+          type: string
+        CustomFieldIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        ApprovalProcessConfig:
           $ref: '#/components/schemas/ApprovalProcessConfigDto'
-        commentaryConfig:
+        CommentaryConfig:
           $ref: '#/components/schemas/CommentaryConfigDto'
-        newsHeadlineFormat:
+        NewsHeadlineFormat:
           items:
             $ref: '#/components/schemas/HeadlineFormatConfigDto'
           nullable: true
           type: array
-        emailHeadlineFormat:
+        EmailHeadlineFormat:
           items:
             $ref: '#/components/schemas/HeadlineFormatConfigDto'
           nullable: true
           type: array
-        ratingConfig:
+        RatingConfig:
           $ref: '#/components/schemas/RatingConfigDto'
+        NoteLengthLimit:
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    SubjectSettingsDto:
+      additionalProperties: false
+      example:
+        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        DefaultId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    SubjectSummaryDto:
+      additionalProperties: false
+      example:
+        IdentifierTypes:
+        - IdentifierTypes
+        - IdentifierTypes
+        IsHidden: true
+        Type: Type
+        NoteLengthLimit: 0
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Code: Code
+        IdentifierType: IdentifierType
+        CustomFieldIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Code:
+          nullable: true
+          type: string
+        IdentifierType:
+          nullable: true
+          type: string
+        IdentifierTypes:
+          items:
+            type: string
+          nullable: true
+          type: array
+        Type:
+          nullable: true
+          type: string
+        IsHidden:
+          type: boolean
+        CustomFieldIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+        NoteLengthLimit:
+          format: int32
+          nullable: true
+          type: integer
+      type: object
+    SymbolsRelationShipSaveDto:
+      additionalProperties: false
+      example:
+        ParentToChildName: ParentToChildName
+        PeerName: PeerName
+        RelationshipCode: RelationshipCode
+        HideDates: true
+        ChildToParentName: ChildToParentName
+        HideComment: true
+      properties:
+        RelationshipCode:
+          maxLength: 3
+          minLength: 0
+          nullable: true
+          type: string
+        ParentToChildName:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        ChildToParentName:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        PeerName:
+          maxLength: 50
+          minLength: 0
+          nullable: true
+          type: string
+        HideDates:
+          default: true
+          type: boolean
+        HideComment:
+          default: true
+          type: boolean
+      required:
+      - HideComment
+      - HideDates
+      type: object
+    SymbolsRelationshipDto:
+      additionalProperties: false
+      example:
+        ParentToChildName: ParentToChildName
+        PeerName: PeerName
+        RelationshipCode: RelationshipCode
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        HideDates: true
+        ChildToParentName: ChildToParentName
+        HideComment: true
+      properties:
+        Id:
+          format: uuid
+          type: string
+        RelationshipCode:
+          nullable: true
+          type: string
+        ParentToChildName:
+          nullable: true
+          type: string
+        ChildToParentName:
+          nullable: true
+          type: string
+        PeerName:
+          nullable: true
+          type: string
+        HideDates:
+          type: boolean
+        HideComment:
+          type: boolean
       type: object
     TeamConfigDto:
       additionalProperties: false
       example:
-        code: code
-        userIds:
+        DefaultSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Code: Code
+        UserIds:
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        name: name
-        defaultSubjectId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
       properties:
-        id:
+        Id:
           format: uuid
           type: string
-        name:
+        Name:
           nullable: true
           type: string
-        code:
+        Code:
           nullable: true
           type: string
-        defaultSubjectId:
+        DefaultSubjectId:
           format: uuid
           nullable: true
           type: string
-        userIds:
+        UserIds:
           items:
             format: uuid
             type: string
           nullable: true
           type: array
+      type: object
+    TeamSettingsDto:
+      additionalProperties: false
+      example:
+        DefaultId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        DefaultId:
+          format: uuid
+          nullable: true
+          type: string
+      type: object
+    TeamSummaryDto:
+      additionalProperties: false
+      example:
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Code: Code
+        Name: Name
+      properties:
+        Id:
+          format: uuid
+          type: string
+        Name:
+          nullable: true
+          type: string
+        Code:
+          nullable: true
+          type: string
+      type: object
+    TitleSettingsDto:
+      additionalProperties: false
+      example:
+        UsePrevious: true
+      properties:
+        UsePrevious:
+          type: boolean
+      type: object
+    UpdateCustomSymbolTypeDto:
+      additionalProperties: false
+      example:
+        IsDefault: false
+        HideSymbolSubtype: true
+        SubTypes:
+        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        - Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Name: Name
+        HideAddressField: true
+        CustomFieldIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        Name: Name
+      properties:
+        Name:
+          maxLength: 100
+          minLength: 0
+          type: string
+        HideAddressField:
+          type: boolean
+        HideSymbolSubtype:
+          type: boolean
+        IsDefault:
+          default: false
+          type: boolean
+        DueDiligenceSymbolEntityType:
+          $ref: '#/components/schemas/EntityType'
+        SubTypes:
+          items:
+            $ref: '#/components/schemas/CustomSymbolSubTypeDto'
+          nullable: true
+          type: array
+        CustomFieldIds:
+          items:
+            format: uuid
+            type: string
+          nullable: true
+          type: array
+      required:
+      - Name
+      type: object
+    UserConfigDto:
+      additionalProperties: false
+      example:
+        UserName: UserName
+        SerialNumber: SerialNumber
+        FirstName: FirstName
+        Team:
+          Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          Code: Code
+          Name: Name
+        Id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        LastName: LastName
+        EmailAddress: EmailAddress
+      properties:
+        Id:
+          format: uuid
+          type: string
+        UserName:
+          nullable: true
+          type: string
+        SerialNumber:
+          nullable: true
+          type: string
+        FirstName:
+          nullable: true
+          type: string
+        LastName:
+          nullable: true
+          type: string
+        EmailAddress:
+          nullable: true
+          type: string
+        Team:
+          $ref: '#/components/schemas/TeamSummaryDto'
       type: object
   securitySchemes:
     FactSetOAuth2:

@@ -68,6 +68,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidation i
   public static final String JSON_PROPERTY_NOTATION_RESTRICTION_LIST = "notationRestrictionList";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationNotationRestrictionList notationRestrictionList;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidation() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidation onlyActive(Boolean onlyActive) {
     this.onlyActive = onlyActive;

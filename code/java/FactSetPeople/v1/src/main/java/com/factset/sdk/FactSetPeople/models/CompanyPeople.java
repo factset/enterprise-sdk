@@ -87,6 +87,8 @@ public class CompanyPeople implements Serializable {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
+  public CompanyPeople() { 
+  }
 
   public CompanyPeople fsymId(String fsymId) {
     this.fsymId = fsymId;

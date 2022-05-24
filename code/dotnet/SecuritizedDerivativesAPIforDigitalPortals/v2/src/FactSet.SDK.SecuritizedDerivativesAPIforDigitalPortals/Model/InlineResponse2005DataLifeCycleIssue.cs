@@ -64,7 +64,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataLifeCycleIssue {\n");
             sb.Append("  Minimum: ").Append(Minimum).Append("\n");
             sb.Append("  Maximum: ").Append(Maximum).Append("\n");
@@ -99,8 +99,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataLifeCycleIssue input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Minimum == input.Minimum ||
@@ -124,9 +125,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Minimum != null)
-                    hashCode = hashCode * 59 + this.Minimum.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Minimum.GetHashCode();
+                }
                 if (this.Maximum != null)
-                    hashCode = hashCode * 59 + this.Maximum.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Maximum.GetHashCode();
+                }
                 return hashCode;
             }
         }

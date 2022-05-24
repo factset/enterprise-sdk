@@ -55,6 +55,8 @@ public class NegativeCovenant implements Serializable {
   public static final String JSON_PROPERTY_NEG_COVENANT_TYPE = "negCovenantType";
   private String negCovenantType;
 
+  public NegativeCovenant() { 
+  }
 
   public NegativeCovenant requestId(String requestId) {
     this.requestId = requestId;

@@ -48,6 +48,8 @@ public class InlineResponse2006PerformanceSinceIssue implements Serializable {
   public static final String JSON_PROPERTY_BID = "bid";
   private BigDecimal bid;
 
+  public InlineResponse2006PerformanceSinceIssue() { 
+  }
 
   public InlineResponse2006PerformanceSinceIssue ask(BigDecimal ask) {
     this.ask = ask;

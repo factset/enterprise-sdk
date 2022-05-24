@@ -27,6 +27,7 @@ docs/Metric.md
 docs/MetricsRequest.md
 docs/MetricsResponse.md
 docs/Periodicity.md
+docs/PeriodicityDetail.md
 docs/PeriodicitySurprise.md
 docs/RatingsApi.md
 docs/RollingConsensusRequest.md
@@ -73,6 +74,7 @@ src/model/Metric.js
 src/model/MetricsRequest.js
 src/model/MetricsResponse.js
 src/model/Periodicity.js
+src/model/PeriodicityDetail.js
 src/model/PeriodicitySurprise.js
 src/model/RollingConsensusRequest.js
 src/model/RollingDetailRequest.js

@@ -18,7 +18,7 @@ import DateParametersSummary from '../model/DateParametersSummary';
 /**
 * Dates service.
 * @module api/DatesApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class DatesApi {
 
@@ -77,7 +77,10 @@ export default class DatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DateParametersSummary;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/vault/dates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -93,7 +96,7 @@ export default class DatesApi {
      * @param {String} account Account
      * @param {Object} opts Optional parameters
      * @param {String} opts.startdate Start Date (default to '-3AY')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DateParametersSummary}
+     * @return { Promise.< module:model/DateParametersSummary > } a Promise, with data of type {@link module:model/DateParametersSummary }
      */
     convertVaultDatesToAbsoluteFormat(enddate, componentid, account, opts) {
       return this.convertVaultDatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, opts)
@@ -104,3 +107,8 @@ export default class DatesApi {
 
 
 }
+
+
+
+
+

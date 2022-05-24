@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ColumnStatistic model module.
  * @module model/ColumnStatistic
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ColumnStatistic {
     /**

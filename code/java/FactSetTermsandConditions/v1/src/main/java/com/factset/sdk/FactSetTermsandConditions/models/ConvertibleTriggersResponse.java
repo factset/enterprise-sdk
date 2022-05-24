@@ -43,6 +43,8 @@ public class ConvertibleTriggersResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ConvertibleTriggers> data = null;
 
+  public ConvertibleTriggersResponse() { 
+  }
 
   public ConvertibleTriggersResponse data(java.util.List<ConvertibleTriggers> data) {
     this.data = data;

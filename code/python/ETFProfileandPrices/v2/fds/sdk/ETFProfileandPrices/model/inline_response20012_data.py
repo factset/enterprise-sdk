@@ -24,16 +24,20 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response20012_data_capital_gains import InlineResponse20012DataCapitalGains
-    from fds.sdk.ETFProfileandPrices.model.inline_response20012_data_dividend import InlineResponse20012DataDividend
-    globals()['InlineResponse20012DataCapitalGains'] = InlineResponse20012DataCapitalGains
-    globals()['InlineResponse20012DataDividend'] = InlineResponse20012DataDividend
+    from fds.sdk.ETFProfileandPrices.model.inline_response20012_data_beta import InlineResponse20012DataBeta
+    from fds.sdk.ETFProfileandPrices.model.inline_response20012_data_efficiency import InlineResponse20012DataEfficiency
+    from fds.sdk.ETFProfileandPrices.model.inline_response20012_data_fit import InlineResponse20012DataFit
+    from fds.sdk.ETFProfileandPrices.model.inline_response20012_data_tradability import InlineResponse20012DataTradability
+    globals()['InlineResponse20012DataBeta'] = InlineResponse20012DataBeta
+    globals()['InlineResponse20012DataEfficiency'] = InlineResponse20012DataEfficiency
+    globals()['InlineResponse20012DataFit'] = InlineResponse20012DataFit
+    globals()['InlineResponse20012DataTradability'] = InlineResponse20012DataTradability
 
 
 class InlineResponse20012Data(ModelNormal):
@@ -89,10 +93,15 @@ class InlineResponse20012Data(ModelNormal):
         """
         lazy_import()
         return {
-            'dividend': (InlineResponse20012DataDividend,),  # noqa: E501
-            'capital_gains': (InlineResponse20012DataCapitalGains,),  # noqa: E501
-            'total_distribution': (float,),  # noqa: E501
-            'distribution_yield': (float,),  # noqa: E501
+            'efficiency': (InlineResponse20012DataEfficiency,),  # noqa: E501
+            'tradability': (InlineResponse20012DataTradability,),  # noqa: E501
+            'fit': (InlineResponse20012DataFit,),  # noqa: E501
+            'grade': (str,),  # noqa: E501
+            'analyst_pick': (bool,),  # noqa: E501
+            'on_opportunities_list': (bool,),  # noqa: E501
+            'fit_rsquared': (float,),  # noqa: E501
+            'beta': (InlineResponse20012DataBeta,),  # noqa: E501
+            'standard_deviation_down': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -101,10 +110,15 @@ class InlineResponse20012Data(ModelNormal):
 
 
     attribute_map = {
-        'dividend': 'dividend',  # noqa: E501
-        'capital_gains': 'capitalGains',  # noqa: E501
-        'total_distribution': 'totalDistribution',  # noqa: E501
-        'distribution_yield': 'distributionYield',  # noqa: E501
+        'efficiency': 'efficiency',  # noqa: E501
+        'tradability': 'tradability',  # noqa: E501
+        'fit': 'fit',  # noqa: E501
+        'grade': 'grade',  # noqa: E501
+        'analyst_pick': 'analystPick',  # noqa: E501
+        'on_opportunities_list': 'onOpportunitiesList',  # noqa: E501
+        'fit_rsquared': 'fitRsquared',  # noqa: E501
+        'beta': 'beta',  # noqa: E501
+        'standard_deviation_down': 'standardDeviationDown',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,10 +162,15 @@ class InlineResponse20012Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            dividend (InlineResponse20012DataDividend): [optional]  # noqa: E501
-            capital_gains (InlineResponse20012DataCapitalGains): [optional]  # noqa: E501
-            total_distribution (float): Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.. [optional]  # noqa: E501
-            distribution_yield (float): Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.. [optional]  # noqa: E501
+            efficiency (InlineResponse20012DataEfficiency): [optional]  # noqa: E501
+            tradability (InlineResponse20012DataTradability): [optional]  # noqa: E501
+            fit (InlineResponse20012DataFit): [optional]  # noqa: E501
+            grade (str): Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.. [optional]  # noqa: E501
+            analyst_pick (bool): If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.. [optional]  # noqa: E501
+            on_opportunities_list (bool): If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.. [optional]  # noqa: E501
+            fit_rsquared (float): The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.. [optional]  # noqa: E501
+            beta (InlineResponse20012DataBeta): [optional]  # noqa: E501
+            standard_deviation_down (float): A measure of the variability between the fund's returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,10 +252,15 @@ class InlineResponse20012Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            dividend (InlineResponse20012DataDividend): [optional]  # noqa: E501
-            capital_gains (InlineResponse20012DataCapitalGains): [optional]  # noqa: E501
-            total_distribution (float): Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.. [optional]  # noqa: E501
-            distribution_yield (float): Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.. [optional]  # noqa: E501
+            efficiency (InlineResponse20012DataEfficiency): [optional]  # noqa: E501
+            tradability (InlineResponse20012DataTradability): [optional]  # noqa: E501
+            fit (InlineResponse20012DataFit): [optional]  # noqa: E501
+            grade (str): Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.. [optional]  # noqa: E501
+            analyst_pick (bool): If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.. [optional]  # noqa: E501
+            on_opportunities_list (bool): If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.. [optional]  # noqa: E501
+            fit_rsquared (float): The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.. [optional]  # noqa: E501
+            beta (InlineResponse20012DataBeta): [optional]  # noqa: E501
+            standard_deviation_down (float): A measure of the variability between the fund's returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -82,6 +82,8 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   public static final String JSON_PROPERTY_PENSION_SCHEME = "pensionScheme";
   private PensionSchemeEnum pensionScheme;
 
+  public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany() { 
+  }
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany pensionScheme(PensionSchemeEnum pensionScheme) {
     this.pensionScheme = pensionScheme;

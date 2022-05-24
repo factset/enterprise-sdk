@@ -49,6 +49,8 @@ public class InlineResponse2005DataStrike implements Serializable {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private InlineResponse2005DataStrikeDistance distance;
 
+  public InlineResponse2005DataStrike() { 
+  }
 
   public InlineResponse2005DataStrike value(InlineResponse2005DataStrikeValue value) {
     this.value = value;

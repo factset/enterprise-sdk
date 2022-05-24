@@ -52,6 +52,8 @@ public class InlineResponse20078Data implements Serializable {
   public static final String JSON_PROPERTY_MARKET = "market";
   private InlineResponse20078DataMarket market;
 
+  public InlineResponse20078Data() { 
+  }
 
   public InlineResponse20078Data suspended(Boolean suspended) {
     this.suspended = suspended;

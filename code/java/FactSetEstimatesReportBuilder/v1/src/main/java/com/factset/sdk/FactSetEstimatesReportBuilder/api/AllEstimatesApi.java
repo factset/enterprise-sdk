@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimatesReportBuilder.models.ErrorResponse;
 import com.factset.sdk.FactSetEstimatesReportBuilder.models.Response;
@@ -22,6 +25,74 @@ public class AllEstimatesApi {
   public AllEstimatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEstimatesBalanceSheetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesBalanceSheetResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesBalanceSheetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesBalanceSheetResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesBalanceSheetResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesBalanceSheetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimatesCashFlowResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesCashFlowResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesCashFlowResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesCashFlowResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesCashFlowResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesCashFlowResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimatesGeographicSegmentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesGeographicSegmentsResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesGeographicSegmentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesGeographicSegmentsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesGeographicSegmentsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesGeographicSegmentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimatesIncomeStatementResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesIncomeStatementResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesIncomeStatementResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesIncomeStatementResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesIncomeStatementResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesIncomeStatementResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimatesIndustryMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesIndustryMetricsResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesIndustryMetricsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesIndustryMetricsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesIndustryMetricsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesIndustryMetricsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimatesPerShareResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesPerShareResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesPerShareResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesPerShareResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesPerShareResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesPerShareResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimatesProductSegmentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesProductSegmentsResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesProductSegmentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesProductSegmentsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesProductSegmentsResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesProductSegmentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimatesValuationResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimatesValuationResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimatesValuationResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimatesValuationResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimatesValuationResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimatesValuationResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -123,11 +194,17 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesBalanceSheet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesBalanceSheet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesBalanceSheetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Cash Flow
@@ -211,11 +288,17 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesCashFlow", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesCashFlow", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesCashFlowResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Geographic Segments
@@ -299,11 +382,17 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesGeographicSegments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesGeographicSegments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesGeographicSegmentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Income Statement
@@ -387,11 +476,17 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesIncomeStatement", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesIncomeStatement", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesIncomeStatementResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Industry Metrics
@@ -475,11 +570,17 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesIndustryMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesIndustryMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesIndustryMetricsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Per Share
@@ -563,11 +664,17 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesPerShare", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesPerShare", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesPerShareResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Product Segments
@@ -651,11 +758,17 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesProductSegments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesProductSegments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesProductSegmentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Valuation
@@ -739,10 +852,16 @@ public class AllEstimatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("AllEstimatesApi.getEstimatesValuation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("AllEstimatesApi.getEstimatesValuation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimatesValuationResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -48,6 +48,16 @@ public class CalculationStatusRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private CalculationStatusMeta meta;
 
+  public CalculationStatusRoot() { 
+  }
+
+  @JsonCreator
+  public CalculationStatusRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) CalculationStatus data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public CalculationStatusRoot data(CalculationStatus data) {
     this.data = data;

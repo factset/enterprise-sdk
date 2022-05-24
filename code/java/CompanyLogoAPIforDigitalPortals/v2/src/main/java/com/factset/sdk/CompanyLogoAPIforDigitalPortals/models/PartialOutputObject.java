@@ -43,6 +43,16 @@ public class PartialOutputObject implements Serializable {
   public static final String JSON_PROPERTY_IS_PARTIAL = "isPartial";
   private Boolean isPartial;
 
+  public PartialOutputObject() { 
+  }
+
+  @JsonCreator
+  public PartialOutputObject(
+    @JsonProperty(value=JSON_PROPERTY_IS_PARTIAL, required=true) Boolean isPartial
+  ) {
+    this();
+    this.isPartial = isPartial;
+  }
 
   public PartialOutputObject isPartial(Boolean isPartial) {
     this.isPartial = isPartial;

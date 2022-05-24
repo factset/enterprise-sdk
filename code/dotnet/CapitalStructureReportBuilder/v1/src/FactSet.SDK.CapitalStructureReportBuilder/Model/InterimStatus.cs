@@ -52,7 +52,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InterimStatus {\n");
             sb.Append("  _InterimStatus: ").Append(_InterimStatus).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         public bool Equals(InterimStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._InterimStatus == input._InterimStatus ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._InterimStatus != null)
-                    hashCode = hashCode * 59 + this._InterimStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._InterimStatus.GetHashCode();
+                }
                 return hashCode;
             }
         }

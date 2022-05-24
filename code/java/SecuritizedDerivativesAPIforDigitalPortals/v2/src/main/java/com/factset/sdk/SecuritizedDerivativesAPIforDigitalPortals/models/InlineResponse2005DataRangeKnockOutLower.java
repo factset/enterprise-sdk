@@ -44,6 +44,8 @@ public class InlineResponse2005DataRangeKnockOutLower implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private InlineResponse2005DataRangeKnockOutLowerValue value;
 
+  public InlineResponse2005DataRangeKnockOutLower() { 
+  }
 
   public InlineResponse2005DataRangeKnockOutLower value(InlineResponse2005DataRangeKnockOutLowerValue value) {
     this.value = value;

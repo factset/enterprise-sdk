@@ -19,7 +19,7 @@ import InlineResponse2006InstrumentUnderlyingValueUnit from './InlineResponse200
 /**
  * The InlineResponse2006InstrumentUnderlying model module.
  * @module model/InlineResponse2006InstrumentUnderlying
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentUnderlying {
     /**

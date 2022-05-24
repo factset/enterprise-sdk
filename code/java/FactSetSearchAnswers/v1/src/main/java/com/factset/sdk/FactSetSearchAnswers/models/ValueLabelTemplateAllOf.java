@@ -46,6 +46,8 @@ public class ValueLabelTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  public ValueLabelTemplateAllOf() { 
+  }
 
   public ValueLabelTemplateAllOf value(String value) {
     this.value = value;

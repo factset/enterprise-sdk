@@ -51,7 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
-            var id = id_example;  // string | Vault configuration id to get the details of
+            var id = "id_example";  // string | Vault configuration id to get the details of
 
             try
             {
@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Vault configuration id to get the details of | 
 
 ### Return type
-
 [**VaultConfigurationRoot**](VaultConfigurationRoot.md)
 
 ### Authorization
@@ -148,7 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
-            var account = account_example;  // string | Required account query parameter to filter configurations for a specific account
+            var account = "account_example";  // string | Required account query parameter to filter configurations for a specific account
 
             try
             {
@@ -174,7 +173,6 @@ Name | Type | Description  | Notes
  **account** | **string**| Required account query parameter to filter configurations for a specific account | 
 
 ### Return type
-
 [**VaultConfigurationSummaryRoot**](VaultConfigurationSummaryRoot.md)
 
 ### Authorization

@@ -183,7 +183,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CouponHistory {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -231,8 +231,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(CouponHistory input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -317,31 +318,53 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                hashCode = hashCode * 59 + this.CouponBasketFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CouponBasketFlag.GetHashCode();
                 if (this.CouponEffPmtDate != null)
-                    hashCode = hashCode * 59 + this.CouponEffPmtDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponEffPmtDate.GetHashCode();
+                }
                 if (this.CouponFormula != null)
-                    hashCode = hashCode * 59 + this.CouponFormula.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponFormula.GetHashCode();
+                }
                 if (this.CouponInitResetDate != null)
-                    hashCode = hashCode * 59 + this.CouponInitResetDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponInitResetDate.GetHashCode();
+                }
                 if (this.CouponResetFreq != null)
-                    hashCode = hashCode * 59 + this.CouponResetFreq.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponResetFreq.GetHashCode();
+                }
                 if (this.CouponLink != null)
-                    hashCode = hashCode * 59 + this.CouponLink.GetHashCode();
-                hashCode = hashCode * 59 + this.CouponMargin.GetHashCode();
-                hashCode = hashCode * 59 + this.CouponMinFloatRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponLink.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CouponMargin.GetHashCode();
+                hashCode = (hashCode * 59) + this.CouponMinFloatRate.GetHashCode();
                 if (this.CouponStructSubCode != null)
-                    hashCode = hashCode * 59 + this.CouponStructSubCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponStructSubCode.GetHashCode();
+                }
                 if (this.CouponTypeStruct != null)
-                    hashCode = hashCode * 59 + this.CouponTypeStruct.GetHashCode();
-                hashCode = hashCode * 59 + this.CouponVarPmtFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponTypeStruct.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CouponVarPmtFlag.GetHashCode();
                 if (this.UnderlyingIndex != null)
-                    hashCode = hashCode * 59 + this.UnderlyingIndex.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UnderlyingIndex.GetHashCode();
+                }
                 return hashCode;
             }
         }

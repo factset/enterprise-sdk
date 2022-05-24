@@ -13,12 +13,12 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20017Data from './InlineResponse20017Data';
-import InlineResponse200Meta from './InlineResponse200Meta';
+import InlineResponse2001Meta from './InlineResponse2001Meta';
 
 /**
  * The InlineResponse20017 model module.
  * @module model/InlineResponse20017
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20017 {
     /**
@@ -50,10 +50,10 @@ class InlineResponse20017 {
             obj = obj || new InlineResponse20017();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = InlineResponse20017Data.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20017Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -63,12 +63,13 @@ class InlineResponse20017 {
 }
 
 /**
- * @member {module:model/InlineResponse20017Data} data
+ * List of focus categories.
+ * @member {Array.<module:model/InlineResponse20017Data>} data
  */
 InlineResponse20017.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200Meta} meta
+ * @member {module:model/InlineResponse2001Meta} meta
  */
 InlineResponse20017.prototype['meta'] = undefined;
 

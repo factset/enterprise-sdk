@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.ProcuretoPayAPISCIM",
+  "projectName": "fds.sdk.ProcuretoPayAPISCIM",
+  "packageVersion": "0.20.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "Procure to Pay API: SCIM client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ProcuretoPayAPISCIM/v1",
+  "httpUserAgent": "fds-sdk/python/ProcuretoPayAPISCIM/0.20.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

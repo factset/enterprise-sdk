@@ -143,6 +143,27 @@ namespace FactSet.SDK.Vault.Api
     {
         private FactSet.SDK.Vault.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetVaultConfigurationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(VaultConfigurationRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetVaultConfigurationsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(VaultConfigurationSummaryRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationsApi"/> class.
         /// </summary>
@@ -253,7 +274,7 @@ namespace FactSet.SDK.Vault.Api
         /// <returns>VaultConfigurationRoot</returns>
         public VaultConfigurationRoot GetVaultConfigurationById(string id)
         {
-            FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationRoot> localVarResponse = GetVaultConfigurationByIdWithHttpInfo(id);
+            var localVarResponse = GetVaultConfigurationByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -263,11 +284,13 @@ namespace FactSet.SDK.Vault.Api
         /// <exception cref="FactSet.SDK.Vault.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Vault configuration id to get the details of</param>
         /// <returns>ApiResponse of VaultConfigurationRoot</returns>
-        public FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationRoot> GetVaultConfigurationByIdWithHttpInfo(string id)
+        public ApiResponse<VaultConfigurationRoot> GetVaultConfigurationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'id' when calling ConfigurationsApi->GetVaultConfigurationById");
+            }
 
             FactSet.SDK.Vault.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vault.Client.RequestOptions();
 
@@ -280,22 +303,28 @@ namespace FactSet.SDK.Vault.Api
             };
 
             var localVarContentType = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.Vault.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vault.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -307,15 +336,19 @@ namespace FactSet.SDK.Vault.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<VaultConfigurationRoot>("/analytics/engines/vault/v3/configurations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetVaultConfigurationByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            VaultConfigurationRoot>("/analytics/engines/vault/v3/configurations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaultConfigurationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -326,9 +359,9 @@ namespace FactSet.SDK.Vault.Api
         /// <param name="id">Vault configuration id to get the details of</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VaultConfigurationRoot</returns>
-        public async System.Threading.Tasks.Task<VaultConfigurationRoot> GetVaultConfigurationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VaultConfigurationRoot>GetVaultConfigurationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationRoot> localVarResponse = await GetVaultConfigurationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetVaultConfigurationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -339,11 +372,14 @@ namespace FactSet.SDK.Vault.Api
         /// <param name="id">Vault configuration id to get the details of</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VaultConfigurationRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationRoot>> GetVaultConfigurationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<VaultConfigurationRoot>> GetVaultConfigurationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'id' when calling ConfigurationsApi->GetVaultConfigurationById");
+            }
 
 
             FactSet.SDK.Vault.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vault.Client.RequestOptions();
@@ -356,24 +392,29 @@ namespace FactSet.SDK.Vault.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.Vault.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vault.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -385,14 +426,18 @@ namespace FactSet.SDK.Vault.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetVaultConfigurationByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<VaultConfigurationRoot>("/analytics/engines/vault/v3/configurations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaultConfigurationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -406,7 +451,7 @@ namespace FactSet.SDK.Vault.Api
         /// <returns>VaultConfigurationSummaryRoot</returns>
         public VaultConfigurationSummaryRoot GetVaultConfigurations(string account)
         {
-            FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationSummaryRoot> localVarResponse = GetVaultConfigurationsWithHttpInfo(account);
+            var localVarResponse = GetVaultConfigurationsWithHttpInfo(account);
             return localVarResponse.Data;
         }
 
@@ -416,11 +461,13 @@ namespace FactSet.SDK.Vault.Api
         /// <exception cref="FactSet.SDK.Vault.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="account">Required account query parameter to filter configurations for a specific account</param>
         /// <returns>ApiResponse of VaultConfigurationSummaryRoot</returns>
-        public FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationSummaryRoot> GetVaultConfigurationsWithHttpInfo(string account)
+        public ApiResponse<VaultConfigurationSummaryRoot> GetVaultConfigurationsWithHttpInfo(string account)
         {
             // verify the required parameter 'account' is set
             if (account == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'account' when calling ConfigurationsApi->GetVaultConfigurations");
+            }
 
             FactSet.SDK.Vault.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vault.Client.RequestOptions();
 
@@ -433,22 +480,28 @@ namespace FactSet.SDK.Vault.Api
             };
 
             var localVarContentType = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vault.Client.ClientUtils.ParameterToMultiMap("", "account", account));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vault.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -460,15 +513,19 @@ namespace FactSet.SDK.Vault.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<VaultConfigurationSummaryRoot>("/analytics/engines/vault/v3/configurations", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetVaultConfigurationsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            VaultConfigurationSummaryRoot>("/analytics/engines/vault/v3/configurations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaultConfigurations", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -479,9 +536,9 @@ namespace FactSet.SDK.Vault.Api
         /// <param name="account">Required account query parameter to filter configurations for a specific account</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VaultConfigurationSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<VaultConfigurationSummaryRoot> GetVaultConfigurationsAsync(string account, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<VaultConfigurationSummaryRoot>GetVaultConfigurationsAsync(string account, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationSummaryRoot> localVarResponse = await GetVaultConfigurationsWithHttpInfoAsync(account, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetVaultConfigurationsWithHttpInfoAsync(account, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -492,11 +549,14 @@ namespace FactSet.SDK.Vault.Api
         /// <param name="account">Required account query parameter to filter configurations for a specific account</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VaultConfigurationSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Vault.Client.ApiResponse<VaultConfigurationSummaryRoot>> GetVaultConfigurationsWithHttpInfoAsync(string account, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<VaultConfigurationSummaryRoot>> GetVaultConfigurationsWithHttpInfoAsync(string account, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'account' is set
             if (account == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'account' when calling ConfigurationsApi->GetVaultConfigurations");
+            }
 
 
             FactSet.SDK.Vault.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vault.Client.RequestOptions();
@@ -509,24 +569,29 @@ namespace FactSet.SDK.Vault.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Vault.Client.ClientUtils.ParameterToMultiMap("", "account", account));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vault.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -538,14 +603,18 @@ namespace FactSet.SDK.Vault.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetVaultConfigurationsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<VaultConfigurationSummaryRoot>("/analytics/engines/vault/v3/configurations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVaultConfigurations", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

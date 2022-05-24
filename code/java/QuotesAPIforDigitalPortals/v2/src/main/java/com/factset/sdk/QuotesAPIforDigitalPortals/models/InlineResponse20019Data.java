@@ -52,6 +52,8 @@ public class InlineResponse20019Data implements Serializable {
   public static final String JSON_PROPERTY_SUBDIVISIONS = "subdivisions";
   private java.util.List<InlineResponse20019DataSubdivisions> subdivisions = null;
 
+  public InlineResponse20019Data() { 
+  }
 
   public InlineResponse20019Data code(String code) {
     this.code = code;

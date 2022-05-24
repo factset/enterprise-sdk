@@ -26,7 +26,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CompanyApi {
 
@@ -69,7 +69,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyCompensationResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-compensation', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -81,7 +84,7 @@ export default class CompanyApi {
      * Returns the compensation details of the people for the specified company identifier
      * Returns the list of company-level executive compensation data items for the top executives listed in annual filings.The coverage of the compensation details for the executives are limited to US region. All the compensation figures are expressed in raw units.  
      * @param {Array.<String>} ids The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyCompensationResponse}
+     * @return { Promise.< module:model/CompanyCompensationResponse > } a Promise, with data of type {@link module:model/CompanyCompensationResponse }
      */
     getCompanyCompensation(ids) {
       return this.getCompanyCompensationWithHttpInfo(ids)
@@ -116,7 +119,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyCompensationResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-compensation', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -128,7 +134,7 @@ export default class CompanyApi {
      * Returns the compensation details for the people for the specified company identifier
      * Returns the list of company-level executive compensation data items for the top executives listed in annual filings for the most recent fiscal year. The coverage of the compensation details for the executives are limited to US region. All the compensation figures are expressed in raw units.  
      * @param {module:model/CompanyCompensationRequest} companyCompensationRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyCompensationResponse}
+     * @return { Promise.< module:model/CompanyCompensationResponse > } a Promise, with data of type {@link module:model/CompanyCompensationResponse }
      */
     getCompanyCompensationForList(companyCompensationRequest) {
       return this.getCompanyCompensationForListWithHttpInfo(companyCompensationRequest)
@@ -168,7 +174,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyPeopleResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-people', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -182,7 +191,7 @@ export default class CompanyApi {
      * @param {Array.<String>} ids The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts._function Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |---|---|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (default to 'PEOPLE')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyPeopleResponse}
+     * @return { Promise.< module:model/CompanyPeopleResponse > } a Promise, with data of type {@link module:model/CompanyPeopleResponse }
      */
     getCompanyPeople(ids, opts) {
       return this.getCompanyPeopleWithHttpInfo(ids, opts)
@@ -217,7 +226,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyPeopleResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-people', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -229,7 +241,7 @@ export default class CompanyApi {
      * Returns the list of people associated for a large list of company identitifers
      * Returns the list of executives associated the company identifier requested. Information includes the job functions, email, phone, title, name, and FactSet Entity Identifier. The personId returned can then be used in the /profiles endpoint to learn more about the given person. 
      * @param {module:model/CompanyPeopleRequest} companyPeopleRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyPeopleResponse}
+     * @return { Promise.< module:model/CompanyPeopleResponse > } a Promise, with data of type {@link module:model/CompanyPeopleResponse }
      */
     getCompanyPeopleForList(companyPeopleRequest) {
       return this.getCompanyPeopleForListWithHttpInfo(companyPeopleRequest)
@@ -269,7 +281,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyPositionsResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-positions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -283,7 +298,7 @@ export default class CompanyApi {
      * @param {Array.<String>} ids The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.position Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |---|---|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (default to 'CEO')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyPositionsResponse}
+     * @return { Promise.< module:model/CompanyPositionsResponse > } a Promise, with data of type {@link module:model/CompanyPositionsResponse }
      */
     getCompanyPositions(ids, opts) {
       return this.getCompanyPositionsWithHttpInfo(ids, opts)
@@ -318,7 +333,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyPositionsResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-positions', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -330,7 +348,7 @@ export default class CompanyApi {
      * Returns the list of people associated for a large list of company identitifers and position
      * Returns the list of people, name, and title for a list of company ids and requested position. Positions include-   * Chairman   * Chief Executive Officer   * President   * Chief Operating Officer   * Chief Financial Officer   * Chief Technology Officer   * Chief Investment Officer   * Founder(s)   * Compliance Officer   * Admin   * Independent Director   * Directors/Board Members   * Investor Relations   * Legal Counsel   * Treasurer   * Sales and Marketing Managers   * Human Resources 
      * @param {module:model/CompanyPositionsRequest} companyPositionsRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyPositionsResponse}
+     * @return { Promise.< module:model/CompanyPositionsResponse > } a Promise, with data of type {@link module:model/CompanyPositionsResponse }
      */
     getCompanyPositionsForList(companyPositionsRequest) {
       return this.getCompanyPositionsForListWithHttpInfo(companyPositionsRequest)
@@ -370,7 +388,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyStatsResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -384,7 +405,7 @@ export default class CompanyApi {
      * @param {Array.<String>} ids The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.mbType Search based on the management and board types. The types include -  |type|description| |---|---| |MB|Management & Board| |MGMT|Management| |BRD|Board|  (default to 'MB')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyStatsResponse}
+     * @return { Promise.< module:model/CompanyStatsResponse > } a Promise, with data of type {@link module:model/CompanyStatsResponse }
      */
     getCompanyStats(ids, opts) {
       return this.getCompanyStatsWithHttpInfo(ids, opts)
@@ -419,7 +440,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CompanyStatsResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/company-stats', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -431,7 +455,7 @@ export default class CompanyApi {
      * Returns statistics about top leadership of a company.
      * Returns the statistics such as the average age, tenure, compensation of leadership, number of executives, and the gender diversity of leadership. We can utilize the data for analyzing a company's board and management.  
      * @param {module:model/CompanyStatsRequest} companyStatsRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompanyStatsResponse}
+     * @return { Promise.< module:model/CompanyStatsResponse > } a Promise, with data of type {@link module:model/CompanyStatsResponse }
      */
     getCompanyStatsForList(companyStatsRequest) {
       return this.getCompanyStatsForListWithHttpInfo(companyStatsRequest)
@@ -442,3 +466,8 @@ export default class CompanyApi {
 
 
 }
+
+
+
+
+

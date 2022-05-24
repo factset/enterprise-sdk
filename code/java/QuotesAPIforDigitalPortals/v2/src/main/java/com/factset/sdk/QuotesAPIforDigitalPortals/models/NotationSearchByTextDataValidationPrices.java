@@ -88,6 +88,8 @@ public class NotationSearchByTextDataValidationPrices implements Serializable {
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private NotationSearchByTextDataValidationPricesPrevious previous;
 
+  public NotationSearchByTextDataValidationPrices() { 
+  }
 
   public NotationSearchByTextDataValidationPrices quality(QualityEnum quality) {
     this.quality = quality;

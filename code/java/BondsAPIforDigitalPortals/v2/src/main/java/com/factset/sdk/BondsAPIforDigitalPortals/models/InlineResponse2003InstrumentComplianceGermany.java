@@ -43,6 +43,8 @@ public class InlineResponse2003InstrumentComplianceGermany implements Serializab
   public static final String JSON_PROPERTY_TRUSTEE_ELIGIBLE = "trusteeEligible";
   private Boolean trusteeEligible;
 
+  public InlineResponse2003InstrumentComplianceGermany() { 
+  }
 
   public InlineResponse2003InstrumentComplianceGermany trusteeEligible(Boolean trusteeEligible) {
     this.trusteeEligible = trusteeEligible;

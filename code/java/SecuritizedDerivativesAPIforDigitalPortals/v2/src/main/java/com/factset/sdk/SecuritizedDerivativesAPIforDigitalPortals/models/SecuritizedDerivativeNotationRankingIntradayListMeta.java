@@ -107,6 +107,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListMeta implements Ser
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private SecuritizedDerivativeNotationRankingIntradayListMetaPagination pagination;
 
+  public SecuritizedDerivativeNotationRankingIntradayListMeta() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

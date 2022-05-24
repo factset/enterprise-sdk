@@ -71,7 +71,7 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AFIOptimizerStrategy {\n");
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         public bool Equals(AFIOptimizerStrategy input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Overrides == input.Overrides ||
@@ -131,9 +132,13 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 return hashCode;
             }
         }

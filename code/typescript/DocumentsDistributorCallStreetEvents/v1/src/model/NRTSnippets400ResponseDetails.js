@@ -17,7 +17,7 @@ import NRTSnippets400ResponseDetailsValidParameters from './NRTSnippets400Respon
 /**
  * The NRTSnippets400ResponseDetails model module.
  * @module model/NRTSnippets400ResponseDetails
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSnippets400ResponseDetails {
     /**

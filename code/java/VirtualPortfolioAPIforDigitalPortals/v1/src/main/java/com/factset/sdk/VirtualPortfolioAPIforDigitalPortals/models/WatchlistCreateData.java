@@ -43,6 +43,16 @@ public class WatchlistCreateData implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public WatchlistCreateData() { 
+  }
+
+  @JsonCreator
+  public WatchlistCreateData(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.name = name;
+  }
 
   public WatchlistCreateData name(String name) {
     this.name = name;

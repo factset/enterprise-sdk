@@ -90,6 +90,8 @@ public class Intervals implements Serializable {
   public static final String JSON_PROPERTY_1_H = "1H";
   private String _1H;
 
+  public Intervals() { 
+  }
 
   public Intervals _0(String _0) {
     this._0 = _0;

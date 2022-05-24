@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **OrganizerId** | **Guid** |  | [optional] 
 **Body** | **string** |  | [optional] 
 **AverageRating** | **int?** |  | [optional] 
+**AlertAttendees** | **bool** |  | [optional] 
+**AlertAuthor** | **bool** |  | [optional] 
 **Locations** | [**List&lt;LocationDto&gt;**](LocationDto.md) |  | [optional] 
 **Attendees** | [**List&lt;AttendeeDto&gt;**](AttendeeDto.md) |  | [optional] 
 **CustomFields** | [**List&lt;CustomFieldValueDto&gt;**](CustomFieldValueDto.md) |  | [optional] 

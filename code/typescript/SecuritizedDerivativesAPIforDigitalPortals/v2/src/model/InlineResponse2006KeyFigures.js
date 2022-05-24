@@ -27,7 +27,7 @@ import InlineResponse2006KeyFiguresVega from './InlineResponse2006KeyFiguresVega
 /**
  * The InlineResponse2006KeyFigures model module.
  * @module model/InlineResponse2006KeyFigures
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006KeyFigures {
     /**

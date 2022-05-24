@@ -5,7 +5,7 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateAttachment**](AttachmentsApi.md#createattachment) | **POST** /v1/notes/{noteId}/attachments | Create an attachment for an existing note
-[**DownloadAttachment**](AttachmentsApi.md#downloadattachment) | **GET** /v1/notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a note
+[**DownloadAttachment**](AttachmentsApi.md#downloadattachment) | **GET** /v1/notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a Note
 [**GetAttachments**](AttachmentsApi.md#getattachments) | **GET** /v1/notes/{noteId}/attachments | Get all the attachments belonging to a note
 [**SoftDeleteNoteAttachment**](AttachmentsApi.md#softdeletenoteattachment) | **DELETE** /v1/notes/{noteId}/attachments/{attachmentId} | Delete attachment from note
 
@@ -51,8 +51,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var file = BINARY_DATA_HERE;  // System.IO.Stream | 
+            var noteId = "noteId_example";  // Guid | 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
-
 [**NewItemDto**](NewItemDto.md)
 
 ### Authorization
@@ -95,7 +94,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **0** | Error |  -  |
 
@@ -105,7 +104,7 @@ Name | Type | Description  | Notes
 # **DownloadAttachment**
 > void DownloadAttachment (Guid noteId, Guid attachmentId)
 
-Download an attachment from a note
+Download an attachment from a Note
 
 ### Example
 ```csharp
@@ -142,12 +141,12 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var attachmentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
+            var attachmentId = "attachmentId_example";  // Guid | 
 
             try
             {
-                // Download an attachment from a note
+                // Download an attachment from a Note
                 apiInstance.DownloadAttachment(noteId, attachmentId);
             }
             catch (ApiException  e)
@@ -169,7 +168,6 @@ Name | Type | Description  | Notes
  **attachmentId** | **Guid**|  | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -233,7 +231,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Note Id
+            var noteId = "noteId_example";  // Guid | Note Id
 
             try
             {
@@ -259,7 +257,6 @@ Name | Type | Description  | Notes
  **noteId** | **Guid**| Note Id | 
 
 ### Return type
-
 [**List&lt;AttachmentSummaryDto&gt;**](AttachmentSummaryDto.md)
 
 ### Authorization
@@ -322,8 +319,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Note Id
-            var attachmentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Attachment Id
+            var noteId = "noteId_example";  // Guid | Note Id
+            var attachmentId = "attachmentId_example";  // Guid | Attachment Id
 
             try
             {
@@ -349,7 +346,6 @@ Name | Type | Description  | Notes
  **attachmentId** | **Guid**| Attachment Id | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization

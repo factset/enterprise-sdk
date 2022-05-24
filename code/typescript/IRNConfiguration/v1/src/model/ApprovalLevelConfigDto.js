@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ApprovalLevelConfigDto model module.
  * @module model/ApprovalLevelConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ApprovalLevelConfigDto {
     /**
@@ -47,11 +47,11 @@ class ApprovalLevelConfigDto {
         if (data) {
             obj = obj || new ApprovalLevelConfigDto();
 
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('approverIds')) {
-                obj['approverIds'] = ApiClient.convertToType(data['approverIds'], ['String']);
+            if (data.hasOwnProperty('ApproverIds')) {
+                obj['ApproverIds'] = ApiClient.convertToType(data['ApproverIds'], ['String']);
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class ApprovalLevelConfigDto {
 }
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-ApprovalLevelConfigDto.prototype['name'] = undefined;
+ApprovalLevelConfigDto.prototype['Name'] = undefined;
 
 /**
- * @member {Array.<String>} approverIds
+ * @member {Array.<String>} ApproverIds
  */
-ApprovalLevelConfigDto.prototype['approverIds'] = undefined;
+ApprovalLevelConfigDto.prototype['ApproverIds'] = undefined;
 
 
 

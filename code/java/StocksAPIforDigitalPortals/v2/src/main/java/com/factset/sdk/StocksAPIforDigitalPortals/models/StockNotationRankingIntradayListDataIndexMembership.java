@@ -47,6 +47,8 @@ public class StockNotationRankingIntradayListDataIndexMembership implements Seri
   public static final String JSON_PROPERTY_USE_ALTERNATIVE_NOTATION = "useAlternativeNotation";
   private Boolean useAlternativeNotation = false;
 
+  public StockNotationRankingIntradayListDataIndexMembership() { 
+  }
 
   public StockNotationRankingIntradayListDataIndexMembership ids(java.util.Set<String> ids) {
     this.ids = ids;

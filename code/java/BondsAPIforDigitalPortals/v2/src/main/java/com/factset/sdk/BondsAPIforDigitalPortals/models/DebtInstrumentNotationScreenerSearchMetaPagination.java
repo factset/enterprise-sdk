@@ -48,6 +48,8 @@ public class DebtInstrumentNotationScreenerSearchMetaPagination implements Seria
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public DebtInstrumentNotationScreenerSearchMetaPagination() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchMetaPagination offset(BigDecimal offset) {
     this.offset = offset;

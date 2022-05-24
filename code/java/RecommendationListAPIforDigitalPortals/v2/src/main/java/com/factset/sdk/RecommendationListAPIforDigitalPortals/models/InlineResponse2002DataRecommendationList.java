@@ -48,6 +48,8 @@ public class InlineResponse2002DataRecommendationList implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2002DataRecommendationList() { 
+  }
 
   public InlineResponse2002DataRecommendationList id(BigDecimal id) {
     this.id = id;

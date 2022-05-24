@@ -59,6 +59,8 @@ public class ConvertibleTriggers implements Serializable {
   public static final String JSON_PROPERTY_TRIGGER_ID = "triggerId";
   private Integer triggerId;
 
+  public ConvertibleTriggers() { 
+  }
 
   public ConvertibleTriggers requestId(String requestId) {
     this.requestId = requestId;

@@ -47,6 +47,16 @@ public class CompanyStatsRequest implements Serializable {
   public static final String JSON_PROPERTY_MB_TYPE = "mbType";
   private MbType mbType = MbType.MB;
 
+  public CompanyStatsRequest() { 
+  }
+
+  @JsonCreator
+  public CompanyStatsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public CompanyStatsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

@@ -99,6 +99,19 @@ namespace FactSet.SDK.SPAREngine.Api
     {
         private FactSet.SDK.SPAREngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetSPARBenchmarkByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SPARBenchmark) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SPARBenchmarkApi"/> class.
         /// </summary>
@@ -209,7 +222,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <returns>SPARBenchmark</returns>
         public SPARBenchmark GetSPARBenchmarkById(string id)
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<SPARBenchmark> localVarResponse = GetSPARBenchmarkByIdWithHttpInfo(id);
+            var localVarResponse = GetSPARBenchmarkByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -219,11 +232,13 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
         /// <returns>ApiResponse of SPARBenchmark</returns>
-        public FactSet.SDK.SPAREngine.Client.ApiResponse<SPARBenchmark> GetSPARBenchmarkByIdWithHttpInfo(string id)
+        public ApiResponse<SPARBenchmark> GetSPARBenchmarkByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SPAREngine.Client.ApiException(400, "Missing required parameter 'id' when calling SPARBenchmarkApi->GetSPARBenchmarkById");
+            }
 
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
 
@@ -236,22 +251,28 @@ namespace FactSet.SDK.SPAREngine.Api
             };
 
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SPAREngine.Client.ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -263,15 +284,19 @@ namespace FactSet.SDK.SPAREngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<SPARBenchmark>("/analytics/lookups/v2/engines/spar/benchmarks", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSPARBenchmarkByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            SPARBenchmark>("/analytics/lookups/v2/engines/spar/benchmarks", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSPARBenchmarkById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -282,9 +307,9 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <param name="id">Benchmark Identifier</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SPARBenchmark</returns>
-        public async System.Threading.Tasks.Task<SPARBenchmark> GetSPARBenchmarkByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SPARBenchmark>GetSPARBenchmarkByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<SPARBenchmark> localVarResponse = await GetSPARBenchmarkByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSPARBenchmarkByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -295,11 +320,14 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <param name="id">Benchmark Identifier</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SPARBenchmark)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SPAREngine.Client.ApiResponse<SPARBenchmark>> GetSPARBenchmarkByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SPARBenchmark>> GetSPARBenchmarkByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SPAREngine.Client.ApiException(400, "Missing required parameter 'id' when calling SPARBenchmarkApi->GetSPARBenchmarkById");
+            }
 
 
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
@@ -312,24 +340,29 @@ namespace FactSet.SDK.SPAREngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SPAREngine.Client.ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -341,14 +374,18 @@ namespace FactSet.SDK.SPAREngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSPARBenchmarkByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<SPARBenchmark>("/analytics/lookups/v2/engines/spar/benchmarks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSPARBenchmarkById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -69,7 +69,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NRTCallsMeta {\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  Pagination: ").Append(Pagination).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(NRTCallsMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sort == input.Sort ||
@@ -136,11 +137,17 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             {
                 int hashCode = 41;
                 if (this.Sort != null)
-                    hashCode = hashCode * 59 + this.Sort.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sort.GetHashCode();
+                }
                 if (this.Pagination != null)
-                    hashCode = hashCode * 59 + this.Pagination.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pagination.GetHashCode();
+                }
                 if (this.Partial != null)
-                    hashCode = hashCode * 59 + this.Partial.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Partial.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -84,6 +84,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceE
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYearToDate yearToDate;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDay() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDay day1(SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayDay1 day1) {
     this.day1 = day1;

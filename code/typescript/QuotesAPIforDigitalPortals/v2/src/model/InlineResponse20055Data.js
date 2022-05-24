@@ -17,7 +17,7 @@ import InlineResponse20055DataValidity from './InlineResponse20055DataValidity';
 /**
  * The InlineResponse20055Data model module.
  * @module model/InlineResponse20055Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20055Data {
     /**

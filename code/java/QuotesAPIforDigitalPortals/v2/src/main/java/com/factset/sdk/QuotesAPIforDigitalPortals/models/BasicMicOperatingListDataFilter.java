@@ -80,6 +80,8 @@ public class BasicMicOperatingListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status = StatusEnum.ACTIVE;
 
+  public BasicMicOperatingListDataFilter() { 
+  }
 
   public BasicMicOperatingListDataFilter status(StatusEnum status) {
     this.status = status;

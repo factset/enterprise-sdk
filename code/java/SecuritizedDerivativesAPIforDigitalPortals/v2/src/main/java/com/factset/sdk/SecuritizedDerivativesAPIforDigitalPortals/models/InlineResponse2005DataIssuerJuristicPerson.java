@@ -51,6 +51,8 @@ public class InlineResponse2005DataIssuerJuristicPerson implements Serializable 
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataIssuerJuristicPerson() { 
+  }
 
   public InlineResponse2005DataIssuerJuristicPerson id(BigDecimal id) {
     this.id = id;

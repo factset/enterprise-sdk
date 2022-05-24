@@ -54,6 +54,8 @@ public class NRTSpeakerids400ResponseDetailsValidParameters implements Serializa
   public static final String JSON_PROPERTY_AUDIO_SOURCE_ID = "audioSourceId";
   private java.util.List<String> audioSourceId = null;
 
+  public NRTSpeakerids400ResponseDetailsValidParameters() { 
+  }
 
   public NRTSpeakerids400ResponseDetailsValidParameters sort(java.util.List<String> sort) {
     this.sort = sort;

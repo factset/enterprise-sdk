@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004DataMarket model module.
  * @module model/InlineResponse2004DataMarket
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataMarket {
     /**

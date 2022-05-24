@@ -16,12 +16,12 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleListDataFilterRange model module.
  * @module model/NewsArticleListDataFilterRange
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListDataFilterRange {
     /**
      * Constructs a new <code>NewsArticleListDataFilterRange</code>.
-     * Time range for matching the news article&#39;s date. At most one of the attributes &#x60;start&#x60; or &#x60;end&#x60; may be null.
+     * Time range for matching the news article&#39;s date. At most one of the attributes &#x60;start&#x60; or &#x60;end&#x60; may be &#x60;null&#x60;.
      * @alias module:model/NewsArticleListDataFilterRange
      * @param start {String} The starting point of the time range (inclusive), or `null` to indicate that the time range extends indefinitely into the past.
      * @param end {String} The ending point of the time range (exclusive), or `null` to indicate that the time range extends indefinitely into the future.

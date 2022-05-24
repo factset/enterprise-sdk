@@ -24,10 +24,16 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.ETFProfileandPrices.model.inline_response20015_data_category import InlineResponse20015DataCategory
+    from fds.sdk.ETFProfileandPrices.model.inline_response20015_data_geography import InlineResponse20015DataGeography
+    globals()['InlineResponse20015DataCategory'] = InlineResponse20015DataCategory
+    globals()['InlineResponse20015DataGeography'] = InlineResponse20015DataGeography
 
 
 class InlineResponse20015Data(ModelNormal):
@@ -55,6 +61,20 @@ class InlineResponse20015Data(ModelNormal):
     """
 
     allowed_values = {
+        ('asset',): {
+            'EQUITY': "Equity",
+            'ALTERNATIVES': "Alternatives",
+            'FIXED_INCOME': "Fixed Income",
+            'COMMODITIES': "Commodities",
+            'CURRENCY': "Currency",
+            'ASSET_ALLOCATION': "Asset Allocation",
+        },
+        ('economic_development',): {
+            'DEVELOPED_MARKETS': "Developed Markets",
+            'BLENDED_DEVELOPMENT': "Blended Development",
+            'EMERGING_MARKETS': "Emerging Markets",
+            'FRONTIER_MARKETS': "Frontier Markets",
+        },
     }
 
     validations = {
@@ -66,6 +86,7 @@ class InlineResponse20015Data(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -80,14 +101,12 @@ class InlineResponse20015Data(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'symbol': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'report_date': (date,),  # noqa: E501
-            'shares': (float,),  # noqa: E501
-            'market_value': (float,),  # noqa: E501
-            'currency_code': (str,),  # noqa: E501
-            'weight': (float,),  # noqa: E501
+            'asset': (str,),  # noqa: E501
+            'economic_development': (str,),  # noqa: E501
+            'geography': (InlineResponse20015DataGeography,),  # noqa: E501
+            'category': (InlineResponse20015DataCategory,),  # noqa: E501
         }
 
     @cached_property
@@ -96,13 +115,10 @@ class InlineResponse20015Data(ModelNormal):
 
 
     attribute_map = {
-        'symbol': 'symbol',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'report_date': 'reportDate',  # noqa: E501
-        'shares': 'shares',  # noqa: E501
-        'market_value': 'marketValue',  # noqa: E501
-        'currency_code': 'currencyCode',  # noqa: E501
-        'weight': 'weight',  # noqa: E501
+        'asset': 'asset',  # noqa: E501
+        'economic_development': 'economicDevelopment',  # noqa: E501
+        'geography': 'geography',  # noqa: E501
+        'category': 'category',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,13 +162,10 @@ class InlineResponse20015Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            symbol (str): Identifier of the holding. (when available).. [optional]  # noqa: E501
-            name (str): Name of the holding.. [optional]  # noqa: E501
-            report_date (date): Reporting date of the holding.. [optional]  # noqa: E501
-            shares (float): Number of shares held, unadjusted for corporate actions.. [optional]  # noqa: E501
-            market_value (float): Market value of the holding, unadjusted for corporate actions.. [optional]  # noqa: E501
-            currency_code (str): Code representing the currency of the ETP and  it's in format ISO 4217. [optional]  # noqa: E501
-            weight (float): Weight of the holding within the ETP.. [optional]  # noqa: E501
+            asset (str): Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
+            economic_development (str): The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
+            geography (InlineResponse20015DataGeography): [optional]  # noqa: E501
+            category (InlineResponse20015DataCategory): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,13 +247,10 @@ class InlineResponse20015Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            symbol (str): Identifier of the holding. (when available).. [optional]  # noqa: E501
-            name (str): Name of the holding.. [optional]  # noqa: E501
-            report_date (date): Reporting date of the holding.. [optional]  # noqa: E501
-            shares (float): Number of shares held, unadjusted for corporate actions.. [optional]  # noqa: E501
-            market_value (float): Market value of the holding, unadjusted for corporate actions.. [optional]  # noqa: E501
-            currency_code (str): Code representing the currency of the ETP and  it's in format ISO 4217. [optional]  # noqa: E501
-            weight (float): Weight of the holding within the ETP.. [optional]  # noqa: E501
+            asset (str): Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
+            economic_development (str): The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
+            geography (InlineResponse20015DataGeography): [optional]  # noqa: E501
+            category (InlineResponse20015DataCategory): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

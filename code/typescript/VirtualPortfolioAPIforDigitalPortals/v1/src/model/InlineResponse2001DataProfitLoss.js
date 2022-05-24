@@ -20,7 +20,7 @@ import InlineResponse2001DataProfitLossTotal from './InlineResponse2001DataProfi
 /**
  * The InlineResponse2001DataProfitLoss model module.
  * @module model/InlineResponse2001DataProfitLoss
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2001DataProfitLoss {
     /**

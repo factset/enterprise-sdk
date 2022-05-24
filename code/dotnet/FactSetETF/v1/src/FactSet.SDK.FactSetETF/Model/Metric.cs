@@ -122,7 +122,7 @@ namespace FactSet.SDK.FactSetETF.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Metric {\n");
             sb.Append("  _Metric: ").Append(_Metric).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -159,8 +159,9 @@ namespace FactSet.SDK.FactSetETF.Model
         public bool Equals(Metric input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._Metric == input._Metric ||
@@ -193,12 +194,18 @@ namespace FactSet.SDK.FactSetETF.Model
             {
                 int hashCode = 41;
                 if (this._Metric != null)
-                    hashCode = hashCode * 59 + this._Metric.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._Metric.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
-                hashCode = hashCode * 59 + this.DataType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DataType.GetHashCode();
                 return hashCode;
             }
         }

@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -27,6 +26,7 @@ import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutp
 import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
 import PartialOutputObject from './model/PartialOutputObject';
 import StatusObject from './model/StatusObject';
+
 import CompanyApi from './api/CompanyApi';
 
 
@@ -59,7 +59,7 @@ import CompanyApi from './api/CompanyApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.9.2
 */
 export {
     /**
@@ -156,5 +156,6 @@ export {
     * The CompanyApi service constructor.
     * @property {module:api/CompanyApi}
     */
-    CompanyApi
+    CompanyApi,
+
 };

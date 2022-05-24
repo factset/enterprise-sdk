@@ -60,6 +60,16 @@ public class FundHoldingsRequest implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public FundHoldingsRequest() { 
+  }
+
+  @JsonCreator
+  public FundHoldingsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public FundHoldingsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

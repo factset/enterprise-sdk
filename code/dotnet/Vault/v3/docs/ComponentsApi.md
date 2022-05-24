@@ -51,7 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
-            var id = id_example;  // string | Unique identifier for a vault component
+            var id = "id_example";  // string | Unique identifier for a vault component
 
             try
             {
@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for a vault component | 
 
 ### Return type
-
 [**VaultComponentRoot**](VaultComponentRoot.md)
 
 ### Authorization
@@ -148,7 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
-            var document = document_example;  // string | Document Name
+            var document = "document_example";  // string | Document Name
 
             try
             {
@@ -174,7 +173,6 @@ Name | Type | Description  | Notes
  **document** | **string**| Document Name | 
 
 ### Return type
-
 [**ComponentSummaryRoot**](ComponentSummaryRoot.md)
 
 ### Authorization

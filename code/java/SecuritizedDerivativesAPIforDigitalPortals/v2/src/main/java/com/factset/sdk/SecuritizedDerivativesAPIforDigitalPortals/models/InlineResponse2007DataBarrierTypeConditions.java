@@ -48,6 +48,8 @@ public class InlineResponse2007DataBarrierTypeConditions implements Serializable
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
   private java.util.List<InlineResponse2007DataConditions> conditions = null;
 
+  public InlineResponse2007DataBarrierTypeConditions() { 
+  }
 
   public InlineResponse2007DataBarrierTypeConditions barrierType(InlineResponse2007DataBarrierType barrierType) {
     this.barrierType = barrierType;

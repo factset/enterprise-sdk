@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **str, none_type** |  | 
-**identifier** | **str, none_type** |  | 
-**start** | **str, none_type** |  | 
-**end** | **str, none_type** |  | 
+**title** | **str** |  | 
+**identifier** | **str** |  | 
+**start** | **str** |  | 
+**end** | **str** |  | 
 **locations** | **[str], none_type** |  | [optional] 
 **organizer** | **str, none_type** |  | [optional] 
 **organizer_id** | **str** |  | [optional] 

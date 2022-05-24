@@ -84,7 +84,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationSearchByTextData {\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Validation: ").Append(Validation).Append("\n");
@@ -122,8 +122,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationSearchByTextData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Text == input.Text ||
@@ -162,15 +163,25 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
                 if (this.Validation != null)
-                    hashCode = hashCode * 59 + this.Validation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Validation.GetHashCode();
+                }
                 if (this.AssetClasses != null)
-                    hashCode = hashCode * 59 + this.AssetClasses.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AssetClasses.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.TradingValue != null)
-                    hashCode = hashCode * 59 + this.TradingValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
+                }
                 return hashCode;
             }
         }

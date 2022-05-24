@@ -17,7 +17,7 @@ import InlineResponse2005NotationInstrumentType from './InlineResponse2005Notati
 /**
  * The InlineResponse2005NotationInstrument model module.
  * @module model/InlineResponse2005NotationInstrument
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005NotationInstrument {
     /**

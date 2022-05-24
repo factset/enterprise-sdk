@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresDeltaEffective implements Serializa
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresDeltaEffective() { 
+  }
 
   public InlineResponse2005DataKeyFiguresDeltaEffective minimum(BigDecimal minimum) {
     this.minimum = minimum;

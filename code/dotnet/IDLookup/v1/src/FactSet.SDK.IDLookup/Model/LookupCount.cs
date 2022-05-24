@@ -52,7 +52,7 @@ namespace FactSet.SDK.IDLookup.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LookupCount {\n");
             sb.Append("  ResultCount: ").Append(ResultCount).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.IDLookup.Model
         public bool Equals(LookupCount input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ResultCount == input.ResultCount ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.IDLookup.Model
             {
                 int hashCode = 41;
                 if (this.ResultCount != null)
-                    hashCode = hashCode * 59 + this.ResultCount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ResultCount.GetHashCode();
+                }
                 return hashCode;
             }
         }

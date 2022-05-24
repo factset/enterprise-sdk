@@ -75,6 +75,16 @@ public class ValueChangeDateLabelTemplate implements Serializable {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  public ValueChangeDateLabelTemplate() { 
+  }
+
+  @JsonCreator
+  public ValueChangeDateLabelTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public ValueChangeDateLabelTemplate headline(String headline) {
     this.headline = headline;

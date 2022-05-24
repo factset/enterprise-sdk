@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **use_previous_value** | **bool** |  | [optional] 
 **is_mandatory** | **bool** |  | [optional] 
 **is_hidden** | **bool** |  | [optional] 
+**is_file_path** | **bool** |  | [optional] 
 **formula_config** | [**FormulaConfigDto**](FormulaConfigDto.md) |  | [optional] 
 **numeric_config** | [**NumericConfigDto**](NumericConfigDto.md) |  | [optional] 
 **integer_config** | [**IntegerConfigDto**](IntegerConfigDto.md) |  | [optional] 

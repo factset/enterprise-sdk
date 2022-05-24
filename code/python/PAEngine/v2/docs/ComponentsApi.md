@@ -38,15 +38,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -54,11 +54,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    id = "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53" # str | Unique identifier for a PA component (default to "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53")
+
     try:
         # Get PA component by id
-        api_response = api_instance.get_pa_component_by_id()
+        api_response = api_instance.get_pa_component_by_id(id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling ComponentsApi->get_pa_component_by_id: %s\n" % e)
 ```
@@ -130,15 +132,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -146,11 +148,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    document = "Client:Foo" # str | Document Name (default to "Client:Foo")
+
     try:
         # Get PA components
-        api_response = api_instance.get_pa_components()
+        api_response = api_instance.get_pa_components(document)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling ComponentsApi->get_pa_components: %s\n" % e)
 ```

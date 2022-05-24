@@ -3,7 +3,7 @@ info:
   title: Prime Developer Trial
   version: v1
 servers:
-- url: //api.factset.com/wealth/v1
+- url: https://api.factset.com/wealth/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -475,15 +475,16 @@ components:
           format: int32
           type: number
         isEstimatedTotal:
-          description: Flag indicating that the value of "total" is estimated.
+          description: Flag indicating that the value of `total` is estimated.
           type: boolean
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - isEstimatedTotal
@@ -501,12 +502,13 @@ components:
         a total element count is not supported.
       properties:
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - next
@@ -1528,7 +1530,7 @@ components:
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
 x-interface-version: 1
-x-documenter-version: 5.38.0
-x-api-version: 2.9.0
+x-documenter-version: 5.38.1
+x-api-version: 2.9.1
 x-original-swagger-version: "2.0"
 

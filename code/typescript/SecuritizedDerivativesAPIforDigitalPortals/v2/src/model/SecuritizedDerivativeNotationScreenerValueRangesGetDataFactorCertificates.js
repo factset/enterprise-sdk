@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates {
     /**

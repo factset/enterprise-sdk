@@ -470,6 +470,47 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
     {
         private FactSet.SDK.QuotesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesBidAskGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20081) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesBidAskListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20082) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20079) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20080) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesOrderbookAggregatedGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20083) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesOrderbookFullGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20084) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPricesTradingScheduleEventTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20086) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostPricesTradingScheduleEventListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20085) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PricesApi"/> class.
         /// </summary>
@@ -583,7 +624,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20081</returns>
         public InlineResponse20081 GetPricesBidAskGet(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20081> localVarResponse = GetPricesBidAskGetWithHttpInfo(id, quality, attributes, subscriptionMinimumInterval);
+            var localVarResponse = GetPricesBidAskGetWithHttpInfo(id, quality, attributes, subscriptionMinimumInterval);
             return localVarResponse.Data;
         }
 
@@ -596,11 +637,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000.0M)</param>
         /// <returns>ApiResponse of InlineResponse20081</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20081> GetPricesBidAskGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        public ApiResponse<InlineResponse20081> GetPricesBidAskGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesBidAskGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -613,10 +656,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -634,13 +683,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -652,15 +701,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20081>("/prices/bidAsk/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesBidAskGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20081>("/prices/bidAsk/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesBidAskGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -674,9 +727,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20081</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20081> GetPricesBidAskGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20081>GetPricesBidAskGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20081> localVarResponse = await GetPricesBidAskGetWithHttpInfoAsync(id, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesBidAskGetWithHttpInfoAsync(id, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -690,11 +743,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20081)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20081>> GetPricesBidAskGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20081>> GetPricesBidAskGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesBidAskGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -707,12 +763,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -730,13 +791,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -748,14 +809,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesBidAskGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20081>("/prices/bidAsk/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesBidAskGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -772,7 +837,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20082</returns>
         public InlineResponse20082 GetPricesBidAskList(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20082> localVarResponse = GetPricesBidAskListWithHttpInfo(ids, quality, sameQuality, attributes);
+            var localVarResponse = GetPricesBidAskListWithHttpInfo(ids, quality, sameQuality, attributes);
             return localVarResponse.Data;
         }
 
@@ -785,11 +850,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality">Assure that the prices for all notations are of the same quality. (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20082</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20082> GetPricesBidAskListWithHttpInfo(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20082> GetPricesBidAskListWithHttpInfo(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetPricesBidAskList");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -802,10 +869,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (quality != null)
@@ -823,13 +896,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -841,15 +914,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20082>("/prices/bidAsk/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesBidAskListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20082>("/prices/bidAsk/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesBidAskList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -863,9 +940,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20082</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20082> GetPricesBidAskListAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20082>GetPricesBidAskListAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20082> localVarResponse = await GetPricesBidAskListWithHttpInfoAsync(ids, quality, sameQuality, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesBidAskListWithHttpInfoAsync(ids, quality, sameQuality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -879,11 +956,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20082)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20082>> GetPricesBidAskListWithHttpInfoAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20082>> GetPricesBidAskListWithHttpInfoAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetPricesBidAskList");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -896,12 +976,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (quality != null)
@@ -919,13 +1004,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -937,14 +1022,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesBidAskListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20082>("/prices/bidAsk/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesBidAskList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -961,7 +1050,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20079</returns>
         public InlineResponse20079 GetPricesGet(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20079> localVarResponse = GetPricesGetWithHttpInfo(id, quality, attributes, subscriptionMinimumInterval);
+            var localVarResponse = GetPricesGetWithHttpInfo(id, quality, attributes, subscriptionMinimumInterval);
             return localVarResponse.Data;
         }
 
@@ -974,11 +1063,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000.0M)</param>
         /// <returns>ApiResponse of InlineResponse20079</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20079> GetPricesGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
+        public ApiResponse<InlineResponse20079> GetPricesGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -991,10 +1082,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -1012,13 +1109,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1030,15 +1127,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20079>("/prices/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20079>("/prices/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1052,9 +1153,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20079</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20079> GetPricesGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20079>GetPricesGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20079> localVarResponse = await GetPricesGetWithHttpInfoAsync(id, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesGetWithHttpInfoAsync(id, quality, attributes, subscriptionMinimumInterval, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1068,11 +1169,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="subscriptionMinimumInterval">Minimum number of milliseconds at which updates are send. (optional, default to 5000.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20079)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20079>> GetPricesGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20079>> GetPricesGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1085,12 +1189,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -1108,13 +1217,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1126,14 +1235,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20079>("/prices/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1150,7 +1263,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20080</returns>
         public InlineResponse20080 GetPricesList(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20080> localVarResponse = GetPricesListWithHttpInfo(ids, quality, sameQuality, attributes);
+            var localVarResponse = GetPricesListWithHttpInfo(ids, quality, sameQuality, attributes);
             return localVarResponse.Data;
         }
 
@@ -1163,11 +1276,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="sameQuality">Assure that the prices for all notations are of the same quality. (optional, default to true)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20080</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20080> GetPricesListWithHttpInfo(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20080> GetPricesListWithHttpInfo(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetPricesList");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1180,10 +1295,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (quality != null)
@@ -1201,13 +1322,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1219,15 +1340,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20080>("/prices/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20080>("/prices/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1241,9 +1366,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20080</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20080> GetPricesListAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20080>GetPricesListAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20080> localVarResponse = await GetPricesListWithHttpInfoAsync(ids, quality, sameQuality, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesListWithHttpInfoAsync(ids, quality, sameQuality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1257,11 +1382,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20080)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20080>> GetPricesListWithHttpInfoAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20080>> GetPricesListWithHttpInfoAsync(List<string> ids, string quality = default(string), bool? sameQuality = default(bool?), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetPricesList");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1274,12 +1402,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (quality != null)
@@ -1297,13 +1430,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1315,14 +1448,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20080>("/prices/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1338,7 +1475,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20083</returns>
         public InlineResponse20083 GetPricesOrderbookAggregatedGet(string id, string quality = default(string), List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20083> localVarResponse = GetPricesOrderbookAggregatedGetWithHttpInfo(id, quality, attributes);
+            var localVarResponse = GetPricesOrderbookAggregatedGetWithHttpInfo(id, quality, attributes);
             return localVarResponse.Data;
         }
 
@@ -1350,11 +1487,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality">Quality of the price. (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20083</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20083> GetPricesOrderbookAggregatedGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20083> GetPricesOrderbookAggregatedGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesOrderbookAggregatedGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1367,10 +1506,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -1384,13 +1529,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1402,15 +1547,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20083>("/prices/orderbook/aggregated/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesOrderbookAggregatedGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20083>("/prices/orderbook/aggregated/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesOrderbookAggregatedGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1423,9 +1572,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20083</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20083> GetPricesOrderbookAggregatedGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20083>GetPricesOrderbookAggregatedGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20083> localVarResponse = await GetPricesOrderbookAggregatedGetWithHttpInfoAsync(id, quality, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesOrderbookAggregatedGetWithHttpInfoAsync(id, quality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1438,11 +1587,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20083)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20083>> GetPricesOrderbookAggregatedGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20083>> GetPricesOrderbookAggregatedGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesOrderbookAggregatedGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1455,12 +1607,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -1474,13 +1631,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1492,14 +1649,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesOrderbookAggregatedGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20083>("/prices/orderbook/aggregated/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesOrderbookAggregatedGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1515,7 +1676,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20084</returns>
         public InlineResponse20084 GetPricesOrderbookFullGet(string id, string quality = default(string), List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20084> localVarResponse = GetPricesOrderbookFullGetWithHttpInfo(id, quality, attributes);
+            var localVarResponse = GetPricesOrderbookFullGetWithHttpInfo(id, quality, attributes);
             return localVarResponse.Data;
         }
 
@@ -1527,11 +1688,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality">Quality of the price. (optional, default to RLT)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20084</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20084> GetPricesOrderbookFullGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20084> GetPricesOrderbookFullGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesOrderbookFullGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1544,10 +1707,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -1561,13 +1730,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1579,15 +1748,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20084>("/prices/orderbook/full/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesOrderbookFullGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20084>("/prices/orderbook/full/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesOrderbookFullGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1600,9 +1773,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20084</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20084> GetPricesOrderbookFullGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20084>GetPricesOrderbookFullGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20084> localVarResponse = await GetPricesOrderbookFullGetWithHttpInfoAsync(id, quality, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesOrderbookFullGetWithHttpInfoAsync(id, quality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1615,11 +1788,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20084)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20084>> GetPricesOrderbookFullGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20084>> GetPricesOrderbookFullGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PricesApi->GetPricesOrderbookFullGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1632,12 +1808,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -1651,13 +1832,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1669,14 +1850,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesOrderbookFullGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20084>("/prices/orderbook/full/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesOrderbookFullGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1690,7 +1875,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20086</returns>
         public InlineResponse20086 GetPricesTradingScheduleEventTypeList(List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20086> localVarResponse = GetPricesTradingScheduleEventTypeListWithHttpInfo(attributes);
+            var localVarResponse = GetPricesTradingScheduleEventTypeListWithHttpInfo(attributes);
             return localVarResponse.Data;
         }
 
@@ -1700,7 +1885,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20086</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20086> GetPricesTradingScheduleEventTypeListWithHttpInfo(List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20086> GetPricesTradingScheduleEventTypeListWithHttpInfo(List<string> attributes = default(List<string>))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1713,10 +1898,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1725,13 +1916,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1743,15 +1934,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20086>("/prices/tradingSchedule/event/type/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesTradingScheduleEventTypeListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20086>("/prices/tradingSchedule/event/type/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesTradingScheduleEventTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1762,9 +1957,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20086</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20086> GetPricesTradingScheduleEventTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20086>GetPricesTradingScheduleEventTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20086> localVarResponse = await GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1775,7 +1970,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20086)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20086>> GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20086>> GetPricesTradingScheduleEventTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1788,12 +1984,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1802,13 +2003,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1820,14 +2021,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPricesTradingScheduleEventTypeListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20086>("/prices/tradingSchedule/event/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPricesTradingScheduleEventTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1841,7 +2046,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20085</returns>
         public InlineResponse20085 PostPricesTradingScheduleEventList(InlineObject21 body)
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20085> localVarResponse = PostPricesTradingScheduleEventListWithHttpInfo(body);
+            var localVarResponse = PostPricesTradingScheduleEventListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1851,11 +2056,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse20085</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20085> PostPricesTradingScheduleEventListWithHttpInfo(InlineObject21 body)
+        public ApiResponse<InlineResponse20085> PostPricesTradingScheduleEventListWithHttpInfo(InlineObject21 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTradingScheduleEventList");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1869,22 +2076,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1896,15 +2109,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20085>("/prices/tradingSchedule/event/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTradingScheduleEventListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20085>("/prices/tradingSchedule/event/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTradingScheduleEventList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1915,9 +2132,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20085</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20085> PostPricesTradingScheduleEventListAsync(InlineObject21 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20085>PostPricesTradingScheduleEventListAsync(InlineObject21 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20085> localVarResponse = await PostPricesTradingScheduleEventListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostPricesTradingScheduleEventListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1928,11 +2145,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20085)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20085>> PostPricesTradingScheduleEventListWithHttpInfoAsync(InlineObject21 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20085>> PostPricesTradingScheduleEventListWithHttpInfoAsync(InlineObject21 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PricesApi->PostPricesTradingScheduleEventList");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1946,24 +2166,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1975,14 +2200,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostPricesTradingScheduleEventListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20085>("/prices/tradingSchedule/event/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostPricesTradingScheduleEventList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

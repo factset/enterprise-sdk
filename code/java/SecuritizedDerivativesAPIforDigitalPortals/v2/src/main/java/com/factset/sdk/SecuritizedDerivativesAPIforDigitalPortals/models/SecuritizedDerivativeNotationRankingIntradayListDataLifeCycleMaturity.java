@@ -80,6 +80,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturi
   public static final String JSON_PROPERTY_PERPETUAL = "perpetual";
   private PerpetualEnum perpetual = PerpetualEnum.INCLUDE;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity perpetual(PerpetualEnum perpetual) {
     this.perpetual = perpetual;

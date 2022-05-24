@@ -52,6 +52,8 @@ public class InlineResponse20062DataGeneralManufacturer implements Serializable 
   public static final String JSON_PROPERTY_LEI = "lei";
   private String lei;
 
+  public InlineResponse20062DataGeneralManufacturer() { 
+  }
 
   public InlineResponse20062DataGeneralManufacturer id(BigDecimal id) {
     this.id = id;

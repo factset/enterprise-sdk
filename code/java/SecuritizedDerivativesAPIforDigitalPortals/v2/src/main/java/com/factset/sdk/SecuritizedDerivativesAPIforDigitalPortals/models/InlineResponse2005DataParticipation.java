@@ -82,6 +82,8 @@ public class InlineResponse2005DataParticipation implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataParticipation() { 
+  }
 
   public InlineResponse2005DataParticipation value(ValueEnum value) {
     this.value = value;

@@ -3,7 +3,7 @@ info:
   title: Prime Developer Trial
   version: v1
 servers:
-- url: //api.factset.com/wealth/v1
+- url: https://api.factset.com/wealth/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -975,15 +975,16 @@ components:
           format: int32
           type: number
         isEstimatedTotal:
-          description: Flag indicating that the value of "total" is estimated.
+          description: Flag indicating that the value of `total` is estimated.
           type: boolean
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - isEstimatedTotal
@@ -1004,12 +1005,13 @@ components:
         previous: previous
       properties:
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - next
@@ -1160,8 +1162,35 @@ components:
       x-property-sort:
       - id
       - name
+    inline_response_200_data_fsym_security:
+      description: Security-level identifier.
+      example:
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for an instrument. The format
+            is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+          type: string
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+    inline_response_200_data_fsym:
+      description: Instrument-level FactSet identifier of the financial instrument
+        used primarily in FactSet products other than the MDG.
+      example:
+        security:
+          permanentIdentifier: permanentIdentifier
+      properties:
+        security:
+          $ref: '#/components/schemas/inline_response_200_data_fsym_security'
+      type: object
+      x-property-sort:
+      - security
     inline_response_200_data_instruments:
       example:
+        fsym:
+          security:
+            permanentIdentifier: permanentIdentifier
         id: id
       properties:
         id:
@@ -1169,9 +1198,12 @@ components:
           format: id64
           type: string
           x-positive: true
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_data_fsym'
       type: object
       x-property-sort:
       - id
+      - fsym
     inline_response_200_data_media:
       example:
         width: 2.3021358869347655
@@ -1216,14 +1248,21 @@ components:
     inline_response_200_data:
       description: Content of the news article.
       example:
+        summary: summary
         types:
         - name: name
           id: 0.8008281904610115
         - name: name
           id: 0.8008281904610115
         instruments:
-        - id: id
-        - id: id
+        - fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
+          id: id
+        - fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
+          id: id
         publisher:
           name: name
           id: 5.962133916683182
@@ -1263,6 +1302,10 @@ components:
           description: Headline of the news article represented as text with HTML
             entity encoding but without HTML tags.
           type: string
+        summary:
+          description: Textual summary of the body of the news article or `null` if
+            no summary was provided by the news article distributor.
+          type: string
         body:
           description: Text body of the news article.
           type: string
@@ -1300,6 +1343,7 @@ components:
       x-property-sort:
       - time
       - headline
+      - summary
       - body
       - types
       - language
@@ -1322,14 +1366,21 @@ components:
     inline_response_200:
       example:
         data:
+          summary: summary
           types:
           - name: name
             id: 0.8008281904610115
           - name: name
             id: 0.8008281904610115
           instruments:
-          - id: id
-          - id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
           publisher:
             name: name
             id: 5.962133916683182
@@ -1371,7 +1422,7 @@ components:
       type: object
     _news_article_list_data_filter_range:
       description: Time range for matching the news article's date. At most one of
-        the attributes `start` or `end` may be null.
+        the attributes `start` or `end` may be `null`.
       properties:
         start:
           description: The starting point of the time range (inclusive), or `null`
@@ -1402,7 +1453,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -1419,7 +1470,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -1436,7 +1487,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -1453,7 +1504,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -1470,7 +1521,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -1487,7 +1538,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -1679,14 +1730,68 @@ components:
       type: object
       x-property-sort:
       - id
+    inline_response_200_1_fsym_security:
+      description: Security-level identifier.
+      example:
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for an instrument. The format
+            is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+          type: string
+          x-pushable: true
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+    inline_response_200_1_fsym:
+      description: Instrument-level FactSet identifier of the financial instrument
+        used primarily in FactSet products other than the MDG.
+      example:
+        security:
+          permanentIdentifier: permanentIdentifier
+      properties:
+        security:
+          $ref: '#/components/schemas/inline_response_200_1_fsym_security'
+      type: object
+      x-property-sort:
+      - security
+    inline_response_200_1_instruments:
+      example:
+        fsym:
+          security:
+            permanentIdentifier: permanentIdentifier
+        id: id
+      properties:
+        id:
+          description: Identifier of the instrument.
+          format: id64
+          type: string
+          x-positive: true
+          x-pushable: true
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_1_fsym'
+      type: object
+      x-property-sort:
+      - id
+      - fsym
     inline_response_200_1_data:
       example:
+        summary: summary
         types:
         - id: 0.8008281904610115
         - id: 0.8008281904610115
         chain:
           id: id
         code: code
+        instruments:
+        - fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
+          id: id
+        - fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
+          id: id
         publisher:
           id: 5.962133916683182
         language:
@@ -1712,6 +1817,11 @@ components:
             entity encoding but without HTML tags.
           type: string
           x-pushable: true
+        summary:
+          description: Textual summary of the body of the news article or `null` if
+            no summary was provided by the news article distributor.
+          type: string
+          x-pushable: true
         types:
           description: Types of news article. See endpoint `/news/article/type/list`
             for possible values.
@@ -1732,17 +1842,26 @@ components:
           type: array
         chain:
           $ref: '#/components/schemas/inline_response_200_1_chain'
+        instruments:
+          description: Set of stock instruments related to the article. The set is
+            not updated in the course of corporate actions, e.g. when the related
+            company obtains a new instrument after a spin-off.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_instruments'
+          type: array
       type: object
       x-property-sort:
       - code
       - time
       - headline
+      - summary
       - types
       - language
       - distributor
       - publisher
       - categories
       - chain
+      - instruments
     inline_response_200_1_meta:
       description: The meta member contains the meta information of the response.
       example:
@@ -1763,12 +1882,22 @@ components:
     inline_response_200_1:
       example:
         data:
-        - types:
+        - summary: summary
+          types:
           - id: 0.8008281904610115
           - id: 0.8008281904610115
           chain:
             id: id
           code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
           publisher:
             id: 5.962133916683182
           language:
@@ -1780,12 +1909,22 @@ components:
           headline: headline
           distributor:
             id: 1.4658129805029452
-        - types:
+        - summary: summary
+          types:
           - id: 0.8008281904610115
           - id: 0.8008281904610115
           chain:
             id: id
           code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
           publisher:
             id: 5.962133916683182
           language:
@@ -1866,10 +2005,20 @@ components:
       - id
     inline_response_200_2_data_articles:
       example:
+        summary: summary
         types:
         - id: 0.8008281904610115
         - id: 0.8008281904610115
         code: code
+        instruments:
+        - fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
+          id: id
+        - fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
+          id: id
         language:
           id: 6.027456183070403
         time: time
@@ -1891,6 +2040,11 @@ components:
             entity encoding but without HTML tags.
           type: string
           x-pushable: true
+        summary:
+          description: Textual summary of the body of the news article or `null` if
+            no summary was provided by the news article distributor.
+          type: string
+          x-pushable: true
         types:
           description: Types of news article. See endpoint `/news/article/type/list`
             for possible values.
@@ -1905,14 +2059,23 @@ components:
           items:
             $ref: '#/components/schemas/inline_response_200_1_categories'
           type: array
+        instruments:
+          description: Set of stock instruments related to the article. The set is
+            not updated in the course of corporate actions, e.g. when the related
+            company obtains a new instrument after a spin-off.
+          items:
+            $ref: '#/components/schemas/inline_response_200_1_instruments'
+          type: array
       type: object
       x-property-sort:
       - code
       - time
       - headline
+      - summary
       - types
       - language
       - categories
+      - instruments
     inline_response_200_2_data:
       description: News articles, their publisher, and distributor as refrenced by
         the article chain.
@@ -1922,10 +2085,20 @@ components:
         distributor:
           id: 0.8008281904610115
         articles:
-        - types:
+        - summary: summary
+          types:
           - id: 0.8008281904610115
           - id: 0.8008281904610115
           code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
           language:
             id: 6.027456183070403
           time: time
@@ -1933,10 +2106,20 @@ components:
           - id: 5.637376656633329
           - id: 5.637376656633329
           headline: headline
-        - types:
+        - summary: summary
+          types:
           - id: 0.8008281904610115
           - id: 0.8008281904610115
           code: code
+          instruments:
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
+          - fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
+            id: id
           language:
             id: 6.027456183070403
           time: time
@@ -1968,10 +2151,20 @@ components:
           distributor:
             id: 0.8008281904610115
           articles:
-          - types:
+          - summary: summary
+            types:
             - id: 0.8008281904610115
             - id: 0.8008281904610115
             code: code
+            instruments:
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
             language:
               id: 6.027456183070403
             time: time
@@ -1979,10 +2172,20 @@ components:
             - id: 5.637376656633329
             - id: 5.637376656633329
             headline: headline
-          - types:
+          - summary: summary
+            types:
             - id: 0.8008281904610115
             - id: 0.8008281904610115
             code: code
+            instruments:
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
+            - fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
+              id: id
             language:
               id: 6.027456183070403
             time: time
@@ -2011,7 +2214,7 @@ components:
             format: id64
             type: string
             x-positive: true
-          maxItems: 64
+          maxItems: 500
           minItems: 1
           type: array
           uniqueItems: true
@@ -2044,7 +2247,7 @@ components:
             format: id64
             type: string
             x-positive: true
-          maxItems: 256
+          maxItems: 1000
           minItems: 1
           type: array
           uniqueItems: true
@@ -2078,7 +2281,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 16
+          maxItems: 20
           minItems: 1
           type: array
           uniqueItems: true
@@ -2165,7 +2368,7 @@ components:
             format: id64
             type: string
             x-positive: true
-          maxItems: 64
+          maxItems: 500
           minItems: 1
           type: array
           uniqueItems: true
@@ -2183,7 +2386,7 @@ components:
             format: id64
             type: string
             x-positive: true
-          maxItems: 64
+          maxItems: 1000
           minItems: 1
           type: array
           uniqueItems: true
@@ -2201,7 +2404,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -2219,7 +2422,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -2237,7 +2440,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -2255,7 +2458,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -2273,7 +2476,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -2291,7 +2494,7 @@ components:
             format: id32
             type: number
             x-positive: true
-          maxItems: 64
+          maxItems: 100
           minItems: 1
           type: array
           uniqueItems: true
@@ -2812,7 +3015,7 @@ components:
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
 x-interface-version: 1
-x-documenter-version: 5.38.0
-x-api-version: 2.9.0
+x-documenter-version: 5.38.1
+x-api-version: 2.9.1
 x-original-swagger-version: "2.0"
 

@@ -17,7 +17,7 @@ import LeadUnderwriter from './LeadUnderwriter';
 /**
  * The LeadUnderwritersResponse model module.
  * @module model/LeadUnderwritersResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class LeadUnderwritersResponse {
     /**

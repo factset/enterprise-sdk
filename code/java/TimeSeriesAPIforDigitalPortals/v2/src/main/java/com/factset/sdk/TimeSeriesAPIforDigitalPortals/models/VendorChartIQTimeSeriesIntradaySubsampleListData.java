@@ -187,6 +187,18 @@ public class VendorChartIQTimeSeriesIntradaySubsampleListData implements Seriali
   public static final String JSON_PROPERTY_GRANULARITY = "granularity";
   private GranularityEnum granularity = GranularityEnum._1H;
 
+  public VendorChartIQTimeSeriesIntradaySubsampleListData() { 
+  }
+
+  @JsonCreator
+  public VendorChartIQTimeSeriesIntradaySubsampleListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_RANGE, required=true) VendorChartIQTimeSeriesIntradaySubsampleListDataRange range
+  ) {
+    this();
+    this.id = id;
+    this.range = range;
+  }
 
   public VendorChartIQTimeSeriesIntradaySubsampleListData id(String id) {
     this.id = id;

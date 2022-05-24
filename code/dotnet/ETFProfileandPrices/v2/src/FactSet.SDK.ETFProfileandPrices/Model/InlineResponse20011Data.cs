@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// InlineResponse20011Data
+    /// Portfolio statistics.
     /// </summary>
     [DataContract(Name = "inline_response_200_11_data")]
     public partial class InlineResponse20011Data : IEquatable<InlineResponse20011Data>, IValidatableObject
@@ -34,18 +34,91 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20011Data" /> class.
         /// </summary>
-        /// <param name="name">Name of the geography..</param>
-        public InlineResponse20011Data(string name = default(string))
+        /// <param name="asOfDate">Date the analytics data was published. Available for the regions: US, Europe, and Canada..</param>
+        /// <param name="numberHoldings">A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US..</param>
+        /// <param name="concentration">A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US..</param>
+        /// <param name="dividendYield">The annualized weighted average of the current dividend yield of the portfolio&#39;s holdings, gross of fees. Available for the regions: US..</param>
+        /// <param name="priceEarningsRatio">Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US..</param>
+        /// <param name="priceBookRatio">Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US..</param>
+        /// <param name="marketCapitalization">The weighted average market capitalization of the stocks in the fund&#39;s portfolio (USD). Available for regions: US..</param>
+        /// <param name="timeToMaturity">The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US..</param>
+        /// <param name="creditRating">Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody&#39;s and Standard &amp; Poor&#39;s) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US..</param>
+        public InlineResponse20011Data(DateTime asOfDate = default(DateTime), decimal numberHoldings = default(decimal), string concentration = default(string), decimal dividendYield = default(decimal), decimal priceEarningsRatio = default(decimal), decimal priceBookRatio = default(decimal), decimal marketCapitalization = default(decimal), decimal timeToMaturity = default(decimal), string creditRating = default(string))
         {
-            this.Name = name;
+            this.AsOfDate = asOfDate;
+            this.NumberHoldings = numberHoldings;
+            this.Concentration = concentration;
+            this.DividendYield = dividendYield;
+            this.PriceEarningsRatio = priceEarningsRatio;
+            this.PriceBookRatio = priceBookRatio;
+            this.MarketCapitalization = marketCapitalization;
+            this.TimeToMaturity = timeToMaturity;
+            this.CreditRating = creditRating;
         }
 
         /// <summary>
-        /// Name of the geography.
+        /// Date the analytics data was published. Available for the regions: US, Europe, and Canada.
         /// </summary>
-        /// <value>Name of the geography.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        /// <value>Date the analytics data was published. Available for the regions: US, Europe, and Canada.</value>
+        [DataMember(Name = "asOfDate", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime AsOfDate { get; set; }
+
+        /// <summary>
+        /// A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.
+        /// </summary>
+        /// <value>A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.</value>
+        [DataMember(Name = "numberHoldings", EmitDefaultValue = false)]
+        public decimal NumberHoldings { get; set; }
+
+        /// <summary>
+        /// A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.
+        /// </summary>
+        /// <value>A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.</value>
+        [DataMember(Name = "concentration", EmitDefaultValue = false)]
+        public string Concentration { get; set; }
+
+        /// <summary>
+        /// The annualized weighted average of the current dividend yield of the portfolio&#39;s holdings, gross of fees. Available for the regions: US.
+        /// </summary>
+        /// <value>The annualized weighted average of the current dividend yield of the portfolio&#39;s holdings, gross of fees. Available for the regions: US.</value>
+        [DataMember(Name = "dividendYield", EmitDefaultValue = false)]
+        public decimal DividendYield { get; set; }
+
+        /// <summary>
+        /// Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.
+        /// </summary>
+        /// <value>Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.</value>
+        [DataMember(Name = "priceEarningsRatio", EmitDefaultValue = false)]
+        public decimal PriceEarningsRatio { get; set; }
+
+        /// <summary>
+        /// Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.
+        /// </summary>
+        /// <value>Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.</value>
+        [DataMember(Name = "priceBookRatio", EmitDefaultValue = false)]
+        public decimal PriceBookRatio { get; set; }
+
+        /// <summary>
+        /// The weighted average market capitalization of the stocks in the fund&#39;s portfolio (USD). Available for regions: US.
+        /// </summary>
+        /// <value>The weighted average market capitalization of the stocks in the fund&#39;s portfolio (USD). Available for regions: US.</value>
+        [DataMember(Name = "marketCapitalization", EmitDefaultValue = false)]
+        public decimal MarketCapitalization { get; set; }
+
+        /// <summary>
+        /// The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.
+        /// </summary>
+        /// <value>The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.</value>
+        [DataMember(Name = "timeToMaturity", EmitDefaultValue = false)]
+        public decimal TimeToMaturity { get; set; }
+
+        /// <summary>
+        /// Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody&#39;s and Standard &amp; Poor&#39;s) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.
+        /// </summary>
+        /// <value>Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody&#39;s and Standard &amp; Poor&#39;s) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.</value>
+        [DataMember(Name = "creditRating", EmitDefaultValue = false)]
+        public string CreditRating { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,9 +126,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20011Data {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  AsOfDate: ").Append(AsOfDate).Append("\n");
+            sb.Append("  NumberHoldings: ").Append(NumberHoldings).Append("\n");
+            sb.Append("  Concentration: ").Append(Concentration).Append("\n");
+            sb.Append("  DividendYield: ").Append(DividendYield).Append("\n");
+            sb.Append("  PriceEarningsRatio: ").Append(PriceEarningsRatio).Append("\n");
+            sb.Append("  PriceBookRatio: ").Append(PriceBookRatio).Append("\n");
+            sb.Append("  MarketCapitalization: ").Append(MarketCapitalization).Append("\n");
+            sb.Append("  TimeToMaturity: ").Append(TimeToMaturity).Append("\n");
+            sb.Append("  CreditRating: ").Append(CreditRating).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,13 +168,48 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20011Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.AsOfDate == input.AsOfDate ||
+                    (this.AsOfDate != null &&
+                    this.AsOfDate.Equals(input.AsOfDate))
+                ) && 
+                (
+                    this.NumberHoldings == input.NumberHoldings ||
+                    this.NumberHoldings.Equals(input.NumberHoldings)
+                ) && 
+                (
+                    this.Concentration == input.Concentration ||
+                    (this.Concentration != null &&
+                    this.Concentration.Equals(input.Concentration))
+                ) && 
+                (
+                    this.DividendYield == input.DividendYield ||
+                    this.DividendYield.Equals(input.DividendYield)
+                ) && 
+                (
+                    this.PriceEarningsRatio == input.PriceEarningsRatio ||
+                    this.PriceEarningsRatio.Equals(input.PriceEarningsRatio)
+                ) && 
+                (
+                    this.PriceBookRatio == input.PriceBookRatio ||
+                    this.PriceBookRatio.Equals(input.PriceBookRatio)
+                ) && 
+                (
+                    this.MarketCapitalization == input.MarketCapitalization ||
+                    this.MarketCapitalization.Equals(input.MarketCapitalization)
+                ) && 
+                (
+                    this.TimeToMaturity == input.TimeToMaturity ||
+                    this.TimeToMaturity.Equals(input.TimeToMaturity)
+                ) && 
+                (
+                    this.CreditRating == input.CreditRating ||
+                    (this.CreditRating != null &&
+                    this.CreditRating.Equals(input.CreditRating))
                 );
         }
 
@@ -106,8 +222,24 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.AsOfDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsOfDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.NumberHoldings.GetHashCode();
+                if (this.Concentration != null)
+                {
+                    hashCode = (hashCode * 59) + this.Concentration.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DividendYield.GetHashCode();
+                hashCode = (hashCode * 59) + this.PriceEarningsRatio.GetHashCode();
+                hashCode = (hashCode * 59) + this.PriceBookRatio.GetHashCode();
+                hashCode = (hashCode * 59) + this.MarketCapitalization.GetHashCode();
+                hashCode = (hashCode * 59) + this.TimeToMaturity.GetHashCode();
+                if (this.CreditRating != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreditRating.GetHashCode();
+                }
                 return hashCode;
             }
         }

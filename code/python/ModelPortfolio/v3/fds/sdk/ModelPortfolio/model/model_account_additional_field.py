@@ -25,8 +25,8 @@ from fds.sdk.ModelPortfolio.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ModelPortfolio.exceptions import ApiAttributeError
 
 

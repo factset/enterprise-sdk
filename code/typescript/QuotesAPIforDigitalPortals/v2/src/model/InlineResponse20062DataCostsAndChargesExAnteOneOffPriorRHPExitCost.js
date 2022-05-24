@@ -17,7 +17,7 @@ import InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit from
 /**
  * The InlineResponse20062DataCostsAndChargesExAnteOneOffPriorRHPExitCost model module.
  * @module model/InlineResponse20062DataCostsAndChargesExAnteOneOffPriorRHPExitCost
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20062DataCostsAndChargesExAnteOneOffPriorRHPExitCost {
     /**

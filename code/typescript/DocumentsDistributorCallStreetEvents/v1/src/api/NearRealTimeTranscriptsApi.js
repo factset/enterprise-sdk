@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Error from '../model/Error';
+import IndexedNRT from '../model/IndexedNRT';
 import NRTCalls from '../model/NRTCalls';
 import NRTCalls400Response from '../model/NRTCalls400Response';
 import NRTSnippets from '../model/NRTSnippets';
@@ -24,7 +25,7 @@ import NRTSpeakerids400Response from '../model/NRTSpeakerids400Response';
 /**
 * NearRealTimeTranscripts service.
 * @module api/NearRealTimeTranscriptsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class NearRealTimeTranscriptsApi {
 
@@ -79,7 +80,10 @@ export default class NearRealTimeTranscriptsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = NRTCalls;
+
       return this.apiClient.callApi(
         '/bulk-documents/nrt/v1/calls', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -99,7 +103,7 @@ export default class NearRealTimeTranscriptsApi {
      * @param {module:model/String} opts.callStatus Status of the call i.e. ended or inProgress or ewn or issueAtSource
      * @param {Number} opts.paginationLimit Specifies the number of results to return per page.[ Min=0 ; Max=500 ]
      * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NRTCalls}
+     * @return { Promise.< module:model/NRTCalls > } a Promise, with data of type {@link module:model/NRTCalls }
      */
     getBulkDocumentsNrtV1Calls(opts) {
       return this.getBulkDocumentsNrtV1CallsWithHttpInfo(opts)
@@ -110,7 +114,70 @@ export default class NearRealTimeTranscriptsApi {
 
 
     /**
-     * Returns the latest snippets from an active call
+     * Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+     * Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+     * @param {Number} audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.reportId Unique identifier for an event
+     * @param {Number} opts.paginationLimit Specifies the  number of results to return per page. [ Min=0; Max=50 ]
+     * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/IndexedNRT} and HTTP response
+     */
+    getBulkDocumentsNrtV1IndexedNrtWithHttpInfo(audioSourceId, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'audioSourceId' is set
+      if (audioSourceId === undefined || audioSourceId === null) {
+        throw new Error("Missing the required parameter 'audioSourceId' when calling getBulkDocumentsNrtV1IndexedNrt");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'reportId': opts['reportId'],
+        'audioSourceId': audioSourceId,
+        '_paginationLimit': opts['paginationLimit'],
+        '_paginationOffset': opts['paginationOffset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = IndexedNRT;
+
+      return this.apiClient.callApi(
+        '/bulk-documents/nrt/v1/indexed-nrt', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+     * Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+     * @param {Number} audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.reportId Unique identifier for an event
+     * @param {Number} opts.paginationLimit Specifies the  number of results to return per page. [ Min=0; Max=50 ]
+     * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
+     * @return { Promise.< module:model/IndexedNRT > } a Promise, with data of type {@link module:model/IndexedNRT }
+     */
+    getBulkDocumentsNrtV1IndexedNrt(audioSourceId, opts) {
+      return this.getBulkDocumentsNrtV1IndexedNrtWithHttpInfo(audioSourceId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Returns the latest transcript snippets from an active call
      * Returns the latest snippets from an active call
      * @param {Number} audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
      * @param {Object} opts Optional parameters
@@ -143,7 +210,10 @@ export default class NearRealTimeTranscriptsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = NRTSnippets;
+
       return this.apiClient.callApi(
         '/bulk-documents/nrt/v1/list-snippets', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -152,14 +222,14 @@ export default class NearRealTimeTranscriptsApi {
     }
 
     /**
-     * Returns the latest snippets from an active call
+     * Returns the latest transcript snippets from an active call
      * Returns the latest snippets from an active call
      * @param {Number} audioSourceId Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.reportId Unique identifier for an event
      * @param {Number} opts.paginationLimit Specifies the  number of results to return per page. [ Min=0; Max=500 ]
      * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NRTSnippets}
+     * @return { Promise.< module:model/NRTSnippets > } a Promise, with data of type {@link module:model/NRTSnippets }
      */
     getBulkDocumentsNrtV1ListSnippets(audioSourceId, opts) {
       return this.getBulkDocumentsNrtV1ListSnippetsWithHttpInfo(audioSourceId, opts)
@@ -203,7 +273,10 @@ export default class NearRealTimeTranscriptsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = NRTSpeakerids;
+
       return this.apiClient.callApi(
         '/bulk-documents/nrt/v1/speakerids', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -219,7 +292,7 @@ export default class NearRealTimeTranscriptsApi {
      * @param {module:model/String} opts.sort Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used (default to 'startDate')
      * @param {Number} opts.paginationLimit Specifies the number of results to return per page.[ Min=0 ; Max=500 ]
      * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NRTSpeakerids}
+     * @return { Promise.< module:model/NRTSpeakerids > } a Promise, with data of type {@link module:model/NRTSpeakerids }
      */
     getBulkDocumentsNrtV1Speakerids(audioSourceId, opts) {
       return this.getBulkDocumentsNrtV1SpeakeridsWithHttpInfo(audioSourceId, opts)
@@ -230,3 +303,8 @@ export default class NearRealTimeTranscriptsApi {
 
 
 }
+
+
+
+
+

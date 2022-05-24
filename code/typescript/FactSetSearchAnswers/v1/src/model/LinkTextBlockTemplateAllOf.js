@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LinkTextBlockTemplateAllOf model module.
  * @module model/LinkTextBlockTemplateAllOf
- * @version 0.9.1
+ * @version 0.20.0
  */
 class LinkTextBlockTemplateAllOf {
     /**

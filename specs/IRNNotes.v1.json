@@ -11,6 +11,123 @@
     }
   ],
   "paths": {
+    "/v1/events": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get all the record events in the specified date range filtered on the given types",
+        "operationId": "GetAllEvents",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "StartDate",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "EndDate",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "description": "Set of event types to filter on",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success - Returns events list",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventSnippetDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventSnippetDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventSnippetDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Returns error message"
+          }
+        }
+      }
+    },
+    "/v1/identifiers": {
+      "get": {
+        "tags": [
+          "Identifiers"
+        ],
+        "summary": "Get all the identifier details for given identifiers",
+        "operationId": "GetIdentifiers",
+        "parameters": [
+          {
+            "name": "identifiers",
+            "in": "query",
+            "description": "Identifiers",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentifierResolutionDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/notes": {
       "get": {
         "tags": [
@@ -121,6 +238,17 @@
             }
           },
           {
+            "name": "states",
+            "in": "query",
+            "description": "Set of states to filter on",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
             "name": "filterOnRelatedSymbols",
             "in": "query",
             "description": "Include notes whose related symbols match the identifier filter",
@@ -176,6 +304,8 @@
             "name": "X-IRN-Contributor-Username",
             "in": "header",
             "schema": {
+              "maxLength": 30,
+              "minLength": 0,
               "type": "string"
             }
           },
@@ -183,6 +313,8 @@
             "name": "X-IRN-Contributor-Serial",
             "in": "header",
             "schema": {
+              "maxLength": 8,
+              "minLength": 0,
               "type": "string"
             }
           }
@@ -209,7 +341,8 @@
                 "$ref": "#/components/schemas/CreateNoteDto"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -502,7 +635,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -539,7 +672,7 @@
         "tags": [
           "Attachments"
         ],
-        "summary": "Download an attachment from a note",
+        "summary": "Download an attachment from a Note",
         "operationId": "DownloadAttachment",
         "parameters": [
           {
@@ -598,18 +731,566 @@
         }
       }
     },
-    "/v1/notes/{noteId}/attachments/{attachmentId}": {
-      "delete": {
+    "/v1/notes/{noteId}/comments": {
+      "get": {
         "tags": [
-          "Attachments"
+          "Comments"
         ],
-        "summary": "Delete attachment from note",
-        "operationId": "SoftDeleteNoteAttachment",
+        "summary": "Get all comments for a note",
+        "operationId": "GetComments",
         "parameters": [
           {
             "name": "noteId",
             "in": "path",
-            "description": "Note Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommentSummaryDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Create a comment to a Note",
+        "operationId": "CreateComment",
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/v1/notes/{noteId}/comments/{commentId}": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Get details of a comment belonging to a note",
+        "operationId": "GetComment",
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Edit a comment for a note",
+        "operationId": "PatchComment",
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Delete a Comment from a Note",
+        "operationId": "DeleteComment",
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/v1/notes/{noteId}/comments/{commentId}/attachments": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Get attachments summary of a comment belonging to a note",
+        "operationId": "GetCommentAttachments",
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AttachmentSummaryDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Create a comment attachment to a Note",
+        "operationId": "CreateCommentAttachment",
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      }
+    },
+    "/v1/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Download single attachment detail of a comment belonging to a note",
+        "operationId": "DownloadCommentAttachmentForComment",
+        "parameters": [
+          {
+            "name": "noteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
             "required": true,
             "schema": {
               "type": "string",
@@ -619,7 +1300,6 @@
           {
             "name": "attachmentId",
             "in": "path",
-            "description": "Attachment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -783,566 +1463,18 @@
         }
       }
     },
-    "/v1/notes/{noteId}/comments": {
-      "get": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Get all comments for a note",
-        "operationId": "GetComments",
-        "parameters": [
-          {
-            "name": "noteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CommentSummaryDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Create a comment to a Note",
-        "operationId": "CreateComment",
-        "parameters": [
-          {
-            "name": "noteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NewItemDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error"
-          }
-        }
-      }
-    },
-    "/v1/notes/{noteId}/comments/{commentId}": {
-      "get": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Get details of a comment belonging to a note",
-        "operationId": "GetComment",
-        "parameters": [
-          {
-            "name": "noteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CommentDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/v1/notes/{noteId}/attachments/{attachmentId}": {
       "delete": {
         "tags": [
-          "Comments"
+          "Attachments"
         ],
-        "summary": "Delete a Comment from a Note",
-        "operationId": "DeleteComment",
+        "summary": "Delete attachment from note",
+        "operationId": "SoftDeleteNoteAttachment",
         "parameters": [
           {
             "name": "noteId",
             "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Edit a comment for a note",
-        "operationId": "PatchComment",
-        "parameters": [
-          {
-            "name": "noteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/Operation"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/notes/{noteId}/comments/{commentId}/attachments": {
-      "post": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Create a comment attachment to a Note",
-        "operationId": "CreateCommentAttachment",
-        "parameters": [
-          {
-            "name": "noteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "file"
-                ],
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NewItemDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error"
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Get attachments summary of a comment belonging to a note",
-        "operationId": "GetCommentAttachments",
-        "parameters": [
-          {
-            "name": "noteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AttachmentSummaryDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/notes/{noteId}/comments/{commentId}/attachments/{attachmentId}/download": {
-      "get": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Download single attachment detail of a comment belonging to a note",
-        "operationId": "DownloadCommentAttachmentForComment",
-        "parameters": [
-          {
-            "name": "noteId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
+            "description": "Note Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1352,6 +1484,7 @@
           {
             "name": "attachmentId",
             "in": "path",
+            "description": "Attachment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -1385,50 +1518,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/identifiers": {
-      "get": {
-        "tags": [
-          "Identifiers"
-        ],
-        "summary": "Get all the identifier details for given identifiers",
-        "operationId": "GetIdentifiers",
-        "parameters": [
-          {
-            "name": "identifiers",
-            "in": "query",
-            "description": "Identifiers",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/IdentifierResolutionDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1443,25 +1532,285 @@
   },
   "components": {
     "schemas": {
-      "CustomFieldValueDto": {
+      "AttachmentSummaryDto": {
         "type": "object",
         "properties": {
-          "code": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "FileName": {
             "type": "string",
             "nullable": true
           },
-          "value": {
+          "MimeType": {
             "type": "string",
             "nullable": true
           },
-          "options": {
+          "Size": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommentDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "AuthorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ParentCommentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "Attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttachmentSummaryDto"
+            },
+            "nullable": true
+          },
+          "Subcomments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubcommentSummaryDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommentSummaryDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "UserId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "CreatedAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "Subcomments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubcommentSummaryDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateBodyDto": {
+        "type": "object",
+        "properties": {
+          "Content": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCommentDto": {
+        "type": "object",
+        "properties": {
+          "AuthorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ParentCommentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCustomFieldValueDto": {
+        "required": [
+          "Code"
+        ],
+        "type": "object",
+        "properties": {
+          "Code": {
+            "type": "string"
+          },
+          "IntegerValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TextValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "FilePathValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "NumericValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "DateValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExtendedTextValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "ContactLookupValues": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "OptionValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "OptionValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Set a value or values for a custom field identified by the field 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue etc) will be used,\r\ndepending on the data type of the custom field corresponding to the 'Code' provided"
+      },
+      "CreateNoteDto": {
+        "required": [
+          "Author",
+          "Date"
+        ],
+        "type": "object",
+        "properties": {
+          "Author": {
+            "$ref": "#/components/schemas/UserSerialDto"
+          },
+          "Title": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "Identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "Date": {
+            "type": "string"
+          },
+          "SubjectId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "RecommendationId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "SentimentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "Body": {
+            "$ref": "#/components/schemas/CreateBodyDto"
+          },
+          "Source": {
+            "type": "string",
+            "nullable": true
+          },
+          "Link": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "RelatedSymbols": {
+            "maxItems": 100,
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "contactValues": {
+          "RelatedContacts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "RelatedRecords": {
+            "$ref": "#/components/schemas/RelatedRecordsDto"
+          },
+          "CustomFieldValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateCustomFieldValueDto"
+            },
+            "nullable": true
+          },
+          "IsPersonal": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomFieldValueDto": {
+        "type": "object",
+        "properties": {
+          "Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "string",
+            "nullable": true
+          },
+          "Options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "ContactValues": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1472,45 +1821,132 @@
         },
         "additionalProperties": false
       },
-      "NoteSummaryDto": {
+      "EventSnippetDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "string",
             "format": "uuid"
           },
-          "date": {
+          "Type": {
             "type": "string",
             "nullable": true
           },
-          "createdAt": {
+          "NoteId": {
             "type": "string",
+            "format": "uuid",
             "nullable": true
           },
-          "authorId": {
+          "MeetingId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "CreatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentifierResolutionDto": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "NewItemDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NoteDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
             "type": "string",
             "format": "uuid"
           },
-          "title": {
+          "Date": {
             "type": "string",
             "nullable": true
           },
-          "identifier": {
+          "CreatedAt": {
             "type": "string",
             "nullable": true
           },
-          "subjectId": {
+          "AuthorId": {
             "type": "string",
             "format": "uuid"
           },
-          "isPersonal": {
+          "ContributorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "Identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "RelatedSymbols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "SubjectId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "RecommendationId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "SentimentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "Source": {
+            "type": "string",
+            "nullable": true
+          },
+          "Link": {
+            "type": "string",
+            "nullable": true
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsPersonal": {
             "type": "boolean"
           },
-          "approvalStatus": {
+          "State": {
             "type": "string",
             "nullable": true
           },
-          "attachmentIds": {
+          "ApprovalStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "AverageRating": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RelatedRecords": {
+            "$ref": "#/components/schemas/RelatedRecordsDto"
+          },
+          "RelatedContacts": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1518,22 +1954,7 @@
             },
             "nullable": true
           },
-          "relatedSymbols": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "recommendationId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "sentimentId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "customFields": {
+          "CustomFields": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CustomFieldValueDto"
@@ -1542,6 +1963,151 @@
           }
         },
         "additionalProperties": false
+      },
+      "NoteEventDto": {
+        "type": "object",
+        "properties": {
+          "CreatedAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "User": {
+            "type": "string",
+            "nullable": true
+          },
+          "Comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChangeList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecordChangeDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NoteSummaryDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Date": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuthorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ContributorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "Identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "IsPersonal": {
+            "type": "boolean"
+          },
+          "State": {
+            "type": "string",
+            "nullable": true
+          },
+          "ApprovalStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "AttachmentIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "RelatedSymbols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "RecommendationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "SentimentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "CustomFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomFieldValueDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operation": {
+        "type": "object",
+        "properties": {
+          "OperationType": {
+            "$ref": "#/components/schemas/OperationType"
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "op": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OperationType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ProblemDetails": {
         "type": "object",
@@ -1566,45 +2132,58 @@
           "instance": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
+      "RecordChangeDto": {
+        "type": "object",
+        "properties": {
+          "Field": {
+            "type": "string",
+            "nullable": true
           },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
+          "Operation": {
+            "type": "string",
+            "nullable": true
+          },
+          "OldValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "NewValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "OldList": {
+            "type": "array",
+            "items": {
+              "type": "string"
             },
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
+          },
+          "NewList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "UserSerialDto": {
-        "required": [
-          "serialNumber",
-          "username"
-        ],
+      "RecordEventSummaryDto": {
         "type": "object",
         "properties": {
-          "username": {
-            "maxLength": 30,
-            "minLength": 0,
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Type": {
             "type": "string",
             "nullable": true
           },
-          "serialNumber": {
-            "maxLength": 8,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateBodyDto": {
-        "type": "object",
-        "properties": {
-          "content": {
+          "CreatedAt": {
             "type": "string",
             "nullable": true
           }
@@ -1614,7 +2193,7 @@
       "RelatedRecordsDto": {
         "type": "object",
         "properties": {
-          "noteIds": {
+          "NoteIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1622,424 +2201,11 @@
             },
             "nullable": true
           },
-          "meetingIds": {
+          "MeetingIds": {
             "type": "array",
             "items": {
               "type": "string",
               "format": "uuid"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateCustomFieldValueDto": {
-        "required": [
-          "code"
-        ],
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "integerValue": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "textValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "filePathValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "numericValue": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "dateValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "extendedTextValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "contactLookupValues": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "optionValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "optionValues": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Set a value or values for a custom field identified by the field 'Code'. Only one of the fields (IntegerValue / TextValue / FilePathValue etc) will be used,\r\ndepending on the data type of the custom field corresponding to the 'Code' provided"
-      },
-      "CreateNoteDto": {
-        "required": [
-          "author",
-          "date",
-          "identifier"
-        ],
-        "type": "object",
-        "properties": {
-          "author": {
-            "$ref": "#/components/schemas/UserSerialDto"
-          },
-          "title": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "identifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "date": {
-            "type": "string",
-            "nullable": true
-          },
-          "subjectId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "recommendationId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "sentimentId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "body": {
-            "$ref": "#/components/schemas/CreateBodyDto"
-          },
-          "source": {
-            "type": "string",
-            "nullable": true
-          },
-          "link": {
-            "type": "string",
-            "nullable": true
-          },
-          "relatedSymbols": {
-            "maxLength": 100,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "relatedContacts": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "relatedRecords": {
-            "$ref": "#/components/schemas/RelatedRecordsDto"
-          },
-          "customFieldValues": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateCustomFieldValueDto"
-            },
-            "nullable": true
-          },
-          "isPersonal": {
-            "type": "boolean",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "NewItemDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
-      "NoteDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "date": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "nullable": true
-          },
-          "authorId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "identifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "relatedSymbols": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "subjectId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "recommendationId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "sentimentId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "source": {
-            "type": "string",
-            "nullable": true
-          },
-          "link": {
-            "type": "string",
-            "nullable": true
-          },
-          "body": {
-            "type": "string",
-            "nullable": true
-          },
-          "isPersonal": {
-            "type": "boolean"
-          },
-          "approvalStatus": {
-            "type": "string",
-            "nullable": true
-          },
-          "averageRating": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "relatedRecords": {
-            "$ref": "#/components/schemas/RelatedRecordsDto"
-          },
-          "relatedContacts": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "customFields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomFieldValueDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UpdateNoteDto": {
-        "type": "object",
-        "properties": {
-          "author": {
-            "$ref": "#/components/schemas/UserSerialDto"
-          },
-          "title": {
-            "maxLength": 255,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "recommendationId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "sentimentId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "body": {
-            "$ref": "#/components/schemas/CreateBodyDto"
-          },
-          "source": {
-            "type": "string",
-            "nullable": true
-          },
-          "link": {
-            "type": "string",
-            "nullable": true
-          },
-          "relatedSymbols": {
-            "maxLength": 100,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "relatedContacts": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "relatedRecords": {
-            "$ref": "#/components/schemas/RelatedRecordsDto"
-          },
-          "customFieldValues": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateCustomFieldValueDto"
-            },
-            "nullable": true
-          },
-          "isPersonal": {
-            "type": "boolean",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AttachmentSummaryDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
-          "mimeType": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecordEventSummaryDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecordChangeDto": {
-        "type": "object",
-        "properties": {
-          "field": {
-            "type": "string",
-            "nullable": true
-          },
-          "operation": {
-            "type": "string",
-            "nullable": true
-          },
-          "oldValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "newValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "oldList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "newList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "NoteEventDto": {
-        "type": "object",
-        "properties": {
-          "createdAt": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "user": {
-            "type": "string",
-            "nullable": true
-          },
-          "comment": {
-            "type": "string",
-            "nullable": true
-          },
-          "changeList": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RecordChangeDto"
             },
             "nullable": true
           }
@@ -2049,168 +2215,117 @@
       "SubcommentSummaryDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "string",
             "format": "uuid"
           },
-          "userId": {
+          "UserId": {
             "type": "string",
             "format": "uuid"
           },
-          "createdAt": {
+          "CreatedAt": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "CommentDto": {
+      "UpdateNoteDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "Author": {
+            "$ref": "#/components/schemas/UserSerialDto"
+          },
+          "Title": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "SubjectId": {
             "type": "string",
             "format": "uuid"
           },
-          "authorId": {
+          "NoteDate": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
           },
-          "parentCommentId": {
+          "RecommendationId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "body": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "nullable": true
-          },
-          "attachments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AttachmentSummaryDto"
-            },
-            "nullable": true
-          },
-          "subcomments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubcommentSummaryDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Operation": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "object",
-            "additionalProperties": false,
-            "nullable": true
-          },
-          "path": {
-            "type": "string",
-            "nullable": true
-          },
-          "op": {
-            "type": "string",
-            "nullable": true
-          },
-          "from": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CommentSummaryDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "createdAt": {
-            "type": "string",
-            "nullable": true
-          },
-          "subcomments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubcommentSummaryDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateCommentDto": {
-        "type": "object",
-        "properties": {
-          "authorId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "parentCommentId": {
+          "SentimentId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "body": {
+          "Body": {
+            "$ref": "#/components/schemas/CreateBodyDto"
+          },
+          "Source": {
+            "type": "string",
+            "nullable": true
+          },
+          "Link": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "RelatedSymbols": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "RelatedContacts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "RelatedRecords": {
+            "$ref": "#/components/schemas/RelatedRecordsDto"
+          },
+          "CustomFieldValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateCustomFieldValueDto"
+            },
+            "nullable": true
+          },
+          "IsPersonal": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Identifier": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "ResolvedInstrumentDto": {
+      "UserSerialDto": {
+        "required": [
+          "SerialNumber",
+          "Username"
+        ],
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
+          "Username": {
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string"
           },
-          "entityId": {
-            "type": "string",
-            "nullable": true
-          },
-          "ticker": {
-            "type": "string",
-            "nullable": true
-          },
-          "sedol": {
-            "type": "string",
-            "nullable": true
-          },
-          "cusip": {
-            "type": "string",
-            "nullable": true
-          },
-          "isin": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "IdentifierResolutionDto": {
-        "type": "object",
-        "properties": {
-          "instrumentMetadata": {
-            "$ref": "#/components/schemas/ResolvedInstrumentDto"
-          },
-          "query": {
-            "type": "string",
-            "nullable": true
+          "SerialNumber": {
+            "maxLength": 8,
+            "minLength": 0,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -2238,6 +2353,23 @@
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Attachments"
+    },
+    {
+      "name": "Comments"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "Identifiers"
+    },
+    {
+      "name": "Notes"
     }
   ]
 }

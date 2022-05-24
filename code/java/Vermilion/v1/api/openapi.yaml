@@ -1,0 +1,2924 @@
+openapi: 3.0.0
+info:
+  description: Documentation on all available end points in the VRSAPI
+  title: VRS API documentation
+  version: v1
+servers:
+- url: /
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /v1/{tenant}/data-sources:
+    get:
+      description: List all datasources the user has permission to see
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The column to sort on. Append - to sort in descending order.
+          If parameter is not given, no sorting will be done
+        examples:
+          name:
+            description: The name of the datasource to sort
+            value: _sort=name
+          type:
+            description: The type of the datasource to sort
+            value: _sort=type
+          outputRecordSet:
+            description: The output recordset of the datasource to sort
+            value: _sort=outputRecordSet
+          code:
+            description: The code of the datasource to sort
+            value: _sort=code
+          releaseTag:
+            description: The release tag of the datasource to sort
+            value: _sort=releaseTag
+          lastUpdatedBy:
+            description: The last updated by user of the datasource to sort
+            value: _sort=lastUpdatedBy
+          lastUpdated:
+            description: The last updated by date of the datasource to sort
+            value: _sort=lastUpdated
+        explode: true
+        in: query
+        name: _sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Non-negative maximum number of entries to return. Default is
+          25
+        examples:
+          pageSize:
+            description: Non-negative maximum number of entries to return
+            value: 25
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip. Default is 0
+        examples:
+          startIndex:
+            description: Non-negative number of entries to skip
+            value: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSourceList'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view datasources in VRS
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Lists all datasources
+      tags:
+      - Datasource
+      x-accepts: application/json
+  /v1/{tenant}/data-sources/{dataSourceCode}:
+    get:
+      description: Gets a datasource based on the code passed
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The code of the datasource
+        explode: false
+        in: path
+        name: dataSourceCode
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSourceData'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view datasources in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: The supplied datasource code was not found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets a datasource
+      tags:
+      - Datasource
+      x-accepts: application/json
+  /v1/{tenant}/data-sources/{dataSourceCode}/data:
+    get:
+      description: Gets the data for the datasource. There are optional query parameters
+        to filter the da
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The code of the datasource
+        explode: false
+        in: path
+        name: dataSourceCode
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: 'A series of query parameter used to filter the data for a datasource.
+          This represents the entities for the datasource. E.g.: entityCodes=ACCOUNT&entityCodes=FUNDS'
+        explode: true
+        in: query
+        name: entityCodes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: 'A series of query parameter used to filter the data for a datasource.
+          This is the entity key value for an entity selection. E.g.: entityKeys=1&entityKeys=Test2'
+        explode: true
+        in: query
+        name: entityKeys
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/DataSourceDataInstance'
+                type: array
+          description: Successful operation - returns data for the datasource
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+          description: The supplied datasource code was either missing or invalid,
+            or the query parameters are invalid
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view datasources in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+          description: The supplied datasource code was not found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets the data for the datasource
+      tags:
+      - Datasource
+      x-accepts: application/json
+  /v1/{tenant}/entities/{entityCode}/values:
+    get:
+      description: Gets the entity values for the specified entity
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The code of the entity
+        explode: false
+        in: path
+        name: entityCode
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The entity field to sort on. Can only be sorted on entity key,
+          description or secondary key fields. Append "-" to sort in descending order.
+          If no parameter given, it will be sorted by key field in ascending order
+          by default
+        examples:
+          entity key field:
+            description: The name of the entity key field
+            value: _sort=entity key field
+          entity description field:
+            description: The name of the entity description field
+            value: _sort=entity description field
+          entity secondary key field:
+            description: The name of the entity secondary key field
+            value: _sort=entity secondary key field
+        explode: true
+        in: query
+        name: _sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Non-negative maximum number of entries to return. Default is
+          25
+        examples:
+          pageSize:
+            description: Non-negative maximum number of entries to return
+            value: 25
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip. Default is 0
+        examples:
+          startIndex:
+            description: Non-negative number of entries to skip
+            value: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityFieldValueDTO'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_1'
+          description: The supplied entity code was either missing or invalid, or
+            the entity was not found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view datasources in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_1'
+          description: The supplied entity code was not found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets the entity values
+      tags:
+      - Entity
+      x-accepts: application/json
+  /v1/{tenant}/reports:
+    get:
+      description: Gets all report definitions the user has permissions for
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The column to sort on. Can add - to sort
+        examples:
+          name:
+            description: The name of the report to sort
+            value: _sort=name
+          type:
+            description: The template owner of the report to sort
+            value: _sort=templateOwner
+          code:
+            description: The code of the report to sort
+            value: _sort=code
+          releaseTag:
+            description: The release tag of the report to sort
+            value: _sort=releaseTag
+          lastUpdatedBy:
+            description: The last updated by user of the report to sort
+            value: _sort=lastUpdatedBy
+          lastModifiedBy:
+            description: The last updated by date of the report to sort
+            value: _sort=lastModifiedBy
+        explode: true
+        in: query
+        name: _sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Non-negative maximum number of entries to return
+        examples:
+          pageSize:
+            description: Non-negative maximum number of entries to return
+            value: 25
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        examples:
+          startIndex:
+            description: Non-negative maximum number of entries to return
+            value: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ReportDefinitionList'
+                type: array
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_2'
+          description: The supplied report definition code was either missing or invalid,
+            or the report definition was not found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view reports in VRS
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets all report definitions
+      tags:
+      - Report
+      x-accepts: application/json
+  /v1/{tenant}/reports/{reportDefinitionCode}:
+    get:
+      description: Gets a report defintion based on the code specified
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The code of the report definition
+        explode: false
+        in: path
+        name: reportDefinitionCode
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportDefinitionData'
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_2'
+          description: The supplied report definition code was either missing or invalid,
+            or the report definition was not found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view reports in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_2'
+          description: The supplied report definition code was was not found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets a report definition
+      tags:
+      - Report
+      x-accepts: application/json
+  /v1/report-instances/generate:
+    post:
+      description: Generates a report using the specified ID and the JSON in the request
+        body
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              example:
+                vrs:
+                  "1":
+                    report: MONTHLY_REPORT
+                    tenancy: CLIENT_REPORTING
+                    outputFormat: PDF
+                    sectionFilter: Section One
+                    entitySelection:
+                      ACCOUNT:
+                        key: Account name
+                      PORTFOLIO:
+                        key: Test fund
+                      DATE:
+                        key: 2020-01-01 00:00:00
+              properties:
+                vrs:
+                  $ref: '#/components/schemas/_v1_report_instances_generate_vrs'
+              type: object
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportInstanceDataResponse'
+          description: Report generation request succeeded and report generation is
+            in progress
+          headers:
+            Location:
+              description: End point location to retrieve the latest status of the
+                report generation. This is v1/{tenant}/report-instances/{reportInstanceId}
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_2'
+          description: The supplied report definition code was either missing or invalid,
+            or the report definition was not found
+          headers:
+            Location:
+              description: End point location to retrieve the latest status of the
+                report generation. This is v1/{tenant}/report-instances/{reportInstanceId}
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+          headers:
+            Location:
+              description: End point location to retrieve the latest status of the
+                report generation. This is v1/{tenant}/report-instances/{reportInstanceId}
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view reports in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_2'
+          description: The report code could not be found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Generates a report
+      tags:
+      - Report instance
+      x-contentType: application/json
+      x-accepts: application/json
+  /v1/{tenant}/report-instances/{reportInstanceId}:
+    delete:
+      description: Sends a request to cancel a report generation based on the report
+        instance id passed
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The id of the report instance
+        explode: false
+        in: path
+        name: reportInstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Successful operation - no response
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_3'
+          description: The supplied report instance id was either missing or invalid
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401_1'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view reports in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_2'
+          description: The supplied report instance ID could not be found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Cancels a report generation
+      tags:
+      - Report instance
+      x-accepts: application/json
+    get:
+      description: Gets a report instance object based on the ID passed
+      parameters:
+      - description: The ID of the report instance
+        explode: false
+        in: path
+        name: reportInstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Report generation has completed and the report is ready to
+            download
+          headers:
+            Location:
+              description: A callback URL to the report file on VRS ready to download
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportInstanceData'
+          description: Expected response returned if the report generation is not
+            yet completed.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_3'
+          description: The supplied report instance id was either missing or invalid,
+            or the report instance was not found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view reports in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_2'
+          description: The supplied report instance ID could not be found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets a report instance based on the ID
+      tags:
+      - Report instance
+      x-accepts: application/json
+  /v1/{tenant}/report-instances:
+    get:
+      description: Gets a list of report instances. This can be filtered down further
+        by including query parameters in the URL. For example, a report definition
+        id can be added so the only report instances returned are the ones with a
+        matching id
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Acts as a filter for the retrieval process. Filters the report
+          instances that match the report definition code
+        explode: true
+        in: query
+        name: reportDefinitionCode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: 'A series of query parameters used to filter the report instances
+          by entity code. E.g: entityCode=DATE&entityCode=SYSTEM_LANG'
+        explode: true
+        in: query
+        name: entityCodes
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: 'A series of query parameters used to filter the report instances
+          by entity keys. E.g: entityKey=en-gb'
+        explode: true
+        in: query
+        name: entityKeys
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the report
+          instances that match the section filter
+        explode: true
+        in: query
+        name: sectionFilter
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Acts as a filter for the retrieval process. Filters the report
+          instances that match the output format
+        explode: true
+        in: query
+        name: outputFormat
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Non-negative maximum number of entries to return
+        examples:
+          pageSize:
+            description: Non-negative maximum number of entries to return
+            value: 25
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        examples:
+          startIndex:
+            description: Non-negative maximum number of entries to return
+            value: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportInstanceList'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view reports in VRS
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets a list of report instances
+      tags:
+      - Report instance
+      x-accepts: application/json
+  /v1/{tenant}/report-instances/{reportInstanceId}/results/{reportFileName}:
+    get:
+      description: Get the generated file for a report instance. Users can fetch the
+        generated report once the genration is finished. The report instance id and
+        the report file name are passed in as path paramters
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Used to validate that report file name belongs to the report
+          instance passed
+        explode: false
+        in: path
+        name: reportInstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: 'The report file name that has to be retrieved. report file name.
+          E.g: xyz.pdf'
+        explode: false
+        in: path
+        name: reportFileName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_3'
+          description: The supplied report instance id was either missing or invalid
+            or the report instance was not found. The supplied report file name was
+            either invalid or not found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view the generated file in VRS
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets the generated file
+      tags:
+      - Report instance
+      x-accepts: application/json
+  /v1/{tenant}/report-instances/{reportInstanceId}/logs:
+    get:
+      description: Gets a list of logs for the generated report instance. Allows the
+        user to sort on log message, type and date. Also allows for retrieving of
+        just the errors & warnings'
+      parameters:
+      - description: The code of the tenancy
+        explode: false
+        in: path
+        name: tenant
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Used to validate that report file name belongs to the report
+          instance passed
+        explode: false
+        in: path
+        name: reportInstanceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: 'Determines if the endpoint should return a full set of logs
+          or just the errors and warnings E.g: fullLog=true'
+        explode: true
+        in: query
+        name: fullLog
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The column to sort on. Can add - to sort
+        examples:
+          sequenceNumber:
+            description: The sequence number of the log entry
+            value: _sort=sequenceNumber
+          message:
+            description: The log message to sort
+            value: _sort=message
+          type:
+            description: The type of the log to sort
+            value: _sort=type
+          updatedDate:
+            description: The updated date of the log to sort
+            value: _sort=updatdeDate
+        explode: true
+        in: query
+        name: _sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Non-negative maximum number of entries to return
+        examples:
+          pageSize:
+            description: Non-negative maximum number of entries to return
+            value: 25
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Non-negative number of entries to skip
+        examples:
+          startIndex:
+            description: Non-negative maximum number of entries to return
+            value: 0
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportInstanceLogList'
+          description: Successful operation
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_401'
+          description: Unauthorised
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403'
+          description: No permissions to view reports in VRS
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_3'
+          description: The supplied report instance ID could not be found
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_406'
+          description: Unsupported Accept header. Header needs to be set to application/json.
+      summary: Gets a list of logs for the report instance generation
+      tags:
+      - Report instance
+      x-accepts: application/json
+  /scim/v2/Users/:
+    get:
+      description: Retrieves a VRS users
+      parameters:
+      - description: Non-negative maximum number of entries to return
+        examples:
+          count:
+            description: Non-negative maximum number of entries to return
+            value: 25
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The 1-based index of the first query result
+        examples:
+          startIndex:
+            description: The 1-based index of the first query result
+            value: 1
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimUserListResponse'
+          description: Successful operation
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_1'
+          description: Forbidden, user does not have permission to view users
+      summary: Retrieves a list of VRS users
+      tags:
+      - SCIM
+      x-accepts: application/scim+json
+    post:
+      description: Creates a VRS user
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/CreateScimUserJSONRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/CreatedScimUserJSONResponse'
+          description: Created
+          headers:
+            Location:
+              description: A callback URL to the newly create user, for example https://example.com/VRSAPI/scim/v2/Users/1
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400_4'
+          description: Bad Request, required values not provided in JSON request body
+            (e.g. tenant, name or userName (loginID)
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_2'
+          description: Forbidden, user does not have permission to create users or
+            it does not have requested tenancy assigned to it
+        "409":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_409'
+          description: User already exists
+      summary: Creates a user
+      tags:
+      - SCIM
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+  /scim/v2/Users/{userId}:
+    delete:
+      description: Deletes a VRS user (this marks them as 'Deleted' in the database)
+      parameters:
+      - description: The ID of the user
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_5'
+          description: Forbidden, user does not have permission to delete users
+        "404":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_4'
+          description: Not Found
+      summary: Deletes a VRS user
+      tags:
+      - SCIM
+      x-accepts: application/scim+json
+    get:
+      description: Retrieves a VRS user based on their ID
+      parameters:
+      - description: The ID of the user
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimUser'
+          description: Successful operation
+          headers:
+            Location:
+              description: A callback URL to the user, for example https://example.com/VRSAPI/scim/v2/Users/1
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_3'
+          description: Forbidden, user does not have permission to view users
+        "404":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_4'
+          description: Not Found
+      summary: Retrieves a VRS User
+      tags:
+      - SCIM
+      x-accepts: application/scim+json
+    patch:
+      description: Adds or removes VRS user attributes based on the JSON properties
+      parameters:
+      - description: The ID of the user
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_1'
+        content:
+          application/scim+json:
+            schema:
+              example:
+                Schemas:
+                - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                Operations:
+                  op: replace
+                  path: name.formatted
+                  value: vrstestuser1
+              properties:
+                Schemas:
+                  type: string
+                Operations:
+                  items:
+                    properties:
+                      op:
+                        type: string
+                      path:
+                        type: string
+                      value:
+                        items:
+                          properties:
+                            display:
+                              type: string
+                            $ref:
+                              type: string
+                        type: array
+                  type: array
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimUser'
+          description: Successfully updated user
+          headers:
+            Location:
+              description: A callback URL to the updated user, for example https://example.com/VRSAPI/scim/v2/Users/1
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_4'
+          description: Forbidden, user does not have permission to update users
+        "404":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_4'
+          description: Not Found
+      summary: Add or remove VRS user attributes
+      tags:
+      - SCIM
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+    put:
+      description: Updates (replaces) a VRS user with the properties in the JSON
+      parameters:
+      - description: The ID of the user
+        explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimUser'
+        required: true
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimUser'
+          description: Successfully updated user
+          headers:
+            Location:
+              description: A callback URL to the updated user, for example https://example.com/VRSAPI/scim/v2/Users/1
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_4'
+          description: Forbidden, user does not have permission to update users
+        "404":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_4'
+          description: Not Found
+      summary: Updates a VRS user
+      tags:
+      - SCIM
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+  /scim/v2/Groups/:
+    get:
+      description: Retrieves a VRS roles
+      parameters:
+      - description: Non-negative maximum number of entries to return
+        examples:
+          count:
+            description: Non-negative maximum number of entries to return
+            value: 25
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: The 1-based index of the first query result
+        examples:
+          startIndex:
+            description: The 1-based index of the first query result
+            value: 1
+        explode: true
+        in: query
+        name: startIndex
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimGroupListResponse'
+          description: Successful operation
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_1'
+          description: Forbidden, user does not have permission to view roles
+      summary: Retrieves a list of VRS role
+      tags:
+      - SCIM
+      x-accepts: application/scim+json
+    post:
+      description: Creates a VRS role
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimGroup'
+        required: true
+      responses:
+        "201":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimGroup'
+          description: Created
+          headers:
+            Location:
+              description: A callback URL to the newly create role, for example https://example.com/VRSAPI/scim/v2/Groups/1
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_6'
+          description: Forbidden, user does not have permission to create roles
+        "409":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_409_1'
+          description: Group already exists
+      summary: Creates a role
+      tags:
+      - SCIM
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+  /scim/v2/Groups/{groupId}:
+    delete:
+      description: Deletes a VRS role
+      parameters:
+      - description: The ID of the group
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_8'
+          description: Forbidden, user does not have permission to delete roles
+        "404":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_4'
+          description: Not Found
+      summary: Deletes a VRS role
+      tags:
+      - SCIM
+      x-accepts: application/scim+json
+    get:
+      description: Retrieves a VRS role based on the ID
+      parameters:
+      - description: The ID of the role
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimGroup'
+          description: Successful operation
+          headers:
+            Location:
+              description: A callback URL to the newly create role, for example https://example.com/VRSAPI/scim/v2/Groups/1
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_1'
+          description: Forbidden, user does not have permission to view roles
+        "404":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_4'
+          description: Not Found
+      summary: Retrieves a VRS role
+      tags:
+      - SCIM
+      x-accepts: application/scim+json
+    patch:
+      description: Adds or removes a VRS user to/from a VRS role
+      parameters:
+      - description: The ID of the role
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object_2'
+        content:
+          application/scim+json:
+            schema:
+              example:
+                Schemas:
+                - urn:ietf:params:scim:api:messages:2.0:PatchOp
+                Operations:
+                  op: add
+                  path: members
+                  value:
+                    display: Test user
+                    $ref: VRSAPI/scim/v1/Users/1
+                    value: "1"
+              properties:
+                Schemas:
+                  type: string
+                Operations:
+                  items:
+                    properties:
+                      op:
+                        type: string
+                      path:
+                        type: string
+                      value:
+                        items:
+                          properties:
+                            display:
+                              type: string
+                            $ref:
+                              type: string
+                        type: array
+                  type: array
+              type: object
+        required: true
+      responses:
+        "204":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimGroup'
+          description: Successfully added user to group
+      summary: Add or remove a user to/from a group
+      tags:
+      - SCIM
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+    put:
+      description: Updates (replaces) a VRS Group with the properties in the JSON
+      parameters:
+      - description: The ID of the group
+        explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimGroup'
+        required: true
+      responses:
+        "200":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimGroup'
+          description: Successfully updated group
+          headers:
+            Location:
+              description: A callback URL to the updated group, for example https://example.com/VRSAPI/scim/v2/Groups/1
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_403_7'
+          description: Forbidden, user does not have permission to update groups
+        "404":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404_4'
+          description: Not Found
+      summary: Updates a VRS Group
+      tags:
+      - SCIM
+      x-contentType: application/scim+json
+      x-accepts: application/scim+json
+components:
+  examples:
+    UnauthorisedExample:
+      summary: Unauthorised error sample
+      value:
+        error:
+          id: ID of the error to match in the logs
+          code: notAuthenticated
+          title: User is not authenticated
+    BadIdExample:
+      summary: 400 Bad requesst error sample
+      value:
+        error:
+          id: ID of the error to match in the logs
+          code: parameterError
+          title: The ID passed is not a numerical value
+    NoPermissionsExample:
+      value:
+        error:
+          id: ID of the error to match in the logs
+          code: notAuthorized
+          title: No permissions to view this item
+    NotFoundExample:
+      value:
+        error:
+          id: ID of the error to match in the logs
+          code: notFound
+          title: No object found for code
+    MeRequest:
+      summary: ME request - user can pass 'me' to request their own details
+      value:
+        userId: me
+    ScimNotFound:
+      value:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: Resource 1 not found
+        status: "404"
+  requestBodies:
+    inline_object_1:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+      required: true
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: true
+    inline_object_2:
+      content:
+        application/scim+json:
+          schema:
+            $ref: '#/components/schemas/inline_object_2'
+      required: true
+  schemas:
+    DataSourceList:
+      example:
+        data:
+        - releaseTag: releaseTag
+          lastUpdatedBy: lastUpdatedBy
+          lastUpdated: 5.962133916683182
+          dataSourceId: 6
+          code: code
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+          dsType: AUTOMATIC
+          outputRecordSet: outputRecordSet
+        - releaseTag: releaseTag
+          lastUpdatedBy: lastUpdatedBy
+          lastUpdated: 5.962133916683182
+          dataSourceId: 6
+          code: code
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+          dsType: AUTOMATIC
+          outputRecordSet: outputRecordSet
+        meta:
+          pagination:
+            next: next
+            total: 0
+            previous: previous
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+      properties:
+        meta:
+          $ref: '#/components/schemas/DataSourceList_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/DataSourceDTO'
+          type: array
+    DataSourceData:
+      example:
+        data:
+          releaseTag: releaseTag
+          lastUpdatedBy: lastUpdatedBy
+          lastUpdated: 5.962133916683182
+          dataSourceId: 6
+          code: code
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+          dsType: AUTOMATIC
+          outputRecordSet: outputRecordSet
+      properties:
+        data:
+          $ref: '#/components/schemas/DataSourceDTO'
+    DataSourceDTO:
+      example:
+        releaseTag: releaseTag
+        lastUpdatedBy: lastUpdatedBy
+        lastUpdated: 5.962133916683182
+        dataSourceId: 6
+        code: code
+        entities:
+        - code: code
+          name: name
+          entityId: 1
+        - code: code
+          name: name
+          entityId: 1
+        name: name
+        dsType: AUTOMATIC
+        outputRecordSet: outputRecordSet
+      properties:
+        dataSourceId:
+          format: int32
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+        dsType:
+          enum:
+          - AUTOMATIC
+          - MANUAL
+          - FILTER
+          type: string
+        entities:
+          items:
+            $ref: '#/components/schemas/EntityDTO'
+          type: array
+        outputRecordSet:
+          type: string
+        releaseTag:
+          type: string
+        lastUpdatedBy:
+          type: string
+        lastUpdated:
+          type: number
+      type: object
+    DataSourceDataInstance:
+      example:
+        data:
+          fields:
+            hide: hide
+            format: format
+            name: name
+            id: 0
+            fieldType: BOOLEAN
+          dstInstance:
+            instanceId: 6
+            instanceType: 1
+            rows:
+            - rowOrder: 5
+              fields:
+                fieldType: BOOLEAN
+                fieldValue: fieldValue
+                fieldId: 2
+              rowId: 5
+            - rowOrder: 5
+              fields:
+                fieldType: BOOLEAN
+                fieldValue: fieldValue
+                fieldId: 2
+              rowId: 5
+      properties:
+        data:
+          $ref: '#/components/schemas/DataSourceAllData'
+    DataSourceAllData:
+      example:
+        fields:
+          hide: hide
+          format: format
+          name: name
+          id: 0
+          fieldType: BOOLEAN
+        dstInstance:
+          instanceId: 6
+          instanceType: 1
+          rows:
+          - rowOrder: 5
+            fields:
+              fieldType: BOOLEAN
+              fieldValue: fieldValue
+              fieldId: 2
+            rowId: 5
+          - rowOrder: 5
+            fields:
+              fieldType: BOOLEAN
+              fieldValue: fieldValue
+              fieldId: 2
+            rowId: 5
+      properties:
+        fields:
+          $ref: '#/components/schemas/RecordSetFields'
+        dstInstance:
+          $ref: '#/components/schemas/DataSourceInstance'
+    DataSourceInstance:
+      example:
+        instanceId: 6
+        instanceType: 1
+        rows:
+        - rowOrder: 5
+          fields:
+            fieldType: BOOLEAN
+            fieldValue: fieldValue
+            fieldId: 2
+          rowId: 5
+        - rowOrder: 5
+          fields:
+            fieldType: BOOLEAN
+            fieldValue: fieldValue
+            fieldId: 2
+          rowId: 5
+      properties:
+        instanceId:
+          type: integer
+        instanceType:
+          type: integer
+        rows:
+          items:
+            $ref: '#/components/schemas/DataSourceInstanceRows'
+          type: array
+    DataSourceInstanceRows:
+      example:
+        rowOrder: 5
+        fields:
+          fieldType: BOOLEAN
+          fieldValue: fieldValue
+          fieldId: 2
+        rowId: 5
+      properties:
+        rowId:
+          type: integer
+        rowOrder:
+          type: integer
+        fields:
+          $ref: '#/components/schemas/RecordSetFieldValues'
+    RecordSetFieldValues:
+      example:
+        fieldType: BOOLEAN
+        fieldValue: fieldValue
+        fieldId: 2
+      properties:
+        fieldId:
+          type: integer
+        fieldType:
+          enum:
+          - BOOLEAN
+          - DATETIME
+          - DECIMAL
+          - HTML
+          - INTEGER
+          - TEXT
+          type: string
+        fieldValue:
+          type: string
+    RecordSetFields:
+      example:
+        hide: hide
+        format: format
+        name: name
+        id: 0
+        fieldType: BOOLEAN
+      properties:
+        fieldType:
+          enum:
+          - BOOLEAN
+          - DATETIME
+          - DECIMAL
+          - HTML
+          - INTEGER
+          - TEXT
+          type: string
+        format:
+          type: string
+        id:
+          type: integer
+        hide:
+          type: string
+        name:
+          type: string
+    EntityDTO:
+      example:
+        code: code
+        name: name
+        entityId: 1
+      properties:
+        entityId:
+          format: int32
+          type: integer
+        name:
+          type: string
+        code:
+          type: string
+    EntityFieldValueDTO:
+      example:
+        data:
+        - '{}'
+        - '{}'
+        meta:
+          pagination:
+            next: next
+            total: 0
+            previous: previous
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+      properties:
+        meta:
+          $ref: '#/components/schemas/DataSourceList_meta'
+        data:
+          items:
+            properties:
+              rowId:
+                type: integer
+              keyValue:
+                type: string
+              descriptionValue:
+                type: string
+          type: array
+    ReportInstanceDataResponse:
+      example:
+        data:
+          reportInstanceId: 0
+      properties:
+        data:
+          $ref: '#/components/schemas/ReportInstanceId'
+    ReportInstanceId:
+      example:
+        reportInstanceId: 0
+      properties:
+        reportInstanceId:
+          type: integer
+    ReportInstanceList:
+      example:
+        data:
+        - extension: extension
+          reportRevision:
+            percentageComplete: 1
+            reportStatus: WAITING
+            finishDate: finishDate
+            signOffStatus: REJECTED
+            signOffNotes: signOffNotes
+            reportReasonCd: reportReasonCd
+            outputFormat: outputFormat
+            startDate: startDate
+          reportInstanceId: 0
+          reportName: reportName
+          reportDefinitionName: reportDefinitionName
+          userFriendlyReportName: userFriendlyReportName
+          reportDefinitionId: 6
+        - extension: extension
+          reportRevision:
+            percentageComplete: 1
+            reportStatus: WAITING
+            finishDate: finishDate
+            signOffStatus: REJECTED
+            signOffNotes: signOffNotes
+            reportReasonCd: reportReasonCd
+            outputFormat: outputFormat
+            startDate: startDate
+          reportInstanceId: 0
+          reportName: reportName
+          reportDefinitionName: reportDefinitionName
+          userFriendlyReportName: userFriendlyReportName
+          reportDefinitionId: 6
+        meta:
+          pagination:
+            next: next
+            total: 0
+            previous: previous
+            isEstimatedTotal: true
+      properties:
+        meta:
+          $ref: '#/components/schemas/ReportInstanceList_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/ReportInstanceDTO'
+          type: array
+    ReportInstanceLogList:
+      example:
+        data:
+        - sequenceNumber: 0
+          updateDate: updateDate
+          message: message
+          type: LOG
+        - sequenceNumber: 0
+          updateDate: updateDate
+          message: message
+          type: LOG
+        meta:
+          pagination:
+            next: next
+            total: 0
+            previous: previous
+            isEstimatedTotal: true
+      properties:
+        meta:
+          $ref: '#/components/schemas/ReportInstanceList_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/ReportInstanceLogDTO'
+          type: array
+    ReportInstanceData:
+      properties:
+        data:
+          $ref: '#/components/schemas/ReportInstanceDTO'
+    ReportInstanceDTO:
+      example:
+        extension: extension
+        reportRevision:
+          percentageComplete: 1
+          reportStatus: WAITING
+          finishDate: finishDate
+          signOffStatus: REJECTED
+          signOffNotes: signOffNotes
+          reportReasonCd: reportReasonCd
+          outputFormat: outputFormat
+          startDate: startDate
+        reportInstanceId: 0
+        reportName: reportName
+        reportDefinitionName: reportDefinitionName
+        userFriendlyReportName: userFriendlyReportName
+        reportDefinitionId: 6
+      properties:
+        reportInstanceId:
+          format: int32
+          type: integer
+        reportDefinitionId:
+          format: int32
+          type: integer
+        reportDefinitionName:
+          type: string
+        reportName:
+          type: string
+        userFriendlyReportName:
+          type: string
+        extension:
+          type: string
+        reportRevision:
+          $ref: '#/components/schemas/ReportRevisionDTO'
+    ReportInstanceLogDTO:
+      example:
+        sequenceNumber: 0
+        updateDate: updateDate
+        message: message
+        type: LOG
+      properties:
+        sequenceNumber:
+          format: int32
+          type: integer
+        message:
+          type: string
+        type:
+          enum:
+          - LOG
+          - ERROR
+          type: string
+        updateDate:
+          type: string
+    ReportDefinitionList:
+      example:
+        data:
+        - releaseTag: releaseTag
+          code: code
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+        - releaseTag: releaseTag
+          code: code
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+        meta:
+          pagination:
+            next: next
+            total: 0
+            previous: previous
+            isEstimatedTotal: true
+      properties:
+        meta:
+          $ref: '#/components/schemas/ReportInstanceList_meta'
+        data:
+          items:
+            $ref: '#/components/schemas/ReportDefinitionDTO'
+          type: array
+    ReportDefinitionData:
+      example:
+        data:
+          releaseTag: releaseTag
+          code: code
+          entities:
+          - code: code
+            name: name
+            entityId: 1
+          - code: code
+            name: name
+            entityId: 1
+          name: name
+      properties:
+        data:
+          $ref: '#/components/schemas/ReportDefinitionDTO'
+    ReportDefinitionDTO:
+      example:
+        releaseTag: releaseTag
+        code: code
+        entities:
+        - code: code
+          name: name
+          entityId: 1
+        - code: code
+          name: name
+          entityId: 1
+        name: name
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        releaseTag:
+          type: string
+        entities:
+          items:
+            $ref: '#/components/schemas/EntityDTO'
+          type: array
+    ReportRevisionDTO:
+      example:
+        percentageComplete: 1
+        reportStatus: WAITING
+        finishDate: finishDate
+        signOffStatus: REJECTED
+        signOffNotes: signOffNotes
+        reportReasonCd: reportReasonCd
+        outputFormat: outputFormat
+        startDate: startDate
+      properties:
+        reportStatus:
+          enum:
+          - WAITING
+          - STARTING
+          - RETRIEVING_REQUEST
+          - CONTENT_FILTER
+          - STYLE_PROCESSING
+          - RULE_PROCESSING
+          - GETTING_DATA
+          - RI_PROCESSING
+          - COMPILE
+          - SUBSTITUTION
+          - TRANSLATION
+          - GRID_PROCESSING
+          - CHART_PROCESSING
+          - IMPORTED_FILE_PROCESSING
+          - TEXT_PROCESSING_STATUS
+          - TOC_PROCESSING_STATUS
+          - COMPONENT_PROCESSING
+          - POST_PROCESSING
+          - POSTING_TO_WRS
+          - RENDERING
+          - ABORTED
+          - COMPLETED
+          - COMPLETED_CAUTIONS
+          - COMPLETED_ERROR
+          - COMPLETED_MODIFYING
+          - COMPLETED_CHANGED
+          - DELETING
+          - REPORT_ORIGINAL_GENERATION
+          - REPORT_PREVIOUS_REVISION
+          - GENERATING
+          type: string
+        startDate:
+          type: string
+        finishDate:
+          type: string
+        signOffStatus:
+          enum:
+          - REJECTED
+          - PENDING
+          - APPROVED
+          type: string
+        signOffNotes:
+          type: string
+        reportReasonCd:
+          type: string
+        outputFormat:
+          type: string
+        percentageComplete:
+          format: int32
+          type: integer
+    ScimUser:
+      properties:
+        id:
+          type: integer
+        userName:
+          type: string
+        name:
+          $ref: '#/components/schemas/ScimUser_name'
+        userType:
+          type: string
+        active:
+          type: boolean
+        phoneNumbers:
+          items:
+            $ref: '#/components/schemas/ScimPhone'
+          type: array
+        emails:
+          items:
+            $ref: '#/components/schemas/ScimEmail'
+          type: array
+        photos:
+          items:
+            $ref: '#/components/schemas/ScimPhoto'
+          type: array
+        domainCode:
+          type: string
+        isAdministrator:
+          type: boolean
+        tenant:
+          type: string
+    CreatedScimUserJSONResponse:
+      properties:
+        id:
+          type: integer
+        userName:
+          type: string
+        name:
+          $ref: '#/components/schemas/ScimUser_name'
+        userType:
+          type: string
+        preferredLanguage:
+          type: string
+        active:
+          type: boolean
+        authenticatedUserName:
+          type: string
+        tenant:
+          type: string
+        phoneNumbers:
+          items:
+            $ref: '#/components/schemas/ScimPhone'
+          type: array
+        emails:
+          items:
+            $ref: '#/components/schemas/ScimEmail'
+          type: array
+        photos:
+          items:
+            $ref: '#/components/schemas/ScimPhoto'
+          type: array
+        domainCode:
+          type: string
+        isAdministrator:
+          type: boolean
+        meta:
+          $ref: '#/components/schemas/CreatedScimUserJSONResponse_meta'
+    CreateScimUserJSONRequest:
+      properties:
+        userName:
+          type: string
+        password:
+          type: string
+        name:
+          $ref: '#/components/schemas/ScimUser_name'
+        preferredLanguage:
+          type: string
+        active:
+          type: boolean
+        authenticatedUserName:
+          type: string
+        tenant:
+          type: string
+        phoneNumbers:
+          items:
+            $ref: '#/components/schemas/ScimPhone'
+          type: array
+        emails:
+          items:
+            $ref: '#/components/schemas/ScimEmail'
+          type: array
+        photos:
+          items:
+            $ref: '#/components/schemas/ScimPhoto'
+          type: array
+    ScimPhone:
+      properties:
+        value:
+          type: string
+        type:
+          type: string
+        primary:
+          type: boolean
+    ScimEmail:
+      properties:
+        value:
+          type: string
+        type:
+          type: string
+        primary:
+          type: boolean
+    ScimPhoto:
+      properties:
+        value:
+          type: string
+        type:
+          type: string
+        primary:
+          type: boolean
+    ScimGroup:
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        members:
+          $ref: '#/components/schemas/ScimGroupMember'
+        tenant:
+          type: string
+        domainCode:
+          type: string
+    ScimGroupMember:
+      properties:
+        value:
+          type: string
+        $ref:
+          description: A callback link which can be used to get the information of
+            the group
+          type: string
+        type:
+          type: string
+    ScimGroupListResponse:
+      properties:
+        totalResults:
+          type: integer
+        itemsPerPage:
+          type: integer
+        startIndex:
+          type: integer
+        Resources:
+          items:
+            $ref: '#/components/schemas/ScimGroup'
+          type: array
+    ScimUserListResponse:
+      properties:
+        totalResults:
+          type: integer
+        itemsPerPage:
+          type: integer
+        startIndex:
+          type: integer
+        Resources:
+          items:
+            $ref: '#/components/schemas/ScimUser'
+          type: array
+    inline_response_401:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: notAuthenticated
+              title: User is not authenticated
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_403:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: notAuthorized
+              title: No permissions to view this item
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_406:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: notAcceptable
+              title: Unsupported Accept header. Header needs to be set to application/json
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_404:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: notFound
+              title: The datasource code passed was not found
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_400:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: parameterError
+              title: The datasource code passed was invalid
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_400_1:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: parameterError
+              title: The entity code passed was invalid
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_404_1:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: notFound
+              title: The entity code passed was not found
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_400_2:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: parameterError
+              title: The report definition code passed was invalid
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_404_2:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: notFound
+              title: The report definition code passed was not found
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    _v1_report_instances_generate_vrs_instanceId_entity:
+      properties:
+        key:
+          type: string
+      type: object
+    _v1_report_instances_generate_vrs_instanceId:
+      properties:
+        tenancy:
+          type: string
+        reportCode:
+          type: string
+        outputFormat:
+          type: string
+        entity:
+          $ref: '#/components/schemas/_v1_report_instances_generate_vrs_instanceId_entity'
+      type: object
+    _v1_report_instances_generate_vrs:
+      properties:
+        instanceId:
+          $ref: '#/components/schemas/_v1_report_instances_generate_vrs_instanceId'
+      type: object
+    inline_object:
+      example:
+        vrs:
+          "1":
+            report: MONTHLY_REPORT
+            tenancy: CLIENT_REPORTING
+            outputFormat: PDF
+            sectionFilter: Section One
+            entitySelection:
+              ACCOUNT:
+                key: Account name
+              PORTFOLIO:
+                key: Test fund
+              DATE:
+                key: 2020-01-01 00:00:00
+      properties:
+        vrs:
+          $ref: '#/components/schemas/_v1_report_instances_generate_vrs'
+      type: object
+    inline_response_400_3:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: parameterError
+              title: The ID passed is not a numerical value
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_401_1:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of error
+              code: notAuthenticated
+              title: User is not authenticated
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_404_3:
+      properties:
+        errors:
+          items:
+            example:
+              id: ID of the error
+              code: notFound
+              title: The report instance ID passed was not found
+            properties:
+              id:
+                type: string
+              code:
+                type: string
+              title:
+                type: string
+          type: array
+      type: object
+    inline_response_403_1:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have permission to view roles
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_400_4:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: No tenant code given
+        status: "400"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_403_2:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have update permission for users
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_409:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User already exists
+        scimType: uniqueness
+        status: "409"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_403_3:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have permission to view users
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_404_4:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: Resource 1 not found
+        status: "404"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_403_4:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have permission to update users
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_403_5:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have permission to delete users
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_object_1:
+      example:
+        Schemas:
+        - urn:ietf:params:scim:api:messages:2.0:PatchOp
+        Operations:
+          op: replace
+          path: name.formatted
+          value: vrstestuser1
+      properties:
+        Schemas:
+          type: string
+        Operations:
+          items:
+            properties:
+              op:
+                type: string
+              path:
+                type: string
+              value:
+                items:
+                  properties:
+                    display:
+                      type: string
+                    $ref:
+                      type: string
+                type: array
+          type: array
+      type: object
+    inline_response_403_6:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have permission to create groups
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_409_1:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: Group already exists
+        scimType: uniqueness
+        status: "409"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_403_7:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have permission to update groups
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_response_403_8:
+      example:
+        schemas:
+        - urn:ietf:params:scim:api:messages:2.0:Error
+        detail: User does not have permission to delete roles
+        status: "403"
+      properties:
+        schemas:
+          type: string
+        detail:
+          type: string
+        status:
+          type: string
+      type: object
+    inline_object_2:
+      example:
+        Schemas:
+        - urn:ietf:params:scim:api:messages:2.0:PatchOp
+        Operations:
+          op: add
+          path: members
+          value:
+            display: Test user
+            $ref: VRSAPI/scim/v1/Users/1
+            value: "1"
+      properties:
+        Schemas:
+          type: string
+        Operations:
+          items:
+            properties:
+              op:
+                type: string
+              path:
+                type: string
+              value:
+                items:
+                  properties:
+                    display:
+                      type: string
+                    $ref:
+                      type: string
+                type: array
+          type: array
+      type: object
+    DataSourceList_meta_pagination:
+      example:
+        next: next
+        total: 0
+        previous: previous
+        isEstimatedTotal: true
+      properties:
+        total:
+          type: integer
+        isEstimatedTotal:
+          type: boolean
+        next:
+          type: string
+        previous:
+          type: string
+      type: object
+    DataSourceList_meta:
+      example:
+        pagination:
+          next: next
+          total: 0
+          previous: previous
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+      properties:
+        pagination:
+          $ref: '#/components/schemas/DataSourceList_meta_pagination'
+        sort:
+          items:
+            type: string
+          type: array
+      type: object
+    ReportInstanceList_meta:
+      example:
+        pagination:
+          next: next
+          total: 0
+          previous: previous
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/DataSourceList_meta_pagination'
+      type: object
+    ScimUser_name:
+      properties:
+        formatted:
+          type: string
+      type: object
+    CreatedScimUserJSONResponse_meta:
+      properties:
+        resourceType:
+          type: string
+        created:
+          type: string
+        lastModified:
+          type: string
+        location:
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -44,6 +44,8 @@ public class SecuritizedDerivativeIssuerSearchDataUnderlying implements Serializ
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private SecuritizedDerivativeIssuerSearchDataUnderlyingInstrument instrument;
 
+  public SecuritizedDerivativeIssuerSearchDataUnderlying() { 
+  }
 
   public SecuritizedDerivativeIssuerSearchDataUnderlying instrument(SecuritizedDerivativeIssuerSearchDataUnderlyingInstrument instrument) {
     this.instrument = instrument;

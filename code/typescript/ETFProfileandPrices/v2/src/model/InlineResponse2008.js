@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2001Meta from './InlineResponse2001Meta';
 import InlineResponse2008Data from './InlineResponse2008Data';
-import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse2008 model module.
  * @module model/InlineResponse2008
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2008 {
     /**
@@ -50,10 +50,10 @@ class InlineResponse2008 {
             obj = obj || new InlineResponse2008();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2008Data]);
+                obj['data'] = InlineResponse2008Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -63,13 +63,12 @@ class InlineResponse2008 {
 }
 
 /**
- * List of ETP class broad categories.
- * @member {Array.<module:model/InlineResponse2008Data>} data
+ * @member {module:model/InlineResponse2008Data} data
  */
 InlineResponse2008.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200Meta} meta
+ * @member {module:model/InlineResponse2001Meta} meta
  */
 InlineResponse2008.prototype['meta'] = undefined;
 

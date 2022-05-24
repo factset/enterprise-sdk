@@ -101,7 +101,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006DataPositions {\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
@@ -141,8 +141,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006DataPositions input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Instrument == input.Instrument ||
@@ -190,18 +191,30 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Instrument != null)
-                    hashCode = hashCode * 59 + this.Instrument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
                 if (this.Shares != null)
-                    hashCode = hashCode * 59 + this.Shares.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Shares.GetHashCode();
+                }
                 if (this.Purchase != null)
-                    hashCode = hashCode * 59 + this.Purchase.GetHashCode();
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Purchase.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 if (this.ProfitLoss != null)
-                    hashCode = hashCode * 59 + this.ProfitLoss.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ProfitLoss.GetHashCode();
+                }
                 return hashCode;
             }
         }

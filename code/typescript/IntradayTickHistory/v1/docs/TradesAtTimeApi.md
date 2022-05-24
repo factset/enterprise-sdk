@@ -51,6 +51,7 @@ const opts = {
 // Call api endpoint
 apiInstance.tickHistoryTradesattimeGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

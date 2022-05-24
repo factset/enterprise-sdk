@@ -49,6 +49,8 @@ public class StockDividendListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private StockDividendListDataFilterType type;
 
+  public StockDividendListDataFilter() { 
+  }
 
   public StockDividendListDataFilter period(StockDividendListDataFilterPeriod period) {
     this.period = period;

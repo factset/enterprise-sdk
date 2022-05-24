@@ -143,6 +143,33 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
     {
         private FactSet.SDK.FactSetTermsandConditions.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetLeadUnderwritersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(LeadUnderwritersResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetLeadUnderwritersForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(LeadUnderwritersResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UnderwritersApi"/> class.
         /// </summary>
@@ -253,7 +280,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <returns>LeadUnderwritersResponse</returns>
         public LeadUnderwritersResponse GetLeadUnderwriters(List<string> ids)
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse> localVarResponse = GetLeadUnderwritersWithHttpInfo(ids);
+            var localVarResponse = GetLeadUnderwritersWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -263,11 +290,13 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <exception cref="FactSet.SDK.FactSetTermsandConditions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. </param>
         /// <returns>ApiResponse of LeadUnderwritersResponse</returns>
-        public FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse> GetLeadUnderwritersWithHttpInfo(List<string> ids)
+        public ApiResponse<LeadUnderwritersResponse> GetLeadUnderwritersWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'ids' when calling UnderwritersApi->GetLeadUnderwriters");
+            }
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
 
@@ -280,22 +309,28 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -307,15 +342,19 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<LeadUnderwritersResponse>("/factset-terms-and-conditions/v1/lead-underwriters", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetLeadUnderwritersResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            LeadUnderwritersResponse>("/factset-terms-and-conditions/v1/lead-underwriters", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLeadUnderwriters", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -326,9 +365,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LeadUnderwritersResponse</returns>
-        public async System.Threading.Tasks.Task<LeadUnderwritersResponse> GetLeadUnderwritersAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LeadUnderwritersResponse>GetLeadUnderwritersAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse> localVarResponse = await GetLeadUnderwritersWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetLeadUnderwritersWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -339,11 +378,14 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LeadUnderwritersResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse>> GetLeadUnderwritersWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<LeadUnderwritersResponse>> GetLeadUnderwritersWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'ids' when calling UnderwritersApi->GetLeadUnderwriters");
+            }
 
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
@@ -356,24 +398,29 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -385,14 +432,18 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetLeadUnderwritersResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<LeadUnderwritersResponse>("/factset-terms-and-conditions/v1/lead-underwriters", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLeadUnderwriters", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -406,7 +457,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <returns>LeadUnderwritersResponse</returns>
         public LeadUnderwritersResponse GetLeadUnderwritersForList(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse> localVarResponse = GetLeadUnderwritersForListWithHttpInfo(termsAndConditionsScalarRequest);
+            var localVarResponse = GetLeadUnderwritersForListWithHttpInfo(termsAndConditionsScalarRequest);
             return localVarResponse.Data;
         }
 
@@ -416,11 +467,13 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <exception cref="FactSet.SDK.FactSetTermsandConditions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="termsAndConditionsScalarRequest">Request object for Fixed Income Lead Underwriters.</param>
         /// <returns>ApiResponse of LeadUnderwritersResponse</returns>
-        public FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse> GetLeadUnderwritersForListWithHttpInfo(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
+        public ApiResponse<LeadUnderwritersResponse> GetLeadUnderwritersForListWithHttpInfo(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest)
         {
             // verify the required parameter 'termsAndConditionsScalarRequest' is set
             if (termsAndConditionsScalarRequest == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'termsAndConditionsScalarRequest' when calling UnderwritersApi->GetLeadUnderwritersForList");
+            }
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
 
@@ -434,22 +487,28 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = termsAndConditionsScalarRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -461,15 +520,19 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<LeadUnderwritersResponse>("/factset-terms-and-conditions/v1/lead-underwriters", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetLeadUnderwritersForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            LeadUnderwritersResponse>("/factset-terms-and-conditions/v1/lead-underwriters", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLeadUnderwritersForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -480,9 +543,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="termsAndConditionsScalarRequest">Request object for Fixed Income Lead Underwriters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LeadUnderwritersResponse</returns>
-        public async System.Threading.Tasks.Task<LeadUnderwritersResponse> GetLeadUnderwritersForListAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LeadUnderwritersResponse>GetLeadUnderwritersForListAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse> localVarResponse = await GetLeadUnderwritersForListWithHttpInfoAsync(termsAndConditionsScalarRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetLeadUnderwritersForListWithHttpInfoAsync(termsAndConditionsScalarRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -493,11 +556,14 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="termsAndConditionsScalarRequest">Request object for Fixed Income Lead Underwriters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LeadUnderwritersResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<LeadUnderwritersResponse>> GetLeadUnderwritersForListWithHttpInfoAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<LeadUnderwritersResponse>> GetLeadUnderwritersForListWithHttpInfoAsync(TermsAndConditionsScalarRequest termsAndConditionsScalarRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'termsAndConditionsScalarRequest' is set
             if (termsAndConditionsScalarRequest == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'termsAndConditionsScalarRequest' when calling UnderwritersApi->GetLeadUnderwritersForList");
+            }
 
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
@@ -511,24 +577,29 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = termsAndConditionsScalarRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -540,14 +611,18 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetLeadUnderwritersForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<LeadUnderwritersResponse>("/factset-terms-and-conditions/v1/lead-underwriters", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLeadUnderwritersForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

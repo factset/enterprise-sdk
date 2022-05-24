@@ -7,6 +7,9 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import java.math.BigDecimal;
 import com.factset.sdk.QuotesAPIforDigitalPortals.models.InlineObject21;
@@ -30,6 +33,42 @@ public class PricesApi {
   public PricesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPricesBidAskGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesBidAskGetResponseTypeMap.put(200, new GenericType<InlineResponse20081>(){});
+  }
+  private static final Map<Integer, GenericType> getPricesBidAskListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesBidAskListResponseTypeMap.put(200, new GenericType<InlineResponse20082>(){});
+  }
+  private static final Map<Integer, GenericType> getPricesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesGetResponseTypeMap.put(200, new GenericType<InlineResponse20079>(){});
+  }
+  private static final Map<Integer, GenericType> getPricesListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesListResponseTypeMap.put(200, new GenericType<InlineResponse20080>(){});
+  }
+  private static final Map<Integer, GenericType> getPricesOrderbookAggregatedGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesOrderbookAggregatedGetResponseTypeMap.put(200, new GenericType<InlineResponse20083>(){});
+  }
+  private static final Map<Integer, GenericType> getPricesOrderbookFullGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesOrderbookFullGetResponseTypeMap.put(200, new GenericType<InlineResponse20084>(){});
+  }
+  private static final Map<Integer, GenericType> getPricesTradingScheduleEventTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesTradingScheduleEventTypeListResponseTypeMap.put(200, new GenericType<InlineResponse20086>(){});
+  }
+  private static final Map<Integer, GenericType> postPricesTradingScheduleEventListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postPricesTradingScheduleEventListResponseTypeMap.put(200, new GenericType<InlineResponse20085>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,11 +159,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20081> localVarReturnType = new GenericType<InlineResponse20081>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesBidAskGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20081
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesBidAskGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesBidAskGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Current bid and ask prices (best bid / offer) for a list of notations.
@@ -197,11 +242,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20082> localVarReturnType = new GenericType<InlineResponse20082>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesBidAskList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20082
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesBidAskList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesBidAskListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Overview of trading on the current trading day, including the latest price, for a notation.
@@ -274,11 +325,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20079> localVarReturnType = new GenericType<InlineResponse20079>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20079
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Overview of trading on the current trading day, including the latest price, for a list of notations.
@@ -351,11 +408,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20080> localVarReturnType = new GenericType<InlineResponse20080>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20080
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Orderbook aggregated by price.
@@ -425,11 +488,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20083> localVarReturnType = new GenericType<InlineResponse20083>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesOrderbookAggregatedGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20083
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesOrderbookAggregatedGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesOrderbookAggregatedGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Full orderbook
@@ -499,11 +568,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20084> localVarReturnType = new GenericType<InlineResponse20084>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesOrderbookFullGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20084
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesOrderbookFullGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesOrderbookFullGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Trading schedule event types.
@@ -562,11 +637,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20086> localVarReturnType = new GenericType<InlineResponse20086>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesTradingScheduleEventTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20086
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesTradingScheduleEventTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesTradingScheduleEventTypeListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Sequence of market-related events.
@@ -629,10 +710,16 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20085> localVarReturnType = new GenericType<InlineResponse20085>() {};
 
-    return apiClient.invokeAPI("PricesApi.postPricesTradingScheduleEventList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20085
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.postPricesTradingScheduleEventList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postPricesTradingScheduleEventListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

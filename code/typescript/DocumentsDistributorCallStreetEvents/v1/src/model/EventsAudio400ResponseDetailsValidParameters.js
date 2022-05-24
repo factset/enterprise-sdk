@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EventsAudio400ResponseDetailsValidParameters model module.
  * @module model/EventsAudio400ResponseDetailsValidParameters
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EventsAudio400ResponseDetailsValidParameters {
     /**

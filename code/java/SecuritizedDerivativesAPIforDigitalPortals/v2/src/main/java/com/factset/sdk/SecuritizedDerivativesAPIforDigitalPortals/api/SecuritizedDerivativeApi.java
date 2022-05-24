@@ -7,6 +7,9 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineObject;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineObject1;
@@ -32,6 +35,42 @@ public class SecuritizedDerivativeApi {
   public SecuritizedDerivativeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSecuritizedDerivativeBarrierTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecuritizedDerivativeBarrierTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> getSecuritizedDerivativeGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecuritizedDerivativeGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> getSecuritizedDerivativeKeyFiguresNotationGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecuritizedDerivativeKeyFiguresNotationGetResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> getSecuritizedDerivativeUnderlyingListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecuritizedDerivativeUnderlyingListResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
+  }
+  private static final Map<Integer, GenericType> postSecuritizedDerivativeIssuerSearchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postSecuritizedDerivativeIssuerSearchResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> postSecuritizedDerivativeNotationRankingIntradayListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postSecuritizedDerivativeNotationRankingIntradayListResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+  }
+  private static final Map<Integer, GenericType> postSecuritizedDerivativeNotationScreenerSearchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postSecuritizedDerivativeNotationScreenerSearchResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
+  }
+  private static final Map<Integer, GenericType> postSecuritizedDerivativeNotationScreenerValueRangesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postSecuritizedDerivativeNotationScreenerValueRangesGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -108,11 +147,17 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeBarrierTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeBarrierTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecuritizedDerivativeBarrierTypeListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Fundamental data for a single securitized derivative.
@@ -182,11 +227,17 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecuritizedDerivativeGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Notation-based key figures of a securitized derivative.
@@ -256,11 +307,17 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeKeyFiguresNotationGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeKeyFiguresNotationGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecuritizedDerivativeKeyFiguresNotationGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of underlyings with barrier and cash flow information.
@@ -330,11 +387,17 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2007> localVarReturnType = new GenericType<InlineResponse2007>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeUnderlyingList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2007
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.getSecuritizedDerivativeUnderlyingList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecuritizedDerivativeUnderlyingListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Search for issuers of securitized derivatives.
@@ -392,11 +455,17 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeIssuerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeIssuerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postSecuritizedDerivativeIssuerSearchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Ranking of securitized derivatives&#39; notations using intraday figures.
@@ -454,11 +523,17 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeNotationRankingIntradayList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2004
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeNotationRankingIntradayList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postSecuritizedDerivativeNotationRankingIntradayListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Screener for securitized derivatives&#39;s notations based on securitized derivatives-specific parameters.
@@ -516,15 +591,21 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2006> localVarReturnType = new GenericType<InlineResponse2006>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeNotationScreenerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2006
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeNotationScreenerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postSecuritizedDerivativeNotationScreenerSearchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
-   * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+   * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
    * @param body  (optional)
    * @return InlineResponse2005
    * @throws ApiException if fails to make API call
@@ -540,7 +621,7 @@ public class SecuritizedDerivativeApi {
 
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
-   * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+   * The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
    * @param body  (optional)
    * @return ApiResponse&lt;InlineResponse2005&gt;
    * @throws ApiException if fails to make API call
@@ -578,10 +659,16 @@ public class SecuritizedDerivativeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2005> localVarReturnType = new GenericType<InlineResponse2005>() {};
 
-    return apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeNotationScreenerValueRangesGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2005
+      
+    > apiResponse = apiClient.invokeAPI("SecuritizedDerivativeApi.postSecuritizedDerivativeNotationScreenerValueRangesGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postSecuritizedDerivativeNotationScreenerValueRangesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

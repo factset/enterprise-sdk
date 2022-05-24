@@ -48,6 +48,8 @@ public class EventsAudio implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private EventsAudioMeta meta;
 
+  public EventsAudio() { 
+  }
 
   public EventsAudio data(java.util.List<EventsAudioData> data) {
     this.data = data;

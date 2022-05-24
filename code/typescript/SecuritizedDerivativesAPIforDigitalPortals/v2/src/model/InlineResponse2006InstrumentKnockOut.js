@@ -19,7 +19,7 @@ import InlineResponse2006InstrumentKnockOutObservation from './InlineResponse200
 /**
  * The InlineResponse2006InstrumentKnockOut model module.
  * @module model/InlineResponse2006InstrumentKnockOut
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentKnockOut {
     /**

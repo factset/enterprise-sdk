@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **sedolHistoryTranslationRequest** | [**SedolHistoryTranslationRequest**](SedolHistoryTranslationRequest.md)| Request Body for SEDOL History | 
 
 ### Return type
-
 [**SedolHistoryTranslationResponse**](SedolHistoryTranslationResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **sedolTranslationRequest** | [**SedolTranslationRequest**](SedolTranslationRequest.md)| Request Body for SEDOL Symbology Translation | 
 
 ### Return type
-
 [**SedolTranslationResponse**](SedolTranslationResponse.md)
 
 ### Authorization
@@ -267,7 +265,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;. | 
 
 ### Return type
-
 [**SedolHistoryTranslationResponse**](SedolHistoryTranslationResponse.md)
 
 ### Authorization
@@ -363,7 +360,6 @@ Name | Type | Description  | Notes
  **asOfDate** | **string**| As-Of date for historical symbol request in YYYY-MM-DD format. | [optional] 
 
 ### Return type
-
 [**SedolTranslationResponse**](SedolTranslationResponse.md)
 
 ### Authorization

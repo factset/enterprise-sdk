@@ -129,7 +129,6 @@ src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/ApiClient.jav
 src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/ApiException.java
 src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/ApiResponse.java
 src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/Configuration.java
-src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/JSON.java
 src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/VirtualPortfolioAPIforDigitalPortals/Pair.java

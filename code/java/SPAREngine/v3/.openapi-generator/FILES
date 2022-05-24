@@ -55,7 +55,6 @@ src/main/java/com/factset/sdk/SPAREngine/ApiClient.java
 src/main/java/com/factset/sdk/SPAREngine/ApiException.java
 src/main/java/com/factset/sdk/SPAREngine/ApiResponse.java
 src/main/java/com/factset/sdk/SPAREngine/Configuration.java
-src/main/java/com/factset/sdk/SPAREngine/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/SPAREngine/JSON.java
 src/main/java/com/factset/sdk/SPAREngine/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/SPAREngine/Pair.java

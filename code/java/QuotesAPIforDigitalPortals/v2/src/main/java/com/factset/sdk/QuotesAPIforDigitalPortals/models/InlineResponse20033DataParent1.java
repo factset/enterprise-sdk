@@ -48,6 +48,8 @@ public class InlineResponse20033DataParent1 implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20033DataParent1() { 
+  }
 
   public InlineResponse20033DataParent1 id(BigDecimal id) {
     this.id = id;

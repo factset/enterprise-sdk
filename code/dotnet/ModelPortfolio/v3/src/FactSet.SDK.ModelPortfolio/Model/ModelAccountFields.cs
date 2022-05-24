@@ -78,7 +78,7 @@ namespace FactSet.SDK.ModelPortfolio.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ModelAccountFields {\n");
             sb.Append("  Iterative: ").Append(Iterative).Append("\n");
             sb.Append("  NonIterative: ").Append(NonIterative).Append("\n");
@@ -114,8 +114,9 @@ namespace FactSet.SDK.ModelPortfolio.Model
         public bool Equals(ModelAccountFields input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Iterative == input.Iterative ||
@@ -147,11 +148,17 @@ namespace FactSet.SDK.ModelPortfolio.Model
             {
                 int hashCode = 41;
                 if (this.Iterative != null)
-                    hashCode = hashCode * 59 + this.Iterative.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Iterative.GetHashCode();
+                }
                 if (this.NonIterative != null)
-                    hashCode = hashCode * 59 + this.NonIterative.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NonIterative.GetHashCode();
+                }
                 if (this.AdditionalFields != null)
-                    hashCode = hashCode * 59 + this.AdditionalFields.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalFields.GetHashCode();
+                }
                 return hashCode;
             }
         }

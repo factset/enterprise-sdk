@@ -83,6 +83,8 @@ public class InlineResponse2001Data implements Serializable {
   public static final String JSON_PROPERTY_SUBSAMPLE = "subsample";
   private java.util.List<BigDecimal> subsample = null;
 
+  public InlineResponse2001Data() { 
+  }
 
   public InlineResponse2001Data quality(QualityEnum quality) {
     this.quality = quality;

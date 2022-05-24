@@ -190,7 +190,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
         /// </summary>
         /// <remarks>
-        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
@@ -201,7 +201,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
         /// </summary>
         /// <remarks>
-        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
@@ -393,7 +393,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
         /// </summary>
         /// <remarks>
-        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
@@ -405,7 +405,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;.
         /// </summary>
         /// <remarks>
-        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
@@ -429,6 +429,47 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
     public partial class SecuritizedDerivativeApi : ISecuritizedDerivativeApi
     {
         private FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetSecuritizedDerivativeBarrierTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSecuritizedDerivativeGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSecuritizedDerivativeKeyFiguresNotationGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSecuritizedDerivativeUnderlyingListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostSecuritizedDerivativeIssuerSearchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostSecuritizedDerivativeNotationRankingIntradayListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostSecuritizedDerivativeNotationScreenerSearchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2006) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostSecuritizedDerivativeNotationScreenerValueRangesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SecuritizedDerivativeApi"/> class.
@@ -540,7 +581,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 GetSecuritizedDerivativeBarrierTypeList(List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = GetSecuritizedDerivativeBarrierTypeListWithHttpInfo(attributes);
+            var localVarResponse = GetSecuritizedDerivativeBarrierTypeListWithHttpInfo(attributes);
             return localVarResponse.Data;
         }
 
@@ -550,7 +591,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> GetSecuritizedDerivativeBarrierTypeListWithHttpInfo(List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2001> GetSecuritizedDerivativeBarrierTypeListWithHttpInfo(List<string> attributes = default(List<string>))
         {
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -563,10 +604,16 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -575,13 +622,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -593,15 +640,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2001>("/securitizedDerivative/barrier/type/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeBarrierTypeListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2001>("/securitizedDerivative/barrier/type/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeBarrierTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -612,9 +663,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetSecuritizedDerivativeBarrierTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetSecuritizedDerivativeBarrierTypeListAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetSecuritizedDerivativeBarrierTypeListWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecuritizedDerivativeBarrierTypeListWithHttpInfoAsync(attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -625,7 +676,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> GetSecuritizedDerivativeBarrierTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetSecuritizedDerivativeBarrierTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -638,12 +690,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -652,13 +709,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -670,14 +727,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeBarrierTypeListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/securitizedDerivative/barrier/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeBarrierTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -693,7 +754,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 GetSecuritizedDerivativeGet(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = GetSecuritizedDerivativeGetWithHttpInfo(id, attributes, language);
+            var localVarResponse = GetSecuritizedDerivativeGetWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -705,11 +766,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> GetSecuritizedDerivativeGetWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse200> GetSecuritizedDerivativeGetWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling SecuritizedDerivativeApi->GetSecuritizedDerivativeGet");
+            }
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -722,10 +785,16 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -739,13 +808,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -757,15 +826,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse200>("/securitizedDerivative/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse200>("/securitizedDerivative/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -778,9 +851,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetSecuritizedDerivativeGetAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>GetSecuritizedDerivativeGetAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await GetSecuritizedDerivativeGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecuritizedDerivativeGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -793,11 +866,14 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> GetSecuritizedDerivativeGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetSecuritizedDerivativeGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling SecuritizedDerivativeApi->GetSecuritizedDerivativeGet");
+            }
 
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -810,12 +886,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -829,13 +910,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -847,14 +928,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/securitizedDerivative/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -870,7 +955,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 GetSecuritizedDerivativeKeyFiguresNotationGet(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfo(id, attributes, language);
+            var localVarResponse = GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -882,11 +967,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2003> GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling SecuritizedDerivativeApi->GetSecuritizedDerivativeKeyFiguresNotationGet");
+            }
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -899,10 +986,16 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -916,13 +1009,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -934,15 +1027,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2003>("/securitizedDerivative/keyFigures/notation/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeKeyFiguresNotationGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2003>("/securitizedDerivative/keyFigures/notation/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeKeyFiguresNotationGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -955,9 +1052,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetSecuritizedDerivativeKeyFiguresNotationGetAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>GetSecuritizedDerivativeKeyFiguresNotationGetAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -970,11 +1067,14 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling SecuritizedDerivativeApi->GetSecuritizedDerivativeKeyFiguresNotationGet");
+            }
 
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -987,12 +1087,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1006,13 +1111,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1024,14 +1129,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeKeyFiguresNotationGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/securitizedDerivative/keyFigures/notation/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeKeyFiguresNotationGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1047,7 +1156,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2007</returns>
         public InlineResponse2007 GetSecuritizedDerivativeUnderlyingList(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = GetSecuritizedDerivativeUnderlyingListWithHttpInfo(id, attributes, language);
+            var localVarResponse = GetSecuritizedDerivativeUnderlyingListWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1059,11 +1168,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> GetSecuritizedDerivativeUnderlyingListWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2007> GetSecuritizedDerivativeUnderlyingListWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling SecuritizedDerivativeApi->GetSecuritizedDerivativeUnderlyingList");
+            }
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1076,10 +1187,16 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1093,13 +1210,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1111,15 +1228,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2007>("/securitizedDerivative/underlying/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeUnderlyingListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2007>("/securitizedDerivative/underlying/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeUnderlyingList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1132,9 +1253,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> GetSecuritizedDerivativeUnderlyingListAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2007>GetSecuritizedDerivativeUnderlyingListAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = await GetSecuritizedDerivativeUnderlyingListWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecuritizedDerivativeUnderlyingListWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1147,11 +1268,14 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007>> GetSecuritizedDerivativeUnderlyingListWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetSecuritizedDerivativeUnderlyingListWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling SecuritizedDerivativeApi->GetSecuritizedDerivativeUnderlyingList");
+            }
 
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -1164,12 +1288,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1183,13 +1312,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1201,14 +1330,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecuritizedDerivativeUnderlyingListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2007>("/securitizedDerivative/underlying/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecuritizedDerivativeUnderlyingList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1222,7 +1355,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 PostSecuritizedDerivativeIssuerSearch(InlineObject body = default(InlineObject))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = PostSecuritizedDerivativeIssuerSearchWithHttpInfo(body);
+            var localVarResponse = PostSecuritizedDerivativeIssuerSearchWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1232,7 +1365,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> PostSecuritizedDerivativeIssuerSearchWithHttpInfo(InlineObject body = default(InlineObject))
+        public ApiResponse<InlineResponse2002> PostSecuritizedDerivativeIssuerSearchWithHttpInfo(InlineObject body = default(InlineObject))
         {
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1246,22 +1379,28 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1273,15 +1412,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2002>("/securitizedDerivative/issuer/search", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeIssuerSearchResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2002>("/securitizedDerivative/issuer/search", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeIssuerSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1292,9 +1435,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> PostSecuritizedDerivativeIssuerSearchAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>PostSecuritizedDerivativeIssuerSearchAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await PostSecuritizedDerivativeIssuerSearchWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostSecuritizedDerivativeIssuerSearchWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1305,7 +1448,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> PostSecuritizedDerivativeIssuerSearchWithHttpInfoAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PostSecuritizedDerivativeIssuerSearchWithHttpInfoAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -1319,24 +1463,29 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1348,14 +1497,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeIssuerSearchResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2002>("/securitizedDerivative/issuer/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeIssuerSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1369,7 +1522,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2004</returns>
         public InlineResponse2004 PostSecuritizedDerivativeNotationRankingIntradayList(InlineObject1 body = default(InlineObject1))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(body);
+            var localVarResponse = PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1379,7 +1532,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(InlineObject1 body = default(InlineObject1))
+        public ApiResponse<InlineResponse2004> PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(InlineObject1 body = default(InlineObject1))
         {
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1393,22 +1546,28 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1420,15 +1579,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2004>("/securitizedDerivative/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeNotationRankingIntradayListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2004>("/securitizedDerivative/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeNotationRankingIntradayList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1439,9 +1602,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> PostSecuritizedDerivativeNotationRankingIntradayListAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>PostSecuritizedDerivativeNotationRankingIntradayListAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = await PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1452,7 +1615,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004>> PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfoAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> PostSecuritizedDerivativeNotationRankingIntradayListWithHttpInfoAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -1466,24 +1630,29 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1495,14 +1664,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeNotationRankingIntradayListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2004>("/securitizedDerivative/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeNotationRankingIntradayList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1516,7 +1689,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <returns>InlineResponse2006</returns>
         public InlineResponse2006 PostSecuritizedDerivativeNotationScreenerSearch(InlineObject3 body = default(InlineObject3))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(body);
+            var localVarResponse = PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1526,7 +1699,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(InlineObject3 body = default(InlineObject3))
+        public ApiResponse<InlineResponse2006> PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(InlineObject3 body = default(InlineObject3))
         {
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1540,22 +1713,28 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1567,15 +1746,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2006>("/securitizedDerivative/notation/screener/search", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeNotationScreenerSearchResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2006>("/securitizedDerivative/notation/screener/search", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeNotationScreenerSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1586,9 +1769,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> PostSecuritizedDerivativeNotationScreenerSearchAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2006>PostSecuritizedDerivativeNotationScreenerSearchAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = await PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1599,7 +1782,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006>> PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PostSecuritizedDerivativeNotationScreenerSearchWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -1613,24 +1797,29 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1642,38 +1831,42 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeNotationScreenerSearchResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2006>("/securitizedDerivative/notation/screener/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeNotationScreenerSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </summary>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 PostSecuritizedDerivativeNotationScreenerValueRangesGet(InlineObject2 body = default(InlineObject2))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(body);
+            var localVarResponse = PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </summary>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(InlineObject2 body = default(InlineObject2))
+        public ApiResponse<InlineResponse2005> PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(InlineObject2 body = default(InlineObject2))
         {
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1687,22 +1880,28 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1714,39 +1913,44 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2005>("/securitizedDerivative/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeNotationScreenerValueRangesGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2005>("/securitizedDerivative/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeNotationScreenerValueRangesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </summary>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> PostSecuritizedDerivativeNotationScreenerValueRangesGetAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2005>PostSecuritizedDerivativeNotationScreenerValueRangesGetAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = await PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter &#x60;market.priority&#x60;) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+        /// Possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivative/notation/screener/search&#x60;. The endpoint returns the possible values and value ranges for the parameters used in the endpoint &#x60;/securitizedDerivatives/notation/screener/search&#x60;. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the &#x60;/securitizedDerivatives/notation/screener/search&#x60; endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \&quot;level\&quot; is used instead of \&quot;price\&quot;, e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
         /// </summary>
         /// <exception cref="FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005>> PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.RequestOptions();
@@ -1760,24 +1964,29 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1789,14 +1998,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostSecuritizedDerivativeNotationScreenerValueRangesGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2005>("/securitizedDerivative/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostSecuritizedDerivativeNotationScreenerValueRangesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

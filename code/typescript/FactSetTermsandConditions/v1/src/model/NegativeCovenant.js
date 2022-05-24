@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NegativeCovenant model module.
  * @module model/NegativeCovenant
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NegativeCovenant {
     /**

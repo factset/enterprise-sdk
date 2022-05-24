@@ -55,6 +55,8 @@ public class ErrorResponseSubErrors implements Serializable {
   public static final String JSON_PROPERTY_REJECTED_VALUE = "rejectedValue";
   private java.util.List<String> rejectedValue = null;
 
+  public ErrorResponseSubErrors() { 
+  }
 
   public ErrorResponseSubErrors _object(String _object) {
     this._object = _object;

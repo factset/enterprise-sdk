@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMa
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketSelectionExclude exclude;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketSelection() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketSelection restrict(SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketSelectionRestrict restrict) {
     this.restrict = restrict;

@@ -61,6 +61,8 @@ public class InlineResponse2002Data implements Serializable {
   public static final String JSON_PROPERTY_PROFIT_LOSS = "profitLoss";
   private InlineResponse2002ProfitLoss profitLoss;
 
+  public InlineResponse2002Data() { 
+  }
 
   public InlineResponse2002Data id(String id) {
     this.id = id;

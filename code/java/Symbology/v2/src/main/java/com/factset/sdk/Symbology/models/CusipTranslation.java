@@ -55,6 +55,8 @@ public class CusipTranslation implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public CusipTranslation() { 
+  }
 
   public CusipTranslation fsymId(String fsymId) {
     this.fsymId = fsymId;

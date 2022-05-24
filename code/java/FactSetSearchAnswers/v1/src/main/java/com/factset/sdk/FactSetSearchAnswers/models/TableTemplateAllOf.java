@@ -43,6 +43,8 @@ public class TableTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_TABLE = "table";
   private Table table;
 
+  public TableTemplateAllOf() { 
+  }
 
   public TableTemplateAllOf table(Table table) {
     this.table = table;

@@ -48,6 +48,8 @@ public class VaultCalculationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private CalculationMeta meta;
 
+  public VaultCalculationParametersRoot() { 
+  }
 
   public VaultCalculationParametersRoot data(java.util.Map<String, VaultCalculationParameters> data) {
     this.data = data;

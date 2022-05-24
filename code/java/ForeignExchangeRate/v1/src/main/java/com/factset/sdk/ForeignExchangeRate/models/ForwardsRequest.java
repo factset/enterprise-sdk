@@ -61,6 +61,16 @@ public class ForwardsRequest implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private Frequency frequency = Frequency.D;
 
+  public ForwardsRequest() { 
+  }
+
+  @JsonCreator
+  public ForwardsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public ForwardsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

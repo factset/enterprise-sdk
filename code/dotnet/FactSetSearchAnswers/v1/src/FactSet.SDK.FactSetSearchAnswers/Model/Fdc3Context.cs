@@ -36,10 +36,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Fdc3Context" /> class
-        /// with the <see cref="Fdc3Country" /> class
+        /// with the <see cref="Fdc3Instrument" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Fdc3Country.</param>
-        public Fdc3Context(Fdc3Country actualInstance)
+        /// <param name="actualInstance">An instance of Fdc3Instrument.</param>
+        public Fdc3Context(Fdc3Instrument actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -48,10 +48,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Fdc3Context" /> class
-        /// with the <see cref="Fdc3Instrument" /> class
+        /// with the <see cref="Fdc3Country" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Fdc3Instrument.</param>
-        public Fdc3Context(Fdc3Instrument actualInstance)
+        /// <param name="actualInstance">An instance of Fdc3Country.</param>
+        public Fdc3Context(Fdc3Country actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -72,11 +72,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             set
             {
-                if (value.GetType() == typeof(Fdc3Country))
+                if (value is Fdc3Country)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Fdc3Instrument))
+                else if (value is Fdc3Instrument)
                 {
                     this._actualInstance = value;
                 }
@@ -88,16 +88,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         }
 
         /// <summary>
-        /// Get the actual instance of `Fdc3Country`. If the actual instance is not `Fdc3Country`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of Fdc3Country</returns>
-        public Fdc3Country GetFdc3Country()
-        {
-            return (Fdc3Country)this.ActualInstance;
-        }
-
-        /// <summary>
         /// Get the actual instance of `Fdc3Instrument`. If the actual instance is not `Fdc3Instrument`,
         /// the InvalidClassException will be thrown
         /// </summary>
@@ -105,6 +95,16 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public Fdc3Instrument GetFdc3Instrument()
         {
             return (Fdc3Instrument)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Fdc3Country`. If the actual instance is not `Fdc3Country`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Fdc3Country</returns>
+        public Fdc3Country GetFdc3Country()
+        {
+            return (Fdc3Country)this.ActualInstance;
         }
 
         /// <summary>
@@ -147,35 +147,12 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Fdc3Country).GetProperty("AdditionalProperties") == null)
-                {
-                    newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Country>(jsonString, Fdc3Context.SerializerSettings));
-                }
-                else
-                {
-                    newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Country>(jsonString, Fdc3Context.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("Fdc3Country");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Fdc3Country: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Fdc3Instrument).GetProperty("AdditionalProperties") == null)
-                {
-                    newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Instrument>(jsonString, Fdc3Context.SerializerSettings));
-                }
-                else
-                {
-                    newFdc3Context = new Fdc3Context(JsonConvert.DeserializeObject<Fdc3Instrument>(jsonString, Fdc3Context.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(Fdc3Instrument).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<Fdc3Instrument>(
+                    jsonString, 
+                    hasAdditionalProperties ? Fdc3Context.AdditionalPropertiesSerializerSettings : Fdc3Context.SerializerSettings
+                );
+                newFdc3Context = new Fdc3Context(parsedValue);
                 matchedTypes.Add("Fdc3Instrument");
                 match++;
             }
@@ -183,6 +160,23 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Fdc3Instrument: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(Fdc3Country).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<Fdc3Country>(
+                    jsonString, 
+                    hasAdditionalProperties ? Fdc3Context.AdditionalPropertiesSerializerSettings : Fdc3Context.SerializerSettings
+                );
+                newFdc3Context = new Fdc3Context(parsedValue);
+                matchedTypes.Add("Fdc3Country");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Fdc3Country: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
@@ -275,7 +269,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return Fdc3Context.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return Fdc3Context.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

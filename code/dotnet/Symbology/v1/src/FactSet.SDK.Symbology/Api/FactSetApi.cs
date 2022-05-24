@@ -143,6 +143,33 @@ namespace FactSet.SDK.Symbology.Api
     {
         private FactSet.SDK.Symbology.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> BatchTranslateFactsetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactsetTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> TranslateFactsetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactsetTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FactSetApi"/> class.
         /// </summary>
@@ -253,7 +280,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>FactsetTranslationResponse</returns>
         public FactsetTranslationResponse BatchTranslateFactset(FactsetTranslationRequest factsetTranslationRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = BatchTranslateFactsetWithHttpInfo(factsetTranslationRequest);
+            var localVarResponse = BatchTranslateFactsetWithHttpInfo(factsetTranslationRequest);
             return localVarResponse.Data;
         }
 
@@ -263,11 +290,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationRequest">Request Body for FactSet Symbology Translation</param>
         /// <returns>ApiResponse of FactsetTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> BatchTranslateFactsetWithHttpInfo(FactsetTranslationRequest factsetTranslationRequest)
+        public ApiResponse<FactsetTranslationResponse> BatchTranslateFactsetWithHttpInfo(FactsetTranslationRequest factsetTranslationRequest)
         {
             // verify the required parameter 'factsetTranslationRequest' is set
             if (factsetTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'factsetTranslationRequest' when calling FactSetApi->BatchTranslateFactset");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -281,22 +310,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factsetTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -308,15 +343,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FactsetTranslationResponse>("/symbology/v1/factset", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateFactsetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FactsetTranslationResponse>("/symbology/v1/factset", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateFactset", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -327,9 +366,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="factsetTranslationRequest">Request Body for FactSet Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactsetTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<FactsetTranslationResponse> BatchTranslateFactsetAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactsetTranslationResponse>BatchTranslateFactsetAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = await BatchTranslateFactsetWithHttpInfoAsync(factsetTranslationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchTranslateFactsetWithHttpInfoAsync(factsetTranslationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -340,11 +379,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="factsetTranslationRequest">Request Body for FactSet Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactsetTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse>> BatchTranslateFactsetWithHttpInfoAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactsetTranslationResponse>> BatchTranslateFactsetWithHttpInfoAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'factsetTranslationRequest' is set
             if (factsetTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'factsetTranslationRequest' when calling FactSetApi->BatchTranslateFactset");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -358,24 +400,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factsetTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -387,14 +434,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateFactsetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FactsetTranslationResponse>("/symbology/v1/factset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateFactset", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -408,7 +459,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>FactsetTranslationResponse</returns>
         public FactsetTranslationResponse TranslateFactset(List<string> ids)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = TranslateFactsetWithHttpInfo(ids);
+            var localVarResponse = TranslateFactsetWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -418,11 +469,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <returns>ApiResponse of FactsetTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> TranslateFactsetWithHttpInfo(List<string> ids)
+        public ApiResponse<FactsetTranslationResponse> TranslateFactsetWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetApi->TranslateFactset");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -435,22 +488,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -462,15 +521,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FactsetTranslationResponse>("/symbology/v1/factset", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = TranslateFactsetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FactsetTranslationResponse>("/symbology/v1/factset", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateFactset", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -481,9 +544,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactsetTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<FactsetTranslationResponse> TranslateFactsetAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactsetTranslationResponse>TranslateFactsetAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = await TranslateFactsetWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TranslateFactsetWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -494,11 +557,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactsetTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse>> TranslateFactsetWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactsetTranslationResponse>> TranslateFactsetWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetApi->TranslateFactset");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -511,24 +577,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -540,14 +611,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = TranslateFactsetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FactsetTranslationResponse>("/symbology/v1/factset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateFactset", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

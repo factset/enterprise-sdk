@@ -48,6 +48,8 @@ public class InlineResponse20031DataParentLevel implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20031DataParentLevel() { 
+  }
 
   public InlineResponse20031DataParentLevel id(BigDecimal id) {
     this.id = id;

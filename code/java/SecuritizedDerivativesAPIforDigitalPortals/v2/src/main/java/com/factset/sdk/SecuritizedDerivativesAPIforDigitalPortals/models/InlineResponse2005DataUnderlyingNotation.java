@@ -47,6 +47,8 @@ public class InlineResponse2005DataUnderlyingNotation implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataUnderlyingNotation() { 
+  }
 
   public InlineResponse2005DataUnderlyingNotation id(String id) {
     this.id = id;

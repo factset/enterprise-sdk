@@ -66,6 +66,8 @@ public class InlineResponse20039Data implements Serializable {
   public static final String JSON_PROPERTY_LEVELS = "levels";
   private java.util.List<InlineResponse20039DataLevels> levels = null;
 
+  public InlineResponse20039Data() { 
+  }
 
   public InlineResponse20039Data id(BigDecimal id) {
     this.id = id;

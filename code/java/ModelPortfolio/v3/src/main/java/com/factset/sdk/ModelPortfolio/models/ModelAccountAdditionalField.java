@@ -66,6 +66,8 @@ public class ModelAccountAdditionalField implements Serializable {
   public static final String JSON_PROPERTY_CODE_PAGE_FLAG = "codePageFlag";
   private String codePageFlag;
 
+  public ModelAccountAdditionalField() { 
+  }
 
   public ModelAccountAdditionalField iteration(Boolean iteration) {
     this.iteration = iteration;

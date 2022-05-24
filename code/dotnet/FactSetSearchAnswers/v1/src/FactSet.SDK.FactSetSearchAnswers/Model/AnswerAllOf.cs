@@ -74,7 +74,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AnswerAllOf {\n");
             sb.Append("  TemplateData: ").Append(TemplateData).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
@@ -109,8 +109,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(AnswerAllOf input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TemplateData == input.TemplateData ||
@@ -134,9 +135,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.TemplateData != null)
-                    hashCode = hashCode * 59 + this.TemplateData.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TemplateData.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentBonusLevelDistance implements Serializa
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006InstrumentBonusLevelDistance() { 
+  }
 
   public InlineResponse2006InstrumentBonusLevelDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

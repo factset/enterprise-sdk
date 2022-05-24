@@ -47,6 +47,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetMeta implements 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetMeta() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

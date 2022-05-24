@@ -150,6 +150,24 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
     {
         private FactSet.SDK.QuantitativeResearchEnvironment.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1FilesServerFilePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)202, typeof(FileUploadStatus) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1FilesUploadsIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FileUploadStatus) },
+            { (HttpStatusCode)202, typeof(FileUploadStatus) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesApi"/> class.
         /// </summary>
@@ -262,7 +280,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <returns>FileUploadStatus</returns>
         public FileUploadStatus AnalyticsQuantQreV1FilesServerFilePost(string server, string file, System.IO.Stream body = default(System.IO.Stream))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus> localVarResponse = AnalyticsQuantQreV1FilesServerFilePostWithHttpInfo(server, file, body);
+            var localVarResponse = AnalyticsQuantQreV1FilesServerFilePostWithHttpInfo(server, file, body);
             return localVarResponse.Data;
         }
 
@@ -274,15 +292,19 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="file">The file name to upload the file to. Existing directory can be specified.</param>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of FileUploadStatus</returns>
-        public FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus> AnalyticsQuantQreV1FilesServerFilePostWithHttpInfo(string server, string file, System.IO.Stream body = default(System.IO.Stream))
+        public ApiResponse<FileUploadStatus> AnalyticsQuantQreV1FilesServerFilePostWithHttpInfo(string server, string file, System.IO.Stream body = default(System.IO.Stream))
         {
             // verify the required parameter 'server' is set
             if (server == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'server' when calling FilesApi->AnalyticsQuantQreV1FilesServerFilePost");
+            }
 
             // verify the required parameter 'file' is set
             if (file == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->AnalyticsQuantQreV1FilesServerFilePost");
+            }
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
 
@@ -296,10 +318,16 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             };
 
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("server", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(server)); // path parameter
             localVarRequestOptions.PathParameters.Add("file", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(file)); // path parameter
@@ -307,13 +335,13 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -325,15 +353,19 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FileUploadStatus>("/analytics/quant/qre/v1/files/{server}/{file}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1FilesServerFilePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FileUploadStatus>("/analytics/quant/qre/v1/files/{server}/{file}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1FilesServerFilePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -346,9 +378,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileUploadStatus</returns>
-        public async System.Threading.Tasks.Task<FileUploadStatus> AnalyticsQuantQreV1FilesServerFilePostAsync(string server, string file, System.IO.Stream body = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileUploadStatus>AnalyticsQuantQreV1FilesServerFilePostAsync(string server, string file, System.IO.Stream body = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus> localVarResponse = await AnalyticsQuantQreV1FilesServerFilePostWithHttpInfoAsync(server, file, body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AnalyticsQuantQreV1FilesServerFilePostWithHttpInfoAsync(server, file, body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -361,15 +393,20 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileUploadStatus)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus>> AnalyticsQuantQreV1FilesServerFilePostWithHttpInfoAsync(string server, string file, System.IO.Stream body = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FileUploadStatus>> AnalyticsQuantQreV1FilesServerFilePostWithHttpInfoAsync(string server, string file, System.IO.Stream body = default(System.IO.Stream), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'server' is set
             if (server == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'server' when calling FilesApi->AnalyticsQuantQreV1FilesServerFilePost");
+            }
 
             // verify the required parameter 'file' is set
             if (file == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'file' when calling FilesApi->AnalyticsQuantQreV1FilesServerFilePost");
+            }
 
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
@@ -383,12 +420,17 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("server", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(server)); // path parameter
             localVarRequestOptions.PathParameters.Add("file", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(file)); // path parameter
@@ -396,13 +438,13 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -414,14 +456,18 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1FilesServerFilePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FileUploadStatus>("/analytics/quant/qre/v1/files/{server}/{file}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1FilesServerFilePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -435,7 +481,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <returns>FileUploadStatus</returns>
         public FileUploadStatus AnalyticsQuantQreV1FilesUploadsIdGet(string id)
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus> localVarResponse = AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfo(id);
+            var localVarResponse = AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -445,11 +491,13 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <exception cref="FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided by location header or response body in the upload start endpoint</param>
         /// <returns>ApiResponse of FileUploadStatus</returns>
-        public FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus> AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfo(string id)
+        public ApiResponse<FileUploadStatus> AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling FilesApi->AnalyticsQuantQreV1FilesUploadsIdGet");
+            }
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
 
@@ -462,22 +510,28 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             };
 
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -489,15 +543,19 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FileUploadStatus>("/analytics/quant/qre/v1/files/uploads/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1FilesUploadsIdGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FileUploadStatus>("/analytics/quant/qre/v1/files/uploads/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1FilesUploadsIdGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -508,9 +566,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the upload start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileUploadStatus</returns>
-        public async System.Threading.Tasks.Task<FileUploadStatus> AnalyticsQuantQreV1FilesUploadsIdGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileUploadStatus>AnalyticsQuantQreV1FilesUploadsIdGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus> localVarResponse = await AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -521,11 +579,14 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the upload start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileUploadStatus)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<FileUploadStatus>> AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FileUploadStatus>> AnalyticsQuantQreV1FilesUploadsIdGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling FilesApi->AnalyticsQuantQreV1FilesUploadsIdGet");
+            }
 
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
@@ -538,24 +599,29 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -567,14 +633,18 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1FilesUploadsIdGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FileUploadStatus>("/analytics/quant/qre/v1/files/uploads/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1FilesUploadsIdGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

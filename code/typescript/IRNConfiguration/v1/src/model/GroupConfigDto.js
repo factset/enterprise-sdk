@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,7 +17,7 @@ import GroupFieldsDto from './GroupFieldsDto';
 /**
  * The GroupConfigDto model module.
  * @module model/GroupConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class GroupConfigDto {
     /**
@@ -48,14 +48,14 @@ class GroupConfigDto {
         if (data) {
             obj = obj || new GroupConfigDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('fields')) {
-                obj['fields'] = GroupFieldsDto.constructFromObject(data['fields']);
+            if (data.hasOwnProperty('Fields')) {
+                obj['Fields'] = GroupFieldsDto.constructFromObject(data['Fields']);
             }
         }
         return obj;
@@ -65,19 +65,19 @@ class GroupConfigDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-GroupConfigDto.prototype['id'] = undefined;
+GroupConfigDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-GroupConfigDto.prototype['name'] = undefined;
+GroupConfigDto.prototype['Name'] = undefined;
 
 /**
- * @member {module:model/GroupFieldsDto} fields
+ * @member {module:model/GroupFieldsDto} Fields
  */
-GroupConfigDto.prototype['fields'] = undefined;
+GroupConfigDto.prototype['Fields'] = undefined;
 
 
 

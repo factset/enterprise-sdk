@@ -63,7 +63,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UnlinkedPATemplateCategoryAndType {\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(UnlinkedPATemplateCategoryAndType input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Category == input.Category ||
@@ -123,9 +124,13 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 return hashCode;
             }
         }

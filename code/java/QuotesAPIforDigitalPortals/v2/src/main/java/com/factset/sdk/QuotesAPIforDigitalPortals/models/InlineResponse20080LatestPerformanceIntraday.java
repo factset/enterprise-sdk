@@ -48,6 +48,8 @@ public class InlineResponse20080LatestPerformanceIntraday implements Serializabl
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse20080LatestPerformanceIntraday() { 
+  }
 
   public InlineResponse20080LatestPerformanceIntraday absolute(BigDecimal absolute) {
     this.absolute = absolute;

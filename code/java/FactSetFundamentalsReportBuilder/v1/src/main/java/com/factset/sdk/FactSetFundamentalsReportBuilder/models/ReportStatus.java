@@ -43,6 +43,8 @@ public class ReportStatus implements Serializable {
   public static final String JSON_PROPERTY_REPORT_STAUS = "reportStaus";
   private ReportStatusReportStaus reportStaus;
 
+  public ReportStatus() { 
+  }
 
   public ReportStatus reportStaus(ReportStatusReportStaus reportStaus) {
     this.reportStaus = reportStaus;

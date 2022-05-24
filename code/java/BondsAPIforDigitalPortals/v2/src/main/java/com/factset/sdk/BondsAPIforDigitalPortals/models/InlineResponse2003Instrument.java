@@ -114,6 +114,8 @@ public class InlineResponse2003Instrument implements Serializable {
   public static final String JSON_PROPERTY_COUPON = "coupon";
   private InlineResponse2003InstrumentCoupon coupon;
 
+  public InlineResponse2003Instrument() { 
+  }
 
   public InlineResponse2003Instrument id(String id) {
     this.id = id;

@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRate i
   public static final String JSON_PROPERTY_VALUE = "value";
   private DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValue value;
 
+  public DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRate() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRate type(DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateType type) {
     this.type = type;

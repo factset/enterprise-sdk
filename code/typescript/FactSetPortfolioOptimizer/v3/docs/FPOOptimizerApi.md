@@ -122,6 +122,7 @@ const id = "id_example"; // String | from url, provided from the location header
 // Call api endpoint
 apiInstance.getOptimizationParameters(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -196,6 +197,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getOptimizationResult(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -268,6 +270,7 @@ const id = "id_example"; // String | from url, provided from the location header
 // Call api endpoint
 apiInstance.getOptimizationStatusById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -343,8 +346,22 @@ const opts = {
 // Call api endpoint
 apiInstance.postAndOptimize(opts).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: PostAndOptimizeResponseWrapper
+      switch (data.statusCode) {
+
+          case 201:
+             // ObjectRoot
+             console.log(data.getResponse201());
+             break;
+
+          case 202:
+             // CalculationInfoRoot
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -421,8 +438,22 @@ const opts = {
 // Call api endpoint
 apiInstance.putAndOptimize(id, opts).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: PutAndOptimizeResponseWrapper
+      switch (data.statusCode) {
+
+          case 201:
+             // ObjectRoot
+             console.log(data.getResponse201());
+             break;
+
+          case 202:
+             // CalculationInfoRoot
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

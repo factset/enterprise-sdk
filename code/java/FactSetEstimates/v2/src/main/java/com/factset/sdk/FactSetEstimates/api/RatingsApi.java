@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimates.models.ConsensusRatingsRequest;
 import com.factset.sdk.FactSetEstimates.models.ConsensusRatingsResponse;
@@ -25,6 +28,46 @@ public class RatingsApi {
   public RatingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getConsensusRatingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConsensusRatingsResponseTypeMap.put(200, new GenericType<ConsensusRatingsResponse>(){});
+    getConsensusRatingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getConsensusRatingsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConsensusRatingsForListResponseTypeMap.put(200, new GenericType<ConsensusRatingsResponse>(){});
+    getConsensusRatingsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConsensusRatingsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getDetailRatingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDetailRatingsResponseTypeMap.put(200, new GenericType<DetailRatingsResponse>(){});
+    getDetailRatingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getDetailRatingsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getDetailRatingsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getDetailRatingsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getDetailRatingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getDetailRatingsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDetailRatingsForListResponseTypeMap.put(200, new GenericType<DetailRatingsResponse>(){});
+    getDetailRatingsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getDetailRatingsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getDetailRatingsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getDetailRatingsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getDetailRatingsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -125,11 +168,17 @@ public class RatingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConsensusRatingsResponse> localVarReturnType = new GenericType<ConsensusRatingsResponse>() {};
 
-    return apiClient.invokeAPI("RatingsApi.getConsensusRatings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConsensusRatingsResponse
+      
+    > apiResponse = apiClient.invokeAPI("RatingsApi.getConsensusRatings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConsensusRatingsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
@@ -202,11 +251,17 @@ public class RatingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConsensusRatingsResponse> localVarReturnType = new GenericType<ConsensusRatingsResponse>() {};
 
-    return apiClient.invokeAPI("RatingsApi.getConsensusRatingsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConsensusRatingsResponse
+      
+    > apiResponse = apiClient.invokeAPI("RatingsApi.getConsensusRatingsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConsensusRatingsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
@@ -286,11 +341,17 @@ public class RatingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DetailRatingsResponse> localVarReturnType = new GenericType<DetailRatingsResponse>() {};
 
-    return apiClient.invokeAPI("RatingsApi.getDetailRatings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DetailRatingsResponse
+      
+    > apiResponse = apiClient.invokeAPI("RatingsApi.getDetailRatings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDetailRatingsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
@@ -363,10 +424,16 @@ public class RatingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DetailRatingsResponse> localVarReturnType = new GenericType<DetailRatingsResponse>() {};
 
-    return apiClient.invokeAPI("RatingsApi.getDetailRatingsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DetailRatingsResponse
+      
+    > apiResponse = apiClient.invokeAPI("RatingsApi.getDetailRatingsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDetailRatingsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

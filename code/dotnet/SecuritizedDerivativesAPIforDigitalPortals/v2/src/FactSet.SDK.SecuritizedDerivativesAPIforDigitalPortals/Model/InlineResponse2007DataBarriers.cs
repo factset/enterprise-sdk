@@ -69,7 +69,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataBarriers {\n");
             sb.Append("  UnderlyingIndex: ").Append(UnderlyingIndex).Append("\n");
             sb.Append("  Single: ").Append(Single).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataBarriers input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UnderlyingIndex == input.UnderlyingIndex ||
@@ -133,11 +134,15 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UnderlyingIndex.GetHashCode();
+                hashCode = (hashCode * 59) + this.UnderlyingIndex.GetHashCode();
                 if (this.Single != null)
-                    hashCode = hashCode * 59 + this.Single.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Single.GetHashCode();
+                }
                 if (this.Range != null)
-                    hashCode = hashCode * 59 + this.Range.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
                 return hashCode;
             }
         }

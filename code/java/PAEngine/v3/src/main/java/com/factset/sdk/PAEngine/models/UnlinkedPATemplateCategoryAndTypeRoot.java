@@ -51,6 +51,16 @@ public class UnlinkedPATemplateCategoryAndTypeRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public UnlinkedPATemplateCategoryAndTypeRoot() { 
+  }
+
+  @JsonCreator
+  public UnlinkedPATemplateCategoryAndTypeRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, UnlinkedPATemplateCategoryAndType> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public UnlinkedPATemplateCategoryAndTypeRoot data(java.util.Map<String, UnlinkedPATemplateCategoryAndType> data) {
     this.data = data;

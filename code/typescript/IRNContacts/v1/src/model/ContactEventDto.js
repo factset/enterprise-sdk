@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,7 +17,7 @@ import ContactEventUpdateDto from './ContactEventUpdateDto';
 /**
  * The ContactEventDto model module.
  * @module model/ContactEventDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactEventDto {
     /**
@@ -48,17 +48,17 @@ class ContactEventDto {
         if (data) {
             obj = obj || new ContactEventDto();
 
-            if (data.hasOwnProperty('eventType')) {
-                obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
+            if (data.hasOwnProperty('EventType')) {
+                obj['EventType'] = ApiClient.convertToType(data['EventType'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
-                obj['date'] = ApiClient.convertToType(data['date'], 'Date');
+            if (data.hasOwnProperty('Date')) {
+                obj['Date'] = ApiClient.convertToType(data['Date'], 'Date');
             }
-            if (data.hasOwnProperty('fullName')) {
-                obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
+            if (data.hasOwnProperty('FullName')) {
+                obj['FullName'] = ApiClient.convertToType(data['FullName'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
-                obj['details'] = ApiClient.convertToType(data['details'], [ContactEventUpdateDto]);
+            if (data.hasOwnProperty('Details')) {
+                obj['Details'] = ApiClient.convertToType(data['Details'], [ContactEventUpdateDto]);
             }
         }
         return obj;
@@ -68,24 +68,24 @@ class ContactEventDto {
 }
 
 /**
- * @member {String} eventType
+ * @member {String} EventType
  */
-ContactEventDto.prototype['eventType'] = undefined;
+ContactEventDto.prototype['EventType'] = undefined;
 
 /**
- * @member {Date} date
+ * @member {Date} Date
  */
-ContactEventDto.prototype['date'] = undefined;
+ContactEventDto.prototype['Date'] = undefined;
 
 /**
- * @member {String} fullName
+ * @member {String} FullName
  */
-ContactEventDto.prototype['fullName'] = undefined;
+ContactEventDto.prototype['FullName'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactEventUpdateDto>} details
+ * @member {Array.<module:model/ContactEventUpdateDto>} Details
  */
-ContactEventDto.prototype['details'] = undefined;
+ContactEventDto.prototype['Details'] = undefined;
 
 
 

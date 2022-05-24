@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSpeakeridsMetaPagination model module.
  * @module model/NRTSpeakeridsMetaPagination
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSpeakeridsMetaPagination {
     /**

@@ -48,6 +48,8 @@ public class InlineResponse20068Instrument implements Serializable {
   public static final String JSON_PROPERTY_FSYM = "fsym";
   private InlineResponse20036Fsym fsym;
 
+  public InlineResponse20068Instrument() { 
+  }
 
   public InlineResponse20068Instrument id(String id) {
     this.id = id;

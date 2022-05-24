@@ -47,6 +47,8 @@ public class NPOOptimizationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public NPOOptimizationParametersRoot() { 
+  }
 
   public NPOOptimizationParametersRoot data(NPOOptimizationParameters data) {
     this.data = data;

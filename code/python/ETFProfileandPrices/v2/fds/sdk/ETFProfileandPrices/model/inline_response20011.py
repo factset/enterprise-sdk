@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -64,8 +64,6 @@ class InlineResponse20011(ModelNormal):
     }
 
     validations = {
-        ('data',): {
-        },
     }
 
     @cached_property
@@ -91,7 +89,7 @@ class InlineResponse20011(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse20011Data],),  # noqa: E501
+            'data': (InlineResponse20011Data,),  # noqa: E501
             'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
@@ -146,7 +144,7 @@ class InlineResponse20011(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20011Data]): List of class geographies.. [optional]  # noqa: E501
+            data (InlineResponse20011Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
@@ -229,7 +227,7 @@ class InlineResponse20011(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20011Data]): List of class geographies.. [optional]  # noqa: E501
+            data (InlineResponse20011Data): [optional]  # noqa: E501
             meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 

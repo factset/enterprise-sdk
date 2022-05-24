@@ -161,7 +161,7 @@ paths:
           \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
           \ Estimates use a percentage of annual estimates from two fiscal years to\
           \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n"
+          \ for detail.\n  \n"
         explode: true
         in: query
         name: periodicity
@@ -488,7 +488,7 @@ paths:
           \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
           \ Estimates use a percentage of annual estimates from two fiscal years to\
           \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n"
+          \ for detail.\n  \n"
         explode: true
         in: query
         name: periodicity
@@ -785,14 +785,7 @@ paths:
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
           \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n"
+          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
         explode: true
         in: query
         name: periodicity
@@ -803,8 +796,6 @@ paths:
           - ANN
           - QTR
           - SEMI
-          - NTMA
-          - LTMA
           type: string
         style: form
       - description: "Include All filter is used to identify included and excluded\
@@ -1123,14 +1114,7 @@ paths:
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
           \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n"
+          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
         explode: true
         in: query
         name: periodicity
@@ -1141,8 +1125,6 @@ paths:
           - ANN
           - QTR
           - SEMI
-          - NTMA
-          - LTMA
           type: string
         style: form
       - description: "Include All filter is used to identify included and excluded\
@@ -2269,7 +2251,7 @@ paths:
           \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
           \ Estimates use a percentage of annual estimates from two fiscal years to\
           \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n"
+          \ for detail.\n  \n"
         explode: true
         in: query
         name: periodicity
@@ -3006,7 +2988,7 @@ components:
         \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates\
         \ use a percentage of annual estimates from two fiscal years to create an\
         \ estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-        \ for detail.\n"
+        \ for detail.\n  \n"
       explode: true
       in: query
       name: periodicity
@@ -3019,6 +3001,22 @@ components:
         - SEMI
         - NTMA
         - LTMA
+        type: string
+      style: form
+    periodicityDetail:
+      description: "The periodicity for the estimates requested, allowing you to fetch\
+        \ Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN** -\
+        \ Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
+      explode: true
+      in: query
+      name: periodicity
+      required: false
+      schema:
+        default: ANN
+        enum:
+        - ANN
+        - QTR
+        - SEMI
         type: string
       style: form
     periodicitySurprise:
@@ -3879,7 +3877,7 @@ components:
           example: 3
           type: integer
         periodicity:
-          $ref: '#/components/schemas/periodicity'
+          $ref: '#/components/schemas/periodicityDetail'
         metrics:
           description: 'Requested metrics. Use the metrics endpoint for a list of
             estimate items. Note, the number of metrics you are allowed to supply
@@ -4119,7 +4117,7 @@ components:
           example: false
           type: boolean
         periodicity:
-          $ref: '#/components/schemas/periodicity'
+          $ref: '#/components/schemas/periodicityDetail'
         fiscalPeriodStart:
           description: |
             Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.
@@ -4824,6 +4822,15 @@ components:
       - SEMI
       - LTMA
       - NTMA
+      type: string
+    periodicityDetail:
+      default: ANN
+      description: The periodicity for the estimates, reflecting Annual, Semi-Annual
+        and Quarterly Estimates.
+      enum:
+      - ANN
+      - QTR
+      - SEMI
       type: string
     periodicitySurprise:
       default: ANN

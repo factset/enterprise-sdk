@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CursorBasedPaginationOutputObject model module.
  * @module model/CursorBasedPaginationOutputObject
- * @version 0.9.1
+ * @version 0.10.0
  */
 class CursorBasedPaginationOutputObject {
     /**
@@ -24,9 +24,9 @@ class CursorBasedPaginationOutputObject {
      * Pagination attributes for the cursor-based pagination strategy.
      * @alias module:model/CursorBasedPaginationOutputObject
      * @param total {Number} Total number of entries in the result set.
-     * @param isEstimatedTotal {Boolean} Flag indicating that the value of \"total\" is estimated.
-     * @param next {String} Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
-     * @param previous {String} Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+     * @param isEstimatedTotal {Boolean} Flag indicating that the value of `total` is estimated.
+     * @param next {String} The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
+     * @param previous {String} The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
      */
     constructor(total, isEstimatedTotal, next, previous) { 
         
@@ -82,19 +82,19 @@ class CursorBasedPaginationOutputObject {
 CursorBasedPaginationOutputObject.prototype['total'] = undefined;
 
 /**
- * Flag indicating that the value of \"total\" is estimated.
+ * Flag indicating that the value of `total` is estimated.
  * @member {Boolean} isEstimatedTotal
  */
 CursorBasedPaginationOutputObject.prototype['isEstimatedTotal'] = undefined;
 
 /**
- * Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
+ * The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
  * @member {String} next
  */
 CursorBasedPaginationOutputObject.prototype['next'] = undefined;
 
 /**
- * Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+ * The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
  * @member {String} previous
  */
 CursorBasedPaginationOutputObject.prototype['previous'] = undefined;

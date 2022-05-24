@@ -42,6 +42,8 @@ public class NewItemDto implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private java.util.UUID id;
 
+  public NewItemDto() { 
+  }
 
   public NewItemDto id(java.util.UUID id) {
     this.id = id;

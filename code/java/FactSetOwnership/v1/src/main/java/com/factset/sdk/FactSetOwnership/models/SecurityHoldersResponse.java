@@ -44,6 +44,8 @@ public class SecurityHoldersResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<SecurityHolders> data = null;
 
+  public SecurityHoldersResponse() { 
+  }
 
   public SecurityHoldersResponse data(java.util.List<SecurityHolders> data) {
     this.data = data;

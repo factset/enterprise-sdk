@@ -47,6 +47,8 @@ public class InlineResponse200DataMedium implements Serializable {
   public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
   private String mimeType;
 
+  public InlineResponse200DataMedium() { 
+  }
 
   public InlineResponse200DataMedium url(String url) {
     this.url = url;

@@ -118,6 +118,8 @@ public class InlineResponse2004Instrument implements Serializable {
   public static final String JSON_PROPERTY_COMPANY = "company";
   private InlineResponse2004InstrumentCompany company;
 
+  public InlineResponse2004Instrument() { 
+  }
 
   public InlineResponse2004Instrument id(String id) {
     this.id = id;

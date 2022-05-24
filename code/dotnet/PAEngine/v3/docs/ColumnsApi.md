@@ -51,7 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ColumnsApi(config);
-            var id = id_example;  // string | Unique identifier for a column (default to "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5")
+            var id = "\"2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5\"";  // string | Unique identifier for a column (default to "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5")
 
             try
             {
@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for a column | [default to &quot;2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5&quot;]
 
 ### Return type
-
 [**ColumnRoot**](ColumnRoot.md)
 
 ### Authorization
@@ -148,9 +147,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ColumnsApi(config);
-            var name = name_example;  // string | Column name (optional)  (default to "")
-            var category = category_example;  // string | Column category (optional)  (default to "")
-            var directory = directory_example;  // string | The directory to get the columns in (optional)  (default to "")
+            var name = "\"\"";  // string | Column name (optional)  (default to "")
+            var category = "\"\"";  // string | Column category (optional)  (default to "")
+            var directory = "\"\"";  // string | The directory to get the columns in (optional)  (default to "")
 
             try
             {
@@ -178,7 +177,6 @@ Name | Type | Description  | Notes
  **directory** | **string**| The directory to get the columns in | [optional] [default to &quot;&quot;]
 
 ### Return type
-
 [**ColumnSummaryRoot**](ColumnSummaryRoot.md)
 
 ### Authorization

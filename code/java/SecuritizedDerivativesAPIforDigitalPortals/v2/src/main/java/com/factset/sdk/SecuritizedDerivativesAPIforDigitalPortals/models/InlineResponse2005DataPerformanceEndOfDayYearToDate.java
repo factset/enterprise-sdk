@@ -48,6 +48,8 @@ public class InlineResponse2005DataPerformanceEndOfDayYearToDate implements Seri
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataPerformanceEndOfDayYearToDate() { 
+  }
 
   public InlineResponse2005DataPerformanceEndOfDayYearToDate minimum(BigDecimal minimum) {
     this.minimum = minimum;

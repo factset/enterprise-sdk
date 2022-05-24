@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateBodyDto model module.
  * @module model/CreateBodyDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CreateBodyDto {
     /**
@@ -47,8 +47,8 @@ class CreateBodyDto {
         if (data) {
             obj = obj || new CreateBodyDto();
 
-            if (data.hasOwnProperty('content')) {
-                obj['content'] = ApiClient.convertToType(data['content'], 'String');
+            if (data.hasOwnProperty('Content')) {
+                obj['Content'] = ApiClient.convertToType(data['Content'], 'String');
             }
         }
         return obj;
@@ -58,9 +58,9 @@ class CreateBodyDto {
 }
 
 /**
- * @member {String} content
+ * @member {String} Content
  */
-CreateBodyDto.prototype['content'] = undefined;
+CreateBodyDto.prototype['Content'] = undefined;
 
 
 

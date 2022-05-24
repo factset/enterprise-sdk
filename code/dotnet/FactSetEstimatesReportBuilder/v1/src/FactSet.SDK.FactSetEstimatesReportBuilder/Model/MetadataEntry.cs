@@ -35,18 +35,6 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Category" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of Category.</param>
-        public MetadataEntry(Category actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
         /// with the <see cref="CurrencyCode" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of CurrencyCode.</param>
@@ -63,6 +51,54 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         /// </summary>
         /// <param name="actualInstance">An instance of CurrencySymbol.</param>
         public MetadataEntry(CurrencySymbol actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
+        /// with the <see cref="Category" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Category.</param>
+        public MetadataEntry(Category actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
+        /// with the <see cref="MetricEstimates" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of MetricEstimates.</param>
+        public MetadataEntry(MetricEstimates actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
+        /// with the <see cref="ValueType" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of ValueType.</param>
+        public MetadataEntry(ValueType actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
+        /// with the <see cref="Scale" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of Scale.</param>
+        public MetadataEntry(Scale actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -93,42 +129,6 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="MetricEstimates" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of MetricEstimates.</param>
-        public MetadataEntry(MetricEstimates actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="Scale" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of Scale.</param>
-        public MetadataEntry(Scale actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MetadataEntry" /> class
-        /// with the <see cref="ValueType" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of ValueType.</param>
-        public MetadataEntry(ValueType actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
-        }
-
 
         private Object _actualInstance;
 
@@ -143,35 +143,35 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
             }
             set
             {
-                if (value.GetType() == typeof(Category))
+                if (value is Category)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(CurrencyCode))
+                else if (value is CurrencyCode)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(CurrencySymbol))
+                else if (value is CurrencySymbol)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Description))
+                else if (value is Description)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Frequency))
+                else if (value is Frequency)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(MetricEstimates))
+                else if (value is MetricEstimates)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Scale))
+                else if (value is Scale)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(ValueType))
+                else if (value is ValueType)
                 {
                     this._actualInstance = value;
                 }
@@ -180,16 +180,6 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
                     throw new ArgumentException("Invalid instance found. Must be the following types: Category, CurrencyCode, CurrencySymbol, Description, Frequency, MetricEstimates, Scale, ValueType");
                 }
             }
-        }
-
-        /// <summary>
-        /// Get the actual instance of `Category`. If the actual instance is not `Category`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of Category</returns>
-        public Category GetCategory()
-        {
-            return (Category)this.ActualInstance;
         }
 
         /// <summary>
@@ -213,6 +203,46 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         }
 
         /// <summary>
+        /// Get the actual instance of `Category`. If the actual instance is not `Category`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Category</returns>
+        public Category GetCategory()
+        {
+            return (Category)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `MetricEstimates`. If the actual instance is not `MetricEstimates`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of MetricEstimates</returns>
+        public MetricEstimates GetMetricEstimates()
+        {
+            return (MetricEstimates)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `ValueType`. If the actual instance is not `ValueType`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of ValueType</returns>
+        public ValueType GetValueType()
+        {
+            return (ValueType)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `Scale`. If the actual instance is not `Scale`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of Scale</returns>
+        public Scale GetScale()
+        {
+            return (Scale)this.ActualInstance;
+        }
+
+        /// <summary>
         /// Get the actual instance of `Description`. If the actual instance is not `Description`,
         /// the InvalidClassException will be thrown
         /// </summary>
@@ -230,36 +260,6 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         public Frequency GetFrequency()
         {
             return (Frequency)this.ActualInstance;
-        }
-
-        /// <summary>
-        /// Get the actual instance of `MetricEstimates`. If the actual instance is not `MetricEstimates`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of MetricEstimates</returns>
-        public MetricEstimates GetMetricEstimates()
-        {
-            return (MetricEstimates)this.ActualInstance;
-        }
-
-        /// <summary>
-        /// Get the actual instance of `Scale`. If the actual instance is not `Scale`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of Scale</returns>
-        public Scale GetScale()
-        {
-            return (Scale)this.ActualInstance;
-        }
-
-        /// <summary>
-        /// Get the actual instance of `ValueType`. If the actual instance is not `ValueType`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of ValueType</returns>
-        public ValueType GetValueType()
-        {
-            return (ValueType)this.ActualInstance;
         }
 
         /// <summary>
@@ -302,35 +302,12 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Category).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Category>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Category>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("Category");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Category: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(CurrencyCode).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<CurrencyCode>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<CurrencyCode>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(CurrencyCode).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<CurrencyCode>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
                 matchedTypes.Add("CurrencyCode");
                 match++;
             }
@@ -342,15 +319,12 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(CurrencySymbol).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<CurrencySymbol>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<CurrencySymbol>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(CurrencySymbol).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<CurrencySymbol>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
                 matchedTypes.Add("CurrencySymbol");
                 match++;
             }
@@ -362,55 +336,29 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Description).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Description>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Description>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("Description");
+                var hasAdditionalProperties = !(typeof(Category).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<Category>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
+                matchedTypes.Add("Category");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Description: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Category: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Frequency).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Frequency>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Frequency>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("Frequency");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Frequency: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(MetricEstimates).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<MetricEstimates>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<MetricEstimates>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(MetricEstimates).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<MetricEstimates>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
                 matchedTypes.Add("MetricEstimates");
                 match++;
             }
@@ -422,15 +370,29 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Scale).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Scale>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<Scale>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(ValueType).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<ValueType>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
+                matchedTypes.Add("ValueType");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ValueType: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(Scale).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<Scale>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
                 matchedTypes.Add("Scale");
                 match++;
             }
@@ -442,22 +404,36 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(ValueType).GetProperty("AdditionalProperties") == null)
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<ValueType>(jsonString, MetadataEntry.SerializerSettings));
-                }
-                else
-                {
-                    newMetadataEntry = new MetadataEntry(JsonConvert.DeserializeObject<ValueType>(jsonString, MetadataEntry.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("ValueType");
+                var hasAdditionalProperties = !(typeof(Description).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<Description>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
+                matchedTypes.Add("Description");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into ValueType: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Description: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(Frequency).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<Frequency>(
+                    jsonString, 
+                    hasAdditionalProperties ? MetadataEntry.AdditionalPropertiesSerializerSettings : MetadataEntry.SerializerSettings
+                );
+                newMetadataEntry = new MetadataEntry(parsedValue);
+                matchedTypes.Add("Frequency");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Frequency: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
@@ -550,7 +526,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return MetadataEntry.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return MetadataEntry.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

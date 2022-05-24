@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationVa
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelectionRestrict() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelectionRestrict ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

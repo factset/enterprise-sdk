@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -75,7 +75,7 @@ class CreateCustomFieldValueDto(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'code': (str, none_type,),  # noqa: E501
+            'code': (str,),  # noqa: E501
             'integer_value': (int, none_type,),  # noqa: E501
             'text_value': (str, none_type,),  # noqa: E501
             'file_path_value': (str, none_type,),  # noqa: E501
@@ -93,16 +93,16 @@ class CreateCustomFieldValueDto(ModelNormal):
 
 
     attribute_map = {
-        'code': 'code',  # noqa: E501
-        'integer_value': 'integerValue',  # noqa: E501
-        'text_value': 'textValue',  # noqa: E501
-        'file_path_value': 'filePathValue',  # noqa: E501
-        'numeric_value': 'numericValue',  # noqa: E501
-        'date_value': 'dateValue',  # noqa: E501
-        'extended_text_value': 'extendedTextValue',  # noqa: E501
-        'contact_lookup_values': 'contactLookupValues',  # noqa: E501
-        'option_value': 'optionValue',  # noqa: E501
-        'option_values': 'optionValues',  # noqa: E501
+        'code': 'Code',  # noqa: E501
+        'integer_value': 'IntegerValue',  # noqa: E501
+        'text_value': 'TextValue',  # noqa: E501
+        'file_path_value': 'FilePathValue',  # noqa: E501
+        'numeric_value': 'NumericValue',  # noqa: E501
+        'date_value': 'DateValue',  # noqa: E501
+        'extended_text_value': 'ExtendedTextValue',  # noqa: E501
+        'contact_lookup_values': 'ContactLookupValues',  # noqa: E501
+        'option_value': 'OptionValue',  # noqa: E501
+        'option_values': 'OptionValues',  # noqa: E501
     }
 
     read_only_vars = {
@@ -116,7 +116,7 @@ class CreateCustomFieldValueDto(ModelNormal):
         """CreateCustomFieldValueDto - a model defined in OpenAPI
 
         Args:
-            code (str, none_type):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -210,7 +210,7 @@ class CreateCustomFieldValueDto(ModelNormal):
         """CreateCustomFieldValueDto - a model defined in OpenAPI
 
         Args:
-            code (str, none_type):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

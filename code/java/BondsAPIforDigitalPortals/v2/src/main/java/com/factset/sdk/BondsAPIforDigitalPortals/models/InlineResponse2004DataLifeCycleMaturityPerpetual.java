@@ -47,6 +47,8 @@ public class InlineResponse2004DataLifeCycleMaturityPerpetual implements Seriali
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2004DataLifeCycleMaturityPerpetual() { 
+  }
 
   public InlineResponse2004DataLifeCycleMaturityPerpetual value(Boolean value) {
     this.value = value;

@@ -1,5 +1,5 @@
 # FactSet.SDK.NewsAPIforDigitalPortals.Model.NewsArticleListDataFilterRange
-Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null.
+Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`.
 
 ## Properties
 

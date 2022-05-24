@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Category from './model/Category';
 import ConsensusEstimate from './model/ConsensusEstimate';
@@ -33,6 +32,7 @@ import Metric from './model/Metric';
 import MetricsRequest from './model/MetricsRequest';
 import MetricsResponse from './model/MetricsResponse';
 import Periodicity from './model/Periodicity';
+import PeriodicityDetail from './model/PeriodicityDetail';
 import PeriodicitySurprise from './model/PeriodicitySurprise';
 import RollingConsensusRequest from './model/RollingConsensusRequest';
 import RollingDetailRequest from './model/RollingDetailRequest';
@@ -45,6 +45,7 @@ import Subcategory from './model/Subcategory';
 import Surprise from './model/Surprise';
 import SurpriseRequest from './model/SurpriseRequest';
 import SurpriseResponse from './model/SurpriseResponse';
+
 import BrokerDetailApi from './api/BrokerDetailApi';
 import ConsensusApi from './api/ConsensusApi';
 import DataItemsApi from './api/DataItemsApi';
@@ -82,7 +83,7 @@ import SurpriseApi from './api/SurpriseApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -212,6 +213,12 @@ export {
     Periodicity,
 
     /**
+     * The PeriodicityDetail model constructor.
+     * @property {module:model/PeriodicityDetail}
+     */
+    PeriodicityDetail,
+
+    /**
      * The PeriodicitySurprise model constructor.
      * @property {module:model/PeriodicitySurprise}
      */
@@ -317,5 +324,6 @@ export {
     * The SurpriseApi service constructor.
     * @property {module:api/SurpriseApi}
     */
-    SurpriseApi
+    SurpriseApi,
+
 };

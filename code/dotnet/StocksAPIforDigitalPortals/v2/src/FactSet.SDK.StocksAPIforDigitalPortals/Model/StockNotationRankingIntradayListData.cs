@@ -108,7 +108,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationRankingIntradayListData {\n");
             sb.Append("  Prices: ").Append(Prices).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
@@ -149,8 +149,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationRankingIntradayListData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Prices == input.Prices ||
@@ -204,21 +205,37 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Prices != null)
-                    hashCode = hashCode * 59 + this.Prices.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Prices.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.InstrumentRestrictionList != null)
-                    hashCode = hashCode * 59 + this.InstrumentRestrictionList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentRestrictionList.GetHashCode();
+                }
                 if (this.NotationRestrictionList != null)
-                    hashCode = hashCode * 59 + this.NotationRestrictionList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NotationRestrictionList.GetHashCode();
+                }
                 if (this.IndustryClassification != null)
-                    hashCode = hashCode * 59 + this.IndustryClassification.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IndustryClassification.GetHashCode();
+                }
                 if (this.Company != null)
-                    hashCode = hashCode * 59 + this.Company.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Company.GetHashCode();
+                }
                 if (this.IndexMembership != null)
-                    hashCode = hashCode * 59 + this.IndexMembership.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IndexMembership.GetHashCode();
+                }
                 return hashCode;
             }
         }

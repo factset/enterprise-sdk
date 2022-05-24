@@ -47,6 +47,16 @@ public class DateParametersSummaryRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public DateParametersSummaryRoot() { 
+  }
+
+  @JsonCreator
+  public DateParametersSummaryRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) DateParametersSummary data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public DateParametersSummaryRoot data(DateParametersSummary data) {
     this.data = data;

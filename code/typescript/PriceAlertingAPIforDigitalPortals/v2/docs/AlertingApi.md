@@ -1,6 +1,6 @@
 # pricealertingapifordigitalportals.AlertingApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getAlertingPricesBasicAlertGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -130,6 +131,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getAlertingPricesBasicAlertList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -207,6 +209,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getAlertingPricesBasicTriggerGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -281,6 +284,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postAlertingPricesBasicTriggerList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

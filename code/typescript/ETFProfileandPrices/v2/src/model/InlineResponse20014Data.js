@@ -12,15 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20014DataCounterParty from './InlineResponse20014DataCounterParty';
+import InlineResponse20014DataGearing from './InlineResponse20014DataGearing';
+import InlineResponse20014DataHedge from './InlineResponse20014DataHedge';
+import InlineResponse20014DataServiceProvider from './InlineResponse20014DataServiceProvider';
 
 /**
  * The InlineResponse20014Data model module.
  * @module model/InlineResponse20014Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20014Data {
     /**
      * Constructs a new <code>InlineResponse20014Data</code>.
+     * Characteristics.
      * @alias module:model/InlineResponse20014Data
      */
     constructor() { 
@@ -47,14 +52,17 @@ class InlineResponse20014Data {
         if (data) {
             obj = obj || new InlineResponse20014Data();
 
-            if (data.hasOwnProperty('navDate')) {
-                obj['navDate'] = ApiClient.convertToType(data['navDate'], 'Date');
+            if (data.hasOwnProperty('gearing')) {
+                obj['gearing'] = InlineResponse20014DataGearing.constructFromObject(data['gearing']);
             }
-            if (data.hasOwnProperty('tenkValue')) {
-                obj['tenkValue'] = ApiClient.convertToType(data['tenkValue'], 'Number');
+            if (data.hasOwnProperty('hedge')) {
+                obj['hedge'] = InlineResponse20014DataHedge.constructFromObject(data['hedge']);
             }
-            if (data.hasOwnProperty('tenkPercentChange')) {
-                obj['tenkPercentChange'] = ApiClient.convertToType(data['tenkPercentChange'], 'Number');
+            if (data.hasOwnProperty('counterParty')) {
+                obj['counterParty'] = InlineResponse20014DataCounterParty.constructFromObject(data['counterParty']);
+            }
+            if (data.hasOwnProperty('serviceProvider')) {
+                obj['serviceProvider'] = InlineResponse20014DataServiceProvider.constructFromObject(data['serviceProvider']);
             }
         }
         return obj;
@@ -64,22 +72,24 @@ class InlineResponse20014Data {
 }
 
 /**
- * Growth of the 10k calculation date
- * @member {Date} navDate
+ * @member {module:model/InlineResponse20014DataGearing} gearing
  */
-InlineResponse20014Data.prototype['navDate'] = undefined;
+InlineResponse20014Data.prototype['gearing'] = undefined;
 
 /**
- * Growth of the 10k calculation value.
- * @member {Number} tenkValue
+ * @member {module:model/InlineResponse20014DataHedge} hedge
  */
-InlineResponse20014Data.prototype['tenkValue'] = undefined;
+InlineResponse20014Data.prototype['hedge'] = undefined;
 
 /**
- * Growth of the 10k calculation percent change.
- * @member {Number} tenkPercentChange
+ * @member {module:model/InlineResponse20014DataCounterParty} counterParty
  */
-InlineResponse20014Data.prototype['tenkPercentChange'] = undefined;
+InlineResponse20014Data.prototype['counterParty'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20014DataServiceProvider} serviceProvider
+ */
+InlineResponse20014Data.prototype['serviceProvider'] = undefined;
 
 
 

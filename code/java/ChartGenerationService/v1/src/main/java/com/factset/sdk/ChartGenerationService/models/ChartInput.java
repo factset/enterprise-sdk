@@ -97,6 +97,8 @@ public class ChartInput implements Serializable {
   public static final String JSON_PROPERTY_EXAMPLE = "example";
   private String example;
 
+  public ChartInput() { 
+  }
 
   public ChartInput in(InEnum in) {
     this.in = in;

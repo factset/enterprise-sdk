@@ -72,6 +72,8 @@ public class InlineResponse20089Instrument implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private java.util.List<InlineResponse20038DataCategories> type = null;
 
+  public InlineResponse20089Instrument() { 
+  }
 
   public InlineResponse20089Instrument id(String id) {
     this.id = id;

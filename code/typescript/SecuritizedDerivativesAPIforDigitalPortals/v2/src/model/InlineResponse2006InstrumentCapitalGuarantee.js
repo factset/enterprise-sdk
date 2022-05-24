@@ -17,7 +17,7 @@ import InlineResponse2006InstrumentCapitalGuaranteeDistance from './InlineRespon
 /**
  * The InlineResponse2006InstrumentCapitalGuarantee model module.
  * @module model/InlineResponse2006InstrumentCapitalGuarantee
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentCapitalGuarantee {
     /**

@@ -83,6 +83,8 @@ public class InlineResponse2007DataObservation implements Serializable {
   public static final String JSON_PROPERTY_PERIOD = "period";
   private InlineResponse2007DataObservationPeriod period;
 
+  public InlineResponse2007DataObservation() { 
+  }
 
   public InlineResponse2007DataObservation type(TypeEnum type) {
     this.type = type;

@@ -7,6 +7,9 @@ import com.factset.sdk.Publisher.Configuration;
 import com.factset.sdk.Publisher.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Publisher.models.CurrencyRoot;
 
@@ -21,6 +24,14 @@ public class CurrenciesApi {
   public CurrenciesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getCurrenciesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCurrenciesResponseTypeMap.put(200, new GenericType<CurrencyRoot>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -106,10 +117,16 @@ public class CurrenciesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CurrencyRoot> localVarReturnType = new GenericType<CurrencyRoot>() {};
 
-    return apiClient.invokeAPI("CurrenciesApi.getCurrencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CurrencyRoot
+      
+    > apiResponse = apiClient.invokeAPI("CurrenciesApi.getCurrencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCurrenciesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

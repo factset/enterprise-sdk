@@ -20,6 +20,9 @@ docs/InlineResponse2001Categories.md
 docs/InlineResponse2001Chain.md
 docs/InlineResponse2001Data.md
 docs/InlineResponse2001Distributor.md
+docs/InlineResponse2001Fsym.md
+docs/InlineResponse2001FsymSecurity.md
+docs/InlineResponse2001Instruments.md
 docs/InlineResponse2001Language.md
 docs/InlineResponse2001Meta.md
 docs/InlineResponse2001Publisher.md
@@ -48,6 +51,8 @@ docs/InlineResponse2009Data.md
 docs/InlineResponse200Data.md
 docs/InlineResponse200DataCategories.md
 docs/InlineResponse200DataDistributor.md
+docs/InlineResponse200DataFsym.md
+docs/InlineResponse200DataFsymSecurity.md
 docs/InlineResponse200DataInstruments.md
 docs/InlineResponse200DataLanguage.md
 docs/InlineResponse200DataMedia.md
@@ -115,6 +120,9 @@ src/model/InlineResponse2001Categories.js
 src/model/InlineResponse2001Chain.js
 src/model/InlineResponse2001Data.js
 src/model/InlineResponse2001Distributor.js
+src/model/InlineResponse2001Fsym.js
+src/model/InlineResponse2001FsymSecurity.js
+src/model/InlineResponse2001Instruments.js
 src/model/InlineResponse2001Language.js
 src/model/InlineResponse2001Meta.js
 src/model/InlineResponse2001Publisher.js
@@ -143,6 +151,8 @@ src/model/InlineResponse2009Data.js
 src/model/InlineResponse200Data.js
 src/model/InlineResponse200DataCategories.js
 src/model/InlineResponse200DataDistributor.js
+src/model/InlineResponse200DataFsym.js
+src/model/InlineResponse200DataFsymSecurity.js
 src/model/InlineResponse200DataInstruments.js
 src/model/InlineResponse200DataLanguage.js
 src/model/InlineResponse200DataMedia.js

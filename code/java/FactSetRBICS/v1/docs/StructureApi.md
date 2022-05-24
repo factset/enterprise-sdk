@@ -30,14 +30,13 @@ import com.factset.sdk.FactSetRBICS.ApiClient;
 import com.factset.sdk.FactSetRBICS.ApiException;
 import com.factset.sdk.FactSetRBICS.Configuration;
 import com.factset.sdk.FactSetRBICS.auth.*;
-import com.factset.sdk.FactSetRBICS.model.*;
+import com.factset.sdk.FactSetRBICS.models.*;
 import com.factset.sdk.FactSetRBICS.api.StructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -47,14 +46,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         StructureApi apiInstance = new StructureApi(defaultClient);
         java.util.List<String> rbicsIds = Arrays.asList(); // java.util.List<String> | RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested. 
@@ -64,6 +63,7 @@ public class Example {
         try {
             StructureResponse result = apiInstance.getRbicsStructure(rbicsIds, level, includeNames, date);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling StructureApi#getRbicsStructure");
             System.err.println("Status code: " + e.getCode());
@@ -126,14 +126,13 @@ import com.factset.sdk.FactSetRBICS.ApiClient;
 import com.factset.sdk.FactSetRBICS.ApiException;
 import com.factset.sdk.FactSetRBICS.Configuration;
 import com.factset.sdk.FactSetRBICS.auth.*;
-import com.factset.sdk.FactSetRBICS.model.*;
+import com.factset.sdk.FactSetRBICS.models.*;
 import com.factset.sdk.FactSetRBICS.api.StructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -143,20 +142,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         StructureApi apiInstance = new StructureApi(defaultClient);
         StructureRequest structureRequest = new StructureRequest(); // StructureRequest | Request Body to request a list of RBICS Structure objects.
         try {
             StructureResponse result = apiInstance.getRbicsStructureForList(structureRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling StructureApi#getRbicsStructureForList");
             System.err.println("Status code: " + e.getCode());

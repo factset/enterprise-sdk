@@ -18,7 +18,7 @@ import InlineResponse2005DataCategorizationLevel from './InlineResponse2005DataC
 /**
  * The InlineResponse2005DataCategorizationDdv model module.
  * @module model/InlineResponse2005DataCategorizationDdv
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataCategorizationDdv {
     /**

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **factorCertificates** | [**SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates**](SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates.md) |  |  [optional]
 **knockedOut** | [**KnockedOutEnum**](#KnockedOutEnum) | Specifies whether knocked-out securitized derivatives are included in the response. Particularly relevant for knock-out certificates. |  [optional]
 **knockedIn** | [**KnockedInEnum**](#KnockedInEnum) | Specifies whether knocked-in securitized derivatives are included in the response. Particularly relevant for bonus certificates but also for securitized derivatives that might have additional protection such as reverse convertible bonds, discount certificates, and capital-protection certificates. |  [optional]
+**performance** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformance**](SecuritizedDerivativeNotationRankingIntradayListDataPerformance.md) |  |  [optional]
 
 
 

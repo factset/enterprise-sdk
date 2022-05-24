@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;*  | 
 
 ### Return type
-
 [**EntityReferenceResponse**](EntityReferenceResponse.md)
 
 ### Authorization
@@ -171,7 +170,6 @@ Name | Type | Description  | Notes
  **entityReferenceRequest** | [**EntityReferenceRequest**](EntityReferenceRequest.md)| Request Body to request a list of Entity Reference objects. | 
 
 ### Return type
-
 [**EntityReferenceResponse**](EntityReferenceResponse.md)
 
 ### Authorization

@@ -89,7 +89,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
-
 [**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
@@ -178,7 +177,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -267,7 +265,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
@@ -330,7 +327,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
-            var id = id_example;  // string | Identifier of the portfolio.
+            var id = "id_example";  // string | Identifier of the portfolio.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -358,7 +355,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -449,7 +445,6 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -538,7 +533,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -629,7 +623,6 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-
 [**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
@@ -692,7 +685,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
-            var id = id_example;  // string | Identifier of the portfolio.
+            var id = "id_example";  // string | Identifier of the portfolio.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -720,7 +713,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
@@ -809,7 +801,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject7**](InlineObject7.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
@@ -898,7 +889,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject8**](InlineObject8.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
@@ -987,7 +977,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject4**](InlineObject4.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2011**](InlineResponse2011.md)
 
 ### Authorization
@@ -1076,7 +1065,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
@@ -1139,7 +1127,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PortfolioApi(config);
-            var id = id_example;  // string | Identifier of the portfolio.
+            var id = "id_example";  // string | Identifier of the portfolio.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -1167,7 +1155,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
@@ -1256,7 +1243,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject6**](InlineObject6.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization

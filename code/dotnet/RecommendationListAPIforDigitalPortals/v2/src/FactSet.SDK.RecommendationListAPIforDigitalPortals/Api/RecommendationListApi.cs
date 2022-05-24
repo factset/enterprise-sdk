@@ -366,6 +366,39 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
     {
         private FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetRecommendationListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRecommendationListRevisionElementListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRecommendationListRevisionGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRecommendationListRevisionSearchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRecommendationListSearchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostRecommendationListRevisionListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RecommendationListApi"/> class.
         /// </summary>
@@ -478,7 +511,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 GetRecommendationListGet(decimal id, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = GetRecommendationListGetWithHttpInfo(id, attributes, language);
+            var localVarResponse = GetRecommendationListGetWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -490,7 +523,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> GetRecommendationListGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse200> GetRecommendationListGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
 
@@ -503,10 +536,16 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -520,13 +559,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -538,15 +577,19 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse200>("/recommendationList/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse200>("/recommendationList/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -559,9 +602,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetRecommendationListGetAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>GetRecommendationListGetAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await GetRecommendationListGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecommendationListGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -574,7 +617,8 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> GetRecommendationListGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetRecommendationListGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
@@ -587,12 +631,17 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -606,13 +655,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -624,14 +673,18 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/recommendationList/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -647,7 +700,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 GetRecommendationListRevisionElementList(decimal idRevision, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = GetRecommendationListRevisionElementListWithHttpInfo(idRevision, attributes, language);
+            var localVarResponse = GetRecommendationListRevisionElementListWithHttpInfo(idRevision, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -659,7 +712,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> GetRecommendationListRevisionElementListWithHttpInfo(decimal idRevision, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2005> GetRecommendationListRevisionElementListWithHttpInfo(decimal idRevision, List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
 
@@ -672,10 +725,16 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "idRevision", idRevision));
             if (attributes != null)
@@ -689,13 +748,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -707,15 +766,19 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2005>("/recommendationList/revision/element/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListRevisionElementListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2005>("/recommendationList/revision/element/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListRevisionElementList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -728,9 +791,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> GetRecommendationListRevisionElementListAsync(decimal idRevision, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetRecommendationListRevisionElementListAsync(decimal idRevision, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = await GetRecommendationListRevisionElementListWithHttpInfoAsync(idRevision, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecommendationListRevisionElementListWithHttpInfoAsync(idRevision, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -743,7 +806,8 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005>> GetRecommendationListRevisionElementListWithHttpInfoAsync(decimal idRevision, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetRecommendationListRevisionElementListWithHttpInfoAsync(decimal idRevision, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
@@ -756,12 +820,17 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "idRevision", idRevision));
             if (attributes != null)
@@ -775,13 +844,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -793,14 +862,18 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListRevisionElementListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/recommendationList/revision/element/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListRevisionElementList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -816,7 +889,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetRecommendationListRevisionGet(decimal id, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetRecommendationListRevisionGetWithHttpInfo(id, attributes, language);
+            var localVarResponse = GetRecommendationListRevisionGetWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -828,7 +901,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetRecommendationListRevisionGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2002> GetRecommendationListRevisionGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
 
@@ -841,10 +914,16 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -858,13 +937,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -876,15 +955,19 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/recommendationList/revision/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListRevisionGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/recommendationList/revision/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListRevisionGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -897,9 +980,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetRecommendationListRevisionGetAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetRecommendationListRevisionGetAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetRecommendationListRevisionGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecommendationListRevisionGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -912,7 +995,8 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetRecommendationListRevisionGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetRecommendationListRevisionGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
@@ -925,12 +1009,17 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -944,13 +1033,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -962,14 +1051,18 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListRevisionGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/recommendationList/revision/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListRevisionGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -986,7 +1079,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <returns>InlineResponse2004</returns>
         public InlineResponse2004 GetRecommendationListRevisionSearch(string idNotation = default(string), string idInstrument = default(string), List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = GetRecommendationListRevisionSearchWithHttpInfo(idNotation, idInstrument, attributes, language);
+            var localVarResponse = GetRecommendationListRevisionSearchWithHttpInfo(idNotation, idInstrument, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -999,7 +1092,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> GetRecommendationListRevisionSearchWithHttpInfo(string idNotation = default(string), string idInstrument = default(string), List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2004> GetRecommendationListRevisionSearchWithHttpInfo(string idNotation = default(string), string idInstrument = default(string), List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1012,10 +1105,16 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (idNotation != null)
             {
@@ -1036,13 +1135,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1054,15 +1153,19 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2004>("/recommendationList/revision/search", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListRevisionSearchResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2004>("/recommendationList/revision/search", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListRevisionSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1076,9 +1179,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetRecommendationListRevisionSearchAsync(string idNotation = default(string), string idInstrument = default(string), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>GetRecommendationListRevisionSearchAsync(string idNotation = default(string), string idInstrument = default(string), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = await GetRecommendationListRevisionSearchWithHttpInfoAsync(idNotation, idInstrument, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecommendationListRevisionSearchWithHttpInfoAsync(idNotation, idInstrument, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1092,7 +1195,8 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004>> GetRecommendationListRevisionSearchWithHttpInfoAsync(string idNotation = default(string), string idInstrument = default(string), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetRecommendationListRevisionSearchWithHttpInfoAsync(string idNotation = default(string), string idInstrument = default(string), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
@@ -1105,12 +1209,17 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (idNotation != null)
             {
@@ -1131,13 +1240,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1149,14 +1258,18 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListRevisionSearchResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/recommendationList/revision/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListRevisionSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1173,7 +1286,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 GetRecommendationListSearch(string name = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = GetRecommendationListSearchWithHttpInfo(name, onlyActive, attributes, language);
+            var localVarResponse = GetRecommendationListSearchWithHttpInfo(name, onlyActive, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1186,7 +1299,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> GetRecommendationListSearchWithHttpInfo(string name = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2001> GetRecommendationListSearchWithHttpInfo(string name = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1199,10 +1312,16 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (name != null)
             {
@@ -1223,13 +1342,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1241,15 +1360,19 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2001>("/recommendationList/search", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListSearchResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2001>("/recommendationList/search", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1263,9 +1386,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetRecommendationListSearchAsync(string name = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetRecommendationListSearchAsync(string name = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetRecommendationListSearchWithHttpInfoAsync(name, onlyActive, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecommendationListSearchWithHttpInfoAsync(name, onlyActive, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1279,7 +1402,8 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> GetRecommendationListSearchWithHttpInfoAsync(string name = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetRecommendationListSearchWithHttpInfoAsync(string name = default(string), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
@@ -1292,12 +1416,17 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (name != null)
             {
@@ -1318,13 +1447,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1336,14 +1465,18 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRecommendationListSearchResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/recommendationList/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecommendationListSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1357,7 +1490,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 PostRecommendationListRevisionList(InlineObject body)
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = PostRecommendationListRevisionListWithHttpInfo(body);
+            var localVarResponse = PostRecommendationListRevisionListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1367,11 +1500,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> PostRecommendationListRevisionListWithHttpInfo(InlineObject body)
+        public ApiResponse<InlineResponse2003> PostRecommendationListRevisionListWithHttpInfo(InlineObject body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling RecommendationListApi->PostRecommendationListRevisionList");
+            }
 
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1385,22 +1520,28 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1412,15 +1553,19 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2003>("/recommendationList/revision/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostRecommendationListRevisionListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/recommendationList/revision/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostRecommendationListRevisionList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1431,9 +1576,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> PostRecommendationListRevisionListAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>PostRecommendationListRevisionListAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await PostRecommendationListRevisionListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostRecommendationListRevisionListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1444,11 +1589,14 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> PostRecommendationListRevisionListWithHttpInfoAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PostRecommendationListRevisionListWithHttpInfoAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling RecommendationListApi->PostRecommendationListRevisionList");
+            }
 
 
             FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.RequestOptions();
@@ -1462,24 +1610,29 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.RecommendationListAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1491,14 +1644,18 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostRecommendationListRevisionListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/recommendationList/revision/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostRecommendationListRevisionList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -19,7 +19,7 @@ import PAComponent from '../model/PAComponent';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ComponentsApi {
 
@@ -62,7 +62,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = PAComponent;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/pa/components/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class ComponentsApi {
      * Get PA component by id
      * This endpoint returns the default settings of a PA component.
      * @param {String} id Unique identifier for a PA component
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PAComponent}
+     * @return { Promise.< module:model/PAComponent > } a Promise, with data of type {@link module:model/PAComponent }
      */
     getPAComponentById(id) {
       return this.getPAComponentByIdWithHttpInfo(id)
@@ -110,7 +113,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': ComponentSummary};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/pa/components', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class ComponentsApi {
      * Get PA components
      * This endpoint returns the list of PA components in a given PA document.
      * @param {String} document Document Name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: ComponentSummary}>}
+     * @return { Promise.< Object.<String, module:model/{String: ComponentSummary}> > } a Promise, with data of type {@link Object.<String, module:model/{String: ComponentSummary}> }
      */
     getPAComponents(document) {
       return this.getPAComponentsWithHttpInfo(document)
@@ -133,3 +139,8 @@ export default class ComponentsApi {
 
 
 }
+
+
+
+
+

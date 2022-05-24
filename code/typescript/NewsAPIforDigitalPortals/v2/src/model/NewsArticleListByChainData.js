@@ -17,7 +17,7 @@ import NewsArticleListByChainDataFilter from './NewsArticleListByChainDataFilter
 /**
  * The NewsArticleListByChainData model module.
  * @module model/NewsArticleListByChainData
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListByChainData {
     /**

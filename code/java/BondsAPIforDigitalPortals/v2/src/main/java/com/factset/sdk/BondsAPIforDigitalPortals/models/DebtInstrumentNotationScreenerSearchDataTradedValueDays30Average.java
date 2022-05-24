@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataTradedValueDays30Average im
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataTradedValueDays30Average() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataTradedValueDays30Average minimum(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMinimum minimum) {
     this.minimum = minimum;

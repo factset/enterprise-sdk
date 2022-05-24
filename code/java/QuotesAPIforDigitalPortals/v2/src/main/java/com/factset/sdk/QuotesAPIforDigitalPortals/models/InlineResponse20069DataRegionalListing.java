@@ -51,6 +51,8 @@ public class InlineResponse20069DataRegionalListing implements Serializable {
   public static final String JSON_PROPERTY_TICKER_EXCHANGE = "tickerExchange";
   private String tickerExchange;
 
+  public InlineResponse20069DataRegionalListing() { 
+  }
 
   public InlineResponse20069DataRegionalListing isPrimary(Boolean isPrimary) {
     this.isPrimary = isPrimary;

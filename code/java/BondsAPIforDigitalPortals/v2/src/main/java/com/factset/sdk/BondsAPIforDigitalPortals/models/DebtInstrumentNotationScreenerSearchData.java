@@ -103,6 +103,8 @@ public class DebtInstrumentNotationScreenerSearchData implements Serializable {
   public static final String JSON_PROPERTY_TRADED_VALUE = "tradedValue";
   private DebtInstrumentNotationScreenerSearchDataTradedValue tradedValue;
 
+  public DebtInstrumentNotationScreenerSearchData() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchData validation(DebtInstrumentNotationScreenerSearchDataValidation validation) {
     this.validation = validation;

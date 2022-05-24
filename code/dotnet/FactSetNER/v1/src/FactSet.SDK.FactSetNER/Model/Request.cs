@@ -52,7 +52,7 @@ namespace FactSet.SDK.FactSetNER.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Request {\n");
             sb.Append("  Input: ").Append(Input).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.FactSetNER.Model
         public bool Equals(Request input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Input == input.Input ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.FactSetNER.Model
             {
                 int hashCode = 41;
                 if (this.Input != null)
-                    hashCode = hashCode * 59 + this.Input.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Input.GetHashCode();
+                }
                 return hashCode;
             }
         }

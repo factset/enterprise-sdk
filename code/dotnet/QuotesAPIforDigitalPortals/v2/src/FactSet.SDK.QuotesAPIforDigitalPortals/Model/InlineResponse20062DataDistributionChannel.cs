@@ -212,7 +212,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataDistributionChannel {\n");
             sb.Append("  ExecutionOnly: ").Append(ExecutionOnly).Append("\n");
             sb.Append("  ExecutionAppropriateness: ").Append(ExecutionAppropriateness).Append("\n");
@@ -249,8 +249,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataDistributionChannel input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ExecutionOnly == input.ExecutionOnly ||
@@ -279,10 +280,10 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ExecutionOnly.GetHashCode();
-                hashCode = hashCode * 59 + this.ExecutionAppropriateness.GetHashCode();
-                hashCode = hashCode * 59 + this.InvestmentAdvice.GetHashCode();
-                hashCode = hashCode * 59 + this.PortfolioManagement.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExecutionOnly.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExecutionAppropriateness.GetHashCode();
+                hashCode = (hashCode * 59) + this.InvestmentAdvice.GetHashCode();
+                hashCode = (hashCode * 59) + this.PortfolioManagement.GetHashCode();
                 return hashCode;
             }
         }

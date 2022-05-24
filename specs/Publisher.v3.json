@@ -1293,7 +1293,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       }
     },
     "/analytics/engines/pub/v3/calculations/{id}": {
@@ -1898,7 +1899,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       },
       "get": {
         "tags": [

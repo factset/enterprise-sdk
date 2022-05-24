@@ -97,6 +97,8 @@ public class InlineResponse20015Data implements Serializable {
   public static final String JSON_PROPERTY_NESTED_REGIONS = "nestedRegions";
   private java.util.List<InlineResponse20015DataNestedRegions> nestedRegions = null;
 
+  public InlineResponse20015Data() { 
+  }
 
   public InlineResponse20015Data code(String code) {
     this.code = code;

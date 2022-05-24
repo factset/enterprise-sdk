@@ -29,7 +29,7 @@ import InlineResponse2007 from '../model/InlineResponse2007';
 /**
 * SecuritizedDerivative service.
 * @module api/SecuritizedDerivativeApi
-* @version 0.9.1
+* @version 0.10.0
 */
 export default class SecuritizedDerivativeApi {
 
@@ -70,7 +70,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/barrier/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -83,7 +86,7 @@ export default class SecuritizedDerivativeApi {
      * List of barrier types.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     getSecuritizedDerivativeBarrierTypeList(opts) {
       return this.getSecuritizedDerivativeBarrierTypeListWithHttpInfo(opts)
@@ -125,7 +128,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -140,7 +146,7 @@ export default class SecuritizedDerivativeApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getSecuritizedDerivativeGet(id, opts) {
       return this.getSecuritizedDerivativeGetWithHttpInfo(id, opts)
@@ -182,7 +188,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/keyFigures/notation/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -197,7 +206,7 @@ export default class SecuritizedDerivativeApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     getSecuritizedDerivativeKeyFiguresNotationGet(id, opts) {
       return this.getSecuritizedDerivativeKeyFiguresNotationGetWithHttpInfo(id, opts)
@@ -239,7 +248,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2007;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/underlying/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -254,7 +266,7 @@ export default class SecuritizedDerivativeApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2007}
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
     getSecuritizedDerivativeUnderlyingList(id, opts) {
       return this.getSecuritizedDerivativeUnderlyingListWithHttpInfo(id, opts)
@@ -287,7 +299,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/issuer/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -300,7 +315,7 @@ export default class SecuritizedDerivativeApi {
      * Search for issuers of securitized derivatives, including issuer groups, which do not represent actual juristic persons, but are defined by FactSet to facilitate searching. FactSet does not consolidate the data provided by different suppliers, therefore the result may contain more than one identifier for a given issuer. The response is limited to 100 results.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     postSecuritizedDerivativeIssuerSearch(opts) {
       return this.postSecuritizedDerivativeIssuerSearchWithHttpInfo(opts)
@@ -333,7 +348,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2004;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/notation/ranking/intraday/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -346,7 +364,7 @@ export default class SecuritizedDerivativeApi {
      * Ranking of securitized derivatives' notations using intraday figures. The result is limited to 100 notations that all must satisfy all selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, the selection of the notation depends on the sort attribute: - absolute and relative performance (see the response attributes `trade.performance.absolute` and `trade.performance.relative`) - the notation with the most recent trade price is used - number trades, trading value and trading volume (see the response attributes `accumulated.numberTrades`, `accumulated.tradingVolume` and `accumulated.tradingValue`) - the notation with highest (lowest) value is used  By default, the result is sorted descending by the relative intraday performance corresponding to the most recent trade price, see attribute `trade.performance.relative`. The result may contain sortable values based on different currencies, possibly making the ranking nonsensical, if the parameters `valueUnit` and/or `currency` have not been specified.  The search can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.  All identifiers used as parameters must be valid and entitled.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject1} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     postSecuritizedDerivativeNotationRankingIntradayList(opts) {
       return this.postSecuritizedDerivativeNotationRankingIntradayListWithHttpInfo(opts)
@@ -379,7 +397,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2006;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/notation/screener/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -392,7 +413,7 @@ export default class SecuritizedDerivativeApi {
      * Screener for securitized derivatives's notations based on securitized derivatives-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. All identifiers used as parameters must be valid and entitled.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support the search for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are returned in the result.   The search can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject3} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2006}
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
     postSecuritizedDerivativeNotationScreenerSearch(opts) {
       return this.postSecuritizedDerivativeNotationScreenerSearchWithHttpInfo(opts)
@@ -404,7 +425,7 @@ export default class SecuritizedDerivativeApi {
 
     /**
      * Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
-     * The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter `market.priority`) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+     * The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject2} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
@@ -425,7 +446,10 @@ export default class SecuritizedDerivativeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2005;
+
       return this.apiClient.callApi(
         '/securitizedDerivative/notation/screener/valueRanges/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -435,10 +459,10 @@ export default class SecuritizedDerivativeApi {
 
     /**
      * Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
-     * The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter `market.priority`) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+     * The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject2} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2005}
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     postSecuritizedDerivativeNotationScreenerValueRangesGet(opts) {
       return this.postSecuritizedDerivativeNotationScreenerValueRangesGetWithHttpInfo(opts)
@@ -449,3 +473,8 @@ export default class SecuritizedDerivativeApi {
 
 
 }
+
+
+
+
+

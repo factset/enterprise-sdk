@@ -51,6 +51,16 @@ public class Template implements Serializable {
   public static final String JSON_PROPERTY_FDC3_CONTEXT = "fdc3Context";
   private Fdc3Context fdc3Context;
 
+  public Template() { 
+  }
+
+  @JsonCreator
+  public Template(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public Template headline(String headline) {
     this.headline = headline;

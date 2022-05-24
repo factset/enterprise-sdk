@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataRating implements Serializa
   public static final String JSON_PROPERTY_GRADE = "grade";
   private DebtInstrumentNotationScreenerSearchDataRatingGrade grade;
 
+  public DebtInstrumentNotationScreenerSearchDataRating() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataRating grade(DebtInstrumentNotationScreenerSearchDataRatingGrade grade) {
     this.grade = grade;

@@ -1,6 +1,6 @@
 # bondsapifordigitalportals.DebtInstrumentApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getDebtInstrumentGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getDebtInstrumentKeyFiguresNotationGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -205,6 +207,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postDebtInstrumentIssuerSearch(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -278,6 +281,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postDebtInstrumentNotationScreenerSearch(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -351,6 +355,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postDebtInstrumentNotationScreenerValueRangesGet(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

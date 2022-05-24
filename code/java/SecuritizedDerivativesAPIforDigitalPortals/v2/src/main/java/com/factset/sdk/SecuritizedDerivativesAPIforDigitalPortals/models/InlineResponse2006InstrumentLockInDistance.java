@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentLockInDistance implements Serializable 
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006InstrumentLockInDistance() { 
+  }
 
   public InlineResponse2006InstrumentLockInDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

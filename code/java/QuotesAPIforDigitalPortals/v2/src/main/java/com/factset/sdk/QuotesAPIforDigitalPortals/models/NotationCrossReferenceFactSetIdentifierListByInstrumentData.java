@@ -43,6 +43,16 @@ public class NotationCrossReferenceFactSetIdentifierListByInstrumentData impleme
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public NotationCrossReferenceFactSetIdentifierListByInstrumentData() { 
+  }
+
+  @JsonCreator
+  public NotationCrossReferenceFactSetIdentifierListByInstrumentData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public NotationCrossReferenceFactSetIdentifierListByInstrumentData id(String id) {
     this.id = id;

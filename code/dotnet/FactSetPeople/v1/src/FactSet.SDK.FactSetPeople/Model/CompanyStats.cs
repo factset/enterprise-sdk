@@ -171,7 +171,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CompanyStats {\n");
             sb.Append("  AverageMgmtCompensation: ").Append(AverageMgmtCompensation).Append("\n");
             sb.Append("  AverageTenure: ").Append(AverageTenure).Append("\n");
@@ -218,8 +218,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(CompanyStats input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AverageMgmtCompensation == input.AverageMgmtCompensation ||
@@ -290,22 +291,26 @@ namespace FactSet.SDK.FactSetPeople.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.AverageMgmtCompensation.GetHashCode();
-                hashCode = hashCode * 59 + this.AverageTenure.GetHashCode();
-                hashCode = hashCode * 59 + this.MedianTenure.GetHashCode();
-                hashCode = hashCode * 59 + this.AverageAge.GetHashCode();
-                hashCode = hashCode * 59 + this.MaxAge.GetHashCode();
-                hashCode = hashCode * 59 + this.MinimumAge.GetHashCode();
-                hashCode = hashCode * 59 + this.MedianAge.GetHashCode();
-                hashCode = hashCode * 59 + this.BoardIndependentDirectors.GetHashCode();
-                hashCode = hashCode * 59 + this.FemaleBoardMembers.GetHashCode();
-                hashCode = hashCode * 59 + this.NumberOfMembers.GetHashCode();
-                hashCode = hashCode * 59 + this.OnOtherBoardsAll.GetHashCode();
-                hashCode = hashCode * 59 + this.OnOtherBoardsCorporate.GetHashCode();
+                hashCode = (hashCode * 59) + this.AverageMgmtCompensation.GetHashCode();
+                hashCode = (hashCode * 59) + this.AverageTenure.GetHashCode();
+                hashCode = (hashCode * 59) + this.MedianTenure.GetHashCode();
+                hashCode = (hashCode * 59) + this.AverageAge.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaxAge.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinimumAge.GetHashCode();
+                hashCode = (hashCode * 59) + this.MedianAge.GetHashCode();
+                hashCode = (hashCode * 59) + this.BoardIndependentDirectors.GetHashCode();
+                hashCode = (hashCode * 59) + this.FemaleBoardMembers.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberOfMembers.GetHashCode();
+                hashCode = (hashCode * 59) + this.OnOtherBoardsAll.GetHashCode();
+                hashCode = (hashCode * 59) + this.OnOtherBoardsCorporate.GetHashCode();
                 if (this.MbType != null)
-                    hashCode = hashCode * 59 + this.MbType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MbType.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

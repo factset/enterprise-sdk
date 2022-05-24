@@ -48,6 +48,8 @@ public class InlineResponse2001DataSummaryTransactionsTotal implements Serializa
   public static final String JSON_PROPERTY_TURNOVER = "turnover";
   private BigDecimal turnover;
 
+  public InlineResponse2001DataSummaryTransactionsTotal() { 
+  }
 
   public InlineResponse2001DataSummaryTransactionsTotal number(BigDecimal number) {
     this.number = number;

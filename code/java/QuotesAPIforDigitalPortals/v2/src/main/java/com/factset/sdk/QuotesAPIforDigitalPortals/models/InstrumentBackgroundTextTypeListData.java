@@ -44,6 +44,8 @@ public class InstrumentBackgroundTextTypeListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private InstrumentBackgroundTextTypeListDataFilter filter;
 
+  public InstrumentBackgroundTextTypeListData() { 
+  }
 
   public InstrumentBackgroundTextTypeListData filter(InstrumentBackgroundTextTypeListDataFilter filter) {
     this.filter = filter;

@@ -26,7 +26,6 @@ src/main/java/com/factset/sdk/ChartGenerationService/ApiClient.java
 src/main/java/com/factset/sdk/ChartGenerationService/ApiException.java
 src/main/java/com/factset/sdk/ChartGenerationService/ApiResponse.java
 src/main/java/com/factset/sdk/ChartGenerationService/Configuration.java
-src/main/java/com/factset/sdk/ChartGenerationService/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/ChartGenerationService/JSON.java
 src/main/java/com/factset/sdk/ChartGenerationService/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/ChartGenerationService/Pair.java

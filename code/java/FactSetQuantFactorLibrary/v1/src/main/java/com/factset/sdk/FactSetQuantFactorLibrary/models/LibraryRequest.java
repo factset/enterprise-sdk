@@ -47,6 +47,8 @@ public class LibraryRequest implements Serializable {
   public static final String JSON_PROPERTY_FACTOR_GROUPS = "factorGroups";
   private java.util.List<String> factorGroups = null;
 
+  public LibraryRequest() { 
+  }
 
   public LibraryRequest factors(java.util.List<String> factors) {
     this.factors = factors;

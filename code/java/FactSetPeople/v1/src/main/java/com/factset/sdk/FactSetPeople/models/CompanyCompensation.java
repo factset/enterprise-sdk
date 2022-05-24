@@ -92,6 +92,8 @@ public class CompanyCompensation implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public CompanyCompensation() { 
+  }
 
   public CompanyCompensation name(String name) {
     this.name = name;

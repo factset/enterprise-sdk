@@ -20,7 +20,7 @@ import InlineResponse2005DataLockInValue from './InlineResponse2005DataLockInVal
 /**
  * The InlineResponse2005DataLockIn model module.
  * @module model/InlineResponse2005DataLockIn
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataLockIn {
     /**

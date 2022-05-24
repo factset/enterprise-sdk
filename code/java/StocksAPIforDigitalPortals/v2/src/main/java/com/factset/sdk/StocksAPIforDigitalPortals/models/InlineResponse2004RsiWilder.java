@@ -44,6 +44,8 @@ public class InlineResponse2004RsiWilder implements Serializable {
   public static final String JSON_PROPERTY_DAYS14 = "days14";
   private BigDecimal days14;
 
+  public InlineResponse2004RsiWilder() { 
+  }
 
   public InlineResponse2004RsiWilder days14(BigDecimal days14) {
     this.days14 = days14;

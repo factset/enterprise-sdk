@@ -61,7 +61,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsArticleSearchByTextData {\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Criteria: ").Append(Criteria).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsArticleSearchByTextData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Text == input.Text ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
                 if (this.Criteria != null)
-                    hashCode = hashCode * 59 + this.Criteria.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Criteria.GetHashCode();
+                }
                 return hashCode;
             }
         }

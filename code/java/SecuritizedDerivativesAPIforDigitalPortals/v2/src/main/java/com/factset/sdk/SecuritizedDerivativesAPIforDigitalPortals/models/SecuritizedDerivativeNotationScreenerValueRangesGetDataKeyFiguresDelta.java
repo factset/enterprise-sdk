@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDe
   public static final String JSON_PROPERTY_UNADJUSTED = "unadjusted";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDeltaUnadjusted unadjusted;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDelta() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDelta effective(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDeltaEffective effective) {
     this.effective = effective;

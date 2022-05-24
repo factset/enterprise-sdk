@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssuerCountryRestrict imple
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public DebtInstrumentNotationScreenerSearchDataIssuerCountryRestrict() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssuerCountryRestrict ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

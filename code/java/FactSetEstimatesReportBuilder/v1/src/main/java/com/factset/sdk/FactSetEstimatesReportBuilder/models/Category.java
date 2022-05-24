@@ -43,6 +43,8 @@ public class Category implements Serializable {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private CategoryCategory category;
 
+  public Category() { 
+  }
 
   public Category category(CategoryCategory category) {
     this.category = category;

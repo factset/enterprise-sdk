@@ -55,6 +55,8 @@ public class ValueChangeDateLabelTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  public ValueChangeDateLabelTemplateAllOf() { 
+  }
 
   public ValueChangeDateLabelTemplateAllOf value(String value) {
     this.value = value;

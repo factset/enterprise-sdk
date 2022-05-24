@@ -18,7 +18,7 @@ import SPARCalculationParameters from './SPARCalculationParameters';
 /**
  * The SPARCalculationParametersRoot model module.
  * @module model/SPARCalculationParametersRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SPARCalculationParametersRoot {
     /**

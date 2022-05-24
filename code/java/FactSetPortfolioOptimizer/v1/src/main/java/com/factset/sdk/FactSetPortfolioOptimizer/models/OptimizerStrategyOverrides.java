@@ -93,6 +93,8 @@ public class OptimizerStrategyOverrides implements Serializable {
   public static final String JSON_PROPERTY_TRANSACTIONCOST = "transactioncost";
   private String transactioncost;
 
+  public OptimizerStrategyOverrides() { 
+  }
 
   public OptimizerStrategyOverrides tax(String tax) {
     this.tax = tax;

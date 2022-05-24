@@ -61,7 +61,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataCurrentInterestRate {\n");
             sb.Append("  Types: ").Append(Types).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataCurrentInterestRate input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Types == input.Types ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Types != null)
-                    hashCode = hashCode * 59 + this.Types.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                }
                 if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 return hashCode;
             }
         }

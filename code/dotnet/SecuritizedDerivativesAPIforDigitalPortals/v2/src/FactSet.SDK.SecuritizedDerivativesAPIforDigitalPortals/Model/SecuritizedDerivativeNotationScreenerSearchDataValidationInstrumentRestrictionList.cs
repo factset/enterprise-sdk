@@ -52,7 +52,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerSearchDataValidationInstrumentRestrictionList {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerSearchDataValidationInstrumentRestrictionList input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 return hashCode;
             }
         }

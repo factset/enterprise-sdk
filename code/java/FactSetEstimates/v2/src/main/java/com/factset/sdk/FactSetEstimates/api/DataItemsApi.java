@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
 import com.factset.sdk.FactSetEstimates.models.MetricsRequest;
@@ -23,6 +26,28 @@ public class DataItemsApi {
   public DataItemsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEstimateMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimateMetricsResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
+    getEstimateMetricsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEstimateMetricsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimateMetricsForListResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
+    getEstimateMetricsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEstimateMetricsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -112,11 +137,17 @@ public class DataItemsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MetricsResponse> localVarReturnType = new GenericType<MetricsResponse>() {};
 
-    return apiClient.invokeAPI("DataItemsApi.getEstimateMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MetricsResponse
+      
+    > apiResponse = apiClient.invokeAPI("DataItemsApi.getEstimateMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimateMetricsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Available Estimate metrics or ratios.
@@ -189,10 +220,16 @@ public class DataItemsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MetricsResponse> localVarReturnType = new GenericType<MetricsResponse>() {};
 
-    return apiClient.invokeAPI("DataItemsApi.getEstimateMetricsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MetricsResponse
+      
+    > apiResponse = apiClient.invokeAPI("DataItemsApi.getEstimateMetricsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimateMetricsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

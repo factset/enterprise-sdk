@@ -54,6 +54,8 @@ public class InlineResponse2005DataUnderlying implements Serializable {
   public static final String JSON_PROPERTY_EFFECTIVE_UNDERLYING = "effectiveUnderlying";
   private InlineResponse2005DataUnderlyingEffectiveUnderlying effectiveUnderlying;
 
+  public InlineResponse2005DataUnderlying() { 
+  }
 
   public InlineResponse2005DataUnderlying instrument(java.util.List<InlineResponse2005DataUnderlyingInstrument> instrument) {
     this.instrument = instrument;

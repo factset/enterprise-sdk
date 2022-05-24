@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| List of FactSet Person Entity identifier. | 
 
 ### Return type
-
 [**PeopleProfilesResponse**](PeopleProfilesResponse.md)
 
 ### Authorization
@@ -169,7 +168,6 @@ Name | Type | Description  | Notes
  **peopleProfilesRequest** | [**PeopleProfilesRequest**](PeopleProfilesRequest.md)|  | 
 
 ### Return type
-
 [**PeopleProfilesResponse**](PeopleProfilesResponse.md)
 
 ### Authorization

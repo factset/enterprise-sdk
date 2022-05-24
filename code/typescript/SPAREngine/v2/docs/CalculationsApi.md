@@ -120,6 +120,7 @@ const id = "id_example"; // String | From url, provided from the location header
 // Call api endpoint
 apiInstance.getCalculationStatusById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -190,6 +191,7 @@ const apiInstance = new CalculationsApi();
 // Call api endpoint
 apiInstance.getCalculationStatusSummaries().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

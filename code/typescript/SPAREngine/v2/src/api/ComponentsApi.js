@@ -18,7 +18,7 @@ import ComponentSummary from '../model/ComponentSummary';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ComponentsApi {
 
@@ -61,7 +61,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': ComponentSummary};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/spar/components', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -73,7 +76,7 @@ export default class ComponentsApi {
      * Get SPAR components
      * This endpoint returns the list of SPAR components in a given SPAR document.
      * @param {String} document Document Name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: ComponentSummary}>}
+     * @return { Promise.< Object.<String, module:model/{String: ComponentSummary}> > } a Promise, with data of type {@link Object.<String, module:model/{String: ComponentSummary}> }
      */
     getSPARComponents(document) {
       return this.getSPARComponentsWithHttpInfo(document)
@@ -84,3 +87,8 @@ export default class ComponentsApi {
 
 
 }
+
+
+
+
+

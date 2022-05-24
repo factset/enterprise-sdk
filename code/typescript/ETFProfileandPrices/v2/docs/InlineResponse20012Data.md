@@ -4,9 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dividend** | [**InlineResponse20012DataDividend**](InlineResponse20012DataDividend.md) |  | [optional] 
-**capitalGains** | [**InlineResponse20012DataCapitalGains**](InlineResponse20012DataCapitalGains.md) |  | [optional] 
-**totalDistribution** | **Number** | Total Distribution on exDividend-date. Values are in the ETP&#39;s listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value. | [optional] 
-**distributionYield** | **Number** | Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions. | [optional] 
+**efficiency** | [**InlineResponse20012DataEfficiency**](InlineResponse20012DataEfficiency.md) |  | [optional] 
+**tradability** | [**InlineResponse20012DataTradability**](InlineResponse20012DataTradability.md) |  | [optional] 
+**fit** | [**InlineResponse20012DataFit**](InlineResponse20012DataFit.md) |  | [optional] 
+**grade** | **String** | Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US. | [optional] 
+**analystPick** | **Boolean** | If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US. | [optional] 
+**onOpportunitiesList** | **Boolean** | If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US. | [optional] 
+**fitRsquared** | **Number** | The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US. | [optional] 
+**beta** | [**InlineResponse20012DataBeta**](InlineResponse20012DataBeta.md) |  | [optional] 
+**standardDeviationDown** | **Number** | A measure of the variability between the fund&#39;s returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US. | [optional] 
 
 

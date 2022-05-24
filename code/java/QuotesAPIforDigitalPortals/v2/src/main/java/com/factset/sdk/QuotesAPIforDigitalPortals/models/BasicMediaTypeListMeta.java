@@ -86,6 +86,8 @@ public class BasicMediaTypeListMeta implements Serializable {
   public static final String JSON_PROPERTY_SORT = "sort";
   private java.util.Set<SortEnum> sort = null;
 
+  public BasicMediaTypeListMeta() { 
+  }
 
   public BasicMediaTypeListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

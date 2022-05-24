@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.ColumnStatistic;
 
@@ -21,6 +24,14 @@ public class ColumnStatisticsApi {
   public ColumnStatisticsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPAColumnStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAColumnStatisticsResponseTypeMap.put(200, new GenericType<java.util.Map<String, ColumnStatistic>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -43,7 +54,7 @@ public class ColumnStatisticsApi {
   /**
    * Get PA column statistics
    * This endpoint lists all the column statistics that can be applied to a PA column.
-   * @return java.util.Map&lt;String, ColumnStatistic&gt;
+   * @return java.util.Map<String, ColumnStatistic>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,7 +75,7 @@ public class ColumnStatisticsApi {
   /**
    * Get PA column statistics
    * This endpoint lists all the column statistics that can be applied to a PA column.
-   * @return ApiResponse&lt;java.util.Map&lt;String, ColumnStatistic&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, ColumnStatistic>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -106,10 +117,16 @@ public class ColumnStatisticsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, ColumnStatistic>> localVarReturnType = new GenericType<java.util.Map<String, ColumnStatistic>>() {};
 
-    return apiClient.invokeAPI("ColumnStatisticsApi.getPAColumnStatistics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, ColumnStatistic>
+      
+    > apiResponse = apiClient.invokeAPI("ColumnStatisticsApi.getPAColumnStatistics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAColumnStatisticsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -124,6 +124,8 @@ public class InlineResponse2004Data implements Serializable {
   public static final String JSON_PROPERTY_TRADED_VALUE = "tradedValue";
   private InlineResponse2004DataTradedValue tradedValue;
 
+  public InlineResponse2004Data() { 
+  }
 
   public InlineResponse2004Data totalCount(BigDecimal totalCount) {
     this.totalCount = totalCount;

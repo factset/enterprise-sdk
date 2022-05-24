@@ -83,6 +83,16 @@ public class StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceC
   public static final String JSON_PROPERTY_DIRECTION = "direction";
   private DirectionEnum direction = DirectionEnum.UP;
 
+  public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50() { 
+  }
+
+  @JsonCreator
+  public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50(
+    @JsonProperty(value=JSON_PROPERTY_NUMBER_DAYS, required=true) StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDays numberDays
+  ) {
+    this();
+    this.numberDays = numberDays;
+  }
 
   public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50 numberDays(StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDays numberDays) {
     this.numberDays = numberDays;

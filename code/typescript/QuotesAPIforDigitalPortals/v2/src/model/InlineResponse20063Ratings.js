@@ -19,7 +19,7 @@ import InlineResponse20063System from './InlineResponse20063System';
 /**
  * The InlineResponse20063Ratings model module.
  * @module model/InlineResponse20063Ratings
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20063Ratings {
     /**

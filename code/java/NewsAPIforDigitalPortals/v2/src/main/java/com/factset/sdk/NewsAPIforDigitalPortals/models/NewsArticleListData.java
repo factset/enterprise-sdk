@@ -44,6 +44,8 @@ public class NewsArticleListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private NewsArticleListDataFilter filter;
 
+  public NewsArticleListData() { 
+  }
 
   public NewsArticleListData filter(NewsArticleListDataFilter filter) {
     this.filter = filter;

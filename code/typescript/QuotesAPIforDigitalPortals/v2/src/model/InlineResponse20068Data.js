@@ -20,7 +20,7 @@ import InlineResponse20068Instrument from './InlineResponse20068Instrument';
 /**
  * The InlineResponse20068Data model module.
  * @module model/InlineResponse20068Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20068Data {
     /**

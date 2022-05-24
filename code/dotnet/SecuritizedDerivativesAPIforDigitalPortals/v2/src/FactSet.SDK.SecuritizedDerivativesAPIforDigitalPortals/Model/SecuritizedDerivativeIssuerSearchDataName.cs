@@ -53,7 +53,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeIssuerSearchDataName {\n");
             sb.Append("  SearchValue: ").Append(SearchValue).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeIssuerSearchDataName input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SearchValue == input.SearchValue ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.SearchValue != null)
-                    hashCode = hashCode * 59 + this.SearchValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SearchValue.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -120,13 +123,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // SearchValue (string) maxLength
-            if(this.SearchValue != null && this.SearchValue.Length > 100)
+            if (this.SearchValue != null && this.SearchValue.Length > 100)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchValue, length must be less than 100.", new [] { "SearchValue" });
             }
 
             // SearchValue (string) minLength
-            if(this.SearchValue != null && this.SearchValue.Length < 3)
+            if (this.SearchValue != null && this.SearchValue.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchValue, length must be greater than 3.", new [] { "SearchValue" });
             }

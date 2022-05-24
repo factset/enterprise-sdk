@@ -132,7 +132,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimizerTradesList {\n");
             sb.Append("  Identifiertype: ").Append(Identifiertype).Append("\n");
             sb.Append("  Includecash: ").Append(Includecash).Append("\n");
@@ -167,8 +167,9 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         public bool Equals(OptimizerTradesList input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Identifiertype == input.Identifiertype ||
@@ -189,8 +190,8 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Identifiertype.GetHashCode();
-                hashCode = hashCode * 59 + this.Includecash.GetHashCode();
+                hashCode = (hashCode * 59) + this.Identifiertype.GetHashCode();
+                hashCode = (hashCode * 59) + this.Includecash.GetHashCode();
                 return hashCode;
             }
         }

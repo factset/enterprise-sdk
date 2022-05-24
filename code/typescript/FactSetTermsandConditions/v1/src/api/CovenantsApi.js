@@ -20,7 +20,7 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Covenants service.
 * @module api/CovenantsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CovenantsApi {
 
@@ -63,7 +63,10 @@ export default class CovenantsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CovenantDetailsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/covenant-details', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class CovenantsApi {
      * Return Covenant Details for a Fixed Income security.
      * Returns Covenant Details for the Fixed Income security. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CovenantDetailsResponse}
+     * @return { Promise.< module:model/CovenantDetailsResponse > } a Promise, with data of type {@link module:model/CovenantDetailsResponse }
      */
     getCovenantDetails(ids) {
       return this.getCovenantDetailsWithHttpInfo(ids)
@@ -110,7 +113,10 @@ export default class CovenantsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CovenantDetailsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/covenant-details', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class CovenantsApi {
      * Return Covenant Details for a list of Fixed Income securities.
      * Returns Covenant Details for a list of Fixed Income securities. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Covenant Details.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CovenantDetailsResponse}
+     * @return { Promise.< module:model/CovenantDetailsResponse > } a Promise, with data of type {@link module:model/CovenantDetailsResponse }
      */
     getCovenantDetailsForList(termsAndConditionsScalarRequest) {
       return this.getCovenantDetailsForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -133,3 +139,8 @@ export default class CovenantsApi {
 
 
 }
+
+
+
+
+

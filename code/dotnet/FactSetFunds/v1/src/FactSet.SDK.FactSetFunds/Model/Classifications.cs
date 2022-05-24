@@ -126,7 +126,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Classifications {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
@@ -168,8 +168,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(Classifications input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -228,23 +229,41 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.AssetClass != null)
-                    hashCode = hashCode * 59 + this.AssetClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AssetClass.GetHashCode();
+                }
                 if (this.CategoryClass != null)
-                    hashCode = hashCode * 59 + this.CategoryClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CategoryClass.GetHashCode();
+                }
                 if (this.EconomicDevelopmentClass != null)
-                    hashCode = hashCode * 59 + this.EconomicDevelopmentClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EconomicDevelopmentClass.GetHashCode();
+                }
                 if (this.FocusClass != null)
-                    hashCode = hashCode * 59 + this.FocusClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FocusClass.GetHashCode();
+                }
                 if (this.GeographicClass != null)
-                    hashCode = hashCode * 59 + this.GeographicClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.GeographicClass.GetHashCode();
+                }
                 if (this.NicheClass != null)
-                    hashCode = hashCode * 59 + this.NicheClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NicheClass.GetHashCode();
+                }
                 if (this.RegionClass != null)
-                    hashCode = hashCode * 59 + this.RegionClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RegionClass.GetHashCode();
+                }
                 return hashCode;
             }
         }

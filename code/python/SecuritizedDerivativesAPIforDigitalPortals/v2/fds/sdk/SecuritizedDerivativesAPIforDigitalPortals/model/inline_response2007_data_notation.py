@@ -24,13 +24,15 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_fsym import InlineResponse2004Fsym
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2007_data_notation_instrument import InlineResponse2007DataNotationInstrument
+    globals()['InlineResponse2004Fsym'] = InlineResponse2004Fsym
     globals()['InlineResponse2007DataNotationInstrument'] = InlineResponse2007DataNotationInstrument
 
 
@@ -88,6 +90,7 @@ class InlineResponse2007DataNotation(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
+            'fsym': (InlineResponse2004Fsym,),  # noqa: E501
             'instrument': (InlineResponse2007DataNotationInstrument,),  # noqa: E501
         }
 
@@ -98,6 +101,7 @@ class InlineResponse2007DataNotation(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
         'instrument': 'instrument',  # noqa: E501
     }
 
@@ -143,6 +147,7 @@ class InlineResponse2007DataNotation(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the notation.. [optional]  # noqa: E501
+            fsym (InlineResponse2004Fsym): [optional]  # noqa: E501
             instrument (InlineResponse2007DataNotationInstrument): [optional]  # noqa: E501
         """
 
@@ -226,6 +231,7 @@ class InlineResponse2007DataNotation(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the notation.. [optional]  # noqa: E501
+            fsym (InlineResponse2004Fsym): [optional]  # noqa: E501
             instrument (InlineResponse2007DataNotationInstrument): [optional]  # noqa: E501
         """
 

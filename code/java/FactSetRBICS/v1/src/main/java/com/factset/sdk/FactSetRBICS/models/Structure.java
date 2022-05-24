@@ -54,6 +54,8 @@ public class Structure implements Serializable {
   public static final String JSON_PROPERTY_LAST_DATE = "lastDate";
   private String lastDate;
 
+  public Structure() { 
+  }
 
   public Structure rbicsId(String rbicsId) {
     this.rbicsId = rbicsId;

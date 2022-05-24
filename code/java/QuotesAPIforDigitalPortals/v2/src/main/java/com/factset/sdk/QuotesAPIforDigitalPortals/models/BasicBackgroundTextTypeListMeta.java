@@ -43,6 +43,8 @@ public class BasicBackgroundTextTypeListMeta implements Serializable {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private java.util.Set<String> attributes = null;
 
+  public BasicBackgroundTextTypeListMeta() { 
+  }
 
   public BasicBackgroundTextTypeListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

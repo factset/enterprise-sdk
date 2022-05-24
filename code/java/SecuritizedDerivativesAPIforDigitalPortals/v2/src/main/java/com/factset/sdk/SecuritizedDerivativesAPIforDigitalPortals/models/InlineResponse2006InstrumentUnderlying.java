@@ -63,6 +63,8 @@ public class InlineResponse2006InstrumentUnderlying implements Serializable {
   public static final String JSON_PROPERTY_EFFECTIVE_UNDERLYING = "effectiveUnderlying";
   private InlineResponse2004UnderlyingEffectiveUnderlying effectiveUnderlying;
 
+  public InlineResponse2006InstrumentUnderlying() { 
+  }
 
   public InlineResponse2006InstrumentUnderlying name(String name) {
     this.name = name;

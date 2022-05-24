@@ -47,6 +47,18 @@ public class PricesTimeSeriesIntradayListDataRange implements Serializable {
   public static final String JSON_PROPERTY_END = "end";
   private String end;
 
+  public PricesTimeSeriesIntradayListDataRange() { 
+  }
+
+  @JsonCreator
+  public PricesTimeSeriesIntradayListDataRange(
+    @JsonProperty(value=JSON_PROPERTY_START, required=true) String start, 
+    @JsonProperty(value=JSON_PROPERTY_END, required=true) String end
+  ) {
+    this();
+    this.start = start;
+    this.end = end;
+  }
 
   public PricesTimeSeriesIntradayListDataRange start(String start) {
     this.start = start;

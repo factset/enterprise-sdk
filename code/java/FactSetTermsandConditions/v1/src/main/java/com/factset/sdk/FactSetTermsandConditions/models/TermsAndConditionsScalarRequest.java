@@ -42,6 +42,16 @@ public class TermsAndConditionsScalarRequest implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<String> ids = new java.util.ArrayList<>();
 
+  public TermsAndConditionsScalarRequest() { 
+  }
+
+  @JsonCreator
+  public TermsAndConditionsScalarRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public TermsAndConditionsScalarRequest ids(java.util.List<String> ids) {
     this.ids = ids;

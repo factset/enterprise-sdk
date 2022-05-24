@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **gicsIndustryName** | **String** | GICS Industry Name in Proper Format. | [optional] 
 **gicsIndustryNumber** | **String** | GICS Industry Number | [optional] 
 **gicsSubIndustryName** | **String** | GICS Sub-Industry Name in Proper Format. | [optional] 
-**gicsSubInudstryNumber** | **String** | GICS Industry Number. | [optional] 
+**gicsSubIndustryNumber** | **String** | GICS Industry Number. | [optional] 
 **requestId** | **String** | Identifier specified in the request | [optional] 
 
 

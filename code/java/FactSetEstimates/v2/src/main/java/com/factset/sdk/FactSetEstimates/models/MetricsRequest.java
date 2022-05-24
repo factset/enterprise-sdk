@@ -49,6 +49,8 @@ public class MetricsRequest implements Serializable {
   public static final String JSON_PROPERTY_SUBCATEGORY = "subcategory";
   private Subcategory subcategory;
 
+  public MetricsRequest() { 
+  }
 
   public MetricsRequest category(Category category) {
     this.category = category;

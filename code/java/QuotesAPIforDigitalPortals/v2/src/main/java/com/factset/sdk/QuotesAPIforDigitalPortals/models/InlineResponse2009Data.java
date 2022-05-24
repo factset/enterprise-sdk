@@ -75,6 +75,8 @@ public class InlineResponse2009Data implements Serializable {
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private InlineResponse2008DataTimezone timezone;
 
+  public InlineResponse2009Data() { 
+  }
 
   public InlineResponse2009Data id(BigDecimal id) {
     this.id = id;

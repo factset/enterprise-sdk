@@ -17,6 +17,13 @@ from fds.sdk.FixedIncomeCalculation.model.error import Error
 from fds.sdk.FixedIncomeCalculation.model.error_source import ErrorSource
 from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters import FICalculationParameters
 from fds.sdk.FixedIncomeCalculation.model.fi_calculation_parameters_root import FICalculationParametersRoot
+from fds.sdk.FixedIncomeCalculation.model.fi_discount_curve_info import FIDiscountCurveInfo
+from fds.sdk.FixedIncomeCalculation.model.fi_discount_curve_info_root import FIDiscountCurveInfoRoot
 from fds.sdk.FixedIncomeCalculation.model.fi_job_settings import FIJobSettings
+from fds.sdk.FixedIncomeCalculation.model.fi_loss import FILoss
+from fds.sdk.FixedIncomeCalculation.model.fi_market_environment import FIMarketEnvironment
+from fds.sdk.FixedIncomeCalculation.model.fi_prepay import FIPrepay
+from fds.sdk.FixedIncomeCalculation.model.fi_reference_prepay import FIReferencePrepay
+from fds.sdk.FixedIncomeCalculation.model.fi_reference_security import FIReferenceSecurity
 from fds.sdk.FixedIncomeCalculation.model.fi_security import FISecurity
 from fds.sdk.FixedIncomeCalculation.model.object_root import ObjectRoot

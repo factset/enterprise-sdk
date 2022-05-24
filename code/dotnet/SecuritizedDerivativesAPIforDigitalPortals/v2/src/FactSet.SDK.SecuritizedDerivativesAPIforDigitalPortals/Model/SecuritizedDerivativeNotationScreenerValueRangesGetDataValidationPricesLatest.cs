@@ -63,7 +63,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPricesLatest {\n");
             sb.Append("  AvailableOnly: ").Append(AvailableOnly).Append("\n");
             sb.Append("  MinimumDate: ").Append(MinimumDate).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPricesLatest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AvailableOnly == input.AvailableOnly ||
@@ -121,9 +122,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.AvailableOnly.GetHashCode();
+                hashCode = (hashCode * 59) + this.AvailableOnly.GetHashCode();
                 if (this.MinimumDate != null)
-                    hashCode = hashCode * 59 + this.MinimumDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MinimumDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

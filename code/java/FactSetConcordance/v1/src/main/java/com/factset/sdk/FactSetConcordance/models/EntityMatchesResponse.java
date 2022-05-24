@@ -44,6 +44,8 @@ public class EntityMatchesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntityMatch> data = null;
 
+  public EntityMatchesResponse() { 
+  }
 
   public EntityMatchesResponse data(java.util.List<EntityMatch> data) {
     this.data = data;

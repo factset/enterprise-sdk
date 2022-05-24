@@ -17,7 +17,7 @@ import Fundamental from './Fundamental';
 /**
  * The FundamentalsResponse model module.
  * @module model/FundamentalsResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FundamentalsResponse {
     /**

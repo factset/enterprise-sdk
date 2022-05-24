@@ -91,7 +91,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Prices {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
@@ -129,8 +129,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(Prices input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -168,14 +169,22 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
-                hashCode = hashCode * 59 + this.Price.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Price.GetHashCode();
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 return hashCode;
             }
         }

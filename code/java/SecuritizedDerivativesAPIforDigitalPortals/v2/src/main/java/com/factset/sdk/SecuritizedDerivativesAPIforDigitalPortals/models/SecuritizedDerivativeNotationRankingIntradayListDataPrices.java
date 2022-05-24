@@ -78,6 +78,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataPrices implemen
   public static final String JSON_PROPERTY_QUALITY = "quality";
   private QualityEnum quality = QualityEnum.DLY;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataPrices() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataPrices quality(QualityEnum quality) {
     this.quality = quality;

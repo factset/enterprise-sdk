@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getIdentifiers
 
-> java.util.List&lt;IdentifierResolutionDto&gt; getIdentifiers(identifiers)
+> java.util.List<Object> getIdentifiers(identifiers)
 
 Get all the identifier details for given identifiers
 
@@ -22,14 +22,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.IdentifiersApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -39,20 +38,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         IdentifiersApi apiInstance = new IdentifiersApi(defaultClient);
         String identifiers = "identifiers_example"; // String | Identifiers
         try {
-            java.util.List<IdentifierResolutionDto> result = apiInstance.getIdentifiers(identifiers);
+            java.util.List<Object> result = apiInstance.getIdentifiers(identifiers);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling IdentifiersApi#getIdentifiers");
             System.err.println("Status code: " + e.getCode());
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**java.util.List&lt;IdentifierResolutionDto&gt;**](IdentifierResolutionDto.md)
+**java.util.List&lt;Object&gt;**
 
 ### Authorization
 

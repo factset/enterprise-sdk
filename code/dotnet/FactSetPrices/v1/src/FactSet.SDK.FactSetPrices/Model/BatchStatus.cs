@@ -121,7 +121,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BatchStatus {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
@@ -159,8 +159,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(BatchStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -198,14 +199,22 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.StartTime != null)
-                    hashCode = hashCode * 59 + this.StartTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartTime.GetHashCode();
+                }
                 if (this.EndTime != null)
-                    hashCode = hashCode * 59 + this.EndTime.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndTime.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                }
                 return hashCode;
             }
         }

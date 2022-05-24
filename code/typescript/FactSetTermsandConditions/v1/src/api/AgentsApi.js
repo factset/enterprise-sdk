@@ -20,7 +20,7 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Agents service.
 * @module api/AgentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class AgentsApi {
 
@@ -63,7 +63,10 @@ export default class AgentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = AgentsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/agents', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class AgentsApi {
      * Return Agents items for a Fixed Income security.
      * Returns Agents data items for the Fixed Income security. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AgentsResponse}
+     * @return { Promise.< module:model/AgentsResponse > } a Promise, with data of type {@link module:model/AgentsResponse }
      */
     getAgents(ids) {
       return this.getAgentsWithHttpInfo(ids)
@@ -110,7 +113,10 @@ export default class AgentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = AgentsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/agents', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class AgentsApi {
      * Return Agents items for a list of Fixed Income securities.
      * Returns Agents data items for a list of Fixed Income securities. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Agents.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AgentsResponse}
+     * @return { Promise.< module:model/AgentsResponse > } a Promise, with data of type {@link module:model/AgentsResponse }
      */
     getAgentsForList(termsAndConditionsScalarRequest) {
       return this.getAgentsForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -133,3 +139,8 @@ export default class AgentsApi {
 
 
 }
+
+
+
+
+

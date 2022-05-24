@@ -20,7 +20,7 @@ import SharesResponse from '../model/SharesResponse';
 /**
 * Shares service.
 * @module api/SharesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class SharesApi {
 
@@ -75,7 +75,10 @@ export default class SharesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SharesResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/shares', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -93,7 +96,7 @@ export default class SharesApi {
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (default to 'D')
      * @param {module:model/String} opts.calendar Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (default to 'FIVEDAY')
      * @param {module:model/String} opts.splitAdjust Code to control split adjustments for shares count. (default to 'SPLIT')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SharesResponse}
+     * @return { Promise.< module:model/SharesResponse > } a Promise, with data of type {@link module:model/SharesResponse }
      */
     getSecurityShares(ids, opts) {
       return this.getSecuritySharesWithHttpInfo(ids, opts)
@@ -128,7 +131,10 @@ export default class SharesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SharesResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/shares', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -140,7 +146,7 @@ export default class SharesApi {
      * Requests shares for a list of `ids` as of given date range.
      * Gets security shares for a list of 'ids' and given date range. Share values returned include security-level and company-level.
      * @param {module:model/SharesRequest} sharesRequest Request object for `Security` shares.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SharesResponse}
+     * @return { Promise.< module:model/SharesResponse > } a Promise, with data of type {@link module:model/SharesResponse }
      */
     getSecuritySharesForList(sharesRequest) {
       return this.getSecuritySharesForListWithHttpInfo(sharesRequest)
@@ -151,3 +157,8 @@ export default class SharesApi {
 
 
 }
+
+
+
+
+

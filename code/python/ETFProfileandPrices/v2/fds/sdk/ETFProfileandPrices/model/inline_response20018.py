@@ -24,16 +24,16 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
     from fds.sdk.ETFProfileandPrices.model.inline_response20018_data import InlineResponse20018Data
-    from fds.sdk.ETFProfileandPrices.model.inline_response200_meta import InlineResponse200Meta
+    from fds.sdk.ETFProfileandPrices.model.inline_response2001_meta import InlineResponse2001Meta
     globals()['InlineResponse20018Data'] = InlineResponse20018Data
-    globals()['InlineResponse200Meta'] = InlineResponse200Meta
+    globals()['InlineResponse2001Meta'] = InlineResponse2001Meta
 
 
 class InlineResponse20018(ModelNormal):
@@ -64,6 +64,8 @@ class InlineResponse20018(ModelNormal):
     }
 
     validations = {
+        ('data',): {
+        },
     }
 
     @cached_property
@@ -89,8 +91,8 @@ class InlineResponse20018(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (InlineResponse20018Data,),  # noqa: E501
-            'meta': (InlineResponse200Meta,),  # noqa: E501
+            'data': ([InlineResponse20018Data],),  # noqa: E501
+            'meta': (InlineResponse2001Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +146,8 @@ class InlineResponse20018(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InlineResponse20018Data): [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            data ([InlineResponse20018Data]): List of niche categories.. [optional]  # noqa: E501
+            meta (InlineResponse2001Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +229,8 @@ class InlineResponse20018(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data (InlineResponse20018Data): [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            data ([InlineResponse20018Data]): List of niche categories.. [optional]  # noqa: E501
+            meta (InlineResponse2001Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

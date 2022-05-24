@@ -17,10 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2006DataCounterParty;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2006DataGearing;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2006DataHedge;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2006DataServiceProvider;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2006DataIndustries;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,139 +25,90 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * Characteristics.
+ * ETP industry allocation data.
  */
-@ApiModel(description = "Characteristics.")
+@ApiModel(description = "ETP industry allocation data.")
 @JsonPropertyOrder({
-  InlineResponse2006Data.JSON_PROPERTY_GEARING,
-  InlineResponse2006Data.JSON_PROPERTY_HEDGE,
-  InlineResponse2006Data.JSON_PROPERTY_COUNTER_PARTY,
-  InlineResponse2006Data.JSON_PROPERTY_SERVICE_PROVIDER
+  InlineResponse2006Data.JSON_PROPERTY_REPORT_DATE,
+  InlineResponse2006Data.JSON_PROPERTY_INDUSTRIES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2006Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_GEARING = "gearing";
-  private InlineResponse2006DataGearing gearing;
+  public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
+  private LocalDate reportDate;
 
-  public static final String JSON_PROPERTY_HEDGE = "hedge";
-  private InlineResponse2006DataHedge hedge;
+  public static final String JSON_PROPERTY_INDUSTRIES = "industries";
+  private java.util.Set<InlineResponse2006DataIndustries> industries = null;
 
-  public static final String JSON_PROPERTY_COUNTER_PARTY = "counterParty";
-  private InlineResponse2006DataCounterParty counterParty;
+  public InlineResponse2006Data() { 
+  }
 
-  public static final String JSON_PROPERTY_SERVICE_PROVIDER = "serviceProvider";
-  private InlineResponse2006DataServiceProvider serviceProvider;
-
-
-  public InlineResponse2006Data gearing(InlineResponse2006DataGearing gearing) {
-    this.gearing = gearing;
+  public InlineResponse2006Data reportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
     return this;
   }
 
    /**
-   * Get gearing
-   * @return gearing
+   * Reporting date for the allocations.
+   * @return reportDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_GEARING)
+  @ApiModelProperty(value = "Reporting date for the allocations.")
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2006DataGearing getGearing() {
-    return gearing;
+  public LocalDate getReportDate() {
+    return reportDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEARING)
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGearing(InlineResponse2006DataGearing gearing) {
-    this.gearing = gearing;
+  public void setReportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
   }
 
 
-  public InlineResponse2006Data hedge(InlineResponse2006DataHedge hedge) {
-    this.hedge = hedge;
+  public InlineResponse2006Data industries(java.util.Set<InlineResponse2006DataIndustries> industries) {
+    this.industries = industries;
+    return this;
+  }
+
+  public InlineResponse2006Data addIndustriesItem(InlineResponse2006DataIndustries industriesItem) {
+    if (this.industries == null) {
+      this.industries = new java.util.LinkedHashSet<>();
+    }
+    this.industries.add(industriesItem);
     return this;
   }
 
    /**
-   * Get hedge
-   * @return hedge
+   * List of allocations by industry.
+   * @return industries
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_HEDGE)
+  @ApiModelProperty(value = "List of allocations by industry.")
+  @JsonProperty(JSON_PROPERTY_INDUSTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2006DataHedge getHedge() {
-    return hedge;
+  public java.util.Set<InlineResponse2006DataIndustries> getIndustries() {
+    return industries;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HEDGE)
+  @JsonProperty(JSON_PROPERTY_INDUSTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHedge(InlineResponse2006DataHedge hedge) {
-    this.hedge = hedge;
-  }
-
-
-  public InlineResponse2006Data counterParty(InlineResponse2006DataCounterParty counterParty) {
-    this.counterParty = counterParty;
-    return this;
-  }
-
-   /**
-   * Get counterParty
-   * @return counterParty
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COUNTER_PARTY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006DataCounterParty getCounterParty() {
-    return counterParty;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_COUNTER_PARTY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCounterParty(InlineResponse2006DataCounterParty counterParty) {
-    this.counterParty = counterParty;
-  }
-
-
-  public InlineResponse2006Data serviceProvider(InlineResponse2006DataServiceProvider serviceProvider) {
-    this.serviceProvider = serviceProvider;
-    return this;
-  }
-
-   /**
-   * Get serviceProvider
-   * @return serviceProvider
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SERVICE_PROVIDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2006DataServiceProvider getServiceProvider() {
-    return serviceProvider;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SERVICE_PROVIDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setServiceProvider(InlineResponse2006DataServiceProvider serviceProvider) {
-    this.serviceProvider = serviceProvider;
+  public void setIndustries(java.util.Set<InlineResponse2006DataIndustries> industries) {
+    this.industries = industries;
   }
 
 
@@ -176,25 +124,21 @@ public class InlineResponse2006Data implements Serializable {
       return false;
     }
     InlineResponse2006Data inlineResponse2006Data = (InlineResponse2006Data) o;
-    return Objects.equals(this.gearing, inlineResponse2006Data.gearing) &&
-        Objects.equals(this.hedge, inlineResponse2006Data.hedge) &&
-        Objects.equals(this.counterParty, inlineResponse2006Data.counterParty) &&
-        Objects.equals(this.serviceProvider, inlineResponse2006Data.serviceProvider);
+    return Objects.equals(this.reportDate, inlineResponse2006Data.reportDate) &&
+        Objects.equals(this.industries, inlineResponse2006Data.industries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gearing, hedge, counterParty, serviceProvider);
+    return Objects.hash(reportDate, industries);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2006Data {\n");
-    sb.append("    gearing: ").append(toIndentedString(gearing)).append("\n");
-    sb.append("    hedge: ").append(toIndentedString(hedge)).append("\n");
-    sb.append("    counterParty: ").append(toIndentedString(counterParty)).append("\n");
-    sb.append("    serviceProvider: ").append(toIndentedString(serviceProvider)).append("\n");
+    sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
+    sb.append("    industries: ").append(toIndentedString(industries)).append("\n");
     sb.append("}");
     return sb.toString();
   }

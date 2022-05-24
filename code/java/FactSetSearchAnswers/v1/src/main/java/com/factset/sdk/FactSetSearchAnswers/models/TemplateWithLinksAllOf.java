@@ -43,6 +43,8 @@ public class TemplateWithLinksAllOf implements Serializable {
   public static final String JSON_PROPERTY_APPLICATION_LINKS = "applicationLinks";
   private java.util.List<ApplicationLink> applicationLinks = null;
 
+  public TemplateWithLinksAllOf() { 
+  }
 
   public TemplateWithLinksAllOf applicationLinks(java.util.List<ApplicationLink> applicationLinks) {
     this.applicationLinks = applicationLinks;

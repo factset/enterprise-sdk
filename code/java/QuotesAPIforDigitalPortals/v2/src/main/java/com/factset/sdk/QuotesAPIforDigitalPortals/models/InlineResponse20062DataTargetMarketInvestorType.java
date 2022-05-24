@@ -168,6 +168,8 @@ public class InlineResponse20062DataTargetMarketInvestorType implements Serializ
   public static final String JSON_PROPERTY_ELIGIBLE_COUNTER_PARTY = "eligibleCounterParty";
   private EligibleCounterPartyEnum eligibleCounterParty;
 
+  public InlineResponse20062DataTargetMarketInvestorType() { 
+  }
 
   public InlineResponse20062DataTargetMarketInvestorType retail(RetailEnum retail) {
     this.retail = retail;

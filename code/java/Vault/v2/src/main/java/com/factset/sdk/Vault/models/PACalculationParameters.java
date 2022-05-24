@@ -74,6 +74,16 @@ public class PACalculationParameters implements Serializable {
   public static final String JSON_PROPERTY_COMPONENTDETAIL = "componentdetail";
   private String componentdetail;
 
+  public PACalculationParameters() { 
+  }
+
+  @JsonCreator
+  public PACalculationParameters(
+    @JsonProperty(value=JSON_PROPERTY_COMPONENTID, required=true) String componentid
+  ) {
+    this();
+    this.componentid = componentid;
+  }
 
   public PACalculationParameters componentid(String componentid) {
     this.componentid = componentid;

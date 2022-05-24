@@ -211,6 +211,8 @@ public class InlineResponse20062DataDistributionChannel implements Serializable 
   public static final String JSON_PROPERTY_PORTFOLIO_MANAGEMENT = "portfolioManagement";
   private PortfolioManagementEnum portfolioManagement;
 
+  public InlineResponse20062DataDistributionChannel() { 
+  }
 
   public InlineResponse20062DataDistributionChannel executionOnly(ExecutionOnlyEnum executionOnly) {
     this.executionOnly = executionOnly;

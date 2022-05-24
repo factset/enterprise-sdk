@@ -406,6 +406,7 @@ paths:
         response-type: CalculationInfoRoot
       - status-code: "201"
         response-type: ObjectRoot
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/afi/v3/optimizations/{id}:
@@ -1367,6 +1368,7 @@ paths:
         response-type: CalculationInfoRoot
       - status-code: "201"
         response-type: ObjectRoot
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/afi/v3/optimizations/{id}/status:

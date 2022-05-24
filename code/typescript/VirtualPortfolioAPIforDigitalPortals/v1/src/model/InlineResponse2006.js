@@ -18,7 +18,7 @@ import InlineResponse201Meta from './InlineResponse201Meta';
 /**
  * The InlineResponse2006 model module.
  * @module model/InlineResponse2006
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2006 {
     /**

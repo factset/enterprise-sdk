@@ -47,6 +47,8 @@ public class TextBlockFootingTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_FOOTING = "footing";
   private TitledTextBlock footing;
 
+  public TextBlockFootingTemplateAllOf() { 
+  }
 
   public TextBlockFootingTemplateAllOf body(String body) {
     this.body = body;

@@ -7,6 +7,9 @@ import com.factset.sdk.AxiomaEquityOptimizer.Configuration;
 import com.factset.sdk.AxiomaEquityOptimizer.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.AxiomaEquityOptimizer.models.DocumentDirectories;
 
@@ -21,6 +24,14 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getAxiomaEquityStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAxiomaEquityStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectories>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -118,10 +129,16 @@ public class StrategyDocumentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DocumentDirectories> localVarReturnType = new GenericType<DocumentDirectories>() {};
 
-    return apiClient.invokeAPI("StrategyDocumentsApi.getAxiomaEquityStrategyDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DocumentDirectories
+      
+    > apiResponse = apiClient.invokeAPI("StrategyDocumentsApi.getAxiomaEquityStrategyDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAxiomaEquityStrategyDocumentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

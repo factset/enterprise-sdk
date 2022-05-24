@@ -49,6 +49,8 @@ public class InlineResponse2005DataKeyFiguresDiscount implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private InlineResponse2005DataKeyFiguresDiscountRelative relative;
 
+  public InlineResponse2005DataKeyFiguresDiscount() { 
+  }
 
   public InlineResponse2005DataKeyFiguresDiscount absolute(InlineResponse2005DataKeyFiguresDiscountAbsolute absolute) {
     this.absolute = absolute;

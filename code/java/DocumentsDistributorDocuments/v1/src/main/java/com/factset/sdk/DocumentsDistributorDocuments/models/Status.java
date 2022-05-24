@@ -1,6 +1,6 @@
 /*
  * Documents Distributor - Documents API
- * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. The API also provides relevant metadata such as document source, company identifiers and form type around each filings document. Filings providers currently include EDGAR and SYMEX WebDisclosure.      StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.   Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
+ * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.DocumentsDistributorDocuments.models.ErrorDetail;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,83 +30,24 @@ import com.factset.sdk.DocumentsDistributorDocuments.JSON;
 
 
 /**
- * Status reponse object returned
+ * Status
  */
-@ApiModel(description = "Status reponse object returned")
 @JsonPropertyOrder({
-  Status.JSON_PROPERTY_CODE,
-  Status.JSON_PROPERTY_DESCRIPTION,
   Status.JSON_PROPERTY_ID,
-  Status.JSON_PROPERTY_DETAILS
+  Status.JSON_PROPERTY_ERROR_MESSAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Status implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_DETAILS = "details";
-  private ErrorDetail details;
+  public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
+  private String errorMessage;
 
-
-  public Status code(String code) {
-    this.code = code;
-    return this;
+  public Status() { 
   }
-
-   /**
-   * Status code
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Status code")
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getCode() {
-    return code;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public Status description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Textual error message
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Textual error message")
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
 
   public Status id(String id) {
     this.id = id;
@@ -115,11 +55,11 @@ public class Status implements Serializable {
   }
 
    /**
-   * Unique status ID
+   * Get id
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique status ID")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -135,29 +75,29 @@ public class Status implements Serializable {
   }
 
 
-  public Status details(ErrorDetail details) {
-    this.details = details;
+  public Status errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
     return this;
   }
 
    /**
-   * Get details
-   * @return details
+   * Textual error message
+   * @return errorMessage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @ApiModelProperty(value = "Textual error message")
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ErrorDetail getDetails() {
-    return details;
+  public String getErrorMessage() {
+    return errorMessage;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDetails(ErrorDetail details) {
-    this.details = details;
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
   }
 
 
@@ -173,25 +113,21 @@ public class Status implements Serializable {
       return false;
     }
     Status status = (Status) o;
-    return Objects.equals(this.code, status.code) &&
-        Objects.equals(this.description, status.description) &&
-        Objects.equals(this.id, status.id) &&
-        Objects.equals(this.details, status.details);
+    return Objects.equals(this.id, status.id) &&
+        Objects.equals(this.errorMessage, status.errorMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, description, id, details);
+    return Objects.hash(id, errorMessage);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Status {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

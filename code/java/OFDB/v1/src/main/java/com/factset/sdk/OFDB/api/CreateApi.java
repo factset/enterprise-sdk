@@ -7,6 +7,9 @@ import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.OFDB.models.DatabaseSchema;
 import com.factset.sdk.OFDB.models.InlineObject;
@@ -26,6 +29,48 @@ public class CreateApi {
   public CreateApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createDatabaseResponseTypeMap.put(201, new GenericType<InlineResponse201>(){});
+    createDatabaseResponseTypeMap.put(202, new GenericType<Object>(){});
+    createDatabaseResponseTypeMap.put(400, new GenericType<Object>(){});
+    createDatabaseResponseTypeMap.put(403, new GenericType<Object>(){});
+    createDatabaseResponseTypeMap.put(404, new GenericType<Object>(){});
+    createDatabaseResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathDatesDateSymbolsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsPostResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathDatesPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathDatesPostResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    v1DatabasePathDatesPostResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathDatesPostResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathDatesPostResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathDatesPostResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathDatesPostResponseTypeMap.put(413, new GenericType<Object>(){});
+    v1DatabasePathDatesPostResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathSymbolsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathSymbolsPostResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    v1DatabasePathSymbolsPostResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathSymbolsPostResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathSymbolsPostResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathSymbolsPostResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathSymbolsPostResponseTypeMap.put(413, new GenericType<Object>(){});
+    v1DatabasePathSymbolsPostResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +160,17 @@ public class CreateApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse201> localVarReturnType = new GenericType<InlineResponse201>() {};
 
-    return apiClient.invokeAPI("CreateApi.createDatabase", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse201
+      
+    > apiResponse = apiClient.invokeAPI("CreateApi.createDatabase", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createDatabaseResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -212,11 +263,17 @@ public class CreateApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SuccessPostResponse> localVarReturnType = new GenericType<SuccessPostResponse>() {};
 
-    return apiClient.invokeAPI("CreateApi.v1DatabasePathDatesDateSymbolsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SuccessPostResponse
+      
+    > apiResponse = apiClient.invokeAPI("CreateApi.v1DatabasePathDatesDateSymbolsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathDatesDateSymbolsPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -303,11 +360,17 @@ public class CreateApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SuccessPostResponse> localVarReturnType = new GenericType<SuccessPostResponse>() {};
 
-    return apiClient.invokeAPI("CreateApi.v1DatabasePathDatesPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SuccessPostResponse
+      
+    > apiResponse = apiClient.invokeAPI("CreateApi.v1DatabasePathDatesPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathDatesPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -394,10 +457,16 @@ public class CreateApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SuccessPostResponse> localVarReturnType = new GenericType<SuccessPostResponse>() {};
 
-    return apiClient.invokeAPI("CreateApi.v1DatabasePathSymbolsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SuccessPostResponse
+      
+    > apiResponse = apiClient.invokeAPI("CreateApi.v1DatabasePathSymbolsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathSymbolsPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

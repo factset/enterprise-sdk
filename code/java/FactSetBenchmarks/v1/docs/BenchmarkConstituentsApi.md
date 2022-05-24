@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetBenchmarks.ApiClient;
 import com.factset.sdk.FactSetBenchmarks.ApiException;
 import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.auth.*;
-import com.factset.sdk.FactSetBenchmarks.model.*;
+import com.factset.sdk.FactSetBenchmarks.models.*;
 import com.factset.sdk.FactSetBenchmarks.api.BenchmarkConstituentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         BenchmarkConstituentsApi apiInstance = new BenchmarkConstituentsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
@@ -61,6 +60,7 @@ public class Example {
         try {
             BenchmarkConstituentsResponse result = apiInstance.getBenchmarkConstituents(ids, date, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling BenchmarkConstituentsApi#getBenchmarkConstituents");
             System.err.println("Status code: " + e.getCode());
@@ -122,14 +122,13 @@ import com.factset.sdk.FactSetBenchmarks.ApiClient;
 import com.factset.sdk.FactSetBenchmarks.ApiException;
 import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.auth.*;
-import com.factset.sdk.FactSetBenchmarks.model.*;
+import com.factset.sdk.FactSetBenchmarks.models.*;
 import com.factset.sdk.FactSetBenchmarks.api.BenchmarkConstituentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -139,20 +138,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         BenchmarkConstituentsApi apiInstance = new BenchmarkConstituentsApi(defaultClient);
         BenchmarkConstituentsRequest benchmarkConstituentsRequest = new BenchmarkConstituentsRequest(); // BenchmarkConstituentsRequest | Requests Benchmark Constituents for the given identifier and date.
         try {
             BenchmarkConstituentsResponse result = apiInstance.getBenchmarkConstituentsForList(benchmarkConstituentsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling BenchmarkConstituentsApi#getBenchmarkConstituentsForList");
             System.err.println("Status code: " + e.getCode());
@@ -212,14 +212,13 @@ import com.factset.sdk.FactSetBenchmarks.ApiClient;
 import com.factset.sdk.FactSetBenchmarks.ApiException;
 import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.auth.*;
-import com.factset.sdk.FactSetBenchmarks.model.*;
+import com.factset.sdk.FactSetBenchmarks.models.*;
 import com.factset.sdk.FactSetBenchmarks.api.BenchmarkConstituentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -229,14 +228,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         BenchmarkConstituentsApi apiInstance = new BenchmarkConstituentsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
@@ -245,6 +244,7 @@ public class Example {
         try {
             FixedIncomeBenchmarkConstituentsResponse result = apiInstance.getFIBenchmarkConstituents(ids, date, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling BenchmarkConstituentsApi#getFIBenchmarkConstituents");
             System.err.println("Status code: " + e.getCode());
@@ -306,14 +306,13 @@ import com.factset.sdk.FactSetBenchmarks.ApiClient;
 import com.factset.sdk.FactSetBenchmarks.ApiException;
 import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.auth.*;
-import com.factset.sdk.FactSetBenchmarks.model.*;
+import com.factset.sdk.FactSetBenchmarks.models.*;
 import com.factset.sdk.FactSetBenchmarks.api.BenchmarkConstituentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -323,20 +322,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         BenchmarkConstituentsApi apiInstance = new BenchmarkConstituentsApi(defaultClient);
         FixedIncomeBenchmarkConstituentsRequest fixedIncomeBenchmarkConstituentsRequest = new FixedIncomeBenchmarkConstituentsRequest(); // FixedIncomeBenchmarkConstituentsRequest | Requests Fixed Income Benchmark Constituents for the given identifier and date.
         try {
             FixedIncomeBenchmarkConstituentsResponse result = apiInstance.getFIBenchmarkConstituentsForList(fixedIncomeBenchmarkConstituentsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling BenchmarkConstituentsApi#getFIBenchmarkConstituentsForList");
             System.err.println("Status code: " + e.getCode());

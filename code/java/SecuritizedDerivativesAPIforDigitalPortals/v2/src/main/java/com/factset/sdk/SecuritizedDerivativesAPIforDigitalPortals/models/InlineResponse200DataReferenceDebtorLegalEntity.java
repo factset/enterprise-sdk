@@ -52,6 +52,8 @@ public class InlineResponse200DataReferenceDebtorLegalEntity implements Serializ
   public static final String JSON_PROPERTY_LEI = "lei";
   private String lei;
 
+  public InlineResponse200DataReferenceDebtorLegalEntity() { 
+  }
 
   public InlineResponse200DataReferenceDebtorLegalEntity id(BigDecimal id) {
     this.id = id;

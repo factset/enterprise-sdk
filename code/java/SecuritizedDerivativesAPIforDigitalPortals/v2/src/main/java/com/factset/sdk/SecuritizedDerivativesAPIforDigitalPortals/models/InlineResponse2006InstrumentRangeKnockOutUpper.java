@@ -44,6 +44,8 @@ public class InlineResponse2006InstrumentRangeKnockOutUpper implements Serializa
   public static final String JSON_PROPERTY_VALUE = "value";
   private BigDecimal value;
 
+  public InlineResponse2006InstrumentRangeKnockOutUpper() { 
+  }
 
   public InlineResponse2006InstrumentRangeKnockOutUpper value(BigDecimal value) {
     this.value = value;

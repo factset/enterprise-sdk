@@ -47,6 +47,8 @@ public class StockNotationScreenerValueRangesGetMeta implements Serializable {
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
+  public StockNotationScreenerValueRangesGetMeta() { 
+  }
 
   public StockNotationScreenerValueRangesGetMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

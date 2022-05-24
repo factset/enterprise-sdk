@@ -44,6 +44,8 @@ public class InlineResponse2004LifeCycle implements Serializable {
   public static final String JSON_PROPERTY_MATURITY = "maturity";
   private InlineResponse2004LifeCycleMaturity maturity;
 
+  public InlineResponse2004LifeCycle() { 
+  }
 
   public InlineResponse2004LifeCycle maturity(InlineResponse2004LifeCycleMaturity maturity) {
     this.maturity = maturity;

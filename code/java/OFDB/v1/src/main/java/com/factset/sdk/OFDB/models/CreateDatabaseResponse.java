@@ -42,6 +42,8 @@ public class CreateDatabaseResponse implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public CreateDatabaseResponse() { 
+  }
 
   public CreateDatabaseResponse id(String id) {
     this.id = id;

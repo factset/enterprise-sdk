@@ -1,0 +1,291 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: analytics.api.support@factset.com
+    name: Analytics API Support
+    url: https://developer.factset.com/contact
+  description: Allow clients to fetch precalculated Analytics through predeterministic
+    URLs.
+  license:
+    name: The Apache Software License, Version 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.txt
+  title: Analytics Datastore  API
+  version: "1"
+servers:
+- url: https://api-sandbox.factset.com/
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags: []
+paths:
+  /analytics/pub-datastore/swivel/v1/{pubDoc}/{assetName}/{reportId}/{tileId}/{accountId}:
+    get:
+      description: 'Note: Due to Swagger UI functionality, the redirect is automatically
+        followed when using ''Try it out'', so instead of the 302 Header response,
+        a 200 is returned with the Cargo response Body.'
+      operationId: getSwivelEndpoint
+      parameters:
+      - description: The publisher document containing the report
+        in: path
+        name: pubDoc
+        required: true
+        schema:
+          default: Analytics_Datastore
+          type: string
+      - description: The PA/SPAR asset name and extension
+        in: path
+        name: assetName
+        required: true
+        schema:
+          default: ADS_Demo.PA3
+          type: string
+      - description: The PA/SPAR report ID
+        in: path
+        name: reportId
+        required: true
+        schema:
+          default: report7
+          type: string
+      - description: The PA/SPAR tile ID
+        in: path
+        name: tileId
+        required: true
+        schema:
+          default: tile0
+          type: string
+      - description: The account ID
+        in: path
+        name: accountId
+        required: true
+        schema:
+          default: LARGE_CORE
+          type: string
+      responses:
+        "200":
+          content:
+            headers:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Expected response (when redirect followed), returns json response
+            body of the report.
+          headers:
+            Transfer-Encoding:
+              description: Standard HTTP header. Header value will be set to Chunked
+                if Accept-Encoding header is specified.
+              schema:
+                type: string
+            Content-Encoding:
+              description: Standard HTTP header. Header value based on Accept-Encoding
+                Request header.
+              schema:
+                type: string
+            Content-Type:
+              description: Standard HTTP header.
+              schema:
+                type: string
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "302":
+          content: {}
+          description: Expected response, contains the Cargo URL in the Location header.
+          headers:
+            Location:
+              description: "Redirect URL to get Cargo object. \r\n\n(example: https://api.factset.com/analytics/pub-datastore/cargo/v1/groups/a4186c50f8e74f979d271dd22298c901/objects/fe875bc4150542dea6bc237663a01a0d)"
+              schema:
+                type: string
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "400":
+          content: {}
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "401":
+          content: {}
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "403":
+          content: {}
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "404":
+          content: {}
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "500":
+          content: {}
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "503":
+          content: {}
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+      summary: Get Swivel endpoint, takes report parameter inputs and returns the
+        Cargo location for the specified report via a 302 redirect.
+      tags:
+      - Swivel
+      x-accepts: headers
+  /analytics/pub-datastore/cargo/v1/groups/{groupId}/objects/{objectId}:
+    get:
+      description: "STACH json response documentation: https://pages.github.factset.com/analytics-reporting/stachschema/#/\
+        \ \r\n\nOptional request header \"accept-encoding\", with allowed values of\
+        \ \"br\" and \"gzip\". If accept-encoding is passed, the response is compressed."
+      operationId: getCargoEndpoint
+      parameters:
+      - description: The ID of the group
+        in: path
+        name: groupId
+        required: true
+        schema:
+          default: a4186c50f8e74f979d271dd22298c901
+          type: string
+      - description: The ID of the object
+        in: path
+        name: objectId
+        required: true
+        schema:
+          default: fe875bc4150542dea6bc237663a01a0d
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Expected response, returns json response body of the report.
+          headers:
+            Transfer-Encoding:
+              description: Standard HTTP header. Header value will be set to Chunked
+                if Accept-Encoding header is specified.
+              schema:
+                type: string
+            Content-Encoding:
+              description: Standard HTTP header. Header value based on Accept-Encoding
+                Request header.
+              schema:
+                type: string
+            Content-Type:
+              description: Standard HTTP header.
+              schema:
+                type: string
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "400":
+          content: {}
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "401":
+          content: {}
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "403":
+          content: {}
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "404":
+          content: {}
+          description: The provided request does not exist.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "500":
+          content: {}
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+        "503":
+          content: {}
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              schema:
+                type: string
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              schema:
+                type: string
+            X-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              schema:
+                type: string
+            X-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              schema:
+                type: string
+            X-DataDirect-Request-Key:
+              description: FactSet’s request key header.
+              schema:
+                type: string
+      summary: Get Cargo endpoint, gets an object given an ID. In this case ID retrieved
+        from Swivel Location header, results in json response body of the report.
+      tags:
+      - Cargo
+      x-accepts: application/json
+components:
+  schemas: {}
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-original-swagger-version: "2.0"
+

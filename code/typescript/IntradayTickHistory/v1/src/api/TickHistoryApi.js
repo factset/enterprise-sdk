@@ -18,7 +18,7 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * TickHistory service.
 * @module api/TickHistoryApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class TickHistoryApi {
 
@@ -83,7 +83,10 @@ export default class TickHistoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json', 'application/xml', 'text/csv'];
+
+
       let returnType = TickhistoryResponse;
+
       return this.apiClient.callApi(
         '/TickHistory/history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -106,7 +109,7 @@ export default class TickHistoryApi {
      * @param {module:model/String} opts.interval Requested time interval. This is the interval the data is returned from the service. Possible values from 1 Second (1S) to 1 Hour (1H). A maximum of 10 Tick History Requests and a maximum of 100,000 rows of data may be made in any one-minute period. Additional subsctiption is available to access 20 requests/200,000 rows of data per minute. Contact your FactSet team for details. (default to '1M')
      * @param {module:model/String} opts.includeRequest Flag to include request id and key in the CSV output. (default to 'false')
      * @param {module:model/String} opts.dataset Decides what type of trades to return, default is all trades and quotes, alternatively charting can be selected which will filter out unofficial trades.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TickhistoryResponse}
+     * @return { Promise.< module:model/TickhistoryResponse > } a Promise, with data of type {@link module:model/TickhistoryResponse }
      */
     getTickHistory(id, opts) {
       return this.getTickHistoryWithHttpInfo(id, opts)
@@ -117,3 +120,8 @@ export default class TickHistoryApi {
 
 
 }
+
+
+
+
+

@@ -18,7 +18,7 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * TradesAtTime service.
 * @module api/TradesAtTimeApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class TradesAtTimeApi {
 
@@ -70,7 +70,10 @@ export default class TradesAtTimeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json', 'application/xml', 'text/csv'];
+
+
       let returnType = TickhistoryResponse;
+
       return this.apiClient.callApi(
         '/TickHistory/tradesattime', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -86,7 +89,7 @@ export default class TradesAtTimeApi {
      * @param {module:model/String} opts.format The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (default to 'XML')
      * @param {String} opts.date Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days
      * @param {String} opts.time Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TickhistoryResponse}
+     * @return { Promise.< module:model/TickhistoryResponse > } a Promise, with data of type {@link module:model/TickhistoryResponse }
      */
     tickHistoryTradesattimeGet(id, opts) {
       return this.tickHistoryTradesattimeGetWithHttpInfo(id, opts)
@@ -97,3 +100,8 @@ export default class TradesAtTimeApi {
 
 
 }
+
+
+
+
+

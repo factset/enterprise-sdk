@@ -96,6 +96,8 @@ public class InlineResponse20016Data implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  public InlineResponse20016Data() { 
+  }
 
   public InlineResponse20016Data id(BigDecimal id) {
     this.id = id;

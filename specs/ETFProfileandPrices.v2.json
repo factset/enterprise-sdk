@@ -1,4 +1,5 @@
 {
+  "host": "api.factset.com",
   "swagger": "2.0",
   "consumes": [
     "application/json"
@@ -12,6 +13,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -22,6 +24,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "An ETP can be profiled by defining several common attributes such as issuer, fund description, and benchmark.",
         "summary": "Retrieve basic profile information for a specified ETP.",
         "parameters": [
@@ -119,7 +122,7 @@
                         },
                         "region": {
                           "type": "string",
-                          "description": "short region code where ETP exchange is located. This data is available for all the regions.",
+                          "description": "Short region code where ETP exchange is located. This data is available for all the regions.",
                           "x-enum-description": [
                             "Europe region.",
                             "North America region.",
@@ -456,6 +459,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/allocation/asset/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -466,6 +470,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by asset class. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's asset allocations.",
         "parameters": [
@@ -586,6 +591,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/allocation/country/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -596,6 +602,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's country allocations.",
         "parameters": [
@@ -711,11 +718,12 @@
         }
       }
     },
-    "/factset/etf/allocation/exchange/listBySymbol": {
+    "/factset/etf/allocation/currency/listBySymbol": {
       "get": {
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/allocation/currency/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -726,6 +734,271 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.",
+        "summary": "This endpoint returns selected ETP's currency allocations.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Market symbol of ETP defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0,
+            "description": "Non-negative number of entries to skip, or 0 (default).",
+            "name": "_paginationOffset",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 500,
+            "exclusiveMaximum": false,
+            "default": 20,
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "ETP currency allocation data.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "reportDate",
+                    "currencies"
+                  ],
+                  "properties": {
+                    "reportDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Reporting date for the allocations."
+                    },
+                    "currencies": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "currency",
+                          "weight"
+                        ],
+                        "properties": {
+                          "currency": {
+                            "type": "string",
+                            "description": "Name of the currency."
+                          },
+                          "weight": {
+                            "type": "number",
+                            "format": "real",
+                            "description": "Consolidate weight of the position within the ETP by currency allocation(s)."
+                          }
+                        }
+                      },
+                      "uniqueItems": true,
+                      "description": "List of allocations by currency."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/allocation/economicDevelopment/listBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/allocation/economicDevelopment/listBySymbol",
+        "x-supportsOffsetBasedPaging": true,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).",
+        "summary": "List of allocations classified by a holding's economic development status.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Market symbol of ETP defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0,
+            "description": "Non-negative number of entries to skip, or 0 (default).",
+            "name": "_paginationOffset",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 500,
+            "exclusiveMaximum": false,
+            "default": 20,
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of allocations.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "reportDate",
+                    "classifications"
+                  ],
+                  "properties": {
+                    "reportDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Reporting date for the allocations."
+                    },
+                    "classifications": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "name",
+                          "weight"
+                        ],
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the classification. Possible values: \"Developed Market\", \"Frontier Market\", \"Emerging Market\", \"Rest of World Market\""
+                          },
+                          "weight": {
+                            "type": "number",
+                            "format": "percentage",
+                            "x-convertToRelative": false,
+                            "description": "Weight (net) of the classification."
+                          }
+                        }
+                      },
+                      "description": "List of allocations classified by a holding's economic development status, sorted by weight in descending order."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/allocation/exchange/listBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/allocation/exchange/listBySymbol",
+        "x-supportsOffsetBasedPaging": true,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's exchange allocations.",
         "parameters": [
@@ -841,11 +1114,12 @@
         }
       }
     },
-    "/factset/etf/allocation/region/listBySymbol": {
+    "/factset/etf/allocation/industry/listBySymbol": {
       "get": {
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/allocation/industry/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -856,6 +1130,271 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.",
+        "summary": "This endpoint returns selected ETP's industry allocations.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Market symbol of ETP defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0,
+            "description": "Non-negative number of entries to skip, or 0 (default).",
+            "name": "_paginationOffset",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 500,
+            "exclusiveMaximum": false,
+            "default": 20,
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "ETP industry allocation data.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "reportDate",
+                    "industries"
+                  ],
+                  "properties": {
+                    "reportDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Reporting date for the allocations."
+                    },
+                    "industries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "industry",
+                          "weight"
+                        ],
+                        "properties": {
+                          "industry": {
+                            "type": "string",
+                            "description": "Name of the industry."
+                          },
+                          "weight": {
+                            "type": "number",
+                            "format": "real",
+                            "description": "Consolidate weight of the position within the ETP by industry(s)."
+                          }
+                        }
+                      },
+                      "uniqueItems": true,
+                      "description": "List of allocations by industry."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/allocation/marketCapitalization/listBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/allocation/marketCapitalization/listBySymbol",
+        "x-supportsOffsetBasedPaging": true,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.",
+        "summary": "List of allocations classified by a holding's total market capitalization.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Market symbol of ETP defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0,
+            "description": "Non-negative number of entries to skip, or 0 (default).",
+            "name": "_paginationOffset",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 500,
+            "exclusiveMaximum": false,
+            "default": 20,
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "List of allocations.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "reportDate",
+                    "classifications"
+                  ],
+                  "properties": {
+                    "reportDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Reporting date for the allocations."
+                    },
+                    "classifications": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "classification",
+                          "weight"
+                        ],
+                        "properties": {
+                          "classification": {
+                            "type": "string",
+                            "description": "Name of the classification."
+                          },
+                          "weight": {
+                            "type": "number",
+                            "format": "real",
+                            "description": "Weight (net) of the classification."
+                          }
+                        }
+                      },
+                      "uniqueItems": true,
+                      "description": "List of allocations classified by a holding's total market capitalization (e.g. small caps, large caps)."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/allocation/region/listBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/allocation/region/listBySymbol",
+        "x-supportsOffsetBasedPaging": true,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's region allocations.",
         "parameters": [
@@ -976,6 +1515,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/allocation/sector/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -986,6 +1526,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "This endpoint returns selected ETP's allocations grouped by sector names. The response will be sorted by weight in descending order.",
         "summary": "This endpoint returns selected ETP's sector allocations.",
         "parameters": [
@@ -1101,11 +1642,12 @@
         }
       }
     },
-    "/factset/etf/characteristics/getBySymbol": {
+    "/factset/etf/analytics/getBySymbol": {
       "get": {
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/analytics/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1116,6 +1658,699 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.",
+        "summary": "FactSet proprietary analytics datapoints for ETPs.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Ticker-region of a security as defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Profile analytics.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "asOfDate",
+                    "securityLending",
+                    "risk",
+                    "benchmarkName",
+                    "indexChange",
+                    "medianBidAskSpread"
+                  ],
+                  "properties": {
+                    "asOfDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Date the analytics data was published. Available for the regions: US, Europe, and Canada."
+                    },
+                    "securityLending": {
+                      "description": "Security lending.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "isAllowed",
+                        "isActive",
+                        "revenue",
+                        "revenuePolicy"
+                      ],
+                      "properties": {
+                        "isAllowed": {
+                          "type": "boolean",
+                          "description": "Indicates whether a fund is permitted to lend securities based on their legal structure. Available for the regions: US, Europe, and Canada."
+                        },
+                        "isActive": {
+                          "type": "boolean",
+                          "description": "Indicates that revenue from lending securities was reported on the most recent annual or semi-annual report. Available for the regions: US, Europe, and Canada."
+                        },
+                        "revenue": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The fraction of securities lending revenue that is rebated to the fund rather than kept by the issuer. Available for the regions: US, Europe, and Canada."
+                        },
+                        "revenuePolicy": {
+                          "type": "string",
+                          "description": "English description of the securities lending revenue policy, if any. Available for the regions: US, Europe, and Canada."
+                        }
+                      }
+                    },
+                    "risk": {
+                      "description": "Risk.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "isCorporateActionPending",
+                        "counterParty",
+                        "fundClosure"
+                      ],
+                      "properties": {
+                        "isCorporateActionPending": {
+                          "type": "boolean",
+                          "description": "Indicates a fund whose issuer has any corporate actions pending (e.g. merger, purchase, and closing). Available for the regions: US."
+                        },
+                        "counterParty": {
+                          "type": "string",
+                          "description": "Score predicting the likelihood that an ETN counterparty will default, as measured by 1-year credit default swap rates. Possible values are Low, Medium, or High. Empty for non-ETNs. Available for the regions: US."
+                        },
+                        "fundClosure": {
+                          "type": "string",
+                          "description": "Score estimating the likelihood that a fund will close. Based on a quantitative model. Outputs are Low, Medium, or High. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "benchmarkName": {
+                      "type": "string",
+                      "description": "FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund's performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe."
+                    },
+                    "indexChange": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "hasChanged",
+                        "date"
+                      ],
+                      "description": "Index change.",
+                      "properties": {
+                        "hasChanged": {
+                          "type": "boolean",
+                          "description": "States whether an index change has occurred. Available for the regions: US."
+                        },
+                        "date": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "Date of the most recent index change, if applicable. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "medianBidAskSpread": {
+                      "type": "number",
+                      "format": "percentage",
+                      "x-convertToRelative": false,
+                      "description": "The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/analytics/holdings/statistics/getBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/analytics/holdings/statistics/getBySymbol",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.",
+        "summary": "FactSet's portfolio statistics for ETPs.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Ticker-region of a security as defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Portfolio statistics.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "asOfDate",
+                    "numberHoldings",
+                    "concentration",
+                    "dividendYield",
+                    "priceEarningsRatio",
+                    "priceBookRatio",
+                    "marketCapitalization",
+                    "timeToMaturity",
+                    "creditRating"
+                  ],
+                  "properties": {
+                    "asOfDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Date the analytics data was published. Available for the regions: US, Europe, and Canada."
+                    },
+                    "numberHoldings": {
+                      "type": "number",
+                      "format": "int32",
+                      "description": "A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US."
+                    },
+                    "concentration": {
+                      "type": "string",
+                      "description": "A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US."
+                    },
+                    "dividendYield": {
+                      "type": "number",
+                      "format": "percentage",
+                      "x-convertToRelative": false,
+                      "description": "The annualized weighted average of the current dividend yield of the portfolio's holdings, gross of fees. Available for the regions: US."
+                    },
+                    "priceEarningsRatio": {
+                      "type": "number",
+                      "format": "real",
+                      "description": "Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US."
+                    },
+                    "priceBookRatio": {
+                      "type": "number",
+                      "format": "real",
+                      "description": "Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US."
+                    },
+                    "marketCapitalization": {
+                      "type": "number",
+                      "format": "real",
+                      "description": "The weighted average market capitalization of the stocks in the fund's portfolio (USD). Available for regions: US."
+                    },
+                    "timeToMaturity": {
+                      "type": "number",
+                      "format": "real",
+                      "description": "The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US."
+                    },
+                    "creditRating": {
+                      "type": "string",
+                      "description": "Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody's and Standard & Poor's) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/analytics/score/getBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/analytics/score/getBySymbol",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.",
+        "summary": "FactSet proprietary ETP rankings.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Ticker-region of a security as defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Score analytics.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "efficiency",
+                    "tradability",
+                    "fit",
+                    "grade",
+                    "analystPick",
+                    "onOpportunitiesList",
+                    "fitRsquared",
+                    "beta",
+                    "standardDeviationDown"
+                  ],
+                  "properties": {
+                    "efficiency": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "value",
+                        "average"
+                      ],
+                      "description": "Efficiency.",
+                      "properties": {
+                        "value": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "A measure of how well a fund delivers on its core promise of delivering the returns of an underlying index, taking into account the expense ratio, tracking error, tax risk, fund closure risk and structural risk. In the range 0 (low) to 100 (high). Available for the regions: US."
+                        },
+                        "average": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The average efficiency score for all funds in the segment. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "tradability": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "value",
+                        "average"
+                      ],
+                      "description": "Tradability.",
+                      "properties": {
+                        "value": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "A total view of the liquidity of a fund taking into account share-level liquidity as well as the underlying liquidity of a fund's portfolio of securities. In the range 0 (low) to 100 (high). Available for the regions: US."
+                        },
+                        "average": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The average tradability score for all funds in the segment. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "fit": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "value",
+                        "average"
+                      ],
+                      "description": "Fit.",
+                      "properties": {
+                        "value": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "A measure of the exposure a fund provides relative to its FactSet designated 'Segment Benchmark'. Scored in the range 0 (low) to 100 (high), with higher scores indicating better alignment with the performance and holdings of the Segment Benchmark. Available for the regions: US."
+                        },
+                        "average": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The average Fit score for all funds in the segment. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "grade": {
+                      "type": "string",
+                      "description": "Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US."
+                    },
+                    "analystPick": {
+                      "type": "boolean",
+                      "description": "If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US."
+                    },
+                    "onOpportunitiesList": {
+                      "type": "boolean",
+                      "description": "If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US."
+                    },
+                    "fitRsquared": {
+                      "type": "number",
+                      "format": "real",
+                      "description": "The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US."
+                    },
+                    "beta": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "value",
+                        "up",
+                        "down"
+                      ],
+                      "description": "Beta.",
+                      "properties": {
+                        "value": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The sensitivity of the returns of the fund to the movement of the FactSet designated 'segment benchmark'. Beta of 1.0 means magnitude of fund returns equals that of segment benchmark returns. Available for the regions: US."
+                        },
+                        "up": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "A comparison of a fund's return to the FactSet-designated benchmark's for days when the benchmark is up. Ideally down beta is less than or equal to overall beta. Available for the regions: US."
+                        },
+                        "down": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "A comparison of a fund's return to the FactSet-designated benchmark's for days when the benchmark is down. Ideally down beta is less than or equal to overall beta. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "standardDeviationDown": {
+                      "type": "number",
+                      "format": "real",
+                      "description": "A measure of the variability between the fund's returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/analytics/trade/getBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/analytics/trade/getBySymbol",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.",
+        "summary": "Trade statistics for specific ETP.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Ticker-region of a security as defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Trade analytics.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "impedimentsToCreation",
+                    "premiumDiscount",
+                    "blockTrade",
+                    "spread",
+                    "trackingDifference"
+                  ],
+                  "properties": {
+                    "impedimentsToCreation": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "value",
+                        "reason"
+                      ],
+                      "description": "Impediments to creation.",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "description": "Indicates whether a fund is fully or partially closed to creations, or is likely to become fully or partially closed to creations. Values are None, Potential, Partial, Full. Available for the regions: US."
+                        },
+                        "reason": {
+                          "type": "string",
+                          "description": "States the reason why there is an impediment to creations. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "premiumDiscount": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "median",
+                        "max"
+                      ],
+                      "description": "The difference between the last share price of the ETF and its end-of-day net asset value (NAV). A positive difference is called premium and a negative difference is called discount.",
+                      "properties": {
+                        "median": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The median premium or discount over the last 12 months. Available for the regions: US."
+                        },
+                        "max": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The greatest absolute amount that the market price exceeded (premium) and lagged (discount) its net asset value (NAV) over a 12-month period. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "blockTrade": {
+                      "description": "Properties of the ETP with respect to large trades.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "overlapHours",
+                        "underlyingVolumePerUnit",
+                        "liquidity",
+                        "creationUnitPerDay"
+                      ],
+                      "properties": {
+                        "overlapHours": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "A measurement of the overlap between the hours of trading for the ETF and that of its underlying portfolio. Available for the regions: US."
+                        },
+                        "underlyingVolumePerUnit": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Weighted average of the ratios of each underlying's number of shares, represented in one creation unit of the ETP, relative to the median daily trading volume of the underlying over 45 trading days, expressed as a percentage. This is a measure of the liquidity available in the underlying portfolio of the ETP, whereby larger numbers indicate greater likelihood of adverse price impact on underlying securities from ETF creations/redemptions. Only applicable for ETF. Available for the regions: US."
+                        },
+                        "liquidity": {
+                          "type": "number",
+                          "format": "int32",
+                          "description": "A measurement of the liquidity available in an ETF for a hypothetical 1,000,000 USD trade. Measured on a scale of 0 to 5 -- 5 being very liquid and easy to execute, 1 being expensive and difficult to execute, and 0 indicating a closed or restricted creation window. Available for the regions: US."
+                        },
+                        "creationUnitPerDay": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "The median 45 day share volume divided by the creation unit size of the fund. The higher the number, the more likely that liquidity providers will trade the fund in size, or in odd lots. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "spread": {
+                      "description": "The 45-day median of daily time-weighted dollar or percentage difference between the highest posted price a market participant is willing to pay to buy an ETF and the lowest posted price at which a market participant is willing to sell an ETF.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "absolute",
+                        "relative"
+                      ],
+                      "properties": {
+                        "absolute": {
+                          "type": "number",
+                          "format": "real",
+                          "description": "Dollar spread difference. Available for the regions: US."
+                        },
+                        "relative": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Percentage spread difference. Available for the regions: US."
+                        }
+                      }
+                    },
+                    "trackingDifference": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "median",
+                        "maxUpside",
+                        "maxDownside"
+                      ],
+                      "description": "Tracking difference.",
+                      "properties": {
+                        "median": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "The median difference between NAV and fund index returns over a one-year set of rolling 12 month holding periods. This statistic captures all inputs to tracking difference: expense ratio, optimization, securities lending income, and tax recapture. Available for the regions: US."
+                        },
+                        "maxUpside": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Greatest, or least negative 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US."
+                        },
+                        "maxDownside": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Most negative or least positive 12-month difference between NAV and index returns over a rolling 12 month period. Available for the regions: US."
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/characteristics/getBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/characteristics/getBySymbol",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.",
         "summary": "Retrieve basic characteristic information for a specified ETP.",
         "parameters": [
@@ -1188,7 +2423,7 @@
                             "factor": {
                               "type": "number",
                               "format": "real",
-                              "description": "Leverage factor of leveraged and inverse ETPs (2x, 3x, -1x, -2x, -3x, variable). This data is available for all the regions."
+                              "description": "Leverage factor of leveraged and inverse ETPs (2x, 3x, 1.5x, -1.5x, -2x, -3x, variable). This data is available for all the regions."
                             },
                             "type": {
                               "type": "string",
@@ -1315,6 +2550,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/class/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1325,6 +2561,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.",
         "summary": "Retrieve an ETP's classification specific to asset class, geography, or investment strategy.",
         "parameters": [
@@ -1442,7 +2679,7 @@
                         },
                         "specific": {
                           "type": "string",
-                          "description": "The specific geographic exposure of the ETP's holdings (e.g., BRICs, Chile, Asia-Pacific Ex-Japan), text and standardized value available.This data is available for all the regions. See endpoint /factset/etf/class/geography/list for possible values"
+                          "description": "The specific geographic exposure of the ETP's holdings (e.g., BRICs, Chile, Asia-Pacific Ex-Japan), text and standardized value available. This data is available for all the regions. See endpoint /factset/etf/class/geography/list for possible values"
                         }
                       }
                     },
@@ -1494,6 +2731,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/class/category/broad/list",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1504,6 +2742,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class broad categories.",
         "summary": "List of ETP class broad categories.",
         "responses": {
@@ -1568,6 +2807,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/class/category/focus/list",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1578,6 +2818,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class focus categories.",
         "summary": "List of ETP class focus categories.",
         "responses": {
@@ -1668,6 +2909,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/class/category/niche/list",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1678,6 +2920,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class niche categories.",
         "summary": "List of ETP class niche categories.",
         "responses": {
@@ -1768,6 +3011,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/class/geography/list",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1778,6 +3022,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "List of ETP class geographies.",
         "summary": "List of ETP class geographies.",
         "responses": {
@@ -1837,11 +3082,12 @@
         ]
       }
     },
-    "/factset/etf/distribution/getBySymbol": {
+    "/factset/etf/competitors/listBySymbol": {
       "get": {
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/competitors/listBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1852,6 +3098,97 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.",
+        "summary": "FactSet's proprietary list of competing companies.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Ticker-region of a security as defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "x-property-sort": [
+                      "symbol",
+                      "name"
+                    ],
+                    "properties": {
+                      "symbol": {
+                        "type": "string",
+                        "description": "Ticker-region as defined by FactSet."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the competitor."
+                      }
+                    }
+                  },
+                  "uniqueItems": true,
+                  "description": "Competitor's data."
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/distribution/getBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/distribution/getBySymbol",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.",
         "summary": "Retrieve an ETP's current distribution details.",
         "parameters": [
@@ -1903,7 +3240,7 @@
                         "exDividendDate",
                         "qualified",
                         "nonQualified",
-                        "returnOnCapital"
+                        "returnOfCapital"
                       ],
                       "properties": {
                         "isReported": {
@@ -1918,17 +3255,17 @@
                         "qualified": {
                           "type": "number",
                           "format": "real",
-                          "description": "Qualified dividend payment on ex-dividend-date. This data is available for all regions."
+                          "description": "Qualified dividend payment on ex-dividend-date indicates the amount of distribution considered to have a more favorable tax treatment. This data is available for all regions."
                         },
                         "nonQualified": {
                           "type": "number",
                           "format": "real",
-                          "description": "Non-Qualified dividend payment on ex-dividend-date. This data is available for all regions."
+                          "description": "Non-Qualified dividend payment on ex-dividend-date indicates the amount of distribution that is taxed as ordinary income. This data is available for all regions."
                         },
-                        "returnOnCapital": {
+                        "returnOfCapital": {
                           "type": "number",
                           "format": "real",
-                          "description": "Return on Capital available on ex-dividend-date. This data is available for all regions."
+                          "description": "Return of Capital available on ex-dividend-date. This data is available for all regions."
                         }
                       }
                     },
@@ -1943,12 +3280,12 @@
                         "shortTerm": {
                           "type": "number",
                           "format": "real",
-                          "description": "Total short term capital gains on ex-date. This data is available for all the regions."
+                          "description": "Total short term capital gains on ex-date indicates the amount of the distribution that is subject to short term tax rates.This data is available for all the regions."
                         },
                         "longTerm": {
                           "type": "number",
                           "format": "real",
-                          "description": "Total long term capital gains on ex-date. This data is available for all the regions."
+                          "description": "Total long term capital gains on ex-date indicates the amount of the distribution that is subject to long term tax rates. This data is available for all the regions."
                         }
                       }
                     },
@@ -1987,6 +3324,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/fundFlows/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -1997,6 +3335,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.",
         "summary": "Retrieve an ETP's cash inflow/outflows for various time periods.",
         "parameters": [
@@ -2091,6 +3430,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/growthOfTenK/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -2101,6 +3441,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.",
         "summary": "This endpoint returns selected ETP's Growth of 10K calculated values.",
         "parameters": [
@@ -2150,11 +3491,28 @@
             "description": "Historice NAV date value.",
             "x-enum-description": [
               "Interval - Growth of 10000 calculated based on pre-defined time Period.",
-              " Since Inception - Growth of 10000 calculation starts from the inception."
+              "Since Inception - Growth of 10000 calculation starts from the inception."
             ],
             "enum": [
               "I",
               "SI"
+            ]
+          },
+          {
+            "name": "alignment",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Indicates the reference point for growth of 10k data.",
+            "x-enum-description": [
+              "Growth of 10k data is shown relative to the most recent (usually daily) end-of-day 10k value, NAV change percent.",
+              "Growth of 10k data is shown relative to the 10k value, NAV change percent at the most recent end-of-week.",
+              "Growth of 10k data is shown relative to the 10k value, NAV change percent at the most recent end-of-month."
+            ],
+            "enum": [
+              "day",
+              "week-end",
+              "month-end"
             ]
           },
           {
@@ -2257,6 +3615,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/holdings/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -2267,6 +3626,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve an ETP's holdings information including security, shares held, and weight.",
         "summary": "Holdings details for an individual ETP.",
         "parameters": [
@@ -2329,6 +3689,8 @@
                     "x-property-sort": [
                       "symbol",
                       "name",
+                      "securityType",
+                      "exchange",
                       "reportDate",
                       "shares",
                       "marketValue",
@@ -2343,6 +3705,28 @@
                       "name": {
                         "type": "string",
                         "description": "Name of the holding."
+                      },
+                      "securityType": {
+                        "type": "string",
+                        "description": "Financial instrument type of the holding."
+                      },
+                      "exchange": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "code",
+                          "name"
+                        ],
+                        "description": "Exchange.",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "Short Code of the exchange where holding is listed. This data is available for all the regions."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the exchange where holding is listed. This data is available for all the regions."
+                          }
+                        }
                       },
                       "reportDate": {
                         "type": "string",
@@ -2361,7 +3745,7 @@
                       },
                       "currencyCode": {
                         "type": "string",
-                        "description": "Code representing the currency of the ETP and  it's in format ISO 4217"
+                        "description": "Code representing the currency of the holding and  it's in format ISO 4217"
                       },
                       "weight": {
                         "type": "number",
@@ -2395,11 +3779,12 @@
         }
       }
     },
-    "/factset/etf/price/getBySymbol": {
+    "/factset/etf/marketAggregates/getBySymbol": {
       "get": {
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/marketAggregates/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -2410,6 +3795,453 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.",
+        "summary": "Market aggregate data for ETPs.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Ticker-region of an ETP as defined by FactSet."
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "Market Aggregates",
+                  "type": "object",
+                  "x-property-sort": [
+                    "asOfDate",
+                    "optionAdjustedSpread",
+                    "averageLife"
+                  ],
+                  "properties": {
+                    "asOfDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "Date the analytics data was published. Available for the regions: US, Europe,and Canada."
+                    },
+                    "optionAdjustedSpread": {
+                      "description": "Option-adjusted spread (OAS) value of the ETP; measurement of the yield spread calculated after removing any embedded options providing users with a spread of an option-free bond.",
+                      "type": "object",
+                      "x-property-sort": [
+                        "range0",
+                        "range0To100",
+                        "range100To200",
+                        "range200To300",
+                        "range300To400",
+                        "range400To500",
+                        "range500To600",
+                        "range600To700",
+                        "range700To800",
+                        "range800To900",
+                        "range900To1000",
+                        "range1000Plus"
+                      ],
+                      "properties": {
+                        "range0": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS value of the ETP."
+                        },
+                        "range0To100": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETP ranges between 0 to 99.9."
+                        },
+                        "range100To200": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETP ranges between 100 to 199.99."
+                        },
+                        "range200To300": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETP ranges between 200 to 299.99."
+                        },
+                        "range300To400": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges between 300 to 399.99."
+                        },
+                        "range400To500": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges between 400 to 499.99."
+                        },
+                        "range500To600": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges between 500 to 599.99."
+                        },
+                        "range600To700": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges between 600 to 699.99."
+                        },
+                        "range700To800": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges between 700 to 799.99."
+                        },
+                        "range800To900": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges between 800 to 899.99."
+                        },
+                        "range900To1000": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges between 900 to 999.99."
+                        },
+                        "range1000Plus": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "OAS weight of the ETF ranges above 1000."
+                        }
+                      }
+                    },
+                    "averageLife": {
+                      "description": "Average life",
+                      "type": "object",
+                      "x-property-sort": [
+                        "span",
+                        "span0To1",
+                        "span1To2",
+                        "span2To3",
+                        "span3To5",
+                        "span5To7",
+                        "span7To10",
+                        "span10To15",
+                        "span15To20",
+                        "span20Plus"
+                      ],
+                      "properties": {
+                        "span": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP."
+                        },
+                        "span0To1": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 0 and 1 years."
+                        },
+                        "span1To2": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 1 and 2 years."
+                        },
+                        "span2To3": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 2 and 3 years."
+                        },
+                        "span3To5": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 3 and 5 years."
+                        },
+                        "span5To7": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 5 and 7 years."
+                        },
+                        "span7To10": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 7 and 10 years."
+                        },
+                        "span10To15": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 10 and 15 years."
+                        },
+                        "span15To20": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges between 15 and 20 years."
+                        },
+                        "span20Plus": {
+                          "type": "number",
+                          "format": "percentage",
+                          "x-convertToRelative": false,
+                          "description": "Average life value of the ETP ranges above 20 years."
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/premiumDiscount/summary/listBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/premiumDiscount/summary/listBySymbol",
+        "x-supportsOffsetBasedPaging": true,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "Summary of ETP premium discount data.",
+        "summary": "Summary of ETP premium discount data.",
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "type": "string",
+            "maxLength": 10,
+            "exclusiveMaximum": false,
+            "required": true,
+            "description": "Market symbol of ETP defined by FactSet."
+          },
+          {
+            "name": "timePeriod",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "default": "YTD",
+            "description": "Time frame of the data.",
+            "x-enum-description": [
+              "Year to date.",
+              "Two year.",
+              "Three year.",
+              "Five years."
+            ],
+            "enum": [
+              "YTD",
+              "2Y",
+              "3Y",
+              "5Y"
+            ]
+          },
+          {
+            "name": "alignment",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "default": "quarter-end",
+            "description": "Indicates the reference point for the historical NAV and price values.",
+            "x-enum-description": [
+              "Premium/discount/neutral data is shown relative to ETP's NAV and price at the most recent end-of-month.",
+              "Premium/discount/neutral data is shown relative to ETP's NAV and price at the most recent end-of-quarter.",
+              "Premium/discount/neutral data is shown relative to ETP's NAV and price at the most recent end-of-year."
+            ],
+            "enum": [
+              "month-end",
+              "quarter-end",
+              "year-end"
+            ]
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "default": 0,
+            "description": "Non-negative number of entries to skip, or 0 (default).",
+            "name": "_paginationOffset",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "format": "int32",
+            "minimum": 0,
+            "exclusiveMinimum": false,
+            "maximum": 500,
+            "exclusiveMaximum": false,
+            "default": 20,
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "ETP's premium discount summary data.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "asOfDate",
+                    "summary"
+                  ],
+                  "properties": {
+                    "asOfDate": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "As of date of the premium discount summary data."
+                    },
+                    "summary": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "x-property-sort": [
+                          "reportDate",
+                          "count"
+                        ],
+                        "properties": {
+                          "reportDate": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Report date of premium/discount/neutral count."
+                          },
+                          "count": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "premium",
+                              "discount",
+                              "neutral"
+                            ],
+                            "description": "Count of premium, disount and neutral.",
+                            "properties": {
+                              "premium": {
+                                "type": "number",
+                                "format": "int32",
+                                "description": "Number of days ETP is traded at premium."
+                              },
+                              "discount": {
+                                "type": "number",
+                                "format": "int32",
+                                "description": "Number of days ETP is traded at discount."
+                              },
+                              "neutral": {
+                                "type": "number",
+                                "format": "int32",
+                                "description": "Number of days ETP is neither traded at discount nor at premium."
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "uniqueItems": true,
+                      "description": "Summary of premium/discout/neutral data."
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/definitions/OffsetBasedPaginationOutputObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status",
+                    "pagination"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/factset/etf/price/getBySymbol": {
+      "get": {
+        "tags": [
+          "factset"
+        ],
+        "operationId": "get/factset/etf/price/getBySymbol",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve an ETP's historical NAV and shares outstanding for a specified time range.",
         "summary": "Retrieve historical ETP NAV values.",
         "parameters": [
@@ -2576,6 +4408,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/returns/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -2586,7 +4419,8 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
-        "description": "An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.",
+        "x-supportsPermissionDeniedResponse": false,
+        "description": "An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.",
         "summary": "Retrieve total return data for a specified ETP.",
         "parameters": [
           {
@@ -2704,6 +4538,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/strategy/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -2714,6 +4549,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "ETP's can be classified in many different ways including investment strategy, security weightings, and fund composition.",
         "summary": "Retrieve various classification details for a specified ETP.",
         "parameters": [
@@ -2763,15 +4599,15 @@
                   "properties": {
                     "description": {
                       "type": "string",
-                      "description": "Descriptive Summary of the methods used by a ETP or its index in selection and weighting of its holdings, text and standardized value available.  This data is available for the US and Canada regions."
+                      "description": "Descriptive Summary of the methods used by a ETP or its index in selection and weighting of its holdings, text and standardized value available. This data is available for the US and Canada regions."
                     },
                     "group": {
                       "type": "string",
-                      "description": "Factset's Universal Screening tool code allows screening the greatest number of ETP's to surface based on a similar ETP strategy. This data is available for the US and Canada regions."
+                      "description": "Factset's strategy group is the broadest way sort ETPs with a similar investment strategy. This data is available for the US and Canada regions."
                     },
                     "cluster": {
                       "type": "string",
-                      "description": "Factset's Universal Screening tool code allows us to screen a greater number of ETP's to surface; all must have similar ETP strategy characteristics. This data item is more granular and narrow than the strategy group. This data is available for the US and Canada regions."
+                      "description": "Factset's strategy cluster is a collection of ETPs with a similar investment strategy, yet smaller than strategy group. This data item is more granular and narrow than the strategy group yet bigger than strategy group. This data is available for the US and Canada regions."
                     },
                     "selectCriteria": {
                       "type": "string",
@@ -2818,6 +4654,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/strategy/segment/list",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -2828,6 +4665,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.",
         "summary": "Retrieve a list of ETP strategy segments.",
         "responses": {
@@ -2918,6 +4756,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/structure/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -2928,6 +4767,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve details on a fund's structure including its type, investment style (active/passive), and legal structure.",
         "summary": "Retrieve the basic structure information for a specified ETP.",
         "parameters": [
@@ -2985,7 +4825,7 @@
                     },
                     "type": {
                       "type": "string",
-                      "description": "Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions."
+                      "description": "Describes the legal structure of the ETP, text and standardized value available. This data is available for all the regions."
                     },
                     "isActivelyManaged": {
                       "type": "boolean",
@@ -2993,7 +4833,7 @@
                     },
                     "backing": {
                       "type": "string",
-                      "description": "Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions."
+                      "description": "Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available. This data is available for all the regions."
                     },
                     "syntheticType": {
                       "type": "string",
@@ -3052,6 +4892,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/taxesAndFees/us/getBySymbol",
         "x-supportsOffsetBasedPaging": false,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -3062,6 +4903,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve various fee and tax related details on a specified ETP including expense ratio and tax treatment for dividends and capital gains.",
         "summary": "Retrieve the tax and fee related information for a specified ETP.",
         "parameters": [
@@ -3194,7 +5036,7 @@
                     "managementExpenseRatio": {
                       "type": "number",
                       "format": "real",
-                      "description": "Total net annual cost associated with holding the ETP, expressed as a percentage.  This data is available for the Canada regions."
+                      "description": "Total net annual cost associated with holding the ETP, expressed as a percentage. This data is available for the Canada regions."
                     },
                     "managementFee": {
                       "type": "number",
@@ -3235,6 +5077,7 @@
         "tags": [
           "factset"
         ],
+        "operationId": "get/factset/etf/timeSeries/listBySymbol",
         "x-supportsOffsetBasedPaging": true,
         "x-supportsOffsetBasedPagingWithoutTotal": false,
         "x-supportsCursorBasedPaging": false,
@@ -3245,6 +5088,7 @@
         "x-disallowUser": false,
         "x-no-merge": false,
         "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
         "description": "Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.",
         "summary": "Retrieve historical NAV data for a specified ETP.",
         "parameters": [
@@ -3270,6 +5114,7 @@
               "Six months.",
               "Year to date.",
               "One year.",
+              "Two year.",
               "Three year.",
               "Five years.",
               "Ten years.",
@@ -3281,10 +5126,28 @@
               "6M",
               "YTD",
               "1Y",
+              "2Y",
               "3Y",
               "5Y",
               "10Y",
               "SI"
+            ]
+          },
+          {
+            "name": "alignment",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Indicates the reference point for the time series data.",
+            "x-enum-description": [
+              "Time series data is shown relative to the most recent (usually daily) end-of-day NAV.",
+              "Time series data is shown relative to the NAV at the most recent end-of-week.",
+              "Time series data is shown relative to the NAV at the most recent end-of-month."
+            ],
+            "enum": [
+              "day",
+              "week-end",
+              "month-end"
             ]
           },
           {
@@ -3316,7 +5179,7 @@
             "format": "int32",
             "minimum": 0,
             "exclusiveMinimum": false,
-            "maximum": 500,
+            "maximum": 1000,
             "exclusiveMaximum": false,
             "default": 20,
             "description": "Non-negative maximum number of entries to return.",
@@ -3339,6 +5202,7 @@
                       "nav",
                       "navChange",
                       "navChangePercent",
+                      "premiumDiscount",
                       "fundFlows",
                       "sharesOutstanding",
                       "aum"
@@ -3363,6 +5227,11 @@
                         "type": "number",
                         "format": "real",
                         "description": "Related change in the NAV value."
+                      },
+                      "premiumDiscount": {
+                        "type": "number",
+                        "format": "real",
+                        "description": "Difference between market price and NAV of the ETP."
                       },
                       "fundFlows": {
                         "type": "number",
@@ -3411,10 +5280,15 @@
     "title": "Prime Developer Trial",
     "version": "v1"
   },
-  "host": "api-sandbox.factset.com",
   "x-interface-version": 1,
-  "x-documenter-version": "5.36.0",
-  "x-api-version": "2.7.0",
+  "x-documenter-version": "5.38.1",
+  "x-api-version": "2.9.1",
+  "tags": [
+    {
+      "name": "factset",
+      "description": "factset endpoints"
+    }
+  ],
   "responses": {
     "ErrorResponse": {
       "description": "Generic error response for all errors (400 ... 599 error codes)",
@@ -3524,28 +5398,6 @@
         "code"
       ]
     },
-    "SubscriptionMember": {
-      "type": "object",
-      "properties": {
-        "minimumInterval": {
-          "type": "number",
-          "format": "int32",
-          "description": "Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.",
-          "minimum": 0,
-          "exclusiveMinimum": false,
-          "maximum": 5000,
-          "exclusiveMaximum": false,
-          "default": 0
-        }
-      },
-      "description": "Object defining the subscription attributes.",
-      "required": [
-        "minimumInterval"
-      ],
-      "x-property-sort": [
-        "minimumInterval"
-      ]
-    },
     "CursorBasedPaginationOutputObject": {
       "type": "object",
       "description": "Pagination attributes for the cursor-based pagination strategy.",
@@ -3557,15 +5409,15 @@
         },
         "isEstimatedTotal": {
           "type": "boolean",
-          "description": "Flag indicating that the value of \"total\" is estimated."
+          "description": "Flag indicating that the value of `total` is estimated."
         },
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -3587,11 +5439,11 @@
       "properties": {
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -3647,7 +5499,7 @@
       "properties": {
         "isPartial": {
           "type": "boolean",
-          "description": "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable."
+          "description": "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If `true`, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable."
         }
       },
       "description": "Object denoting that the endpoint response is possibly incomplete.",
@@ -3660,6 +5512,9 @@
     }
   },
   "basePath": "/wealth/v1",
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "FactSetApiKey": {
       "type": "basic"

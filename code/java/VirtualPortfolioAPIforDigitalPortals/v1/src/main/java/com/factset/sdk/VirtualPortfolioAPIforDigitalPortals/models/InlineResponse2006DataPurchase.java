@@ -56,6 +56,8 @@ public class InlineResponse2006DataPurchase implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private BigDecimal value;
 
+  public InlineResponse2006DataPurchase() { 
+  }
 
   public InlineResponse2006DataPurchase price(BigDecimal price) {
     this.price = price;

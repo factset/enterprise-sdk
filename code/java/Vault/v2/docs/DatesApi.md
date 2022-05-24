@@ -24,14 +24,13 @@ import com.factset.sdk.Vault.ApiClient;
 import com.factset.sdk.Vault.ApiException;
 import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.auth.*;
-import com.factset.sdk.Vault.model.*;
+import com.factset.sdk.Vault.models.*;
 import com.factset.sdk.Vault.api.DatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -41,14 +40,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DatesApi apiInstance = new DatesApi(defaultClient);
         String enddate = "-1AY"; // String | End Date
@@ -58,6 +57,7 @@ public class Example {
         try {
             DateParametersSummary result = apiInstance.convertVaultDatesToAbsoluteFormat(enddate, componentid, account, startdate);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DatesApi#convertVaultDatesToAbsoluteFormat");
             System.err.println("Status code: " + e.getCode());

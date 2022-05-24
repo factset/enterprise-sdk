@@ -24,16 +24,16 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_screener_value_ranges_get_data_capital_protection_maximum import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum
-    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_screener_value_ranges_get_data_capital_protection_minimum import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum
-    globals()['SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum'] = SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum
-    globals()['SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum'] = SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_performance_relative_maximum import SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_performance_relative_minimum import SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum
+    globals()['SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum'] = SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum
+    globals()['SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum'] = SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum
 
 
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadRelative(ModelNormal):
@@ -89,8 +89,8 @@ class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadRel
         """
         lazy_import()
         return {
-            'minimum': (SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum,),  # noqa: E501
-            'maximum': (SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum,),  # noqa: E501
+            'minimum': (SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum,),  # noqa: E501
+            'maximum': (SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum,),  # noqa: E501
         }
 
     @cached_property
@@ -144,8 +144,8 @@ class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadRel
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            minimum (SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum): [optional]  # noqa: E501
-            maximum (SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum): [optional]  # noqa: E501
+            minimum (SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum): [optional]  # noqa: E501
+            maximum (SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +227,8 @@ class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadRel
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            minimum (SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum): [optional]  # noqa: E501
-            maximum (SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum): [optional]  # noqa: E501
+            minimum (SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum): [optional]  # noqa: E501
+            maximum (SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

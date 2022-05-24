@@ -57,6 +57,8 @@ public class InlineResponse200DataIssuer implements Serializable {
   public static final String JSON_PROPERTY_GROUP = "group";
   private InlineResponse200DataIssuerGroup group;
 
+  public InlineResponse200DataIssuer() { 
+  }
 
   public InlineResponse200DataIssuer id(BigDecimal id) {
     this.id = id;

@@ -114,6 +114,8 @@ public class InlineResponse2005Data implements Serializable {
   public static final String JSON_PROPERTY_ESTIMATES = "estimates";
   private InlineResponse2005DataEstimates estimates;
 
+  public InlineResponse2005Data() { 
+  }
 
   public InlineResponse2005Data totalCount(BigDecimal totalCount) {
     this.totalCount = totalCount;

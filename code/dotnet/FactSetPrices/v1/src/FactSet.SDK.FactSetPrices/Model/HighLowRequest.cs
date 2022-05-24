@@ -113,7 +113,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class HighLowRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
@@ -153,8 +153,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(HighLowRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -204,19 +205,33 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Period != null)
-                    hashCode = hashCode * 59 + this.Period.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                }
                 if (this.PriceType != null)
-                    hashCode = hashCode * 59 + this.PriceType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceType.GetHashCode();
+                }
                 if (this.Calendar != null)
-                    hashCode = hashCode * 59 + this.Calendar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Calendar.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Adjust != null)
-                    hashCode = hashCode * 59 + this.Adjust.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Adjust.GetHashCode();
+                }
                 return hashCode;
             }
         }

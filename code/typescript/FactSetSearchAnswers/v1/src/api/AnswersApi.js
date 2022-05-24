@@ -20,7 +20,7 @@ import DataAnswerSuccessResponse from '../model/DataAnswerSuccessResponse';
 /**
 * Answers service.
 * @module api/AnswersApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class AnswersApi {
 
@@ -69,7 +69,10 @@ export default class AnswersApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = AdaptiveCardAnswerSuccessResponse;
+
       return this.apiClient.callApi(
         '/search/answers/v1/adaptive-card', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -84,7 +87,7 @@ export default class AnswersApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includeThumbnail Includes thumbnail of Adaptive Card in response (default to false)
      * @param {Boolean} opts.disableNoAnswerResponses Disables no-result answer responses (no-results and answer without data) (default to true)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AdaptiveCardAnswerSuccessResponse}
+     * @return { Promise.< module:model/AdaptiveCardAnswerSuccessResponse > } a Promise, with data of type {@link module:model/AdaptiveCardAnswerSuccessResponse }
      */
     searchForAdaptiveCardAnswer(query, opts) {
       return this.searchForAdaptiveCardAnswerWithHttpInfo(query, opts)
@@ -120,7 +123,10 @@ export default class AnswersApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DataAnswerSuccessResponse;
+
       return this.apiClient.callApi(
         '/search/answers/v1/data', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -132,7 +138,7 @@ export default class AnswersApi {
      * Fetch FactSet answer in data format
      * Returns an answer to the specified query (if a valid answer exists). Returns the answer data only (as JSON), without any markup information.
      * @param {String} query Query for desired answer (e.g., \"fds price\")
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DataAnswerSuccessResponse}
+     * @return { Promise.< module:model/DataAnswerSuccessResponse > } a Promise, with data of type {@link module:model/DataAnswerSuccessResponse }
      */
     searchForDataAnswer(query) {
       return this.searchForDataAnswerWithHttpInfo(query)
@@ -143,3 +149,8 @@ export default class AnswersApi {
 
 
 }
+
+
+
+
+

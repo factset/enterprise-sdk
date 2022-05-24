@@ -62,6 +62,8 @@ public class InlineResponse20064Data implements Serializable {
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse20064DataInstrument instrument;
 
+  public InlineResponse20064Data() { 
+  }
 
   public InlineResponse20064Data symbol(String symbol) {
     this.symbol = symbol;

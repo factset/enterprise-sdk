@@ -60,7 +60,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationSearchByTextDataValidationMarketSelection {\n");
             sb.Append("  Restrict: ").Append(Restrict).Append("\n");
             sb.Append("  Exclude: ").Append(Exclude).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationSearchByTextDataValidationMarketSelection input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Restrict == input.Restrict ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Restrict != null)
-                    hashCode = hashCode * 59 + this.Restrict.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Restrict.GetHashCode();
+                }
                 if (this.Exclude != null)
-                    hashCode = hashCode * 59 + this.Exclude.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exclude.GetHashCode();
+                }
                 return hashCode;
             }
         }

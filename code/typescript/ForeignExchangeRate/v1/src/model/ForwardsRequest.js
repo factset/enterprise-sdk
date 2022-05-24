@@ -18,7 +18,7 @@ import Frequency from './Frequency';
 /**
  * The ForwardsRequest model module.
  * @module model/ForwardsRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ForwardsRequest {
     /**

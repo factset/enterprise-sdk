@@ -68,7 +68,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20054DataInterestRate {\n");
             sb.Append("  Initial: ").Append(Initial).Append("\n");
             sb.Append("  Current: ").Append(Current).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20054DataInterestRate input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Initial == input.Initial ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Initial != null)
-                    hashCode = hashCode * 59 + this.Initial.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Initial.GetHashCode();
+                }
                 if (this.Current != null)
-                    hashCode = hashCode * 59 + this.Current.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Current.GetHashCode();
+                }
                 if (this.Final != null)
-                    hashCode = hashCode * 59 + this.Final.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Final.GetHashCode();
+                }
                 return hashCode;
             }
         }

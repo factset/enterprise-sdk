@@ -48,10 +48,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new QuoteAtTimeApi(config);
-            var id = id_example;  // string | Requested symbol or security. The symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA
-            var date = date_example;  // string | Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days (optional) 
-            var time = time_example;  // string | Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds (optional) 
-            var format = format_example;  // string | The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional)  (default to XML)
+            var id = "id_example";  // string | Requested symbol or security. The symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA
+            var date = "date_example";  // string | Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days (optional) 
+            var time = "time_example";  // string | Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds (optional) 
+            var format = "XML";  // string | The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional)  (default to XML)
 
             try
             {
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **format** | **string**| The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER | [optional] [default to XML]
 
 ### Return type
-
 [**TickhistoryResponse**](TickhistoryResponse.md)
 
 ### Authorization

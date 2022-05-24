@@ -61,6 +61,16 @@ public class ReturnsSnapshotRequest implements Serializable {
   public static final String JSON_PROPERTY_DIVIDEND_ADJUST = "dividendAdjust";
   private DividendAdjustSnapshot dividendAdjust = DividendAdjustSnapshot.PRICE;
 
+  public ReturnsSnapshotRequest() { 
+  }
+
+  @JsonCreator
+  public ReturnsSnapshotRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public ReturnsSnapshotRequest ids(java.util.List<String> ids) {
     this.ids = ids;

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
@@ -48,6 +48,18 @@ public class InlineResponse200DataLifeCycleSubscriptionPeriod implements Seriali
   public static final String JSON_PROPERTY_END = "end";
   private LocalDate end;
 
+  public InlineResponse200DataLifeCycleSubscriptionPeriod() { 
+  }
+
+  @JsonCreator
+  public InlineResponse200DataLifeCycleSubscriptionPeriod(
+    @JsonProperty(value=JSON_PROPERTY_START, required=true) LocalDate start, 
+    @JsonProperty(value=JSON_PROPERTY_END, required=true) LocalDate end
+  ) {
+    this();
+    this.start = start;
+    this.end = end;
+  }
 
   public InlineResponse200DataLifeCycleSubscriptionPeriod start(LocalDate start) {
     this.start = start;

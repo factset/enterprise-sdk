@@ -20,7 +20,7 @@ import PeopleProfilesResponse from '../model/PeopleProfilesResponse';
 /**
 * Profiles service.
 * @module api/ProfilesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ProfilesApi {
 
@@ -63,7 +63,10 @@ export default class ProfilesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = PeopleProfilesResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/profiles', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class ProfilesApi {
      * Return information about the person with the specified entity ID.
      * Returns a summary of basic information about the person referenced by the entityId specified in the URI. 
      * @param {Array.<String>} ids List of FactSet Person Entity identifier.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PeopleProfilesResponse}
+     * @return { Promise.< module:model/PeopleProfilesResponse > } a Promise, with data of type {@link module:model/PeopleProfilesResponse }
      */
     getPeopleProfiles(ids) {
       return this.getPeopleProfilesWithHttpInfo(ids)
@@ -109,7 +112,10 @@ export default class ProfilesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = PeopleProfilesResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/profiles', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -120,7 +126,7 @@ export default class ProfilesApi {
     /**
      * Returns profile information for a large list of people.
      * @param {module:model/PeopleProfilesRequest} peopleProfilesRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PeopleProfilesResponse}
+     * @return { Promise.< module:model/PeopleProfilesResponse > } a Promise, with data of type {@link module:model/PeopleProfilesResponse }
      */
     getPeopleProfilesForList(peopleProfilesRequest) {
       return this.getPeopleProfilesForListWithHttpInfo(peopleProfilesRequest)
@@ -131,3 +137,8 @@ export default class ProfilesApi {
 
 
 }
+
+
+
+
+

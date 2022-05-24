@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresTimeValue implements Serializable {
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresTimeValue() { 
+  }
 
   public InlineResponse2005DataKeyFiguresTimeValue minimum(BigDecimal minimum) {
     this.minimum = minimum;

@@ -7,6 +7,9 @@ import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Vault.models.ComponentSummary;
 import com.factset.sdk.Vault.models.VaultComponent;
@@ -22,6 +25,18 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getVaultComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVaultComponentByIdResponseTypeMap.put(200, new GenericType<VaultComponent>(){});
+  }
+  private static final Map<Integer, GenericType> getVaultComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVaultComponentsResponseTypeMap.put(200, new GenericType<java.util.Map<String, ComponentSummary>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,17 +134,23 @@ public class ComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<VaultComponent> localVarReturnType = new GenericType<VaultComponent>() {};
 
-    return apiClient.invokeAPI("ComponentsApi.getVaultComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        VaultComponent
+      
+    > apiResponse = apiClient.invokeAPI("ComponentsApi.getVaultComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVaultComponentByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Vault components
    * This endpoint returns the list of Vault components in a given Vault document.
    * @param document Document Name (required)
-   * @return java.util.Map&lt;String, ComponentSummary&gt;
+   * @return java.util.Map<String, ComponentSummary>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -153,7 +174,7 @@ public class ComponentsApi {
    * Get Vault components
    * This endpoint returns the list of Vault components in a given Vault document.
    * @param document Document Name (required)
-   * @return ApiResponse&lt;java.util.Map&lt;String, ComponentSummary&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, ComponentSummary>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -203,10 +224,16 @@ public class ComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, ComponentSummary>> localVarReturnType = new GenericType<java.util.Map<String, ComponentSummary>>() {};
 
-    return apiClient.invokeAPI("ComponentsApi.getVaultComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, ComponentSummary>
+      
+    > apiResponse = apiClient.invokeAPI("ComponentsApi.getVaultComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVaultComponentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

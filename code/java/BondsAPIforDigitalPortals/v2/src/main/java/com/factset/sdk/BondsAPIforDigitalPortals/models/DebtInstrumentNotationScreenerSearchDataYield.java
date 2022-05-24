@@ -54,6 +54,8 @@ public class DebtInstrumentNotationScreenerSearchDataYield implements Serializab
   public static final String JSON_PROPERTY_SPREAD = "spread";
   private DebtInstrumentNotationScreenerSearchDataYieldSpread spread;
 
+  public DebtInstrumentNotationScreenerSearchDataYield() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataYield current(DebtInstrumentNotationScreenerSearchDataYieldCurrent current) {
     this.current = current;

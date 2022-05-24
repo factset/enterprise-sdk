@@ -1,6 +1,6 @@
 # NewsApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,14 +38,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -55,14 +54,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         String code = "code_example"; // String | Identifier of a news article.
@@ -72,6 +71,7 @@ public class Example {
         try {
             InlineResponse200 result = apiInstance.getNewsArticleGet(code, includeMedia, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsArticleGet");
             System.err.println("Status code: " + e.getCode());
@@ -129,14 +129,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -146,14 +145,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a news article type.
@@ -162,6 +161,7 @@ public class Example {
         try {
             InlineResponse2003 result = apiInstance.getNewsArticleTypeGet(id, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsArticleTypeGet");
             System.err.println("Status code: " + e.getCode());
@@ -217,14 +217,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -234,14 +233,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -249,6 +248,7 @@ public class Example {
         try {
             InlineResponse2004 result = apiInstance.getNewsArticleTypeList(attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsArticleTypeList");
             System.err.println("Status code: " + e.getCode());
@@ -304,14 +304,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -321,14 +320,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a distributor.
@@ -336,6 +335,7 @@ public class Example {
         try {
             InlineResponse2005 result = apiInstance.getNewsDistributorGet(id, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsDistributorGet");
             System.err.println("Status code: " + e.getCode());
@@ -390,14 +390,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -407,14 +406,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | Identifiers of distributors.
@@ -423,6 +422,7 @@ public class Example {
         try {
             InlineResponse2006 result = apiInstance.getNewsDistributorList(ids, attributes, sort);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsDistributorList");
             System.err.println("Status code: " + e.getCode());
@@ -479,14 +479,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -496,14 +495,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a publisher.
@@ -511,6 +510,7 @@ public class Example {
         try {
             InlineResponse2007 result = apiInstance.getNewsPublisherGet(id, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsPublisherGet");
             System.err.println("Status code: " + e.getCode());
@@ -566,14 +566,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -583,14 +582,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         java.util.Set<BigDecimal> ids = Arrays.asList(); // java.util.Set<BigDecimal> | Identifiers of publishers.
@@ -601,6 +600,7 @@ public class Example {
         try {
             InlineResponse2008 result = apiInstance.getNewsPublisherList(ids, attributes, sort, paginationOffset, paginationLimit);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsPublisherList");
             System.err.println("Status code: " + e.getCode());
@@ -659,14 +659,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -676,14 +675,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         BigDecimal id = new BigDecimal(78); // BigDecimal | Identifier of a distributor.
@@ -692,6 +691,7 @@ public class Example {
         try {
             InlineResponse2009 result = apiInstance.getNewsPublisherListByDistributor(id, attributes, sort);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#getNewsPublisherListByDistributor");
             System.err.println("Status code: " + e.getCode());
@@ -747,14 +747,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -764,20 +763,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         InlineObject body = new InlineObject(); // InlineObject | 
         try {
             InlineResponse2001 result = apiInstance.postNewsArticleList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#postNewsArticleList");
             System.err.println("Status code: " + e.getCode());
@@ -831,14 +831,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -848,20 +847,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         InlineObject1 body = new InlineObject1(); // InlineObject1 | 
         try {
             InlineResponse2002 result = apiInstance.postNewsArticleListByChain(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#postNewsArticleListByChain");
             System.err.println("Status code: " + e.getCode());
@@ -915,14 +915,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -932,20 +931,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         InlineObject2 body = new InlineObject2(); // InlineObject2 | 
         try {
             InlineResponse2001 result = apiInstance.postNewsArticleListByIndex(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#postNewsArticleListByIndex");
             System.err.println("Status code: " + e.getCode());
@@ -999,14 +999,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -1016,20 +1015,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         InlineObject3 body = new InlineObject3(); // InlineObject3 | 
         try {
             InlineResponse2001 result = apiInstance.postNewsArticleListByInstrument(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#postNewsArticleListByInstrument");
             System.err.println("Status code: " + e.getCode());
@@ -1083,14 +1083,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -1100,20 +1099,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         InlineObject4 body = new InlineObject4(); // InlineObject4 | 
         try {
             InlineResponse2001 result = apiInstance.postNewsArticleListByMediaKind(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#postNewsArticleListByMediaKind");
             System.err.println("Status code: " + e.getCode());
@@ -1167,14 +1167,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -1184,20 +1183,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         InlineObject5 body = new InlineObject5(); // InlineObject5 | 
         try {
             InlineResponse2001 result = apiInstance.postNewsArticleSearchByText(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#postNewsArticleSearchByText");
             System.err.println("Status code: " + e.getCode());
@@ -1251,14 +1251,13 @@ import com.factset.sdk.NewsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.NewsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.NewsAPIforDigitalPortals.model.*;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.*;
 import com.factset.sdk.NewsAPIforDigitalPortals.api.NewsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -1268,20 +1267,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NewsApi apiInstance = new NewsApi(defaultClient);
         InlineObject6 body = new InlineObject6(); // InlineObject6 | 
         try {
             InlineResponse2009 result = apiInstance.postNewsPublisherSearchByName(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NewsApi#postNewsPublisherSearchByName");
             System.err.println("Status code: " + e.getCode());

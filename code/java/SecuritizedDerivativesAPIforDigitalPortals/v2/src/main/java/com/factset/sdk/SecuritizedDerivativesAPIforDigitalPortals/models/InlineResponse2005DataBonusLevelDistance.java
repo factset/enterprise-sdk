@@ -49,6 +49,8 @@ public class InlineResponse2005DataBonusLevelDistance implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private InlineResponse2005DataStrikeDistanceRelative relative;
 
+  public InlineResponse2005DataBonusLevelDistance() { 
+  }
 
   public InlineResponse2005DataBonusLevelDistance absolute(InlineResponse2005DataStrikeDistanceAbsolute absolute) {
     this.absolute = absolute;

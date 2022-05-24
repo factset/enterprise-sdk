@@ -25,7 +25,6 @@ src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/ApiClient.ja
 src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/ApiException.java
 src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/ApiResponse.java
 src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/Configuration.java
-src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/JSON.java
 src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/ExchangeDataFeedSnapshotAPISymbolList/Pair.java

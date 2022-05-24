@@ -180,7 +180,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataKeyFigures {\n");
             sb.Append("  BonusYield: ").Append(BonusYield).Append("\n");
             sb.Append("  SidewaysYield: ").Append(SidewaysYield).Append("\n");
@@ -230,8 +230,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataKeyFigures input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BonusYield == input.BonusYield ||
@@ -330,39 +331,73 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.BonusYield != null)
-                    hashCode = hashCode * 59 + this.BonusYield.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BonusYield.GetHashCode();
+                }
                 if (this.SidewaysYield != null)
-                    hashCode = hashCode * 59 + this.SidewaysYield.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SidewaysYield.GetHashCode();
+                }
                 if (this.MaximumYield != null)
-                    hashCode = hashCode * 59 + this.MaximumYield.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MaximumYield.GetHashCode();
+                }
                 if (this.Agio != null)
-                    hashCode = hashCode * 59 + this.Agio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Agio.GetHashCode();
+                }
                 if (this.Discount != null)
-                    hashCode = hashCode * 59 + this.Discount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Discount.GetHashCode();
+                }
                 if (this.BreakEven != null)
-                    hashCode = hashCode * 59 + this.BreakEven.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BreakEven.GetHashCode();
+                }
                 if (this.Spread != null)
-                    hashCode = hashCode * 59 + this.Spread.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Spread.GetHashCode();
+                }
                 if (this.Delta != null)
-                    hashCode = hashCode * 59 + this.Delta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Delta.GetHashCode();
+                }
                 if (this.ThetaOneWeek != null)
-                    hashCode = hashCode * 59 + this.ThetaOneWeek.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ThetaOneWeek.GetHashCode();
+                }
                 if (this.Vega != null)
-                    hashCode = hashCode * 59 + this.Vega.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Vega.GetHashCode();
+                }
                 if (this.Leverage != null)
-                    hashCode = hashCode * 59 + this.Leverage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Leverage.GetHashCode();
+                }
                 if (this.Omega != null)
-                    hashCode = hashCode * 59 + this.Omega.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Omega.GetHashCode();
+                }
                 if (this.ImpliedVolatility != null)
-                    hashCode = hashCode * 59 + this.ImpliedVolatility.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ImpliedVolatility.GetHashCode();
+                }
                 if (this.IntrinsicValue != null)
-                    hashCode = hashCode * 59 + this.IntrinsicValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IntrinsicValue.GetHashCode();
+                }
                 if (this.TimeValue != null)
-                    hashCode = hashCode * 59 + this.TimeValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TimeValue.GetHashCode();
+                }
                 if (this.OutperformancePoint != null)
-                    hashCode = hashCode * 59 + this.OutperformancePoint.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OutperformancePoint.GetHashCode();
+                }
                 if (this.Parity != null)
-                    hashCode = hashCode * 59 + this.Parity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Parity.GetHashCode();
+                }
                 return hashCode;
             }
         }

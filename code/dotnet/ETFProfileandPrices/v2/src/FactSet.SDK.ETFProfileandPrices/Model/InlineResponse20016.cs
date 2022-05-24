@@ -34,19 +34,20 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20016" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        /// <param name="data">List of ETP class broad categories..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20016(InlineResponse20016Data data = default(InlineResponse20016Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
+        public InlineResponse20016(List<InlineResponse20016Data> data = default(List<InlineResponse20016Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// List of ETP class broad categories.
         /// </summary>
+        /// <value>List of ETP class broad categories.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public InlineResponse20016Data Data { get; set; }
+        public List<InlineResponse20016Data> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
@@ -60,7 +61,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20016 {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
@@ -95,13 +96,15 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20016 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
                     this.Meta == input.Meta ||
@@ -120,9 +123,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

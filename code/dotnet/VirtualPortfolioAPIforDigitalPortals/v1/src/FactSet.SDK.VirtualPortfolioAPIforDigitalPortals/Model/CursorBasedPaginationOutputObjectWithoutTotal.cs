@@ -75,7 +75,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CursorBasedPaginationOutputObjectWithoutTotal {\n");
             sb.Append("  Next: ").Append(Next).Append("\n");
             sb.Append("  Previous: ").Append(Previous).Append("\n");
@@ -110,8 +110,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(CursorBasedPaginationOutputObjectWithoutTotal input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Next == input.Next ||
@@ -135,9 +136,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Next != null)
-                    hashCode = hashCode * 59 + this.Next.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Next.GetHashCode();
+                }
                 if (this.Previous != null)
-                    hashCode = hashCode * 59 + this.Previous.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Previous.GetHashCode();
+                }
                 return hashCode;
             }
         }

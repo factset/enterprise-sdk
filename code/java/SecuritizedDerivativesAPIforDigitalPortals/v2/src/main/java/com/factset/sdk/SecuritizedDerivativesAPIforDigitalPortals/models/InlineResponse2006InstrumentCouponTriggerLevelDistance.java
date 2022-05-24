@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentCouponTriggerLevelDistance implements S
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006InstrumentCouponTriggerLevelDistance() { 
+  }
 
   public InlineResponse2006InstrumentCouponTriggerLevelDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

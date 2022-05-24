@@ -83,6 +83,8 @@ public class InlineResponse2004ReportedKeyFiguresSecondFiscalYear implements Ser
   public static final String JSON_PROPERTY_RATIOS = "ratios";
   private InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios ratios;
 
+  public InlineResponse2004ReportedKeyFiguresSecondFiscalYear() { 
+  }
 
   public InlineResponse2004ReportedKeyFiguresSecondFiscalYear fiscalYear(InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear fiscalYear) {
     this.fiscalYear = fiscalYear;

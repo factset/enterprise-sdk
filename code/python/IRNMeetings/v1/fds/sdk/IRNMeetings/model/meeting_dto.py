@@ -24,8 +24,8 @@ from fds.sdk.IRNMeetings.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNMeetings.exceptions import ApiAttributeError
 
 
@@ -97,6 +97,8 @@ class MeetingDto(ModelNormal):
             'organizer_id': (str,),  # noqa: E501
             'body': (str, none_type,),  # noqa: E501
             'average_rating': (int, none_type,),  # noqa: E501
+            'alert_attendees': (bool,),  # noqa: E501
+            'alert_author': (bool,),  # noqa: E501
             'locations': ([LocationDto], none_type,),  # noqa: E501
             'attendees': ([AttendeeDto], none_type,),  # noqa: E501
             'custom_fields': ([CustomFieldValueDto], none_type,),  # noqa: E501
@@ -122,6 +124,8 @@ class MeetingDto(ModelNormal):
         'organizer_id': 'organizerId',  # noqa: E501
         'body': 'body',  # noqa: E501
         'average_rating': 'averageRating',  # noqa: E501
+        'alert_attendees': 'alertAttendees',  # noqa: E501
+        'alert_author': 'alertAuthor',  # noqa: E501
         'locations': 'locations',  # noqa: E501
         'attendees': 'attendees',  # noqa: E501
         'custom_fields': 'customFields',  # noqa: E501
@@ -182,6 +186,8 @@ class MeetingDto(ModelNormal):
             organizer_id (str): [optional]  # noqa: E501
             body (str, none_type): [optional]  # noqa: E501
             average_rating (int, none_type): [optional]  # noqa: E501
+            alert_attendees (bool): [optional]  # noqa: E501
+            alert_author (bool): [optional]  # noqa: E501
             locations ([LocationDto], none_type): [optional]  # noqa: E501
             attendees ([AttendeeDto], none_type): [optional]  # noqa: E501
             custom_fields ([CustomFieldValueDto], none_type): [optional]  # noqa: E501
@@ -280,6 +286,8 @@ class MeetingDto(ModelNormal):
             organizer_id (str): [optional]  # noqa: E501
             body (str, none_type): [optional]  # noqa: E501
             average_rating (int, none_type): [optional]  # noqa: E501
+            alert_attendees (bool): [optional]  # noqa: E501
+            alert_author (bool): [optional]  # noqa: E501
             locations ([LocationDto], none_type): [optional]  # noqa: E501
             attendees ([AttendeeDto], none_type): [optional]  # noqa: E501
             custom_fields ([CustomFieldValueDto], none_type): [optional]  # noqa: E501

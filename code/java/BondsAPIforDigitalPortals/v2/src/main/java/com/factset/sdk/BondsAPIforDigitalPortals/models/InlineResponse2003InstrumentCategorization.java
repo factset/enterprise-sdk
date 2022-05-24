@@ -54,6 +54,8 @@ public class InlineResponse2003InstrumentCategorization implements Serializable 
   public static final String JSON_PROPERTY_LEVEL3 = "level3";
   private InlineResponse2003InstrumentCategorizationLevel3 level3;
 
+  public InlineResponse2003InstrumentCategorization() { 
+  }
 
   public InlineResponse2003InstrumentCategorization level1(InlineResponse2003InstrumentCategorizationLevel1 level1) {
     this.level1 = level1;

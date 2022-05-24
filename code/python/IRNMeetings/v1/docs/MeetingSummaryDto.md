@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **related_symbols** | **[str], none_type** |  | [optional] 
 **locations** | [**[LocationDto], none_type**](LocationDto.md) |  | [optional] 
 **attendees** | [**[AttendeeDto], none_type**](AttendeeDto.md) |  | [optional] 
+**custom_field_values** | [**[CustomFieldValueDto], none_type**](CustomFieldValueDto.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

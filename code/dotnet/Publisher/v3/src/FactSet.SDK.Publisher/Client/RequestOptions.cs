@@ -55,6 +55,11 @@ namespace FactSet.SDK.Publisher.Client
         public List<Cookie> Cookies { get; set; }
 
         /// <summary>
+        /// Response type dictionary for each status code.
+        /// </summary>
+        public Dictionary<HttpStatusCode, Type> ResponseTypeDictionary { get; set; }
+
+        /// <summary>
         /// Any data associated with a request body.
         /// </summary>
         public Object Data { get; set; }

@@ -17,7 +17,7 @@ import Frequency from './Frequency';
 /**
  * The ConsensusRatingsRequest model module.
  * @module model/ConsensusRatingsRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ConsensusRatingsRequest {
     /**

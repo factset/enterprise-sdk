@@ -16,15 +16,15 @@ import ApiClient from '../ApiClient';
 /**
  * The CursorBasedPaginationOutputObjectWithoutTotal model module.
  * @module model/CursorBasedPaginationOutputObjectWithoutTotal
- * @version 0.9.1
+ * @version 0.10.0
  */
 class CursorBasedPaginationOutputObjectWithoutTotal {
     /**
      * Constructs a new <code>CursorBasedPaginationOutputObjectWithoutTotal</code>.
      * Pagination attributes for the cursor-based pagination strategy; a total element count is not supported.
      * @alias module:model/CursorBasedPaginationOutputObjectWithoutTotal
-     * @param next {String} Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
-     * @param previous {String} Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+     * @param next {String} The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
+     * @param previous {String} The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
      */
     constructor(next, previous) { 
         
@@ -66,13 +66,13 @@ class CursorBasedPaginationOutputObjectWithoutTotal {
 }
 
 /**
- * Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
+ * The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
  * @member {String} next
  */
 CursorBasedPaginationOutputObjectWithoutTotal.prototype['next'] = undefined;
 
 /**
- * Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+ * The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
  * @member {String} previous
  */
 CursorBasedPaginationOutputObjectWithoutTotal.prototype['previous'] = undefined;

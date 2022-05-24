@@ -51,6 +51,8 @@ public class LookupObject implements Serializable {
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private FilterParams filters;
 
+  public LookupObject() { 
+  }
 
   public LookupObject pattern(String pattern) {
     this.pattern = pattern;

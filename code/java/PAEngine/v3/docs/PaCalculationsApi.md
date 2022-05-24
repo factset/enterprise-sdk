@@ -29,14 +29,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.PaCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,19 +45,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PaCalculationsApi apiInstance = new PaCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run PA calculation endpoint
         try {
             apiInstance.cancelCalculationById(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PaCalculationsApi#cancelCalculationById");
             System.err.println("Status code: " + e.getCode());
@@ -118,14 +118,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.PaCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,20 +134,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PaCalculationsApi apiInstance = new PaCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run PA calculation endpoint
         try {
             PACalculationParametersRoot result = apiInstance.getCalculationParameters(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PaCalculationsApi#getCalculationParameters");
             System.err.println("Status code: " + e.getCode());
@@ -210,14 +210,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.PaCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -227,20 +226,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PaCalculationsApi apiInstance = new PaCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run PA calculation endpoint
         try {
             CalculationStatusRoot result = apiInstance.getCalculationStatusById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PaCalculationsApi#getCalculationStatusById");
             System.err.println("Status code: " + e.getCode());
@@ -302,14 +302,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.PaCalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -319,14 +318,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PaCalculationsApi apiInstance = new PaCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Get PA calculation status by id endpoint
@@ -334,6 +333,7 @@ public class Example {
         try {
             ObjectRoot result = apiInstance.getCalculationUnitResultById(id, unitId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PaCalculationsApi#getCalculationUnitResultById");
             System.err.println("Status code: " + e.getCode());
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 ## postAndCalculate
 
-> CalculationStatusRoot postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot)
+> PostAndCalculateResponseWrapper postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot)
 
 Create and Run PA calculation
 
@@ -391,6 +391,11 @@ Remarks:
 
 *	Any settings in POST body will act as a one-time override over the settings saved in the PA template.
 
+*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
+    the default frequency of the Beginning of Period to whatever we pass in the request body.
+    
+*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+
 ### Example
 
 ```java
@@ -399,14 +404,14 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.PaCalculationsApi;
+import com.factset.sdk.PAEngine.api.PaCalculationsApi.PostAndCalculateResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -416,22 +421,34 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PaCalculationsApi apiInstance = new PaCalculationsApi(defaultClient);
         Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds when only one unit is passed in the POST body.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         PACalculationParametersRoot paCalculationParametersRoot = new PACalculationParametersRoot(); // PACalculationParametersRoot | Calculation Parameters
         try {
-            CalculationStatusRoot result = apiInstance.postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot);
-            System.out.println(result);
+            PostAndCalculateResponseWrapper result = apiInstance.postAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // CalculationStatusRoot
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationStatusRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PaCalculationsApi#postAndCalculate");
             System.err.println("Status code: " + e.getCode());
@@ -454,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PostAndCalculateResponseWrapper
 
 ### Authorization
 
@@ -483,7 +500,7 @@ Name | Type | Description  | Notes
 
 ## putAndCalculate
 
-> CalculationStatusRoot putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot)
+> PutAndCalculateResponseWrapper putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot)
 
 Create or Update PA calculation and run it.
 
@@ -494,6 +511,11 @@ Remarks:
 
 *	Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
 
+*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
+    the default frequency of the Beginning of Period to whatever we pass in the request body.
+    
+*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+
 ### Example
 
 ```java
@@ -502,14 +524,14 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.PaCalculationsApi;
+import com.factset.sdk.PAEngine.api.PaCalculationsApi.PutAndCalculateResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -519,14 +541,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PaCalculationsApi apiInstance = new PaCalculationsApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run PA calculation endpoint
@@ -534,8 +556,20 @@ public class Example {
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         PACalculationParametersRoot paCalculationParametersRoot = new PACalculationParametersRoot(); // PACalculationParametersRoot | Calculation Parameters
         try {
-            CalculationStatusRoot result = apiInstance.putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot);
-            System.out.println(result);
+            PutAndCalculateResponseWrapper result = apiInstance.putAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, paCalculationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // CalculationStatusRoot
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationStatusRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PaCalculationsApi#putAndCalculate");
             System.err.println("Status code: " + e.getCode());
@@ -559,7 +593,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PutAndCalculateResponseWrapper
 
 ### Authorization
 

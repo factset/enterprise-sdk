@@ -85,7 +85,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 
 ### Return type
-
 [**FundHoldingsResponse**](FundHoldingsResponse.md)
 
 ### Authorization
@@ -179,7 +178,6 @@ Name | Type | Description  | Notes
  **fundHoldingsRequest** | [**FundHoldingsRequest**](FundHoldingsRequest.md)| Requesting Underlying Holdings for a list of Fund Identifiers. | 
 
 ### Return type
-
 [**FundHoldingsResponse**](FundHoldingsResponse.md)
 
 ### Authorization

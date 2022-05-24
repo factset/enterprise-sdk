@@ -41,21 +41,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
+
     database_schema = DatabaseSchema(
         path="path_example",
         description="description_example",
@@ -72,11 +73,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         ]),
     ) # DatabaseSchema |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         api_response = api_instance.create_database(database_schema=database_schema)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling CreateApi->create_database: %s\n" % e)
 ```
@@ -148,21 +148,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
+
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
     inline_object4 = InlineObject4(
@@ -170,10 +171,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         data={},
     ) # InlineObject4 | 
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_dates_date_symbols_post(path, date, inline_object4)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling CreateApi->v1_database_path_dates_date_symbols_post: %s\n" % e)
 ```
@@ -247,31 +248,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
+
     path = "path_example" # str | Encode database path
     inline_object2 = InlineObject2(
         date="20200730",
         data=[{"symbol":"FACTSET","field":"VALUE"}],
     ) # InlineObject2 | 
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_dates_post(path, inline_object2)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling CreateApi->v1_database_path_dates_post: %s\n" % e)
 ```
@@ -345,21 +347,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = create_api.CreateApi(api_client)
+
     path = "path_example" # str | Encode database path
     inline_object = InlineObject(
         symbol="symbol_example",
@@ -368,10 +371,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         ],
     ) # InlineObject | 
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_symbols_post(path, inline_object)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling CreateApi->v1_database_path_symbols_post: %s\n" % e)
 ```

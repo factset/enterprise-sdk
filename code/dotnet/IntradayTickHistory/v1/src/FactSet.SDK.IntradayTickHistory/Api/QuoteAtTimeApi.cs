@@ -108,6 +108,22 @@ namespace FactSet.SDK.IntradayTickHistory.Api
     {
         private FactSet.SDK.IntradayTickHistory.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> TickHistoryQatGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(TickhistoryResponse) },
+            { (HttpStatusCode)401, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)405, typeof(Object) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="QuoteAtTimeApi"/> class.
         /// </summary>
@@ -221,7 +237,7 @@ namespace FactSet.SDK.IntradayTickHistory.Api
         /// <returns>TickhistoryResponse</returns>
         public TickhistoryResponse TickHistoryQatGet(string id, string date = default(string), string time = default(string), string format = default(string))
         {
-            FactSet.SDK.IntradayTickHistory.Client.ApiResponse<TickhistoryResponse> localVarResponse = TickHistoryQatGetWithHttpInfo(id, date, time, format);
+            var localVarResponse = TickHistoryQatGetWithHttpInfo(id, date, time, format);
             return localVarResponse.Data;
         }
 
@@ -234,11 +250,13 @@ namespace FactSet.SDK.IntradayTickHistory.Api
         /// <param name="time">Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds (optional)</param>
         /// <param name="format">The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional, default to XML)</param>
         /// <returns>ApiResponse of TickhistoryResponse</returns>
-        public FactSet.SDK.IntradayTickHistory.Client.ApiResponse<TickhistoryResponse> TickHistoryQatGetWithHttpInfo(string id, string date = default(string), string time = default(string), string format = default(string))
+        public ApiResponse<TickhistoryResponse> TickHistoryQatGetWithHttpInfo(string id, string date = default(string), string time = default(string), string format = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.IntradayTickHistory.Client.ApiException(400, "Missing required parameter 'id' when calling QuoteAtTimeApi->TickHistoryQatGet");
+            }
 
             FactSet.SDK.IntradayTickHistory.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IntradayTickHistory.Client.RequestOptions();
 
@@ -253,10 +271,16 @@ namespace FactSet.SDK.IntradayTickHistory.Api
             };
 
             var localVarContentType = FactSet.SDK.IntradayTickHistory.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IntradayTickHistory.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IntradayTickHistory.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (date != null)
@@ -274,13 +298,13 @@ namespace FactSet.SDK.IntradayTickHistory.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IntradayTickHistory.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -292,15 +316,19 @@ namespace FactSet.SDK.IntradayTickHistory.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<TickhistoryResponse>("/TickHistory/qat", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = TickHistoryQatGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            TickhistoryResponse>("/TickHistory/qat", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TickHistoryQatGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -314,9 +342,9 @@ namespace FactSet.SDK.IntradayTickHistory.Api
         /// <param name="format">The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional, default to XML)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TickhistoryResponse</returns>
-        public async System.Threading.Tasks.Task<TickhistoryResponse> TickHistoryQatGetAsync(string id, string date = default(string), string time = default(string), string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TickhistoryResponse>TickHistoryQatGetAsync(string id, string date = default(string), string time = default(string), string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IntradayTickHistory.Client.ApiResponse<TickhistoryResponse> localVarResponse = await TickHistoryQatGetWithHttpInfoAsync(id, date, time, format, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TickHistoryQatGetWithHttpInfoAsync(id, date, time, format, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -330,11 +358,14 @@ namespace FactSet.SDK.IntradayTickHistory.Api
         /// <param name="format">The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional, default to XML)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TickhistoryResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IntradayTickHistory.Client.ApiResponse<TickhistoryResponse>> TickHistoryQatGetWithHttpInfoAsync(string id, string date = default(string), string time = default(string), string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<TickhistoryResponse>> TickHistoryQatGetWithHttpInfoAsync(string id, string date = default(string), string time = default(string), string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.IntradayTickHistory.Client.ApiException(400, "Missing required parameter 'id' when calling QuoteAtTimeApi->TickHistoryQatGet");
+            }
 
 
             FactSet.SDK.IntradayTickHistory.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IntradayTickHistory.Client.RequestOptions();
@@ -349,12 +380,17 @@ namespace FactSet.SDK.IntradayTickHistory.Api
                 "text/csv"
             };
 
-
             var localVarContentType = FactSet.SDK.IntradayTickHistory.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IntradayTickHistory.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IntradayTickHistory.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (date != null)
@@ -372,13 +408,13 @@ namespace FactSet.SDK.IntradayTickHistory.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IntradayTickHistory.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -390,14 +426,18 @@ namespace FactSet.SDK.IntradayTickHistory.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = TickHistoryQatGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<TickhistoryResponse>("/TickHistory/qat", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TickHistoryQatGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

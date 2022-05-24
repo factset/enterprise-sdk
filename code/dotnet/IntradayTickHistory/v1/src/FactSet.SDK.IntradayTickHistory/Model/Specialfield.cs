@@ -63,7 +63,7 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Specialfield {\n");
             sb.Append("  NF: ").Append(NF).Append("\n");
             sb.Append("  NA: ").Append(NA).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         public bool Equals(Specialfield input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NF == input.NF ||
@@ -123,9 +124,13 @@ namespace FactSet.SDK.IntradayTickHistory.Model
             {
                 int hashCode = 41;
                 if (this.NF != null)
-                    hashCode = hashCode * 59 + this.NF.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NF.GetHashCode();
+                }
                 if (this.NA != null)
-                    hashCode = hashCode * 59 + this.NA.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NA.GetHashCode();
+                }
                 return hashCode;
             }
         }

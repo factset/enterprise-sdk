@@ -38,39 +38,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = files_api.FilesApi(api_client)
+
     server = "server_example" # str | The server to upload the file to. Either `interactive` or `batch`.
     file = "file_example" # str | The file name to upload the file to. Existing directory can be specified.
     body = open('/path/to/file', 'rb') # file_type |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Starts a file upload
-        api_response = api_instance.analytics_quant_qre_v1_files_server_file_post(server, file)
-        pprint(api_response)
-    except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
-        print("Exception when calling FilesApi->analytics_quant_qre_v1_files_server_file_post: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Starts a file upload
         api_response = api_instance.analytics_quant_qre_v1_files_server_file_post(server, file, body=body)
         pprint(api_response)
+
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
         print("Exception when calling FilesApi->analytics_quant_qre_v1_files_server_file_post: %s\n" % e)
 ```
@@ -138,28 +130,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = files_api.FilesApi(api_client)
+
     id = "id_example" # str | From url, provided by location header or response body in the upload start endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get upload status by id
         api_response = api_instance.analytics_quant_qre_v1_files_uploads_id_get(id)
         pprint(api_response)
+
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
         print("Exception when calling FilesApi->analytics_quant_qre_v1_files_uploads_id_get: %s\n" % e)
 ```

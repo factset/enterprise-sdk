@@ -56,6 +56,22 @@ public class CursorBasedPaginationOutputObject implements Serializable {
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private String previous;
 
+  public CursorBasedPaginationOutputObject() { 
+  }
+
+  @JsonCreator
+  public CursorBasedPaginationOutputObject(
+    @JsonProperty(value=JSON_PROPERTY_TOTAL, required=true) BigDecimal total, 
+    @JsonProperty(value=JSON_PROPERTY_IS_ESTIMATED_TOTAL, required=true) Boolean isEstimatedTotal, 
+    @JsonProperty(value=JSON_PROPERTY_NEXT, required=true) String next, 
+    @JsonProperty(value=JSON_PROPERTY_PREVIOUS, required=true) String previous
+  ) {
+    this();
+    this.total = total;
+    this.isEstimatedTotal = isEstimatedTotal;
+    this.next = next;
+    this.previous = previous;
+  }
 
   public CursorBasedPaginationOutputObject total(BigDecimal total) {
     this.total = total;
@@ -89,11 +105,11 @@ public class CursorBasedPaginationOutputObject implements Serializable {
   }
 
    /**
-   * Flag indicating that the value of \&quot;total\&quot; is estimated.
+   * Flag indicating that the value of &#x60;total&#x60; is estimated.
    * @return isEstimatedTotal
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Flag indicating that the value of \"total\" is estimated.")
+  @ApiModelProperty(required = true, value = "Flag indicating that the value of `total` is estimated.")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -115,11 +131,11 @@ public class CursorBasedPaginationOutputObject implements Serializable {
   }
 
    /**
-   * Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null.
+   * The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;.
    * @return next
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.")
+  @ApiModelProperty(required = true, value = "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -141,11 +157,11 @@ public class CursorBasedPaginationOutputObject implements Serializable {
   }
 
    /**
-   * Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null.
+   * The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;.
    * @return previous
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.")
+  @ApiModelProperty(required = true, value = "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.")
   @JsonProperty(JSON_PROPERTY_PREVIOUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

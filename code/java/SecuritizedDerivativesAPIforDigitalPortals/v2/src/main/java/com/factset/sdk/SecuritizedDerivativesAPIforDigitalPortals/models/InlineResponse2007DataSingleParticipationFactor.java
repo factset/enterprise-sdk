@@ -48,6 +48,8 @@ public class InlineResponse2007DataSingleParticipationFactor implements Serializ
   public static final String JSON_PROPERTY_NEGATIVE = "negative";
   private BigDecimal negative;
 
+  public InlineResponse2007DataSingleParticipationFactor() { 
+  }
 
   public InlineResponse2007DataSingleParticipationFactor positive(BigDecimal positive) {
     this.positive = positive;

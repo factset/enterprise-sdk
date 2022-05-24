@@ -54,6 +54,8 @@ public class Specialfield implements Serializable {
   public static final String JSON_PROPERTY_N_E = "NE";
   private JsonNullable<Object> NE = JsonNullable.<Object>of(null);
 
+  public Specialfield() { 
+  }
 
   public Specialfield NF(String NF) {
     this.NF = NF;

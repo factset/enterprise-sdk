@@ -24,8 +24,8 @@ from fds.sdk.PriceAlertingAPIforDigitalPortals.model_utils import (  # noqa: F40
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.PriceAlertingAPIforDigitalPortals.exceptions import ApiAttributeError
 
 

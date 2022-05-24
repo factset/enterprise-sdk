@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleListMetaPagination model module.
  * @module model/NewsArticleListMetaPagination
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListMetaPagination {
     /**

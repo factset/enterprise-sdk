@@ -7,6 +7,9 @@ import com.factset.sdk.CapitalStructureReportBuilder.Configuration;
 import com.factset.sdk.CapitalStructureReportBuilder.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.CapitalStructureReportBuilder.models.ErrorResponse;
 import com.factset.sdk.CapitalStructureReportBuilder.models.Response;
@@ -22,6 +25,34 @@ public class CapitalStructureApi {
   public CapitalStructureApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getDcsDetailResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDcsDetailResponseTypeMap.put(200, new GenericType<Response>(){});
+    getDcsDetailResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getDcsDetailResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getDcsDetailResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getDcsDetailResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getDcsSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDcsSummaryResponseTypeMap.put(200, new GenericType<Response>(){});
+    getDcsSummaryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getDcsSummaryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getDcsSummaryResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getDcsSummaryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSourceOfCapitalResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSourceOfCapitalResponseTypeMap.put(200, new GenericType<Response>(){});
+    getSourceOfCapitalResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSourceOfCapitalResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSourceOfCapitalResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getSourceOfCapitalResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,11 +151,17 @@ public class CapitalStructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("CapitalStructureApi.getDcsDetail", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("CapitalStructureApi.getDcsDetail", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDcsDetailResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Debt Capital Structure (DCS) Summary
@@ -205,11 +242,17 @@ public class CapitalStructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("CapitalStructureApi.getDcsSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("CapitalStructureApi.getDcsSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDcsSummaryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Source of Capital
@@ -287,10 +330,16 @@ public class CapitalStructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("CapitalStructureApi.getSourceOfCapital", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("CapitalStructureApi.getSourceOfCapital", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSourceOfCapitalResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

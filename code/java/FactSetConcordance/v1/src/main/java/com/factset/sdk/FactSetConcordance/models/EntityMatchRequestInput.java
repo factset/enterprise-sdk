@@ -58,6 +58,16 @@ public class EntityMatchRequestInput implements Serializable {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  public EntityMatchRequestInput() { 
+  }
+
+  @JsonCreator
+  public EntityMatchRequestInput(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.name = name;
+  }
 
   public EntityMatchRequestInput name(String name) {
     this.name = name;

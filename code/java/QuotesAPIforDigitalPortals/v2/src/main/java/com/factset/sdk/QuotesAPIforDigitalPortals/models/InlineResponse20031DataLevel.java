@@ -52,6 +52,8 @@ public class InlineResponse20031DataLevel implements Serializable {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private BigDecimal number;
 
+  public InlineResponse20031DataLevel() { 
+  }
 
   public InlineResponse20031DataLevel id(BigDecimal id) {
     this.id = id;

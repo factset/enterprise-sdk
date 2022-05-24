@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictio
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYears() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYears minimum(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMinimum minimum) {
     this.minimum = minimum;

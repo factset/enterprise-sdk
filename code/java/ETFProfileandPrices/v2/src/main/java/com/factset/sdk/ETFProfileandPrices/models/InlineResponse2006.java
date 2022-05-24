@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2001Meta;
 import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2006Data;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,8 +46,10 @@ public class InlineResponse2006 implements Serializable {
   private InlineResponse2006Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse200Meta meta;
+  private InlineResponse2001Meta meta;
 
+  public InlineResponse2006() { 
+  }
 
   public InlineResponse2006 data(InlineResponse2006Data data) {
     this.data = data;
@@ -75,7 +77,7 @@ public class InlineResponse2006 implements Serializable {
   }
 
 
-  public InlineResponse2006 meta(InlineResponse200Meta meta) {
+  public InlineResponse2006 meta(InlineResponse2001Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -89,14 +91,14 @@ public class InlineResponse2006 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse200Meta getMeta() {
+  public InlineResponse2001Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse200Meta meta) {
+  public void setMeta(InlineResponse2001Meta meta) {
     this.meta = meta;
   }
 

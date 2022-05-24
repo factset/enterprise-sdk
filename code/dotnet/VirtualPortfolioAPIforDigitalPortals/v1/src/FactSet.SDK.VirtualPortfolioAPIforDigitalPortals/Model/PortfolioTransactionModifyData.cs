@@ -70,7 +70,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PortfolioTransactionModifyData {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Transaction: ").Append(Transaction).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(PortfolioTransactionModifyData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -130,9 +131,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Transaction != null)
-                    hashCode = hashCode * 59 + this.Transaction.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Transaction.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -17,7 +17,7 @@ import ValueColor from './ValueColor';
 /**
  * The ColoredValue model module.
  * @module model/ColoredValue
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ColoredValue {
     /**

@@ -21,7 +21,7 @@ import InlineResponse2005DataLifeCycleMaturityPerpetual from './InlineResponse20
 /**
  * The InlineResponse2005DataKnockIn model module.
  * @module model/InlineResponse2005DataKnockIn
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKnockIn {
     /**

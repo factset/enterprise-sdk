@@ -31,14 +31,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -48,14 +47,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -64,6 +63,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesBalanceSheet(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesBalanceSheet");
             System.err.println("Status code: " + e.getCode());
@@ -126,14 +126,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -143,14 +142,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -159,6 +158,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesCashFlow(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesCashFlow");
             System.err.println("Status code: " + e.getCode());
@@ -221,14 +221,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -238,14 +237,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -254,6 +253,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesGeographicSegments(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesGeographicSegments");
             System.err.println("Status code: " + e.getCode());
@@ -316,14 +316,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -333,14 +332,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -349,6 +348,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesIncomeStatement(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesIncomeStatement");
             System.err.println("Status code: " + e.getCode());
@@ -411,14 +411,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -428,14 +427,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -444,6 +443,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesIndustryMetrics(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesIndustryMetrics");
             System.err.println("Status code: " + e.getCode());
@@ -506,14 +506,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -523,14 +522,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -539,6 +538,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesPerShare(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesPerShare");
             System.err.println("Status code: " + e.getCode());
@@ -601,14 +601,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -618,14 +617,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -634,6 +633,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesProductSegments(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesProductSegments");
             System.err.println("Status code: " + e.getCode());
@@ -696,14 +696,13 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.ApiClient;
 import com.factset.sdk.FactSetEstimatesReportBuilder.ApiException;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.auth.*;
-import com.factset.sdk.FactSetEstimatesReportBuilder.model.*;
+import com.factset.sdk.FactSetEstimatesReportBuilder.models.*;
 import com.factset.sdk.FactSetEstimatesReportBuilder.api.AllEstimatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -713,14 +712,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AllEstimatesApi apiInstance = new AllEstimatesApi(defaultClient);
         String id = "FDS"; // String | Company Ticker
@@ -729,6 +728,7 @@ public class Example {
         try {
             Response result = apiInstance.getEstimatesValuation(id, periodicity, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AllEstimatesApi#getEstimatesValuation");
             System.err.println("Status code: " + e.getCode());

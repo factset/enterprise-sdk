@@ -69,7 +69,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationCrossReferenceListByInstrumentDataFilter {\n");
             sb.Append("  Markets: ").Append(Markets).Append("\n");
             sb.Append("  ValueUnits: ").Append(ValueUnits).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationCrossReferenceListByInstrumentDataFilter input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Markets == input.Markets ||
@@ -134,10 +135,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Markets != null)
-                    hashCode = hashCode * 59 + this.Markets.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Markets.GetHashCode();
+                }
                 if (this.ValueUnits != null)
-                    hashCode = hashCode * 59 + this.ValueUnits.GetHashCode();
-                hashCode = hashCode * 59 + this.OnlyActive.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnits.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.OnlyActive.GetHashCode();
                 return hashCode;
             }
         }

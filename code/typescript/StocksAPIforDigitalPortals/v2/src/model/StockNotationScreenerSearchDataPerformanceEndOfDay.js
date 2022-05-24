@@ -25,7 +25,7 @@ import StockNotationScreenerSearchDataPerformanceEndOfDayYears5 from './StockNot
 /**
  * The StockNotationScreenerSearchDataPerformanceEndOfDay model module.
  * @module model/StockNotationScreenerSearchDataPerformanceEndOfDay
- * @version 0.9.1
+ * @version 0.9.2
  */
 class StockNotationScreenerSearchDataPerformanceEndOfDay {
     /**

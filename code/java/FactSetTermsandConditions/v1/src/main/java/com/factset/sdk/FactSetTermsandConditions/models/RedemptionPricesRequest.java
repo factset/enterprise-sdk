@@ -85,6 +85,18 @@ public class RedemptionPricesRequest implements Serializable {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private CategoriesEnum categories;
 
+  public RedemptionPricesRequest() { 
+  }
+
+  @JsonCreator
+  public RedemptionPricesRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids, 
+    @JsonProperty(value=JSON_PROPERTY_CATEGORIES, required=true) CategoriesEnum categories
+  ) {
+    this();
+    this.ids = ids;
+    this.categories = categories;
+  }
 
   public RedemptionPricesRequest ids(java.util.List<String> ids) {
     this.ids = ids;

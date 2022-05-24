@@ -44,6 +44,8 @@ public class NewsArticleListByChainDataFilter implements Serializable {
   public static final String JSON_PROPERTY_RANGE = "range";
   private NewsArticleListDataFilterRange range;
 
+  public NewsArticleListByChainDataFilter() { 
+  }
 
   public NewsArticleListByChainDataFilter range(NewsArticleListDataFilterRange range) {
     this.range = range;

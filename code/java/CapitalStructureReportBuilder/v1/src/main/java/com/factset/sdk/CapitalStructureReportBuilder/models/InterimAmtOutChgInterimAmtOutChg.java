@@ -43,6 +43,8 @@ public class InterimAmtOutChgInterimAmtOutChg implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private Boolean value;
 
+  public InterimAmtOutChgInterimAmtOutChg() { 
+  }
 
   public InterimAmtOutChgInterimAmtOutChg value(Boolean value) {
     this.value = value;

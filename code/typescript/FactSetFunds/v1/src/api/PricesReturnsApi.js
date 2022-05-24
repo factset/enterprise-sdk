@@ -26,7 +26,7 @@ import ReturnsRangeResponse from '../model/ReturnsRangeResponse';
 /**
 * PricesReturns service.
 * @module api/PricesReturnsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class PricesReturnsApi {
 
@@ -83,7 +83,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FundsPricesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/prices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -102,7 +105,7 @@ export default class PricesReturnsApi {
      * @param {String} opts.currency Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (default to 'LOCAL')
      * @param {module:model/String} opts.dataType The Data Type of the NAV expressed as Raw or Rolled values. (default to 'ROLL')
      * @param {module:model/String} opts.splitAdjust The price adjustment split or unsplit. (default to 'SPLIT')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundsPricesResponse}
+     * @return { Promise.< module:model/FundsPricesResponse > } a Promise, with data of type {@link module:model/FundsPricesResponse }
      */
     getFundsPrices(ids, opts) {
       return this.getFundsPricesWithHttpInfo(ids, opts)
@@ -137,7 +140,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = FundsPricesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/prices', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -149,7 +155,7 @@ export default class PricesReturnsApi {
      * Get Fund Prices (NAV) for a requested date range and large list of ids.
      * Fetch fund prices (NAV) as of a requested date range and a large list of ids.  
      * @param {module:model/FundsPricesRequest} fundsPricesRequest The Prices request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundsPricesResponse}
+     * @return { Promise.< module:model/FundsPricesResponse > } a Promise, with data of type {@link module:model/FundsPricesResponse }
      */
     getFundsPricesForList(fundsPricesRequest) {
       return this.getFundsPricesForListWithHttpInfo(fundsPricesRequest)
@@ -197,7 +203,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FundsReturnsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/returns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -215,7 +224,7 @@ export default class PricesReturnsApi {
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (default to 'M')
      * @param {String} opts.currency Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (default to 'LOCAL')
      * @param {module:model/String} opts.dividendAdjust Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (default to 'DIV')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundsReturnsResponse}
+     * @return { Promise.< module:model/FundsReturnsResponse > } a Promise, with data of type {@link module:model/FundsReturnsResponse }
      */
     getFundsReturns(ids, opts) {
       return this.getFundsReturnsWithHttpInfo(ids, opts)
@@ -250,7 +259,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = FundsReturnsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/returns', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -262,7 +274,7 @@ export default class PricesReturnsApi {
      * Get Fund Returns for a requested time-series and large list of ids
      * Get Fund NAV Returns over a time-series for the requested date range and frequency. <p>The simple Total Return NAV shows the fund's total return level by reinvesting distributions so that ex-date NAVs are increased by the distribution amount and compounded thereafter. Total return NAV compounds daily and is calculated from the first available NAV date of each fund. The total return NAV series reflects the value that an investor would own if it had purchased one share at the inception date and reinvested all dividends on a Gross basis.</p><p> Control the dividends to include or exclude using the dividendAdjust parameter. The first available NAV date of each fund can be found in the /summary endpoint as `priceFristDate`. Visit [OA #21437](https://my.apps.factset.com/oa/pages/21437) for more details.</p> 
      * @param {module:model/FundsReturnsRequest} fundsReturnsRequest The Returns request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundsReturnsResponse}
+     * @return { Promise.< module:model/FundsReturnsResponse > } a Promise, with data of type {@link module:model/FundsReturnsResponse }
      */
     getFundsReturnsForList(fundsReturnsRequest) {
       return this.getFundsReturnsForListWithHttpInfo(fundsReturnsRequest)
@@ -306,7 +318,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ReturnsRangeResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/returns-range', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -322,7 +337,7 @@ export default class PricesReturnsApi {
      * @param {String} opts.startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The startDate cannot be equal to the endDate as no return can be computed. Additionally, the startDate MUST be equal to or greater than the `priceFirstDate` found within the /summary endpoint. 
      * @param {String} opts.endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period. 
      * @param {module:model/String} opts.dividendAdjust Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (default to 'DIV')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReturnsRangeResponse}
+     * @return { Promise.< module:model/ReturnsRangeResponse > } a Promise, with data of type {@link module:model/ReturnsRangeResponse }
      */
     getFundsReturnsRange(ids, opts) {
       return this.getFundsReturnsRangeWithHttpInfo(ids, opts)
@@ -357,7 +372,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ReturnsRangeResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/returns-range', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -369,7 +387,7 @@ export default class PricesReturnsApi {
      * Get Fund Returns over pre-defined time horizons as of a specific date for large list of ids.
      * Get Fund Returns between a specified startDate and endDate. The service will compute the return between those two periods to retrieve the single value and does not create a time-series. Control the return type to include or exclude dividends by using the dividendAdjust parameter. 
      * @param {module:model/ReturnsRangeRequest} returnsRangeRequest The Returns Range request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReturnsRangeResponse}
+     * @return { Promise.< module:model/ReturnsRangeResponse > } a Promise, with data of type {@link module:model/ReturnsRangeResponse }
      */
     getFundsReturnsRangeForList(returnsRangeRequest) {
       return this.getFundsReturnsRangeForListWithHttpInfo(returnsRangeRequest)
@@ -411,7 +429,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FundsReturnsSnapshotResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/returns-snapshot', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -426,7 +447,7 @@ export default class PricesReturnsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.date The date requested for a given date range in YYYY-MM-DD format. The date MUST be equal to or less than the `priceRecentDate` found within the /summary endpoint. 
      * @param {module:model/String} opts.dividendAdjust Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (default to 'DIV')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundsReturnsSnapshotResponse}
+     * @return { Promise.< module:model/FundsReturnsSnapshotResponse > } a Promise, with data of type {@link module:model/FundsReturnsSnapshotResponse }
      */
     getFundsReturnsSnapshot(ids, opts) {
       return this.getFundsReturnsSnapshotWithHttpInfo(ids, opts)
@@ -461,7 +482,10 @@ export default class PricesReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = FundsReturnsSnapshotResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/returns-snapshot', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -473,7 +497,7 @@ export default class PricesReturnsApi {
      * Get Fund Returns over pre-defined time horizons as of a specific date.
      * Get Fund Returns over pre-defined time horizons as of a specific date. Use the date parameter to set the perspective date, and adjust the return type to include or exclude dividends using the dividendAdjust parameter. Returns Ranges include -  * oneWeek * oneMonth * threeMonth * yearToDate * oneYear * threeYear * threeYearAnnualized * fiveYear * fiveYearAnnualized  
      * @param {module:model/FundsReturnsSnapshotRequest} fundsReturnsSnapshotRequest The Returns Snapshot request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundsReturnsSnapshotResponse}
+     * @return { Promise.< module:model/FundsReturnsSnapshotResponse > } a Promise, with data of type {@link module:model/FundsReturnsSnapshotResponse }
      */
     getFundsReturnsSnapshotForList(fundsReturnsSnapshotRequest) {
       return this.getFundsReturnsSnapshotForListWithHttpInfo(fundsReturnsSnapshotRequest)
@@ -484,3 +508,8 @@ export default class PricesReturnsApi {
 
 
 }
+
+
+
+
+

@@ -61,6 +61,22 @@ public class AnswerWithoutData implements Serializable {
   public static final String JSON_PROPERTY_TEMPLATE_DATA = "templateData";
   private AnswerWithoutDataAllOfTemplateData templateData;
 
+  public AnswerWithoutData() { 
+  }
+
+  @JsonCreator
+  public AnswerWithoutData(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE, required=true) String template, 
+    @JsonProperty(value=JSON_PROPERTY_MESSAGE, required=true) String message, 
+    @JsonProperty(value=JSON_PROPERTY_QUERY_SUGGESTIONS, required=true) java.util.List<String> querySuggestions, 
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+  ) {
+    this();
+    this.template = template;
+    this.message = message;
+    this.querySuggestions = querySuggestions;
+    this.title = title;
+  }
 
   public AnswerWithoutData template(String template) {
     this.template = template;

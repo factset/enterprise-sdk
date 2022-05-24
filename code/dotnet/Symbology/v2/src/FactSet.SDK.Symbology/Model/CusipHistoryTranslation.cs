@@ -111,7 +111,7 @@ namespace FactSet.SDK.Symbology.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CusipHistoryTranslation {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -151,8 +151,9 @@ namespace FactSet.SDK.Symbology.Model
         public bool Equals(CusipHistoryTranslation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -201,19 +202,33 @@ namespace FactSet.SDK.Symbology.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Cusip != null)
-                    hashCode = hashCode * 59 + this.Cusip.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cusip.GetHashCode();
+                }
                 if (this.CusipEffectiveStartDate != null)
-                    hashCode = hashCode * 59 + this.CusipEffectiveStartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CusipEffectiveStartDate.GetHashCode();
+                }
                 if (this.CusipEffectiveEndDate != null)
-                    hashCode = hashCode * 59 + this.CusipEffectiveEndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CusipEffectiveEndDate.GetHashCode();
+                }
                 if (this.AsOfDate != null)
-                    hashCode = hashCode * 59 + this.AsOfDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AsOfDate.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

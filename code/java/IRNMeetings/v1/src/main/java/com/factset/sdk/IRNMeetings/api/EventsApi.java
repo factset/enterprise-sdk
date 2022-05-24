@@ -7,6 +7,9 @@ import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IRNMeetings.models.MeetingEventDto;
 import com.factset.sdk.IRNMeetings.models.ProblemDetails;
@@ -23,6 +26,22 @@ public class EventsApi {
   public EventsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEventsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEventsResponseTypeMap.put(200, new GenericType<java.util.List<RecordEventSummaryDto>>(){});
+    getEventsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getEventsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getRecordEventResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRecordEventResponseTypeMap.put(200, new GenericType<MeetingEventDto>(){});
+    getRecordEventResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    getRecordEventResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -45,8 +64,8 @@ public class EventsApi {
   /**
    * Get all the record events that belong to a meeting
    * 
-   * @param meetingId Meeting Id (required)
-   * @return java.util.List&lt;RecordEventSummaryDto&gt;
+   * @param meetingId Meeting ID (required)
+   * @return java.util.List<RecordEventSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -63,8 +82,8 @@ public class EventsApi {
   /**
    * Get all the record events that belong to a meeting
    * 
-   * @param meetingId Meeting Id (required)
-   * @return ApiResponse&lt;java.util.List&lt;RecordEventSummaryDto&gt;&gt;
+   * @param meetingId Meeting ID (required)
+   * @return ApiResponse&lt;java.util.List<RecordEventSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -108,11 +127,17 @@ public class EventsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<RecordEventSummaryDto>> localVarReturnType = new GenericType<java.util.List<RecordEventSummaryDto>>() {};
 
-    return apiClient.invokeAPI("EventsApi.getEvents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<RecordEventSummaryDto>
+      
+    > apiResponse = apiClient.invokeAPI("EventsApi.getEvents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEventsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get details of a record event of a meeting
@@ -188,10 +213,16 @@ public class EventsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MeetingEventDto> localVarReturnType = new GenericType<MeetingEventDto>() {};
 
-    return apiClient.invokeAPI("EventsApi.getRecordEvent", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MeetingEventDto
+      
+    > apiResponse = apiClient.invokeAPI("EventsApi.getRecordEvent", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRecordEventResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -19,7 +19,7 @@ import InlineResponse2005DataCapitalGuaranteeValue from './InlineResponse2005Dat
 /**
  * The InlineResponse2005DataCapitalGuarantee model module.
  * @module model/InlineResponse2005DataCapitalGuarantee
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataCapitalGuarantee {
     /**

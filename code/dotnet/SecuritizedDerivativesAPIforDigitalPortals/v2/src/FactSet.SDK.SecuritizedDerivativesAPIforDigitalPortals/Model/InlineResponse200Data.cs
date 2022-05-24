@@ -261,7 +261,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200Data {\n");
             sb.Append("  Isin: ").Append(Isin).Append("\n");
             sb.Append("  Nsin: ").Append(Nsin).Append("\n");
@@ -316,8 +316,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Isin == input.Isin ||
@@ -434,40 +435,66 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Isin != null)
-                    hashCode = hashCode * 59 + this.Isin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                }
                 if (this.Nsin != null)
-                    hashCode = hashCode * 59 + this.Nsin.GetHashCode();
-                hashCode = hashCode * 59 + this.IsPrivatePlacement.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsPrivatePlacement.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ShortName != null)
-                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.IsIncomplete.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsIncomplete.GetHashCode();
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
                 if (this.CountrySecurityRegistration != null)
-                    hashCode = hashCode * 59 + this.CountrySecurityRegistration.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountrySecurityRegistration.GetHashCode();
+                }
                 if (this.ReferenceDebtor != null)
-                    hashCode = hashCode * 59 + this.ReferenceDebtor.GetHashCode();
-                hashCode = hashCode * 59 + this.IsCollateralized.GetHashCode();
-                hashCode = hashCode * 59 + this.IsQuanto.GetHashCode();
-                hashCode = hashCode * 59 + this.CapitalProtection.GetHashCode();
-                hashCode = hashCode * 59 + this.HasCatchUp.GetHashCode();
-                hashCode = hashCode * 59 + this.HasAutomaticExercise.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReferenceDebtor.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsCollateralized.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsQuanto.GetHashCode();
+                hashCode = (hashCode * 59) + this.CapitalProtection.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasCatchUp.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasAutomaticExercise.GetHashCode();
                 if (this.OrderVolume != null)
-                    hashCode = hashCode * 59 + this.OrderVolume.GetHashCode();
-                hashCode = hashCode * 59 + this.RedemptionAmount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OrderVolume.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RedemptionAmount.GetHashCode();
                 if (this.Nominal != null)
-                    hashCode = hashCode * 59 + this.Nominal.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Nominal.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Issue != null)
-                    hashCode = hashCode * 59 + this.Issue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issue.GetHashCode();
+                }
                 if (this.Exercise != null)
-                    hashCode = hashCode * 59 + this.Exercise.GetHashCode();
-                hashCode = hashCode * 59 + this.Settlement.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exercise.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Settlement.GetHashCode();
                 return hashCode;
             }
         }

@@ -48,6 +48,8 @@ public class InlineResponse2003DataValueUnit implements Serializable {
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  public InlineResponse2003DataValueUnit() { 
+  }
 
   public InlineResponse2003DataValueUnit id(BigDecimal id) {
     this.id = id;

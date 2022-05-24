@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataGermany model module.
  * @module model/InlineResponse200DataGermany
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataGermany {
     /**

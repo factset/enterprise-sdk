@@ -59,6 +59,8 @@ public class InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimate
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareCashFlow cashFlow;
 
+  public InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare() { 
+  }
 
   public InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare sales(InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareSales sales) {
     this.sales = sales;

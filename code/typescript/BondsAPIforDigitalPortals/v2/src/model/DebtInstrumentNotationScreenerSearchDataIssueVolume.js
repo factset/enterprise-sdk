@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency from './DebtI
 /**
  * The DebtInstrumentNotationScreenerSearchDataIssueVolume model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataIssueVolume
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataIssueVolume {
     /**

@@ -70,6 +70,8 @@ public class InlineResponse2003Data implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private InlineResponse2001TriggerStatus status;
 
+  public InlineResponse2003Data() { 
+  }
 
   public InlineResponse2003Data id(String id) {
     this.id = id;

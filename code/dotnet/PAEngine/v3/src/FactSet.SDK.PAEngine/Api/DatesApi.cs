@@ -111,6 +111,21 @@ namespace FactSet.SDK.PAEngine.Api
     {
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> ConvertPADatesToAbsoluteFormatResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DateParametersSummaryRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DatesApi"/> class.
         /// </summary>
@@ -224,7 +239,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>DateParametersSummaryRoot</returns>
         public DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat(string enddate, string componentid, string account, string startdate = default(string))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<DateParametersSummaryRoot> localVarResponse = ConvertPADatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, startdate);
+            var localVarResponse = ConvertPADatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, startdate);
             return localVarResponse.Data;
         }
 
@@ -237,19 +252,25 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="account">Account</param>
         /// <param name="startdate">Start Date (optional, default to &quot;-3AY&quot;)</param>
         /// <returns>ApiResponse of DateParametersSummaryRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string))
+        public ApiResponse<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string))
         {
             // verify the required parameter 'enddate' is set
             if (enddate == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'enddate' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'componentid' is set
             if (componentid == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'componentid' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'account' is set
             if (account == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'account' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -262,10 +283,16 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (startdate != null)
             {
@@ -277,13 +304,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -295,15 +322,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DateParametersSummaryRoot>("/analytics/engines/pa/v3/dates", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = ConvertPADatesToAbsoluteFormatResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DateParametersSummaryRoot>("/analytics/engines/pa/v3/dates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConvertPADatesToAbsoluteFormat", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -317,9 +348,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="startdate">Start Date (optional, default to &quot;-3AY&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DateParametersSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DateParametersSummaryRoot>ConvertPADatesToAbsoluteFormatAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<DateParametersSummaryRoot> localVarResponse = await ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(enddate, componentid, account, startdate, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(enddate, componentid, account, startdate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -333,19 +364,26 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="startdate">Start Date (optional, default to &quot;-3AY&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DateParametersSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<DateParametersSummaryRoot>> ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DateParametersSummaryRoot>> ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'enddate' is set
             if (enddate == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'enddate' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'componentid' is set
             if (componentid == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'componentid' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'account' is set
             if (account == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'account' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -358,12 +396,17 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (startdate != null)
             {
@@ -375,13 +418,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -393,14 +436,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = ConvertPADatesToAbsoluteFormatResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DateParametersSummaryRoot>("/analytics/engines/pa/v3/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConvertPADatesToAbsoluteFormat", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

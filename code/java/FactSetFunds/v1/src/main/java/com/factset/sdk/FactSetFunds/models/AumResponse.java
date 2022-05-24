@@ -43,6 +43,8 @@ public class AumResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Aum> data = null;
 
+  public AumResponse() { 
+  }
 
   public AumResponse data(java.util.List<Aum> data) {
     this.data = data;

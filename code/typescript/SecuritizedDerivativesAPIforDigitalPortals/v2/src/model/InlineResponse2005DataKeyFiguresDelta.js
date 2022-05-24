@@ -18,7 +18,7 @@ import InlineResponse2005DataKeyFiguresDeltaUnadjusted from './InlineResponse200
 /**
  * The InlineResponse2005DataKeyFiguresDelta model module.
  * @module model/InlineResponse2005DataKeyFiguresDelta
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKeyFiguresDelta {
     /**

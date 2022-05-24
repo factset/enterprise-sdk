@@ -55,6 +55,8 @@ public class EventsAudio400Response implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private EventsAudio400ResponseDetails details;
 
+  public EventsAudio400Response() { 
+  }
 
   public EventsAudio400Response code(String code) {
     this.code = code;

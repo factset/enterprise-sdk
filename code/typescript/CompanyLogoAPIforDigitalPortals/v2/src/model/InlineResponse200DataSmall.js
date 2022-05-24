@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataSmall model module.
  * @module model/InlineResponse200DataSmall
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse200DataSmall {
     /**

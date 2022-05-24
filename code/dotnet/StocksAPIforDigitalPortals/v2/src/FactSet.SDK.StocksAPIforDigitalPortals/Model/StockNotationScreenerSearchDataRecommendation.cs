@@ -60,7 +60,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataRecommendation {\n");
             sb.Append("  Counts: ").Append(Counts).Append("\n");
             sb.Append("  Consensus: ").Append(Consensus).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataRecommendation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Counts == input.Counts ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Counts != null)
-                    hashCode = hashCode * 59 + this.Counts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Counts.GetHashCode();
+                }
                 if (this.Consensus != null)
-                    hashCode = hashCode * 59 + this.Consensus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Consensus.GetHashCode();
+                }
                 return hashCode;
             }
         }

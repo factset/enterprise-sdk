@@ -48,6 +48,8 @@ public class InlineResponse2002DataCalculation implements Serializable {
   public static final String JSON_PROPERTY_PRICE = "price";
   private InlineResponse2002DataCalculationPrice price;
 
+  public InlineResponse2002DataCalculation() { 
+  }
 
   public InlineResponse2002DataCalculation time(String time) {
     this.time = time;

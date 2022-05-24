@@ -58,6 +58,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSasbRanks(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -133,6 +134,7 @@ const sasbRanksRequest = new factsetesg.SasbRanksRequest(); // SasbRanksRequest 
 // Call api endpoint
 apiInstance.getSasbRanksPost(sasbRanksRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -211,6 +213,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSasbScores(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -293,6 +296,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSasbScoresAll(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -368,6 +372,7 @@ const sasbScoresAllRequest = new factsetesg.SasbScoresAllRequest(); // SasbScore
 // Call api endpoint
 apiInstance.getSasbScoresAllPost(sasbScoresAllRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -439,6 +444,7 @@ const sasbScoresRequest = new factsetesg.SasbScoresRequest(); // SasbScoresReque
 // Call api endpoint
 apiInstance.getSasbScoresPost(sasbScoresRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -12,15 +12,17 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2008DataRegions from './InlineResponse2008DataRegions';
 
 /**
  * The InlineResponse2008Data model module.
  * @module model/InlineResponse2008Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2008Data {
     /**
      * Constructs a new <code>InlineResponse2008Data</code>.
+     * ETP region allocation data.
      * @alias module:model/InlineResponse2008Data
      */
     constructor() { 
@@ -47,8 +49,11 @@ class InlineResponse2008Data {
         if (data) {
             obj = obj || new InlineResponse2008Data();
 
-            if (data.hasOwnProperty('broadCategory')) {
-                obj['broadCategory'] = ApiClient.convertToType(data['broadCategory'], 'String');
+            if (data.hasOwnProperty('reportDate')) {
+                obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
+            }
+            if (data.hasOwnProperty('regions')) {
+                obj['regions'] = ApiClient.convertToType(data['regions'], [InlineResponse2008DataRegions]);
             }
         }
         return obj;
@@ -58,10 +63,16 @@ class InlineResponse2008Data {
 }
 
 /**
- * ETP class broad category.
- * @member {String} broadCategory
+ * Reporting date for the allocations.
+ * @member {Date} reportDate
  */
-InlineResponse2008Data.prototype['broadCategory'] = undefined;
+InlineResponse2008Data.prototype['reportDate'] = undefined;
+
+/**
+ * List of allocations by region.
+ * @member {Array.<module:model/InlineResponse2008DataRegions>} regions
+ */
+InlineResponse2008Data.prototype['regions'] = undefined;
 
 
 

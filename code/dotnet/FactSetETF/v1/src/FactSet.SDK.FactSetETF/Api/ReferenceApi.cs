@@ -151,6 +151,33 @@ namespace FactSet.SDK.FactSetETF.Api
     {
         private FactSet.SDK.FactSetETF.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEtfReferenceDataResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EtfReferenceDataResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEtfReferenceDataForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EtfReferenceDataResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceApi"/> class.
         /// </summary>
@@ -263,7 +290,7 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <returns>EtfReferenceDataResponse</returns>
         public EtfReferenceDataResponse GetEtfReferenceData(List<string> ids, List<string> metrics = default(List<string>), List<Category> categories = default(List<Category>))
         {
-            FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse> localVarResponse = GetEtfReferenceDataWithHttpInfo(ids, metrics, categories);
+            var localVarResponse = GetEtfReferenceDataWithHttpInfo(ids, metrics, categories);
             return localVarResponse.Data;
         }
 
@@ -275,11 +302,13 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <param name="metrics">List of individdual data items for Exchange Traded Funds. By default only the fsymId and requestId are returned. To fetch a list of all available data items, use the **_/metrics** endpoint.  (optional)</param>
         /// <param name="categories">Groupings of &#x60;metrics&#x60; data items. Supply a list of categories below to return collections of data items in response. |category|description| |- --|- --| |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark| |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.| |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.| |COUNTERPARTY|Credit and Swap Counterparty details| |CREATE_REDEEM|Creation and Redemption Sizes| |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.| |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains| |DOCUMENTATION|Details surrounding reporting information.| |GEARING|Leverage factors, inverse flags, and more.| |HEDGE|Hedging Information| |RISK|CIFSC Risk Ratings| |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details| |STATUS|Actively Managed Flags| |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.| |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.| |TAX|Tax Types, distribution takes, K1 Flags, and more.|  (optional)</param>
         /// <returns>ApiResponse of EtfReferenceDataResponse</returns>
-        public FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse> GetEtfReferenceDataWithHttpInfo(List<string> ids, List<string> metrics = default(List<string>), List<Category> categories = default(List<Category>))
+        public ApiResponse<EtfReferenceDataResponse> GetEtfReferenceDataWithHttpInfo(List<string> ids, List<string> metrics = default(List<string>), List<Category> categories = default(List<Category>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetETF.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetEtfReferenceData");
+            }
 
             FactSet.SDK.FactSetETF.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetETF.Client.RequestOptions();
 
@@ -292,10 +321,16 @@ namespace FactSet.SDK.FactSetETF.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetETF.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (metrics != null)
@@ -309,13 +344,13 @@ namespace FactSet.SDK.FactSetETF.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetETF.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -327,15 +362,19 @@ namespace FactSet.SDK.FactSetETF.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EtfReferenceDataResponse>("/factset-etf/v1/reference", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEtfReferenceDataResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EtfReferenceDataResponse>("/factset-etf/v1/reference", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEtfReferenceData", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -348,9 +387,9 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <param name="categories">Groupings of &#x60;metrics&#x60; data items. Supply a list of categories below to return collections of data items in response. |category|description| |- --|- --| |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark| |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.| |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.| |COUNTERPARTY|Credit and Swap Counterparty details| |CREATE_REDEEM|Creation and Redemption Sizes| |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.| |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains| |DOCUMENTATION|Details surrounding reporting information.| |GEARING|Leverage factors, inverse flags, and more.| |HEDGE|Hedging Information| |RISK|CIFSC Risk Ratings| |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details| |STATUS|Actively Managed Flags| |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.| |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.| |TAX|Tax Types, distribution takes, K1 Flags, and more.|  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EtfReferenceDataResponse</returns>
-        public async System.Threading.Tasks.Task<EtfReferenceDataResponse> GetEtfReferenceDataAsync(List<string> ids, List<string> metrics = default(List<string>), List<Category> categories = default(List<Category>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EtfReferenceDataResponse>GetEtfReferenceDataAsync(List<string> ids, List<string> metrics = default(List<string>), List<Category> categories = default(List<Category>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse> localVarResponse = await GetEtfReferenceDataWithHttpInfoAsync(ids, metrics, categories, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEtfReferenceDataWithHttpInfoAsync(ids, metrics, categories, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -363,11 +402,14 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <param name="categories">Groupings of &#x60;metrics&#x60; data items. Supply a list of categories below to return collections of data items in response. |category|description| |- --|- --| |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark| |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.| |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.| |COUNTERPARTY|Credit and Swap Counterparty details| |CREATE_REDEEM|Creation and Redemption Sizes| |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.| |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains| |DOCUMENTATION|Details surrounding reporting information.| |GEARING|Leverage factors, inverse flags, and more.| |HEDGE|Hedging Information| |RISK|CIFSC Risk Ratings| |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details| |STATUS|Actively Managed Flags| |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.| |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.| |TAX|Tax Types, distribution takes, K1 Flags, and more.|  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EtfReferenceDataResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse>> GetEtfReferenceDataWithHttpInfoAsync(List<string> ids, List<string> metrics = default(List<string>), List<Category> categories = default(List<Category>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EtfReferenceDataResponse>> GetEtfReferenceDataWithHttpInfoAsync(List<string> ids, List<string> metrics = default(List<string>), List<Category> categories = default(List<Category>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetETF.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetEtfReferenceData");
+            }
 
 
             FactSet.SDK.FactSetETF.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetETF.Client.RequestOptions();
@@ -380,12 +422,17 @@ namespace FactSet.SDK.FactSetETF.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetETF.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (metrics != null)
@@ -399,13 +446,13 @@ namespace FactSet.SDK.FactSetETF.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetETF.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -417,14 +464,18 @@ namespace FactSet.SDK.FactSetETF.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEtfReferenceDataResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EtfReferenceDataResponse>("/factset-etf/v1/reference", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEtfReferenceData", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -438,7 +489,7 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <returns>EtfReferenceDataResponse</returns>
         public EtfReferenceDataResponse GetEtfReferenceDataForList(EtfReferenceDataRequest etfReferenceDataRequest)
         {
-            FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse> localVarResponse = GetEtfReferenceDataForListWithHttpInfo(etfReferenceDataRequest);
+            var localVarResponse = GetEtfReferenceDataForListWithHttpInfo(etfReferenceDataRequest);
             return localVarResponse.Data;
         }
 
@@ -448,11 +499,13 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <exception cref="FactSet.SDK.FactSetETF.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="etfReferenceDataRequest">Request object for Exchange Traded Funds</param>
         /// <returns>ApiResponse of EtfReferenceDataResponse</returns>
-        public FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse> GetEtfReferenceDataForListWithHttpInfo(EtfReferenceDataRequest etfReferenceDataRequest)
+        public ApiResponse<EtfReferenceDataResponse> GetEtfReferenceDataForListWithHttpInfo(EtfReferenceDataRequest etfReferenceDataRequest)
         {
             // verify the required parameter 'etfReferenceDataRequest' is set
             if (etfReferenceDataRequest == null)
+            {
                 throw new FactSet.SDK.FactSetETF.Client.ApiException(400, "Missing required parameter 'etfReferenceDataRequest' when calling ReferenceApi->GetEtfReferenceDataForList");
+            }
 
             FactSet.SDK.FactSetETF.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetETF.Client.RequestOptions();
 
@@ -466,22 +519,28 @@ namespace FactSet.SDK.FactSetETF.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = etfReferenceDataRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetETF.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -493,15 +552,19 @@ namespace FactSet.SDK.FactSetETF.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EtfReferenceDataResponse>("/factset-etf/v1/reference", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEtfReferenceDataForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EtfReferenceDataResponse>("/factset-etf/v1/reference", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEtfReferenceDataForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -512,9 +575,9 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <param name="etfReferenceDataRequest">Request object for Exchange Traded Funds</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EtfReferenceDataResponse</returns>
-        public async System.Threading.Tasks.Task<EtfReferenceDataResponse> GetEtfReferenceDataForListAsync(EtfReferenceDataRequest etfReferenceDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EtfReferenceDataResponse>GetEtfReferenceDataForListAsync(EtfReferenceDataRequest etfReferenceDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse> localVarResponse = await GetEtfReferenceDataForListWithHttpInfoAsync(etfReferenceDataRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEtfReferenceDataForListWithHttpInfoAsync(etfReferenceDataRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -525,11 +588,14 @@ namespace FactSet.SDK.FactSetETF.Api
         /// <param name="etfReferenceDataRequest">Request object for Exchange Traded Funds</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EtfReferenceDataResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetETF.Client.ApiResponse<EtfReferenceDataResponse>> GetEtfReferenceDataForListWithHttpInfoAsync(EtfReferenceDataRequest etfReferenceDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EtfReferenceDataResponse>> GetEtfReferenceDataForListWithHttpInfoAsync(EtfReferenceDataRequest etfReferenceDataRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'etfReferenceDataRequest' is set
             if (etfReferenceDataRequest == null)
+            {
                 throw new FactSet.SDK.FactSetETF.Client.ApiException(400, "Missing required parameter 'etfReferenceDataRequest' when calling ReferenceApi->GetEtfReferenceDataForList");
+            }
 
 
             FactSet.SDK.FactSetETF.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetETF.Client.RequestOptions();
@@ -543,24 +609,29 @@ namespace FactSet.SDK.FactSetETF.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetETF.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = etfReferenceDataRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetETF.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -572,14 +643,18 @@ namespace FactSet.SDK.FactSetETF.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEtfReferenceDataForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EtfReferenceDataResponse>("/factset-etf/v1/reference", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEtfReferenceDataForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

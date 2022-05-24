@@ -34,18 +34,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20019" /> class.
         /// </summary>
-        /// <param name="data">List of strategy segments..</param>
+        /// <param name="data">List of class geographies..</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20019(List<InlineResponse20019Data> data = default(List<InlineResponse20019Data>), InlineResponse2001Meta meta = default(InlineResponse2001Meta))
+        public InlineResponse20019(List<InlineResponse20019Data> data = default(List<InlineResponse20019Data>), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// List of strategy segments.
+        /// List of class geographies.
         /// </summary>
-        /// <value>List of strategy segments.</value>
+        /// <value>List of class geographies.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public List<InlineResponse20019Data> Data { get; set; }
 
@@ -53,7 +53,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public InlineResponse2001Meta Meta { get; set; }
+        public InlineResponse200Meta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,7 +61,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20019 {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20019 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

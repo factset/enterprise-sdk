@@ -51,6 +51,18 @@ public class WatchlistPositionCreateData implements Serializable {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private String additionalData;
 
+  public WatchlistPositionCreateData() { 
+  }
+
+  @JsonCreator
+  public WatchlistPositionCreateData(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name, 
+    @JsonProperty(value=JSON_PROPERTY_NOTATION, required=true) String notation
+  ) {
+    this();
+    this.name = name;
+    this.notation = notation;
+  }
 
   public WatchlistPositionCreateData name(String name) {
     this.name = name;

@@ -19,7 +19,7 @@ import SegmentType from './SegmentType';
 /**
  * The SegmentsRequest model module.
  * @module model/SegmentsRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SegmentsRequest {
     /**

@@ -44,6 +44,8 @@ public class NotationSearchByTextDataValidationMarketSelectionRestrict implement
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public NotationSearchByTextDataValidationMarketSelectionRestrict() { 
+  }
 
   public NotationSearchByTextDataValidationMarketSelectionRestrict ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

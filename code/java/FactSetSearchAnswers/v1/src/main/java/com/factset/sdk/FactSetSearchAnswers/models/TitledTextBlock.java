@@ -46,6 +46,8 @@ public class TitledTextBlock implements Serializable {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private String content;
 
+  public TitledTextBlock() { 
+  }
 
   public TitledTextBlock title(String title) {
     this.title = title;

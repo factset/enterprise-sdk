@@ -17,7 +17,7 @@ import NewsArticleListDataFilterRange from './NewsArticleListDataFilterRange';
 /**
  * The NewsArticleListByChainDataFilter model module.
  * @module model/NewsArticleListByChainDataFilter
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListByChainDataFilter {
     /**

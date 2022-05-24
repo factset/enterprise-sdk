@@ -49,6 +49,8 @@ public class InlineResponse2005DataBonusLevel implements Serializable {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private InlineResponse2005DataBonusLevelDistance distance;
 
+  public InlineResponse2005DataBonusLevel() { 
+  }
 
   public InlineResponse2005DataBonusLevel value(InlineResponse2005DataBonusLevelValue value) {
     this.value = value;

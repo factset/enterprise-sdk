@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InstrumentRatingGradeListDataFilter {\n");
             sb.Append("  RatingSystem: ").Append(RatingSystem).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InstrumentRatingGradeListDataFilter input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RatingSystem == input.RatingSystem ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.RatingSystem != null)
-                    hashCode = hashCode * 59 + this.RatingSystem.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RatingSystem.GetHashCode();
+                }
                 return hashCode;
             }
         }

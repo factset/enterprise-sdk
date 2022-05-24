@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// InlineResponse20010Data
+    /// Profile analytics.
     /// </summary>
     [DataContract(Name = "inline_response_200_10_data")]
     public partial class InlineResponse20010Data : IEquatable<InlineResponse20010Data>, IValidatableObject
@@ -34,18 +34,61 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20010Data" /> class.
         /// </summary>
-        /// <param name="nicheCategory">ETP class niche category..</param>
-        public InlineResponse20010Data(string nicheCategory = default(string))
+        /// <param name="asOfDate">Date the analytics data was published. Available for the regions: US, Europe, and Canada..</param>
+        /// <param name="securityLending">securityLending.</param>
+        /// <param name="risk">risk.</param>
+        /// <param name="benchmarkName">FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund&#39;s performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe..</param>
+        /// <param name="indexChange">indexChange.</param>
+        /// <param name="medianBidAskSpread">The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US..</param>
+        public InlineResponse20010Data(DateTime asOfDate = default(DateTime), InlineResponse20010DataSecurityLending securityLending = default(InlineResponse20010DataSecurityLending), InlineResponse20010DataRisk risk = default(InlineResponse20010DataRisk), string benchmarkName = default(string), InlineResponse20010DataIndexChange indexChange = default(InlineResponse20010DataIndexChange), decimal medianBidAskSpread = default(decimal))
         {
-            this.NicheCategory = nicheCategory;
+            this.AsOfDate = asOfDate;
+            this.SecurityLending = securityLending;
+            this.Risk = risk;
+            this.BenchmarkName = benchmarkName;
+            this.IndexChange = indexChange;
+            this.MedianBidAskSpread = medianBidAskSpread;
         }
 
         /// <summary>
-        /// ETP class niche category.
+        /// Date the analytics data was published. Available for the regions: US, Europe, and Canada.
         /// </summary>
-        /// <value>ETP class niche category.</value>
-        [DataMember(Name = "nicheCategory", EmitDefaultValue = false)]
-        public string NicheCategory { get; set; }
+        /// <value>Date the analytics data was published. Available for the regions: US, Europe, and Canada.</value>
+        [DataMember(Name = "asOfDate", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime AsOfDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SecurityLending
+        /// </summary>
+        [DataMember(Name = "securityLending", EmitDefaultValue = false)]
+        public InlineResponse20010DataSecurityLending SecurityLending { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Risk
+        /// </summary>
+        [DataMember(Name = "risk", EmitDefaultValue = false)]
+        public InlineResponse20010DataRisk Risk { get; set; }
+
+        /// <summary>
+        /// FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund&#39;s performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe.
+        /// </summary>
+        /// <value>FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund&#39;s performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe.</value>
+        [DataMember(Name = "benchmarkName", EmitDefaultValue = false)]
+        public string BenchmarkName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IndexChange
+        /// </summary>
+        [DataMember(Name = "indexChange", EmitDefaultValue = false)]
+        public InlineResponse20010DataIndexChange IndexChange { get; set; }
+
+        /// <summary>
+        /// The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US.
+        /// </summary>
+        /// <value>The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US.</value>
+        [DataMember(Name = "medianBidAskSpread", EmitDefaultValue = false)]
+        public decimal MedianBidAskSpread { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,9 +96,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20010Data {\n");
-            sb.Append("  NicheCategory: ").Append(NicheCategory).Append("\n");
+            sb.Append("  AsOfDate: ").Append(AsOfDate).Append("\n");
+            sb.Append("  SecurityLending: ").Append(SecurityLending).Append("\n");
+            sb.Append("  Risk: ").Append(Risk).Append("\n");
+            sb.Append("  BenchmarkName: ").Append(BenchmarkName).Append("\n");
+            sb.Append("  IndexChange: ").Append(IndexChange).Append("\n");
+            sb.Append("  MedianBidAskSpread: ").Append(MedianBidAskSpread).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,13 +135,38 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20010Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.NicheCategory == input.NicheCategory ||
-                    (this.NicheCategory != null &&
-                    this.NicheCategory.Equals(input.NicheCategory))
+                    this.AsOfDate == input.AsOfDate ||
+                    (this.AsOfDate != null &&
+                    this.AsOfDate.Equals(input.AsOfDate))
+                ) && 
+                (
+                    this.SecurityLending == input.SecurityLending ||
+                    (this.SecurityLending != null &&
+                    this.SecurityLending.Equals(input.SecurityLending))
+                ) && 
+                (
+                    this.Risk == input.Risk ||
+                    (this.Risk != null &&
+                    this.Risk.Equals(input.Risk))
+                ) && 
+                (
+                    this.BenchmarkName == input.BenchmarkName ||
+                    (this.BenchmarkName != null &&
+                    this.BenchmarkName.Equals(input.BenchmarkName))
+                ) && 
+                (
+                    this.IndexChange == input.IndexChange ||
+                    (this.IndexChange != null &&
+                    this.IndexChange.Equals(input.IndexChange))
+                ) && 
+                (
+                    this.MedianBidAskSpread == input.MedianBidAskSpread ||
+                    this.MedianBidAskSpread.Equals(input.MedianBidAskSpread)
                 );
         }
 
@@ -106,8 +179,27 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NicheCategory != null)
-                    hashCode = hashCode * 59 + this.NicheCategory.GetHashCode();
+                if (this.AsOfDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsOfDate.GetHashCode();
+                }
+                if (this.SecurityLending != null)
+                {
+                    hashCode = (hashCode * 59) + this.SecurityLending.GetHashCode();
+                }
+                if (this.Risk != null)
+                {
+                    hashCode = (hashCode * 59) + this.Risk.GetHashCode();
+                }
+                if (this.BenchmarkName != null)
+                {
+                    hashCode = (hashCode * 59) + this.BenchmarkName.GetHashCode();
+                }
+                if (this.IndexChange != null)
+                {
+                    hashCode = (hashCode * 59) + this.IndexChange.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MedianBidAskSpread.GetHashCode();
                 return hashCode;
             }
         }

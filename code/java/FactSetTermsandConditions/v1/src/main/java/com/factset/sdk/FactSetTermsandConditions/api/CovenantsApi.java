@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.CovenantDetailsResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
@@ -23,6 +26,28 @@ public class CovenantsApi {
   public CovenantsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getCovenantDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCovenantDetailsResponseTypeMap.put(200, new GenericType<CovenantDetailsResponse>(){});
+    getCovenantDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCovenantDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCovenantDetailsForListResponseTypeMap.put(200, new GenericType<CovenantDetailsResponse>(){});
+    getCovenantDetailsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCovenantDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class CovenantsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CovenantDetailsResponse> localVarReturnType = new GenericType<CovenantDetailsResponse>() {};
 
-    return apiClient.invokeAPI("CovenantsApi.getCovenantDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CovenantDetailsResponse
+      
+    > apiResponse = apiClient.invokeAPI("CovenantsApi.getCovenantDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCovenantDetailsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Covenant Details for a list of Fixed Income securities.
@@ -191,10 +222,16 @@ public class CovenantsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CovenantDetailsResponse> localVarReturnType = new GenericType<CovenantDetailsResponse>() {};
 
-    return apiClient.invokeAPI("CovenantsApi.getCovenantDetailsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CovenantDetailsResponse
+      
+    > apiResponse = apiClient.invokeAPI("CovenantsApi.getCovenantDetailsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCovenantDetailsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

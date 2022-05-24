@@ -17,7 +17,7 @@ import Currency from './Currency';
 /**
  * The CurrencyRoot model module.
  * @module model/CurrencyRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CurrencyRoot {
     /**

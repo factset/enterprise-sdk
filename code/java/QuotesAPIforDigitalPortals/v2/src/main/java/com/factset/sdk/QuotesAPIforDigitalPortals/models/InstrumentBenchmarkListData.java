@@ -48,6 +48,16 @@ public class InstrumentBenchmarkListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private InstrumentBenchmarkListDataFilter filter;
 
+  public InstrumentBenchmarkListData() { 
+  }
+
+  @JsonCreator
+  public InstrumentBenchmarkListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public InstrumentBenchmarkListData id(String id) {
     this.id = id;

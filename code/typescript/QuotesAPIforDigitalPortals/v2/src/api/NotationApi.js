@@ -41,7 +41,7 @@ import InlineResponse20090 from '../model/InlineResponse20090';
 /**
 * Notation service.
 * @module api/NotationApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class NotationApi {
 
@@ -88,7 +88,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20069;
+
       return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -102,7 +105,7 @@ export default class NotationApi {
      * @param {String} id Identifier of a notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20069}
+     * @return { Promise.< module:model/InlineResponse20069 > } a Promise, with data of type {@link module:model/InlineResponse20069 }
      */
     getNotationCrossReferenceFactSetIdentifierGet(id, opts) {
       return this.getNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(id, opts)
@@ -144,7 +147,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20066;
+
       return this.apiClient.callApi(
         '/notation/crossReference/getByFactSetMarketSymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -159,7 +165,7 @@ export default class NotationApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20066}
+     * @return { Promise.< module:model/InlineResponse20066 > } a Promise, with data of type {@link module:model/InlineResponse20066 }
      */
     getNotationCrossReferenceGetByFactSetMarketSymbol(factSetMarketSymbol, opts) {
       return this.getNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, opts)
@@ -201,7 +207,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20064;
+
       return this.apiClient.callApi(
         '/notation/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -216,7 +225,7 @@ export default class NotationApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20064}
+     * @return { Promise.< module:model/InlineResponse20064 > } a Promise, with data of type {@link module:model/InlineResponse20064 }
      */
     getNotationGet(id, opts) {
       return this.getNotationGetWithHttpInfo(id, opts)
@@ -256,7 +265,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20072;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/month/1/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -270,7 +282,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20072}
+     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
      */
     getNotationKeyFiguresMonth1Get(id, opts) {
       return this.getNotationKeyFiguresMonth1GetWithHttpInfo(id, opts)
@@ -310,7 +322,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20073;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/month/1/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -324,7 +339,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20073}
+     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
      */
     getNotationKeyFiguresMonth1List(ids, opts) {
       return this.getNotationKeyFiguresMonth1ListWithHttpInfo(ids, opts)
@@ -364,7 +379,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20074;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/month/3/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -378,7 +396,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20074}
+     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
     getNotationKeyFiguresMonth3Get(id, opts) {
       return this.getNotationKeyFiguresMonth3GetWithHttpInfo(id, opts)
@@ -418,7 +436,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20075;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/month/3/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -432,7 +453,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20075}
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresMonth3List(ids, opts) {
       return this.getNotationKeyFiguresMonth3ListWithHttpInfo(ids, opts)
@@ -472,7 +493,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20074;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/month/6/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -486,7 +510,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20074}
+     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
     getNotationKeyFiguresMonth6Get(id, opts) {
       return this.getNotationKeyFiguresMonth6GetWithHttpInfo(id, opts)
@@ -526,7 +550,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20075;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/month/6/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -540,7 +567,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20075}
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresMonth6List(ids, opts) {
       return this.getNotationKeyFiguresMonth6ListWithHttpInfo(ids, opts)
@@ -580,7 +607,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20072;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/week/1/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -594,7 +624,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20072}
+     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
      */
     getNotationKeyFiguresWeek1Get(id, opts) {
       return this.getNotationKeyFiguresWeek1GetWithHttpInfo(id, opts)
@@ -634,7 +664,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20073;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/week/1/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -648,7 +681,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20073}
+     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
      */
     getNotationKeyFiguresWeek1List(ids, opts) {
       return this.getNotationKeyFiguresWeek1ListWithHttpInfo(ids, opts)
@@ -688,7 +721,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20072;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/year/1/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -702,7 +738,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20072}
+     * @return { Promise.< module:model/InlineResponse20072 > } a Promise, with data of type {@link module:model/InlineResponse20072 }
      */
     getNotationKeyFiguresYear1Get(id, opts) {
       return this.getNotationKeyFiguresYear1GetWithHttpInfo(id, opts)
@@ -742,7 +778,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20073;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/year/1/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -756,7 +795,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20073}
+     * @return { Promise.< module:model/InlineResponse20073 > } a Promise, with data of type {@link module:model/InlineResponse20073 }
      */
     getNotationKeyFiguresYear1List(ids, opts) {
       return this.getNotationKeyFiguresYear1ListWithHttpInfo(ids, opts)
@@ -796,7 +835,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20074;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/year/3/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -810,7 +852,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20074}
+     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
     getNotationKeyFiguresYear3Get(id, opts) {
       return this.getNotationKeyFiguresYear3GetWithHttpInfo(id, opts)
@@ -850,7 +892,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20075;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/year/3/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -864,7 +909,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20075}
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresYear3List(ids, opts) {
       return this.getNotationKeyFiguresYear3ListWithHttpInfo(ids, opts)
@@ -904,7 +949,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20074;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/year/5/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -918,7 +966,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20074}
+     * @return { Promise.< module:model/InlineResponse20074 > } a Promise, with data of type {@link module:model/InlineResponse20074 }
      */
     getNotationKeyFiguresYear5Get(id, opts) {
       return this.getNotationKeyFiguresYear5GetWithHttpInfo(id, opts)
@@ -958,7 +1006,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20075;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/year/5/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -972,7 +1023,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20075}
+     * @return { Promise.< module:model/InlineResponse20075 > } a Promise, with data of type {@link module:model/InlineResponse20075 }
      */
     getNotationKeyFiguresYear5List(ids, opts) {
       return this.getNotationKeyFiguresYear5ListWithHttpInfo(ids, opts)
@@ -1012,7 +1063,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20076;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/yearToDate/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1026,7 +1080,7 @@ export default class NotationApi {
      * @param {String} id Identifier of the notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20076}
+     * @return { Promise.< module:model/InlineResponse20076 > } a Promise, with data of type {@link module:model/InlineResponse20076 }
      */
     getNotationKeyFiguresYearToDateGet(id, opts) {
       return this.getNotationKeyFiguresYearToDateGetWithHttpInfo(id, opts)
@@ -1066,7 +1120,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20077;
+
       return this.apiClient.callApi(
         '/notation/keyFigures/yearToDate/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1080,7 +1137,7 @@ export default class NotationApi {
      * @param {Array.<String>} ids List of notations.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20077}
+     * @return { Promise.< module:model/InlineResponse20077 > } a Promise, with data of type {@link module:model/InlineResponse20077 }
      */
     getNotationKeyFiguresYearToDateList(ids, opts) {
       return this.getNotationKeyFiguresYearToDateListWithHttpInfo(ids, opts)
@@ -1122,7 +1179,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20065;
+
       return this.apiClient.callApi(
         '/notation/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1137,7 +1197,7 @@ export default class NotationApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20065}
+     * @return { Promise.< module:model/InlineResponse20065 > } a Promise, with data of type {@link module:model/InlineResponse20065 }
      */
     getNotationList(ids, opts) {
       return this.getNotationListWithHttpInfo(ids, opts)
@@ -1191,7 +1251,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20088;
+
       return this.apiClient.callApi(
         '/notation/search/basic', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1212,7 +1275,7 @@ export default class NotationApi {
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20088}
+     * @return { Promise.< module:model/InlineResponse20088 > } a Promise, with data of type {@link module:model/InlineResponse20088 }
      */
     getNotationSearchBasic(searchValue, opts) {
       return this.getNotationSearchBasicWithHttpInfo(searchValue, opts)
@@ -1266,7 +1329,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20090;
+
       return this.apiClient.callApi(
         '/notation/searchByTextRankedByVolume', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1287,7 +1353,7 @@ export default class NotationApi {
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20090}
+     * @return { Promise.< module:model/InlineResponse20090 > } a Promise, with data of type {@link module:model/InlineResponse20090 }
      */
     getNotationSearchByTextRankedByVolume(searchValue, opts) {
       return this.getNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, opts)
@@ -1329,7 +1395,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20078;
+
       return this.apiClient.callApi(
         '/notation/status/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1344,7 +1413,7 @@ export default class NotationApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.quality Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (default to 'DLY')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20078}
+     * @return { Promise.< module:model/InlineResponse20078 > } a Promise, with data of type {@link module:model/InlineResponse20078 }
      */
     getNotationStatusGet(id, opts) {
       return this.getNotationStatusGetWithHttpInfo(id, opts)
@@ -1379,7 +1448,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20070;
+
       return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/listByFactSetIdentifier', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1391,7 +1463,7 @@ export default class NotationApi {
      * Retrieve a list of notations for a given FactSet identifier.
      * <p>Retrieve a list of notations for a given FactSet identifier, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>See the group description for more information about the security's primary listing.</p>
      * @param {module:model/InlineObject19} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20070}
+     * @return { Promise.< module:model/InlineResponse20070 > } a Promise, with data of type {@link module:model/InlineResponse20070 }
      */
     postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(body) {
       return this.postNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(body)
@@ -1426,7 +1498,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20071;
+
       return this.apiClient.callApi(
         '/notation/crossReference/factSetIdentifier/listByInstrument', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1438,7 +1513,7 @@ export default class NotationApi {
      * Retrieve a list of FactSet identifiers for a given instrument.
      * <p>Retrieve a list of FactSet identifiers for a given instrument, grouped by regional identifiers, if available. Listings without a regional identifier are grouped at the end of the response.</p><p>The notation corresponding to the security's primary listing has the attributes <big><tt>regional.isPrimary</tt></big> and <big><tt>regional.listing.isPrimary</tt></big> both set to true.The security's primary listing might not be among the results depending on the entitlement.</p><p>The result contains only notations that have at least one FactSet identifier (see <big><tt>listing.permanentIdentifier</tt></big>, <big><tt>listing.tickerExchange</tt></big>).</p><p>See the group description for more information about the security's primary listing.</p>
      * @param {module:model/InlineObject20} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20071}
+     * @return { Promise.< module:model/InlineResponse20071 > } a Promise, with data of type {@link module:model/InlineResponse20071 }
      */
     postNotationCrossReferenceFactSetIdentifierListByInstrument(body) {
       return this.postNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(body)
@@ -1471,7 +1546,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20067;
+
       return this.apiClient.callApi(
         '/notation/crossReference/listByISIN', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1484,7 +1562,7 @@ export default class NotationApi {
      * List of entitled notations.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject17} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20067}
+     * @return { Promise.< module:model/InlineResponse20067 > } a Promise, with data of type {@link module:model/InlineResponse20067 }
      */
     postNotationCrossReferenceListByISIN(opts) {
       return this.postNotationCrossReferenceListByISINWithHttpInfo(opts)
@@ -1517,7 +1595,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20067;
+
       return this.apiClient.callApi(
         '/notation/crossReference/listByInstrument', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1530,7 +1611,7 @@ export default class NotationApi {
      * List of entitled notations.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject16} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20067}
+     * @return { Promise.< module:model/InlineResponse20067 > } a Promise, with data of type {@link module:model/InlineResponse20067 }
      */
     postNotationCrossReferenceListByInstrument(opts) {
       return this.postNotationCrossReferenceListByInstrumentWithHttpInfo(opts)
@@ -1563,7 +1644,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20068;
+
       return this.apiClient.callApi(
         '/notation/crossReference/listBySymbol', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1576,7 +1660,7 @@ export default class NotationApi {
      * List of entitled notations. Symbols are not globally unique; therefore, a given symbol interpreted in different markets might refer to different instruments.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject18} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20068}
+     * @return { Promise.< module:model/InlineResponse20068 > } a Promise, with data of type {@link module:model/InlineResponse20068 }
      */
     postNotationCrossReferenceListBySymbol(opts) {
       return this.postNotationCrossReferenceListBySymbolWithHttpInfo(opts)
@@ -1611,7 +1695,10 @@ export default class NotationApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20089;
+
       return this.apiClient.callApi(
         '/notation/searchByText', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1623,7 +1710,7 @@ export default class NotationApi {
      * Text-based search for notations.
      * Text-based search for notations in selected identifier and name attributes according to a tolerant full-text match algorithm. The results satisfy all selected filters; sorting by various attributes is possible. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.       The result is limited to 10000 notations. All identifiers used as parameters must be valid and entitled.
      * @param {module:model/InlineObject22} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20089}
+     * @return { Promise.< module:model/InlineResponse20089 > } a Promise, with data of type {@link module:model/InlineResponse20089 }
      */
     postNotationSearchByText(body) {
       return this.postNotationSearchByTextWithHttpInfo(body)
@@ -1634,3 +1721,8 @@ export default class NotationApi {
 
 
 }
+
+
+
+
+

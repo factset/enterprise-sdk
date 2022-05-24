@@ -18,7 +18,7 @@ import UnlinkedPATemplateGroupDetails from './UnlinkedPATemplateGroupDetails';
 /**
  * The UnlinkedPATemplateCategoryAndTypeDetails model module.
  * @module model/UnlinkedPATemplateCategoryAndTypeDetails
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UnlinkedPATemplateCategoryAndTypeDetails {
     /**

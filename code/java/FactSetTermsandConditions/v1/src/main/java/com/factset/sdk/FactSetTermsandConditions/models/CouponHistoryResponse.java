@@ -43,6 +43,8 @@ public class CouponHistoryResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<CouponHistory> data = null;
 
+  public CouponHistoryResponse() { 
+  }
 
   public CouponHistoryResponse data(java.util.List<CouponHistory> data) {
     this.data = data;

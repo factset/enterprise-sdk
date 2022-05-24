@@ -133,7 +133,7 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TickhistoryResponse {\n");
             sb.Append("  RequestedID: ").Append(RequestedID).Append("\n");
             sb.Append("  RequestedSymbol: ").Append(RequestedSymbol).Append("\n");
@@ -176,8 +176,9 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         public bool Equals(TickhistoryResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestedID == input.RequestedID ||
@@ -240,23 +241,39 @@ namespace FactSet.SDK.IntradayTickHistory.Model
             {
                 int hashCode = 41;
                 if (this.RequestedID != null)
-                    hashCode = hashCode * 59 + this.RequestedID.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestedID.GetHashCode();
+                }
                 if (this.RequestedSymbol != null)
-                    hashCode = hashCode * 59 + this.RequestedSymbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestedSymbol.GetHashCode();
+                }
                 if (this.RequestedFields != null)
-                    hashCode = hashCode * 59 + this.RequestedFields.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestedFields.GetHashCode();
+                }
                 if (this.RequestKey != null)
-                    hashCode = hashCode * 59 + this.RequestKey.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestKey.GetHashCode();
+                }
                 if (this.ErrorCode != null)
-                    hashCode = hashCode * 59 + this.ErrorCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
+                }
                 if (this.ErrorDescription != null)
-                    hashCode = hashCode * 59 + this.ErrorDescription.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ErrorDescription.GetHashCode();
+                }
                 if (this.FieldNames != null)
-                    hashCode = hashCode * 59 + this.FieldNames.GetHashCode();
-                hashCode = hashCode * 59 + this.FieldIDs.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FieldNames.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FieldIDs.GetHashCode();
                 if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                hashCode = hashCode * 59 + this.Values.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Key.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Values.GetHashCode();
                 return hashCode;
             }
         }

@@ -80,6 +80,8 @@ public class BasicValueUnitCurrencyMainListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status = StatusEnum.ACTIVE;
 
+  public BasicValueUnitCurrencyMainListDataFilter() { 
+  }
 
   public BasicValueUnitCurrencyMainListDataFilter status(StatusEnum status) {
     this.status = status;

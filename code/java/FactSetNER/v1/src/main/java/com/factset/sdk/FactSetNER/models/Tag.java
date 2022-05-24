@@ -157,6 +157,8 @@ public class Tag implements Serializable {
   public static final String JSON_PROPERTY_NE_ID = "neId";
   private String neId;
 
+  public Tag() { 
+  }
 
   public Tag type(TypeEnum type) {
     this.type = type;

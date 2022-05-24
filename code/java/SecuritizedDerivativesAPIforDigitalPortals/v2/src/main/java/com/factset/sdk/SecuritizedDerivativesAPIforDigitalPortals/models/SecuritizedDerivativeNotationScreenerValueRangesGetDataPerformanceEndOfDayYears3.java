@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum;
-import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -44,13 +44,15 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceE
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_MINIMUM = "minimum";
-  private SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum minimum;
+  private SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum minimum;
 
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
-  private SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum maximum;
+  private SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum maximum;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3() { 
+  }
 
-  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3 minimum(SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum minimum) {
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3 minimum(SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum minimum) {
     this.minimum = minimum;
     return this;
   }
@@ -64,19 +66,19 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceE
   @JsonProperty(JSON_PROPERTY_MINIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum getMinimum() {
+  public SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum getMinimum() {
     return minimum;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MINIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMinimum(SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum minimum) {
+  public void setMinimum(SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum minimum) {
     this.minimum = minimum;
   }
 
 
-  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3 maximum(SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum maximum) {
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3 maximum(SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum maximum) {
     this.maximum = maximum;
     return this;
   }
@@ -90,14 +92,14 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceE
   @JsonProperty(JSON_PROPERTY_MAXIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum getMaximum() {
+  public SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum getMaximum() {
     return maximum;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MAXIMUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaximum(SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum maximum) {
+  public void setMaximum(SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum maximum) {
     this.maximum = maximum;
   }
 

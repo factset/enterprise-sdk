@@ -44,13 +44,14 @@ namespace FactSet.SDK.PAEngine.Model
         /// <param name="columns">List of columns for the PA calculation.</param>
         /// <param name="dates">dates.</param>
         /// <param name="groups">List of groupings for the PA calculation.</param>
+        /// <param name="datasources">datasources.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="componentdetail">PA storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
         /// <param name="content">content.</param>
         /// <param name="description">Template description..</param>
         /// <param name="name">Template name..</param>
         /// <param name="category">Unlinked template category.</param>
-        public UnlinkedPATemplate(string id = default(string), string directory = default(string), string templateTypeId = default(string), bool snapshot = default(bool), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes), string description = default(string), string name = default(string), string category = default(string))
+        public UnlinkedPATemplate(string id = default(string), string directory = default(string), string templateTypeId = default(string), bool snapshot = default(bool), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), PACalculationDataSources datasources = default(PACalculationDataSources), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes), string description = default(string), string name = default(string), string category = default(string))
         {
             this.Id = id;
             this.Directory = directory;
@@ -61,6 +62,7 @@ namespace FactSet.SDK.PAEngine.Model
             this.Columns = columns;
             this.Dates = dates;
             this.Groups = groups;
+            this.Datasources = datasources;
             this.Currencyisocode = currencyisocode;
             this.Componentdetail = componentdetail;
             this.Content = content;
@@ -132,6 +134,12 @@ namespace FactSet.SDK.PAEngine.Model
         public List<PACalculationGroup> Groups { get; set; }
 
         /// <summary>
+        /// Gets or Sets Datasources
+        /// </summary>
+        [DataMember(Name = "datasources", EmitDefaultValue = false)]
+        public PACalculationDataSources Datasources { get; set; }
+
+        /// <summary>
         /// Currency ISO code for calculation.
         /// </summary>
         /// <value>Currency ISO code for calculation.</value>
@@ -178,7 +186,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UnlinkedPATemplate {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Directory: ").Append(Directory).Append("\n");
@@ -189,6 +197,7 @@ namespace FactSet.SDK.PAEngine.Model
             sb.Append("  Columns: ").Append(Columns).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
+            sb.Append("  Datasources: ").Append(Datasources).Append("\n");
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Componentdetail: ").Append(Componentdetail).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
@@ -226,8 +235,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(UnlinkedPATemplate input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -278,6 +288,11 @@ namespace FactSet.SDK.PAEngine.Model
                     this.Groups.SequenceEqual(input.Groups)
                 ) && 
                 (
+                    this.Datasources == input.Datasources ||
+                    (this.Datasources != null &&
+                    this.Datasources.Equals(input.Datasources))
+                ) && 
+                (
                     this.Currencyisocode == input.Currencyisocode ||
                     (this.Currencyisocode != null &&
                     this.Currencyisocode.Equals(input.Currencyisocode))
@@ -319,34 +334,66 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Directory != null)
-                    hashCode = hashCode * 59 + this.Directory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Directory.GetHashCode();
+                }
                 if (this.TemplateTypeId != null)
-                    hashCode = hashCode * 59 + this.TemplateTypeId.GetHashCode();
-                hashCode = hashCode * 59 + this.Snapshot.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TemplateTypeId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Snapshot.GetHashCode();
                 if (this.Accounts != null)
-                    hashCode = hashCode * 59 + this.Accounts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
+                }
                 if (this.Benchmarks != null)
-                    hashCode = hashCode * 59 + this.Benchmarks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Benchmarks.GetHashCode();
+                }
                 if (this.Columns != null)
-                    hashCode = hashCode * 59 + this.Columns.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Columns.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
                 if (this.Groups != null)
-                    hashCode = hashCode * 59 + this.Groups.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Groups.GetHashCode();
+                }
+                if (this.Datasources != null)
+                {
+                    hashCode = (hashCode * 59) + this.Datasources.GetHashCode();
+                }
                 if (this.Currencyisocode != null)
-                    hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currencyisocode.GetHashCode();
+                }
                 if (this.Componentdetail != null)
-                    hashCode = hashCode * 59 + this.Componentdetail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Componentdetail.GetHashCode();
+                }
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 return hashCode;
             }
         }

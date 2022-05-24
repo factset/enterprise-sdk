@@ -20,7 +20,7 @@ import EventsAudio400Response from '../model/EventsAudio400Response';
 /**
 * EventsAudio service.
 * @module api/EventsAudioApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EventsAudioApi {
 
@@ -81,7 +81,10 @@ export default class EventsAudioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EventsAudio;
+
       return this.apiClient.callApi(
         '/docs-distributor/audio/v1/list-files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -104,7 +107,7 @@ export default class EventsAudioApi {
      * @param {String} opts.fileName This parameter is used to filter the data on based on the file name.
      * @param {Boolean} opts.trimmed This parameters helps to search trimmed audio files
      * @param {Number} opts.uploadTime This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime = -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime= -1  Maximum is 1 week/168 hours i.e., uploadTime=-168  While using uploadTime, the startDate and endDate parameters will be ignored
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EventsAudio}
+     * @return { Promise.< module:model/EventsAudio > } a Promise, with data of type {@link module:model/EventsAudio }
      */
     getDocsDistributorAudioV1ListFiles(opts) {
       return this.getDocsDistributorAudioV1ListFilesWithHttpInfo(opts)
@@ -115,3 +118,8 @@ export default class EventsAudioApi {
 
 
 }
+
+
+
+
+

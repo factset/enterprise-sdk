@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.0.1
+  version: 1.2.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -20,6 +20,8 @@ tags:
     description: >-
       Get Security Open, High, Low, Close, Volume for a list of ids and date
       range
+  - name: Returns
+    description: Gets the returns data for the list of ids, date range and currency
 paths:
   /factset-global-prices/v1/prices:
     get:
@@ -126,6 +128,7 @@ paths:
         - $ref: '#/components/parameters/startDateCA'
         - $ref: '#/components/parameters/endDateCA'
         - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/cancelledDividend'
       responses:
         '200':
           description: >-
@@ -185,6 +188,63 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/corporateActionsResponse'
+  /factset-global-prices/v1/returns:
+    get:
+      tags:
+        - Returns
+      summary: Gets Returns for a list of `ids` as of given date range.
+      operationId: getReturns
+      description: >
+        Returns for the requested ids and currency for the given dates.
+        Depending on the input parameters the return data is provided. 
+      parameters:
+        - $ref: '#/components/parameters/idsMax50'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/frequency'
+      responses:
+        '200':
+          description: Array of Returns Objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnsResponse'
+              examples:
+                Returns:
+                  $ref: '#/components/examples/returnsResponseAll'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Returns
+      summary: Gets Returns for a list of `ids` as of given date range.
+      description: >-
+        Returns for the requested ids and currency for the given dates.
+        Depending on the input parameters the return data is provided.
+      operationId: getReturnsForList
+      requestBody:
+        required: true
+        description: Request object for `Returns`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/returnsRequest'
+      responses:
+        '200':
+          description: Array of security prices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnsResponse'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -337,6 +397,19 @@ components:
         date in which the period parameter will be computed. Future dates (T+1)
         are not accepted in this endpoint.
       example: '2019-07-07'
+    cancelledDividend:
+      name: cancelledDividend
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - include
+          - exclude
+      description: >
+        The cancelled dividend returns the dividend details whether they are
+        cancelled or active.
+      example: exclude
     frequency:
       name: frequency
       in: query
@@ -486,7 +559,14 @@ components:
           |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
           |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
           |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+          |dividendStatus|Identifies the cancelled dividends status( Active, Cancelled, Postponed, Partial Information) and helps to evaluate their price and portfolio performance.Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
+          |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+          |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
+          |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
+          |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefDecUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankPct|Percent of total dividend that is franked (subject to tax credit). **Only applicable for Australian Securities**.|
           |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
         <h3>Distribution Fields</h3>
           |field|description|
@@ -509,6 +589,7 @@ components:
           |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
           |distOldTerm|Component of distribution ratio- Number of shares held.|
           |distNewTerm|Component of distribution ratio - Number of shares received.|
+          |distInstFsymId|Helps to identify an instrument representing the distributed company or security associated with ca event identifier. Its applicable for types like Bonus issue(BNS),Stock dividend(DVS),Rights issue (DSR), and spin off(SPO).|
           |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
       required: false
       explode: false
@@ -736,6 +817,8 @@ components:
           $ref: '#/components/schemas/endDateCA'
         currency:
           $ref: '#/components/schemas/requestCurrency'
+        cancelledDividend:
+          $ref: '#/components/schemas/cancelledDividend'
       required:
         - ids
     idsMax100:
@@ -831,7 +914,14 @@ components:
           |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
           |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
           |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+          |dividendStatus|Identifies the cancelled dividents and helps to evaluate their price and portfolio performance.|
+          |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+          |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.**Only applicable for Australian Securities**.|
+          |frankDefDecUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.**Only applicable for Australian Securities**.|
+          |frankPct|Percent of total dividend that is franked (subject to tax credit). **Only applicable for Australian Securities**.|          
           |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
         <h3>Distribution Fields</h3>
           |field|description|
@@ -854,6 +944,7 @@ components:
           |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
           |distOldTerm|Component of distribution ratio- Number of shares held.|
           |distNewTerm|Component of distribution ratio - Number of shares received.|
+          |distInstFsymId|Helps to identify an instrument representing the distributed company or security associated with ca event identifier. Its applicable for types like Bonus issue(BNS),Stock dividend(DVS),Rights issue (DSR), and spin off(SPO). |
           |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
       example:
         - eventId
@@ -965,13 +1056,20 @@ components:
       enum:
         - FIVEDAY
         - SEVENDAY
-        - LOCAL
       default: FIVEDAY
-      description: >-
-        Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
-        will default to the securities' trading calendar which excludes date
-        records for respective holiday periods.
+      description: Calendar of data returned. SEVENDAY includes weekends.
       example: FIVEDAY
+    cancelledDividend:
+      title: cancelledDividend
+      type: string
+      enum:
+        - include
+        - exclude
+      default: exclude
+      description: >-
+        The cancelled dividend returns the dividend details whether they are
+        cancelled or active.
+      example: exclude
     requestCurrency:
       title: Request Currency
       type: string
@@ -1168,12 +1266,59 @@ components:
           example: null
           x-fds-sdf: amt_net_dec_unadj
           x-fds-dh: NET_DEC_UNSPLIT
+        dividendStatus:
+          description: Dividend Status Flag - 1=Yes, 0=No
+          type: integer
+          example: 0
+          x-fds-sdf: dividend_status
+          x-fds-dh: DIV_STATUS
+        dividendActiveFlag:
+          description: Dividend active Flag - 1=Yes, 0=No
+          type: integer
+          example: 1
+          x-fds-sdf: dividend_active_flag
+          x-fds-dh: ISACTIVE_FLAG
         dividendsSpecFlag:
           description: Special Dividend Flag - 1=Yes, 0=No
           type: integer
           example: 0
           x-fds-sdf: dividend_spec_flag
           x-fds-dh: SPEC_FLAG
+        frankDefTradingAdj:
+          description: Default Frank - Trading Currency, Split Adjusted
+          type: number
+          format: double
+          example: null
+          x-fds-sdf: frank_amt_trading_adj
+          x-fds-dh: FRANK_DEF_SPLIT
+        frankDefTradingUnadj:
+          description: Default Frank - Trading Currency, Unadjusted
+          type: number
+          format: double
+          example: null
+          x-fds-sdf: frank_amt_trading_unadj
+          x-fds-dh: FRANK_DEF_UNSPLIT
+        frankDefDecAdj:
+          description: Default Frank - Declared Currency, Split Adjusted
+          type: number
+          format: double
+          example: null
+          x-fds-sdf: frank_amt_dec_adj
+          x-fds-dh: FRANK_DEC_SPLIT
+        frankDefDecUnadj:
+          description: Default Frank - Declared Currency, Unadjusted
+          type: number
+          format: double
+          example: null
+          x-fds-sdf: frank_amt_dec_unadj
+          x-fds-dh: FRANK_DEC_UNSPLIT
+        frankPct:
+          description: Default Amount - Declared Currency, Unadjusted
+          type: number
+          format: double
+          example: null
+          x-fds-sdf: frank_pct
+          x-fds-dh: FRANK_PCT
         taxRate:
           description: Tax Rate for on gross dividend for net dividend.
           type: number
@@ -1426,6 +1571,12 @@ components:
           example: 0.05
           x-fds-sdf: dist_new_term
           x-fds-dh: DIST_RATIO_TERM_NEW
+        distInstFsymId:
+          description: Parent Spin-Off for a company
+          type: string
+          example: RGW4H5-S
+          x-fds-sdf: dist_inst_fsym_id
+          x-fds-dh: DIST_INST_ID
         shortDesc:
           description: Textual description identifying the event.
           type: string
@@ -1436,6 +1587,68 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: IBM-US
+    returnsRequest:
+      title: Returns Request Body
+      description: Returns Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/idsMax50'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        currency:
+          $ref: '#/components/schemas/requestCurrency'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+      required:
+        - ids
+        - startDate
+        - endDate
+    returnsResponse:
+      type: object
+      title: Returns Response
+      properties:
+        data:
+          description: Array of Returns Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/returns'
+    returns:
+      title: Returns Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Permanent Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R) or a -L Suffix
+            (XXXXXX-L).
+          type: string
+          example: LCV42P-L
+        totalReturn:
+          description: Returns the data for the given input parameters.
+          type: number
+          format: double
+          example: 0.927077
+        date:
+          description: >-
+            End date of the return. Date in YYYY-MM-DD format. Depending on
+            Frequency and Calendar settings, this could represent the entire
+            return period requested.
+          type: string
+          format: date
+          example: '2020-11-19'
+        currency:
+          type: string
+          description: >-
+            Currency ISO code. For more details, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: DDD-USA
     errorResponse:
       type: object
       title: Error Response
@@ -1959,6 +2172,20 @@ components:
             rightsIssuePrice: null
             shortDesc: 'Reverse Split(Mandatory): 25 for 29'
             requestId: GPOR-GB
+    returnsResponseAll:
+      summary: Return
+      value:
+        data:
+          - fsymId: WFJYTJ-R
+            date: '2019-10-03'
+            currency: USD
+            totalReturn: 0.927077
+            requestId: GOOGL
+          - fsymId: MH33D6-R
+            date: '2019-10-03'
+            currency: USD
+            totalReturn: 1.782245
+            requestId: AAPL
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-

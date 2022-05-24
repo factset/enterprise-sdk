@@ -56,8 +56,8 @@ namespace Example
             var startDate = 2019-07-30;  // string | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var endDate = 2020-07-30;  // string | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
             var frequency = D;  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to D)
-            var periodicity = periodicity_example;  // string | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional)  (default to ANN)
-            var statistic = statistic_example;  // string | Statistic for consensus calculation. (optional)  (default to MEAN)
+            var periodicity = "ANN";  // string | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional)  (default to ANN)
+            var statistic = "MEAN";  // string | Statistic for consensus calculation. (optional)  (default to MEAN)
             var currency = USD;  // string | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional) 
 
             try
@@ -91,7 +91,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 
 ### Return type
-
 [**SurpriseResponse**](SurpriseResponse.md)
 
 ### Authorization
@@ -185,7 +184,6 @@ Name | Type | Description  | Notes
  **surpriseRequest** | [**SurpriseRequest**](SurpriseRequest.md)| Request object for &#x60;Security&#x60; prices. | 
 
 ### Return type
-
 [**SurpriseResponse**](SurpriseResponse.md)
 
 ### Authorization

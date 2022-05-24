@@ -76,7 +76,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataRangeUpper {\n");
             sb.Append("  Level: ").Append(Level).Append("\n");
             sb.Append("  Breach: ").Append(Breach).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataRangeUpper input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Level == input.Level ||
@@ -148,13 +149,21 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Level != null)
-                    hashCode = hashCode * 59 + this.Level.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                }
                 if (this.Breach != null)
-                    hashCode = hashCode * 59 + this.Breach.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Breach.GetHashCode();
+                }
                 if (this.Distance != null)
-                    hashCode = hashCode * 59 + this.Distance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Distance.GetHashCode();
+                }
                 if (this.ParticipationFactor != null)
-                    hashCode = hashCode * 59 + this.ParticipationFactor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParticipationFactor.GetHashCode();
+                }
                 return hashCode;
             }
         }

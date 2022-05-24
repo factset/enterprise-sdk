@@ -17,7 +17,7 @@ import InlineResponse2006InstrumentCapDistance from './InlineResponse2006Instrum
 /**
  * The InlineResponse2006InstrumentCap model module.
  * @module model/InlineResponse2006InstrumentCap
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentCap {
     /**

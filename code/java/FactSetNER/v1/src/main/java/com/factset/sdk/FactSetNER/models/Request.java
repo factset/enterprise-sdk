@@ -43,6 +43,8 @@ public class Request implements Serializable {
   public static final String JSON_PROPERTY_INPUT = "input";
   private Input input;
 
+  public Request() { 
+  }
 
   public Request input(Input input) {
     this.input = input;

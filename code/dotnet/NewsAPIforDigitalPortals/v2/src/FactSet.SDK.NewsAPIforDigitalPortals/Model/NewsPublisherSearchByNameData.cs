@@ -106,7 +106,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsPublisherSearchByNameData {\n");
             sb.Append("  SearchValue: ").Append(SearchValue).Append("\n");
             sb.Append("  MatchType: ").Append(MatchType).Append("\n");
@@ -142,8 +142,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsPublisherSearchByNameData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SearchValue == input.SearchValue ||
@@ -171,10 +172,14 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.SearchValue != null)
-                    hashCode = hashCode * 59 + this.SearchValue.GetHashCode();
-                hashCode = hashCode * 59 + this.MatchType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SearchValue.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MatchType.GetHashCode();
                 if (this.Filter != null)
-                    hashCode = hashCode * 59 + this.Filter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -187,13 +192,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // SearchValue (string) maxLength
-            if(this.SearchValue != null && this.SearchValue.Length > 50)
+            if (this.SearchValue != null && this.SearchValue.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchValue, length must be less than 50.", new [] { "SearchValue" });
             }
 
             // SearchValue (string) minLength
-            if(this.SearchValue != null && this.SearchValue.Length < 2)
+            if (this.SearchValue != null && this.SearchValue.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchValue, length must be greater than 2.", new [] { "SearchValue" });
             }

@@ -18,7 +18,7 @@ import InstrumentCrossReferenceListByISINData from './InstrumentCrossReferenceLi
 /**
  * The InlineObject13 model module.
  * @module model/InlineObject13
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject13 {
     /**

@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchMetaPagination from './DebtInstrument
 /**
  * The DebtInstrumentNotationScreenerSearchMeta model module.
  * @module model/DebtInstrumentNotationScreenerSearchMeta
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchMeta {
     /**

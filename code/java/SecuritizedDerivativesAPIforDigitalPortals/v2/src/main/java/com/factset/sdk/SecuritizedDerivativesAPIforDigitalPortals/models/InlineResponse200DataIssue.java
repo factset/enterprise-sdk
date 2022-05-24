@@ -57,6 +57,8 @@ public class InlineResponse200DataIssue implements Serializable {
   public static final String JSON_PROPERTY_SURCHARGE = "surcharge";
   private BigDecimal surcharge;
 
+  public InlineResponse200DataIssue() { 
+  }
 
   public InlineResponse200DataIssue price(BigDecimal price) {
     this.price = price;

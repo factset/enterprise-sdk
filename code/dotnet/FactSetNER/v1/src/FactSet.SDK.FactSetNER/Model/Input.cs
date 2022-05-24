@@ -110,7 +110,7 @@ namespace FactSet.SDK.FactSetNER.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Input {\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  CharacterOffset: ").Append(CharacterOffset).Append("\n");
@@ -147,8 +147,9 @@ namespace FactSet.SDK.FactSetNER.Model
         public bool Equals(Input input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Text == input.Text ||
@@ -179,10 +180,12 @@ namespace FactSet.SDK.FactSetNER.Model
             {
                 int hashCode = 41;
                 if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
-                hashCode = hashCode * 59 + this.CharacterOffset.GetHashCode();
-                hashCode = hashCode * 59 + this.IdType.GetHashCode();
-                hashCode = hashCode * 59 + this.FilterTagsWithoutId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CharacterOffset.GetHashCode();
+                hashCode = (hashCode * 59) + this.IdType.GetHashCode();
+                hashCode = (hashCode * 59) + this.FilterTagsWithoutId.GetHashCode();
                 return hashCode;
             }
         }
@@ -195,7 +198,7 @@ namespace FactSet.SDK.FactSetNER.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // CharacterOffset (int) minimum
-            if(this.CharacterOffset < (int)0)
+            if (this.CharacterOffset < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CharacterOffset, must be a value greater than or equal to 0.", new [] { "CharacterOffset" });
             }

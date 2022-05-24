@@ -18,7 +18,7 @@ import InlineResponse2005DataStrikeValue from './InlineResponse2005DataStrikeVal
 /**
  * The InlineResponse2005DataStrike model module.
  * @module model/InlineResponse2005DataStrike
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataStrike {
     /**

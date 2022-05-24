@@ -50,6 +50,7 @@ const sedolHistoryTranslationRequest = new symbology.SedolHistoryTranslationRequ
 // Call api endpoint
 apiInstance.batchSedolHistory(sedolHistoryTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const sedolTranslationRequest = new symbology.SedolTranslationRequest(); // Sedo
 // Call api endpoint
 apiInstance.batchTranslateSedol(sedolTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -195,6 +197,7 @@ const opts = {
 // Call api endpoint
 apiInstance.sedolHistory(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -267,6 +270,7 @@ const ids = ["GOOGL-US"]; // [String] | Requested market securities or entities.
 // Call api endpoint
 apiInstance.translateSedol(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -7,6 +7,9 @@ import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SPAREngine.models.FrequencyRoot;
 
@@ -21,6 +24,14 @@ public class FrequenciesApi {
   public FrequenciesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSPARFrequenciesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSPARFrequenciesResponseTypeMap.put(200, new GenericType<FrequencyRoot>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -106,10 +117,16 @@ public class FrequenciesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FrequencyRoot> localVarReturnType = new GenericType<FrequencyRoot>() {};
 
-    return apiClient.invokeAPI("FrequenciesApi.getSPARFrequencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FrequencyRoot
+      
+    > apiResponse = apiClient.invokeAPI("FrequenciesApi.getSPARFrequencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSPARFrequenciesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

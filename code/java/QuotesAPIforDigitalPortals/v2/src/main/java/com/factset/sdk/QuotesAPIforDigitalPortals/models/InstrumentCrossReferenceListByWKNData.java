@@ -43,6 +43,16 @@ public class InstrumentCrossReferenceListByWKNData implements Serializable {
   public static final String JSON_PROPERTY_WKNS = "wkns";
   private java.util.Set<String> wkns = new java.util.LinkedHashSet<>();
 
+  public InstrumentCrossReferenceListByWKNData() { 
+  }
+
+  @JsonCreator
+  public InstrumentCrossReferenceListByWKNData(
+    @JsonProperty(value=JSON_PROPERTY_WKNS, required=true) java.util.Set<String> wkns
+  ) {
+    this();
+    this.wkns = wkns;
+  }
 
   public InstrumentCrossReferenceListByWKNData wkns(java.util.Set<String> wkns) {
     this.wkns = wkns;

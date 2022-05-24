@@ -43,6 +43,8 @@ public class RelatedFundsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<RelatedFunds> data = null;
 
+  public RelatedFundsResponse() { 
+  }
 
   public RelatedFundsResponse data(java.util.List<RelatedFunds> data) {
     this.data = data;

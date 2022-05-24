@@ -71,7 +71,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntitySecuritiesRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  SecurityType: ").Append(SecurityType).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.FactSetEntity.Model
         public bool Equals(EntitySecuritiesRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -132,9 +133,13 @@ namespace FactSet.SDK.FactSetEntity.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.SecurityType != null)
-                    hashCode = hashCode * 59 + this.SecurityType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecurityType.GetHashCode();
+                }
                 return hashCode;
             }
         }

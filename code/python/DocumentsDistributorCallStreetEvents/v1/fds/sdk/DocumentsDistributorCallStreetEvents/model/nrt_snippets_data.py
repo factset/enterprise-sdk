@@ -24,14 +24,14 @@ from fds.sdk.DocumentsDistributorCallStreetEvents.model_utils import (  # noqa: 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.DocumentsDistributorCallStreetEvents.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_snippets_snippet_data import NRTSnippetsSnippetData
-    globals()['NRTSnippetsSnippetData'] = NRTSnippetsSnippetData
+    from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_snippets_transcript_data import NRTSnippetsTranscriptData
+    globals()['NRTSnippetsTranscriptData'] = NRTSnippetsTranscriptData
 
 
 class NRTSnippetsData(ModelNormal):
@@ -89,7 +89,7 @@ class NRTSnippetsData(ModelNormal):
         return {
             'report_id': (int,),  # noqa: E501
             'snippet_end_timestamp': (str,),  # noqa: E501
-            'snippet_data': ([NRTSnippetsSnippetData],),  # noqa: E501
+            'transcript_data': ([NRTSnippetsTranscriptData],),  # noqa: E501
             'snippet_sequence': (int,),  # noqa: E501
             'audio_source_id': (int,),  # noqa: E501
         }
@@ -102,7 +102,7 @@ class NRTSnippetsData(ModelNormal):
     attribute_map = {
         'report_id': 'reportId',  # noqa: E501
         'snippet_end_timestamp': 'snippetEndTimestamp',  # noqa: E501
-        'snippet_data': 'snippetData',  # noqa: E501
+        'transcript_data': 'transcriptData',  # noqa: E501
         'snippet_sequence': 'snippetSequence',  # noqa: E501
         'audio_source_id': 'audioSourceId',  # noqa: E501
     }
@@ -150,7 +150,7 @@ class NRTSnippetsData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             report_id (int): The unique ID for an event.. [optional]  # noqa: E501
             snippet_end_timestamp (str): The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint . [optional]  # noqa: E501
-            snippet_data ([NRTSnippetsSnippetData]): [optional]  # noqa: E501
+            transcript_data ([NRTSnippetsTranscriptData]): [optional]  # noqa: E501
             snippet_sequence (int): The sequence number of the snippet from the start of the current call . [optional]  # noqa: E501
             audio_source_id (int): The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.. [optional]  # noqa: E501
         """
@@ -236,7 +236,7 @@ class NRTSnippetsData(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             report_id (int): The unique ID for an event.. [optional]  # noqa: E501
             snippet_end_timestamp (str): The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint . [optional]  # noqa: E501
-            snippet_data ([NRTSnippetsSnippetData]): [optional]  # noqa: E501
+            transcript_data ([NRTSnippetsTranscriptData]): [optional]  # noqa: E501
             snippet_sequence (int): The sequence number of the snippet from the start of the current call . [optional]  # noqa: E501
             audio_source_id (int): The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.. [optional]  # noqa: E501
         """

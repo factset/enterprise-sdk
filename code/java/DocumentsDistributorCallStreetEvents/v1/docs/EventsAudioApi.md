@@ -19,20 +19,19 @@ Gets the latest 25 audio files. Parameters can be used to filter and narrow down
 ### Example
 
 ```java
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 // Import classes:
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.ApiClient;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.ApiException;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.Configuration;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.auth.*;
-import com.factset.sdk.DocumentsDistributorCallStreetEvents.model.*;
+import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.*;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.api.EventsAudioApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -42,14 +41,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EventsAudioApi apiInstance = new EventsAudioApi(defaultClient);
         String sort = "-startDate"; // String | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default.
@@ -66,6 +65,7 @@ public class Example {
         try {
             EventsAudio result = apiInstance.getDocsDistributorAudioV1ListFiles(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EventsAudioApi#getDocsDistributorAudioV1ListFiles");
             System.err.println("Status code: " + e.getCode());

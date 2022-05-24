@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003FsymRegional model module.
  * @module model/InlineResponse2003FsymRegional
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003FsymRegional {
     /**

@@ -85,6 +85,8 @@ public class DebtInstrumentNotationScreenerSearchDataCouponOccurrence implements
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private DebtInstrumentNotationScreenerSearchDataCouponOccurrenceFrequency frequency;
 
+  public DebtInstrumentNotationScreenerSearchDataCouponOccurrence() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataCouponOccurrence type(java.util.Set<TypeEnum> type) {
     this.type = type;

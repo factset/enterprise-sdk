@@ -43,6 +43,8 @@ public class SPARAccounts implements Serializable {
   public static final String JSON_PROPERTY_RETURNS_TYPE = "returnsType";
   private java.util.List<ReturnType> returnsType = null;
 
+  public SPARAccounts() { 
+  }
 
   public SPARAccounts returnsType(java.util.List<ReturnType> returnsType) {
     this.returnsType = returnsType;

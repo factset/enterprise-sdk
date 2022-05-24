@@ -925,7 +925,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       }
     },
     "/analytics/engines/fpo/v3/optimizations/{id}": {
@@ -1332,7 +1333,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       },
       "get": {
         "tags": [

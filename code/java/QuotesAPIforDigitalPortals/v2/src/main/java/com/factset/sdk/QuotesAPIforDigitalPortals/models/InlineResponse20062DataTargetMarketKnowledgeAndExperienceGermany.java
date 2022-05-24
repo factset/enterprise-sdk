@@ -82,6 +82,8 @@ public class InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany im
   public static final String JSON_PROPERTY_EXPERT_INVESTOR = "expertInvestor";
   private ExpertInvestorEnum expertInvestor;
 
+  public InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany() { 
+  }
 
   public InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany expertInvestor(ExpertInvestorEnum expertInvestor) {
     this.expertInvestor = expertInvestor;

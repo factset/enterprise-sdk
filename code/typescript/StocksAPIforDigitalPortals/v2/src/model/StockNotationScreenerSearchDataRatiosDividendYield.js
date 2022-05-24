@@ -18,7 +18,7 @@ import StockNotationScreenerSearchDataEbitMarginMinimum from './StockNotationScr
 /**
  * The StockNotationScreenerSearchDataRatiosDividendYield model module.
  * @module model/StockNotationScreenerSearchDataRatiosDividendYield
- * @version 0.9.1
+ * @version 0.9.2
  */
 class StockNotationScreenerSearchDataRatiosDividendYield {
     /**

@@ -231,6 +231,45 @@ namespace FactSet.SDK.FactSetConcordance.Api
     {
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityUniverseStatisticsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityUniverseStatisticsResponse) },
+            { (HttpStatusCode)0, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetUniverseForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(UniverseMetaResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+            { (HttpStatusCode)0, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetUniversesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(UniversesResponse) },
+            { (HttpStatusCode)0, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetUpdateUniverseForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(UniverseMetaResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+            { (HttpStatusCode)0, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="UniversesApi"/> class.
         /// </summary>
@@ -341,7 +380,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityUniverseStatisticsResponse</returns>
         public EntityUniverseStatisticsResponse GetEntityUniverseStatistics(int universeId)
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseStatisticsResponse> localVarResponse = GetEntityUniverseStatisticsWithHttpInfo(universeId);
+            var localVarResponse = GetEntityUniverseStatisticsWithHttpInfo(universeId);
             return localVarResponse.Data;
         }
 
@@ -351,7 +390,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
         /// <returns>ApiResponse of EntityUniverseStatisticsResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseStatisticsResponse> GetEntityUniverseStatisticsWithHttpInfo(int universeId)
+        public ApiResponse<EntityUniverseStatisticsResponse> GetEntityUniverseStatisticsWithHttpInfo(int universeId)
         {
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -364,22 +403,28 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -391,15 +436,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EntityUniverseStatisticsResponse>("/factset-concordance/v2/entity-universe-statistics", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityUniverseStatisticsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EntityUniverseStatisticsResponse>("/factset-concordance/v2/entity-universe-statistics", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityUniverseStatistics", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -410,9 +459,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityUniverseStatisticsResponse</returns>
-        public async System.Threading.Tasks.Task<EntityUniverseStatisticsResponse> GetEntityUniverseStatisticsAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityUniverseStatisticsResponse>GetEntityUniverseStatisticsAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseStatisticsResponse> localVarResponse = await GetEntityUniverseStatisticsWithHttpInfoAsync(universeId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityUniverseStatisticsWithHttpInfoAsync(universeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -423,7 +472,8 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.*</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityUniverseStatisticsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseStatisticsResponse>> GetEntityUniverseStatisticsWithHttpInfoAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityUniverseStatisticsResponse>> GetEntityUniverseStatisticsWithHttpInfoAsync(int universeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -436,24 +486,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -465,14 +520,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityUniverseStatisticsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EntityUniverseStatisticsResponse>("/factset-concordance/v2/entity-universe-statistics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityUniverseStatistics", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -486,7 +545,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>UniverseMetaResponse</returns>
         public UniverseMetaResponse GetUniverseForList(CreateUniverseRequest createUniverseRequest)
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse> localVarResponse = GetUniverseForListWithHttpInfo(createUniverseRequest);
+            var localVarResponse = GetUniverseForListWithHttpInfo(createUniverseRequest);
             return localVarResponse.Data;
         }
 
@@ -496,11 +555,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createUniverseRequest">A request to create a user&#39;s universe</param>
         /// <returns>ApiResponse of UniverseMetaResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse> GetUniverseForListWithHttpInfo(CreateUniverseRequest createUniverseRequest)
+        public ApiResponse<UniverseMetaResponse> GetUniverseForListWithHttpInfo(CreateUniverseRequest createUniverseRequest)
         {
             // verify the required parameter 'createUniverseRequest' is set
             if (createUniverseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'createUniverseRequest' when calling UniversesApi->GetUniverseForList");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -514,22 +575,28 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = createUniverseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -541,15 +608,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<UniverseMetaResponse>("/factset-concordance/v2/universe", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetUniverseForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            UniverseMetaResponse>("/factset-concordance/v2/universe", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUniverseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -560,9 +631,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="createUniverseRequest">A request to create a user&#39;s universe</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UniverseMetaResponse</returns>
-        public async System.Threading.Tasks.Task<UniverseMetaResponse> GetUniverseForListAsync(CreateUniverseRequest createUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UniverseMetaResponse>GetUniverseForListAsync(CreateUniverseRequest createUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse> localVarResponse = await GetUniverseForListWithHttpInfoAsync(createUniverseRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUniverseForListWithHttpInfoAsync(createUniverseRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -573,11 +644,14 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="createUniverseRequest">A request to create a user&#39;s universe</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UniverseMetaResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse>> GetUniverseForListWithHttpInfoAsync(CreateUniverseRequest createUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<UniverseMetaResponse>> GetUniverseForListWithHttpInfoAsync(CreateUniverseRequest createUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'createUniverseRequest' is set
             if (createUniverseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'createUniverseRequest' when calling UniversesApi->GetUniverseForList");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -591,24 +665,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = createUniverseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -620,14 +699,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetUniverseForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<UniverseMetaResponse>("/factset-concordance/v2/universe", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUniverseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -641,7 +724,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>UniversesResponse</returns>
         public UniversesResponse GetUniverses(int? universeId = default(int?))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniversesResponse> localVarResponse = GetUniversesWithHttpInfo(universeId);
+            var localVarResponse = GetUniversesWithHttpInfo(universeId);
             return localVarResponse.Data;
         }
 
@@ -651,7 +734,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
         /// <returns>ApiResponse of UniversesResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniversesResponse> GetUniversesWithHttpInfo(int? universeId = default(int?))
+        public ApiResponse<UniversesResponse> GetUniversesWithHttpInfo(int? universeId = default(int?))
         {
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -664,10 +747,16 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (universeId != null)
             {
@@ -676,13 +765,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -694,15 +783,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<UniversesResponse>("/factset-concordance/v2/universes", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetUniversesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            UniversesResponse>("/factset-concordance/v2/universes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUniverses", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -713,9 +806,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UniversesResponse</returns>
-        public async System.Threading.Tasks.Task<UniversesResponse> GetUniversesAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UniversesResponse>GetUniversesAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniversesResponse> localVarResponse = await GetUniversesWithHttpInfoAsync(universeId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUniversesWithHttpInfoAsync(universeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -726,7 +819,8 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="universeId">Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UniversesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniversesResponse>> GetUniversesWithHttpInfoAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<UniversesResponse>> GetUniversesWithHttpInfoAsync(int? universeId = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -739,12 +833,17 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (universeId != null)
             {
@@ -753,13 +852,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -771,14 +870,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetUniversesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<UniversesResponse>("/factset-concordance/v2/universes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUniverses", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -792,7 +895,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>UniverseMetaResponse</returns>
         public UniverseMetaResponse GetUpdateUniverseForList(UpdateUniverseRequest updateUniverseRequest)
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse> localVarResponse = GetUpdateUniverseForListWithHttpInfo(updateUniverseRequest);
+            var localVarResponse = GetUpdateUniverseForListWithHttpInfo(updateUniverseRequest);
             return localVarResponse.Data;
         }
 
@@ -802,11 +905,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUniverseRequest">A request to update a user&#39;s universe</param>
         /// <returns>ApiResponse of UniverseMetaResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse> GetUpdateUniverseForListWithHttpInfo(UpdateUniverseRequest updateUniverseRequest)
+        public ApiResponse<UniverseMetaResponse> GetUpdateUniverseForListWithHttpInfo(UpdateUniverseRequest updateUniverseRequest)
         {
             // verify the required parameter 'updateUniverseRequest' is set
             if (updateUniverseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'updateUniverseRequest' when calling UniversesApi->GetUpdateUniverseForList");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -820,22 +925,28 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = updateUniverseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -847,15 +958,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<UniverseMetaResponse>("/factset-concordance/v2/update-universe", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetUpdateUniverseForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            UniverseMetaResponse>("/factset-concordance/v2/update-universe", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUpdateUniverseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -866,9 +981,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="updateUniverseRequest">A request to update a user&#39;s universe</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UniverseMetaResponse</returns>
-        public async System.Threading.Tasks.Task<UniverseMetaResponse> GetUpdateUniverseForListAsync(UpdateUniverseRequest updateUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UniverseMetaResponse>GetUpdateUniverseForListAsync(UpdateUniverseRequest updateUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse> localVarResponse = await GetUpdateUniverseForListWithHttpInfoAsync(updateUniverseRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUpdateUniverseForListWithHttpInfoAsync(updateUniverseRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -879,11 +994,14 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="updateUniverseRequest">A request to update a user&#39;s universe</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UniverseMetaResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<UniverseMetaResponse>> GetUpdateUniverseForListWithHttpInfoAsync(UpdateUniverseRequest updateUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<UniverseMetaResponse>> GetUpdateUniverseForListWithHttpInfoAsync(UpdateUniverseRequest updateUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'updateUniverseRequest' is set
             if (updateUniverseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'updateUniverseRequest' when calling UniversesApi->GetUpdateUniverseForList");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -897,24 +1015,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = updateUniverseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -926,14 +1049,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetUpdateUniverseForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<UniverseMetaResponse>("/factset-concordance/v2/update-universe", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUpdateUniverseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

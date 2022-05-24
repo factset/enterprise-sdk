@@ -88,6 +88,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPr
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPricesPrevious previous;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPrices() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPrices quality(QualityEnum quality) {
     this.quality = quality;

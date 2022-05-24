@@ -48,6 +48,8 @@ public class InlineResponse20046Notation implements Serializable {
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse20046NotationInstrument instrument;
 
+  public InlineResponse20046Notation() { 
+  }
 
   public InlineResponse20046Notation id(String id) {
     this.id = id;

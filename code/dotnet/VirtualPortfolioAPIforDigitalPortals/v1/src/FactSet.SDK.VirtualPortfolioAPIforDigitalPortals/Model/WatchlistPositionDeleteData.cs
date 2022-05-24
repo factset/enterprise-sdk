@@ -70,7 +70,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class WatchlistPositionDeleteData {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(WatchlistPositionDeleteData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -130,9 +131,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Position != null)
-                    hashCode = hashCode * 59 + this.Position.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Position.GetHashCode();
+                }
                 return hashCode;
             }
         }

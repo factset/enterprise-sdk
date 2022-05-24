@@ -43,6 +43,8 @@ public class ScaleScale implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private Integer value;
 
+  public ScaleScale() { 
+  }
 
   public ScaleScale value(Integer value) {
     this.value = value;

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetConcordance.models.EntityDecisionsResponse;
 import com.factset.sdk.FactSetConcordance.models.EntityTaskResponse;
@@ -25,6 +28,37 @@ public class EntityMatchBulkApi {
   public EntityMatchBulkApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntityDecisionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityDecisionsResponseTypeMap.put(200, new GenericType<EntityDecisionsResponse>(){});
+    getEntityDecisionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityDecisionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityDecisionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityDecisionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityDecisionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEntityTaskForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityTaskForListResponseTypeMap.put(200, new GenericType<EntityTaskResponse>(){});
+    getEntityTaskForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityTaskForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityTaskForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityTaskForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityTaskForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEntityTaskStatusResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityTaskStatusResponseTypeMap.put(200, new GenericType<EntityTaskStatusResponse>(){});
+    getEntityTaskStatusResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityTaskStatusResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityTaskStatusResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityTaskStatusResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityTaskStatusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -122,11 +156,17 @@ public class EntityMatchBulkApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityDecisionsResponse> localVarReturnType = new GenericType<EntityDecisionsResponse>() {};
 
-    return apiClient.invokeAPI("EntityMatchBulkApi.getEntityDecisions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityDecisionsResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityMatchBulkApi.getEntityDecisions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityDecisionsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Input a file with names and attributes, creating a taskId.
@@ -265,11 +305,17 @@ if (excludeEntitySubType != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityTaskResponse> localVarReturnType = new GenericType<EntityTaskResponse>() {};
 
-    return apiClient.invokeAPI("EntityMatchBulkApi.getEntityTaskForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityTaskResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityMatchBulkApi.getEntityTaskForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityTaskForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets the status of the requested taskId or all tasks for a User
@@ -347,10 +393,16 @@ if (excludeEntitySubType != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityTaskStatusResponse> localVarReturnType = new GenericType<EntityTaskStatusResponse>() {};
 
-    return apiClient.invokeAPI("EntityMatchBulkApi.getEntityTaskStatus", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityTaskStatusResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityMatchBulkApi.getEntityTaskStatus", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityTaskStatusResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

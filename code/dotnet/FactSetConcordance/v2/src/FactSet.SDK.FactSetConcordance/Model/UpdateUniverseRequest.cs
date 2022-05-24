@@ -77,7 +77,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateUniverseRequest {\n");
             sb.Append("  UniverseName: ").Append(UniverseName).Append("\n");
             sb.Append("  UniverseDescription: ").Append(UniverseDescription).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(UpdateUniverseRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UniverseName == input.UniverseName ||
@@ -142,10 +143,14 @@ namespace FactSet.SDK.FactSetConcordance.Model
             {
                 int hashCode = 41;
                 if (this.UniverseName != null)
-                    hashCode = hashCode * 59 + this.UniverseName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UniverseName.GetHashCode();
+                }
                 if (this.UniverseDescription != null)
-                    hashCode = hashCode * 59 + this.UniverseDescription.GetHashCode();
-                hashCode = hashCode * 59 + this.UniverseId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UniverseDescription.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
                 return hashCode;
             }
         }

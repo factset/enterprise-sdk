@@ -17,7 +17,7 @@ import SubcommentSummaryDto from './SubcommentSummaryDto';
 /**
  * The CommentSummaryDto model module.
  * @module model/CommentSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CommentSummaryDto {
     /**
@@ -48,17 +48,17 @@ class CommentSummaryDto {
         if (data) {
             obj = obj || new CommentSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('userId')) {
-                obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
+            if (data.hasOwnProperty('UserId')) {
+                obj['UserId'] = ApiClient.convertToType(data['UserId'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
-                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+            if (data.hasOwnProperty('CreatedAt')) {
+                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'String');
             }
-            if (data.hasOwnProperty('subcomments')) {
-                obj['subcomments'] = ApiClient.convertToType(data['subcomments'], [SubcommentSummaryDto]);
+            if (data.hasOwnProperty('Subcomments')) {
+                obj['Subcomments'] = ApiClient.convertToType(data['Subcomments'], [SubcommentSummaryDto]);
             }
         }
         return obj;
@@ -68,24 +68,24 @@ class CommentSummaryDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-CommentSummaryDto.prototype['id'] = undefined;
+CommentSummaryDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} userId
+ * @member {String} UserId
  */
-CommentSummaryDto.prototype['userId'] = undefined;
+CommentSummaryDto.prototype['UserId'] = undefined;
 
 /**
- * @member {String} createdAt
+ * @member {String} CreatedAt
  */
-CommentSummaryDto.prototype['createdAt'] = undefined;
+CommentSummaryDto.prototype['CreatedAt'] = undefined;
 
 /**
- * @member {Array.<module:model/SubcommentSummaryDto>} subcomments
+ * @member {Array.<module:model/SubcommentSummaryDto>} Subcomments
  */
-CommentSummaryDto.prototype['subcomments'] = undefined;
+CommentSummaryDto.prototype['Subcomments'] = undefined;
 
 
 

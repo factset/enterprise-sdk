@@ -68,7 +68,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001DataSummaryTransactions {\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  Buy: ").Append(Buy).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2001DataSummaryTransactions input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Total == input.Total ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Total != null)
-                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                }
                 if (this.Buy != null)
-                    hashCode = hashCode * 59 + this.Buy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Buy.GetHashCode();
+                }
                 if (this.Sell != null)
-                    hashCode = hashCode * 59 + this.Sell.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sell.GetHashCode();
+                }
                 return hashCode;
             }
         }

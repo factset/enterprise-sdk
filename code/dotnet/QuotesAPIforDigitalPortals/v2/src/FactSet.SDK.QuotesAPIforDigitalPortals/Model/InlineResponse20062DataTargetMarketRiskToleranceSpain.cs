@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketRiskToleranceSpain {\n");
             sb.Append("  Sri: ").Append(Sri).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketRiskToleranceSpain input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sri == input.Sri ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Sri != null)
-                    hashCode = hashCode * 59 + this.Sri.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sri.GetHashCode();
+                }
                 return hashCode;
             }
         }

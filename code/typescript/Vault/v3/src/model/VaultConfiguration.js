@@ -17,7 +17,7 @@ import ConfigurationAccount from './ConfigurationAccount';
 /**
  * The VaultConfiguration model module.
  * @module model/VaultConfiguration
- * @version 0.9.1
+ * @version 0.20.0
  */
 class VaultConfiguration {
     /**

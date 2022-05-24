@@ -5,8 +5,8 @@ Value range for the time range one month.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Minimum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum.md) |  | [optional] 
-**Maximum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum.md) |  | [optional] 
+**Minimum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum.md) |  | [optional] 
+**Maximum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

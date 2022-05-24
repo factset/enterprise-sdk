@@ -236,7 +236,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetData {\n");
             sb.Append("  Validation: ").Append(Validation).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
@@ -289,8 +289,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Validation == input.Validation ||
@@ -403,42 +404,76 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Validation != null)
-                    hashCode = hashCode * 59 + this.Validation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Validation.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 if (this.RegistrationCountry != null)
-                    hashCode = hashCode * 59 + this.RegistrationCountry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RegistrationCountry.GetHashCode();
+                }
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Exercise != null)
-                    hashCode = hashCode * 59 + this.Exercise.GetHashCode();
-                hashCode = hashCode * 59 + this.Settlement.GetHashCode();
-                hashCode = hashCode * 59 + this.Collateralized.GetHashCode();
-                hashCode = hashCode * 59 + this.Quanto.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exercise.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Settlement.GetHashCode();
+                hashCode = (hashCode * 59) + this.Collateralized.GetHashCode();
+                hashCode = (hashCode * 59) + this.Quanto.GetHashCode();
                 if (this.CapitalProtection != null)
-                    hashCode = hashCode * 59 + this.CapitalProtection.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CapitalProtection.GetHashCode();
+                }
                 if (this.Underlying != null)
-                    hashCode = hashCode * 59 + this.Underlying.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
                 if (this.CashFlowCurrency != null)
-                    hashCode = hashCode * 59 + this.CashFlowCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CashFlowCurrency.GetHashCode();
+                }
                 if (this.SingleBarriers != null)
-                    hashCode = hashCode * 59 + this.SingleBarriers.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SingleBarriers.GetHashCode();
+                }
                 if (this.RangeBarriers != null)
-                    hashCode = hashCode * 59 + this.RangeBarriers.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RangeBarriers.GetHashCode();
+                }
                 if (this.FactorCertificates != null)
-                    hashCode = hashCode * 59 + this.FactorCertificates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactorCertificates.GetHashCode();
+                }
                 if (this.NominalCurrency != null)
-                    hashCode = hashCode * 59 + this.NominalCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NominalCurrency.GetHashCode();
+                }
                 if (this.CurrentInterestRate != null)
-                    hashCode = hashCode * 59 + this.CurrentInterestRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentInterestRate.GetHashCode();
+                }
                 if (this.KeyFigures != null)
-                    hashCode = hashCode * 59 + this.KeyFigures.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KeyFigures.GetHashCode();
+                }
                 if (this.Performance != null)
-                    hashCode = hashCode * 59 + this.Performance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
                 if (this.Volatility != null)
-                    hashCode = hashCode * 59 + this.Volatility.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                }
                 return hashCode;
             }
         }

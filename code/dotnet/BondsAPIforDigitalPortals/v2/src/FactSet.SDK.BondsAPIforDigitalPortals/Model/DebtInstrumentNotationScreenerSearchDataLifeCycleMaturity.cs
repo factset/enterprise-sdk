@@ -88,7 +88,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity {\n");
             sb.Append("  Restriction: ").Append(Restriction).Append("\n");
             sb.Append("  Perpetual: ").Append(Perpetual).Append("\n");
@@ -123,8 +123,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Restriction == input.Restriction ||
@@ -147,8 +148,10 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Restriction != null)
-                    hashCode = hashCode * 59 + this.Restriction.GetHashCode();
-                hashCode = hashCode * 59 + this.Perpetual.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Restriction.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Perpetual.GetHashCode();
                 return hashCode;
             }
         }

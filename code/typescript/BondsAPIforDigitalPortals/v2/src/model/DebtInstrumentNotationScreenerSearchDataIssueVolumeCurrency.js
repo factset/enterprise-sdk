@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyRestrict from 
 /**
  * The DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency {
     /**

@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
-import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum from './SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum';
-import SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum from './SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum';
+import SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum from './SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum';
+import SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum from './SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum';
 
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized {
     /**
@@ -51,10 +51,10 @@ class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnua
             obj = obj || new SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized();
 
             if (data.hasOwnProperty('minimum')) {
-                obj['minimum'] = SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum.constructFromObject(data['minimum']);
+                obj['minimum'] = SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum.constructFromObject(data['minimum']);
             }
             if (data.hasOwnProperty('maximum')) {
-                obj['maximum'] = SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum.constructFromObject(data['maximum']);
+                obj['maximum'] = SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum.constructFromObject(data['maximum']);
             }
         }
         return obj;
@@ -64,12 +64,12 @@ class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnua
 }
 
 /**
- * @member {module:model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum} minimum
+ * @member {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum} minimum
  */
 SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized.prototype['minimum'] = undefined;
 
 /**
- * @member {module:model/SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum} maximum
+ * @member {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum} maximum
  */
 SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized.prototype['maximum'] = undefined;
 

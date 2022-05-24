@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20019Data model module.
  * @module model/InlineResponse20019Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20019Data {
     /**
@@ -58,7 +58,7 @@ class InlineResponse20019Data {
 }
 
 /**
- * Name of the segment.
+ * Name of the geography.
  * @member {String} name
  */
 InlineResponse20019Data.prototype['name'] = undefined;

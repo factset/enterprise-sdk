@@ -28,14 +28,13 @@ import com.factset.sdk.Symbology.ApiClient;
 import com.factset.sdk.Symbology.ApiException;
 import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.auth.*;
-import com.factset.sdk.Symbology.model.*;
+import com.factset.sdk.Symbology.models.*;
 import com.factset.sdk.Symbology.api.IsinApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,20 +44,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         IsinApi apiInstance = new IsinApi(defaultClient);
         IsinHistoryTranslationRequest isinHistoryTranslationRequest = new IsinHistoryTranslationRequest(); // IsinHistoryTranslationRequest | Response Body for ISIN History
         try {
             IsinHistoryTranslationResponse result = apiInstance.batchIsinHistory(isinHistoryTranslationRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling IsinApi#batchIsinHistory");
             System.err.println("Status code: " + e.getCode());
@@ -118,14 +118,13 @@ import com.factset.sdk.Symbology.ApiClient;
 import com.factset.sdk.Symbology.ApiException;
 import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.auth.*;
-import com.factset.sdk.Symbology.model.*;
+import com.factset.sdk.Symbology.models.*;
 import com.factset.sdk.Symbology.api.IsinApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,20 +134,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         IsinApi apiInstance = new IsinApi(defaultClient);
         IsinTranslationRequest isinTranslationRequest = new IsinTranslationRequest(); // IsinTranslationRequest | Request Body for ISIN Symbology Translation
         try {
             IsinTranslationResponse result = apiInstance.batchTranslateIsin(isinTranslationRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling IsinApi#batchTranslateIsin");
             System.err.println("Status code: " + e.getCode());
@@ -208,14 +208,13 @@ import com.factset.sdk.Symbology.ApiClient;
 import com.factset.sdk.Symbology.ApiException;
 import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.auth.*;
-import com.factset.sdk.Symbology.model.*;
+import com.factset.sdk.Symbology.models.*;
 import com.factset.sdk.Symbology.api.IsinApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -225,14 +224,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         IsinApi apiInstance = new IsinApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
@@ -240,6 +239,7 @@ public class Example {
         try {
             IsinHistoryTranslationResponse result = apiInstance.isinHistory(ids, asOfDate);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling IsinApi#isinHistory");
             System.err.println("Status code: " + e.getCode());
@@ -300,14 +300,13 @@ import com.factset.sdk.Symbology.ApiClient;
 import com.factset.sdk.Symbology.ApiException;
 import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.auth.*;
-import com.factset.sdk.Symbology.model.*;
+import com.factset.sdk.Symbology.models.*;
 import com.factset.sdk.Symbology.api.IsinApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -317,20 +316,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         IsinApi apiInstance = new IsinApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
         try {
             IsinTranslationResponse result = apiInstance.translateIsin(ids);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling IsinApi#translateIsin");
             System.err.println("Status code: " + e.getCode());

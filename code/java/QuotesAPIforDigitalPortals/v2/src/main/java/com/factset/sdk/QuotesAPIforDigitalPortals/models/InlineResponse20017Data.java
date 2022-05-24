@@ -48,6 +48,8 @@ public class InlineResponse20017Data implements Serializable {
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private java.util.List<InlineResponse20017DataCountries> countries = null;
 
+  public InlineResponse20017Data() { 
+  }
 
   public InlineResponse20017Data name(String name) {
     this.name = name;

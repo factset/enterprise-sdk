@@ -33,7 +33,6 @@ src/main/java/com/factset/sdk/FactSetFundamentals/ApiClient.java
 src/main/java/com/factset/sdk/FactSetFundamentals/ApiException.java
 src/main/java/com/factset/sdk/FactSetFundamentals/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetFundamentals/Configuration.java
-src/main/java/com/factset/sdk/FactSetFundamentals/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetFundamentals/JSON.java
 src/main/java/com/factset/sdk/FactSetFundamentals/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetFundamentals/Pair.java

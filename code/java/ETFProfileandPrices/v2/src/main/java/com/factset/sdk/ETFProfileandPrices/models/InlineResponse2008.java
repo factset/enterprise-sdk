@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2001Meta;
 import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2008Data;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,47 +43,41 @@ public class InlineResponse2008 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.Set<InlineResponse2008Data> data = null;
+  private InlineResponse2008Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse200Meta meta;
+  private InlineResponse2001Meta meta;
 
+  public InlineResponse2008() { 
+  }
 
-  public InlineResponse2008 data(java.util.Set<InlineResponse2008Data> data) {
+  public InlineResponse2008 data(InlineResponse2008Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse2008 addDataItem(InlineResponse2008Data dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.LinkedHashSet<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * List of ETP class broad categories.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of ETP class broad categories.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.Set<InlineResponse2008Data> getData() {
+  public InlineResponse2008Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.Set<InlineResponse2008Data> data) {
+  public void setData(InlineResponse2008Data data) {
     this.data = data;
   }
 
 
-  public InlineResponse2008 meta(InlineResponse200Meta meta) {
+  public InlineResponse2008 meta(InlineResponse2001Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -97,14 +91,14 @@ public class InlineResponse2008 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse200Meta getMeta() {
+  public InlineResponse2001Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse200Meta meta) {
+  public void setMeta(InlineResponse2001Meta meta) {
     this.meta = meta;
   }
 

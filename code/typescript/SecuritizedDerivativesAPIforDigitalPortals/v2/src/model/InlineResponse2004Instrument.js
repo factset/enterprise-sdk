@@ -12,12 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2004InstrumentFsym from './InlineResponse2004InstrumentFsym';
 import InlineResponse200DataNsin from './InlineResponse200DataNsin';
 
 /**
  * The InlineResponse2004Instrument model module.
  * @module model/InlineResponse2004Instrument
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004Instrument {
     /**
@@ -64,6 +65,9 @@ class InlineResponse2004Instrument {
             if (data.hasOwnProperty('nsin')) {
                 obj['nsin'] = InlineResponse200DataNsin.constructFromObject(data['nsin']);
             }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2004InstrumentFsym.constructFromObject(data['fsym']);
+            }
         }
         return obj;
     }
@@ -99,6 +103,11 @@ InlineResponse2004Instrument.prototype['isin'] = undefined;
  * @member {module:model/InlineResponse200DataNsin} nsin
  */
 InlineResponse2004Instrument.prototype['nsin'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2004InstrumentFsym} fsym
+ */
+InlineResponse2004Instrument.prototype['fsym'] = undefined;
 
 
 

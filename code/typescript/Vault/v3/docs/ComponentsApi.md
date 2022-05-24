@@ -48,6 +48,7 @@ const id = "id_example"; // String | Unique identifier for a vault component
 // Call api endpoint
 apiInstance.getVaultComponentById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const document = "document_example"; // String | Document Name
 // Call api endpoint
 apiInstance.getVaultComponents(document).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

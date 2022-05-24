@@ -40,41 +40,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms__conditions_api.TermsConditionsApi(api_client)
+
     ids = ["30231GBJ","88579EAA"] # [str] | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
     fields = ["principalAmt","issueDesc","denomMin","maturityDate"] # [str] | List of data items for Terms and Conditions. For a full list of available fields, definitions, and category assignments, use the `/fields` endpoint. (optional)
     categories = [
         "SECURITY_DETAILS",
     ] # [str] | Selects the Fixed Income metrics by major category. Use the `/fields` endpoint to get a list of all fields associated with each category.   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options.  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Return select Terms and Conditions items for a Fixed Income security.
-        api_response = api_instance.get_terms_and_conditions(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetTermsandConditions.ApiException as e:
-        print("Exception when calling TermsConditionsApi->get_terms_and_conditions: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Return select Terms and Conditions items for a Fixed Income security.
         api_response = api_instance.get_terms_and_conditions(ids, fields=fields, categories=categories)
         pprint(api_response)
+
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
         print("Exception when calling TermsConditionsApi->get_terms_and_conditions: %s\n" % e)
 ```
@@ -146,29 +138,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms__conditions_api.TermsConditionsApi(api_client)
+
     category = "SECURITY_DETAILS" # str | Filters the list of Fixed Income metrics by major category -   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options.  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Available fields for /terms-and-conditions endpoint
         api_response = api_instance.get_terms_and_conditions_fields(category=category)
         pprint(api_response)
+
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
         print("Exception when calling TermsConditionsApi->get_terms_and_conditions_fields: %s\n" % e)
 ```
@@ -239,21 +231,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetTermsandConditions.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = terms__conditions_api.TermsConditionsApi(api_client)
+
     terms_and_conditions_request = TermsAndConditionsRequest(
         ids=[
             "ids_example",
@@ -266,11 +259,11 @@ with fds.sdk.FactSetTermsandConditions.ApiClient(configuration) as api_client:
         ],
     ) # TermsAndConditionsRequest | Request object for Terms And Conditions
 
-    # example passing only required values which don't have defaults set
     try:
         # Return Terms and Conditions for a list of Fixed Income securities.
         api_response = api_instance.get_terms_and_conditions_for_list(terms_and_conditions_request)
         pprint(api_response)
+
     except fds.sdk.FactSetTermsandConditions.ApiException as e:
         print("Exception when calling TermsConditionsApi->get_terms_and_conditions_for_list: %s\n" % e)
 ```

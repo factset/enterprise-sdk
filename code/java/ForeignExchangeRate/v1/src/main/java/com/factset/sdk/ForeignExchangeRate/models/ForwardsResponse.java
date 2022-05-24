@@ -43,6 +43,8 @@ public class ForwardsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Forward> data = null;
 
+  public ForwardsResponse() { 
+  }
 
   public ForwardsResponse data(java.util.List<Forward> data) {
     this.data = data;

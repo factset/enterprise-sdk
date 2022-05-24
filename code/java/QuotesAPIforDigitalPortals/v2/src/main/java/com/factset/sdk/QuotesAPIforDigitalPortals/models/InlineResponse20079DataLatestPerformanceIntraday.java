@@ -48,6 +48,8 @@ public class InlineResponse20079DataLatestPerformanceIntraday implements Seriali
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse20079DataLatestPerformanceIntraday() { 
+  }
 
   public InlineResponse20079DataLatestPerformanceIntraday absolute(BigDecimal absolute) {
     this.absolute = absolute;

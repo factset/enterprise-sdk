@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -20,7 +20,7 @@ import RelationshipSymbolSummaryDto from './RelationshipSymbolSummaryDto';
 /**
  * The ContactRelationshipTwoSidedDto model module.
  * @module model/ContactRelationshipTwoSidedDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactRelationshipTwoSidedDto {
     /**
@@ -51,38 +51,38 @@ class ContactRelationshipTwoSidedDto {
         if (data) {
             obj = obj || new ContactRelationshipTwoSidedDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('relationshipCategory')) {
-                obj['relationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['relationshipCategory']);
+            if (data.hasOwnProperty('RelationshipCategory')) {
+                obj['RelationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['RelationshipCategory']);
             }
-            if (data.hasOwnProperty('relationship')) {
-                obj['relationship'] = RelationshipIdNameDto.constructFromObject(data['relationship']);
+            if (data.hasOwnProperty('Relationship')) {
+                obj['Relationship'] = RelationshipIdNameDto.constructFromObject(data['Relationship']);
             }
-            if (data.hasOwnProperty('leftContact')) {
-                obj['leftContact'] = ContactIdNameDto.constructFromObject(data['leftContact']);
+            if (data.hasOwnProperty('LeftContact')) {
+                obj['LeftContact'] = ContactIdNameDto.constructFromObject(data['LeftContact']);
             }
-            if (data.hasOwnProperty('rightContact')) {
-                obj['rightContact'] = ContactIdNameDto.constructFromObject(data['rightContact']);
+            if (data.hasOwnProperty('RightContact')) {
+                obj['RightContact'] = ContactIdNameDto.constructFromObject(data['RightContact']);
             }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['symbol']);
+            if (data.hasOwnProperty('Symbol')) {
+                obj['Symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['Symbol']);
             }
-            if (data.hasOwnProperty('isCurrent')) {
-                obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
+            if (data.hasOwnProperty('IsCurrent')) {
+                obj['IsCurrent'] = ApiClient.convertToType(data['IsCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('start')) {
-                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
+            if (data.hasOwnProperty('Start')) {
+                obj['Start'] = ApiClient.convertToType(data['Start'], 'Date');
             }
-            if (data.hasOwnProperty('end')) {
-                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
+            if (data.hasOwnProperty('End')) {
+                obj['End'] = ApiClient.convertToType(data['End'], 'Date');
             }
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            if (data.hasOwnProperty('Title')) {
+                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
             }
-            if (data.hasOwnProperty('comment')) {
-                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
+            if (data.hasOwnProperty('Comment')) {
+                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
             }
         }
         return obj;
@@ -92,59 +92,59 @@ class ContactRelationshipTwoSidedDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-ContactRelationshipTwoSidedDto.prototype['id'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['Id'] = undefined;
 
 /**
- * @member {module:model/RelationshipCategoryIdNameDto} relationshipCategory
+ * @member {module:model/RelationshipCategoryIdNameDto} RelationshipCategory
  */
-ContactRelationshipTwoSidedDto.prototype['relationshipCategory'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['RelationshipCategory'] = undefined;
 
 /**
- * @member {module:model/RelationshipIdNameDto} relationship
+ * @member {module:model/RelationshipIdNameDto} Relationship
  */
-ContactRelationshipTwoSidedDto.prototype['relationship'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['Relationship'] = undefined;
 
 /**
- * @member {module:model/ContactIdNameDto} leftContact
+ * @member {module:model/ContactIdNameDto} LeftContact
  */
-ContactRelationshipTwoSidedDto.prototype['leftContact'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['LeftContact'] = undefined;
 
 /**
- * @member {module:model/ContactIdNameDto} rightContact
+ * @member {module:model/ContactIdNameDto} RightContact
  */
-ContactRelationshipTwoSidedDto.prototype['rightContact'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['RightContact'] = undefined;
 
 /**
- * @member {module:model/RelationshipSymbolSummaryDto} symbol
+ * @member {module:model/RelationshipSymbolSummaryDto} Symbol
  */
-ContactRelationshipTwoSidedDto.prototype['symbol'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['Symbol'] = undefined;
 
 /**
- * @member {Boolean} isCurrent
+ * @member {Boolean} IsCurrent
  */
-ContactRelationshipTwoSidedDto.prototype['isCurrent'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['IsCurrent'] = undefined;
 
 /**
- * @member {Date} start
+ * @member {Date} Start
  */
-ContactRelationshipTwoSidedDto.prototype['start'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['Start'] = undefined;
 
 /**
- * @member {Date} end
+ * @member {Date} End
  */
-ContactRelationshipTwoSidedDto.prototype['end'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['End'] = undefined;
 
 /**
- * @member {String} title
+ * @member {String} Title
  */
-ContactRelationshipTwoSidedDto.prototype['title'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['Title'] = undefined;
 
 /**
- * @member {String} comment
+ * @member {String} Comment
  */
-ContactRelationshipTwoSidedDto.prototype['comment'] = undefined;
+ContactRelationshipTwoSidedDto.prototype['Comment'] = undefined;
 
 
 

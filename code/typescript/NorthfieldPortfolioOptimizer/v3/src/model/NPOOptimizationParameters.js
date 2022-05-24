@@ -20,7 +20,7 @@ import OptimizerOutputTypes from './OptimizerOutputTypes';
 /**
  * The NPOOptimizationParameters model module.
  * @module model/NPOOptimizationParameters
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NPOOptimizationParameters {
     /**

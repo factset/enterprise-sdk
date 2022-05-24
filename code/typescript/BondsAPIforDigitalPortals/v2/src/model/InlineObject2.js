@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerValueRangesGetMeta from './DebtInstrumentNo
 /**
  * The InlineObject2 model module.
  * @module model/InlineObject2
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineObject2 {
     /**

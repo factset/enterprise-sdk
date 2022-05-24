@@ -48,6 +48,8 @@ public class GetFilesStatus implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private GetFilesErrorDetail details;
 
+  public GetFilesStatus() { 
+  }
 
   public GetFilesStatus id(String id) {
     this.id = id;

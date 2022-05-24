@@ -49,6 +49,8 @@ public class InlineResponse200DataIssueVolume implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private InlineResponse200DataIssueVolumeCurrency currency;
 
+  public InlineResponse200DataIssueVolume() { 
+  }
 
   public InlineResponse200DataIssueVolume amount(BigDecimal amount) {
     this.amount = amount;

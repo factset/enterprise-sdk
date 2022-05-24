@@ -1009,8 +1009,8 @@
     "version": "v1"
   },
   "x-interface-version": 1,
-  "x-documenter-version": "5.38.0",
-  "x-api-version": "2.9.0",
+  "x-documenter-version": "5.38.1",
+  "x-api-version": "2.9.1",
   "tags": [
     {
       "name": "alerting",
@@ -1137,15 +1137,15 @@
         },
         "isEstimatedTotal": {
           "type": "boolean",
-          "description": "Flag indicating that the value of \"total\" is estimated."
+          "description": "Flag indicating that the value of `total` is estimated."
         },
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -1167,11 +1167,11 @@
       "properties": {
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -1240,6 +1240,9 @@
     }
   },
   "basePath": "/wealth/v1",
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "FactSetApiKey": {
       "type": "basic"

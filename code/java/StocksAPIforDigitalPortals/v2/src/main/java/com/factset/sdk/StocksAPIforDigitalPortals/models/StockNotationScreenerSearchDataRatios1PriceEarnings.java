@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataRatios1PriceEarnings implements Seri
   public static final String JSON_PROPERTY_MEAN = "mean";
   private StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean mean;
 
+  public StockNotationScreenerSearchDataRatios1PriceEarnings() { 
+  }
 
   public StockNotationScreenerSearchDataRatios1PriceEarnings mean(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean mean) {
     this.mean = mean;

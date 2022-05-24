@@ -418,6 +418,47 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
     {
         private FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistCreatePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(InlineResponse2012) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistDeletePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20010) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistModifyPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistPositionCreatePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(InlineResponse2013) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistPositionDeletePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistPositionListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20011) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> WatchlistPositionModifyPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="WatchlistApi"/> class.
         /// </summary>
@@ -528,7 +569,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2012</returns>
         public InlineResponse2012 WatchlistCreatePost(InlineObject9 body = default(InlineObject9))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2012> localVarResponse = WatchlistCreatePostWithHttpInfo(body);
+            var localVarResponse = WatchlistCreatePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -538,7 +579,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2012</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2012> WatchlistCreatePostWithHttpInfo(InlineObject9 body = default(InlineObject9))
+        public ApiResponse<InlineResponse2012> WatchlistCreatePostWithHttpInfo(InlineObject9 body = default(InlineObject9))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -552,22 +593,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -579,15 +626,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2012>("/watchlist/create", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2012>("/watchlist/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -598,9 +649,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2012> WatchlistCreatePostAsync(InlineObject9 body = default(InlineObject9), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2012>WatchlistCreatePostAsync(InlineObject9 body = default(InlineObject9), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2012> localVarResponse = await WatchlistCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -611,7 +662,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2012)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2012>> WatchlistCreatePostWithHttpInfoAsync(InlineObject9 body = default(InlineObject9), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2012>> WatchlistCreatePostWithHttpInfoAsync(InlineObject9 body = default(InlineObject9), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -625,24 +677,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -654,14 +711,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2012>("/watchlist/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -675,7 +736,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 WatchlistDeletePost(InlineObject10 body = default(InlineObject10))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = WatchlistDeletePostWithHttpInfo(body);
+            var localVarResponse = WatchlistDeletePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -685,7 +746,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> WatchlistDeletePostWithHttpInfo(InlineObject10 body = default(InlineObject10))
+        public ApiResponse<InlineResponse200> WatchlistDeletePostWithHttpInfo(InlineObject10 body = default(InlineObject10))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -699,22 +760,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -726,15 +793,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse200>("/watchlist/delete", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse200>("/watchlist/delete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -745,9 +816,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> WatchlistDeletePostAsync(InlineObject10 body = default(InlineObject10), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>WatchlistDeletePostAsync(InlineObject10 body = default(InlineObject10), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await WatchlistDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -758,7 +829,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> WatchlistDeletePostWithHttpInfoAsync(InlineObject10 body = default(InlineObject10), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> WatchlistDeletePostWithHttpInfoAsync(InlineObject10 body = default(InlineObject10), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -772,24 +844,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -801,14 +878,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse200>("/watchlist/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -823,7 +904,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse20010</returns>
         public InlineResponse20010 WatchlistListGet(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010> localVarResponse = WatchlistListGetWithHttpInfo(attributes, sort);
+            var localVarResponse = WatchlistListGetWithHttpInfo(attributes, sort);
             return localVarResponse.Data;
         }
 
@@ -834,7 +915,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20010</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010> WatchlistListGetWithHttpInfo(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
+        public ApiResponse<InlineResponse20010> WatchlistListGetWithHttpInfo(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -847,10 +928,16 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -863,13 +950,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -881,15 +968,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20010>("/watchlist/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistListGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20010>("/watchlist/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -901,9 +992,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20010</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20010> WatchlistListGetAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20010>WatchlistListGetAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010> localVarResponse = await WatchlistListGetWithHttpInfoAsync(attributes, sort, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistListGetWithHttpInfoAsync(attributes, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -915,7 +1006,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20010>> WatchlistListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> WatchlistListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -928,12 +1020,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -946,13 +1043,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -964,14 +1061,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistListGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20010>("/watchlist/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -985,7 +1086,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 WatchlistModifyPost(InlineObject11 body = default(InlineObject11))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = WatchlistModifyPostWithHttpInfo(body);
+            var localVarResponse = WatchlistModifyPostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -995,7 +1096,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> WatchlistModifyPostWithHttpInfo(InlineObject11 body = default(InlineObject11))
+        public ApiResponse<InlineResponse2003> WatchlistModifyPostWithHttpInfo(InlineObject11 body = default(InlineObject11))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1009,22 +1110,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1036,15 +1143,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2003>("/watchlist/modify", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/watchlist/modify", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1055,9 +1166,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> WatchlistModifyPostAsync(InlineObject11 body = default(InlineObject11), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>WatchlistModifyPostAsync(InlineObject11 body = default(InlineObject11), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await WatchlistModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1068,7 +1179,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> WatchlistModifyPostWithHttpInfoAsync(InlineObject11 body = default(InlineObject11), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> WatchlistModifyPostWithHttpInfoAsync(InlineObject11 body = default(InlineObject11), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1082,24 +1194,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1111,14 +1228,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/watchlist/modify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1132,7 +1253,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2013</returns>
         public InlineResponse2013 WatchlistPositionCreatePost(InlineObject12 body = default(InlineObject12))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2013> localVarResponse = WatchlistPositionCreatePostWithHttpInfo(body);
+            var localVarResponse = WatchlistPositionCreatePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1142,7 +1263,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2013</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2013> WatchlistPositionCreatePostWithHttpInfo(InlineObject12 body = default(InlineObject12))
+        public ApiResponse<InlineResponse2013> WatchlistPositionCreatePostWithHttpInfo(InlineObject12 body = default(InlineObject12))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1156,22 +1277,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1183,15 +1310,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2013>("/watchlist/position/create", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2013>("/watchlist/position/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1202,9 +1333,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2013> WatchlistPositionCreatePostAsync(InlineObject12 body = default(InlineObject12), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2013>WatchlistPositionCreatePostAsync(InlineObject12 body = default(InlineObject12), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2013> localVarResponse = await WatchlistPositionCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistPositionCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1215,7 +1346,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2013)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2013>> WatchlistPositionCreatePostWithHttpInfoAsync(InlineObject12 body = default(InlineObject12), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2013>> WatchlistPositionCreatePostWithHttpInfoAsync(InlineObject12 body = default(InlineObject12), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1229,24 +1361,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1258,14 +1395,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2013>("/watchlist/position/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1279,7 +1420,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 WatchlistPositionDeletePost(InlineObject13 body = default(InlineObject13))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = WatchlistPositionDeletePostWithHttpInfo(body);
+            var localVarResponse = WatchlistPositionDeletePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1289,7 +1430,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> WatchlistPositionDeletePostWithHttpInfo(InlineObject13 body = default(InlineObject13))
+        public ApiResponse<InlineResponse2003> WatchlistPositionDeletePostWithHttpInfo(InlineObject13 body = default(InlineObject13))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1303,22 +1444,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1330,15 +1477,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2003>("/watchlist/position/delete", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/watchlist/position/delete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1349,9 +1500,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> WatchlistPositionDeletePostAsync(InlineObject13 body = default(InlineObject13), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>WatchlistPositionDeletePostAsync(InlineObject13 body = default(InlineObject13), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await WatchlistPositionDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistPositionDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1362,7 +1513,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> WatchlistPositionDeletePostWithHttpInfoAsync(InlineObject13 body = default(InlineObject13), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> WatchlistPositionDeletePostWithHttpInfoAsync(InlineObject13 body = default(InlineObject13), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1376,24 +1528,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1405,14 +1562,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/watchlist/position/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1428,7 +1589,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse20011</returns>
         public InlineResponse20011 WatchlistPositionListGet(string id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20011> localVarResponse = WatchlistPositionListGetWithHttpInfo(id, attributes, sort);
+            var localVarResponse = WatchlistPositionListGetWithHttpInfo(id, attributes, sort);
             return localVarResponse.Data;
         }
 
@@ -1440,11 +1601,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20011</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20011> WatchlistPositionListGetWithHttpInfo(string id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
+        public ApiResponse<InlineResponse20011> WatchlistPositionListGetWithHttpInfo(string id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling WatchlistApi->WatchlistPositionListGet");
+            }
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1457,10 +1620,16 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1474,13 +1643,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1492,15 +1661,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20011>("/watchlist/position/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionListGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20011>("/watchlist/position/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1513,9 +1686,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20011> WatchlistPositionListGetAsync(string id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20011>WatchlistPositionListGetAsync(string id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20011> localVarResponse = await WatchlistPositionListGetWithHttpInfoAsync(id, attributes, sort, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistPositionListGetWithHttpInfoAsync(id, attributes, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1528,11 +1701,14 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20011)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse20011>> WatchlistPositionListGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20011>> WatchlistPositionListGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling WatchlistApi->WatchlistPositionListGet");
+            }
 
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1545,12 +1721,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1564,13 +1745,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1582,14 +1763,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionListGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20011>("/watchlist/position/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1603,7 +1788,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 WatchlistPositionModifyPost(InlineObject14 body = default(InlineObject14))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = WatchlistPositionModifyPostWithHttpInfo(body);
+            var localVarResponse = WatchlistPositionModifyPostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1613,7 +1798,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> WatchlistPositionModifyPostWithHttpInfo(InlineObject14 body = default(InlineObject14))
+        public ApiResponse<InlineResponse2003> WatchlistPositionModifyPostWithHttpInfo(InlineObject14 body = default(InlineObject14))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1627,22 +1812,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1654,15 +1845,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2003>("/watchlist/position/modify", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/watchlist/position/modify", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1673,9 +1868,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> WatchlistPositionModifyPostAsync(InlineObject14 body = default(InlineObject14), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>WatchlistPositionModifyPostAsync(InlineObject14 body = default(InlineObject14), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await WatchlistPositionModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await WatchlistPositionModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1686,7 +1881,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> WatchlistPositionModifyPostWithHttpInfoAsync(InlineObject14 body = default(InlineObject14), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> WatchlistPositionModifyPostWithHttpInfoAsync(InlineObject14 body = default(InlineObject14), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1700,24 +1896,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1729,14 +1930,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = WatchlistPositionModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/watchlist/position/modify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WatchlistPositionModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

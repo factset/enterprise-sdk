@@ -102,6 +102,23 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
     {
         private FactSet.SDK.FactSetEstimatesReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimateTablesTableResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EstimateTablesApi"/> class.
         /// </summary>
@@ -213,7 +230,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimateTablesTable(string id, string metric = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimateTablesTableWithHttpInfo(id, metric);
+            var localVarResponse = GetEstimateTablesTableWithHttpInfo(id, metric);
             return localVarResponse.Data;
         }
 
@@ -224,11 +241,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="id">Company Ticker</param>
         /// <param name="metric">Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). (optional)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimateTablesTableWithHttpInfo(string id, string metric = default(string))
+        public ApiResponse<Response> GetEstimateTablesTableWithHttpInfo(string id, string metric = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling EstimateTablesApi->GetEstimateTablesTable");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -241,10 +260,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (metric != null)
@@ -254,13 +279,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -272,15 +297,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/table", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimateTablesTableResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/table", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimateTablesTable", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -292,9 +321,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="metric">Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimateTablesTableAsync(string id, string metric = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimateTablesTableAsync(string id, string metric = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimateTablesTableWithHttpInfoAsync(id, metric, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimateTablesTableWithHttpInfoAsync(id, metric, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -306,11 +335,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="metric">Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimateTablesTableWithHttpInfoAsync(string id, string metric = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimateTablesTableWithHttpInfoAsync(string id, string metric = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling EstimateTablesApi->GetEstimateTablesTable");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -323,12 +355,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (metric != null)
@@ -338,13 +375,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -356,14 +393,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimateTablesTableResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/table", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimateTablesTable", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

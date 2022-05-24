@@ -117,6 +117,26 @@ public class PortfolioTransactionCreateData implements Serializable {
   public static final String JSON_PROPERTY_PARENT_TRANSACTION = "parentTransaction";
   private PortfolioTransactionCreateDataParentTransaction parentTransaction;
 
+  public PortfolioTransactionCreateData() { 
+  }
+
+  @JsonCreator
+  public PortfolioTransactionCreateData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_TYPE, required=true) TypeEnum type, 
+    @JsonProperty(value=JSON_PROPERTY_NOTATION, required=true) PortfolioTransactionCreateDataNotation notation, 
+    @JsonProperty(value=JSON_PROPERTY_TIME, required=true) String time, 
+    @JsonProperty(value=JSON_PROPERTY_NUMBER_SHARES, required=true) BigDecimal numberShares, 
+    @JsonProperty(value=JSON_PROPERTY_PRICE, required=true) BigDecimal price
+  ) {
+    this();
+    this.id = id;
+    this.type = type;
+    this.notation = notation;
+    this.time = time;
+    this.numberShares = numberShares;
+    this.price = price;
+  }
 
   public PortfolioTransactionCreateData id(String id) {
     this.id = id;

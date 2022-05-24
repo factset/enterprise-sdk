@@ -47,6 +47,8 @@ public class InlineResponse20089InstrumentNameDefault implements Serializable {
   public static final String JSON_PROPERTY_SHORT = "short";
   private String _short;
 
+  public InlineResponse20089InstrumentNameDefault() { 
+  }
 
   public InlineResponse20089InstrumentNameDefault _long(String _long) {
     this._long = _long;

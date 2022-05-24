@@ -52,6 +52,8 @@ public class InlineResponse200DataRedemptionCurrency implements Serializable {
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private String isoCode;
 
+  public InlineResponse200DataRedemptionCurrency() { 
+  }
 
   public InlineResponse200DataRedemptionCurrency id(BigDecimal id) {
     this.id = id;

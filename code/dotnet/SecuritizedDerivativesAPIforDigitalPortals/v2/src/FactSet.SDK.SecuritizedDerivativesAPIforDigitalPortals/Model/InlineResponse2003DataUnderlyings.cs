@@ -77,7 +77,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003DataUnderlyings {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Notation: ").Append(Notation).Append("\n");
@@ -114,8 +114,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003DataUnderlyings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -149,13 +150,21 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
                 if (this.Level != null)
-                    hashCode = hashCode * 59 + this.Level.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 return hashCode;
             }
         }

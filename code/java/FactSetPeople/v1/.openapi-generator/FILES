@@ -48,7 +48,6 @@ src/main/java/com/factset/sdk/FactSetPeople/ApiClient.java
 src/main/java/com/factset/sdk/FactSetPeople/ApiException.java
 src/main/java/com/factset/sdk/FactSetPeople/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetPeople/Configuration.java
-src/main/java/com/factset/sdk/FactSetPeople/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetPeople/JSON.java
 src/main/java/com/factset/sdk/FactSetPeople/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetPeople/Pair.java

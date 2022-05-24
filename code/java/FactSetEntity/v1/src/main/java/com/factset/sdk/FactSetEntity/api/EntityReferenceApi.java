@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEntity.models.EntityReferenceRequest;
 import com.factset.sdk.FactSetEntity.models.EntityReferenceResponse;
@@ -23,6 +26,28 @@ public class EntityReferenceApi {
   public EntityReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntityReferencesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityReferencesResponseTypeMap.put(200, new GenericType<EntityReferenceResponse>(){});
+    getEntityReferencesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityReferencesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityReferencesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityReferencesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityReferencesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postEntityReferencesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postEntityReferencesResponseTypeMap.put(200, new GenericType<EntityReferenceResponse>(){});
+    postEntityReferencesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postEntityReferencesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postEntityReferencesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postEntityReferencesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postEntityReferencesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class EntityReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityReferenceResponse> localVarReturnType = new GenericType<EntityReferenceResponse>() {};
 
-    return apiClient.invokeAPI("EntityReferenceApi.getEntityReferences", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityReferenceResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityReferenceApi.getEntityReferences", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityReferencesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns an entity reference data for a list of ids.
@@ -191,10 +222,16 @@ public class EntityReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityReferenceResponse> localVarReturnType = new GenericType<EntityReferenceResponse>() {};
 
-    return apiClient.invokeAPI("EntityReferenceApi.postEntityReferences", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityReferenceResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityReferenceApi.postEntityReferences", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postEntityReferencesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

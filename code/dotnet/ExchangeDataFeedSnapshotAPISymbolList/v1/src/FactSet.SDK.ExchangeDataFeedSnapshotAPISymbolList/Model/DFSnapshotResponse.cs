@@ -81,7 +81,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DFSnapshotResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Symbol1: ").Append(Symbol1).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         public bool Equals(DFSnapshotResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Error == input.Error ||
@@ -152,13 +153,19 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Error.GetHashCode();
+                hashCode = (hashCode * 59) + this.Error.GetHashCode();
                 if (this.Symbol1 != null)
-                    hashCode = hashCode * 59 + this.Symbol1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Symbol1.GetHashCode();
+                }
                 if (this.Host != null)
-                    hashCode = hashCode * 59 + this.Host.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Host.GetHashCode();
+                }
                 if (this.Symbol2 != null)
-                    hashCode = hashCode * 59 + this.Symbol2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Symbol2.GetHashCode();
+                }
                 return hashCode;
             }
         }

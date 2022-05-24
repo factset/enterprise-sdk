@@ -17,7 +17,7 @@ import SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyin
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEffectiveUnderlying model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEffectiveUnderlying
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEffectiveUnderlying {
     /**

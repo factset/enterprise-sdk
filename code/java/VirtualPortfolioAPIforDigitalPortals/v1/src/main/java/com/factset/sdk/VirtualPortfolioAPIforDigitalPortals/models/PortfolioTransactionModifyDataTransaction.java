@@ -69,6 +69,16 @@ public class PortfolioTransactionModifyDataTransaction implements Serializable {
   public static final String JSON_PROPERTY_EXCHANGE_RATE = "exchangeRate";
   private BigDecimal exchangeRate;
 
+  public PortfolioTransactionModifyDataTransaction() { 
+  }
+
+  @JsonCreator
+  public PortfolioTransactionModifyDataTransaction(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public PortfolioTransactionModifyDataTransaction id(String id) {
     this.id = id;

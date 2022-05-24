@@ -92,7 +92,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarket {\n");
             sb.Append("  InvestorType: ").Append(InvestorType).Append("\n");
             sb.Append("  KnowledgeAndExperience: ").Append(KnowledgeAndExperience).Append("\n");
@@ -131,8 +131,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarket input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.InvestorType == input.InvestorType ||
@@ -176,17 +177,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.InvestorType != null)
-                    hashCode = hashCode * 59 + this.InvestorType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InvestorType.GetHashCode();
+                }
                 if (this.KnowledgeAndExperience != null)
-                    hashCode = hashCode * 59 + this.KnowledgeAndExperience.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KnowledgeAndExperience.GetHashCode();
+                }
                 if (this.AbilityToBearLosses != null)
-                    hashCode = hashCode * 59 + this.AbilityToBearLosses.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AbilityToBearLosses.GetHashCode();
+                }
                 if (this.RiskTolerance != null)
-                    hashCode = hashCode * 59 + this.RiskTolerance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RiskTolerance.GetHashCode();
+                }
                 if (this.ClientObjectivesAndNeeds != null)
-                    hashCode = hashCode * 59 + this.ClientObjectivesAndNeeds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientObjectivesAndNeeds.GetHashCode();
+                }
                 if (this.RecommendedHoldingPeriod != null)
-                    hashCode = hashCode * 59 + this.RecommendedHoldingPeriod.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RecommendedHoldingPeriod.GetHashCode();
+                }
                 return hashCode;
             }
         }

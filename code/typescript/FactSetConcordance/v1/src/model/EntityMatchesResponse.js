@@ -17,7 +17,7 @@ import EntityMatch from './EntityMatch';
 /**
  * The EntityMatchesResponse model module.
  * @module model/EntityMatchesResponse
- * @version 0.8.1
+ * @version 0.8.2
  */
 class EntityMatchesResponse {
     /**

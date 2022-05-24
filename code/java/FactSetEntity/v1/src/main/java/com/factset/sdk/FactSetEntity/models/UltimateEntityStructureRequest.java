@@ -51,6 +51,16 @@ public class UltimateEntityStructureRequest implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Integer active = -1;
 
+  public UltimateEntityStructureRequest() { 
+  }
+
+  @JsonCreator
+  public UltimateEntityStructureRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public UltimateEntityStructureRequest ids(java.util.List<String> ids) {
     this.ids = ids;

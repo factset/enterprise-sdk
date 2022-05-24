@@ -52,6 +52,8 @@ public class NRTCallsMeta implements Serializable {
   public static final String JSON_PROPERTY_PARTIAL = "partial";
   private NRTSnippetsMetaPartial partial;
 
+  public NRTCallsMeta() { 
+  }
 
   public NRTCallsMeta sort(java.util.List<String> sort) {
     this.sort = sort;

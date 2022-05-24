@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SentimentConfigDto model module.
  * @module model/SentimentConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SentimentConfigDto {
     /**
@@ -47,17 +47,20 @@ class SentimentConfigDto {
         if (data) {
             obj = obj || new SentimentConfigDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+            if (data.hasOwnProperty('Code')) {
+                obj['Code'] = ApiClient.convertToType(data['Code'], 'Number');
             }
-            if (data.hasOwnProperty('isHidden')) {
-                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
+            if (data.hasOwnProperty('Color')) {
+                obj['Color'] = ApiClient.convertToType(data['Color'], 'String');
+            }
+            if (data.hasOwnProperty('IsHidden')) {
+                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
             }
         }
         return obj;
@@ -67,24 +70,29 @@ class SentimentConfigDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-SentimentConfigDto.prototype['id'] = undefined;
+SentimentConfigDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-SentimentConfigDto.prototype['name'] = undefined;
+SentimentConfigDto.prototype['Name'] = undefined;
 
 /**
- * @member {Number} code
+ * @member {Number} Code
  */
-SentimentConfigDto.prototype['code'] = undefined;
+SentimentConfigDto.prototype['Code'] = undefined;
 
 /**
- * @member {Boolean} isHidden
+ * @member {String} Color
  */
-SentimentConfigDto.prototype['isHidden'] = undefined;
+SentimentConfigDto.prototype['Color'] = undefined;
+
+/**
+ * @member {Boolean} IsHidden
+ */
+SentimentConfigDto.prototype['IsHidden'] = undefined;
 
 
 

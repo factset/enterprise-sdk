@@ -29,7 +29,6 @@ src/main/java/com/factset/sdk/FactSetETF/ApiClient.java
 src/main/java/com/factset/sdk/FactSetETF/ApiException.java
 src/main/java/com/factset/sdk/FactSetETF/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetETF/Configuration.java
-src/main/java/com/factset/sdk/FactSetETF/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetETF/JSON.java
 src/main/java/com/factset/sdk/FactSetETF/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetETF/Pair.java

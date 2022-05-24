@@ -46,6 +46,7 @@ const apiInstance = new ChartTemplatesApi();
 // Call api endpoint
 apiInstance.getCategoryList().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -117,6 +118,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getChartList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -203,6 +205,7 @@ const opts = {
 // Call api endpoint
 apiInstance.images(chart, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

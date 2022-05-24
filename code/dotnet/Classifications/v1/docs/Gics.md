@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **GicsIndustryName** | **string** | GICS Industry Name in Proper Format. | [optional] 
 **GicsIndustryNumber** | **string** | GICS Industry Number | [optional] 
 **GicsSubIndustryName** | **string** | GICS Sub-Industry Name in Proper Format. | [optional] 
-**GicsSubInudstryNumber** | **string** | GICS Industry Number. | [optional] 
+**GicsSubIndustryNumber** | **string** | GICS Industry Number. | [optional] 
 **RequestId** | **string** | Identifier specified in the request | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

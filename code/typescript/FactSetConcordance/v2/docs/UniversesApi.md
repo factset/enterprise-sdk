@@ -50,6 +50,7 @@ const universeId = 1; // Number | Universe identifier. *To create a universe, us
 // Call api endpoint
 apiInstance.getEntityUniverseStatistics(universeId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const createUniverseRequest = new factsetconcordance.CreateUniverseRequest(); //
 // Call api endpoint
 apiInstance.getUniverseForList(createUniverseRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -194,6 +196,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getUniverses(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -265,6 +268,7 @@ const updateUniverseRequest = new factsetconcordance.UpdateUniverseRequest(); //
 // Call api endpoint
 apiInstance.getUpdateUniverseForList(updateUniverseRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

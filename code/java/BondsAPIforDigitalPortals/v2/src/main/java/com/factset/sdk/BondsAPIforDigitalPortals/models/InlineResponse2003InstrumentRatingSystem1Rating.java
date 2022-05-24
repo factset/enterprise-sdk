@@ -48,6 +48,8 @@ public class InlineResponse2003InstrumentRatingSystem1Rating implements Serializ
   public static final String JSON_PROPERTY_GRADE = "grade";
   private String grade;
 
+  public InlineResponse2003InstrumentRatingSystem1Rating() { 
+  }
 
   public InlineResponse2003InstrumentRatingSystem1Rating id(BigDecimal id) {
     this.id = id;

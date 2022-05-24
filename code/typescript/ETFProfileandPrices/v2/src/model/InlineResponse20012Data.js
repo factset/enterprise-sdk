@@ -12,18 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20012DataCapitalGains from './InlineResponse20012DataCapitalGains';
-import InlineResponse20012DataDividend from './InlineResponse20012DataDividend';
+import InlineResponse20012DataBeta from './InlineResponse20012DataBeta';
+import InlineResponse20012DataEfficiency from './InlineResponse20012DataEfficiency';
+import InlineResponse20012DataFit from './InlineResponse20012DataFit';
+import InlineResponse20012DataTradability from './InlineResponse20012DataTradability';
 
 /**
  * The InlineResponse20012Data model module.
  * @module model/InlineResponse20012Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20012Data {
     /**
      * Constructs a new <code>InlineResponse20012Data</code>.
-     * Distribution.
+     * Score analytics.
      * @alias module:model/InlineResponse20012Data
      */
     constructor() { 
@@ -50,17 +52,32 @@ class InlineResponse20012Data {
         if (data) {
             obj = obj || new InlineResponse20012Data();
 
-            if (data.hasOwnProperty('dividend')) {
-                obj['dividend'] = InlineResponse20012DataDividend.constructFromObject(data['dividend']);
+            if (data.hasOwnProperty('efficiency')) {
+                obj['efficiency'] = InlineResponse20012DataEfficiency.constructFromObject(data['efficiency']);
             }
-            if (data.hasOwnProperty('capitalGains')) {
-                obj['capitalGains'] = InlineResponse20012DataCapitalGains.constructFromObject(data['capitalGains']);
+            if (data.hasOwnProperty('tradability')) {
+                obj['tradability'] = InlineResponse20012DataTradability.constructFromObject(data['tradability']);
             }
-            if (data.hasOwnProperty('totalDistribution')) {
-                obj['totalDistribution'] = ApiClient.convertToType(data['totalDistribution'], 'Number');
+            if (data.hasOwnProperty('fit')) {
+                obj['fit'] = InlineResponse20012DataFit.constructFromObject(data['fit']);
             }
-            if (data.hasOwnProperty('distributionYield')) {
-                obj['distributionYield'] = ApiClient.convertToType(data['distributionYield'], 'Number');
+            if (data.hasOwnProperty('grade')) {
+                obj['grade'] = ApiClient.convertToType(data['grade'], 'String');
+            }
+            if (data.hasOwnProperty('analystPick')) {
+                obj['analystPick'] = ApiClient.convertToType(data['analystPick'], 'Boolean');
+            }
+            if (data.hasOwnProperty('onOpportunitiesList')) {
+                obj['onOpportunitiesList'] = ApiClient.convertToType(data['onOpportunitiesList'], 'Boolean');
+            }
+            if (data.hasOwnProperty('fitRsquared')) {
+                obj['fitRsquared'] = ApiClient.convertToType(data['fitRsquared'], 'Number');
+            }
+            if (data.hasOwnProperty('beta')) {
+                obj['beta'] = InlineResponse20012DataBeta.constructFromObject(data['beta']);
+            }
+            if (data.hasOwnProperty('standardDeviationDown')) {
+                obj['standardDeviationDown'] = ApiClient.convertToType(data['standardDeviationDown'], 'Number');
             }
         }
         return obj;
@@ -70,26 +87,54 @@ class InlineResponse20012Data {
 }
 
 /**
- * @member {module:model/InlineResponse20012DataDividend} dividend
+ * @member {module:model/InlineResponse20012DataEfficiency} efficiency
  */
-InlineResponse20012Data.prototype['dividend'] = undefined;
+InlineResponse20012Data.prototype['efficiency'] = undefined;
 
 /**
- * @member {module:model/InlineResponse20012DataCapitalGains} capitalGains
+ * @member {module:model/InlineResponse20012DataTradability} tradability
  */
-InlineResponse20012Data.prototype['capitalGains'] = undefined;
+InlineResponse20012Data.prototype['tradability'] = undefined;
 
 /**
- * Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.
- * @member {Number} totalDistribution
+ * @member {module:model/InlineResponse20012DataFit} fit
  */
-InlineResponse20012Data.prototype['totalDistribution'] = undefined;
+InlineResponse20012Data.prototype['fit'] = undefined;
 
 /**
- * Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.
- * @member {Number} distributionYield
+ * Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.
+ * @member {String} grade
  */
-InlineResponse20012Data.prototype['distributionYield'] = undefined;
+InlineResponse20012Data.prototype['grade'] = undefined;
+
+/**
+ * If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
+ * @member {Boolean} analystPick
+ */
+InlineResponse20012Data.prototype['analystPick'] = undefined;
+
+/**
+ * If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
+ * @member {Boolean} onOpportunitiesList
+ */
+InlineResponse20012Data.prototype['onOpportunitiesList'] = undefined;
+
+/**
+ * The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.
+ * @member {Number} fitRsquared
+ */
+InlineResponse20012Data.prototype['fitRsquared'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse20012DataBeta} beta
+ */
+InlineResponse20012Data.prototype['beta'] = undefined;
+
+/**
+ * A measure of the variability between the fund's returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.
+ * @member {Number} standardDeviationDown
+ */
+InlineResponse20012Data.prototype['standardDeviationDown'] = undefined;
 
 
 

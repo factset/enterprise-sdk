@@ -135,7 +135,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20050DataComponents {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
@@ -176,8 +176,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20050DataComponents input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -226,16 +227,22 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
-                hashCode = hashCode * 59 + this.Participation.GetHashCode();
-                hashCode = hashCode * 59 + this.NumberShares.GetHashCode();
-                hashCode = hashCode * 59 + this.InitialWeight.GetHashCode();
-                hashCode = hashCode * 59 + this.ReferenceLevel.GetHashCode();
-                hashCode = hashCode * 59 + this.ConstantLeverage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Participation.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberShares.GetHashCode();
+                hashCode = (hashCode * 59) + this.InitialWeight.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReferenceLevel.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConstantLeverage.GetHashCode();
                 return hashCode;
             }
         }

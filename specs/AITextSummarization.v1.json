@@ -1,0 +1,290 @@
+{
+  "swagger": "2.0",
+  "host": "ai-text-summarization-staging.factset.io",
+  "basePath": "/",
+  "securityDefinitions": {
+    "FactSetApiKey": {
+      "type": "basic"
+    },
+    "FactSetOAuth2": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+      "scopes": {}
+    }
+  },
+  "paths": {
+    "/v1/headline": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Unique Result ID",
+            "schema": {
+              "type": "string",
+              "description": "A unique string ID representing a processing job.\n\nThe user can later use this ID to hit the '/result' endpoint to get the actual output."
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/BadRequestResponse"
+            }
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorResponse"
+            }
+          }
+        },
+        "summary": "POST request to create a headline from input text",
+        "description": "Endpoint for initiating a processing job to create a headline from input text.",
+        "operationId": "post_headline_/v1/headline",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        ],
+        "tags": [
+          "default"
+        ]
+      }
+    },
+    "/v1/headline-and-summary": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Unique Result ID",
+            "schema": {
+              "type": "string",
+              "description": "A unique string ID representing a processing job.\n\nThe user can later use this ID to hit the '/result' endpoint to get the actual output."
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/BadRequestResponse"
+            }
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorResponse"
+            }
+          }
+        },
+        "summary": "POST request to create a 2-3 sentence summary from input text",
+        "description": "Endpoint for initiating a processing job to create a 2-3 sentence summary from input text.",
+        "operationId": "post_headline_and_summary_/v1/headline-and-summary",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        ],
+        "tags": [
+          "default"
+        ]
+      }
+    },
+    "/v1/result/{result_id}": {
+      "parameters": [
+        {
+          "name": "result_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
+            }
+          },
+          "202": {
+            "description": "Processing"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/BadRequestResponse"
+            }
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "404": {
+            "description": "Invalid Result ID"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorResponse"
+            }
+          }
+        },
+        "summary": "GET request that returns the full headline and summary results from the initial POST requests",
+        "description": "Endpoint that returns the full headline and summary results from the initial POST requests.",
+        "operationId": "get_result_/v1/result/<result_id>",
+        "tags": [
+          "default"
+        ]
+      }
+    },
+    "/v1/summary": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Unique Result ID",
+            "schema": {
+              "type": "string",
+              "description": "A unique string ID representing a processing job.\n\nThe user can later use this ID to hit the '/result' endpoint to get the actual output."
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/BadRequestResponse"
+            }
+          },
+          "401": {
+            "description": "Access Denied"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/InternalServerErrorResponse"
+            }
+          }
+        },
+        "summary": "POST request to create a headline and summary from input text",
+        "description": "Endpoint for initiating a processing job to create a headline and summary from input text.",
+        "operationId": "post_summary_/v1/summary",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        ],
+        "tags": [
+          "default"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "AI Text Summarization",
+    "version": "1.0.0",
+    "description": "AI Text Summarization"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "default",
+      "description": "Default namespace"
+    }
+  ],
+  "definitions": {
+    "Request": {
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The text that needs to be summarized.",
+          "example": "Advanced Energy Transforms Indoor Farming With Intelligent New Lighting Power and Control System Friday, December 11, 2020 01:00:00 PM (GMT)Innovative technology breaks down barriers to indoor, vertical and greenhouse farming by reducing power consumption, cutting costs and increasing crop yield Advanced Energy (Nasdaq: AEIS) – a global leader in highly engineered, precision power conversion, measurement, and control solutions – today unveiled its newest lighting and power control system for indoor, vertical and greenhouse farming. This press release features multimedia. Advanced Energy's new Artesyn iTS provides the industry's first solution for switching or sharing a single power source between two different rooms. This reduces installation costs by cutting the number of iHP power supplies needed in half and it substantially reduces ongoing utility costs. (Photo: Business Wire)AE's new lighting and power system transforms the use of LED technology in horticultural lighting systems, which plays a fundamental role in cutting-edge farming practices that can address production challenges in food, pharmaceutical ingredients, plants and flowers. Utilizing AE's system, customers reduce their power conversion costs by as much as 50 percent, significantly lower installation and operating costs, and increase the quality of crop yield. \"Our groundbreaking lighting, power and control system delivers significant improvements over conventional lighting solutions and opens up new opportunities for the industry,\" said Joe Voyles, vice president, industrial marketing, at Advanced Energy. \"We are transforming our customers' operations by both reducing the amount of needed equipment and improving the efficiency of the lighting systems, thereby reducing cost and energy spend. Not only do these innovative new products increase the efficiency and quality of fruit and vegetable production, but they also open the door to establishing indoor farming facilities in harsh environments anywhere in the world.\" The new system consists of the patented Artesyn iTS (intelligent Transfer Switch) and iHPS configurable power supply. Alongside Artesyn's compact new 12 kW 300 VDC module, AE delivers a cost-effective platform for the most advanced indoor farming applications. The system is estimated to produce a 38 percent savings to lighting power and control installation cost, while eliminating substantial amounts of wasted energy. The new iHPS is a \"short\" version of AE's market-leading iHP power supply. The shorter design allows for more space within the lighting and power cabinet for other crucial components, reduces the weight and cost, and increases the life of the system. The new iTS provides the industry's first solution for switching or sharing a single power source between two different rooms. This reduces installation costs by cutting the number of iHP power supplies needed in half and it substantially reduces ongoing utility costs."
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerErrorResponse": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of exception that occured."
+        },
+        "status": {
+          "type": "string",
+          "description": "The route for which the exception occured."
+        },
+        "message": {
+          "type": "string",
+          "description": "The verbose message for the exception."
+        }
+      },
+      "type": "object"
+    },
+    "BadRequestResponse": {
+      "properties": {
+        "errors": {
+          "type": "string",
+          "description": "Error message."
+        },
+        "message": {
+          "type": "string",
+          "description": "The reason for the error."
+        }
+      },
+      "type": "object"
+    },
+    "SuccessResponse": {
+      "properties": {
+        "headline": {
+          "type": "string",
+          "description": "A short headline generated for the input text.",
+          "example": "Advanced Energy unveils new lighting and power control system for indoor, vertical and greenhouse farming."
+        },
+        "summary": {
+          "type": "string",
+          "description": "The generated summary for the input text.",
+          "example": "Advanced Energy unveiled its newest lighting and power control system for indoor, vertical and greenhouse farming. The new system consists of the patented Artesyn iTS (intelligent Transfer Switch) and iHPS power supply. Alongside Artesyn's compact new 12 kW 300 VDC module, AE delivers a cost-effective platform for the most advanced indoor farming applications. The system is estimated to produce a 38 percent savings to lighting power and control installation cost, while eliminating substantial amounts of wasted energy."
+        }
+      },
+      "type": "object"
+    }
+  },
+  "responses": {
+    "ParseError": {
+      "description": "When a mask can't be parsed"
+    },
+    "MaskError": {
+      "description": "When any error occurs on mask"
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

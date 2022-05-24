@@ -62,7 +62,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsArticleListMetaPagination {\n");
             sb.Append("  Cursor: ").Append(Cursor).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsArticleListMetaPagination input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Cursor == input.Cursor ||
@@ -121,8 +122,10 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Cursor != null)
-                    hashCode = hashCode * 59 + this.Cursor.GetHashCode();
-                hashCode = hashCode * 59 + this.Limit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cursor.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Limit.GetHashCode();
                 return hashCode;
             }
         }
@@ -135,19 +138,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Cursor (string) maxLength
-            if(this.Cursor != null && this.Cursor.Length > 50)
+            if (this.Cursor != null && this.Cursor.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cursor, length must be less than 50.", new [] { "Cursor" });
             }
 
             // Limit (decimal) maximum
-            if(this.Limit > (decimal)5E+2)
+            if (this.Limit > (decimal)5E+2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value less than or equal to 5E+2.", new [] { "Limit" });
             }
 
             // Limit (decimal) minimum
-            if(this.Limit < (decimal)1)
+            if (this.Limit < (decimal)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value greater than or equal to 1.", new [] { "Limit" });
             }

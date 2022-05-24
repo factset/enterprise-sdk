@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **cusipHistoryTranslationRequest** | [**CusipHistoryTranslationRequest**](CusipHistoryTranslationRequest.md)| Request Body for CUSIP History | 
 
 ### Return type
-
 [**CusipHistoryResponse**](CusipHistoryResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **cusipTranslationRequest** | [**CusipTranslationRequest**](CusipTranslationRequest.md)| Request Body for current only CUSIP Symbology Translation | 
 
 ### Return type
-
 [**CusipTranslationResponse**](CusipTranslationResponse.md)
 
 ### Authorization
@@ -269,7 +267,6 @@ Name | Type | Description  | Notes
  **asOfDate** | **string**| As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null. | [optional] 
 
 ### Return type
-
 [**CusipHistoryResponse**](CusipHistoryResponse.md)
 
 ### Authorization
@@ -363,7 +360,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* | 
 
 ### Return type
-
 [**CusipTranslationResponse**](CusipTranslationResponse.md)
 
 ### Authorization

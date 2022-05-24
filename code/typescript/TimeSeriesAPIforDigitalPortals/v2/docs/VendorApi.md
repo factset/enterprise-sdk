@@ -58,6 +58,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getVendorChartIQTimeSeriesIntradaySubsampleGet(id, from, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -134,6 +135,7 @@ const body = new timeseriesapifordigitalportals.InlineObject(); // InlineObject 
 // Call api endpoint
 apiInstance.postVendorChartIQTimeSeriesEodList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -205,6 +207,7 @@ const body = new timeseriesapifordigitalportals.InlineObject1(); // InlineObject
 // Call api endpoint
 apiInstance.postVendorChartIQTimeSeriesEodSubsampleGet(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -276,6 +279,7 @@ const body = new timeseriesapifordigitalportals.InlineObject2(); // InlineObject
 // Call api endpoint
 apiInstance.postVendorChartIQTimeSeriesEodSubsampleList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -347,6 +351,7 @@ const body = new timeseriesapifordigitalportals.InlineObject3(); // InlineObject
 // Call api endpoint
 apiInstance.postVendorChartIQTimeSeriesIntradaySubsampleList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | [**UserSerialDto**](UserSerialDto.md) |  | 
-**title** | **str, none_type** |  | 
-**identifier** | **str, none_type** |  | 
-**start** | **str, none_type** |  | 
-**end** | **str, none_type** |  | 
+**start** | **str** |  | 
+**end** | **str** |  | 
+**title** | **str, none_type** |  | [optional] 
+**identifier** | **str, none_type** |  | [optional] 
 **locations** | **[str], none_type** |  | [optional] 
 **organizer** | **str, none_type** |  | [optional] 
 **organizer_id** | **str** |  | [optional] 

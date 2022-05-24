@@ -43,6 +43,8 @@ public class CalculationStatusRoot implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private CalculationStatus data;
 
+  public CalculationStatusRoot() { 
+  }
 
   public CalculationStatusRoot data(CalculationStatus data) {
     this.data = data;

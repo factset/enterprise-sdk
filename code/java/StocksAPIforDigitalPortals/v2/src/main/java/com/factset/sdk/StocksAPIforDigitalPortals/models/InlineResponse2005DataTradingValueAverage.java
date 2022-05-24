@@ -49,6 +49,8 @@ public class InlineResponse2005DataTradingValueAverage implements Serializable {
   public static final String JSON_PROPERTY_DAYS30 = "days30";
   private InlineResponse2005DataTradingValueAverageDays30 days30;
 
+  public InlineResponse2005DataTradingValueAverage() { 
+  }
 
   public InlineResponse2005DataTradingValueAverage days5(InlineResponse2005DataTradingValueAverageDays5 days5) {
     this.days5 = days5;

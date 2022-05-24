@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003DataDelta model module.
  * @module model/InlineResponse2003DataDelta
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003DataDelta {
     /**

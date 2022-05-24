@@ -48,6 +48,8 @@ public class InlineResponse2005DataCapitalGuaranteeValue implements Serializable
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataCapitalGuaranteeValue() { 
+  }
 
   public InlineResponse2005DataCapitalGuaranteeValue minimum(BigDecimal minimum) {
     this.minimum = minimum;

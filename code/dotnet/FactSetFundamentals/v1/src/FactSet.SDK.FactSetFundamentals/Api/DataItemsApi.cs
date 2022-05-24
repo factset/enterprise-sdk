@@ -147,6 +147,33 @@ namespace FactSet.SDK.FactSetFundamentals.Api
     {
         private FactSet.SDK.FactSetFundamentals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsMetricsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(MetricsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsMetricsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(MetricsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DataItemsApi"/> class.
         /// </summary>
@@ -258,7 +285,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>MetricsResponse</returns>
         public MetricsResponse GetFdsFundamentalsMetrics(string category = default(string), string subcategory = default(string))
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse> localVarResponse = GetFdsFundamentalsMetricsWithHttpInfo(category, subcategory);
+            var localVarResponse = GetFdsFundamentalsMetricsWithHttpInfo(category, subcategory);
             return localVarResponse.Data;
         }
 
@@ -269,7 +296,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="category">Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** &#x3D; Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** &#x3D; Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** &#x3D; Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** &#x3D; Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** &#x3D; Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** &#x3D; Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** &#x3D; Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** &#x3D; General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing related market data.*   * **MISCELLANEOUS** &#x3D; Corporation Data, Financial Records details, Indicators.   * **DATES** &#x3D; Relevant Dates  (optional)</param>
         /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
         /// <returns>ApiResponse of MetricsResponse</returns>
-        public FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse> GetFdsFundamentalsMetricsWithHttpInfo(string category = default(string), string subcategory = default(string))
+        public ApiResponse<MetricsResponse> GetFdsFundamentalsMetricsWithHttpInfo(string category = default(string), string subcategory = default(string))
         {
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
 
@@ -282,10 +309,16 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (category != null)
             {
@@ -298,13 +331,13 @@ namespace FactSet.SDK.FactSetFundamentals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -316,15 +349,19 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MetricsResponse>("/factset-fundamentals/v1/metrics", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsMetricsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            MetricsResponse>("/factset-fundamentals/v1/metrics", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentalsMetrics", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -336,9 +373,9 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MetricsResponse</returns>
-        public async System.Threading.Tasks.Task<MetricsResponse> GetFdsFundamentalsMetricsAsync(string category = default(string), string subcategory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MetricsResponse>GetFdsFundamentalsMetricsAsync(string category = default(string), string subcategory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse> localVarResponse = await GetFdsFundamentalsMetricsWithHttpInfoAsync(category, subcategory, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFdsFundamentalsMetricsWithHttpInfoAsync(category, subcategory, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -350,7 +387,8 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="subcategory">Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MetricsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse>> GetFdsFundamentalsMetricsWithHttpInfoAsync(string category = default(string), string subcategory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<MetricsResponse>> GetFdsFundamentalsMetricsWithHttpInfoAsync(string category = default(string), string subcategory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
@@ -363,12 +401,17 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (category != null)
             {
@@ -381,13 +424,13 @@ namespace FactSet.SDK.FactSetFundamentals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -399,14 +442,18 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsMetricsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<MetricsResponse>("/factset-fundamentals/v1/metrics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentalsMetrics", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -420,7 +467,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>MetricsResponse</returns>
         public MetricsResponse GetFdsFundamentalsMetricsForList(MetricsRequest metricsRequest)
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse> localVarResponse = GetFdsFundamentalsMetricsForListWithHttpInfo(metricsRequest);
+            var localVarResponse = GetFdsFundamentalsMetricsForListWithHttpInfo(metricsRequest);
             return localVarResponse.Data;
         }
 
@@ -430,11 +477,13 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="metricsRequest">Request object for requesting fundamentals data</param>
         /// <returns>ApiResponse of MetricsResponse</returns>
-        public FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse> GetFdsFundamentalsMetricsForListWithHttpInfo(MetricsRequest metricsRequest)
+        public ApiResponse<MetricsResponse> GetFdsFundamentalsMetricsForListWithHttpInfo(MetricsRequest metricsRequest)
         {
             // verify the required parameter 'metricsRequest' is set
             if (metricsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'metricsRequest' when calling DataItemsApi->GetFdsFundamentalsMetricsForList");
+            }
 
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
 
@@ -448,22 +497,28 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = metricsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -475,15 +530,19 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<MetricsResponse>("/factset-fundamentals/v1/metrics", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsMetricsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            MetricsResponse>("/factset-fundamentals/v1/metrics", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentalsMetricsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -494,9 +553,9 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="metricsRequest">Request object for requesting fundamentals data</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MetricsResponse</returns>
-        public async System.Threading.Tasks.Task<MetricsResponse> GetFdsFundamentalsMetricsForListAsync(MetricsRequest metricsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MetricsResponse>GetFdsFundamentalsMetricsForListAsync(MetricsRequest metricsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse> localVarResponse = await GetFdsFundamentalsMetricsForListWithHttpInfoAsync(metricsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFdsFundamentalsMetricsForListWithHttpInfoAsync(metricsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -507,11 +566,14 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="metricsRequest">Request object for requesting fundamentals data</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MetricsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFundamentals.Client.ApiResponse<MetricsResponse>> GetFdsFundamentalsMetricsForListWithHttpInfoAsync(MetricsRequest metricsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<MetricsResponse>> GetFdsFundamentalsMetricsForListWithHttpInfoAsync(MetricsRequest metricsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'metricsRequest' is set
             if (metricsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'metricsRequest' when calling DataItemsApi->GetFdsFundamentalsMetricsForList");
+            }
 
 
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
@@ -525,24 +587,29 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = metricsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -554,14 +621,18 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsMetricsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<MetricsResponse>("/factset-fundamentals/v1/metrics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentalsMetricsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

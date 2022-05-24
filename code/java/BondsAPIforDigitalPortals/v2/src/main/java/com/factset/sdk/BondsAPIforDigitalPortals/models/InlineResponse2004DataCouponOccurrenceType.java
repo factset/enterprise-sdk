@@ -84,6 +84,8 @@ public class InlineResponse2004DataCouponOccurrenceType implements Serializable 
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2004DataCouponOccurrenceType() { 
+  }
 
   public InlineResponse2004DataCouponOccurrenceType value(ValueEnum value) {
     this.value = value;

@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AFIOptimizationParameters from './model/AFIOptimizationParameters';
 import AFIOptimizationParametersRoot from './model/AFIOptimizationParametersRoot';
@@ -32,7 +31,10 @@ import OptimizerAccountOverrides from './model/OptimizerAccountOverrides';
 import OptimizerOptimalHoldings from './model/OptimizerOptimalHoldings';
 import OptimizerOutputTypes from './model/OptimizerOutputTypes';
 import OptimizerTradesList from './model/OptimizerTradesList';
+
 import AFIOptimizerApi from './api/AFIOptimizerApi';
+import PostAndOptimizeResponseWrapper from './api/AFIOptimizerApi';
+import PutAndOptimizeResponseWrapper from './api/AFIOptimizerApi';
 import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 
 
@@ -65,7 +67,7 @@ import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -195,8 +197,21 @@ export {
     AFIOptimizerApi,
 
     /**
+    * The PostAndOptimize response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PostAndOptimizeResponseWrapper,
+
+    /**
+    * The PutAndOptimize response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PutAndOptimizeResponseWrapper,
+
+    /**
     * The StrategyDocumentsApi service constructor.
     * @property {module:api/StrategyDocumentsApi}
     */
-    StrategyDocumentsApi
+    StrategyDocumentsApi,
+
 };

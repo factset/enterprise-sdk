@@ -59,6 +59,8 @@ public class LabelValueChangeLabelValueChangeTemplateAllOf implements Serializab
   public static final String JSON_PROPERTY_LABEL2 = "label2";
   private String label2;
 
+  public LabelValueChangeLabelValueChangeTemplateAllOf() { 
+  }
 
   public LabelValueChangeLabelValueChangeTemplateAllOf value(String value) {
     this.value = value;

@@ -54,6 +54,8 @@ public class OptimizerAccountOverrides implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public OptimizerAccountOverrides() { 
+  }
 
   public OptimizerAccountOverrides portfolio(String portfolio) {
     this.portfolio = portfolio;

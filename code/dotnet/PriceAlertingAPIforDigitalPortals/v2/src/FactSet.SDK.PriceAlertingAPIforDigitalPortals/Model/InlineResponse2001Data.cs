@@ -78,7 +78,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Creation: ").Append(Creation).Append("\n");
@@ -115,8 +115,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2001Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -150,13 +151,21 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Creation != null)
-                    hashCode = hashCode * 59 + this.Creation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Creation.GetHashCode();
+                }
                 if (this.Price != null)
-                    hashCode = hashCode * 59 + this.Price.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                }
                 if (this.Trigger != null)
-                    hashCode = hashCode * 59 + this.Trigger.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Trigger.GetHashCode();
+                }
                 return hashCode;
             }
         }

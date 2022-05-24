@@ -191,6 +191,27 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
     {
         private FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetDFSnapshotResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DFSnapshotResponse) },
+            { (HttpStatusCode)402, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostDFSnapshotResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DFSnapshotResponse) },
+            { (HttpStatusCode)402, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SnapshotApi"/> class.
         /// </summary>
@@ -307,7 +328,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <returns>DFSnapshotResponse</returns>
         public DFSnapshotResponse GetDFSnapshot(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string))
         {
-            FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse> localVarResponse = GetDFSnapshotWithHttpInfo(ids, oc, fields, sf, format, serv, reqId);
+            var localVarResponse = GetDFSnapshotWithHttpInfo(ids, oc, fields, sf, format, serv, reqId);
             return localVarResponse.Data;
         }
 
@@ -323,7 +344,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <param name="serv">The Data Service that handles the request for the specified symbols. Available live services are -    * **FDS1** -Production Data Service   * **FDS_FUND** -Fundamental Data Service used for End-of-Day data.  **Try it Out** - use FDS1  (optional)</param>
         /// <param name="reqId">Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.&lt;p&gt; **Try it Out** - any value can be passed through.&lt;/p&gt; (optional)</param>
         /// <returns>ApiResponse of DFSnapshotResponse</returns>
-        public FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse> GetDFSnapshotWithHttpInfo(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string))
+        public ApiResponse<DFSnapshotResponse> GetDFSnapshotWithHttpInfo(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string))
         {
             FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions();
 
@@ -338,10 +359,16 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
             };
 
             var localVarContentType = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -374,13 +401,13 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -392,15 +419,19 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DFSnapshotResponse>("/DFSnapshot", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetDFSnapshotResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DFSnapshotResponse>("/DFSnapshot", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDFSnapshot", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -417,9 +448,9 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <param name="reqId">Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.&lt;p&gt; **Try it Out** - any value can be passed through.&lt;/p&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DFSnapshotResponse</returns>
-        public async System.Threading.Tasks.Task<DFSnapshotResponse> GetDFSnapshotAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DFSnapshotResponse>GetDFSnapshotAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse> localVarResponse = await GetDFSnapshotWithHttpInfoAsync(ids, oc, fields, sf, format, serv, reqId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDFSnapshotWithHttpInfoAsync(ids, oc, fields, sf, format, serv, reqId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -436,7 +467,8 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <param name="reqId">Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.&lt;p&gt; **Try it Out** - any value can be passed through.&lt;/p&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DFSnapshotResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse>> GetDFSnapshotWithHttpInfoAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DFSnapshotResponse>> GetDFSnapshotWithHttpInfoAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions();
@@ -451,12 +483,17 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
                 "text/csv"
             };
 
-
             var localVarContentType = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -489,13 +526,13 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -507,14 +544,18 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetDFSnapshotResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DFSnapshotResponse>("/DFSnapshot", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDFSnapshot", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -534,7 +575,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <returns>DFSnapshotResponse</returns>
         public DFSnapshotResponse PostDFSnapshot(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string))
         {
-            FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse> localVarResponse = PostDFSnapshotWithHttpInfo(ids, oc, fields, sf, format, serv, reqId);
+            var localVarResponse = PostDFSnapshotWithHttpInfo(ids, oc, fields, sf, format, serv, reqId);
             return localVarResponse.Data;
         }
 
@@ -550,7 +591,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <param name="serv">The Data Service that handles the request for the specified symbols. Available live services are -    * **FDS1** -Production Data Service   * **FDS_FUND** -Fundamental Data Service used for End-of-Day data.  **Try it Out** - use FDS1  (optional)</param>
         /// <param name="reqId">Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.&lt;p&gt; **Try it Out** - any value can be passed through.&lt;/p&gt; (optional)</param>
         /// <returns>ApiResponse of DFSnapshotResponse</returns>
-        public FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse> PostDFSnapshotWithHttpInfo(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string))
+        public ApiResponse<DFSnapshotResponse> PostDFSnapshotWithHttpInfo(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string))
         {
             FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions();
 
@@ -565,10 +606,16 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
             };
 
             var localVarContentType = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -601,13 +648,13 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -619,15 +666,19 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<DFSnapshotResponse>("/DFSnapshot", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostDFSnapshotResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            DFSnapshotResponse>("/DFSnapshot", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostDFSnapshot", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -644,9 +695,9 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <param name="reqId">Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.&lt;p&gt; **Try it Out** - any value can be passed through.&lt;/p&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DFSnapshotResponse</returns>
-        public async System.Threading.Tasks.Task<DFSnapshotResponse> PostDFSnapshotAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DFSnapshotResponse>PostDFSnapshotAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse> localVarResponse = await PostDFSnapshotWithHttpInfoAsync(ids, oc, fields, sf, format, serv, reqId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostDFSnapshotWithHttpInfoAsync(ids, oc, fields, sf, format, serv, reqId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -663,7 +714,8 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
         /// <param name="reqId">Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.&lt;p&gt; **Try it Out** - any value can be passed through.&lt;/p&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DFSnapshotResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ApiResponse<DFSnapshotResponse>> PostDFSnapshotWithHttpInfoAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DFSnapshotResponse>> PostDFSnapshotWithHttpInfoAsync(string ids = default(string), string oc = default(string), string fields = default(string), string sf = default(string), string format = default(string), string serv = default(string), string reqId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.RequestOptions();
@@ -678,12 +730,17 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
                 "text/csv"
             };
 
-
             var localVarContentType = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -716,13 +773,13 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -734,14 +791,18 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostDFSnapshotResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<DFSnapshotResponse>("/DFSnapshot", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostDFSnapshot", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

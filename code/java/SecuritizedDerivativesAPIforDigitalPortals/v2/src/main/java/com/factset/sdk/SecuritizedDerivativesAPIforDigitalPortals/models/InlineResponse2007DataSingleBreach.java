@@ -47,6 +47,8 @@ public class InlineResponse2007DataSingleBreach implements Serializable {
   public static final String JSON_PROPERTY_DATETIME_BREACH = "datetimeBreach";
   private String datetimeBreach;
 
+  public InlineResponse2007DataSingleBreach() { 
+  }
 
   public InlineResponse2007DataSingleBreach isBreached(Boolean isBreached) {
     this.isBreached = isBreached;

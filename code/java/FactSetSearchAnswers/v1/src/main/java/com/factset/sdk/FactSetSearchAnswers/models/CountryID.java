@@ -42,6 +42,8 @@ public class CountryID implements Serializable {
   public static final String JSON_PROPERTY_I_S_O_A_L_P_H_A2 = "ISOALPHA2";
   private String ISOALPHA2;
 
+  public CountryID() { 
+  }
 
   public CountryID ISOALPHA2(String ISOALPHA2) {
     this.ISOALPHA2 = ISOALPHA2;

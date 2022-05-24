@@ -44,6 +44,8 @@ public class BasicMicOperatingListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private BasicMicOperatingListDataFilter filter;
 
+  public BasicMicOperatingListData() { 
+  }
 
   public BasicMicOperatingListData filter(BasicMicOperatingListDataFilter filter) {
     this.filter = filter;

@@ -48,6 +48,18 @@ public class PortfolioTransactionCashDeleteData implements Serializable {
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
   private PortfolioTransactionDeleteDataTransaction transaction;
 
+  public PortfolioTransactionCashDeleteData() { 
+  }
+
+  @JsonCreator
+  public PortfolioTransactionCashDeleteData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_TRANSACTION, required=true) PortfolioTransactionDeleteDataTransaction transaction
+  ) {
+    this();
+    this.id = id;
+    this.transaction = transaction;
+  }
 
   public PortfolioTransactionCashDeleteData id(String id) {
     this.id = id;

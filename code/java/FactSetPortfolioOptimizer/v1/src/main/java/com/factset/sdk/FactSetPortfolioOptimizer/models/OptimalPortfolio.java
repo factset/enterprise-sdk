@@ -132,6 +132,8 @@ public class OptimalPortfolio implements Serializable {
   public static final String JSON_PROPERTY_IFOFDBDATEEXISTS = "ifofdbdateexists";
   private IfofdbdateexistsEnum ifofdbdateexists;
 
+  public OptimalPortfolio() { 
+  }
 
   public OptimalPortfolio acctname(String acctname) {
     this.acctname = acctname;

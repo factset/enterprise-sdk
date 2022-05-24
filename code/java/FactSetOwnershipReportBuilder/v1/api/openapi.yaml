@@ -1,0 +1,1161 @@
+openapi: 3.0.3
+info:
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Ownership API
+  version: 1.0.0
+externalDocs:
+  description: Read more about STACH 2.0's row organized schema
+  url: https://factset.github.io/stachschema/#/v2/RowOrganized
+servers:
+- url: https://api.factset.com/report/ownership/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- name: Ownership
+paths:
+  /holders:
+    get:
+      description: Holders of a company or fund
+      operationId: getOwnershipHolders
+      parameters:
+      - description: Company or Fund Identifier
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      - description: Controls the Asset Type of the data returned
+        explode: true
+        in: query
+        name: asset_type
+        required: false
+        schema:
+          default: EQUITY
+          enum:
+          - EQUITY
+          - DEBT
+          type: string
+        style: form
+      - description: Controls the Holder Type of the data returned
+        explode: true
+        in: query
+        name: holder_type
+        required: false
+        schema:
+          default: INSTITUTIONS
+          enum:
+          - ALL_HOLDERS
+          - BENEFICIAL_OWNERS
+          - FUNDS
+          - INSTITUTIONS
+          - INSTITUTIONS_INSIDERS
+          - INSIDERS_STAKEHOLDERS
+          type: string
+        style: form
+      - description: "Limits the number of holders returned based on their Market\
+          \ Value position in the security.  \nDefault is ALL, otherwise use a valid\
+          \ number above 0.\n"
+        explode: true
+        in: query
+        name: topn
+        required: false
+        schema:
+          example: ALL
+          type: string
+        style: form
+      - description: Top Holders as of date expressed in YYYY-MM-DD format. Defaults
+          to latest month-end close; non-month-end dates are converted to month-end
+          dates.
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          example: 2019-12-31
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200ResponseExample:
+                  $ref: '#/components/examples/default200Response'
+                debtHolders200ResponseExample:
+                  $ref: '#/components/examples/debtHolders200Response'
+                noData200ResponseExample:
+                  $ref: '#/components/examples/noData200Response'
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Expected response; returns JSON data containing STACH 2.0 row
+            organized package format
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                parameterErrorAssetType:
+                  $ref: '#/components/examples/parameterErrorAssetType'
+                parameterErrorHolderType:
+                  $ref: '#/components/examples/parameterErrorHolderType'
+                parameterErrorTopn:
+                  $ref: '#/components/examples/parameterErrorTopn'
+                parameterErrorDate:
+                  $ref: '#/components/examples/parameterErrorDate'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Supported-Versions:
+              description: Supported API versions
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              examples:
+                notAuthorized:
+                  $ref: '#/components/examples/notAuthorized'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: User is forbidden access with current credentials. Reach out
+            to your local FactSet Account Manager for assistance, or file an issue
+            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                genericServerError:
+                  $ref: '#/components/examples/genericServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Holders of a company or fund
+      tags:
+      - Ownership
+      x-accepts: application/json
+components:
+  examples:
+    default200Response:
+      summary: (dummy data - equity holders)
+      value:
+        data:
+          version: "2.0"
+          tables:
+            main:
+              definition:
+                columns:
+                - id: holderName
+                  type: string
+                  isDimension: true
+                - id: pctowns
+                  type: real
+                - id: position
+                  type: real
+                - id: postionchg
+                  type: real
+                - id: adj_mv
+                  type: real
+                - id: pcprt
+                  type: real
+                - id: actscore
+                  type: string
+                - id: reportdate
+                  type: string
+                - id: source
+                  type: string
+              headersDefinition:
+                columns:
+                - id: ownershipTableHeader
+                  type: string
+                  isDimension: true
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - All Holders
+                  - '%OS'
+                  - Position (000)
+                  - Pos Change (000)
+                  - Mkt Val (MM)
+                  - '% Port'
+                  - Activism
+                  - Report Date
+                  - Source
+                  headerCellDetails:
+                    "0":
+                      source: HEADERS
+                      columnIndex: 0
+                    "1":
+                      source: HEADERS
+                      columnIndex: 0
+                    "2":
+                      source: HEADERS
+                      columnIndex: 0
+                    "3":
+                      source: HEADERS
+                      columnIndex: 0
+                    "4":
+                      source: HEADERS
+                      columnIndex: 0
+                    "5":
+                      source: HEADERS
+                      columnIndex: 0
+                    "6":
+                      source: PRIMARY
+                      columnIndex: 0
+                    "7":
+                      source: HEADERS
+                      columnIndex: 0
+                    "8":
+                      source: HEADERS
+                      columnIndex: 0
+                - cells:
+                  - The Vanguard Group, Inc.
+                  - 9.8903
+                  - 3757653
+                  - -115462
+                  - 1.25287666326E9
+                  - 0.023711
+                  - Very Low
+                  - 2020-06-30
+                  - 13F Form
+                  rowMetadata:
+                    fsymId:
+                      value: F72998
+                - cells:
+                  - ' Vanguard Total Stock Market Index Fund'
+                  - 2.8321
+                  - 1076021
+                  - -17151
+                  - 3.5876692182E8
+                  - 0.037892
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4004630'
+                - cells:
+                  - ' Vanguard Mid Cap Index Fund'
+                  - 2.4459
+                  - 929269
+                  - -40861
+                  - 3.0983686998E8
+                  - 0.273436
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4005398'
+                - cells:
+                  - ' Vanguard Extended Market Index Fund'
+                  - 1.4185
+                  - 538950
+                  - 2048
+                  - 179696709
+                  - 0.239476
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4004539'
+                - cells:
+                  - ' Vanguard Growth Index Fund'
+                  - 0.7859
+                  - 298593
+                  - 11429
+                  - 9.955687806E7
+                  - 0.075905
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4004567'
+                - cells:
+                  - ' Vanguard Dividend Appreciation Index Fund'
+                  - 0.6763
+                  - 256945
+                  - -85496
+                  - 8.56706019E7
+                  - 0.151329
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4048126'
+                - cells:
+                  - ' Vanguard Mid Cap Growth Index Fund'
+                  - 0.6734
+                  - 255852
+                  - -6960
+                  - 8.530617384E7
+                  - 0.500536
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4048682'
+                - cells:
+                  - ' Vanguard Financials Index Fund'
+                  - 0.1994
+                  - 75747
+                  - 1346
+                  - 2.525556474E7
+                  - 0.377082
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4039461'
+                - cells:
+                  - ' Vanguard S&P Mid Cap 400 Index Fund'
+                  - 0.1224
+                  - 46523
+                  - 114
+                  - 1.551169866E7
+                  - 0.74321
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4107013'
+                - cells:
+                  - ' Vanguard Strategic Equity Fund'
+                  - 0.122
+                  - 46359
+                  - -2294
+                  - 1.545701778E7
+                  - 0.244843
+                  - null
+                  - 2020-06-30
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4007901'
+                - cells:
+                  - ' Vanguard Institutional Total Stock Market Index Fund'
+                  - 0.1212
+                  - 46046
+                  - -1508
+                  - 1.535265732E7
+                  - 0.037833
+                  - null
+                  - 2020-07-31
+                  - US Fund (N-30D)
+                  rowMetadata:
+                    fsymId:
+                      value: ' M4017307'
+                columnMetadata:
+                  pctowns:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  position:
+                    items:
+                      scale:
+                        value: 3
+                  postionchg:
+                    items:
+                      scale:
+                        value: 3
+                  adj_mv:
+                    items:
+                      scale:
+                        value: 6
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+                  pcprt:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+    debtHolders200Response:
+      summary: (dummy data- debt holders)
+      value:
+        data:
+          version: "2.0"
+          tables:
+            main:
+              definition:
+                columns:
+                - id: holderName
+                  type: string
+                  isDimension: true
+                - id: pctowns
+                  type: real
+                - id: position
+                  type: real
+              headersDefinition:
+                columns:
+                - id: ownershipTableHeader
+                  type: string
+                  isDimension: true
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - Institutions
+                  - '%OS'
+                  - Position (MM)
+                  headerCellDetails:
+                    "0":
+                      source: HEADERS
+                      columnIndex: 0
+                    "1":
+                      source: HEADERS
+                      columnIndex: 0
+                    "2":
+                      source: HEADERS
+                      columnIndex: 0
+                - cells:
+                  - The Vanguard Group, Inc.
+                  - 6.590663
+                  - 4094.054
+                  rowMetadata:
+                    fsymId:
+                      value: F72998
+                - cells:
+                  - Pacific Investment Management Co. LLC
+                  - 5.969819
+                  - 3708.391636
+                  rowMetadata:
+                    fsymId:
+                      value: F5017088
+                - cells:
+                  - Lord, Abbett & Co. LLC
+                  - 2.032207
+                  - 1262.386837
+                  rowMetadata:
+                    fsymId:
+                      value: F20448
+                - cells:
+                  - Capital Research & Management Co. (Fixed Income Investors)
+                  - 1.628714
+                  - 1011.741
+                  rowMetadata:
+                    fsymId:
+                      value: F12947256
+                - cells:
+                  - Capital Research & Management Co. (World Investors)
+                  - 1.605221
+                  - 997.147
+                  rowMetadata:
+                    fsymId:
+                      value: F6158007
+                - cells:
+                  - BlackRock Fund Advisors
+                  - 1.502151
+                  - 933.121
+                  rowMetadata:
+                    fsymId:
+                      value: F7749421
+                - cells:
+                  - PGIM, Inc.
+                  - 1.331821
+                  - 827.314
+                  rowMetadata:
+                    fsymId:
+                      value: F24891
+                - cells:
+                  - Western Asset Management Co. LLC
+                  - 1.084589
+                  - 673.736
+                  rowMetadata:
+                    fsymId:
+                      value: F5112696
+                - cells:
+                  - Fidelity Management & Research Co. LLC
+                  - 0.966759
+                  - 600.540811
+                  rowMetadata:
+                    fsymId:
+                      value: F16925
+                - cells:
+                  - Loomis, Sayles & Co. LP
+                  - 0.923711
+                  - 573.8
+                  rowMetadata:
+                    fsymId:
+                      value: F20445
+                columnMetadata:
+                  pctowns:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  position:
+                    items:
+                      scale:
+                        value: 6
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+        meta:
+          requestId: BA-US
+          fsymId: RXHN9P-R
+    noData200Response:
+      summary: (debt holders - no data case)
+      value:
+        data:
+          version: "2.0"
+          tables:
+            main:
+              definition:
+                columns:
+                - id: holderName
+                  type: string
+                  isDimension: true
+                - id: pctowns
+                  type: real
+                - id: position
+                  type: real
+              headersDefinition:
+                columns:
+                - id: ownershipTableHeader
+                  type: string
+                  isDimension: true
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - Institutions
+                  - '%OS'
+                  - Position (MM)
+                  headerCellDetails:
+                    "0":
+                      source: HEADERS
+                      columnIndex: 0
+                    "1":
+                      source: HEADERS
+                      columnIndex: 0
+                    "2":
+                      source: HEADERS
+                      columnIndex: 0
+                - cells:
+                  - null
+                  - null
+                  - null
+                  rowMetadata:
+                    fsymId:
+                      value: '@NA'
+                columnMetadata:
+                  pctowns:
+                    items:
+                      valueType:
+                        value: PERCENTAGE
+                  position:
+                    items:
+                      scale:
+                        value: 6
+                      currencyCode:
+                        value: USD
+                      currencySymbol:
+                        value: $
+        meta:
+          requestId: YELP-US
+          fsymId: DT59Y2-R
+          noData: true
+          message: There is no data for this request.
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: genericServerError
+          title: Unexpected error processing request
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Missing required parameter(s): ''id'''
+    idInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Invalid parameter(s): ''id'''
+    parameterErrorAssetType:
+      summary: asset type parameter error
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Invalid parameter: ''asset_type'''
+    parameterErrorHolderType:
+      summary: holder type parameter error
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Invalid parameter: ''holder_type'''
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: holderType parameter value is invalid with assetType ‘DEBT’. Only
+            holderType ‘INSTITUTIONS’ or ‘FUNDS’ are valid when returning assetType
+            ‘DEBT’.
+    parameterErrorTopn:
+      summary: topn parameter error
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Invalid parameter: ''topn'''
+    parameterErrorDate:
+      summary: date parameter error
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Invalid parameter: ''date'''
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: endpointNotFound
+          title: The requested endpoint does not exist.
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: notAuthorized
+          title: User is forbidden access with current credentials. For access, contact
+            your FactSet sales representative
+  responses:
+    "200OKStach":
+      content:
+        application/json:
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200Response'
+            debtHolders200ResponseExample:
+              $ref: '#/components/examples/debtHolders200Response'
+            noData200ResponseExample:
+              $ref: '#/components/examples/noData200Response'
+          schema:
+            $ref: '#/components/schemas/Response'
+      description: Expected response; returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Supported-Versions:
+          description: Supported API versions (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Version:
+          description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "400BadRequest":
+      content:
+        application/json:
+          examples:
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
+            idInvalidParameterError:
+              $ref: '#/components/examples/idInvalidParameterError'
+            parameterErrorAssetType:
+              $ref: '#/components/examples/parameterErrorAssetType'
+            parameterErrorHolderType:
+              $ref: '#/components/examples/parameterErrorHolderType'
+            parameterErrorTopn:
+              $ref: '#/components/examples/parameterErrorTopn'
+            parameterErrorDate:
+              $ref: '#/components/examples/parameterErrorDate'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. For further assistance, file an issue under "Workflow
+        & Throttling - 400 or 429 Response" using `Report Issue` at the top of this
+        page, including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Supported-Versions:
+          description: Supported API versions
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Version:
+          description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "401Unauthorized":
+      description: Missing or invalid authentication. Ensure you are logged in and
+        have successfully generated an API KEY for the IP range you are connecting
+        from. For further assistance, file an issue under "Connectivty - 401 or 403
+        Responses" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key
+        from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "403Forbidden":
+      content:
+        application/json:
+          examples:
+            notAuthorized:
+              $ref: '#/components/examples/notAuthorized'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: User is forbidden access with current credentials. Reach out to
+        your local FactSet Account Manager for assistance, or file an issue under
+        "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of this
+        page, including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "404NotFound":
+      content:
+        application/json:
+          examples:
+            endpointNotFound:
+              $ref: '#/components/examples/endpointNotFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Not found. For further assistance, file an issue under "Performance
+        - 404 and 500 Responses" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "429TooManyRequests":
+      description: Too many requests - this API is rate-limited to 20 requests per
+        second. For further assistance, file an issue under "Workflow & Throttling
+        - 400 or 429 Response" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "500InternalServerError":
+      content:
+        application/json:
+          examples:
+            genericServerError:
+              $ref: '#/components/examples/genericServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Server error. For further assistance, file an issue under "Performance
+        - 404 and 500 Responses" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "503ServiceUnavailable":
+      description: Service unavailable. Typically a timeout, or result of a rejected
+        request to prevent service overload. For further assistance, file an issue
+        under "Performance - 404 and 500 Responses" using `Report Issue` at the top
+        of this page, including the X-DataDirect-Request-Key from the header to assist
+        in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+  schemas:
+    Response:
+      example:
+        data: ""
+        meta:
+          key: meta
+      properties:
+        data:
+          description: Returns a STACH 2.0 row organized package
+          title: STACH
+        meta:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    Meta:
+      additionalProperties:
+        type: string
+      type: object
+    ErrorResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+        meta:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    ErrorObject:
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+        detail:
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+      type: object
+    MetadataEntry:
+      description: |
+        Restricted metadata entries. Restricts the possible key in the following STACH schema:
+        - RowOrganizedPackage.CellDetail.CellMetadataEntry
+        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
+        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
+        - RowOrganizedPackage.Row.RowMetadataEntry
+        - RowOrganizedPackage.TableData.TableMetadataEntry
+        And sets restrictions on the possible values for a MetadataItem.
+      oneOf:
+      - $ref: '#/components/schemas/fsymId'
+      - $ref: '#/components/schemas/currencyCode'
+      - $ref: '#/components/schemas/currencySymbol'
+      - $ref: '#/components/schemas/category'
+      - $ref: '#/components/schemas/valueType'
+      - $ref: '#/components/schemas/scale'
+      - $ref: '#/components/schemas/description'
+      - $ref: '#/components/schemas/frequency'
+      type: object
+    fsymId:
+      properties:
+        fsymId:
+          $ref: '#/components/schemas/fsymId_fsymId'
+      type: object
+    currencyCode:
+      properties:
+        currencyCode:
+          $ref: '#/components/schemas/currencyCode_currencyCode'
+      type: object
+    currencySymbol:
+      properties:
+        currencySymbol:
+          $ref: '#/components/schemas/currencySymbol_currencySymbol'
+      type: object
+    category:
+      properties:
+        category:
+          $ref: '#/components/schemas/category_category'
+      type: object
+    valueType:
+      properties:
+        valueType:
+          $ref: '#/components/schemas/valueType_valueType'
+      type: object
+    scale:
+      properties:
+        scale:
+          $ref: '#/components/schemas/scale_scale'
+      type: object
+    description:
+      properties:
+        description:
+          $ref: '#/components/schemas/description_description'
+      type: object
+    frequency:
+      properties:
+        frequency:
+          $ref: '#/components/schemas/frequency_frequency'
+      type: object
+    ErrorObject_links:
+      properties:
+        about:
+          type: string
+      type: object
+    ErrorObject_source:
+      properties:
+        parameter:
+          type: string
+      type: object
+    fsymId_fsymId:
+      description: Describes fund id or institution id
+      properties:
+        value:
+          type: string
+      type: object
+    currencyCode_currencyCode:
+      description: Code for data currency
+      properties:
+        value:
+          type: string
+      type: object
+    currencySymbol_currencySymbol:
+      description: Symbol for data currency
+      properties:
+        value:
+          type: string
+      type: object
+    category_category:
+      description: |
+        Describes data based on source or kind of value
+        - ACTUAL - Historical data collected directly from a press release or a median consensus from brokers after a report date.
+        - ESTIMATE - Forward looking average of broker estimates within a specific time horizon.
+        - GUIDANCE - Forward looking indication or estimate of future performance issued by the company itself.
+        - DETAIL - Indicates data that is more granular and may be secondary in focus.
+        - MAIN - Indicates data is of more impactful or higher importance and may want to be emphasized.
+        - SECTION - Indicates data that is used in sectioning rows in group level STACH format.
+      properties:
+        value:
+          enum:
+          - ACTUAL
+          - ESTIMATE
+          - GUIDANCE
+          - EXCLUDED
+          - CHANGE
+          - DETAIL
+          - MAIN
+          - SECTION
+          type: string
+      type: object
+    valueType_valueType:
+      description: Describes how to interpret numbers
+      properties:
+        value:
+          enum:
+          - PERCENTAGE
+          - RATIO
+          - TREND
+          - RANGE
+          type: string
+      type: object
+    scale_scale:
+      description: |
+        Integer power of 10 to which numbers have been scaled. For example: 6 implies millions.
+        Default is 0.
+      properties:
+        value:
+          type: integer
+      type: object
+    description_description:
+      description: Text describing the data
+      properties:
+        value:
+          type: string
+      type: object
+    frequency_frequency:
+      description: |
+        String with frequency of a data series. Allowed values:
+        - "D" (daily)
+        - "W" (weekly)
+        - "AW" (actual weekly)
+        - "M" (monthly)
+        - "AM" (actual monthly)
+        - "Q" (quarterly)
+        - "FQ" (fiscal quarterly)
+        - "CQ" (calendar quarterly)
+        - "AQ" (actual quarterly)
+        - "Y" (yearly)
+        - "FY" (fiscal yearly)
+        - "CY" (calendar yearly)
+        - "AY" (actual yearly)
+        - "MTD" (month-to-date)
+        - "QTD" (quarter-to-date)
+        - "YTD" (year-to-date)
+        - "FYTD" (fiscal-year-to-date)
+        - "CYTD" (calendar-year-to-date)
+      properties:
+        value:
+          enum:
+          - D
+          - W
+          - AW
+          - M
+          - AM
+          - Q
+          - FQ
+          - CQ
+          - AQ
+          - "Y"
+          - FY
+          - CY
+          - AY
+          - MTD
+          - QTD
+          - YTD
+          - FYTD
+          - CYTD
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

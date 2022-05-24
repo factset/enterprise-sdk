@@ -216,6 +216,8 @@ public class InlineResponse20062DataTargetMarketAbilityToBearLosses implements S
   public static final String JSON_PROPERTY_MAXIMUM_CAPITAL_LOSS = "maximumCapitalLoss";
   private BigDecimal maximumCapitalLoss;
 
+  public InlineResponse20062DataTargetMarketAbilityToBearLosses() { 
+  }
 
   public InlineResponse20062DataTargetMarketAbilityToBearLosses noCapitalLoss(NoCapitalLossEnum noCapitalLoss) {
     this.noCapitalLoss = noCapitalLoss;

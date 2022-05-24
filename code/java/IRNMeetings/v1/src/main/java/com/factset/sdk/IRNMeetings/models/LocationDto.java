@@ -50,6 +50,8 @@ public class LocationDto implements Serializable {
   public static final String JSON_PROPERTY_LOCATION_NAME = "locationName";
   private JsonNullable<String> locationName = JsonNullable.<String>undefined();
 
+  public LocationDto() { 
+  }
 
   public LocationDto id(java.util.UUID id) {
     this.id = id;

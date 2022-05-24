@@ -7,6 +7,9 @@ import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SPAREngine.models.ClientErrorResponse;
 import com.factset.sdk.SPAREngine.models.ComponentSummaryRoot;
@@ -22,6 +25,16 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSPARComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSPARComponentsResponseTypeMap.put(200, new GenericType<ComponentSummaryRoot>(){});
+    getSPARComponentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getSPARComponentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,10 +132,16 @@ public class ComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ComponentSummaryRoot> localVarReturnType = new GenericType<ComponentSummaryRoot>() {};
 
-    return apiClient.invokeAPI("ComponentsApi.getSPARComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ComponentSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("ComponentsApi.getSPARComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSPARComponentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

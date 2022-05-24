@@ -79,6 +79,8 @@ public class InlineResponse2005DataVolatility implements Serializable {
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
   private InlineResponse2005DataPerformanceEndOfDayYearToDate yearToDate;
 
+  public InlineResponse2005DataVolatility() { 
+  }
 
   public InlineResponse2005DataVolatility week1(InlineResponse2005DataPerformanceEndOfDayWeek1 week1) {
     this.week1 = week1;

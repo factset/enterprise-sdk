@@ -43,6 +43,16 @@ public class NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData 
   public static final String JSON_PROPERTY_SYMBOLOGY_IDENTIFIER = "symbologyIdentifier";
   private String symbologyIdentifier;
 
+  public NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData() { 
+  }
+
+  @JsonCreator
+  public NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData(
+    @JsonProperty(value=JSON_PROPERTY_SYMBOLOGY_IDENTIFIER, required=true) String symbologyIdentifier
+  ) {
+    this();
+    this.symbologyIdentifier = symbologyIdentifier;
+  }
 
   public NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData symbologyIdentifier(String symbologyIdentifier) {
     this.symbologyIdentifier = symbologyIdentifier;

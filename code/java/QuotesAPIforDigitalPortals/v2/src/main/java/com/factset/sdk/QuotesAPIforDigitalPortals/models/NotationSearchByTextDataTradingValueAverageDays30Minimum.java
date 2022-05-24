@@ -48,6 +48,16 @@ public class NotationSearchByTextDataTradingValueAverageDays30Minimum implements
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public NotationSearchByTextDataTradingValueAverageDays30Minimum() { 
+  }
+
+  @JsonCreator
+  public NotationSearchByTextDataTradingValueAverageDays30Minimum(
+    @JsonProperty(value=JSON_PROPERTY_VALUE, required=true) BigDecimal value
+  ) {
+    this();
+    this.value = value;
+  }
 
   public NotationSearchByTextDataTradingValueAverageDays30Minimum value(BigDecimal value) {
     this.value = value;

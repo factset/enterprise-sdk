@@ -44,6 +44,8 @@ public class InlineResponse2003InstrumentCompliance implements Serializable {
   public static final String JSON_PROPERTY_GERMANY = "germany";
   private InlineResponse2003InstrumentComplianceGermany germany;
 
+  public InlineResponse2003InstrumentCompliance() { 
+  }
 
   public InlineResponse2003InstrumentCompliance germany(InlineResponse2003InstrumentComplianceGermany germany) {
     this.germany = germany;

@@ -113,7 +113,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20072Data {\n");
             sb.Append("  ReferenceDate: ").Append(ReferenceDate).Append("\n");
             sb.Append("  Performance: ").Append(Performance).Append("\n");
@@ -154,8 +154,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20072Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReferenceDate == input.ReferenceDate ||
@@ -206,18 +207,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.ReferenceDate != null)
-                    hashCode = hashCode * 59 + this.ReferenceDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReferenceDate.GetHashCode();
+                }
                 if (this.Performance != null)
-                    hashCode = hashCode * 59 + this.Performance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
                 if (this.High != null)
-                    hashCode = hashCode * 59 + this.High.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.High.GetHashCode();
+                }
                 if (this.Low != null)
-                    hashCode = hashCode * 59 + this.Low.GetHashCode();
-                hashCode = hashCode * 59 + this.AveragePrice.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Low.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AveragePrice.GetHashCode();
                 if (this.TradingVolume != null)
-                    hashCode = hashCode * 59 + this.TradingVolume.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingValue.GetHashCode();
-                hashCode = hashCode * 59 + this.Volatility.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
                 return hashCode;
             }
         }

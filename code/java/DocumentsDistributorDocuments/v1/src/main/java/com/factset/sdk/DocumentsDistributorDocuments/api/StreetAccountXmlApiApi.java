@@ -7,10 +7,13 @@ import com.factset.sdk.DocumentsDistributorDocuments.Configuration;
 import com.factset.sdk.DocumentsDistributorDocuments.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.DocumentsDistributorDocuments.models.CheckstatusResponse;
 import com.factset.sdk.DocumentsDistributorDocuments.models.GetfilesResponse;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import com.factset.sdk.DocumentsDistributorDocuments.models.RequestfilesResponse;
 import com.factset.sdk.DocumentsDistributorDocuments.models.StreetAccountStatus;
 
@@ -25,6 +28,25 @@ public class StreetAccountXmlApiApi {
   public StreetAccountXmlApiApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> asynchStreetaccountV1CheckStatusGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    asynchStreetaccountV1CheckStatusGetResponseTypeMap.put(200, new GenericType<CheckstatusResponse>(){});
+    asynchStreetaccountV1CheckStatusGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
+  }
+  private static final Map<Integer, GenericType> asynchStreetaccountV1GetFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    asynchStreetaccountV1GetFilesGetResponseTypeMap.put(200, new GenericType<GetfilesResponse>(){});
+    asynchStreetaccountV1GetFilesGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
+  }
+  private static final Map<Integer, GenericType> asynchStreetaccountV1RequestFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    asynchStreetaccountV1RequestFilesGetResponseTypeMap.put(200, new GenericType<RequestfilesResponse>(){});
+    asynchStreetaccountV1RequestFilesGetResponseTypeMap.put(400, new GenericType<StreetAccountStatus>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -108,11 +130,17 @@ public class StreetAccountXmlApiApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CheckstatusResponse> localVarReturnType = new GenericType<CheckstatusResponse>() {};
 
-    return apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1CheckStatusGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CheckstatusResponse
+      
+    > apiResponse = apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1CheckStatusGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, asynchStreetaccountV1CheckStatusGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the SA XML files for the specified daterange
@@ -178,15 +206,21 @@ public class StreetAccountXmlApiApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<GetfilesResponse> localVarReturnType = new GenericType<GetfilesResponse>() {};
 
-    return apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1GetFilesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        GetfilesResponse
+      
+    > apiResponse = apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1GetFilesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, asynchStreetaccountV1GetFilesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the jobID
-   * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+   * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
    * @param startDate Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
    * @param endDate The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
    * @return RequestfilesResponse
@@ -204,7 +238,7 @@ public class StreetAccountXmlApiApi {
 
   /**
    * Returns the jobID
-   * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+   * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
    * @param startDate Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
    * @param endDate The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format (required)
    * @return ApiResponse&lt;RequestfilesResponse&gt;
@@ -256,10 +290,16 @@ public class StreetAccountXmlApiApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RequestfilesResponse> localVarReturnType = new GenericType<RequestfilesResponse>() {};
 
-    return apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1RequestFilesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RequestfilesResponse
+      
+    > apiResponse = apiClient.invokeAPI("StreetAccountXmlApiApi.asynchStreetaccountV1RequestFilesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, asynchStreetaccountV1RequestFilesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

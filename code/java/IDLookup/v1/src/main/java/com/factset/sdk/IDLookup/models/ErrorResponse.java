@@ -46,6 +46,8 @@ public class ErrorResponse implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_KEY = "RequestKey";
   private String requestKey;
 
+  public ErrorResponse() { 
+  }
 
   public ErrorResponse description(String description) {
     this.description = description;

@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataKeyFiguresSpread {\n");
             sb.Append("  Harmonized: ").Append(Harmonized).Append("\n");
             sb.Append("  Relative: ").Append(Relative).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataKeyFiguresSpread input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Harmonized == input.Harmonized ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Harmonized != null)
-                    hashCode = hashCode * 59 + this.Harmonized.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Harmonized.GetHashCode();
+                }
                 if (this.Relative != null)
-                    hashCode = hashCode * 59 + this.Relative.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Relative.GetHashCode();
+                }
                 return hashCode;
             }
         }

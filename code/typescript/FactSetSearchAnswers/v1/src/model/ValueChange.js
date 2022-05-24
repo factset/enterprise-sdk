@@ -17,7 +17,7 @@ import ChangeColor from './ChangeColor';
 /**
  * The ValueChange model module.
  * @module model/ValueChange
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ValueChange {
     /**

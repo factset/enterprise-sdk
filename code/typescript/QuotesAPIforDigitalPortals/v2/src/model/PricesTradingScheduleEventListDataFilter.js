@@ -17,7 +17,7 @@ import PricesTradingScheduleEventListDataFilterRange from './PricesTradingSchedu
 /**
  * The PricesTradingScheduleEventListDataFilter model module.
  * @module model/PricesTradingScheduleEventListDataFilter
- * @version 0.9.1
+ * @version 0.9.2
  */
 class PricesTradingScheduleEventListDataFilter {
     /**

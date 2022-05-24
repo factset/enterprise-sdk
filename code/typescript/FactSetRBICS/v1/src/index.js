@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import EntityFocus from './model/EntityFocus';
 import EntityFocusRequest from './model/EntityFocusRequest';
@@ -21,6 +20,7 @@ import ErrorResponseSubErrors from './model/ErrorResponseSubErrors';
 import Structure from './model/Structure';
 import StructureRequest from './model/StructureRequest';
 import StructureResponse from './model/StructureResponse';
+
 import EntityFocusApi from './api/EntityFocusApi';
 import StructureApi from './api/StructureApi';
 
@@ -54,7 +54,7 @@ import StructureApi from './api/StructureApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -121,5 +121,6 @@ export {
     * The StructureApi service constructor.
     * @property {module:api/StructureApi}
     */
-    StructureApi
+    StructureApi,
+
 };

@@ -7,6 +7,9 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.InlineObject;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.InlineObject1;
@@ -29,6 +32,30 @@ public class VendorApi {
   public VendorApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getVendorChartIQTimeSeriesIntradaySubsampleGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVendorChartIQTimeSeriesIntradaySubsampleGetResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> postVendorChartIQTimeSeriesEodListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postVendorChartIQTimeSeriesEodListResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> postVendorChartIQTimeSeriesEodSubsampleGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postVendorChartIQTimeSeriesEodSubsampleGetResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postVendorChartIQTimeSeriesEodSubsampleListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postVendorChartIQTimeSeriesEodSubsampleListResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> postVendorChartIQTimeSeriesIntradaySubsampleListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postVendorChartIQTimeSeriesIntradaySubsampleListResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -130,11 +157,17 @@ public class VendorApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("VendorApi.getVendorChartIQTimeSeriesIntradaySubsampleGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("VendorApi.getVendorChartIQTimeSeriesIntradaySubsampleGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVendorChartIQTimeSeriesIntradaySubsampleGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day time series data for a notation.
@@ -197,11 +230,17 @@ public class VendorApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesEodList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesEodList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postVendorChartIQTimeSeriesEodListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Single subsample end-of-day data for a notation.
@@ -264,11 +303,17 @@ public class VendorApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesEodSubsampleGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesEodSubsampleGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postVendorChartIQTimeSeriesEodSubsampleGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Subsampled end-of-day time series data for a notation.
@@ -331,11 +376,17 @@ public class VendorApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesEodSubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesEodSubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postVendorChartIQTimeSeriesEodSubsampleListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Subsampled intraday time series data for a notation.
@@ -398,10 +449,16 @@ public class VendorApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
 
-    return apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesIntradaySubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2004
+      
+    > apiResponse = apiClient.invokeAPI("VendorApi.postVendorChartIQTimeSeriesIntradaySubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postVendorChartIQTimeSeriesIntradaySubsampleListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

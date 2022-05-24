@@ -1,6 +1,6 @@
 /**
  * Documents Distributor - Documents API
- * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. The API also provides relevant metadata such as document source, company identifiers and form type around each filings document. Filings providers currently include EDGAR and SYMEX WebDisclosure.      StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.   Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
+ * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -21,7 +21,7 @@ import StreetAccountStatus from '../model/StreetAccountStatus';
 /**
 * StreetAccountXMLAPI service.
 * @module api/StreetAccountXMLAPIApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class StreetAccountXMLAPIApi {
 
@@ -64,7 +64,10 @@ export default class StreetAccountXMLAPIApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CheckstatusResponse;
+
       return this.apiClient.callApi(
         '/asynch/streetaccount/v1/check-status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class StreetAccountXMLAPIApi {
      * Returns the status and percentDone of the requested jobID
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to know the status and percentDone
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CheckstatusResponse}
+     * @return { Promise.< module:model/CheckstatusResponse > } a Promise, with data of type {@link module:model/CheckstatusResponse }
      */
     asynchStreetaccountV1CheckStatusGet(jobID) {
       return this.asynchStreetaccountV1CheckStatusGetWithHttpInfo(jobID)
@@ -112,7 +115,10 @@ export default class StreetAccountXMLAPIApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = GetfilesResponse;
+
       return this.apiClient.callApi(
         '/asynch/streetaccount/v1/get-files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -124,7 +130,7 @@ export default class StreetAccountXMLAPIApi {
      * Returns the SA XML files for the specified daterange
      * Need to plug-in the jobID got from /request-files into /check-status endpoint
      * @param {String} jobID jobID returned by the request-files endpoint to collect the results of the query
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetfilesResponse}
+     * @return { Promise.< module:model/GetfilesResponse > } a Promise, with data of type {@link module:model/GetfilesResponse }
      */
     asynchStreetaccountV1GetFilesGet(jobID) {
       return this.asynchStreetaccountV1GetFilesGetWithHttpInfo(jobID)
@@ -136,7 +142,7 @@ export default class StreetAccountXMLAPIApi {
 
     /**
      * Returns the jobID
-     * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+     * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
      * @param {Date} startDate Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
      * @param {Date} endDate The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RequestfilesResponse} and HTTP response
@@ -166,7 +172,10 @@ export default class StreetAccountXMLAPIApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = RequestfilesResponse;
+
       return this.apiClient.callApi(
         '/asynch/streetaccount/v1/request-files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -176,10 +185,10 @@ export default class StreetAccountXMLAPIApi {
 
     /**
      * Returns the jobID
-     * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+     * Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
      * @param {Date} startDate Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
      * @param {Date} endDate The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RequestfilesResponse}
+     * @return { Promise.< module:model/RequestfilesResponse > } a Promise, with data of type {@link module:model/RequestfilesResponse }
      */
     asynchStreetaccountV1RequestFilesGet(startDate, endDate) {
       return this.asynchStreetaccountV1RequestFilesGetWithHttpInfo(startDate, endDate)
@@ -190,3 +199,8 @@ export default class StreetAccountXMLAPIApi {
 
 
 }
+
+
+
+
+

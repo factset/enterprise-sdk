@@ -19,7 +19,7 @@ import DateParametersSummaryRoot from '../model/DateParametersSummaryRoot';
 /**
 * Dates service.
 * @module api/DatesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class DatesApi {
 
@@ -78,7 +78,10 @@ export default class DatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DateParametersSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/dates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -94,7 +97,7 @@ export default class DatesApi {
      * @param {String} account Account
      * @param {Object} opts Optional parameters
      * @param {String} opts.startdate Start Date (default to '-3AY')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DateParametersSummaryRoot}
+     * @return { Promise.< module:model/DateParametersSummaryRoot > } a Promise, with data of type {@link module:model/DateParametersSummaryRoot }
      */
     convertPADatesToAbsoluteFormat(enddate, componentid, account, opts) {
       return this.convertPADatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, opts)
@@ -105,3 +108,8 @@ export default class DatesApi {
 
 
 }
+
+
+
+
+

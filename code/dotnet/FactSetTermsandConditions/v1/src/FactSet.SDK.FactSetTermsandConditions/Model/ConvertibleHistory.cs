@@ -100,7 +100,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConvertibleHistory {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -139,8 +139,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(ConvertibleHistory input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -182,15 +183,23 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.ConvEffDate != null)
-                    hashCode = hashCode * 59 + this.ConvEffDate.GetHashCode();
-                hashCode = hashCode * 59 + this.ConvPrice.GetHashCode();
-                hashCode = hashCode * 59 + this.ConvRatio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvEffDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ConvPrice.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConvRatio.GetHashCode();
                 if (this.ConvUlyFsymId != null)
-                    hashCode = hashCode * 59 + this.ConvUlyFsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvUlyFsymId.GetHashCode();
+                }
                 return hashCode;
             }
         }

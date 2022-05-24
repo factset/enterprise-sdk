@@ -147,6 +147,8 @@ public class StockNotationScreenerSearchData implements Serializable {
   public static final String JSON_PROPERTY_ESTIMATES = "estimates";
   private java.util.List<StockNotationScreenerSearchDataEstimates> estimates = null;
 
+  public StockNotationScreenerSearchData() { 
+  }
 
   public StockNotationScreenerSearchData validation(StockNotationScreenerSearchDataValidation validation) {
     this.validation = validation;

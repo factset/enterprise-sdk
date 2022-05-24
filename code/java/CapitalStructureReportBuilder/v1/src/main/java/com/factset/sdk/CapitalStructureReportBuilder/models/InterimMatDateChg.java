@@ -43,6 +43,8 @@ public class InterimMatDateChg implements Serializable {
   public static final String JSON_PROPERTY_INTERIM_MAT_DATE_CHG = "interimMatDateChg";
   private InterimMatDateChgInterimMatDateChg interimMatDateChg;
 
+  public InterimMatDateChg() { 
+  }
 
   public InterimMatDateChg interimMatDateChg(InterimMatDateChgInterimMatDateChg interimMatDateChg) {
     this.interimMatDateChg = interimMatDateChg;

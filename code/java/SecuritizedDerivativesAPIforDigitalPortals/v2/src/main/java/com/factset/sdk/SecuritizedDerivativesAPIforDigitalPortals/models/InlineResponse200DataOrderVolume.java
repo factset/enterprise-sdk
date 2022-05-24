@@ -48,6 +48,8 @@ public class InlineResponse200DataOrderVolume implements Serializable {
   public static final String JSON_PROPERTY_INCREMENT = "increment";
   private BigDecimal increment;
 
+  public InlineResponse200DataOrderVolume() { 
+  }
 
   public InlineResponse200DataOrderVolume minimum(BigDecimal minimum) {
     this.minimum = minimum;

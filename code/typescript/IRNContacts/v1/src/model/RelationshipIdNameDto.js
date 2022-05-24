@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RelationshipIdNameDto model module.
  * @module model/RelationshipIdNameDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RelationshipIdNameDto {
     /**
@@ -47,11 +47,11 @@ class RelationshipIdNameDto {
         if (data) {
             obj = obj || new RelationshipIdNameDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class RelationshipIdNameDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-RelationshipIdNameDto.prototype['id'] = undefined;
+RelationshipIdNameDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-RelationshipIdNameDto.prototype['name'] = undefined;
+RelationshipIdNameDto.prototype['Name'] = undefined;
 
 
 

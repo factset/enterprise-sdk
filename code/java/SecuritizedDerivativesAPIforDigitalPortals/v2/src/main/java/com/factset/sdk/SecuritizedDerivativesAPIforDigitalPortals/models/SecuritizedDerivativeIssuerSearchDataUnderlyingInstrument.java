@@ -43,6 +43,8 @@ public class SecuritizedDerivativeIssuerSearchDataUnderlyingInstrument implement
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<String> ids = null;
 
+  public SecuritizedDerivativeIssuerSearchDataUnderlyingInstrument() { 
+  }
 
   public SecuritizedDerivativeIssuerSearchDataUnderlyingInstrument ids(java.util.Set<String> ids) {
     this.ids = ids;

@@ -88,6 +88,8 @@ public class InlineResponse200DataTriggerStatus implements Serializable {
   public static final String JSON_PROPERTY_ENCRYPTED_DETAILS = "encryptedDetails";
   private String encryptedDetails;
 
+  public InlineResponse200DataTriggerStatus() { 
+  }
 
   public InlineResponse200DataTriggerStatus code(CodeEnum code) {
     this.code = code;

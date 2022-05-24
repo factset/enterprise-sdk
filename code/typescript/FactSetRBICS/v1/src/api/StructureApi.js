@@ -20,7 +20,7 @@ import StructureResponse from '../model/StructureResponse';
 /**
 * Structure service.
 * @module api/StructureApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class StructureApi {
 
@@ -67,7 +67,10 @@ export default class StructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = StructureResponse;
+
       return this.apiClient.callApi(
         '/factset-rbics/v1/structure', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -83,7 +86,7 @@ export default class StructureApi {
      * @param {Number} opts.level RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |---|---|---|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629| 
      * @param {Boolean} opts.includeNames Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (default to true)
      * @param {String} opts.date Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StructureResponse}
+     * @return { Promise.< module:model/StructureResponse > } a Promise, with data of type {@link module:model/StructureResponse }
      */
     getRbicsStructure(opts) {
       return this.getRbicsStructureWithHttpInfo(opts)
@@ -118,7 +121,10 @@ export default class StructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = StructureResponse;
+
       return this.apiClient.callApi(
         '/factset-rbics/v1/structure', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -130,7 +136,7 @@ export default class StructureApi {
      * Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
      * Get the full RBICS Taxonomy Structure Ids, Names, and effective periods. POST method is optimal for requesting large lists of `rbicsIds`. 
      * @param {module:model/StructureRequest} structureRequest Request Body to request a list of RBICS Structure objects.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StructureResponse}
+     * @return { Promise.< module:model/StructureResponse > } a Promise, with data of type {@link module:model/StructureResponse }
      */
     getRbicsStructureForList(structureRequest) {
       return this.getRbicsStructureForListWithHttpInfo(structureRequest)
@@ -141,3 +147,8 @@ export default class StructureApi {
 
 
 }
+
+
+
+
+

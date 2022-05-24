@@ -44,6 +44,8 @@ public class CusipHistoryResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<CusipHistoryTranslation> data = null;
 
+  public CusipHistoryResponse() { 
+  }
 
   public CusipHistoryResponse data(java.util.List<CusipHistoryTranslation> data) {
     this.data = data;

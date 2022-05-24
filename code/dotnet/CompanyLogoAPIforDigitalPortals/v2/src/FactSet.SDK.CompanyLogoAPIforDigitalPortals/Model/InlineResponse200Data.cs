@@ -76,7 +76,7 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200Data {\n");
             sb.Append("  Small: ").Append(Small).Append("\n");
             sb.Append("  Medium: ").Append(Medium).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Small == input.Small ||
@@ -148,13 +149,21 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Small != null)
-                    hashCode = hashCode * 59 + this.Small.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Small.GetHashCode();
+                }
                 if (this.Medium != null)
-                    hashCode = hashCode * 59 + this.Medium.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Medium.GetHashCode();
+                }
                 if (this.Large != null)
-                    hashCode = hashCode * 59 + this.Large.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Large.GetHashCode();
+                }
                 if (this.Vector != null)
-                    hashCode = hashCode * 59 + this.Vector.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Vector.GetHashCode();
+                }
                 return hashCode;
             }
         }

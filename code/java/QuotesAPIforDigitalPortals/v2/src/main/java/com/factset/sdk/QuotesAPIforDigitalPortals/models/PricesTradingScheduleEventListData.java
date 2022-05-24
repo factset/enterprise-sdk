@@ -48,6 +48,16 @@ public class PricesTradingScheduleEventListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private PricesTradingScheduleEventListDataFilter filter;
 
+  public PricesTradingScheduleEventListData() { 
+  }
+
+  @JsonCreator
+  public PricesTradingScheduleEventListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public PricesTradingScheduleEventListData id(String id) {
     this.id = id;

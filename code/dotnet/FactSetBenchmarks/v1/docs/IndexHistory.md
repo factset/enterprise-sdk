@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **TotalReturnLevel** | **double** | Index Level Total Return Amount | [optional] 
 **TotalReturnPercent** | **double** | Index Level Total Return Percent Change | [optional] 
 **ReturnType** | **string** | The requested Return Type - GROSS or NET | [optional] 
+**HedgeType** | **string** | The requested Hedge Type - HEDGED or UNHEDGED | [optional] 
 **RequestId** | **string** | Benchmark Identifier specified in the request | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

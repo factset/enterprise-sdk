@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresSidewaysYieldRelative implements Se
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresSidewaysYieldRelative() { 
+  }
 
   public InlineResponse2005DataKeyFiguresSidewaysYieldRelative minimum(BigDecimal minimum) {
     this.minimum = minimum;

@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -81,18 +81,8 @@ class InlineResponse20020Data(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'is_etn': (bool,),  # noqa: E501
-            'type': (str,),  # noqa: E501
-            'is_actively_managed': (bool,),  # noqa: E501
-            'backing': (str,),  # noqa: E501
-            'synthetic_type': (str,),  # noqa: E501
-            'legal_structure': (str,),  # noqa: E501
-            'is_ucits_compliant': (bool,),  # noqa: E501
-            'is_holdings_transparent': (bool,),  # noqa: E501
-            'portfolio_disclosure': (str,),  # noqa: E501
-            'cash_flow_frequency': (str,),  # noqa: E501
-            'is_eligible_for_registered_accounts': (bool,),  # noqa: E501
-            'is_drip_eligible': (bool,),  # noqa: E501
+            'symbol': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -101,18 +91,8 @@ class InlineResponse20020Data(ModelNormal):
 
 
     attribute_map = {
-        'is_etn': 'isEtn',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'is_actively_managed': 'isActivelyManaged',  # noqa: E501
-        'backing': 'backing',  # noqa: E501
-        'synthetic_type': 'syntheticType',  # noqa: E501
-        'legal_structure': 'legalStructure',  # noqa: E501
-        'is_ucits_compliant': 'isUcitsCompliant',  # noqa: E501
-        'is_holdings_transparent': 'isHoldingsTransparent',  # noqa: E501
-        'portfolio_disclosure': 'portfolioDisclosure',  # noqa: E501
-        'cash_flow_frequency': 'cashFlowFrequency',  # noqa: E501
-        'is_eligible_for_registered_accounts': 'isEligibleForRegisteredAccounts',  # noqa: E501
-        'is_drip_eligible': 'isDripEligible',  # noqa: E501
+        'symbol': 'symbol',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,18 +136,8 @@ class InlineResponse20020Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_etn (bool): Flags exchange-traded notes. This data is available for all the regions.. [optional]  # noqa: E501
-            type (str): Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions.. [optional]  # noqa: E501
-            is_actively_managed (bool): Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.. [optional]  # noqa: E501
-            backing (str): Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions.. [optional]  # noqa: E501
-            synthetic_type (str): Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.. [optional]  # noqa: E501
-            legal_structure (str): The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            is_ucits_compliant (bool): The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.. [optional]  # noqa: E501
-            is_holdings_transparent (bool): States whether or not the ETP's issuer discloses its positions on its website daily. This data is available for all the regions.. [optional]  # noqa: E501
-            portfolio_disclosure (str): The frequency of an issuer's disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            cash_flow_frequency (str): States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.. [optional]  # noqa: E501
-            is_eligible_for_registered_accounts (bool): Product can be held in tax-advantaged investment accounts. This data is available for Canada only.. [optional]  # noqa: E501
-            is_drip_eligible (bool): Ability to have dividends reinvested. This data is available for Canada only.. [optional]  # noqa: E501
+            symbol (str): Ticker-region as defined by FactSet.. [optional]  # noqa: E501
+            name (str): Name of the competitor.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,18 +219,8 @@ class InlineResponse20020Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_etn (bool): Flags exchange-traded notes. This data is available for all the regions.. [optional]  # noqa: E501
-            type (str): Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions.. [optional]  # noqa: E501
-            is_actively_managed (bool): Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.. [optional]  # noqa: E501
-            backing (str): Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions.. [optional]  # noqa: E501
-            synthetic_type (str): Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.. [optional]  # noqa: E501
-            legal_structure (str): The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            is_ucits_compliant (bool): The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.. [optional]  # noqa: E501
-            is_holdings_transparent (bool): States whether or not the ETP's issuer discloses its positions on its website daily. This data is available for all the regions.. [optional]  # noqa: E501
-            portfolio_disclosure (str): The frequency of an issuer's disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            cash_flow_frequency (str): States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.. [optional]  # noqa: E501
-            is_eligible_for_registered_accounts (bool): Product can be held in tax-advantaged investment accounts. This data is available for Canada only.. [optional]  # noqa: E501
-            is_drip_eligible (bool): Ability to have dividends reinvested. This data is available for Canada only.. [optional]  # noqa: E501
+            symbol (str): Ticker-region as defined by FactSet.. [optional]  # noqa: E501
+            name (str): Name of the competitor.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

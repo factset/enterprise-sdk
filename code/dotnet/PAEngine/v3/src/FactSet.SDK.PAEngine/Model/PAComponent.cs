@@ -124,7 +124,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PAComponent {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
@@ -166,8 +166,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(PAComponent input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -227,22 +228,38 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Accounts != null)
-                    hashCode = hashCode * 59 + this.Accounts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
+                }
                 if (this.Benchmarks != null)
-                    hashCode = hashCode * 59 + this.Benchmarks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Benchmarks.GetHashCode();
+                }
                 if (this.Currencyisocode != null)
-                    hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currencyisocode.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
-                hashCode = hashCode * 59 + this.Snapshot.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Snapshot.GetHashCode();
                 if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Path.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 return hashCode;
             }
         }

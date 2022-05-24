@@ -45,21 +45,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     body = InlineObject9(
         data=WatchlistCreateData(
             name="HBXK<tBV:b1?ZVlP;i9BNC",
@@ -71,12 +72,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject9 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a watchlist.
         api_response = api_instance.watchlist_create_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_create_post: %s\n" % e)
 ```
@@ -141,21 +141,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     body = InlineObject10(
         data=WatchlistDeleteData(
             id="id_example",
@@ -167,12 +168,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject10 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete a watchlist.
         api_response = api_instance.watchlist_delete_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_delete_post: %s\n" % e)
 ```
@@ -236,34 +236,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of watchlists.
         api_response = api_instance.watchlist_list_get(attributes=attributes, sort=sort)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_list_get: %s\n" % e)
 ```
@@ -329,21 +329,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     body = InlineObject11(
         data=WatchlistModifyData(
             id="id_example",
@@ -356,12 +357,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject11 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Modify a watchlist.
         api_response = api_instance.watchlist_modify_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_modify_post: %s\n" % e)
 ```
@@ -426,21 +426,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     body = InlineObject12(
         data=WatchlistPositionCreateData(
             id="id_example",
@@ -456,12 +457,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject12 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add a position to a watchlist.
         api_response = api_instance.watchlist_position_create_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_position_create_post: %s\n" % e)
 ```
@@ -526,21 +526,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     body = InlineObject13(
         data=WatchlistPositionDeleteData(
             id="id_example",
@@ -555,12 +556,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject13 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete a position of a watchlist.
         api_response = api_instance.watchlist_position_delete_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_position_delete_post: %s\n" % e)
 ```
@@ -624,43 +624,35 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     id = "id_example" # str | Identifier of the watchlist.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["id"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["id"]
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["id"])
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List of positions of a watchlist.
-        api_response = api_instance.watchlist_position_list_get(id)
-        pprint(api_response)
-    except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling WatchlistApi->watchlist_position_list_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of positions of a watchlist.
         api_response = api_instance.watchlist_position_list_get(id, attributes=attributes, sort=sort)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_position_list_get: %s\n" % e)
 ```
@@ -727,21 +719,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = watchlist_api.WatchlistApi(api_client)
+
     body = InlineObject14(
         data=WatchlistPositionModifyData(
             id="id_example",
@@ -760,12 +753,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject14 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Modify a position in a watchlist.
         api_response = api_instance.watchlist_position_modify_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling WatchlistApi->watchlist_position_modify_post: %s\n" % e)
 ```

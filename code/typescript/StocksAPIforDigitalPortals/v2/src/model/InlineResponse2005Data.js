@@ -30,7 +30,7 @@ import InlineResponse2005DataVolatility from './InlineResponse2005DataVolatility
 /**
  * The InlineResponse2005Data model module.
  * @module model/InlineResponse2005Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2005Data {
     /**

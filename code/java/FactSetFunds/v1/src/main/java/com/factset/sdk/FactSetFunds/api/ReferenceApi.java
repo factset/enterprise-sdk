@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetFunds.models.BenchmarkDetailsRequest;
 import com.factset.sdk.FactSetFunds.models.BenchmarkDetailsResponse;
@@ -33,6 +36,118 @@ public class ReferenceApi {
   public ReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFundsBenchmarkDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsBenchmarkDetailsResponseTypeMap.put(200, new GenericType<BenchmarkDetailsResponse>(){});
+    getFundsBenchmarkDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsBenchmarkDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsBenchmarkDetailsForListResponseTypeMap.put(200, new GenericType<BenchmarkDetailsResponse>(){});
+    getFundsBenchmarkDetailsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsBenchmarkDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsClassificationsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsClassificationsResponseTypeMap.put(200, new GenericType<ClassificationsResponse>(){});
+    getFundsClassificationsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsClassificationsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsClassificationsForListResponseTypeMap.put(200, new GenericType<ClassificationsResponse>(){});
+    getFundsClassificationsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsClassificationsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsCostsFeesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsCostsFeesResponseTypeMap.put(200, new GenericType<CostsFeesResponse>(){});
+    getFundsCostsFeesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsCostsFeesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsCostsFeesForListResponseTypeMap.put(200, new GenericType<CostsFeesResponse>(){});
+    getFundsCostsFeesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsCostsFeesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsManagersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsManagersResponseTypeMap.put(200, new GenericType<ManagersResponse>(){});
+    getFundsManagersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsManagersResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsManagersResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsManagersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsManagersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsManagersForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsManagersForListResponseTypeMap.put(200, new GenericType<ManagersResponse>(){});
+    getFundsManagersForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsManagersForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsManagersForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsManagersForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsManagersForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsSummaryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsSummaryResponseTypeMap.put(200, new GenericType<SummariesResponse>(){});
+    getFundsSummaryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsSummaryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsSummaryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsSummaryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsSummaryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsSummaryForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsSummaryForListResponseTypeMap.put(200, new GenericType<SummariesResponse>(){});
+    getFundsSummaryForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsSummaryForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsSummaryForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsSummaryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsSummaryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getRelatedFundsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRelatedFundsResponseTypeMap.put(200, new GenericType<RelatedFundsResponse>(){});
+    getRelatedFundsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRelatedFundsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRelatedFundsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRelatedFundsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRelatedFundsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getRelatedFundsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRelatedFundsForListResponseTypeMap.put(200, new GenericType<RelatedFundsResponse>(){});
+    getRelatedFundsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRelatedFundsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRelatedFundsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRelatedFundsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRelatedFundsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -124,11 +239,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkDetailsResponse> localVarReturnType = new GenericType<BenchmarkDetailsResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsBenchmarkDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkDetailsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsBenchmarkDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsBenchmarkDetailsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get the Fund&#39;s Primary and Segment Benchmark details for large list of ids.
@@ -201,11 +322,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkDetailsResponse> localVarReturnType = new GenericType<BenchmarkDetailsResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsBenchmarkDetailsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkDetailsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsBenchmarkDetailsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsBenchmarkDetailsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get basic Fund Classifications
@@ -279,11 +406,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ClassificationsResponse> localVarReturnType = new GenericType<ClassificationsResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsClassifications", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ClassificationsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsClassifications", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsClassificationsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get basic Fund Classifications for a large list of ids.
@@ -356,11 +489,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ClassificationsResponse> localVarReturnType = new GenericType<ClassificationsResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsClassificationsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ClassificationsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsClassificationsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsClassificationsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get the Fund&#39;s Costs, Investment minimums and Risk, and Fees.
@@ -440,11 +579,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CostsFeesResponse> localVarReturnType = new GenericType<CostsFeesResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsCostsFees", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CostsFeesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsCostsFees", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsCostsFeesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get the Fund&#39;s Costs, Investment minimums and Risk, and Fees for large list of ids.
@@ -517,11 +662,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CostsFeesResponse> localVarReturnType = new GenericType<CostsFeesResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsCostsFeesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CostsFeesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsCostsFeesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsCostsFeesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get a list of Fund Managers and related details for a list of ids.
@@ -595,11 +746,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ManagersResponse> localVarReturnType = new GenericType<ManagersResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsManagers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ManagersResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsManagers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsManagersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get a list of Fund Managers and related details for a large list of ids.
@@ -672,11 +829,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ManagersResponse> localVarReturnType = new GenericType<ManagersResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsManagersForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ManagersResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsManagersForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsManagersForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get basic reference summary data for a Fund.
@@ -750,11 +913,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SummariesResponse> localVarReturnType = new GenericType<SummariesResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SummariesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsSummary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsSummaryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get basic reference data for a large list of Fund ids.
@@ -827,11 +996,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SummariesResponse> localVarReturnType = new GenericType<SummariesResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getFundsSummaryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SummariesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getFundsSummaryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsSummaryForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get a list of Related Funds for a list of Fund ids.
@@ -905,11 +1080,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RelatedFundsResponse> localVarReturnType = new GenericType<RelatedFundsResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getRelatedFunds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RelatedFundsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getRelatedFunds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRelatedFundsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get a list of Related Funds for a large list of Fund ids.
@@ -982,10 +1163,16 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RelatedFundsResponse> localVarReturnType = new GenericType<RelatedFundsResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getRelatedFundsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RelatedFundsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getRelatedFundsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRelatedFundsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

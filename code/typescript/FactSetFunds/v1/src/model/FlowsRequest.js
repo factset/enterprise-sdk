@@ -17,7 +17,7 @@ import Frequency from './Frequency';
 /**
  * The FlowsRequest model module.
  * @module model/FlowsRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FlowsRequest {
     /**

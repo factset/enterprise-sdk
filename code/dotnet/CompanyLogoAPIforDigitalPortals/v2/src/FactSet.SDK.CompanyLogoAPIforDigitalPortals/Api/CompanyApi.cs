@@ -102,6 +102,19 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
     {
         private FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyLogoGetByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyApi"/> class.
         /// </summary>
@@ -213,7 +226,7 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 GetCompanyLogoGetByInstrument(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = GetCompanyLogoGetByInstrumentWithHttpInfo(id, attributes);
+            var localVarResponse = GetCompanyLogoGetByInstrumentWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -224,11 +237,13 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
         /// <param name="id">Identifier of an instrument.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> GetCompanyLogoGetByInstrumentWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse200> GetCompanyLogoGetByInstrumentWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling CompanyApi->GetCompanyLogoGetByInstrument");
+            }
 
             FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.RequestOptions();
 
@@ -241,10 +256,16 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -254,13 +275,13 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -272,15 +293,19 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse200>("/company/logo/getByInstrument", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyLogoGetByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse200>("/company/logo/getByInstrument", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyLogoGetByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -292,9 +317,9 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetCompanyLogoGetByInstrumentAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>GetCompanyLogoGetByInstrumentAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await GetCompanyLogoGetByInstrumentWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyLogoGetByInstrumentWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -306,11 +331,14 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> GetCompanyLogoGetByInstrumentWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetCompanyLogoGetByInstrumentWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling CompanyApi->GetCompanyLogoGetByInstrument");
+            }
 
 
             FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.RequestOptions();
@@ -323,12 +351,17 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -338,13 +371,13 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CompanyLogoAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -356,14 +389,18 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyLogoGetByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/company/logo/getByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyLogoGetByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

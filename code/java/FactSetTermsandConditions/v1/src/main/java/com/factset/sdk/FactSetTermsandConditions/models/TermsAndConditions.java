@@ -51,6 +51,18 @@ public class TermsAndConditions implements Serializable {
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
   private String fsymId;
 
+  public TermsAndConditions() { 
+  }
+
+  @JsonCreator
+  public TermsAndConditions(
+    @JsonProperty(value=JSON_PROPERTY_REQUEST_ID, required=true) String requestId, 
+    @JsonProperty(value=JSON_PROPERTY_FSYM_ID, required=true) String fsymId
+  ) {
+    this();
+    this.requestId = requestId;
+    this.fsymId = fsymId;
+  }
 
   public TermsAndConditions requestId(String requestId) {
     this.requestId = requestId;

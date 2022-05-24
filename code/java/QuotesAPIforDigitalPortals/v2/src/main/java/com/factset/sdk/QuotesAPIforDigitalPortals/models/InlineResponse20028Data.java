@@ -57,6 +57,8 @@ public class InlineResponse20028Data implements Serializable {
   public static final String JSON_PROPERTY_MAIN_CURRENCY = "mainCurrency";
   private InlineResponse20028DataMainCurrency mainCurrency;
 
+  public InlineResponse20028Data() { 
+  }
 
   public InlineResponse20028Data code(String code) {
     this.code = code;

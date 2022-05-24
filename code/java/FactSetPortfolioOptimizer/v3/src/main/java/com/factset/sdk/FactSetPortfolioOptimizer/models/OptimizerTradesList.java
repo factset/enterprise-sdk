@@ -97,6 +97,8 @@ public class OptimizerTradesList implements Serializable {
   public static final String JSON_PROPERTY_INCLUDE_CASH = "includeCash";
   private Boolean includeCash;
 
+  public OptimizerTradesList() { 
+  }
 
   public OptimizerTradesList identifierType(IdentifierTypeEnum identifierType) {
     this.identifierType = identifierType;

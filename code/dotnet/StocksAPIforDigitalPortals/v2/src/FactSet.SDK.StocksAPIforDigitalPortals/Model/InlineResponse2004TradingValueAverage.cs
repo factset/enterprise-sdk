@@ -62,7 +62,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004TradingValueAverage {\n");
             sb.Append("  Days5: ").Append(Days5).Append("\n");
             sb.Append("  Days30: ").Append(Days30).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004TradingValueAverage input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Days5 == input.Days5 ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Days5.GetHashCode();
-                hashCode = hashCode * 59 + this.Days30.GetHashCode();
+                hashCode = (hashCode * 59) + this.Days5.GetHashCode();
+                hashCode = (hashCode * 59) + this.Days30.GetHashCode();
                 return hashCode;
             }
         }

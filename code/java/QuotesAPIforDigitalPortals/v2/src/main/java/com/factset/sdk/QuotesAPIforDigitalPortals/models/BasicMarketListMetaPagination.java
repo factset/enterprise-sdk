@@ -48,6 +48,8 @@ public class BasicMarketListMetaPagination implements Serializable {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public BasicMarketListMetaPagination() { 
+  }
 
   public BasicMarketListMetaPagination offset(BigDecimal offset) {
     this.offset = offset;

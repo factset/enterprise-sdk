@@ -48,6 +48,8 @@ public class InlineObject3 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private SecuritizedDerivativeNotationScreenerSearchMeta meta;
 
+  public InlineObject3() { 
+  }
 
   public InlineObject3 data(SecuritizedDerivativeNotationScreenerSearchData data) {
     this.data = data;

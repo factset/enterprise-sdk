@@ -70,6 +70,8 @@ public class InlineResponse20043Data implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private java.util.List<InlineResponse20042DataType> type = null;
 
+  public InlineResponse20043Data() { 
+  }
 
   public InlineResponse20043Data id(String id) {
     this.id = id;

@@ -58,6 +58,22 @@ public class EntityFocus implements Serializable {
   public static final String JSON_PROPERTY_LAST_DATE = "lastDate";
   private String lastDate;
 
+  public EntityFocus() { 
+  }
+
+  @JsonCreator
+  public EntityFocus(
+    @JsonProperty(value=JSON_PROPERTY_REQUEST_ID, required=true) String requestId, 
+    @JsonProperty(value=JSON_PROPERTY_FSYM_ID, required=true) String fsymId, 
+    @JsonProperty(value=JSON_PROPERTY_FIRST_DATE, required=true) String firstDate, 
+    @JsonProperty(value=JSON_PROPERTY_LAST_DATE, required=true) String lastDate
+  ) {
+    this();
+    this.requestId = requestId;
+    this.fsymId = fsymId;
+    this.firstDate = firstDate;
+    this.lastDate = lastDate;
+  }
 
   public EntityFocus requestId(String requestId) {
     this.requestId = requestId;

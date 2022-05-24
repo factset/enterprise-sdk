@@ -57,7 +57,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
-        /// <returns>Dictionary&lt;string, ComponentSummary&gt;</returns>
+        /// <returns>Dictionary<string, ComponentSummary></returns>
         Dictionary<string, ComponentSummary> GetPAComponents(string document);
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
-        /// <returns>ApiResponse of Dictionary&lt;string, ComponentSummary&gt;</returns>
+        /// <returns>ApiResponse of Dictionary<string, ComponentSummary></returns>
         ApiResponse<Dictionary<string, ComponentSummary>> GetPAComponentsWithHttpInfo(string document);
         #endregion Synchronous Operations
     }
@@ -123,7 +123,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Dictionary&lt;string, ComponentSummary&gt;)</returns>
+        /// <returns>Task of ApiResponse (Dictionary<string, ComponentSummary>)</returns>
         System.Threading.Tasks.Task<ApiResponse<Dictionary<string, ComponentSummary>>> GetPAComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -142,6 +142,23 @@ namespace FactSet.SDK.PAEngine.Api
     public partial class ComponentsApi : IComponentsApi
     {
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetPAComponentByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PAComponent) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPAComponentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Dictionary<string, ComponentSummary>) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ComponentsApi"/> class.
@@ -253,7 +270,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>PAComponent</returns>
         public PAComponent GetPAComponentById(string id)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<PAComponent> localVarResponse = GetPAComponentByIdWithHttpInfo(id);
+            var localVarResponse = GetPAComponentByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -263,11 +280,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
         /// <returns>ApiResponse of PAComponent</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<PAComponent> GetPAComponentByIdWithHttpInfo(string id)
+        public ApiResponse<PAComponent> GetPAComponentByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling ComponentsApi->GetPAComponentById");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -280,22 +299,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -307,15 +332,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PAComponent>("/analytics/lookups/v2/engines/pa/components/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPAComponentByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            PAComponent>("/analytics/lookups/v2/engines/pa/components/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPAComponentById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -326,9 +355,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">Unique identifier for a PA component</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PAComponent</returns>
-        public async System.Threading.Tasks.Task<PAComponent> GetPAComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PAComponent>GetPAComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<PAComponent> localVarResponse = await GetPAComponentByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPAComponentByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -339,11 +368,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">Unique identifier for a PA component</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PAComponent)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<PAComponent>> GetPAComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PAComponent>> GetPAComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling ComponentsApi->GetPAComponentById");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -356,24 +388,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -385,14 +422,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPAComponentByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<PAComponent>("/analytics/lookups/v2/engines/pa/components/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPAComponentById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -403,10 +444,10 @@ namespace FactSet.SDK.PAEngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
-        /// <returns>Dictionary&lt;string, ComponentSummary&gt;</returns>
+        /// <returns>Dictionary<string, ComponentSummary></returns>
         public Dictionary<string, ComponentSummary> GetPAComponents(string document)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<Dictionary<string, ComponentSummary>> localVarResponse = GetPAComponentsWithHttpInfo(document);
+            var localVarResponse = GetPAComponentsWithHttpInfo(document);
             return localVarResponse.Data;
         }
 
@@ -416,11 +457,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ApiResponse of Dictionary&lt;string, ComponentSummary&gt;</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<Dictionary<string, ComponentSummary>> GetPAComponentsWithHttpInfo(string document)
+        public ApiResponse<Dictionary<string, ComponentSummary>> GetPAComponentsWithHttpInfo(string document)
         {
             // verify the required parameter 'document' is set
             if (document == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'document' when calling ComponentsApi->GetPAComponents");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -433,22 +476,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToMultiMap("", "document", document));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -460,15 +509,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Dictionary<string, ComponentSummary>>("/analytics/lookups/v2/engines/pa/components", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPAComponentsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Dictionary<string, ComponentSummary>>("/analytics/lookups/v2/engines/pa/components", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPAComponents", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -479,9 +532,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="document">Document Name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, ComponentSummary&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, ComponentSummary>> GetPAComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dictionary<string, ComponentSummary>>GetPAComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<Dictionary<string, ComponentSummary>> localVarResponse = await GetPAComponentsWithHttpInfoAsync(document, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPAComponentsWithHttpInfoAsync(document, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -492,11 +545,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="document">Document Name</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, ComponentSummary&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<Dictionary<string, ComponentSummary>>> GetPAComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, ComponentSummary>>> GetPAComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'document' is set
             if (document == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'document' when calling ComponentsApi->GetPAComponents");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -509,24 +565,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToMultiMap("", "document", document));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -538,14 +599,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPAComponentsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, ComponentSummary>>("/analytics/lookups/v2/engines/pa/components", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPAComponents", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

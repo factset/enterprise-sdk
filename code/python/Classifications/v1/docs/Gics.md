@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **gics_industry_name** | **str** | GICS Industry Name in Proper Format. | [optional] 
 **gics_industry_number** | **str** | GICS Industry Number | [optional] 
 **gics_sub_industry_name** | **str** | GICS Sub-Industry Name in Proper Format. | [optional] 
-**gics_sub_inudstry_number** | **str** | GICS Industry Number. | [optional] 
+**gics_sub_industry_number** | **str** | GICS Industry Number. | [optional] 
 **request_id** | **str** | Identifier specified in the request | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

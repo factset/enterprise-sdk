@@ -11,12 +11,12 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Input from './model/Input';
 import Request from './model/Request';
 import Response from './model/Response';
 import Tag from './model/Tag';
+
 import EntitiesApi from './api/EntitiesApi';
 
 
@@ -49,7 +49,7 @@ import EntitiesApi from './api/EntitiesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -86,5 +86,6 @@ export {
     * The EntitiesApi service constructor.
     * @property {module:api/EntitiesApi}
     */
-    EntitiesApi
+    EntitiesApi,
+
 };

@@ -20,7 +20,7 @@ import PeopleJobsResponse from '../model/PeopleJobsResponse';
 /**
 * JobHistory service.
 * @module api/JobHistoryApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class JobHistoryApi {
 
@@ -71,7 +71,10 @@ export default class JobHistoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = PeopleJobsResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/jobs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -87,7 +90,7 @@ export default class JobHistoryApi {
      * @param {module:model/String} opts.status Select only Jobs with a certain status primary, active, or inactive. (default to 'ALL')
      * @param {module:model/String} opts.level Select the level of detail only main Jobs or include other Jobs at a company. (default to 'DETAIL')
      * @param {module:model/String} opts.type Select only Jobs of a certain type board member or employee. (default to 'ALL')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PeopleJobsResponse}
+     * @return { Promise.< module:model/PeopleJobsResponse > } a Promise, with data of type {@link module:model/PeopleJobsResponse }
      */
     getPeopleJobs(ids, opts) {
       return this.getPeopleJobsWithHttpInfo(ids, opts)
@@ -122,7 +125,10 @@ export default class JobHistoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = PeopleJobsResponse;
+
       return this.apiClient.callApi(
         '/factset-people/v1/jobs', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -134,7 +140,7 @@ export default class JobHistoryApi {
      * Returns the Job history for the large list of people.
      * Returns the `Job` history of the person referenced by the entityId specified in the request. 
      * @param {module:model/PeopleJobsRequest} peopleJobsRequest 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PeopleJobsResponse}
+     * @return { Promise.< module:model/PeopleJobsResponse > } a Promise, with data of type {@link module:model/PeopleJobsResponse }
      */
     getPeopleJobsForList(peopleJobsRequest) {
       return this.getPeopleJobsForListWithHttpInfo(peopleJobsRequest)
@@ -145,3 +151,8 @@ export default class JobHistoryApi {
 
 
 }
+
+
+
+
+

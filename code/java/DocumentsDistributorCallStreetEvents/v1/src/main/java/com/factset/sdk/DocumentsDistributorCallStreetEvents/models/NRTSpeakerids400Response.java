@@ -51,6 +51,8 @@ public class NRTSpeakerids400Response implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private NRTSpeakerids400ResponseDetails details;
 
+  public NRTSpeakerids400Response() { 
+  }
 
   public NRTSpeakerids400Response id(String id) {
     this.id = id;

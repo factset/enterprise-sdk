@@ -31,7 +31,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// Get a list of chart categories
         /// </summary>
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List<string></returns>
         List<string> GetCategoryList();
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;string&gt;</returns>
+        /// <returns>ApiResponse of List<string></returns>
         ApiResponse<List<string>> GetCategoryListWithHttpInfo();
         /// <summary>
         /// Get a list of chart templates that can be used for getting the image from the service.
@@ -52,7 +52,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)</param>
         /// <param name="type">return type of the response (optional)</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         List<Object> GetChartList(string categories = default(string), string type = default(string));
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)</param>
         /// <param name="type">return type of the response (optional)</param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        /// <returns>ApiResponse of List<Object></returns>
         ApiResponse<List<Object>> GetChartListWithHttpInfo(string categories = default(string), string type = default(string));
         /// <summary>
         /// Get chart image back in PNG or JPEG formats
@@ -140,7 +140,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<string>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<string>>> GetCategoryListWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get a list of chart templates that can be used for getting the image from the service.
@@ -165,7 +165,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <param name="categories">A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)</param>
         /// <param name="type">return type of the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<Object>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetChartListWithHttpInfoAsync(string categories = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get chart image back in PNG or JPEG formats
@@ -235,6 +235,31 @@ namespace FactSet.SDK.ChartGenerationService.Api
     public partial class ChartTemplatesApi : IChartTemplatesApi
     {
         private FactSet.SDK.ChartGenerationService.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetCategoryListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<string>) },
+            { (HttpStatusCode)400, typeof(CategoriesErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetChartListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<Object>) },
+            { (HttpStatusCode)400, typeof(ChartListErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> ImagesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(string) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(UnauthorizedResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ChartTemplatesApi"/> class.
@@ -342,10 +367,10 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// Get a list of chart categories 
         /// </summary>
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List<string></returns>
         public List<string> GetCategoryList()
         {
-            FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<string>> localVarResponse = GetCategoryListWithHttpInfo();
+            var localVarResponse = GetCategoryListWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -354,7 +379,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        public FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<string>> GetCategoryListWithHttpInfo()
+        public ApiResponse<List<string>> GetCategoryListWithHttpInfo()
         {
             FactSet.SDK.ChartGenerationService.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ChartGenerationService.Client.RequestOptions();
 
@@ -367,21 +392,27 @@ namespace FactSet.SDK.ChartGenerationService.Api
             };
 
             var localVarContentType = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ChartGenerationService.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -393,15 +424,19 @@ namespace FactSet.SDK.ChartGenerationService.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<string>>("/v1/catalog/categories", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCategoryListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<string>>("/v1/catalog/categories", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCategoryList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -411,9 +446,9 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        public async System.Threading.Tasks.Task<List<string>> GetCategoryListAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<string>>GetCategoryListAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<string>> localVarResponse = await GetCategoryListWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCategoryListWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -423,7 +458,8 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<string>>> GetCategoryListWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<string>>> GetCategoryListWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ChartGenerationService.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ChartGenerationService.Client.RequestOptions();
@@ -436,23 +472,28 @@ namespace FactSet.SDK.ChartGenerationService.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ChartGenerationService.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -464,14 +505,18 @@ namespace FactSet.SDK.ChartGenerationService.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCategoryListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/v1/catalog/categories", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCategoryList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -483,10 +528,10 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <exception cref="FactSet.SDK.ChartGenerationService.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categories">A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)</param>
         /// <param name="type">return type of the response (optional)</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         public List<Object> GetChartList(string categories = default(string), string type = default(string))
         {
-            FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<Object>> localVarResponse = GetChartListWithHttpInfo(categories, type);
+            var localVarResponse = GetChartListWithHttpInfo(categories, type);
             return localVarResponse.Data;
         }
 
@@ -497,7 +542,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <param name="categories">A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)</param>
         /// <param name="type">return type of the response (optional)</param>
         /// <returns>ApiResponse of List&lt;Object&gt;</returns>
-        public FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<Object>> GetChartListWithHttpInfo(string categories = default(string), string type = default(string))
+        public ApiResponse<List<Object>> GetChartListWithHttpInfo(string categories = default(string), string type = default(string))
         {
             FactSet.SDK.ChartGenerationService.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ChartGenerationService.Client.RequestOptions();
 
@@ -511,10 +556,16 @@ namespace FactSet.SDK.ChartGenerationService.Api
             };
 
             var localVarContentType = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (categories != null)
             {
@@ -527,13 +578,13 @@ namespace FactSet.SDK.ChartGenerationService.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ChartGenerationService.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -545,15 +596,19 @@ namespace FactSet.SDK.ChartGenerationService.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Object>>("/v1/catalog/charts", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetChartListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<Object>>("/v1/catalog/charts", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetChartList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -565,9 +620,9 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <param name="type">return type of the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Object&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Object>> GetChartListAsync(string categories = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Object>>GetChartListAsync(string categories = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<Object>> localVarResponse = await GetChartListWithHttpInfoAsync(categories, type, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetChartListWithHttpInfoAsync(categories, type, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -579,7 +634,8 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <param name="type">return type of the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ChartGenerationService.Client.ApiResponse<List<Object>>> GetChartListWithHttpInfoAsync(string categories = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetChartListWithHttpInfoAsync(string categories = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.ChartGenerationService.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ChartGenerationService.Client.RequestOptions();
@@ -593,12 +649,17 @@ namespace FactSet.SDK.ChartGenerationService.Api
                 "application/pdf"
             };
 
-
             var localVarContentType = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (categories != null)
             {
@@ -611,13 +672,13 @@ namespace FactSet.SDK.ChartGenerationService.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ChartGenerationService.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -629,14 +690,18 @@ namespace FactSet.SDK.ChartGenerationService.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetChartListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/v1/catalog/charts", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetChartList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -664,7 +729,7 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <returns>string</returns>
         public string Images(string chart, string ids = default(string), string sd = default(string), string ed = default(string), long? width = default(long?), long? height = default(long?), string freq = default(string), string ccy = default(string), string split = default(string), decimal? spin = default(decimal?), string cal = default(string), string title = default(string), decimal? fontSize = default(decimal?), string type = default(string), bool? gridLines = default(bool?))
         {
-            FactSet.SDK.ChartGenerationService.Client.ApiResponse<string> localVarResponse = ImagesWithHttpInfo(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines);
+            var localVarResponse = ImagesWithHttpInfo(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines);
             return localVarResponse.Data;
         }
 
@@ -688,11 +753,13 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <param name="type">The type of image to be generated by the service (optional, default to png)</param>
         /// <param name="gridLines">Option to toggle gridLines on/off on the chart (optional, default to true)</param>
         /// <returns>ApiResponse of string</returns>
-        public FactSet.SDK.ChartGenerationService.Client.ApiResponse<string> ImagesWithHttpInfo(string chart, string ids = default(string), string sd = default(string), string ed = default(string), long? width = default(long?), long? height = default(long?), string freq = default(string), string ccy = default(string), string split = default(string), decimal? spin = default(decimal?), string cal = default(string), string title = default(string), decimal? fontSize = default(decimal?), string type = default(string), bool? gridLines = default(bool?))
+        public ApiResponse<string> ImagesWithHttpInfo(string chart, string ids = default(string), string sd = default(string), string ed = default(string), long? width = default(long?), long? height = default(long?), string freq = default(string), string ccy = default(string), string split = default(string), decimal? spin = default(decimal?), string cal = default(string), string title = default(string), decimal? fontSize = default(decimal?), string type = default(string), bool? gridLines = default(bool?))
         {
             // verify the required parameter 'chart' is set
             if (chart == null)
+            {
                 throw new FactSet.SDK.ChartGenerationService.Client.ApiException(400, "Missing required parameter 'chart' when calling ChartTemplatesApi->Images");
+            }
 
             FactSet.SDK.ChartGenerationService.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ChartGenerationService.Client.RequestOptions();
 
@@ -707,10 +774,16 @@ namespace FactSet.SDK.ChartGenerationService.Api
             };
 
             var localVarContentType = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ChartGenerationService.Client.ClientUtils.ParameterToMultiMap("", "chart", chart));
             if (ids != null)
@@ -772,13 +845,13 @@ namespace FactSet.SDK.ChartGenerationService.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ChartGenerationService.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -790,15 +863,19 @@ namespace FactSet.SDK.ChartGenerationService.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/v1/image", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = ImagesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            string>("/v1/image", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Images", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -823,9 +900,9 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <param name="gridLines">Option to toggle gridLines on/off on the chart (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> ImagesAsync(string chart, string ids = default(string), string sd = default(string), string ed = default(string), long? width = default(long?), long? height = default(long?), string freq = default(string), string ccy = default(string), string split = default(string), decimal? spin = default(decimal?), string cal = default(string), string title = default(string), decimal? fontSize = default(decimal?), string type = default(string), bool? gridLines = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string>ImagesAsync(string chart, string ids = default(string), string sd = default(string), string ed = default(string), long? width = default(long?), long? height = default(long?), string freq = default(string), string ccy = default(string), string split = default(string), decimal? spin = default(decimal?), string cal = default(string), string title = default(string), decimal? fontSize = default(decimal?), string type = default(string), bool? gridLines = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ChartGenerationService.Client.ApiResponse<string> localVarResponse = await ImagesWithHttpInfoAsync(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ImagesWithHttpInfoAsync(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -850,11 +927,14 @@ namespace FactSet.SDK.ChartGenerationService.Api
         /// <param name="gridLines">Option to toggle gridLines on/off on the chart (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ChartGenerationService.Client.ApiResponse<string>> ImagesWithHttpInfoAsync(string chart, string ids = default(string), string sd = default(string), string ed = default(string), long? width = default(long?), long? height = default(long?), string freq = default(string), string ccy = default(string), string split = default(string), decimal? spin = default(decimal?), string cal = default(string), string title = default(string), decimal? fontSize = default(decimal?), string type = default(string), bool? gridLines = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<string>> ImagesWithHttpInfoAsync(string chart, string ids = default(string), string sd = default(string), string ed = default(string), long? width = default(long?), long? height = default(long?), string freq = default(string), string ccy = default(string), string split = default(string), decimal? spin = default(decimal?), string cal = default(string), string title = default(string), decimal? fontSize = default(decimal?), string type = default(string), bool? gridLines = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'chart' is set
             if (chart == null)
+            {
                 throw new FactSet.SDK.ChartGenerationService.Client.ApiException(400, "Missing required parameter 'chart' when calling ChartTemplatesApi->Images");
+            }
 
 
             FactSet.SDK.ChartGenerationService.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ChartGenerationService.Client.RequestOptions();
@@ -869,12 +949,17 @@ namespace FactSet.SDK.ChartGenerationService.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ChartGenerationService.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ChartGenerationService.Client.ClientUtils.ParameterToMultiMap("", "chart", chart));
             if (ids != null)
@@ -936,13 +1021,13 @@ namespace FactSet.SDK.ChartGenerationService.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ChartGenerationService.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -954,14 +1039,18 @@ namespace FactSet.SDK.ChartGenerationService.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = ImagesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/v1/image", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Images", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

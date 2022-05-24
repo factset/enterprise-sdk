@@ -41,41 +41,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetBenchmarks.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetBenchmarks.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
+
     ids = [
         "ids_example",
     ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
     currency = "currency_example" # str | Currency for response. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
-        api_response = api_instance.get_benchmark_constituents(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetBenchmarks.ApiException as e:
-        print("Exception when calling BenchmarkConstituentsApi->get_benchmark_constituents: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
         api_response = api_instance.get_benchmark_constituents(ids, date=date, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetBenchmarks.ApiException as e:
         print("Exception when calling BenchmarkConstituentsApi->get_benchmark_constituents: %s\n" % e)
 ```
@@ -148,32 +140,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetBenchmarks.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetBenchmarks.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
+
     benchmark_constituents_request = BenchmarkConstituentsRequest(
         ids=ConstituentIds(["SP50"]),
         date="2020-08-06",
         currency="USD",
     ) # BenchmarkConstituentsRequest | Requests Benchmark Constituents for the given identifier and date.
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
         api_response = api_instance.get_benchmark_constituents_for_list(benchmark_constituents_request)
         pprint(api_response)
+
     except fds.sdk.FactSetBenchmarks.ApiException as e:
         print("Exception when calling BenchmarkConstituentsApi->get_benchmark_constituents_for_list: %s\n" % e)
 ```
@@ -243,41 +236,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetBenchmarks.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetBenchmarks.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
+
     ids = [
         "LHMN0001",
     ] # [str] | Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
     currency = "currency_example" # str | Currency for response. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value.
-        api_response = api_instance.get_fi_benchmark_constituents(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetBenchmarks.ApiException as e:
-        print("Exception when calling BenchmarkConstituentsApi->get_fi_benchmark_constituents: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value.
         api_response = api_instance.get_fi_benchmark_constituents(ids, date=date, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetBenchmarks.ApiException as e:
         print("Exception when calling BenchmarkConstituentsApi->get_fi_benchmark_constituents: %s\n" % e)
 ```
@@ -350,32 +335,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetBenchmarks.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetBenchmarks.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = benchmark_constituents_api.BenchmarkConstituentsApi(api_client)
+
     fixed_income_benchmark_constituents_request = FixedIncomeBenchmarkConstituentsRequest(
         ids=FIConstituentIds(["LHMN0001"]),
         date="2020-08-06",
         currency="USD",
     ) # FixedIncomeBenchmarkConstituentsRequest | Requests Fixed Income Benchmark Constituents for the given identifier and date.
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
         api_response = api_instance.get_fi_benchmark_constituents_for_list(fixed_income_benchmark_constituents_request)
         pprint(api_response)
+
     except fds.sdk.FactSetBenchmarks.ApiException as e:
         print("Exception when calling BenchmarkConstituentsApi->get_fi_benchmark_constituents_for_list: %s\n" % e)
 ```

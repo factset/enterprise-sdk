@@ -778,6 +778,75 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
     {
         private FactSet.SDK.NewsAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsArticleGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsArticleTypeGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsArticleTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsDistributorGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsDistributorListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2006) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsPublisherGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsPublisherListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2008) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNewsPublisherListByDistributorResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByChainResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByIndexResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleListByMediaKindResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsArticleSearchByTextResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNewsPublisherSearchByNameResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="NewsApi"/> class.
         /// </summary>
@@ -891,7 +960,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 GetNewsArticleGet(string code, bool? includeMedia = default(bool?), List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = GetNewsArticleGetWithHttpInfo(code, includeMedia, attributes, language);
+            var localVarResponse = GetNewsArticleGetWithHttpInfo(code, includeMedia, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -904,11 +973,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> GetNewsArticleGetWithHttpInfo(string code, bool? includeMedia = default(bool?), List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse200> GetNewsArticleGetWithHttpInfo(string code, bool? includeMedia = default(bool?), List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'code' is set
             if (code == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'code' when calling NewsApi->GetNewsArticleGet");
+            }
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -921,10 +992,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "code", code));
             if (includeMedia != null)
@@ -942,13 +1019,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -960,15 +1037,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse200>("/news/article/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsArticleGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse200>("/news/article/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsArticleGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -982,9 +1063,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetNewsArticleGetAsync(string code, bool? includeMedia = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>GetNewsArticleGetAsync(string code, bool? includeMedia = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await GetNewsArticleGetWithHttpInfoAsync(code, includeMedia, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsArticleGetWithHttpInfoAsync(code, includeMedia, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -998,11 +1079,14 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> GetNewsArticleGetWithHttpInfoAsync(string code, bool? includeMedia = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetNewsArticleGetWithHttpInfoAsync(string code, bool? includeMedia = default(bool?), List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'code' is set
             if (code == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'code' when calling NewsApi->GetNewsArticleGet");
+            }
 
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -1015,12 +1099,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "code", code));
             if (includeMedia != null)
@@ -1038,13 +1127,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1056,14 +1145,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsArticleGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/news/article/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsArticleGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1079,7 +1172,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 GetNewsArticleTypeGet(decimal id, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = GetNewsArticleTypeGetWithHttpInfo(id, attributes, language);
+            var localVarResponse = GetNewsArticleTypeGetWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1091,7 +1184,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> GetNewsArticleTypeGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2003> GetNewsArticleTypeGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1104,10 +1197,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1121,13 +1220,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1139,15 +1238,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2003>("/news/article/type/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsArticleTypeGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2003>("/news/article/type/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsArticleTypeGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1160,9 +1263,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetNewsArticleTypeGetAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>GetNewsArticleTypeGetAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await GetNewsArticleTypeGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsArticleTypeGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1175,7 +1278,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> GetNewsArticleTypeGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetNewsArticleTypeGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -1188,12 +1292,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1207,13 +1316,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1225,14 +1334,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsArticleTypeGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/news/article/type/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsArticleTypeGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1247,7 +1360,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2004</returns>
         public InlineResponse2004 GetNewsArticleTypeList(List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = GetNewsArticleTypeListWithHttpInfo(attributes, language);
+            var localVarResponse = GetNewsArticleTypeListWithHttpInfo(attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1258,7 +1371,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> GetNewsArticleTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2004> GetNewsArticleTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1271,10 +1384,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1287,13 +1406,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1305,15 +1424,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2004>("/news/article/type/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsArticleTypeListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2004>("/news/article/type/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsArticleTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1325,9 +1448,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetNewsArticleTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>GetNewsArticleTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = await GetNewsArticleTypeListWithHttpInfoAsync(attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsArticleTypeListWithHttpInfoAsync(attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1339,7 +1462,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004>> GetNewsArticleTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetNewsArticleTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -1352,12 +1476,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1370,13 +1499,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1388,14 +1517,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsArticleTypeListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/news/article/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsArticleTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1410,7 +1543,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 GetNewsDistributorGet(decimal id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = GetNewsDistributorGetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNewsDistributorGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -1421,7 +1554,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="id">Identifier of a distributor.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> GetNewsDistributorGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2005> GetNewsDistributorGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1434,10 +1567,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1447,13 +1586,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1465,15 +1604,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2005>("/news/distributor/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsDistributorGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2005>("/news/distributor/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsDistributorGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1485,9 +1628,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> GetNewsDistributorGetAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2005>GetNewsDistributorGetAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = await GetNewsDistributorGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsDistributorGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1499,7 +1642,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005>> GetNewsDistributorGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetNewsDistributorGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -1512,12 +1656,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1527,13 +1676,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1545,14 +1694,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsDistributorGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/news/distributor/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsDistributorGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1568,7 +1721,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2006</returns>
         public InlineResponse2006 GetNewsDistributorList(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = GetNewsDistributorListWithHttpInfo(ids, attributes, sort);
+            var localVarResponse = GetNewsDistributorListWithHttpInfo(ids, attributes, sort);
             return localVarResponse.Data;
         }
 
@@ -1580,7 +1733,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> GetNewsDistributorListWithHttpInfo(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
+        public ApiResponse<InlineResponse2006> GetNewsDistributorListWithHttpInfo(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1593,10 +1746,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -1613,13 +1772,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1631,15 +1790,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2006>("/news/distributor/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsDistributorListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2006>("/news/distributor/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsDistributorList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1652,9 +1815,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> GetNewsDistributorListAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2006>GetNewsDistributorListAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = await GetNewsDistributorListWithHttpInfoAsync(ids, attributes, sort, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsDistributorListWithHttpInfoAsync(ids, attributes, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1667,7 +1830,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006>> GetNewsDistributorListWithHttpInfoAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetNewsDistributorListWithHttpInfoAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -1680,12 +1844,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -1702,13 +1871,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1720,14 +1889,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsDistributorListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/news/distributor/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsDistributorList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1742,7 +1915,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2007</returns>
         public InlineResponse2007 GetNewsPublisherGet(decimal id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = GetNewsPublisherGetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNewsPublisherGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -1753,7 +1926,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="id">Identifier of a publisher.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> GetNewsPublisherGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2007> GetNewsPublisherGetWithHttpInfo(decimal id, List<string> attributes = default(List<string>))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1766,10 +1939,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1779,13 +1958,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1797,15 +1976,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2007>("/news/publisher/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsPublisherGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2007>("/news/publisher/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsPublisherGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1817,9 +2000,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> GetNewsPublisherGetAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2007>GetNewsPublisherGetAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = await GetNewsPublisherGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsPublisherGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1831,7 +2014,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007>> GetNewsPublisherGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetNewsPublisherGetWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -1844,12 +2028,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1859,13 +2048,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1877,14 +2066,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsPublisherGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2007>("/news/publisher/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsPublisherGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1902,7 +2095,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2008</returns>
         public InlineResponse2008 GetNewsPublisherList(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> localVarResponse = GetNewsPublisherListWithHttpInfo(ids, attributes, sort, paginationOffset, paginationLimit);
+            var localVarResponse = GetNewsPublisherListWithHttpInfo(ids, attributes, sort, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -1916,7 +2109,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2008</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> GetNewsPublisherListWithHttpInfo(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse2008> GetNewsPublisherListWithHttpInfo(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1929,10 +2122,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -1957,13 +2156,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1975,15 +2174,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2008>("/news/publisher/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsPublisherListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2008>("/news/publisher/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsPublisherList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1998,9 +2201,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> GetNewsPublisherListAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2008>GetNewsPublisherListAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> localVarResponse = await GetNewsPublisherListWithHttpInfoAsync(ids, attributes, sort, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsPublisherListWithHttpInfoAsync(ids, attributes, sort, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2015,7 +2218,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008>> GetNewsPublisherListWithHttpInfoAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetNewsPublisherListWithHttpInfoAsync(List<decimal> ids = default(List<decimal>), List<string> attributes = default(List<string>), List<string> sort = default(List<string>), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -2028,12 +2232,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (ids != null)
             {
@@ -2058,13 +2267,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2076,14 +2285,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsPublisherListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2008>("/news/publisher/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsPublisherList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2099,7 +2312,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2009</returns>
         public InlineResponse2009 GetNewsPublisherListByDistributor(decimal id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = GetNewsPublisherListByDistributorWithHttpInfo(id, attributes, sort);
+            var localVarResponse = GetNewsPublisherListByDistributorWithHttpInfo(id, attributes, sort);
             return localVarResponse.Data;
         }
 
@@ -2111,7 +2324,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> GetNewsPublisherListByDistributorWithHttpInfo(decimal id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
+        public ApiResponse<InlineResponse2009> GetNewsPublisherListByDistributorWithHttpInfo(decimal id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2124,10 +2337,16 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2141,13 +2360,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2159,15 +2378,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2009>("/news/publisher/listByDistributor", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsPublisherListByDistributorResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2009>("/news/publisher/listByDistributor", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsPublisherListByDistributor", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2180,9 +2403,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> GetNewsPublisherListByDistributorAsync(decimal id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2009>GetNewsPublisherListByDistributorAsync(decimal id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = await GetNewsPublisherListByDistributorWithHttpInfoAsync(id, attributes, sort, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNewsPublisherListByDistributorWithHttpInfoAsync(id, attributes, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2195,7 +2418,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009>> GetNewsPublisherListByDistributorWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetNewsPublisherListByDistributorWithHttpInfoAsync(decimal id, List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -2208,12 +2432,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2227,13 +2456,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2245,14 +2474,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNewsPublisherListByDistributorResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2009>("/news/publisher/listByDistributor", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNewsPublisherListByDistributor", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2266,7 +2499,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PostNewsArticleList(InlineObject body = default(InlineObject))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = PostNewsArticleListWithHttpInfo(body);
+            var localVarResponse = PostNewsArticleListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2276,7 +2509,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> PostNewsArticleListWithHttpInfo(InlineObject body = default(InlineObject))
+        public ApiResponse<InlineResponse2001> PostNewsArticleListWithHttpInfo(InlineObject body = default(InlineObject))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2290,22 +2523,28 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2317,15 +2556,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2001>("/news/article/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2001>("/news/article/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2336,9 +2579,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> PostNewsArticleListAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>PostNewsArticleListAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await PostNewsArticleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNewsArticleListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2349,7 +2592,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> PostNewsArticleListWithHttpInfoAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostNewsArticleListWithHttpInfoAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -2363,24 +2607,29 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2392,14 +2641,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2001>("/news/article/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2413,7 +2666,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 PostNewsArticleListByChain(InlineObject1 body)
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = PostNewsArticleListByChainWithHttpInfo(body);
+            var localVarResponse = PostNewsArticleListByChainWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2423,11 +2676,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> PostNewsArticleListByChainWithHttpInfo(InlineObject1 body)
+        public ApiResponse<InlineResponse2002> PostNewsArticleListByChainWithHttpInfo(InlineObject1 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByChain");
+            }
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2441,22 +2696,28 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2468,15 +2729,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2002>("/news/article/listByChain", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByChainResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2002>("/news/article/listByChain", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByChain", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2487,9 +2752,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> PostNewsArticleListByChainAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>PostNewsArticleListByChainAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await PostNewsArticleListByChainWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNewsArticleListByChainWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2500,11 +2765,14 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> PostNewsArticleListByChainWithHttpInfoAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PostNewsArticleListByChainWithHttpInfoAsync(InlineObject1 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByChain");
+            }
 
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -2518,24 +2786,29 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2547,14 +2820,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByChainResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2002>("/news/article/listByChain", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByChain", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2568,7 +2845,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PostNewsArticleListByIndex(InlineObject2 body)
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = PostNewsArticleListByIndexWithHttpInfo(body);
+            var localVarResponse = PostNewsArticleListByIndexWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2578,11 +2855,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> PostNewsArticleListByIndexWithHttpInfo(InlineObject2 body)
+        public ApiResponse<InlineResponse2001> PostNewsArticleListByIndexWithHttpInfo(InlineObject2 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByIndex");
+            }
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2596,22 +2875,28 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2623,15 +2908,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2001>("/news/article/listByIndex", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByIndexResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2001>("/news/article/listByIndex", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByIndex", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2642,9 +2931,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> PostNewsArticleListByIndexAsync(InlineObject2 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>PostNewsArticleListByIndexAsync(InlineObject2 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await PostNewsArticleListByIndexWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNewsArticleListByIndexWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2655,11 +2944,14 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> PostNewsArticleListByIndexWithHttpInfoAsync(InlineObject2 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostNewsArticleListByIndexWithHttpInfoAsync(InlineObject2 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByIndex");
+            }
 
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -2673,24 +2965,29 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2702,14 +2999,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByIndexResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2001>("/news/article/listByIndex", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByIndex", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2723,7 +3024,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PostNewsArticleListByInstrument(InlineObject3 body)
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = PostNewsArticleListByInstrumentWithHttpInfo(body);
+            var localVarResponse = PostNewsArticleListByInstrumentWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2733,11 +3034,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> PostNewsArticleListByInstrumentWithHttpInfo(InlineObject3 body)
+        public ApiResponse<InlineResponse2001> PostNewsArticleListByInstrumentWithHttpInfo(InlineObject3 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByInstrument");
+            }
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2751,22 +3054,28 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2778,15 +3087,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2001>("/news/article/listByInstrument", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2001>("/news/article/listByInstrument", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2797,9 +3110,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> PostNewsArticleListByInstrumentAsync(InlineObject3 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>PostNewsArticleListByInstrumentAsync(InlineObject3 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await PostNewsArticleListByInstrumentWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNewsArticleListByInstrumentWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2810,11 +3123,14 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> PostNewsArticleListByInstrumentWithHttpInfoAsync(InlineObject3 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostNewsArticleListByInstrumentWithHttpInfoAsync(InlineObject3 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByInstrument");
+            }
 
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -2828,24 +3144,29 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2857,14 +3178,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2001>("/news/article/listByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2878,7 +3203,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PostNewsArticleListByMediaKind(InlineObject4 body)
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = PostNewsArticleListByMediaKindWithHttpInfo(body);
+            var localVarResponse = PostNewsArticleListByMediaKindWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2888,11 +3213,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> PostNewsArticleListByMediaKindWithHttpInfo(InlineObject4 body)
+        public ApiResponse<InlineResponse2001> PostNewsArticleListByMediaKindWithHttpInfo(InlineObject4 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByMediaKind");
+            }
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2906,22 +3233,28 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2933,15 +3266,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2001>("/news/article/listByMediaKind", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByMediaKindResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2001>("/news/article/listByMediaKind", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByMediaKind", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2952,9 +3289,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> PostNewsArticleListByMediaKindAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>PostNewsArticleListByMediaKindAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await PostNewsArticleListByMediaKindWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNewsArticleListByMediaKindWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2965,11 +3302,14 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> PostNewsArticleListByMediaKindWithHttpInfoAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostNewsArticleListByMediaKindWithHttpInfoAsync(InlineObject4 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsArticleListByMediaKind");
+            }
 
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -2983,24 +3323,29 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3012,14 +3357,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleListByMediaKindResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2001>("/news/article/listByMediaKind", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleListByMediaKind", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3033,7 +3382,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PostNewsArticleSearchByText(InlineObject5 body = default(InlineObject5))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = PostNewsArticleSearchByTextWithHttpInfo(body);
+            var localVarResponse = PostNewsArticleSearchByTextWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -3043,7 +3392,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> PostNewsArticleSearchByTextWithHttpInfo(InlineObject5 body = default(InlineObject5))
+        public ApiResponse<InlineResponse2001> PostNewsArticleSearchByTextWithHttpInfo(InlineObject5 body = default(InlineObject5))
         {
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3057,22 +3406,28 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3084,15 +3439,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2001>("/news/article/searchByText", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleSearchByTextResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2001>("/news/article/searchByText", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleSearchByText", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3103,9 +3462,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> PostNewsArticleSearchByTextAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>PostNewsArticleSearchByTextAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await PostNewsArticleSearchByTextWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNewsArticleSearchByTextWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3116,7 +3475,8 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> PostNewsArticleSearchByTextWithHttpInfoAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PostNewsArticleSearchByTextWithHttpInfoAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -3130,24 +3490,29 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3159,14 +3524,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsArticleSearchByTextResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2001>("/news/article/searchByText", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsArticleSearchByText", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3180,7 +3549,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <returns>InlineResponse2009</returns>
         public InlineResponse2009 PostNewsPublisherSearchByName(InlineObject6 body)
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = PostNewsPublisherSearchByNameWithHttpInfo(body);
+            var localVarResponse = PostNewsPublisherSearchByNameWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -3190,11 +3559,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> PostNewsPublisherSearchByNameWithHttpInfo(InlineObject6 body)
+        public ApiResponse<InlineResponse2009> PostNewsPublisherSearchByNameWithHttpInfo(InlineObject6 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsPublisherSearchByName");
+            }
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3208,22 +3579,28 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3235,15 +3612,19 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2009>("/news/publisher/searchByName", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsPublisherSearchByNameResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2009>("/news/publisher/searchByName", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsPublisherSearchByName", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3254,9 +3635,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> PostNewsPublisherSearchByNameAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2009>PostNewsPublisherSearchByNameAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = await PostNewsPublisherSearchByNameWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNewsPublisherSearchByNameWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3267,11 +3648,14 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009>> PostNewsPublisherSearchByNameWithHttpInfoAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> PostNewsPublisherSearchByNameWithHttpInfoAsync(InlineObject6 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.NewsAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NewsApi->PostNewsPublisherSearchByName");
+            }
 
 
             FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NewsAPIforDigitalPortals.Client.RequestOptions();
@@ -3285,24 +3669,29 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NewsAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3314,14 +3703,18 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNewsPublisherSearchByNameResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2009>("/news/publisher/searchByName", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNewsPublisherSearchByName", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

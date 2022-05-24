@@ -1,0 +1,11 @@
+# FactSet.SDK.FundsAPIforDigitalPortals.Model.InlineObject
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Data** | [**FundIssuerSearchData**](FundIssuerSearchData.md) |  | [optional] 
+**Meta** | [**FundIssuerSearchMeta**](FundIssuerSearchMeta.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

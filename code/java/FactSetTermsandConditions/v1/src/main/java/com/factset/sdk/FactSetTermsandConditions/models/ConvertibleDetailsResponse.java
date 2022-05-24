@@ -43,6 +43,8 @@ public class ConvertibleDetailsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ConvertibleDetails> data = null;
 
+  public ConvertibleDetailsResponse() { 
+  }
 
   public ConvertibleDetailsResponse data(java.util.List<ConvertibleDetails> data) {
     this.data = data;

@@ -17,7 +17,7 @@ import BloombergTranslation from './BloombergTranslation';
 /**
  * The BloombergTranslationResponse model module.
  * @module model/BloombergTranslationResponse
- * @version 0.8.1
+ * @version 0.8.2
  */
 class BloombergTranslationResponse {
     /**

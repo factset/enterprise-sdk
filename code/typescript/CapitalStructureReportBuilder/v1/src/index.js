@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Category from './model/Category';
 import CategoryCategory from './model/CategoryCategory';
@@ -41,6 +40,7 @@ import Scale from './model/Scale';
 import ScaleScale from './model/ScaleScale';
 import ValueType from './model/ValueType';
 import ValueTypeValueType from './model/ValueTypeValueType';
+
 import CapitalStructureApi from './api/CapitalStructureApi';
 
 
@@ -73,7 +73,7 @@ import CapitalStructureApi from './api/CapitalStructureApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -254,5 +254,6 @@ export {
     * The CapitalStructureApi service constructor.
     * @property {module:api/CapitalStructureApi}
     */
-    CapitalStructureApi
+    CapitalStructureApi,
+
 };

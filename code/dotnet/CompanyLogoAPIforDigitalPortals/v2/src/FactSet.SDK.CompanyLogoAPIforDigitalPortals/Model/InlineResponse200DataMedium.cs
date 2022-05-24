@@ -62,7 +62,7 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataMedium {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataMedium input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Url == input.Url ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
                 if (this.MimeType != null)
-                    hashCode = hashCode * 59 + this.MimeType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MimeType.GetHashCode();
+                }
                 return hashCode;
             }
         }

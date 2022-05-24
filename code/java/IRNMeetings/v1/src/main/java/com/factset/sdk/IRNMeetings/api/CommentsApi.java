@@ -7,6 +7,9 @@ import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IRNMeetings.models.AttachmentSummaryDto;
 import com.factset.sdk.IRNMeetings.models.CommentDto;
@@ -28,6 +31,48 @@ public class CommentsApi {
   public CommentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createCommentResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
+    createCommentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    createCommentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    createCommentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> createCommentAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createCommentAttachmentResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
+    createCommentAttachmentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    createCommentAttachmentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    createCommentAttachmentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> deleteCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> downloadCommentAttachmentForCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCommentResponseTypeMap.put(200, new GenericType<CommentDto>(){});
+    getCommentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    getCommentResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    getCommentResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getCommentAttachmentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCommentAttachmentsResponseTypeMap.put(200, new GenericType<java.util.List<AttachmentSummaryDto>>(){});
+    getCommentAttachmentsResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    getCommentAttachmentsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    getCommentAttachmentsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getCommentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCommentsResponseTypeMap.put(200, new GenericType<java.util.List<CommentSummaryDto>>(){});
+    getCommentsResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    getCommentsResponseTypeMap.put(403, new GenericType<ProblemDetails>(){});
+    getCommentsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> patchCommentResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -57,7 +102,7 @@ public class CommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -78,7 +123,7 @@ public class CommentsApi {
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -119,32 +164,38 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<NewItemDto> localVarReturnType = new GenericType<NewItemDto>() {};
 
-    return apiClient.invokeAPI("CommentsApi.createComment", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        NewItemDto
+      
+    > apiResponse = apiClient.invokeAPI("CommentsApi.createComment", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createCommentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Create a comment attachment to a Meeting
    * 
    * @param meetingId  (required)
    * @param commentId  (required)
-   * @param file  (required)
+   * @param _file  (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public NewItemDto createCommentAttachment(java.util.UUID meetingId, java.util.UUID commentId, File file) throws ApiException {
-    return createCommentAttachmentWithHttpInfo(meetingId, commentId, file).getData();
+  public NewItemDto createCommentAttachment(java.util.UUID meetingId, java.util.UUID commentId, File _file) throws ApiException {
+    return createCommentAttachmentWithHttpInfo(meetingId, commentId, _file).getData();
   }
 
   /**
@@ -152,20 +203,20 @@ public class CommentsApi {
    * 
    * @param meetingId  (required)
    * @param commentId  (required)
-   * @param file  (required)
+   * @param _file  (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<NewItemDto> createCommentAttachmentWithHttpInfo(java.util.UUID meetingId, java.util.UUID commentId, File file) throws ApiException {
+  public ApiResponse<NewItemDto> createCommentAttachmentWithHttpInfo(java.util.UUID meetingId, java.util.UUID commentId, File _file) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'meetingId' is set
@@ -178,9 +229,9 @@ public class CommentsApi {
       throw new ApiException(400, "Missing the required parameter 'commentId' when calling createCommentAttachment");
     }
     
-    // verify the required parameter 'file' is set
-    if (file == null) {
-      throw new ApiException(400, "Missing the required parameter 'file' when calling createCommentAttachment");
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling createCommentAttachment");
     }
     
     // create path and map variables
@@ -197,8 +248,8 @@ public class CommentsApi {
 
     
     
-    if (file != null)
-      localVarFormParams.put("file", file);
+    if (_file != null)
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -212,11 +263,17 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<NewItemDto> localVarReturnType = new GenericType<NewItemDto>() {};
 
-    return apiClient.invokeAPI("CommentsApi.createCommentAttachment", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        NewItemDto
+      
+    > apiResponse = apiClient.invokeAPI("CommentsApi.createCommentAttachment", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createCommentAttachmentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a Comment from a Meeting
@@ -293,9 +350,15 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("CommentsApi.deleteComment", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("CommentsApi.deleteComment", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteCommentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Download single attachment detail of a comment belonging to a meeting
@@ -380,9 +443,15 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("CommentsApi.downloadCommentAttachmentForComment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("CommentsApi.downloadCommentAttachmentForComment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, downloadCommentAttachmentForCommentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get details of a comment belonging to a meeting
@@ -460,18 +529,24 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CommentDto> localVarReturnType = new GenericType<CommentDto>() {};
 
-    return apiClient.invokeAPI("CommentsApi.getComment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CommentDto
+      
+    > apiResponse = apiClient.invokeAPI("CommentsApi.getComment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCommentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get attachments summary of a comment belonging to a meeting
    * 
    * @param meetingId  (required)
    * @param commentId  (required)
-   * @return java.util.List&lt;AttachmentSummaryDto&gt;
+   * @return java.util.List<AttachmentSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -491,7 +566,7 @@ public class CommentsApi {
    * 
    * @param meetingId  (required)
    * @param commentId  (required)
-   * @return ApiResponse&lt;java.util.List&lt;AttachmentSummaryDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<AttachmentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -542,17 +617,23 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<AttachmentSummaryDto>> localVarReturnType = new GenericType<java.util.List<AttachmentSummaryDto>>() {};
 
-    return apiClient.invokeAPI("CommentsApi.getCommentAttachments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<AttachmentSummaryDto>
+      
+    > apiResponse = apiClient.invokeAPI("CommentsApi.getCommentAttachments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCommentAttachmentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get all comments for a meeting
    * 
    * @param meetingId  (required)
-   * @return java.util.List&lt;CommentSummaryDto&gt;
+   * @return java.util.List<CommentSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -571,7 +652,7 @@ public class CommentsApi {
    * Get all comments for a meeting
    * 
    * @param meetingId  (required)
-   * @return ApiResponse&lt;java.util.List&lt;CommentSummaryDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<CommentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -616,11 +697,17 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<CommentSummaryDto>> localVarReturnType = new GenericType<java.util.List<CommentSummaryDto>>() {};
 
-    return apiClient.invokeAPI("CommentsApi.getComments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<CommentSummaryDto>
+      
+    > apiResponse = apiClient.invokeAPI("CommentsApi.getComments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCommentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Edit a comment for a meeting
@@ -699,8 +786,14 @@ public class CommentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("CommentsApi.patchComment", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("CommentsApi.patchComment", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, patchCommentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

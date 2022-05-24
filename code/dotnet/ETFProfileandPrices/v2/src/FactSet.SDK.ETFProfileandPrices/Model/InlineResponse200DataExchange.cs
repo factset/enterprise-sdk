@@ -32,9 +32,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
     public partial class InlineResponse200DataExchange : IEquatable<InlineResponse200DataExchange>, IValidatableObject
     {
         /// <summary>
-        /// short region code where ETP exchange is located. This data is available for all the regions.
+        /// Short region code where ETP exchange is located. This data is available for all the regions.
         /// </summary>
-        /// <value>short region code where ETP exchange is located. This data is available for all the regions.</value>
+        /// <value>Short region code where ETP exchange is located. This data is available for all the regions.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RegionEnum
         {
@@ -66,9 +66,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
 
 
         /// <summary>
-        /// short region code where ETP exchange is located. This data is available for all the regions.
+        /// Short region code where ETP exchange is located. This data is available for all the regions.
         /// </summary>
-        /// <value>short region code where ETP exchange is located. This data is available for all the regions.</value>
+        /// <value>Short region code where ETP exchange is located. This data is available for all the regions.</value>
         [DataMember(Name = "region", EmitDefaultValue = false)]
         public RegionEnum? Region { get; set; }
         /// <summary>
@@ -77,7 +77,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <param name="code">Short Code of the exchange. This data is available for all the regions..</param>
         /// <param name="name">Name of the exchance where ETP is listed. This data is available for all the regions..</param>
         /// <param name="country">Short country code where ETP exchange is located. This data is available for all the regions and country code is in format ISO 3166-1 alpha-2..</param>
-        /// <param name="region">short region code where ETP exchange is located. This data is available for all the regions..</param>
+        /// <param name="region">Short region code where ETP exchange is located. This data is available for all the regions..</param>
         public InlineResponse200DataExchange(string code = default(string), string name = default(string), string country = default(string), RegionEnum? region = default(RegionEnum?))
         {
             this.Code = code;
@@ -113,7 +113,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataExchange {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -150,8 +150,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataExchange input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Code == input.Code ||
@@ -184,12 +185,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Country != null)
-                    hashCode = hashCode * 59 + this.Country.GetHashCode();
-                hashCode = hashCode * 59 + this.Region.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Region.GetHashCode();
                 return hashCode;
             }
         }

@@ -12,7 +12,7 @@
       "name": "Apache License 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
     },
-    "version": "v3"
+    "version": "3"
   },
   "servers": [
     {
@@ -20,6 +20,271 @@
     }
   ],
   "paths": {
+    "/analytics/engines/fi/v3/discount-curves": {
+      "get": {
+        "tags": [
+          "DiscountCurves"
+        ],
+        "summary": "Get Discount Curves",
+        "description": "This endpoint lists all the discount curves that can be applied to a FI calculation.",
+        "operationId": "getAllFIDiscountCurves",
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of FI discount curves.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FIDiscountCurveInfoRoot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/analytics/engines/fi/v3/calculations": {
       "post": {
         "tags": [
@@ -575,17 +840,7 @@
             }
           }
         },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
-          {
-            "status-code": "202",
-            "response-type": "CalculationInfoRoot"
-          },
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
-          }
-        ]
+        "x-factset-different-success-responses": true
       }
     },
     "/analytics/engines/fi/v3/calculations/{id}": {
@@ -1062,17 +1317,7 @@
             }
           }
         },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
-          {
-            "status-code": "202",
-            "response-type": "CalculationInfoRoot"
-          },
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
-          }
-        ]
+        "x-factset-different-success-responses": true
       },
       "get": {
         "tags": [
@@ -1341,14 +1586,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "FICalculationParametersRoot"
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -1609,14 +1847,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "204",
-            "response-type": null
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/fi/v3/calculations/{id}/status": {
@@ -1932,18 +2163,7 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": true,
-        "x-success-response-types": [
-          {
-            "status-code": "201",
-            "response-type": "ObjectRoot"
-          },
-          {
-            "status-code": "202",
-            "response-type": null
-          }
-        ]
+        }
       }
     },
     "/analytics/engines/fi/v3/calculations/{id}/result": {
@@ -2229,22 +2449,146 @@
               }
             }
           }
-        },
-        "x-are-multiple-success-responses-different": false,
-        "x-success-response-types": [
-          {
-            "status-code": "200",
-            "response-type": "ObjectRoot"
-          }
-        ]
+        }
       }
     }
   },
   "components": {
     "schemas": {
+      "FIDiscountCurveInfo": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FIDiscountCurveInfoRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/FIDiscountCurveInfo"
+            }
+          },
+          "meta": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ErrorSource": {
+        "type": "object",
+        "properties": {
+          "pointer": {
+            "type": "string"
+          },
+          "parameter": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ErrorSource"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "FIReferencePrepay": {
+        "type": "object",
+        "properties": {
+          "prepayName": {
+            "type": "string",
+            "description": "Reference Prepay Name"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FIReferenceSecurity": {
+        "type": "object",
+        "properties": {
+          "securityType": {
+            "type": "string",
+            "description": "Reference Security Type"
+          },
+          "securityName": {
+            "type": "string",
+            "description": "Reference Security Name"
+          },
+          "calcFromMethod": {
+            "type": "string",
+            "description": "Reference Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
+          },
+          "calcFromValue": {
+            "type": "number",
+            "description": "Reference CalcFromValue",
+            "format": "double"
+          },
+          "prepay": {
+            "$ref": "#/components/schemas/FIReferencePrepay"
+          },
+          "settlement": {
+            "type": "string",
+            "description": "Reference Settlement Date"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FILoss": {
+        "type": "object",
+        "properties": {
+          "lossName": {
+            "type": "string",
+            "description": "Loss Name"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FIPrepay": {
+        "type": "object",
+        "properties": {
+          "prepayName": {
+            "type": "string",
+            "description": "Prepay Name"
+          }
+        },
+        "additionalProperties": false
+      },
       "FISecurity": {
         "required": [
-          "calcFromMethod",
           "calcFromValue",
           "symbol"
         ],
@@ -2254,9 +2598,38 @@
             "type": "string",
             "description": "Settlement date"
           },
+          "callMethod": {
+            "enum": [
+              "No Call",
+              "Intrinsic Value",
+              "First Call",
+              "First Par"
+            ],
+            "type": "string",
+            "description": "Call Method"
+          },
+          "referenceSecurity": {
+            "$ref": "#/components/schemas/FIReferenceSecurity"
+          },
+          "loss": {
+            "$ref": "#/components/schemas/FILoss"
+          },
+          "prepay": {
+            "$ref": "#/components/schemas/FIPrepay"
+          },
+          "matrixSpreadAdjustment": {
+            "type": "number",
+            "description": "Matrix Spread Adjustment",
+            "format": "double"
+          },
+          "matrixMultiplier": {
+            "type": "number",
+            "description": "Matrix Multiplier",
+            "format": "double"
+          },
           "calcFromMethod": {
             "type": "string",
-            "description": "Calculation from method"
+            "description": "Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
           },
           "calcFromValue": {
             "type": "number",
@@ -2286,7 +2659,23 @@
             "type": "string",
             "description": "Discount curve"
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "FIMarketEnvironment": {
+        "type": "object",
+        "properties": {
+          "ratePath": {
+            "enum": [
+              "FLAT",
+              "FORWARD",
+              "FLAT & FORWARD"
+            ],
+            "type": "string",
+            "default": "FLAT & FORWARD"
+          }
+        },
+        "additionalProperties": false
       },
       "FIJobSettings": {
         "required": [
@@ -2305,8 +2694,30 @@
               "format": "int32"
             },
             "description": "Partial duration months"
+          },
+          "callMethod": {
+            "enum": [
+              "No Call",
+              "Intrinsic Value",
+              "First Call",
+              "First Par"
+            ],
+            "type": "string",
+            "description": "Call Method"
+          },
+          "settlement": {
+            "type": "string",
+            "description": "Settlement Date"
+          },
+          "calcFromMethod": {
+            "type": "string",
+            "description": "Calculation Method.\r\nMethods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
+          },
+          "marketEnvironment": {
+            "$ref": "#/components/schemas/FIMarketEnvironment"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "FICalculationParameters": {
         "required": [
@@ -2333,7 +2744,8 @@
           "jobSettings": {
             "$ref": "#/components/schemas/FIJobSettings"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationMeta": {
         "type": "object",
@@ -2383,7 +2795,8 @@
             "type": "string",
             "default": "JsonStach"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "FICalculationParametersRoot": {
         "type": "object",
@@ -2394,7 +2807,8 @@
           "meta": {
             "$ref": "#/components/schemas/CalculationMeta"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationInfo": {
         "type": "object",
@@ -2403,7 +2817,8 @@
             "type": "string",
             "description": "Calculation identifier"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "CalculationInfoRoot": {
         "required": [
@@ -2417,7 +2832,8 @@
           "meta": {
             "type": "object"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ObjectRoot": {
         "required": [
@@ -2431,43 +2847,8 @@
           "meta": {
             "type": "object"
           }
-        }
-      },
-      "ErrorSource": {
-        "type": "object",
-        "properties": {
-          "pointer": {
-            "type": "string"
-          },
-          "parameter": {
-            "type": "string"
-          }
-        }
-      },
-      "Error": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "detail": {
-            "type": "string"
-          },
-          "source": {
-            "$ref": "#/components/schemas/ErrorSource"
-          }
-        }
-      },
-      "ClientErrorResponse": {
-        "type": "object",
-        "properties": {
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Error"
-            }
-          }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {

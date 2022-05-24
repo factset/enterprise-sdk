@@ -49,6 +49,8 @@ public class NotationSearchByTextDataValidationValueUnitSelection implements Ser
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private NotationSearchByTextDataValidationValueUnitSelectionExclude exclude;
 
+  public NotationSearchByTextDataValidationValueUnitSelection() { 
+  }
 
   public NotationSearchByTextDataValidationValueUnitSelection restrict(NotationSearchByTextDataValidationValueUnitSelectionRestrict restrict) {
     this.restrict = restrict;

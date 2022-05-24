@@ -21,7 +21,7 @@ import InlineResponse2005DataLifeCycleValuation from './InlineResponse2005DataLi
 /**
  * The InlineResponse2005DataLifeCycle model module.
  * @module model/InlineResponse2005DataLifeCycle
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataLifeCycle {
     /**

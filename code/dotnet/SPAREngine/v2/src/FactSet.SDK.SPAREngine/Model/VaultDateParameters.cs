@@ -85,7 +85,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class VaultDateParameters {\n");
             sb.Append("  Startdate: ").Append(Startdate).Append("\n");
             sb.Append("  Enddate: ").Append(Enddate).Append("\n");
@@ -121,8 +121,9 @@ namespace FactSet.SDK.SPAREngine.Model
         public bool Equals(VaultDateParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Startdate == input.Startdate ||
@@ -151,11 +152,17 @@ namespace FactSet.SDK.SPAREngine.Model
             {
                 int hashCode = 41;
                 if (this.Startdate != null)
-                    hashCode = hashCode * 59 + this.Startdate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Startdate.GetHashCode();
+                }
                 if (this.Enddate != null)
-                    hashCode = hashCode * 59 + this.Enddate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Enddate.GetHashCode();
+                }
                 if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
                 return hashCode;
             }
         }

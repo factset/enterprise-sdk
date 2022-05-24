@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -225,6 +224,7 @@ import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutp
 import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
 import PartialOutputObject from './model/PartialOutputObject';
 import StatusObject from './model/StatusObject';
+
 import DebtInstrumentApi from './api/DebtInstrumentApi';
 
 
@@ -257,7 +257,7 @@ import DebtInstrumentApi from './api/DebtInstrumentApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.10.0
 */
 export {
     /**
@@ -1542,5 +1542,6 @@ export {
     * The DebtInstrumentApi service constructor.
     * @property {module:api/DebtInstrumentApi}
     */
-    DebtInstrumentApi
+    DebtInstrumentApi,
+
 };

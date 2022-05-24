@@ -85,7 +85,6 @@ Name | Type | Description  | Notes
  **frequency** | **string**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  | [optional] [default to D]
 
 ### Return type
-
 [**PricesFixedIncomeResponse**](PricesFixedIncomeResponse.md)
 
 ### Authorization
@@ -179,7 +178,6 @@ Name | Type | Description  | Notes
  **pricesFixedIncomeRequest** | [**PricesFixedIncomeRequest**](PricesFixedIncomeRequest.md)| Request object for Fixed Income &#x60;Security&#x60; prices. | 
 
 ### Return type
-
 [**PricesFixedIncomeResponse**](PricesFixedIncomeResponse.md)
 
 ### Authorization
@@ -254,13 +252,25 @@ namespace Example
             var calendar = FIVEDAY;  // string | Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (optional)  (default to FIVEDAY)
             var currency = USD;  // string | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional) 
             var adjust = SPLIT;  // string | Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (optional)  (default to SPLIT)
-            var batch = batch_example;  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  **`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \"Report Issue\" above and our support teams can assist.**  Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.  (optional)  (default to N)
+            var batch = "Y";  // string | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  **`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \"Report Issue\" above and our support teams can assist.**  Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.  (optional)  (default to N)
 
             try
             {
                 // Gets end-of-day Open, High, Low, Close for a list of securities.
-                PricesResponse result = apiInstance.GetSecurityPrices(ids, startDate, endDate, frequency, calendar, currency, adjust, batch);
-                Console.WriteLine(result.ToJson());
+                PricesApi.GetSecurityPricesResponseWrapper result = apiInstance.GetSecurityPrices(ids, startDate, endDate, frequency, calendar, currency, adjust, batch);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -287,8 +297,7 @@ Name | Type | Description  | Notes
  **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
-
-[**PricesResponse**](PricesResponse.md)
+GetSecurityPricesResponseWrapper
 
 ### Authorization
 
@@ -361,8 +370,20 @@ namespace Example
             try
             {
                 // Requests end-of-day Open, High, Low, Close for a large list of securities.
-                PricesResponse result = apiInstance.GetSecurityPricesForList(pricesRequest);
-                Console.WriteLine(result.ToJson());
+                PricesApi.GetSecurityPricesForListResponseWrapper result = apiInstance.GetSecurityPricesForList(pricesRequest);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -382,8 +403,7 @@ Name | Type | Description  | Notes
  **pricesRequest** | [**PricesRequest**](PricesRequest.md)| Request object for &#x60;Security&#x60; prices. | 
 
 ### Return type
-
-[**PricesResponse**](PricesResponse.md)
+GetSecurityPricesForListResponseWrapper
 
 ### Authorization
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataExchange model module.
  * @module model/InlineResponse200DataExchange
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataExchange {
     /**
@@ -86,7 +86,7 @@ InlineResponse200DataExchange.prototype['name'] = undefined;
 InlineResponse200DataExchange.prototype['country'] = undefined;
 
 /**
- * short region code where ETP exchange is located. This data is available for all the regions.
+ * Short region code where ETP exchange is located. This data is available for all the regions.
  * @member {module:model/InlineResponse200DataExchange.RegionEnum} region
  */
 InlineResponse200DataExchange.prototype['region'] = undefined;

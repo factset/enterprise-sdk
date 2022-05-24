@@ -63,7 +63,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AdaptiveCardWithThumbnail {\n");
             sb.Append("  AdaptiveCard: ").Append(AdaptiveCard).Append("\n");
             sb.Append("  Thumbnail: ").Append(Thumbnail).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(AdaptiveCardWithThumbnail input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AdaptiveCard == input.AdaptiveCard ||
@@ -123,9 +124,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.AdaptiveCard != null)
-                    hashCode = hashCode * 59 + this.AdaptiveCard.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AdaptiveCard.GetHashCode();
+                }
                 if (this.Thumbnail != null)
-                    hashCode = hashCode * 59 + this.Thumbnail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Thumbnail.GetHashCode();
+                }
                 return hashCode;
             }
         }

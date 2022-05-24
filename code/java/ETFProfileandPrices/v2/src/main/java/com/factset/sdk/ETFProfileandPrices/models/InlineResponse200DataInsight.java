@@ -47,6 +47,8 @@ public class InlineResponse200DataInsight implements Serializable {
   public static final String JSON_PROPERTY_QUOTE = "quote";
   private String quote;
 
+  public InlineResponse200DataInsight() { 
+  }
 
   public InlineResponse200DataInsight overview(String overview) {
     this.overview = overview;

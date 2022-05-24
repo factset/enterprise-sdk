@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataValidationNotationSelectionList impl
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private StockNotationScreenerSearchDataValidationNotationSelectionListExclude exclude;
 
+  public StockNotationScreenerSearchDataValidationNotationSelectionList() { 
+  }
 
   public StockNotationScreenerSearchDataValidationNotationSelectionList restrict(StockNotationScreenerSearchDataValidationNotationSelectionListRestrict restrict) {
     this.restrict = restrict;

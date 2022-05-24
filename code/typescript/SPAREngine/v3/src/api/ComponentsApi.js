@@ -19,7 +19,7 @@ import ComponentSummaryRoot from '../model/ComponentSummaryRoot';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ComponentsApi {
 
@@ -62,7 +62,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ComponentSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/spar/v3/components', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class ComponentsApi {
      * Get SPAR components
      * This endpoint returns the list of SPAR components in a given SPAR document.
      * @param {String} document Document Name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ComponentSummaryRoot}
+     * @return { Promise.< module:model/ComponentSummaryRoot > } a Promise, with data of type {@link module:model/ComponentSummaryRoot }
      */
     getSPARComponents(document) {
       return this.getSPARComponentsWithHttpInfo(document)
@@ -85,3 +88,8 @@ export default class ComponentsApi {
 
 
 }
+
+
+
+
+

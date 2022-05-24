@@ -52,7 +52,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Scale {\n");
             sb.Append("  _Scale: ").Append(_Scale).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         public bool Equals(Scale input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._Scale == input._Scale ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._Scale != null)
-                    hashCode = hashCode * 59 + this._Scale.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._Scale.GetHashCode();
+                }
                 return hashCode;
             }
         }

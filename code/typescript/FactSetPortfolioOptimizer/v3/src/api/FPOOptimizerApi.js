@@ -21,7 +21,7 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * FPOOptimizer service.
 * @module api/FPOOptimizerApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FPOOptimizerApi {
 
@@ -64,7 +64,10 @@ export default class FPOOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/fpo/v3/optimizations/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class FPOOptimizerApi {
      * Cancel FPO optimization by id
      * This is the endpoint to cancel a previously submitted optimization.
      * @param {String} id from url, provided from the location header in the Create and Run FPO optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     cancelOptimizationById(id) {
       return this.cancelOptimizationByIdWithHttpInfo(id)
@@ -112,7 +115,10 @@ export default class FPOOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FPOOptimizationParametersRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/fpo/v3/optimizations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -124,7 +130,7 @@ export default class FPOOptimizerApi {
      * Get FPO optimization parameters by id
      * This is the endpoint that returns the optimization parameters passed for a calculation.
      * @param {String} id from url, provided from the location header in the Create and Run FPO optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FPOOptimizationParametersRoot}
+     * @return { Promise.< module:model/FPOOptimizationParametersRoot > } a Promise, with data of type {@link module:model/FPOOptimizationParametersRoot }
      */
     getOptimizationParameters(id) {
       return this.getOptimizationParametersWithHttpInfo(id)
@@ -164,7 +170,10 @@ export default class FPOOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ObjectRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/fpo/v3/optimizations/{id}/result', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -178,7 +187,7 @@ export default class FPOOptimizerApi {
      * @param {String} id from url, provided from the location header in the Get FPO optimization status by id endpoint
      * @param {Object} opts Optional parameters
      * @param {String} opts.accept Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or *
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< module:model/ObjectRoot > } a Promise, with data of type {@link module:model/ObjectRoot }
      */
     getOptimizationResult(id, opts) {
       return this.getOptimizationResultWithHttpInfo(id, opts)
@@ -214,7 +223,10 @@ export default class FPOOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ObjectRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/fpo/v3/optimizations/{id}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -226,7 +238,7 @@ export default class FPOOptimizerApi {
      * Get FPO optimization status by id
      * This is the endpoint to check on the progress of a previously requested optimization.  If the optimization has finished computing, the body of the response will contain result in JSON.  Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.
      * @param {String} id from url, provided from the location header in the Create and Run FPO optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< module:model/ObjectRoot > } a Promise, with data of type {@link module:model/ObjectRoot }
      */
     getOptimizationStatusById(id) {
       return this.getOptimizationStatusByIdWithHttpInfo(id)
@@ -263,7 +275,9 @@ export default class FPOOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = ObjectRoot;
+
+      let returnType = PostAndOptimizeResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/analytics/engines/fpo/v3/optimizations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -278,7 +292,7 @@ export default class FPOOptimizerApi {
      * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.
      * @param {module:model/FPOOptimizationParametersRoot} opts.fPOOptimizationParametersRoot Calculation Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< PostAndOptimizeResponseWrapper > } a Promise, with data of type {@link PostAndOptimizeResponseWrapper }
      */
     postAndOptimize(opts) {
       return this.postAndOptimizeWithHttpInfo(opts)
@@ -321,7 +335,9 @@ export default class FPOOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = ObjectRoot;
+
+      let returnType = PutAndOptimizeResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/analytics/engines/fpo/v3/optimizations/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -337,7 +353,7 @@ export default class FPOOptimizerApi {
      * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.
      * @param {module:model/FPOOptimizationParametersRoot} opts.fPOOptimizationParametersRoot Calculation Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< PutAndOptimizeResponseWrapper > } a Promise, with data of type {@link PutAndOptimizeResponseWrapper }
      */
     putAndOptimize(id, opts) {
       return this.putAndOptimizeWithHttpInfo(id, opts)
@@ -348,3 +364,174 @@ export default class FPOOptimizerApi {
 
 
 }
+
+
+const PostAndOptimizeResponseWrapperTypeMap = {
+  201: ObjectRoot,
+  202: CalculationInfoRoot,
+  400: ClientErrorResponse,
+  404: ClientErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new PostAndOptimizeResponseWrapper(statusCode, response);
+  }
+};
+
+const PutAndOptimizeResponseWrapperTypeMap = {
+  201: ObjectRoot,
+  202: CalculationInfoRoot,
+  400: ClientErrorResponse,
+  404: ClientErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new PutAndOptimizeResponseWrapper(statusCode, response);
+  }
+};
+
+
+
+/**
+ * Wrapper to support POST /analytics/engines/fpo/v3/optimizations returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>201 : {@code ObjectRoot }<br>Expected response, returns json if optimization is completed in a short span.</li>
+ * 
+ *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 201:
+ *     ObjectRoot data201 = response.getResponse201();
+ *     break;
+ *   case 202:
+ *     CalculationInfoRoot data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:PostAndOptimizeResponseWrapper
+ * @class
+ */
+export class PostAndOptimizeResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { ObjectRoot }
+   */
+  getResponse201() {
+    if (this.statusCode !== 201) {
+      throw new Error("Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { CalculationInfoRoot }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+/**
+ * Wrapper to support PUT /analytics/engines/fpo/v3/optimizations/{id} returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>201 : {@code ObjectRoot }<br>Expected response, returns json if optimization is completed in a short span.</li>
+ * 
+ *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 201:
+ *     ObjectRoot data201 = response.getResponse201();
+ *     break;
+ *   case 202:
+ *     CalculationInfoRoot data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:PutAndOptimizeResponseWrapper
+ * @class
+ */
+export class PutAndOptimizeResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { ObjectRoot }
+   */
+  getResponse201() {
+    if (this.statusCode !== 201) {
+      throw new Error("Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { CalculationInfoRoot }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+

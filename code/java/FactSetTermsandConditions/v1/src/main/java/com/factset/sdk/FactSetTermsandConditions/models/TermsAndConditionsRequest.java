@@ -89,6 +89,16 @@ public class TermsAndConditionsRequest implements Serializable {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private java.util.List<CategoriesEnum> categories = null;
 
+  public TermsAndConditionsRequest() { 
+  }
+
+  @JsonCreator
+  public TermsAndConditionsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public TermsAndConditionsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

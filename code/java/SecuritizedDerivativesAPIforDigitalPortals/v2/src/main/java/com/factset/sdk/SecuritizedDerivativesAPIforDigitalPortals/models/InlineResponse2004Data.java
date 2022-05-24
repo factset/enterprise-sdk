@@ -20,6 +20,7 @@ import java.util.HashMap;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Accumulated;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Categorization;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Exercise;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Fsym;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Instrument;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Issuer;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004LifeCycle;
@@ -45,6 +46,7 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse2004Data.JSON_PROPERTY_ID,
   InlineResponse2004Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse2004Data.JSON_PROPERTY_FSYM,
   InlineResponse2004Data.JSON_PROPERTY_MARKET,
   InlineResponse2004Data.JSON_PROPERTY_VALUE_UNIT,
   InlineResponse2004Data.JSON_PROPERTY_TRADE,
@@ -69,6 +71,9 @@ public class InlineResponse2004Data implements Serializable {
 
   public static final String JSON_PROPERTY_SYMBOL = "symbol";
   private String symbol;
+
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2004Fsym fsym;
 
   public static final String JSON_PROPERTY_MARKET = "market";
   private InlineResponse2004Market market;
@@ -182,6 +187,8 @@ public class InlineResponse2004Data implements Serializable {
   public static final String JSON_PROPERTY_KNOCKED_IN = "knockedIn";
   private Boolean knockedIn;
 
+  public InlineResponse2004Data() { 
+  }
 
   public InlineResponse2004Data id(String id) {
     this.id = id;
@@ -232,6 +239,32 @@ public class InlineResponse2004Data implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSymbol(String symbol) {
     this.symbol = symbol;
+  }
+
+
+  public InlineResponse2004Data fsym(InlineResponse2004Fsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2004Fsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse2004Fsym fsym) {
+    this.fsym = fsym;
   }
 
 
@@ -613,6 +646,7 @@ public class InlineResponse2004Data implements Serializable {
     InlineResponse2004Data inlineResponse2004Data = (InlineResponse2004Data) o;
     return Objects.equals(this.id, inlineResponse2004Data.id) &&
         Objects.equals(this.symbol, inlineResponse2004Data.symbol) &&
+        Objects.equals(this.fsym, inlineResponse2004Data.fsym) &&
         Objects.equals(this.market, inlineResponse2004Data.market) &&
         Objects.equals(this.valueUnit, inlineResponse2004Data.valueUnit) &&
         Objects.equals(this.trade, inlineResponse2004Data.trade) &&
@@ -631,7 +665,7 @@ public class InlineResponse2004Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, symbol, market, valueUnit, trade, quality, accumulated, instrument, categorization, lifeCycle, issuer, exercise, participation, underlying, knockedOut, knockedIn);
+    return Objects.hash(id, symbol, fsym, market, valueUnit, trade, quality, accumulated, instrument, categorization, lifeCycle, issuer, exercise, participation, underlying, knockedOut, knockedIn);
   }
 
   @Override
@@ -640,6 +674,7 @@ public class InlineResponse2004Data implements Serializable {
     sb.append("class InlineResponse2004Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
     sb.append("    trade: ").append(toIndentedString(trade)).append("\n");

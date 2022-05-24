@@ -58,6 +58,18 @@ public class FPOOptimizationParameters implements Serializable {
   public static final String JSON_PROPERTY_OUTPUTTYPES = "outputtypes";
   private OptimizerOutputTypes outputtypes;
 
+  public FPOOptimizationParameters() { 
+  }
+
+  @JsonCreator
+  public FPOOptimizationParameters(
+    @JsonProperty(value=JSON_PROPERTY_STRATEGY, required=true) OptimizerStrategy strategy, 
+    @JsonProperty(value=JSON_PROPERTY_OUTPUTTYPES, required=true) OptimizerOutputTypes outputtypes
+  ) {
+    this();
+    this.strategy = strategy;
+    this.outputtypes = outputtypes;
+  }
 
   public FPOOptimizationParameters account(FPOAccount account) {
     this.account = account;

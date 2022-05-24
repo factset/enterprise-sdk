@@ -49,6 +49,8 @@ public class InlineResponse2005DataCouponTriggerLevelDistance implements Seriali
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private InlineResponse2005DataStrikeDistanceRelative relative;
 
+  public InlineResponse2005DataCouponTriggerLevelDistance() { 
+  }
 
   public InlineResponse2005DataCouponTriggerLevelDistance absolute(InlineResponse2005DataStrikeDistanceAbsolute absolute) {
     this.absolute = absolute;

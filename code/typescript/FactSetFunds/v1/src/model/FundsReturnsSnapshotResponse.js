@@ -17,7 +17,7 @@ import ReturnsSnapshot from './ReturnsSnapshot';
 /**
  * The FundsReturnsSnapshotResponse model module.
  * @module model/FundsReturnsSnapshotResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FundsReturnsSnapshotResponse {
     /**

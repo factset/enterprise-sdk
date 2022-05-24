@@ -18,7 +18,7 @@ import InlineResponse2005DataStrikeDistanceRelative from './InlineResponse2005Da
 /**
  * The InlineResponse2005DataKnockOutDistance model module.
  * @module model/InlineResponse2005DataKnockOutDistance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKnockOutDistance {
     /**

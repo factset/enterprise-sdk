@@ -24,14 +24,13 @@ import com.factset.sdk.CapitalStructureReportBuilder.ApiClient;
 import com.factset.sdk.CapitalStructureReportBuilder.ApiException;
 import com.factset.sdk.CapitalStructureReportBuilder.Configuration;
 import com.factset.sdk.CapitalStructureReportBuilder.auth.*;
-import com.factset.sdk.CapitalStructureReportBuilder.model.*;
+import com.factset.sdk.CapitalStructureReportBuilder.models.*;
 import com.factset.sdk.CapitalStructureReportBuilder.api.CapitalStructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -41,14 +40,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CapitalStructureApi apiInstance = new CapitalStructureApi(defaultClient);
         String id = "FDS"; // String | Company ticker
@@ -56,6 +55,7 @@ public class Example {
         try {
             Response result = apiInstance.getDcsDetail(id, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CapitalStructureApi#getDcsDetail");
             System.err.println("Status code: " + e.getCode());
@@ -115,14 +115,13 @@ import com.factset.sdk.CapitalStructureReportBuilder.ApiClient;
 import com.factset.sdk.CapitalStructureReportBuilder.ApiException;
 import com.factset.sdk.CapitalStructureReportBuilder.Configuration;
 import com.factset.sdk.CapitalStructureReportBuilder.auth.*;
-import com.factset.sdk.CapitalStructureReportBuilder.model.*;
+import com.factset.sdk.CapitalStructureReportBuilder.models.*;
 import com.factset.sdk.CapitalStructureReportBuilder.api.CapitalStructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -132,14 +131,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CapitalStructureApi apiInstance = new CapitalStructureApi(defaultClient);
         String id = "FDS"; // String | Company ticker
@@ -147,6 +146,7 @@ public class Example {
         try {
             Response result = apiInstance.getDcsSummary(id, schema);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CapitalStructureApi#getDcsSummary");
             System.err.println("Status code: " + e.getCode());
@@ -206,14 +206,13 @@ import com.factset.sdk.CapitalStructureReportBuilder.ApiClient;
 import com.factset.sdk.CapitalStructureReportBuilder.ApiException;
 import com.factset.sdk.CapitalStructureReportBuilder.Configuration;
 import com.factset.sdk.CapitalStructureReportBuilder.auth.*;
-import com.factset.sdk.CapitalStructureReportBuilder.model.*;
+import com.factset.sdk.CapitalStructureReportBuilder.models.*;
 import com.factset.sdk.CapitalStructureReportBuilder.api.CapitalStructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -223,20 +222,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CapitalStructureApi apiInstance = new CapitalStructureApi(defaultClient);
         String id = "FDS"; // String | Company ticker
         try {
             Response result = apiInstance.getSourceOfCapital(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CapitalStructureApi#getSourceOfCapital");
             System.err.println("Status code: " + e.getCode());

@@ -47,6 +47,8 @@ public class AxiomaEquityOptimizationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public AxiomaEquityOptimizationParametersRoot() { 
+  }
 
   public AxiomaEquityOptimizationParametersRoot data(AxiomaEquityOptimizationParameters data) {
     this.data = data;

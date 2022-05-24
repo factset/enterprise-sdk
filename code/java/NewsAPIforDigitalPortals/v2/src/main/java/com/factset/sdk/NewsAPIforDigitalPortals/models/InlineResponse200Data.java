@@ -43,6 +43,7 @@ import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse200Data.JSON_PROPERTY_TIME,
   InlineResponse200Data.JSON_PROPERTY_HEADLINE,
+  InlineResponse200Data.JSON_PROPERTY_SUMMARY,
   InlineResponse200Data.JSON_PROPERTY_BODY,
   InlineResponse200Data.JSON_PROPERTY_TYPES,
   InlineResponse200Data.JSON_PROPERTY_LANGUAGE,
@@ -61,6 +62,9 @@ public class InlineResponse200Data implements Serializable {
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
+
+  public static final String JSON_PROPERTY_SUMMARY = "summary";
+  private String summary;
 
   public static final String JSON_PROPERTY_BODY = "body";
   private String body;
@@ -86,6 +90,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_MEDIA = "media";
   private java.util.List<InlineResponse200DataMedia> media = null;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data time(String time) {
     this.time = time;
@@ -136,6 +142,32 @@ public class InlineResponse200Data implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeadline(String headline) {
     this.headline = headline;
+  }
+
+
+  public InlineResponse200Data summary(String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+   /**
+   * Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor.
+   * @return summary
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.")
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSummary() {
+    return summary;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSummary(String summary) {
+    this.summary = summary;
   }
 
 
@@ -393,6 +425,7 @@ public class InlineResponse200Data implements Serializable {
     InlineResponse200Data inlineResponse200Data = (InlineResponse200Data) o;
     return Objects.equals(this.time, inlineResponse200Data.time) &&
         Objects.equals(this.headline, inlineResponse200Data.headline) &&
+        Objects.equals(this.summary, inlineResponse200Data.summary) &&
         Objects.equals(this.body, inlineResponse200Data.body) &&
         Objects.equals(this.types, inlineResponse200Data.types) &&
         Objects.equals(this.language, inlineResponse200Data.language) &&
@@ -405,7 +438,7 @@ public class InlineResponse200Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(time, headline, body, types, language, distributor, publisher, categories, instruments, media);
+    return Objects.hash(time, headline, summary, body, types, language, distributor, publisher, categories, instruments, media);
   }
 
   @Override
@@ -414,6 +447,7 @@ public class InlineResponse200Data implements Serializable {
     sb.append("class InlineResponse200Data {\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");

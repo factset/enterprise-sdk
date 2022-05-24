@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **IncludeAll** | **bool** | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  | [optional] [default to false]
 **RelativeFiscalStart** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **RelativeFiscalEnd** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
-**Periodicity** | [**Periodicity**](Periodicity.md) |  | [optional] 
+**Periodicity** | [**PeriodicityDetail**](PeriodicityDetail.md) |  | [optional] 
 **Metrics** | **List&lt;string&gt;** | Requested metrics. Use the metrics endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). | 
 **Currency** | **string** | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 

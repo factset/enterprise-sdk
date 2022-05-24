@@ -78,7 +78,6 @@ Name | Type | Description  | Notes
  **createMeetingDto** | [**CreateMeetingDto**](CreateMeetingDto.md)| Note: The organizer property is deprecated in favor of organizerId | [optional] 
 
 ### Return type
-
 [**NewItemDto**](NewItemDto.md)
 
 ### Authorization
@@ -141,7 +140,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | 
 
             try
             {
@@ -166,7 +165,6 @@ Name | Type | Description  | Notes
  **meetingId** | **Guid**|  | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -230,7 +228,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Meeting Id
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
 
             try
             {
@@ -256,7 +254,6 @@ Name | Type | Description  | Notes
  **meetingId** | **Guid**| Meeting Id | 
 
 ### Return type
-
 [**MeetingDto**](MeetingDto.md)
 
 ### Authorization
@@ -319,12 +316,12 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
-            var start = start_example;  // string | StartDate (optional) 
-            var end = end_example;  // string | EndDate (optional) 
+            var start = "start_example";  // string | StartDate (optional) 
+            var end = "end_example";  // string | EndDate (optional) 
             var identifiers = new List<string>(); // List<string> | Set of identifiers to filter on (optional) 
             var limit = 56;  // int? | Limit on the number of meetings retrieved (optional) 
-            var modifiedSince = modifiedSince_example;  // string | Only return meetings which have been modified or created since a particular time (optional) 
-            var xIRNIncludeDeleted = true;  // bool? | Includes deleted meetings in results when set to true (optional)  (default to false)
+            var modifiedSince = "modifiedSince_example";  // string | Only return meetings which have been modified or created since a particular time (optional) 
+            var xIRNIncludeDeleted = false;  // bool? | Includes deleted meetings in results when set to true (optional)  (default to false)
 
             try
             {
@@ -355,7 +352,6 @@ Name | Type | Description  | Notes
  **xIRNIncludeDeleted** | **bool?**| Includes deleted meetings in results when set to true | [optional] [default to false]
 
 ### Return type
-
 [**List&lt;MeetingSummaryDto&gt;**](MeetingSummaryDto.md)
 
 ### Authorization
@@ -417,7 +413,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new MeetingsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Meeting Id
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
             var updateMeetingDto = new UpdateMeetingDto(); // UpdateMeetingDto | Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional) 
 
             try
@@ -444,7 +440,6 @@ Name | Type | Description  | Notes
  **updateMeetingDto** | [**UpdateMeetingDto**](UpdateMeetingDto.md)| Meeting details to update. Note: The organizer property is deprecated in favor of organizerId | [optional] 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -460,7 +455,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **0** | Error |  -  |

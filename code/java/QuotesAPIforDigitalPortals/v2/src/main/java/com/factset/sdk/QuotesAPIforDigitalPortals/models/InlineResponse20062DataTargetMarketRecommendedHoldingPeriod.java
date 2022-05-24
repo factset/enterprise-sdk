@@ -89,6 +89,8 @@ public class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod impleme
   public static final String JSON_PROPERTY_HOLDING_PERIOD_YEARS = "holdingPeriodYears";
   private BigDecimal holdingPeriodYears;
 
+  public InlineResponse20062DataTargetMarketRecommendedHoldingPeriod() { 
+  }
 
   public InlineResponse20062DataTargetMarketRecommendedHoldingPeriod holdingPeriod(java.util.List<HoldingPeriodEnum> holdingPeriod) {
     this.holdingPeriod = holdingPeriod;

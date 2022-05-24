@@ -48,6 +48,7 @@ const ids = ["AAPL-US","0FPWZZ-E","TSLA-US"]; // [String] | The requested Market
 // Call api endpoint
 apiInstance.getEntityReferences(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const entityReferenceRequest = new factsetentity.EntityReferenceRequest(); // En
 // Call api endpoint
 apiInstance.postEntityReferences(entityReferenceRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

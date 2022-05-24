@@ -42,6 +42,8 @@ public class CategoriesErrorResponse implements Serializable {
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
 
+  public CategoriesErrorResponse() { 
+  }
 
   public CategoriesErrorResponse error(String error) {
     this.error = error;

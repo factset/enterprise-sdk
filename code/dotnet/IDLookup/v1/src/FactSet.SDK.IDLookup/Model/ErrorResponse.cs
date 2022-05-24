@@ -60,7 +60,7 @@ namespace FactSet.SDK.IDLookup.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorResponse {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  RequestKey: ").Append(RequestKey).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.IDLookup.Model
         public bool Equals(ErrorResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Description == input.Description ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.IDLookup.Model
             {
                 int hashCode = 41;
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.RequestKey != null)
-                    hashCode = hashCode * 59 + this.RequestKey.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestKey.GetHashCode();
+                }
                 return hashCode;
             }
         }

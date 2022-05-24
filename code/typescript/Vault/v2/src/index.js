@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AccountDirectories from './model/AccountDirectories';
 import Calculation from './model/Calculation';
@@ -42,6 +41,7 @@ import VaultConfiguration from './model/VaultConfiguration';
 import VaultConfigurationSummary from './model/VaultConfigurationSummary';
 import VaultDateParameters from './model/VaultDateParameters';
 import VaultIdentifier from './model/VaultIdentifier';
+
 import AccountsApi from './api/AccountsApi';
 import CalculationsApi from './api/CalculationsApi';
 import ComponentsApi from './api/ComponentsApi';
@@ -80,7 +80,7 @@ import FrequenciesApi from './api/FrequenciesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -303,5 +303,6 @@ export {
     * The FrequenciesApi service constructor.
     * @property {module:api/FrequenciesApi}
     */
-    FrequenciesApi
+    FrequenciesApi,
+
 };

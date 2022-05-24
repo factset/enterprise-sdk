@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetFunds.models.ErrorResponse;
 import com.factset.sdk.FactSetFunds.models.FundsPricesRequest;
@@ -29,6 +32,82 @@ public class PricesReturnsApi {
   public PricesReturnsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFundsPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsPricesResponseTypeMap.put(200, new GenericType<FundsPricesResponse>(){});
+    getFundsPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsPricesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsPricesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsPricesForListResponseTypeMap.put(200, new GenericType<FundsPricesResponse>(){});
+    getFundsPricesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsPricesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsPricesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsPricesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsReturnsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsReturnsResponseTypeMap.put(200, new GenericType<FundsReturnsResponse>(){});
+    getFundsReturnsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsReturnsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsReturnsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsReturnsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsReturnsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsReturnsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsReturnsForListResponseTypeMap.put(200, new GenericType<FundsReturnsResponse>(){});
+    getFundsReturnsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsReturnsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsReturnsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsReturnsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsReturnsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsReturnsRangeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsReturnsRangeResponseTypeMap.put(200, new GenericType<ReturnsRangeResponse>(){});
+    getFundsReturnsRangeResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsReturnsRangeForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsReturnsRangeForListResponseTypeMap.put(200, new GenericType<ReturnsRangeResponse>(){});
+    getFundsReturnsRangeForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsReturnsRangeForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsReturnsSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsReturnsSnapshotResponseTypeMap.put(200, new GenericType<FundsReturnsSnapshotResponse>(){});
+    getFundsReturnsSnapshotResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsReturnsSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsReturnsSnapshotForListResponseTypeMap.put(200, new GenericType<FundsReturnsSnapshotResponse>(){});
+    getFundsReturnsSnapshotForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsReturnsSnapshotForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -138,11 +217,17 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundsPricesResponse> localVarReturnType = new GenericType<FundsPricesResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundsPricesResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsPricesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Prices (NAV) for a requested date range and large list of ids.
@@ -215,11 +300,17 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundsPricesResponse> localVarReturnType = new GenericType<FundsPricesResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundsPricesResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsPricesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Returns for a requested time-series
@@ -308,11 +399,17 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundsReturnsResponse> localVarReturnType = new GenericType<FundsReturnsResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsReturns", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundsReturnsResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsReturns", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsReturnsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Returns for a requested time-series and large list of ids
@@ -385,11 +482,17 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundsReturnsResponse> localVarReturnType = new GenericType<FundsReturnsResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundsReturnsResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsReturnsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Returns for a user-defined date range
@@ -472,11 +575,17 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReturnsRangeResponse> localVarReturnType = new GenericType<ReturnsRangeResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsRange", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReturnsRangeResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsRange", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsReturnsRangeResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Returns over pre-defined time horizons as of a specific date for large list of ids.
@@ -549,11 +658,17 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReturnsRangeResponse> localVarReturnType = new GenericType<ReturnsRangeResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsRangeForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReturnsRangeResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsRangeForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsReturnsRangeForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Returns over pre-defined time horizons as of a specific date.
@@ -633,11 +748,17 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundsReturnsSnapshotResponse> localVarReturnType = new GenericType<FundsReturnsSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundsReturnsSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsReturnsSnapshotResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Returns over pre-defined time horizons as of a specific date.
@@ -710,10 +831,16 @@ public class PricesReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundsReturnsSnapshotResponse> localVarReturnType = new GenericType<FundsReturnsSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsSnapshotForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundsReturnsSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesReturnsApi.getFundsReturnsSnapshotForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsReturnsSnapshotForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

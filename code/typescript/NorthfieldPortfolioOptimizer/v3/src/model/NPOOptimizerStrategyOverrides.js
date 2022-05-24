@@ -17,7 +17,7 @@ import ConstraintAction from './ConstraintAction';
 /**
  * The NPOOptimizerStrategyOverrides model module.
  * @module model/NPOOptimizerStrategyOverrides
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NPOOptimizerStrategyOverrides {
     /**

@@ -23,7 +23,7 @@ import SuccessPostResponse from '../model/SuccessPostResponse';
 /**
 * Create service.
 * @module api/CreateApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class CreateApi {
 
@@ -62,7 +62,10 @@ export default class CreateApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse201;
+
       return this.apiClient.callApi(
         '/v1/database/', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class CreateApi {
      * Creates a 2d or 3d database(OFDB)
      * @param {Object} opts Optional parameters
      * @param {module:model/DatabaseSchema} opts.databaseSchema 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse201}
+     * @return { Promise.< module:model/InlineResponse201 > } a Promise, with data of type {@link module:model/InlineResponse201 }
      */
     createDatabase(opts) {
       return this.createDatabaseWithHttpInfo(opts)
@@ -120,7 +123,10 @@ export default class CreateApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SuccessPostResponse;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/dates/{date}/symbols', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -133,7 +139,7 @@ export default class CreateApi {
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
      * @param {module:model/InlineObject4} inlineObject4 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessPostResponse}
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     v1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4) {
       return this.v1DatabasePathDatesDateSymbolsPostWithHttpInfo(path, date, inlineObject4)
@@ -173,7 +179,10 @@ export default class CreateApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SuccessPostResponse;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/dates', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -185,7 +194,7 @@ export default class CreateApi {
      * Creates a new date with single/multiple symbols for a 3d database(OFDB).
      * @param {String} path Encode database path
      * @param {module:model/InlineObject2} inlineObject2 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessPostResponse}
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     v1DatabasePathDatesPost(path, inlineObject2) {
       return this.v1DatabasePathDatesPostWithHttpInfo(path, inlineObject2)
@@ -225,7 +234,10 @@ export default class CreateApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SuccessPostResponse;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/symbols', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -237,7 +249,7 @@ export default class CreateApi {
      * Creates a new symbol with single/multiple dates for 3d database(OFDB). Creates a symbol for 2d database(OFDB)
      * @param {String} path Encode database path
      * @param {module:model/InlineObject} inlineObject 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessPostResponse}
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     v1DatabasePathSymbolsPost(path, inlineObject) {
       return this.v1DatabasePathSymbolsPostWithHttpInfo(path, inlineObject)
@@ -248,3 +260,8 @@ export default class CreateApi {
 
 
 }
+
+
+
+
+

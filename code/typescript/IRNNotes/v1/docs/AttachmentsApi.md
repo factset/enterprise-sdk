@@ -5,7 +5,7 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createAttachment**](AttachmentsApi.md#createAttachment) | **POST** /v1/notes/{noteId}/attachments | Create an attachment for an existing note
-[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /v1/notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a note
+[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /v1/notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a Note
 [**getAttachments**](AttachmentsApi.md#getAttachments) | **GET** /v1/notes/{noteId}/attachments | Get all the attachments belonging to a note
 [**softDeleteNoteAttachment**](AttachmentsApi.md#softDeleteNoteAttachment) | **DELETE** /v1/notes/{noteId}/attachments/{attachmentId} | Delete attachment from note
 
@@ -49,6 +49,7 @@ const file = "/path/to/file"; // File |
 // Call api endpoint
 apiInstance.createAttachment(noteId, file).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -86,7 +87,7 @@ Name | Type | Description  | Notes
 
 > downloadAttachment(noteId, attachmentId)
 
-Download an attachment from a note
+Download an attachment from a Note
 
 ### Example
 
@@ -189,6 +190,7 @@ const noteId = "noteId_example"; // String | Note Id
 // Call api endpoint
 apiInstance.getAttachments(noteId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

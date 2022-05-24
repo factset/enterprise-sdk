@@ -43,6 +43,8 @@ public class LookupAssettype implements Serializable {
   public static final String JSON_PROPERTY_PEOPLE = "people";
   private Integer people;
 
+  public LookupAssettype() { 
+  }
 
   public LookupAssettype people(Integer people) {
     this.people = people;

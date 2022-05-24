@@ -39,28 +39,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = profiles_api.ProfilesApi(api_client)
+
     ids = ["0DPHLH-E","07MZV9-E"] # [str] | List of FactSet Person Entity identifier.
 
-    # example passing only required values which don't have defaults set
     try:
         # Return information about the person with the specified entity ID.
         api_response = api_instance.get_people_profiles(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling ProfilesApi->get_people_profiles: %s\n" % e)
 ```
@@ -129,30 +130,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = profiles_api.ProfilesApi(api_client)
+
     people_profiles_request = PeopleProfilesRequest(
         ids=Ids(["0DPHLH-E"]),
     ) # PeopleProfilesRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns profile information for a large list of people.
         api_response = api_instance.get_people_profiles_for_list(people_profiles_request)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling ProfilesApi->get_people_profiles_for_list: %s\n" % e)
 ```

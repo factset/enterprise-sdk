@@ -59,6 +59,8 @@ public class InlineResponse2004DataSensitivities implements Serializable {
   public static final String JSON_PROPERTY_CONVEXITY = "convexity";
   private InlineResponse2004DataSensitivitiesConvexity convexity;
 
+  public InlineResponse2004DataSensitivities() { 
+  }
 
   public InlineResponse2004DataSensitivities basePointValue(InlineResponse2004DataSensitivitiesBasePointValue basePointValue) {
     this.basePointValue = basePointValue;

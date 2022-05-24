@@ -86,6 +86,7 @@
                   "x-property-sort": [
                     "time",
                     "headline",
+                    "summary",
                     "body",
                     "types",
                     "language",
@@ -103,6 +104,10 @@
                     },
                     "headline": {
                       "description": "Headline of the news article represented as text with HTML entity encoding but without HTML tags.",
+                      "type": "string"
+                    },
+                    "summary": {
+                      "description": "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.",
                       "type": "string"
                     },
                     "body": {
@@ -223,7 +228,8 @@
                       "items": {
                         "type": "object",
                         "x-property-sort": [
-                          "id"
+                          "id",
+                          "fsym"
                         ],
                         "properties": {
                           "id": {
@@ -231,6 +237,28 @@
                             "type": "string",
                             "format": "id64",
                             "x-positive": true
+                          },
+                          "fsym": {
+                            "type": "object",
+                            "x-property-sort": [
+                              "security"
+                            ],
+                            "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                            "properties": {
+                              "security": {
+                                "type": "object",
+                                "x-property-sort": [
+                                  "permanentIdentifier"
+                                ],
+                                "description": "Security-level identifier.",
+                                "properties": {
+                                  "permanentIdentifier": {
+                                    "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).",
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -374,7 +402,7 @@
                             "start",
                             "end"
                           ],
-                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null."
+                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`."
                         },
                         "categories": {
                           "type": "object",
@@ -391,7 +419,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the categories."
                             }
@@ -412,7 +440,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the regions."
                             }
@@ -433,7 +461,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the distributors."
                             }
@@ -454,7 +482,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the publishers."
                             }
@@ -475,7 +503,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the languages."
                             }
@@ -496,7 +524,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the article types."
                             }
@@ -587,12 +615,14 @@
                       "code",
                       "time",
                       "headline",
+                      "summary",
                       "types",
                       "language",
                       "distributor",
                       "publisher",
                       "categories",
-                      "chain"
+                      "chain",
+                      "instruments"
                     ],
                     "properties": {
                       "code": {
@@ -608,6 +638,11 @@
                       "headline": {
                         "x-pushable": true,
                         "description": "Headline of the news article represented as text with HTML entity encoding but without HTML tags.",
+                        "type": "string"
+                      },
+                      "summary": {
+                        "x-pushable": true,
+                        "description": "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.",
                         "type": "string"
                       },
                       "types": {
@@ -705,6 +740,49 @@
                             "type": "string",
                             "format": "id64",
                             "x-positive": true
+                          }
+                        }
+                      },
+                      "instruments": {
+                        "description": "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "x-property-sort": [
+                            "id",
+                            "fsym"
+                          ],
+                          "properties": {
+                            "id": {
+                              "x-pushable": true,
+                              "description": "Identifier of the instrument.",
+                              "type": "string",
+                              "format": "id64",
+                              "x-positive": true
+                            },
+                            "fsym": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "security"
+                              ],
+                              "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                              "properties": {
+                                "security": {
+                                  "type": "object",
+                                  "x-property-sort": [
+                                    "permanentIdentifier"
+                                  ],
+                                  "description": "Security-level identifier.",
+                                  "properties": {
+                                    "permanentIdentifier": {
+                                      "x-pushable": true,
+                                      "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -810,7 +888,7 @@
                             "start",
                             "end"
                           ],
-                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null."
+                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`."
                         }
                       }
                     }
@@ -942,9 +1020,11 @@
                           "code",
                           "time",
                           "headline",
+                          "summary",
                           "types",
                           "language",
-                          "categories"
+                          "categories",
+                          "instruments"
                         ],
                         "properties": {
                           "code": {
@@ -960,6 +1040,11 @@
                           "headline": {
                             "x-pushable": true,
                             "description": "Headline of the news article represented as text with HTML entity encoding but without HTML tags.",
+                            "type": "string"
+                          },
+                          "summary": {
+                            "x-pushable": true,
+                            "description": "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.",
                             "type": "string"
                           },
                           "types": {
@@ -1010,6 +1095,49 @@
                                   "type": "number",
                                   "format": "id32",
                                   "x-positive": true
+                                }
+                              }
+                            }
+                          },
+                          "instruments": {
+                            "description": "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "id",
+                                "fsym"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "x-pushable": true,
+                                  "description": "Identifier of the instrument.",
+                                  "type": "string",
+                                  "format": "id64",
+                                  "x-positive": true
+                                },
+                                "fsym": {
+                                  "type": "object",
+                                  "x-property-sort": [
+                                    "security"
+                                  ],
+                                  "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                                  "properties": {
+                                    "security": {
+                                      "type": "object",
+                                      "x-property-sort": [
+                                        "permanentIdentifier"
+                                      ],
+                                      "description": "Security-level identifier.",
+                                      "properties": {
+                                        "permanentIdentifier": {
+                                          "x-pushable": true,
+                                          "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).",
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -1088,7 +1216,7 @@
                         "x-positive": true
                       },
                       "minItems": 1,
-                      "maxItems": 64,
+                      "maxItems": 500,
                       "uniqueItems": true,
                       "description": "List of index notation identifiers."
                     },
@@ -1130,7 +1258,7 @@
                             "start",
                             "end"
                           ],
-                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null."
+                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`."
                         },
                         "categories": {
                           "type": "object",
@@ -1147,7 +1275,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the categories."
                             }
@@ -1168,7 +1296,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the regions."
                             }
@@ -1189,7 +1317,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the distributors."
                             }
@@ -1210,7 +1338,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the publishers."
                             }
@@ -1231,7 +1359,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the languages."
                             }
@@ -1252,7 +1380,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the article types."
                             }
@@ -1349,12 +1477,14 @@
                       "code",
                       "time",
                       "headline",
+                      "summary",
                       "types",
                       "language",
                       "distributor",
                       "publisher",
                       "categories",
-                      "chain"
+                      "chain",
+                      "instruments"
                     ],
                     "properties": {
                       "code": {
@@ -1370,6 +1500,11 @@
                       "headline": {
                         "x-pushable": true,
                         "description": "Headline of the news article represented as text with HTML entity encoding but without HTML tags.",
+                        "type": "string"
+                      },
+                      "summary": {
+                        "x-pushable": true,
+                        "description": "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.",
                         "type": "string"
                       },
                       "types": {
@@ -1467,6 +1602,49 @@
                             "type": "string",
                             "format": "id64",
                             "x-positive": true
+                          }
+                        }
+                      },
+                      "instruments": {
+                        "description": "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "x-property-sort": [
+                            "id",
+                            "fsym"
+                          ],
+                          "properties": {
+                            "id": {
+                              "x-pushable": true,
+                              "description": "Identifier of the instrument.",
+                              "type": "string",
+                              "format": "id64",
+                              "x-positive": true
+                            },
+                            "fsym": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "security"
+                              ],
+                              "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                              "properties": {
+                                "security": {
+                                  "type": "object",
+                                  "x-property-sort": [
+                                    "permanentIdentifier"
+                                  ],
+                                  "description": "Security-level identifier.",
+                                  "properties": {
+                                    "permanentIdentifier": {
+                                      "x-pushable": true,
+                                      "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1542,7 +1720,7 @@
                         "x-positive": true
                       },
                       "minItems": 1,
-                      "maxItems": 256,
+                      "maxItems": 1000,
                       "uniqueItems": true,
                       "description": "List of instrument identifiers."
                     },
@@ -1584,7 +1762,7 @@
                             "start",
                             "end"
                           ],
-                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null."
+                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`."
                         },
                         "categories": {
                           "type": "object",
@@ -1601,7 +1779,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the categories."
                             }
@@ -1622,7 +1800,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the regions."
                             }
@@ -1643,7 +1821,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the distributors."
                             }
@@ -1664,7 +1842,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the publishers."
                             }
@@ -1685,7 +1863,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the languages."
                             }
@@ -1706,7 +1884,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the article types."
                             }
@@ -1803,12 +1981,14 @@
                       "code",
                       "time",
                       "headline",
+                      "summary",
                       "types",
                       "language",
                       "distributor",
                       "publisher",
                       "categories",
-                      "chain"
+                      "chain",
+                      "instruments"
                     ],
                     "properties": {
                       "code": {
@@ -1824,6 +2004,11 @@
                       "headline": {
                         "x-pushable": true,
                         "description": "Headline of the news article represented as text with HTML entity encoding but without HTML tags.",
+                        "type": "string"
+                      },
+                      "summary": {
+                        "x-pushable": true,
+                        "description": "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.",
                         "type": "string"
                       },
                       "types": {
@@ -1921,6 +2106,49 @@
                             "type": "string",
                             "format": "id64",
                             "x-positive": true
+                          }
+                        }
+                      },
+                      "instruments": {
+                        "description": "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "x-property-sort": [
+                            "id",
+                            "fsym"
+                          ],
+                          "properties": {
+                            "id": {
+                              "x-pushable": true,
+                              "description": "Identifier of the instrument.",
+                              "type": "string",
+                              "format": "id64",
+                              "x-positive": true
+                            },
+                            "fsym": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "security"
+                              ],
+                              "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                              "properties": {
+                                "security": {
+                                  "type": "object",
+                                  "x-property-sort": [
+                                    "permanentIdentifier"
+                                  ],
+                                  "description": "Security-level identifier.",
+                                  "properties": {
+                                    "permanentIdentifier": {
+                                      "x-pushable": true,
+                                      "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -1996,7 +2224,7 @@
                         "x-positive": true
                       },
                       "minItems": 1,
-                      "maxItems": 16,
+                      "maxItems": 20,
                       "uniqueItems": true,
                       "description": "List of media kind identifiers. See endpoint `/basic/media/kind/list` for valid values."
                     },
@@ -2038,7 +2266,7 @@
                             "start",
                             "end"
                           ],
-                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null."
+                          "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`."
                         },
                         "categories": {
                           "type": "object",
@@ -2055,7 +2283,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the categories."
                             }
@@ -2076,7 +2304,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the regions."
                             }
@@ -2097,7 +2325,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the distributors."
                             }
@@ -2118,7 +2346,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the publishers."
                             }
@@ -2139,7 +2367,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the languages."
                             }
@@ -2160,7 +2388,7 @@
                                 "x-positive": true
                               },
                               "minItems": 1,
-                              "maxItems": 64,
+                              "maxItems": 100,
                               "uniqueItems": true,
                               "description": "Identifiers of the article types."
                             }
@@ -2257,12 +2485,14 @@
                       "code",
                       "time",
                       "headline",
+                      "summary",
                       "types",
                       "language",
                       "distributor",
                       "publisher",
                       "categories",
-                      "chain"
+                      "chain",
+                      "instruments"
                     ],
                     "properties": {
                       "code": {
@@ -2278,6 +2508,11 @@
                       "headline": {
                         "x-pushable": true,
                         "description": "Headline of the news article represented as text with HTML entity encoding but without HTML tags.",
+                        "type": "string"
+                      },
+                      "summary": {
+                        "x-pushable": true,
+                        "description": "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.",
                         "type": "string"
                       },
                       "types": {
@@ -2375,6 +2610,49 @@
                             "type": "string",
                             "format": "id64",
                             "x-positive": true
+                          }
+                        }
+                      },
+                      "instruments": {
+                        "description": "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "x-property-sort": [
+                            "id",
+                            "fsym"
+                          ],
+                          "properties": {
+                            "id": {
+                              "x-pushable": true,
+                              "description": "Identifier of the instrument.",
+                              "type": "string",
+                              "format": "id64",
+                              "x-positive": true
+                            },
+                            "fsym": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "security"
+                              ],
+                              "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                              "properties": {
+                                "security": {
+                                  "type": "object",
+                                  "x-property-sort": [
+                                    "permanentIdentifier"
+                                  ],
+                                  "description": "Security-level identifier.",
+                                  "properties": {
+                                    "permanentIdentifier": {
+                                      "x-pushable": true,
+                                      "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -2563,7 +2841,7 @@
                               "start",
                               "end"
                             ],
-                            "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null."
+                            "description": "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`."
                           },
                           "indices": {
                             "type": "object",
@@ -2580,7 +2858,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 500,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the index notations."
                               }
@@ -2601,7 +2879,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 1000,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the instruments."
                               }
@@ -2622,7 +2900,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 100,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the article types."
                               }
@@ -2643,7 +2921,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 100,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the categories."
                               }
@@ -2664,7 +2942,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 100,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the regions."
                               }
@@ -2685,7 +2963,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 100,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the distributors."
                               }
@@ -2706,7 +2984,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 100,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the publishers."
                               }
@@ -2727,7 +3005,7 @@
                                   "x-positive": true
                                 },
                                 "minItems": 1,
-                                "maxItems": 64,
+                                "maxItems": 100,
                                 "uniqueItems": true,
                                 "description": "Identifiers of the languages."
                               }
@@ -2820,12 +3098,14 @@
                       "code",
                       "time",
                       "headline",
+                      "summary",
                       "types",
                       "language",
                       "distributor",
                       "publisher",
                       "categories",
-                      "chain"
+                      "chain",
+                      "instruments"
                     ],
                     "properties": {
                       "code": {
@@ -2841,6 +3121,11 @@
                       "headline": {
                         "x-pushable": true,
                         "description": "Headline of the news article represented as text with HTML entity encoding but without HTML tags.",
+                        "type": "string"
+                      },
+                      "summary": {
+                        "x-pushable": true,
+                        "description": "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.",
                         "type": "string"
                       },
                       "types": {
@@ -2938,6 +3223,49 @@
                             "type": "string",
                             "format": "id64",
                             "x-positive": true
+                          }
+                        }
+                      },
+                      "instruments": {
+                        "description": "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "x-property-sort": [
+                            "id",
+                            "fsym"
+                          ],
+                          "properties": {
+                            "id": {
+                              "x-pushable": true,
+                              "description": "Identifier of the instrument.",
+                              "type": "string",
+                              "format": "id64",
+                              "x-positive": true
+                            },
+                            "fsym": {
+                              "type": "object",
+                              "x-property-sort": [
+                                "security"
+                              ],
+                              "description": "Instrument-level FactSet identifier of the financial instrument used primarily in FactSet products other than the MDG.",
+                              "properties": {
+                                "security": {
+                                  "type": "object",
+                                  "x-property-sort": [
+                                    "permanentIdentifier"
+                                  ],
+                                  "description": "Security-level identifier.",
+                                  "properties": {
+                                    "permanentIdentifier": {
+                                      "x-pushable": true,
+                                      "description": "FactSet Permanent Identifier for an instrument. The format is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).",
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -3986,8 +4314,8 @@
     "version": "v1"
   },
   "x-interface-version": 1,
-  "x-documenter-version": "5.38.0",
-  "x-api-version": "2.9.0",
+  "x-documenter-version": "5.38.1",
+  "x-api-version": "2.9.1",
   "tags": [
     {
       "name": "news",
@@ -4114,15 +4442,15 @@
         },
         "isEstimatedTotal": {
           "type": "boolean",
-          "description": "Flag indicating that the value of \"total\" is estimated."
+          "description": "Flag indicating that the value of `total` is estimated."
         },
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -4144,11 +4472,11 @@
       "properties": {
         "next": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null."
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
         },
         "previous": {
           "type": "string",
-          "description": "Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null."
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
         }
       },
       "required": [
@@ -4217,6 +4545,9 @@
     }
   },
   "basePath": "/wealth/v1",
+  "schemes": [
+    "https"
+  ],
   "securityDefinitions": {
     "FactSetApiKey": {
       "type": "basic"

@@ -36,6 +36,8 @@ namespace FactSet.SDK.IRNNotes.Model
         /// </summary>
         /// <param name="author">author.</param>
         /// <param name="title">title.</param>
+        /// <param name="subjectId">subjectId.</param>
+        /// <param name="noteDate">noteDate.</param>
         /// <param name="recommendationId">recommendationId.</param>
         /// <param name="sentimentId">sentimentId.</param>
         /// <param name="body">body.</param>
@@ -46,10 +48,13 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <param name="relatedRecords">relatedRecords.</param>
         /// <param name="customFieldValues">customFieldValues.</param>
         /// <param name="isPersonal">isPersonal.</param>
-        public UpdateNoteDto(UserSerialDto author = default(UserSerialDto), string title = default(string), Guid? recommendationId = default(Guid?), Guid? sentimentId = default(Guid?), CreateBodyDto body = default(CreateBodyDto), string source = default(string), string link = default(string), List<string> relatedSymbols = default(List<string>), List<Guid> relatedContacts = default(List<Guid>), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<CreateCustomFieldValueDto> customFieldValues = default(List<CreateCustomFieldValueDto>), bool? isPersonal = default(bool?))
+        /// <param name="identifier">identifier.</param>
+        public UpdateNoteDto(UserSerialDto author = default(UserSerialDto), string title = default(string), Guid subjectId = default(Guid), string noteDate = default(string), Guid? recommendationId = default(Guid?), Guid? sentimentId = default(Guid?), CreateBodyDto body = default(CreateBodyDto), string source = default(string), string link = default(string), List<string> relatedSymbols = default(List<string>), List<Guid> relatedContacts = default(List<Guid>), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<CreateCustomFieldValueDto> customFieldValues = default(List<CreateCustomFieldValueDto>), bool? isPersonal = default(bool?), string identifier = default(string))
         {
             this.Author = author;
             this.Title = title;
+            this.SubjectId = subjectId;
+            this.NoteDate = noteDate;
             this.RecommendationId = recommendationId;
             this.SentimentId = sentimentId;
             this.Body = body;
@@ -60,79 +65,98 @@ namespace FactSet.SDK.IRNNotes.Model
             this.RelatedRecords = relatedRecords;
             this.CustomFieldValues = customFieldValues;
             this.IsPersonal = isPersonal;
+            this.Identifier = identifier;
         }
 
         /// <summary>
         /// Gets or Sets Author
         /// </summary>
-        [DataMember(Name = "author", EmitDefaultValue = false)]
+        [DataMember(Name = "Author", EmitDefaultValue = false)]
         public UserSerialDto Author { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "Title", EmitDefaultValue = true)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SubjectId
+        /// </summary>
+        [DataMember(Name = "SubjectId", EmitDefaultValue = false)]
+        public Guid SubjectId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NoteDate
+        /// </summary>
+        [DataMember(Name = "NoteDate", EmitDefaultValue = true)]
+        public string NoteDate { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendationId
         /// </summary>
-        [DataMember(Name = "recommendationId", EmitDefaultValue = true)]
+        [DataMember(Name = "RecommendationId", EmitDefaultValue = true)]
         public Guid? RecommendationId { get; set; }
 
         /// <summary>
         /// Gets or Sets SentimentId
         /// </summary>
-        [DataMember(Name = "sentimentId", EmitDefaultValue = true)]
+        [DataMember(Name = "SentimentId", EmitDefaultValue = true)]
         public Guid? SentimentId { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name = "body", EmitDefaultValue = false)]
+        [DataMember(Name = "Body", EmitDefaultValue = false)]
         public CreateBodyDto Body { get; set; }
 
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = true)]
+        [DataMember(Name = "Source", EmitDefaultValue = true)]
         public string Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Link
         /// </summary>
-        [DataMember(Name = "link", EmitDefaultValue = true)]
+        [DataMember(Name = "Link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedSymbols
         /// </summary>
-        [DataMember(Name = "relatedSymbols", EmitDefaultValue = true)]
+        [DataMember(Name = "RelatedSymbols", EmitDefaultValue = true)]
         public List<string> RelatedSymbols { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedContacts
         /// </summary>
-        [DataMember(Name = "relatedContacts", EmitDefaultValue = true)]
+        [DataMember(Name = "RelatedContacts", EmitDefaultValue = true)]
         public List<Guid> RelatedContacts { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedRecords
         /// </summary>
-        [DataMember(Name = "relatedRecords", EmitDefaultValue = false)]
+        [DataMember(Name = "RelatedRecords", EmitDefaultValue = false)]
         public RelatedRecordsDto RelatedRecords { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFieldValues
         /// </summary>
-        [DataMember(Name = "customFieldValues", EmitDefaultValue = true)]
+        [DataMember(Name = "CustomFieldValues", EmitDefaultValue = true)]
         public List<CreateCustomFieldValueDto> CustomFieldValues { get; set; }
 
         /// <summary>
         /// Gets or Sets IsPersonal
         /// </summary>
-        [DataMember(Name = "isPersonal", EmitDefaultValue = true)]
+        [DataMember(Name = "IsPersonal", EmitDefaultValue = true)]
         public bool? IsPersonal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Identifier
+        /// </summary>
+        [DataMember(Name = "Identifier", EmitDefaultValue = true)]
+        public string Identifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,10 +164,12 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateNoteDto {\n");
             sb.Append("  Author: ").Append(Author).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  SubjectId: ").Append(SubjectId).Append("\n");
+            sb.Append("  NoteDate: ").Append(NoteDate).Append("\n");
             sb.Append("  RecommendationId: ").Append(RecommendationId).Append("\n");
             sb.Append("  SentimentId: ").Append(SentimentId).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
@@ -154,6 +180,7 @@ namespace FactSet.SDK.IRNNotes.Model
             sb.Append("  RelatedRecords: ").Append(RelatedRecords).Append("\n");
             sb.Append("  CustomFieldValues: ").Append(CustomFieldValues).Append("\n");
             sb.Append("  IsPersonal: ").Append(IsPersonal).Append("\n");
+            sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,8 +212,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(UpdateNoteDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Author == input.Author ||
@@ -197,6 +225,16 @@ namespace FactSet.SDK.IRNNotes.Model
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.SubjectId == input.SubjectId ||
+                    (this.SubjectId != null &&
+                    this.SubjectId.Equals(input.SubjectId))
+                ) && 
+                (
+                    this.NoteDate == input.NoteDate ||
+                    (this.NoteDate != null &&
+                    this.NoteDate.Equals(input.NoteDate))
                 ) && 
                 (
                     this.RecommendationId == input.RecommendationId ||
@@ -250,6 +288,11 @@ namespace FactSet.SDK.IRNNotes.Model
                     this.IsPersonal == input.IsPersonal ||
                     (this.IsPersonal != null &&
                     this.IsPersonal.Equals(input.IsPersonal))
+                ) && 
+                (
+                    this.Identifier == input.Identifier ||
+                    (this.Identifier != null &&
+                    this.Identifier.Equals(input.Identifier))
                 );
         }
 
@@ -263,29 +306,65 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Author != null)
-                    hashCode = hashCode * 59 + this.Author.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Author.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.SubjectId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SubjectId.GetHashCode();
+                }
+                if (this.NoteDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.NoteDate.GetHashCode();
+                }
                 if (this.RecommendationId != null)
-                    hashCode = hashCode * 59 + this.RecommendationId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RecommendationId.GetHashCode();
+                }
                 if (this.SentimentId != null)
-                    hashCode = hashCode * 59 + this.SentimentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SentimentId.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
                 if (this.Link != null)
-                    hashCode = hashCode * 59 + this.Link.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
+                }
                 if (this.RelatedSymbols != null)
-                    hashCode = hashCode * 59 + this.RelatedSymbols.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedSymbols.GetHashCode();
+                }
                 if (this.RelatedContacts != null)
-                    hashCode = hashCode * 59 + this.RelatedContacts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedContacts.GetHashCode();
+                }
                 if (this.RelatedRecords != null)
-                    hashCode = hashCode * 59 + this.RelatedRecords.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedRecords.GetHashCode();
+                }
                 if (this.CustomFieldValues != null)
-                    hashCode = hashCode * 59 + this.CustomFieldValues.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CustomFieldValues.GetHashCode();
+                }
                 if (this.IsPersonal != null)
-                    hashCode = hashCode * 59 + this.IsPersonal.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IsPersonal.GetHashCode();
+                }
+                if (this.Identifier != null)
+                {
+                    hashCode = (hashCode * 59) + this.Identifier.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -298,15 +377,27 @@ namespace FactSet.SDK.IRNNotes.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Title (string) maxLength
-            if(this.Title != null && this.Title.Length > 255)
+            if (this.Title != null && this.Title.Length > 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
             }
 
             // Title (string) minLength
-            if(this.Title != null && this.Title.Length < 0)
+            if (this.Title != null && this.Title.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
+            }
+
+            // Link (string) maxLength
+            if (this.Link != null && this.Link.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Link, length must be less than 255.", new [] { "Link" });
+            }
+
+            // Link (string) minLength
+            if (this.Link != null && this.Link.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Link, length must be greater than 0.", new [] { "Link" });
             }
 
             yield break;

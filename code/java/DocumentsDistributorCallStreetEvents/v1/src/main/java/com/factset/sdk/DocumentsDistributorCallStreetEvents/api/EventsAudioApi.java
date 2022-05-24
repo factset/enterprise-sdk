@@ -7,11 +7,14 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.Configuration;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.Error;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.EventsAudio;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.EventsAudio400Response;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventsAudioApi {
@@ -24,6 +27,18 @@ public class EventsAudioApi {
   public EventsAudioApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getDocsDistributorAudioV1ListFilesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDocsDistributorAudioV1ListFilesResponseTypeMap.put(200, new GenericType<EventsAudio>(){});
+    getDocsDistributorAudioV1ListFilesResponseTypeMap.put(400, new GenericType<EventsAudio400Response>(){});
+    getDocsDistributorAudioV1ListFilesResponseTypeMap.put(401, new GenericType<Error>(){});
+    getDocsDistributorAudioV1ListFilesResponseTypeMap.put(403, new GenericType<Error>(){});
+    getDocsDistributorAudioV1ListFilesResponseTypeMap.put(500, new GenericType<Error>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -138,10 +153,16 @@ public class EventsAudioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EventsAudio> localVarReturnType = new GenericType<EventsAudio>() {};
 
-    return apiClient.invokeAPI("EventsAudioApi.getDocsDistributorAudioV1ListFiles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EventsAudio
+      
+    > apiResponse = apiClient.invokeAPI("EventsAudioApi.getDocsDistributorAudioV1ListFiles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDocsDistributorAudioV1ListFilesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

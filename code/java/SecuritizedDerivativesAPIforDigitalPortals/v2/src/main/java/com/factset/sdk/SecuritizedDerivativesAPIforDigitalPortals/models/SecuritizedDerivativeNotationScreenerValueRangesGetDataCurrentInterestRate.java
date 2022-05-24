@@ -83,6 +83,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInter
   public static final String JSON_PROPERTY_VALUE = "value";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRateValue value;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRate() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRate type(TypeEnum type) {
     this.type = type;

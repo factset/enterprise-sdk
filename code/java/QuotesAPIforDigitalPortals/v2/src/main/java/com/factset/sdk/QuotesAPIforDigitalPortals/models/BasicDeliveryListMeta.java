@@ -82,6 +82,8 @@ public class BasicDeliveryListMeta implements Serializable {
   public static final String JSON_PROPERTY_SORT = "sort";
   private java.util.Set<SortEnum> sort = null;
 
+  public BasicDeliveryListMeta() { 
+  }
 
   public BasicDeliveryListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

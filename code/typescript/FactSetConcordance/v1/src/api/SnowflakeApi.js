@@ -19,7 +19,7 @@ import SnowflakeEntityMatchResponse from '../model/SnowflakeEntityMatchResponse'
 /**
 * Snowflake service.
 * @module api/SnowflakeApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class SnowflakeApi {
 
@@ -70,7 +70,10 @@ export default class SnowflakeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SnowflakeEntityMatchResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/snowflake-entity-match', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -86,7 +89,7 @@ export default class SnowflakeApi {
      * @param {String} opts.country ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754).
      * @param {String} opts.state Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported.
      * @param {String} opts.url URL corresponding to the entity name that is used when evaluating candidates for a match.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SnowflakeEntityMatchResponse}
+     * @return { Promise.< module:model/SnowflakeEntityMatchResponse > } a Promise, with data of type {@link module:model/SnowflakeEntityMatchResponse }
      */
     getSnowflakeEntityMatch(name, opts) {
       return this.getSnowflakeEntityMatchWithHttpInfo(name, opts)
@@ -121,7 +124,10 @@ export default class SnowflakeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SnowflakeEntityMatchResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/snowflake-entity-match', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -133,7 +139,7 @@ export default class SnowflakeApi {
      * Perform an entity search and return a snowflake-friendly response. Up to 25 Names per request.
      * Finds the best candidate entities matching the given company name. Additional attributes can be supplied to narrow the search. *This endpoint is used natively within Snowflake and is not to be consumed directly by users. Reach out to your FactSet Account team to learn more about Concordance in Snowflake.* 
      * @param {module:model/SnowflakeEntityMatchRequest} snowflakeEntityMatchRequest A request to match an entity name and its attributes within Snowflake.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SnowflakeEntityMatchResponse}
+     * @return { Promise.< module:model/SnowflakeEntityMatchResponse > } a Promise, with data of type {@link module:model/SnowflakeEntityMatchResponse }
      */
     getSnowflakeEntityMatchForList(snowflakeEntityMatchRequest) {
       return this.getSnowflakeEntityMatchForListWithHttpInfo(snowflakeEntityMatchRequest)
@@ -144,3 +150,8 @@ export default class SnowflakeApi {
 
 
 }
+
+
+
+
+

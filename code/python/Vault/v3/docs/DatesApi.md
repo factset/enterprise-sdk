@@ -38,40 +38,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dates_api.DatesApi(api_client)
+
     enddate = "enddate_example" # str | End Date
     componentid = "componentid_example" # str | Vault Component Id
     account = "account_example" # str | Account
     startdate = "startdate_example" # str | Start Date (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Convert Vault dates to absolute format
-        api_response = api_instance.convert_vault_dates_to_absolute_format(enddate, componentid, account)
-        pprint(api_response)
-    except fds.sdk.Vault.ApiException as e:
-        print("Exception when calling DatesApi->convert_vault_dates_to_absolute_format: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Convert Vault dates to absolute format
         api_response = api_instance.convert_vault_dates_to_absolute_format(enddate, componentid, account, startdate=startdate)
         pprint(api_response)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling DatesApi->convert_vault_dates_to_absolute_format: %s\n" % e)
 ```

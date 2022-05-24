@@ -63,6 +63,8 @@ public class InlineResponse200DataMedia implements Serializable {
   public static final String JSON_PROPERTY_HEIGHT = "height";
   private BigDecimal height;
 
+  public InlineResponse200DataMedia() { 
+  }
 
   public InlineResponse200DataMedia url(String url) {
     this.url = url;

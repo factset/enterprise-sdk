@@ -18,7 +18,7 @@ import InlineResponse2007DataRangeUpper from './InlineResponse2007DataRangeUpper
 /**
  * The InlineResponse2007DataRange model module.
  * @module model/InlineResponse2007DataRange
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataRange {
     /**

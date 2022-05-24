@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AttachmentSummaryDto from './model/AttachmentSummaryDto';
 import CommentDto from './model/CommentDto';
@@ -21,20 +20,21 @@ import CreateCommentDto from './model/CreateCommentDto';
 import CreateCustomFieldValueDto from './model/CreateCustomFieldValueDto';
 import CreateNoteDto from './model/CreateNoteDto';
 import CustomFieldValueDto from './model/CustomFieldValueDto';
-import IdentifierResolutionDto from './model/IdentifierResolutionDto';
+import EventSnippetDto from './model/EventSnippetDto';
 import NewItemDto from './model/NewItemDto';
 import NoteDto from './model/NoteDto';
 import NoteEventDto from './model/NoteEventDto';
 import NoteSummaryDto from './model/NoteSummaryDto';
 import Operation from './model/Operation';
+import OperationType from './model/OperationType';
 import ProblemDetails from './model/ProblemDetails';
 import RecordChangeDto from './model/RecordChangeDto';
 import RecordEventSummaryDto from './model/RecordEventSummaryDto';
 import RelatedRecordsDto from './model/RelatedRecordsDto';
-import ResolvedInstrumentDto from './model/ResolvedInstrumentDto';
 import SubcommentSummaryDto from './model/SubcommentSummaryDto';
 import UpdateNoteDto from './model/UpdateNoteDto';
 import UserSerialDto from './model/UserSerialDto';
+
 import AttachmentsApi from './api/AttachmentsApi';
 import CommentsApi from './api/CommentsApi';
 import EventsApi from './api/EventsApi';
@@ -71,7 +71,7 @@ import NotesApi from './api/NotesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -129,10 +129,10 @@ export {
     CustomFieldValueDto,
 
     /**
-     * The IdentifierResolutionDto model constructor.
-     * @property {module:model/IdentifierResolutionDto}
+     * The EventSnippetDto model constructor.
+     * @property {module:model/EventSnippetDto}
      */
-    IdentifierResolutionDto,
+    EventSnippetDto,
 
     /**
      * The NewItemDto model constructor.
@@ -165,6 +165,12 @@ export {
     Operation,
 
     /**
+     * The OperationType model constructor.
+     * @property {module:model/OperationType}
+     */
+    OperationType,
+
+    /**
      * The ProblemDetails model constructor.
      * @property {module:model/ProblemDetails}
      */
@@ -187,12 +193,6 @@ export {
      * @property {module:model/RelatedRecordsDto}
      */
     RelatedRecordsDto,
-
-    /**
-     * The ResolvedInstrumentDto model constructor.
-     * @property {module:model/ResolvedInstrumentDto}
-     */
-    ResolvedInstrumentDto,
 
     /**
      * The SubcommentSummaryDto model constructor.
@@ -240,5 +240,6 @@ export {
     * The NotesApi service constructor.
     * @property {module:api/NotesApi}
     */
-    NotesApi
+    NotesApi,
+
 };

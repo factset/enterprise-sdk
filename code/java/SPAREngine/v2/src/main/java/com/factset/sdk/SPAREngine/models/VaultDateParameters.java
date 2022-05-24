@@ -51,6 +51,18 @@ public class VaultDateParameters implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private String frequency;
 
+  public VaultDateParameters() { 
+  }
+
+  @JsonCreator
+  public VaultDateParameters(
+    @JsonProperty(value=JSON_PROPERTY_ENDDATE, required=true) String enddate, 
+    @JsonProperty(value=JSON_PROPERTY_FREQUENCY, required=true) String frequency
+  ) {
+    this();
+    this.enddate = enddate;
+    this.frequency = frequency;
+  }
 
   public VaultDateParameters startdate(String startdate) {
     this.startdate = startdate;

@@ -64,6 +64,8 @@ public class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare 
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareCashFlow cashFlow;
 
+  public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare() { 
+  }
 
   public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare sales(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareSales sales) {
     this.sales = sales;

@@ -43,6 +43,8 @@ public class Description implements Serializable {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private DescriptionDescription description;
 
+  public Description() { 
+  }
 
   public Description description(DescriptionDescription description) {
     this.description = description;

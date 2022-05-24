@@ -53,37 +53,37 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Field
         /// </summary>
-        [DataMember(Name = "field", EmitDefaultValue = true)]
+        [DataMember(Name = "Field", EmitDefaultValue = true)]
         public string Field { get; set; }
 
         /// <summary>
         /// Gets or Sets Operation
         /// </summary>
-        [DataMember(Name = "operation", EmitDefaultValue = true)]
+        [DataMember(Name = "Operation", EmitDefaultValue = true)]
         public string Operation { get; set; }
 
         /// <summary>
         /// Gets or Sets OldValue
         /// </summary>
-        [DataMember(Name = "oldValue", EmitDefaultValue = true)]
+        [DataMember(Name = "OldValue", EmitDefaultValue = true)]
         public string OldValue { get; set; }
 
         /// <summary>
         /// Gets or Sets NewValue
         /// </summary>
-        [DataMember(Name = "newValue", EmitDefaultValue = true)]
+        [DataMember(Name = "NewValue", EmitDefaultValue = true)]
         public string NewValue { get; set; }
 
         /// <summary>
         /// Gets or Sets OldList
         /// </summary>
-        [DataMember(Name = "oldList", EmitDefaultValue = true)]
+        [DataMember(Name = "OldList", EmitDefaultValue = true)]
         public List<string> OldList { get; set; }
 
         /// <summary>
         /// Gets or Sets NewList
         /// </summary>
-        [DataMember(Name = "newList", EmitDefaultValue = true)]
+        [DataMember(Name = "NewList", EmitDefaultValue = true)]
         public List<string> NewList { get; set; }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RecordChangeDto {\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("  Operation: ").Append(Operation).Append("\n");
@@ -131,8 +131,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(RecordChangeDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Field == input.Field ||
@@ -178,17 +179,29 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Field != null)
-                    hashCode = hashCode * 59 + this.Field.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Field.GetHashCode();
+                }
                 if (this.Operation != null)
-                    hashCode = hashCode * 59 + this.Operation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Operation.GetHashCode();
+                }
                 if (this.OldValue != null)
-                    hashCode = hashCode * 59 + this.OldValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OldValue.GetHashCode();
+                }
                 if (this.NewValue != null)
-                    hashCode = hashCode * 59 + this.NewValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NewValue.GetHashCode();
+                }
                 if (this.OldList != null)
-                    hashCode = hashCode * 59 + this.OldList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OldList.GetHashCode();
+                }
                 if (this.NewList != null)
-                    hashCode = hashCode * 59 + this.NewList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NewList.GetHashCode();
+                }
                 return hashCode;
             }
         }

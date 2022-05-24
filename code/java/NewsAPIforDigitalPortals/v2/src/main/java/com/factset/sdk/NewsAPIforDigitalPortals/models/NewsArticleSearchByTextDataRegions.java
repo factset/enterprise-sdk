@@ -44,6 +44,8 @@ public class NewsArticleSearchByTextDataRegions implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public NewsArticleSearchByTextDataRegions() { 
+  }
 
   public NewsArticleSearchByTextDataRegions ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

@@ -55,6 +55,8 @@ public class TickerTranslation implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public TickerTranslation() { 
+  }
 
   public TickerTranslation fsymId(String fsymId) {
     this.fsymId = fsymId;

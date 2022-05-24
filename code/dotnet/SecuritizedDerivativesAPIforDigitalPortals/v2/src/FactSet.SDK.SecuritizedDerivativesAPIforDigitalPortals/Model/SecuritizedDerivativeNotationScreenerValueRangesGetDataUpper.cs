@@ -52,7 +52,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataUpper {\n");
             sb.Append("  Level: ").Append(Level).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataUpper input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Level == input.Level ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Level != null)
-                    hashCode = hashCode * 59 + this.Level.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                }
                 return hashCode;
             }
         }

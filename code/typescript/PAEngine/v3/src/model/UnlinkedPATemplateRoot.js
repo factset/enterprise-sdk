@@ -17,7 +17,7 @@ import UnlinkedPATemplate from './UnlinkedPATemplate';
 /**
  * The UnlinkedPATemplateRoot model module.
  * @module model/UnlinkedPATemplateRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UnlinkedPATemplateRoot {
     /**

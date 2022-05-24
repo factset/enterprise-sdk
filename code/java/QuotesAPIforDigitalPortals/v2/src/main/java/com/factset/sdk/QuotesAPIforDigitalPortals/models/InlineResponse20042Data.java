@@ -66,6 +66,8 @@ public class InlineResponse20042Data implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private java.util.List<InlineResponse20042DataType> type = null;
 
+  public InlineResponse20042Data() { 
+  }
 
   public InlineResponse20042Data name(String name) {
     this.name = name;

@@ -43,6 +43,8 @@ public class SharesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Shares> data = null;
 
+  public SharesResponse() { 
+  }
 
   public SharesResponse data(java.util.List<Shares> data) {
     this.data = data;

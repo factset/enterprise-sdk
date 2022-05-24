@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **relatedSymbols** | **[String]** |  | [optional] 
 **locations** | [**[LocationDto]**](LocationDto.md) |  | [optional] 
 **attendees** | [**[AttendeeDto]**](AttendeeDto.md) |  | [optional] 
+**customFieldValues** | [**[CustomFieldValueDto]**](CustomFieldValueDto.md) |  | [optional] 
 
 

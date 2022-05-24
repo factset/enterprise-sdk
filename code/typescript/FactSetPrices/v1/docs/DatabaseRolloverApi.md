@@ -47,6 +47,7 @@ const apiInstance = new DatabaseRolloverApi();
 // Call api endpoint
 apiInstance.getDatabaseRollover().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -114,6 +115,7 @@ const apiInstance = new DatabaseRolloverApi();
 // Call api endpoint
 apiInstance.getDatabaseRolloverForList().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

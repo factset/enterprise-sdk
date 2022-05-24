@@ -44,6 +44,8 @@ public class InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimate
   public static final String JSON_PROPERTY_MEAN = "mean";
   private BigDecimal mean;
 
+  public InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareDividends() { 
+  }
 
   public InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareDividends mean(BigDecimal mean) {
     this.mean = mean;

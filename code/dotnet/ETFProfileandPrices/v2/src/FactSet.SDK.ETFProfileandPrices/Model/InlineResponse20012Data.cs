@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// Distribution.
+    /// Score analytics.
     /// </summary>
     [DataContract(Name = "inline_response_200_12_data")]
     public partial class InlineResponse20012Data : IEquatable<InlineResponse20012Data>, IValidatableObject
@@ -34,43 +34,86 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20012Data" /> class.
         /// </summary>
-        /// <param name="dividend">dividend.</param>
-        /// <param name="capitalGains">capitalGains.</param>
-        /// <param name="totalDistribution">Total Distribution on exDividend-date. Values are in the ETP&#39;s listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value..</param>
-        /// <param name="distributionYield">Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions..</param>
-        public InlineResponse20012Data(InlineResponse20012DataDividend dividend = default(InlineResponse20012DataDividend), InlineResponse20012DataCapitalGains capitalGains = default(InlineResponse20012DataCapitalGains), decimal totalDistribution = default(decimal), decimal distributionYield = default(decimal))
+        /// <param name="efficiency">efficiency.</param>
+        /// <param name="tradability">tradability.</param>
+        /// <param name="fit">fit.</param>
+        /// <param name="grade">Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US..</param>
+        /// <param name="analystPick">If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US..</param>
+        /// <param name="onOpportunitiesList">If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US..</param>
+        /// <param name="fitRsquared">The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US..</param>
+        /// <param name="beta">beta.</param>
+        /// <param name="standardDeviationDown">A measure of the variability between the fund&#39;s returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US..</param>
+        public InlineResponse20012Data(InlineResponse20012DataEfficiency efficiency = default(InlineResponse20012DataEfficiency), InlineResponse20012DataTradability tradability = default(InlineResponse20012DataTradability), InlineResponse20012DataFit fit = default(InlineResponse20012DataFit), string grade = default(string), bool analystPick = default(bool), bool onOpportunitiesList = default(bool), decimal fitRsquared = default(decimal), InlineResponse20012DataBeta beta = default(InlineResponse20012DataBeta), decimal standardDeviationDown = default(decimal))
         {
-            this.Dividend = dividend;
-            this.CapitalGains = capitalGains;
-            this.TotalDistribution = totalDistribution;
-            this.DistributionYield = distributionYield;
+            this.Efficiency = efficiency;
+            this.Tradability = tradability;
+            this.Fit = fit;
+            this.Grade = grade;
+            this.AnalystPick = analystPick;
+            this.OnOpportunitiesList = onOpportunitiesList;
+            this.FitRsquared = fitRsquared;
+            this.Beta = beta;
+            this.StandardDeviationDown = standardDeviationDown;
         }
 
         /// <summary>
-        /// Gets or Sets Dividend
+        /// Gets or Sets Efficiency
         /// </summary>
-        [DataMember(Name = "dividend", EmitDefaultValue = false)]
-        public InlineResponse20012DataDividend Dividend { get; set; }
+        [DataMember(Name = "efficiency", EmitDefaultValue = false)]
+        public InlineResponse20012DataEfficiency Efficiency { get; set; }
 
         /// <summary>
-        /// Gets or Sets CapitalGains
+        /// Gets or Sets Tradability
         /// </summary>
-        [DataMember(Name = "capitalGains", EmitDefaultValue = false)]
-        public InlineResponse20012DataCapitalGains CapitalGains { get; set; }
+        [DataMember(Name = "tradability", EmitDefaultValue = false)]
+        public InlineResponse20012DataTradability Tradability { get; set; }
 
         /// <summary>
-        /// Total Distribution on exDividend-date. Values are in the ETP&#39;s listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.
+        /// Gets or Sets Fit
         /// </summary>
-        /// <value>Total Distribution on exDividend-date. Values are in the ETP&#39;s listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.</value>
-        [DataMember(Name = "totalDistribution", EmitDefaultValue = false)]
-        public decimal TotalDistribution { get; set; }
+        [DataMember(Name = "fit", EmitDefaultValue = false)]
+        public InlineResponse20012DataFit Fit { get; set; }
 
         /// <summary>
-        /// Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.
+        /// Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.
         /// </summary>
-        /// <value>Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.</value>
-        [DataMember(Name = "distributionYield", EmitDefaultValue = false)]
-        public decimal DistributionYield { get; set; }
+        /// <value>Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.</value>
+        [DataMember(Name = "grade", EmitDefaultValue = false)]
+        public string Grade { get; set; }
+
+        /// <summary>
+        /// If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
+        /// </summary>
+        /// <value>If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.</value>
+        [DataMember(Name = "analystPick", EmitDefaultValue = true)]
+        public bool AnalystPick { get; set; }
+
+        /// <summary>
+        /// If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
+        /// </summary>
+        /// <value>If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.</value>
+        [DataMember(Name = "onOpportunitiesList", EmitDefaultValue = true)]
+        public bool OnOpportunitiesList { get; set; }
+
+        /// <summary>
+        /// The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.
+        /// </summary>
+        /// <value>The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.</value>
+        [DataMember(Name = "fitRsquared", EmitDefaultValue = false)]
+        public decimal FitRsquared { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Beta
+        /// </summary>
+        [DataMember(Name = "beta", EmitDefaultValue = false)]
+        public InlineResponse20012DataBeta Beta { get; set; }
+
+        /// <summary>
+        /// A measure of the variability between the fund&#39;s returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.
+        /// </summary>
+        /// <value>A measure of the variability between the fund&#39;s returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.</value>
+        [DataMember(Name = "standardDeviationDown", EmitDefaultValue = false)]
+        public decimal StandardDeviationDown { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,12 +121,17 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20012Data {\n");
-            sb.Append("  Dividend: ").Append(Dividend).Append("\n");
-            sb.Append("  CapitalGains: ").Append(CapitalGains).Append("\n");
-            sb.Append("  TotalDistribution: ").Append(TotalDistribution).Append("\n");
-            sb.Append("  DistributionYield: ").Append(DistributionYield).Append("\n");
+            sb.Append("  Efficiency: ").Append(Efficiency).Append("\n");
+            sb.Append("  Tradability: ").Append(Tradability).Append("\n");
+            sb.Append("  Fit: ").Append(Fit).Append("\n");
+            sb.Append("  Grade: ").Append(Grade).Append("\n");
+            sb.Append("  AnalystPick: ").Append(AnalystPick).Append("\n");
+            sb.Append("  OnOpportunitiesList: ").Append(OnOpportunitiesList).Append("\n");
+            sb.Append("  FitRsquared: ").Append(FitRsquared).Append("\n");
+            sb.Append("  Beta: ").Append(Beta).Append("\n");
+            sb.Append("  StandardDeviationDown: ").Append(StandardDeviationDown).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,26 +163,50 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20012Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.Dividend == input.Dividend ||
-                    (this.Dividend != null &&
-                    this.Dividend.Equals(input.Dividend))
+                    this.Efficiency == input.Efficiency ||
+                    (this.Efficiency != null &&
+                    this.Efficiency.Equals(input.Efficiency))
                 ) && 
                 (
-                    this.CapitalGains == input.CapitalGains ||
-                    (this.CapitalGains != null &&
-                    this.CapitalGains.Equals(input.CapitalGains))
+                    this.Tradability == input.Tradability ||
+                    (this.Tradability != null &&
+                    this.Tradability.Equals(input.Tradability))
                 ) && 
                 (
-                    this.TotalDistribution == input.TotalDistribution ||
-                    this.TotalDistribution.Equals(input.TotalDistribution)
+                    this.Fit == input.Fit ||
+                    (this.Fit != null &&
+                    this.Fit.Equals(input.Fit))
                 ) && 
                 (
-                    this.DistributionYield == input.DistributionYield ||
-                    this.DistributionYield.Equals(input.DistributionYield)
+                    this.Grade == input.Grade ||
+                    (this.Grade != null &&
+                    this.Grade.Equals(input.Grade))
+                ) && 
+                (
+                    this.AnalystPick == input.AnalystPick ||
+                    this.AnalystPick.Equals(input.AnalystPick)
+                ) && 
+                (
+                    this.OnOpportunitiesList == input.OnOpportunitiesList ||
+                    this.OnOpportunitiesList.Equals(input.OnOpportunitiesList)
+                ) && 
+                (
+                    this.FitRsquared == input.FitRsquared ||
+                    this.FitRsquared.Equals(input.FitRsquared)
+                ) && 
+                (
+                    this.Beta == input.Beta ||
+                    (this.Beta != null &&
+                    this.Beta.Equals(input.Beta))
+                ) && 
+                (
+                    this.StandardDeviationDown == input.StandardDeviationDown ||
+                    this.StandardDeviationDown.Equals(input.StandardDeviationDown)
                 );
         }
 
@@ -147,12 +219,30 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Dividend != null)
-                    hashCode = hashCode * 59 + this.Dividend.GetHashCode();
-                if (this.CapitalGains != null)
-                    hashCode = hashCode * 59 + this.CapitalGains.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalDistribution.GetHashCode();
-                hashCode = hashCode * 59 + this.DistributionYield.GetHashCode();
+                if (this.Efficiency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Efficiency.GetHashCode();
+                }
+                if (this.Tradability != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tradability.GetHashCode();
+                }
+                if (this.Fit != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fit.GetHashCode();
+                }
+                if (this.Grade != null)
+                {
+                    hashCode = (hashCode * 59) + this.Grade.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AnalystPick.GetHashCode();
+                hashCode = (hashCode * 59) + this.OnOpportunitiesList.GetHashCode();
+                hashCode = (hashCode * 59) + this.FitRsquared.GetHashCode();
+                if (this.Beta != null)
+                {
+                    hashCode = (hashCode * 59) + this.Beta.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.StandardDeviationDown.GetHashCode();
                 return hashCode;
             }
         }

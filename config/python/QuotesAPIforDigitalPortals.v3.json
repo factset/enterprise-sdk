@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.QuotesAPIforDigitalPortals",
+  "projectName": "fds.sdk.QuotesAPIforDigitalPortals",
+  "packageVersion": "0.10.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "Quotes API for Digital Portals client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/QuotesAPIforDigitalPortals/v3",
+  "httpUserAgent": "fds-sdk/python/QuotesAPIforDigitalPortals/0.10.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

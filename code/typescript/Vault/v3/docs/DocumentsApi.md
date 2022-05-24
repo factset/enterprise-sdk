@@ -47,6 +47,7 @@ const path = "''"; // String | The directory to get the documents in
 // Call api endpoint
 apiInstance.getVaultDocuments(path).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

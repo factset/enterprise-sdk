@@ -43,6 +43,8 @@ public class InterimCpnChg implements Serializable {
   public static final String JSON_PROPERTY_INTERIM_CPN_CHG = "interimCpnChg";
   private InterimCpnChgInterimCpnChg interimCpnChg;
 
+  public InterimCpnChg() { 
+  }
 
   public InterimCpnChg interimCpnChg(InterimCpnChgInterimCpnChg interimCpnChg) {
     this.interimCpnChg = interimCpnChg;

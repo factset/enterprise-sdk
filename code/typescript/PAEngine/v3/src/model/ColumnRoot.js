@@ -17,7 +17,7 @@ import Column from './Column';
 /**
  * The ColumnRoot model module.
  * @module model/ColumnRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ColumnRoot {
     /**

@@ -5,7 +5,7 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_attachment**](AttachmentsApi.md#create_attachment) | **POST** /v1/notes/{noteId}/attachments | Create an attachment for an existing note
-[**download_attachment**](AttachmentsApi.md#download_attachment) | **GET** /v1/notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a note
+[**download_attachment**](AttachmentsApi.md#download_attachment) | **GET** /v1/notes/{noteId}/attachments/{attachmentId}/download | Download an attachment from a Note
 [**get_attachments**](AttachmentsApi.md#get_attachments) | **GET** /v1/notes/{noteId}/attachments | Get all the attachments belonging to a note
 [**soft_delete_note_attachment**](AttachmentsApi.md#soft_delete_note_attachment) | **DELETE** /v1/notes/{noteId}/attachments/{attachmentId} | Delete attachment from note
 
@@ -39,29 +39,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     note_id = "noteId_example" # str | 
     file = open('/path/to/file', 'rb') # file_type | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Create an attachment for an existing note
         api_response = api_instance.create_attachment(note_id, file)
         pprint(api_response)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->create_attachment: %s\n" % e)
 ```
@@ -92,7 +93,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | Bad Request |  -  |
 **0** | Error |  -  |
 
@@ -101,7 +102,7 @@ Name | Type | Description  | Notes
 # **download_attachment**
 > download_attachment(note_id, attachment_id)
 
-Download an attachment from a note
+Download an attachment from a Note
 
 ### Example
 
@@ -126,27 +127,27 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     note_id = "noteId_example" # str | 
     attachment_id = "attachmentId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
-        # Download an attachment from a note
+        # Download an attachment from a Note
         api_instance.download_attachment(note_id, attachment_id)
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->download_attachment: %s\n" % e)
@@ -214,28 +215,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     note_id = "noteId_example" # str | Note Id
 
-    # example passing only required values which don't have defaults set
     try:
         # Get all the attachments belonging to a note
         api_response = api_instance.get_attachments(note_id)
         pprint(api_response)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling AttachmentsApi->get_attachments: %s\n" % e)
 ```
@@ -299,25 +301,25 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     note_id = "noteId_example" # str | Note Id
     attachment_id = "attachmentId_example" # str | Attachment Id
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete attachment from note
         api_instance.soft_delete_note_attachment(note_id, attachment_id)

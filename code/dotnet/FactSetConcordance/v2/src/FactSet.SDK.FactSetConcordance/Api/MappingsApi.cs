@@ -247,6 +247,51 @@ namespace FactSet.SDK.FactSetConcordance.Api
     {
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityMappingDeleteForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityMappingDeleteResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityMappingForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityUniverseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityUniverseResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityUniverseForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityUniverseResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MappingsApi"/> class.
         /// </summary>
@@ -357,7 +402,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityMappingDeleteResponse</returns>
         public EntityMappingDeleteResponse GetEntityMappingDeleteForList(EntityMappingDeleteRequest entityMappingDeleteRequest)
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityMappingDeleteResponse> localVarResponse = GetEntityMappingDeleteForListWithHttpInfo(entityMappingDeleteRequest);
+            var localVarResponse = GetEntityMappingDeleteForListWithHttpInfo(entityMappingDeleteRequest);
             return localVarResponse.Data;
         }
 
@@ -367,11 +412,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityMappingDeleteRequest">A request to delete entity mappings specified by the client</param>
         /// <returns>ApiResponse of EntityMappingDeleteResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityMappingDeleteResponse> GetEntityMappingDeleteForListWithHttpInfo(EntityMappingDeleteRequest entityMappingDeleteRequest)
+        public ApiResponse<EntityMappingDeleteResponse> GetEntityMappingDeleteForListWithHttpInfo(EntityMappingDeleteRequest entityMappingDeleteRequest)
         {
             // verify the required parameter 'entityMappingDeleteRequest' is set
             if (entityMappingDeleteRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingDeleteRequest' when calling MappingsApi->GetEntityMappingDeleteForList");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -385,22 +432,28 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityMappingDeleteRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -412,15 +465,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EntityMappingDeleteResponse>("/factset-concordance/v2/entity-mapping-delete", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityMappingDeleteForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EntityMappingDeleteResponse>("/factset-concordance/v2/entity-mapping-delete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityMappingDeleteForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -431,9 +488,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="entityMappingDeleteRequest">A request to delete entity mappings specified by the client</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityMappingDeleteResponse</returns>
-        public async System.Threading.Tasks.Task<EntityMappingDeleteResponse> GetEntityMappingDeleteForListAsync(EntityMappingDeleteRequest entityMappingDeleteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityMappingDeleteResponse>GetEntityMappingDeleteForListAsync(EntityMappingDeleteRequest entityMappingDeleteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityMappingDeleteResponse> localVarResponse = await GetEntityMappingDeleteForListWithHttpInfoAsync(entityMappingDeleteRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityMappingDeleteForListWithHttpInfoAsync(entityMappingDeleteRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -444,11 +501,14 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="entityMappingDeleteRequest">A request to delete entity mappings specified by the client</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityMappingDeleteResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityMappingDeleteResponse>> GetEntityMappingDeleteForListWithHttpInfoAsync(EntityMappingDeleteRequest entityMappingDeleteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityMappingDeleteResponse>> GetEntityMappingDeleteForListWithHttpInfoAsync(EntityMappingDeleteRequest entityMappingDeleteRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityMappingDeleteRequest' is set
             if (entityMappingDeleteRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingDeleteRequest' when calling MappingsApi->GetEntityMappingDeleteForList");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -462,24 +522,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityMappingDeleteRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -491,14 +556,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityMappingDeleteForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EntityMappingDeleteResponse>("/factset-concordance/v2/entity-mapping-delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityMappingDeleteForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -512,7 +581,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityResponse</returns>
         public EntityResponse GetEntityMappingForList(EntityMappingRequest entityMappingRequest)
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityResponse> localVarResponse = GetEntityMappingForListWithHttpInfo(entityMappingRequest);
+            var localVarResponse = GetEntityMappingForListWithHttpInfo(entityMappingRequest);
             return localVarResponse.Data;
         }
 
@@ -522,11 +591,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityMappingRequest">A request to create a single mapping.</param>
         /// <returns>ApiResponse of EntityResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityResponse> GetEntityMappingForListWithHttpInfo(EntityMappingRequest entityMappingRequest)
+        public ApiResponse<EntityResponse> GetEntityMappingForListWithHttpInfo(EntityMappingRequest entityMappingRequest)
         {
             // verify the required parameter 'entityMappingRequest' is set
             if (entityMappingRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingRequest' when calling MappingsApi->GetEntityMappingForList");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -540,22 +611,28 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityMappingRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -567,15 +644,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EntityResponse>("/factset-concordance/v2/entity-mapping", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityMappingForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EntityResponse>("/factset-concordance/v2/entity-mapping", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityMappingForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -586,9 +667,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="entityMappingRequest">A request to create a single mapping.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityResponse</returns>
-        public async System.Threading.Tasks.Task<EntityResponse> GetEntityMappingForListAsync(EntityMappingRequest entityMappingRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityResponse>GetEntityMappingForListAsync(EntityMappingRequest entityMappingRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityResponse> localVarResponse = await GetEntityMappingForListWithHttpInfoAsync(entityMappingRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityMappingForListWithHttpInfoAsync(entityMappingRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -599,11 +680,14 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="entityMappingRequest">A request to create a single mapping.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityResponse>> GetEntityMappingForListWithHttpInfoAsync(EntityMappingRequest entityMappingRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityResponse>> GetEntityMappingForListWithHttpInfoAsync(EntityMappingRequest entityMappingRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityMappingRequest' is set
             if (entityMappingRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityMappingRequest' when calling MappingsApi->GetEntityMappingForList");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -617,24 +701,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityMappingRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -646,14 +735,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityMappingForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EntityResponse>("/factset-concordance/v2/entity-mapping", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityMappingForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -671,7 +764,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityUniverseResponse</returns>
         public EntityUniverseResponse GetEntityUniverse(int universeId, List<string> clientId = default(List<string>), List<string> mapStatus = default(List<string>), int? offset = default(int?), int? limit = default(int?))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse> localVarResponse = GetEntityUniverseWithHttpInfo(universeId, clientId, mapStatus, offset, limit);
+            var localVarResponse = GetEntityUniverseWithHttpInfo(universeId, clientId, mapStatus, offset, limit);
             return localVarResponse.Data;
         }
 
@@ -685,7 +778,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="offset">Starting row for records to return or rows to skip. (optional, default to 0)</param>
         /// <param name="limit">Limits the number of records in the response. (optional)</param>
         /// <returns>ApiResponse of EntityUniverseResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse> GetEntityUniverseWithHttpInfo(int universeId, List<string> clientId = default(List<string>), List<string> mapStatus = default(List<string>), int? offset = default(int?), int? limit = default(int?))
+        public ApiResponse<EntityUniverseResponse> GetEntityUniverseWithHttpInfo(int universeId, List<string> clientId = default(List<string>), List<string> mapStatus = default(List<string>), int? offset = default(int?), int? limit = default(int?))
         {
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -698,10 +791,16 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
             if (clientId != null)
@@ -723,13 +822,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -741,15 +840,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EntityUniverseResponse>("/factset-concordance/v2/entity-universe", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityUniverseResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EntityUniverseResponse>("/factset-concordance/v2/entity-universe", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityUniverse", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -764,9 +867,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="limit">Limits the number of records in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityUniverseResponse</returns>
-        public async System.Threading.Tasks.Task<EntityUniverseResponse> GetEntityUniverseAsync(int universeId, List<string> clientId = default(List<string>), List<string> mapStatus = default(List<string>), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityUniverseResponse>GetEntityUniverseAsync(int universeId, List<string> clientId = default(List<string>), List<string> mapStatus = default(List<string>), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse> localVarResponse = await GetEntityUniverseWithHttpInfoAsync(universeId, clientId, mapStatus, offset, limit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityUniverseWithHttpInfoAsync(universeId, clientId, mapStatus, offset, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -781,7 +884,8 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="limit">Limits the number of records in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityUniverseResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse>> GetEntityUniverseWithHttpInfoAsync(int universeId, List<string> clientId = default(List<string>), List<string> mapStatus = default(List<string>), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityUniverseResponse>> GetEntityUniverseWithHttpInfoAsync(int universeId, List<string> clientId = default(List<string>), List<string> mapStatus = default(List<string>), int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -794,12 +898,17 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "universeId", universeId));
             if (clientId != null)
@@ -821,13 +930,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -839,14 +948,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityUniverseResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EntityUniverseResponse>("/factset-concordance/v2/entity-universe", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityUniverse", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -860,7 +973,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityUniverseResponse</returns>
         public EntityUniverseResponse GetEntityUniverseForList(EntityUniverseRequest entityUniverseRequest)
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse> localVarResponse = GetEntityUniverseForListWithHttpInfo(entityUniverseRequest);
+            var localVarResponse = GetEntityUniverseForListWithHttpInfo(entityUniverseRequest);
             return localVarResponse.Data;
         }
 
@@ -870,11 +983,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityUniverseRequest">A request to fetch all entities of a given universe</param>
         /// <returns>ApiResponse of EntityUniverseResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse> GetEntityUniverseForListWithHttpInfo(EntityUniverseRequest entityUniverseRequest)
+        public ApiResponse<EntityUniverseResponse> GetEntityUniverseForListWithHttpInfo(EntityUniverseRequest entityUniverseRequest)
         {
             // verify the required parameter 'entityUniverseRequest' is set
             if (entityUniverseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityUniverseRequest' when calling MappingsApi->GetEntityUniverseForList");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -888,22 +1003,28 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityUniverseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -915,15 +1036,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EntityUniverseResponse>("/factset-concordance/v2/entity-universe", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityUniverseForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EntityUniverseResponse>("/factset-concordance/v2/entity-universe", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityUniverseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -934,9 +1059,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="entityUniverseRequest">A request to fetch all entities of a given universe</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityUniverseResponse</returns>
-        public async System.Threading.Tasks.Task<EntityUniverseResponse> GetEntityUniverseForListAsync(EntityUniverseRequest entityUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityUniverseResponse>GetEntityUniverseForListAsync(EntityUniverseRequest entityUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse> localVarResponse = await GetEntityUniverseForListWithHttpInfoAsync(entityUniverseRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityUniverseForListWithHttpInfoAsync(entityUniverseRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -947,11 +1072,14 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="entityUniverseRequest">A request to fetch all entities of a given universe</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityUniverseResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityUniverseResponse>> GetEntityUniverseForListWithHttpInfoAsync(EntityUniverseRequest entityUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityUniverseResponse>> GetEntityUniverseForListWithHttpInfoAsync(EntityUniverseRequest entityUniverseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityUniverseRequest' is set
             if (entityUniverseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'entityUniverseRequest' when calling MappingsApi->GetEntityUniverseForList");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -965,24 +1093,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityUniverseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -994,14 +1127,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityUniverseForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EntityUniverseResponse>("/factset-concordance/v2/entity-universe", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityUniverseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

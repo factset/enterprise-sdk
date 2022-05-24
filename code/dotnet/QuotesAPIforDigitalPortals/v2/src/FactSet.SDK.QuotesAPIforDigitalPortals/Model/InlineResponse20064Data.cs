@@ -86,7 +86,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20064Data {\n");
             sb.Append("  Symbol: ").Append(Symbol).Append("\n");
             sb.Append("  FactSetMarketSymbol: ").Append(FactSetMarketSymbol).Append("\n");
@@ -124,8 +124,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20064Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Symbol == input.Symbol ||
@@ -164,15 +165,25 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Symbol != null)
-                    hashCode = hashCode * 59 + this.Symbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                }
                 if (this.FactSetMarketSymbol != null)
-                    hashCode = hashCode * 59 + this.FactSetMarketSymbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactSetMarketSymbol.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.Instrument != null)
-                    hashCode = hashCode * 59 + this.Instrument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
                 return hashCode;
             }
         }

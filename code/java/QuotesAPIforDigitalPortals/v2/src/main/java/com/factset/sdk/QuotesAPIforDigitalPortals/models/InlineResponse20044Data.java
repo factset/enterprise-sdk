@@ -47,6 +47,8 @@ public class InlineResponse20044Data implements Serializable {
   public static final String JSON_PROPERTY_BODY = "body";
   private String body;
 
+  public InlineResponse20044Data() { 
+  }
 
   public InlineResponse20044Data type(InlineResponse20044Type type) {
     this.type = type;

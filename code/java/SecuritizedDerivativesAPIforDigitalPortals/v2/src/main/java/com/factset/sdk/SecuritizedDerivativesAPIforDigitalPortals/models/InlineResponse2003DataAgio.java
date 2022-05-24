@@ -52,6 +52,8 @@ public class InlineResponse2003DataAgio implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private BigDecimal annualized;
 
+  public InlineResponse2003DataAgio() { 
+  }
 
   public InlineResponse2003DataAgio absolute(BigDecimal absolute) {
     this.absolute = absolute;

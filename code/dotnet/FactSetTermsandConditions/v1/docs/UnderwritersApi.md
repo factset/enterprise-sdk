@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*.  | 
 
 ### Return type
-
 [**LeadUnderwritersResponse**](LeadUnderwritersResponse.md)
 
 ### Authorization
@@ -171,7 +170,6 @@ Name | Type | Description  | Notes
  **termsAndConditionsScalarRequest** | [**TermsAndConditionsScalarRequest**](TermsAndConditionsScalarRequest.md)| Request object for Fixed Income Lead Underwriters. | 
 
 ### Return type
-
 [**LeadUnderwritersResponse**](LeadUnderwritersResponse.md)
 
 ### Authorization

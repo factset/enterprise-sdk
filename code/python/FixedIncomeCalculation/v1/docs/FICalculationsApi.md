@@ -38,24 +38,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Run FI Calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel FI calculation by id
         api_instance.cancel_fi_calculation_by_id(id)
@@ -127,28 +127,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Run FI Calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get FI calculation by id
         api_response = api_instance.get_fi_calculation_by_id(id)
         pprint(api_response)
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->get_fi_calculation_by_id: %s\n" % e)
 ```
@@ -219,21 +220,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     x_fact_set_content_organization = "X-FactSet-Content-Organization_example" # str | FactSet content organization (optional)
     x_fact_set_content_type = "X-FactSet-Content-Type_example" # str | FactSet content type (optional)
     fi_calculation_parameters = FICalculationParameters(
@@ -259,12 +261,11 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
         ),
     ) # FICalculationParameters |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Run FI calculation
         api_response = api_instance.run_fi_calculation(x_fact_set_content_organization=x_fact_set_content_organization, x_fact_set_content_type=x_fact_set_content_type, fi_calculation_parameters=fi_calculation_parameters)
         pprint(api_response)
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->run_fi_calculation: %s\n" % e)
 ```

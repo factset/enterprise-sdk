@@ -139,6 +139,18 @@ public class VendorChartIQTimeSeriesEodListData implements Serializable {
   public static final String JSON_PROPERTY_ADJUSTMENTS = "adjustments";
   private VendorChartIQTimeSeriesEodListDataAdjustments adjustments;
 
+  public VendorChartIQTimeSeriesEodListData() { 
+  }
+
+  @JsonCreator
+  public VendorChartIQTimeSeriesEodListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_RANGE, required=true) VendorChartIQTimeSeriesEodListDataRange range
+  ) {
+    this();
+    this.id = id;
+    this.range = range;
+  }
 
   public VendorChartIQTimeSeriesEodListData id(String id) {
     this.id = id;

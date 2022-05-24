@@ -17,8 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2007DataCategory;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2007DataGeography;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2007DataClassifications;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,221 +25,90 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * Class information of given ETP.
+ * List of allocations.
  */
-@ApiModel(description = "Class information of given ETP.")
+@ApiModel(description = "List of allocations.")
 @JsonPropertyOrder({
-  InlineResponse2007Data.JSON_PROPERTY_ASSET,
-  InlineResponse2007Data.JSON_PROPERTY_ECONOMIC_DEVELOPMENT,
-  InlineResponse2007Data.JSON_PROPERTY_GEOGRAPHY,
-  InlineResponse2007Data.JSON_PROPERTY_CATEGORY
+  InlineResponse2007Data.JSON_PROPERTY_REPORT_DATE,
+  InlineResponse2007Data.JSON_PROPERTY_CLASSIFICATIONS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2007Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
-   */
-  public enum AssetEnum {
-    EQUITY("Equity"),
-    
-    ALTERNATIVES("Alternatives"),
-    
-    FIXED_INCOME("Fixed Income"),
-    
-    COMMODITIES("Commodities"),
-    
-    CURRENCY("Currency"),
-    
-    ASSET_ALLOCATION("Asset Allocation");
+  public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
+  private LocalDate reportDate;
 
-    private String value;
+  public static final String JSON_PROPERTY_CLASSIFICATIONS = "classifications";
+  private java.util.Set<InlineResponse2007DataClassifications> classifications = null;
 
-    AssetEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static AssetEnum fromValue(String value) {
-      for (AssetEnum b : AssetEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+  public InlineResponse2007Data() { 
   }
 
-  public static final String JSON_PROPERTY_ASSET = "asset";
-  private AssetEnum asset;
-
-  /**
-   * The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
-   */
-  public enum EconomicDevelopmentEnum {
-    DEVELOPED_MARKETS("Developed Markets"),
-    
-    BLENDED_DEVELOPMENT("Blended Development"),
-    
-    EMERGING_MARKETS("Emerging Markets"),
-    
-    FRONTIER_MARKETS("Frontier Markets");
-
-    private String value;
-
-    EconomicDevelopmentEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static EconomicDevelopmentEnum fromValue(String value) {
-      for (EconomicDevelopmentEnum b : EconomicDevelopmentEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_ECONOMIC_DEVELOPMENT = "economicDevelopment";
-  private EconomicDevelopmentEnum economicDevelopment;
-
-  public static final String JSON_PROPERTY_GEOGRAPHY = "geography";
-  private InlineResponse2007DataGeography geography;
-
-  public static final String JSON_PROPERTY_CATEGORY = "category";
-  private InlineResponse2007DataCategory category;
-
-
-  public InlineResponse2007Data asset(AssetEnum asset) {
-    this.asset = asset;
+  public InlineResponse2007Data reportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
     return this;
   }
 
    /**
-   * Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
-   * @return asset
+   * Reporting date for the allocations.
+   * @return reportDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_ASSET)
+  @ApiModelProperty(value = "Reporting date for the allocations.")
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public AssetEnum getAsset() {
-    return asset;
+  public LocalDate getReportDate() {
+    return reportDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ASSET)
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAsset(AssetEnum asset) {
-    this.asset = asset;
+  public void setReportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
   }
 
 
-  public InlineResponse2007Data economicDevelopment(EconomicDevelopmentEnum economicDevelopment) {
-    this.economicDevelopment = economicDevelopment;
+  public InlineResponse2007Data classifications(java.util.Set<InlineResponse2007DataClassifications> classifications) {
+    this.classifications = classifications;
+    return this;
+  }
+
+  public InlineResponse2007Data addClassificationsItem(InlineResponse2007DataClassifications classificationsItem) {
+    if (this.classifications == null) {
+      this.classifications = new java.util.LinkedHashSet<>();
+    }
+    this.classifications.add(classificationsItem);
     return this;
   }
 
    /**
-   * The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
-   * @return economicDevelopment
+   * List of allocations classified by a holding&#39;s total market capitalization (e.g. small caps, large caps).
+   * @return classifications
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_ECONOMIC_DEVELOPMENT)
+  @ApiModelProperty(value = "List of allocations classified by a holding's total market capitalization (e.g. small caps, large caps).")
+  @JsonProperty(JSON_PROPERTY_CLASSIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public EconomicDevelopmentEnum getEconomicDevelopment() {
-    return economicDevelopment;
+  public java.util.Set<InlineResponse2007DataClassifications> getClassifications() {
+    return classifications;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ECONOMIC_DEVELOPMENT)
+  @JsonProperty(JSON_PROPERTY_CLASSIFICATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEconomicDevelopment(EconomicDevelopmentEnum economicDevelopment) {
-    this.economicDevelopment = economicDevelopment;
-  }
-
-
-  public InlineResponse2007Data geography(InlineResponse2007DataGeography geography) {
-    this.geography = geography;
-    return this;
-  }
-
-   /**
-   * Get geography
-   * @return geography
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_GEOGRAPHY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007DataGeography getGeography() {
-    return geography;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_GEOGRAPHY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGeography(InlineResponse2007DataGeography geography) {
-    this.geography = geography;
-  }
-
-
-  public InlineResponse2007Data category(InlineResponse2007DataCategory category) {
-    this.category = category;
-    return this;
-  }
-
-   /**
-   * Get category
-   * @return category
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse2007DataCategory getCategory() {
-    return category;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCategory(InlineResponse2007DataCategory category) {
-    this.category = category;
+  public void setClassifications(java.util.Set<InlineResponse2007DataClassifications> classifications) {
+    this.classifications = classifications;
   }
 
 
@@ -256,25 +124,21 @@ public class InlineResponse2007Data implements Serializable {
       return false;
     }
     InlineResponse2007Data inlineResponse2007Data = (InlineResponse2007Data) o;
-    return Objects.equals(this.asset, inlineResponse2007Data.asset) &&
-        Objects.equals(this.economicDevelopment, inlineResponse2007Data.economicDevelopment) &&
-        Objects.equals(this.geography, inlineResponse2007Data.geography) &&
-        Objects.equals(this.category, inlineResponse2007Data.category);
+    return Objects.equals(this.reportDate, inlineResponse2007Data.reportDate) &&
+        Objects.equals(this.classifications, inlineResponse2007Data.classifications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(asset, economicDevelopment, geography, category);
+    return Objects.hash(reportDate, classifications);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2007Data {\n");
-    sb.append("    asset: ").append(toIndentedString(asset)).append("\n");
-    sb.append("    economicDevelopment: ").append(toIndentedString(economicDevelopment)).append("\n");
-    sb.append("    geography: ").append(toIndentedString(geography)).append("\n");
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
+    sb.append("    classifications: ").append(toIndentedString(classifications)).append("\n");
     sb.append("}");
     return sb.toString();
   }

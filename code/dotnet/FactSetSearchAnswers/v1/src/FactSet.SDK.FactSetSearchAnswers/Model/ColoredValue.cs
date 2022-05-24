@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ColoredValue {\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Color: ").Append(Color).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(ColoredValue input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Text == input.Text ||
@@ -120,8 +121,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
-                hashCode = hashCode * 59 + this.Color.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Color.GetHashCode();
                 return hashCode;
             }
         }

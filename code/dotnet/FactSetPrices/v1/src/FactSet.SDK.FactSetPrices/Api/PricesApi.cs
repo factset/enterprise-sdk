@@ -91,8 +91,8 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
-        /// <returns>PricesResponse</returns>
-        PricesResponse GetSecurityPrices(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string));
+        /// <returns>PricesApi.GetSecurityPricesResponseWrapper</returns>
+        PricesApi.GetSecurityPricesResponseWrapper GetSecurityPrices(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string));
 
         /// <summary>
         /// Gets end-of-day Open, High, Low, Close for a list of securities.
@@ -109,8 +109,8 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
-        /// <returns>ApiResponse of PricesResponse</returns>
-        ApiResponse<PricesResponse> GetSecurityPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string));
+        /// <returns>ApiResponse of PricesApi.GetSecurityPricesResponseWrapper</returns>
+        ApiResponse<PricesApi.GetSecurityPricesResponseWrapper> GetSecurityPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string));
         /// <summary>
         /// Requests end-of-day Open, High, Low, Close for a large list of securities.
         /// </summary>
@@ -119,8 +119,8 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
-        /// <returns>PricesResponse</returns>
-        PricesResponse GetSecurityPricesForList(PricesRequest pricesRequest);
+        /// <returns>PricesApi.GetSecurityPricesForListResponseWrapper</returns>
+        PricesApi.GetSecurityPricesForListResponseWrapper GetSecurityPricesForList(PricesRequest pricesRequest);
 
         /// <summary>
         /// Requests end-of-day Open, High, Low, Close for a large list of securities.
@@ -130,8 +130,8 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
-        /// <returns>ApiResponse of PricesResponse</returns>
-        ApiResponse<PricesResponse> GetSecurityPricesForListWithHttpInfo(PricesRequest pricesRequest);
+        /// <returns>ApiResponse of PricesApi.GetSecurityPricesForListResponseWrapper</returns>
+        ApiResponse<PricesApi.GetSecurityPricesForListResponseWrapper> GetSecurityPricesForListWithHttpInfo(PricesRequest pricesRequest);
         #endregion Synchronous Operations
     }
 
@@ -210,7 +210,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PricesResponse</returns>
-        System.Threading.Tasks.Task<PricesResponse> GetSecurityPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PricesApi.GetSecurityPricesResponseWrapper> GetSecurityPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Gets end-of-day Open, High, Low, Close for a list of securities.
@@ -228,8 +228,8 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PricesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PricesResponse>> GetSecurityPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PricesApi.GetSecurityPricesResponseWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PricesApi.GetSecurityPricesResponseWrapper>> GetSecurityPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Requests end-of-day Open, High, Low, Close for a large list of securities.
         /// </summary>
@@ -240,7 +240,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PricesResponse</returns>
-        System.Threading.Tasks.Task<PricesResponse> GetSecurityPricesForListAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PricesApi.GetSecurityPricesForListResponseWrapper> GetSecurityPricesForListAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Requests end-of-day Open, High, Low, Close for a large list of securities.
@@ -251,8 +251,8 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PricesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PricesResponse>> GetSecurityPricesForListWithHttpInfoAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PricesApi.GetSecurityPricesForListResponseWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PricesApi.GetSecurityPricesForListResponseWrapper>> GetSecurityPricesForListWithHttpInfoAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -270,6 +270,237 @@ namespace FactSet.SDK.FactSetPrices.Api
     public partial class PricesApi : IPricesApi
     {
         private FactSet.SDK.FactSetPrices.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFixedSecurityPricesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PricesFixedIncomeResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFixedSecurityPricesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PricesFixedIncomeResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSecurityPricesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PricesResponse) },
+            { (HttpStatusCode)202, typeof(BatchStatusResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSecurityPricesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PricesResponse) },
+            { (HttpStatusCode)202, typeof(BatchStatusResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+        /// <summary>
+        /// Wrapper to support GET /factset-prices/v1/prices returning different types
+        /// per status code.
+        ///
+        /// <list>
+        /// <item>
+        /// <description>
+        /// 200 : PricesResponse<br />
+        /// Array of security prices open, high, low, close, and volume.
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 202 : BatchStatusResponse<br />
+        /// Batch request has been accepted.
+        /// </description>
+        /// </item>
+        /// </list>
+        ///
+        /// <example>
+        /// <code>
+        /// GetSecurityPricesResponseWrapper response = ...;
+        /// switch (response.statusCode)
+        /// {
+        ///   case 200:
+        ///     PricesResponse data200 = response.getResponse200();
+        ///     break;
+        ///   case 202:
+        ///     BatchStatusResponse data202 = response.getResponse202();
+        ///     break;
+        ///  }
+        /// </code>
+        /// </example>
+        /// </summary>
+        public class GetSecurityPricesResponseWrapper {
+
+            /// <summary>This constructor initializes the new GetSecurityPricesResponseWrapper to
+            /// (<paramref name="statusCode"/>,<paramref name="response"/>).
+            /// </summary>
+            /// <param name="statusCode">Http status code of the response</param>
+            /// <param name="response">Raw response</param>
+            public GetSecurityPricesResponseWrapper(HttpStatusCode statusCode, object response)
+            {
+                StatusCode = statusCode;
+                Response = response;
+            }
+
+            /// <summary>
+            /// Http status code of the response
+            /// </summary>
+            public HttpStatusCode StatusCode { get; }
+
+            /// <summary>
+            /// Raw Object response
+            /// </summary>
+            public object Response { get; }
+
+            
+            /// <summary>
+            /// Array of security prices open, high, low, close, and volume.
+            /// </summary>
+            public PricesResponse Response200
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 200)
+                    {
+                        throw new FactSet.SDK.FactSetPrices.Client.ApiException(500, "Invalid response getter called. Response200 can't return a " + StatusCode + " response");
+                    }
+                    return (PricesResponse) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Batch request has been accepted.
+            /// </summary>
+            public BatchStatusResponse Response202
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 202)
+                    {
+                        throw new FactSet.SDK.FactSetPrices.Client.ApiException(500, "Invalid response getter called. Response202 can't return a " + StatusCode + " response");
+                    }
+                    return (BatchStatusResponse) Response;
+                }
+            }
+            
+        }
+
+
+        /// <summary>
+        /// Wrapper to support POST /factset-prices/v1/prices returning different types
+        /// per status code.
+        ///
+        /// <list>
+        /// <item>
+        /// <description>
+        /// 200 : PricesResponse<br />
+        /// Array of security prices
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 202 : BatchStatusResponse<br />
+        /// Batch request has been accepted.
+        /// </description>
+        /// </item>
+        /// </list>
+        ///
+        /// <example>
+        /// <code>
+        /// GetSecurityPricesForListResponseWrapper response = ...;
+        /// switch (response.statusCode)
+        /// {
+        ///   case 200:
+        ///     PricesResponse data200 = response.getResponse200();
+        ///     break;
+        ///   case 202:
+        ///     BatchStatusResponse data202 = response.getResponse202();
+        ///     break;
+        ///  }
+        /// </code>
+        /// </example>
+        /// </summary>
+        public class GetSecurityPricesForListResponseWrapper {
+
+            /// <summary>This constructor initializes the new GetSecurityPricesForListResponseWrapper to
+            /// (<paramref name="statusCode"/>,<paramref name="response"/>).
+            /// </summary>
+            /// <param name="statusCode">Http status code of the response</param>
+            /// <param name="response">Raw response</param>
+            public GetSecurityPricesForListResponseWrapper(HttpStatusCode statusCode, object response)
+            {
+                StatusCode = statusCode;
+                Response = response;
+            }
+
+            /// <summary>
+            /// Http status code of the response
+            /// </summary>
+            public HttpStatusCode StatusCode { get; }
+
+            /// <summary>
+            /// Raw Object response
+            /// </summary>
+            public object Response { get; }
+
+            
+            /// <summary>
+            /// Array of security prices
+            /// </summary>
+            public PricesResponse Response200
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 200)
+                    {
+                        throw new FactSet.SDK.FactSetPrices.Client.ApiException(500, "Invalid response getter called. Response200 can't return a " + StatusCode + " response");
+                    }
+                    return (PricesResponse) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Batch request has been accepted.
+            /// </summary>
+            public BatchStatusResponse Response202
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 202)
+                    {
+                        throw new FactSet.SDK.FactSetPrices.Client.ApiException(500, "Invalid response getter called. Response202 can't return a " + StatusCode + " response");
+                    }
+                    return (BatchStatusResponse) Response;
+                }
+            }
+            
+        }
+
+
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PricesApi"/> class.
@@ -384,7 +615,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <returns>PricesFixedIncomeResponse</returns>
         public PricesFixedIncomeResponse GetFixedSecurityPrices(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse> localVarResponse = GetFixedSecurityPricesWithHttpInfo(ids, startDate, endDate, frequency);
+            var localVarResponse = GetFixedSecurityPricesWithHttpInfo(ids, startDate, endDate, frequency);
             return localVarResponse.Data;
         }
 
@@ -397,11 +628,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)</param>
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  (optional, default to D)</param>
         /// <returns>ApiResponse of PricesFixedIncomeResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse> GetFixedSecurityPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
+        public ApiResponse<PricesFixedIncomeResponse> GetFixedSecurityPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetFixedSecurityPrices");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -414,10 +647,16 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -435,13 +674,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -453,15 +692,19 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PricesFixedIncomeResponse>("/factset-prices/v1/fixed-income", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedSecurityPricesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            PricesFixedIncomeResponse>("/factset-prices/v1/fixed-income", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedSecurityPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -475,9 +718,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  (optional, default to D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PricesFixedIncomeResponse</returns>
-        public async System.Threading.Tasks.Task<PricesFixedIncomeResponse> GetFixedSecurityPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PricesFixedIncomeResponse>GetFixedSecurityPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse> localVarResponse = await GetFixedSecurityPricesWithHttpInfoAsync(ids, startDate, endDate, frequency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFixedSecurityPricesWithHttpInfoAsync(ids, startDate, endDate, frequency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -491,11 +734,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **MTD** &#x3D; Month-to-date   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** &#x3D;  Calendar quarter-to-date   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** &#x3D; Calendar Year-to-date.  (optional, default to D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PricesFixedIncomeResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse>> GetFixedSecurityPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PricesFixedIncomeResponse>> GetFixedSecurityPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetFixedSecurityPrices");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -508,12 +754,17 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -531,13 +782,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -549,14 +800,18 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedSecurityPricesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<PricesFixedIncomeResponse>("/factset-prices/v1/fixed-income", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedSecurityPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -570,7 +825,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <returns>PricesFixedIncomeResponse</returns>
         public PricesFixedIncomeResponse GetFixedSecurityPricesForList(PricesFixedIncomeRequest pricesFixedIncomeRequest)
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse> localVarResponse = GetFixedSecurityPricesForListWithHttpInfo(pricesFixedIncomeRequest);
+            var localVarResponse = GetFixedSecurityPricesForListWithHttpInfo(pricesFixedIncomeRequest);
             return localVarResponse.Data;
         }
 
@@ -580,11 +835,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pricesFixedIncomeRequest">Request object for Fixed Income &#x60;Security&#x60; prices.</param>
         /// <returns>ApiResponse of PricesFixedIncomeResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse> GetFixedSecurityPricesForListWithHttpInfo(PricesFixedIncomeRequest pricesFixedIncomeRequest)
+        public ApiResponse<PricesFixedIncomeResponse> GetFixedSecurityPricesForListWithHttpInfo(PricesFixedIncomeRequest pricesFixedIncomeRequest)
         {
             // verify the required parameter 'pricesFixedIncomeRequest' is set
             if (pricesFixedIncomeRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'pricesFixedIncomeRequest' when calling PricesApi->GetFixedSecurityPricesForList");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -598,22 +855,28 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = pricesFixedIncomeRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -625,15 +888,19 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PricesFixedIncomeResponse>("/factset-prices/v1/fixed-income", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedSecurityPricesForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            PricesFixedIncomeResponse>("/factset-prices/v1/fixed-income", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedSecurityPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -644,9 +911,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="pricesFixedIncomeRequest">Request object for Fixed Income &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PricesFixedIncomeResponse</returns>
-        public async System.Threading.Tasks.Task<PricesFixedIncomeResponse> GetFixedSecurityPricesForListAsync(PricesFixedIncomeRequest pricesFixedIncomeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PricesFixedIncomeResponse>GetFixedSecurityPricesForListAsync(PricesFixedIncomeRequest pricesFixedIncomeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse> localVarResponse = await GetFixedSecurityPricesForListWithHttpInfoAsync(pricesFixedIncomeRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFixedSecurityPricesForListWithHttpInfoAsync(pricesFixedIncomeRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -657,11 +924,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="pricesFixedIncomeRequest">Request object for Fixed Income &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PricesFixedIncomeResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesFixedIncomeResponse>> GetFixedSecurityPricesForListWithHttpInfoAsync(PricesFixedIncomeRequest pricesFixedIncomeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PricesFixedIncomeResponse>> GetFixedSecurityPricesForListWithHttpInfoAsync(PricesFixedIncomeRequest pricesFixedIncomeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'pricesFixedIncomeRequest' is set
             if (pricesFixedIncomeRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'pricesFixedIncomeRequest' when calling PricesApi->GetFixedSecurityPricesForList");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -675,24 +945,29 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = pricesFixedIncomeRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -704,14 +979,18 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedSecurityPricesForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<PricesFixedIncomeResponse>("/factset-prices/v1/fixed-income", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedSecurityPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -729,10 +1008,10 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
-        /// <returns>PricesResponse</returns>
-        public PricesResponse GetSecurityPrices(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string))
+        /// <returns>PricesApi.GetSecurityPricesResponseWrapper</returns>
+        public PricesApi.GetSecurityPricesResponseWrapper GetSecurityPrices(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse> localVarResponse = GetSecurityPricesWithHttpInfo(ids, startDate, endDate, frequency, calendar, currency, adjust, batch);
+            var localVarResponse = GetSecurityPricesWithHttpInfo(ids, startDate, endDate, frequency, calendar, currency, adjust, batch);
             return localVarResponse.Data;
         }
 
@@ -749,11 +1028,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="adjust">Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)</param>
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
         /// <returns>ApiResponse of PricesResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse> GetSecurityPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string))
+        public ApiResponse<PricesApi.GetSecurityPricesResponseWrapper> GetSecurityPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetSecurityPrices");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -766,10 +1047,16 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -803,13 +1090,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -821,16 +1108,21 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PricesResponse>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityPricesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Object>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
-            return localVarResponse;
+            var getsecuritypricesResponse = new GetSecurityPricesResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<GetSecurityPricesResponseWrapper>(localVarResponse.StatusCode, getsecuritypricesResponse);
         }
 
         /// <summary>
@@ -847,9 +1139,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PricesResponse</returns>
-        public async System.Threading.Tasks.Task<PricesResponse> GetSecurityPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PricesApi.GetSecurityPricesResponseWrapper>GetSecurityPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse> localVarResponse = await GetSecurityPricesWithHttpInfoAsync(ids, startDate, endDate, frequency, calendar, currency, adjust, batch, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecurityPricesWithHttpInfoAsync(ids, startDate, endDate, frequency, calendar, currency, adjust, batch, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -867,11 +1159,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="batch">Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PricesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse>> GetSecurityPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PricesApi.GetSecurityPricesResponseWrapper>> GetSecurityPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), string adjust = default(string), string batch = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesApi->GetSecurityPrices");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -884,12 +1179,17 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -923,13 +1223,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -941,17 +1241,22 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityPricesResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PricesResponse>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
-            return localVarResponse;
+            var getsecuritypricesResponse = new GetSecurityPricesResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<GetSecurityPricesResponseWrapper>(localVarResponse.StatusCode, getsecuritypricesResponse);
         }
 
         /// <summary>
@@ -959,10 +1264,10 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
-        /// <returns>PricesResponse</returns>
-        public PricesResponse GetSecurityPricesForList(PricesRequest pricesRequest)
+        /// <returns>PricesApi.GetSecurityPricesForListResponseWrapper</returns>
+        public PricesApi.GetSecurityPricesForListResponseWrapper GetSecurityPricesForList(PricesRequest pricesRequest)
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse> localVarResponse = GetSecurityPricesForListWithHttpInfo(pricesRequest);
+            var localVarResponse = GetSecurityPricesForListWithHttpInfo(pricesRequest);
             return localVarResponse.Data;
         }
 
@@ -972,11 +1277,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <returns>ApiResponse of PricesResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse> GetSecurityPricesForListWithHttpInfo(PricesRequest pricesRequest)
+        public ApiResponse<PricesApi.GetSecurityPricesForListResponseWrapper> GetSecurityPricesForListWithHttpInfo(PricesRequest pricesRequest)
         {
             // verify the required parameter 'pricesRequest' is set
             if (pricesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'pricesRequest' when calling PricesApi->GetSecurityPricesForList");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -990,22 +1297,28 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = pricesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1017,16 +1330,21 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PricesResponse>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityPricesForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            Object>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
-            return localVarResponse;
+            var getsecuritypricesforlistResponse = new GetSecurityPricesForListResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<GetSecurityPricesForListResponseWrapper>(localVarResponse.StatusCode, getsecuritypricesforlistResponse);
         }
 
         /// <summary>
@@ -1036,9 +1354,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PricesResponse</returns>
-        public async System.Threading.Tasks.Task<PricesResponse> GetSecurityPricesForListAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PricesApi.GetSecurityPricesForListResponseWrapper>GetSecurityPricesForListAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse> localVarResponse = await GetSecurityPricesForListWithHttpInfoAsync(pricesRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSecurityPricesForListWithHttpInfoAsync(pricesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1049,11 +1367,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="pricesRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PricesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<PricesResponse>> GetSecurityPricesForListWithHttpInfoAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PricesApi.GetSecurityPricesForListResponseWrapper>> GetSecurityPricesForListWithHttpInfoAsync(PricesRequest pricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'pricesRequest' is set
             if (pricesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'pricesRequest' when calling PricesApi->GetSecurityPricesForList");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -1067,24 +1388,29 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = pricesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1096,17 +1422,22 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSecurityPricesForListResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<PricesResponse>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/factset-prices/v1/prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSecurityPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
-            return localVarResponse;
+            var getsecuritypricesforlistResponse = new GetSecurityPricesForListResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<GetSecurityPricesForListResponseWrapper>(localVarResponse.StatusCode, getsecuritypricesforlistResponse);
         }
 
     }

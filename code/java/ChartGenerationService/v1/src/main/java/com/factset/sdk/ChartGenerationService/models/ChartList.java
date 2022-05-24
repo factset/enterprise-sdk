@@ -55,6 +55,8 @@ public class ChartList implements Serializable {
   public static final String JSON_PROPERTY_INPUTS = "inputs";
   private java.util.List<ChartInput> inputs = null;
 
+  public ChartList() { 
+  }
 
   public ChartList name(String name) {
     this.name = name;

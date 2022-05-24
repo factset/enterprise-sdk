@@ -48,6 +48,8 @@ public class InlineResponse2005DataLockInValue implements Serializable {
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataLockInValue() { 
+  }
 
   public InlineResponse2005DataLockInValue minimum(BigDecimal minimum) {
     this.minimum = minimum;

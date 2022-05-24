@@ -49,6 +49,8 @@ public class InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverS
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200Down() { 
+  }
 
   public InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200Down numberDays(InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50UpNumberDays numberDays) {
     this.numberDays = numberDays;

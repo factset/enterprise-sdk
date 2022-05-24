@@ -12,15 +12,17 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2009DataSectors from './InlineResponse2009DataSectors';
 
 /**
  * The InlineResponse2009Data model module.
  * @module model/InlineResponse2009Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2009Data {
     /**
      * Constructs a new <code>InlineResponse2009Data</code>.
+     * ETP sector allocation data.
      * @alias module:model/InlineResponse2009Data
      */
     constructor() { 
@@ -47,8 +49,11 @@ class InlineResponse2009Data {
         if (data) {
             obj = obj || new InlineResponse2009Data();
 
-            if (data.hasOwnProperty('focusCategory')) {
-                obj['focusCategory'] = ApiClient.convertToType(data['focusCategory'], 'String');
+            if (data.hasOwnProperty('reportDate')) {
+                obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
+            }
+            if (data.hasOwnProperty('sectors')) {
+                obj['sectors'] = ApiClient.convertToType(data['sectors'], [InlineResponse2009DataSectors]);
             }
         }
         return obj;
@@ -58,10 +63,16 @@ class InlineResponse2009Data {
 }
 
 /**
- * ETP class focus category.
- * @member {String} focusCategory
+ * Reporting date for the allocations.
+ * @member {Date} reportDate
  */
-InlineResponse2009Data.prototype['focusCategory'] = undefined;
+InlineResponse2009Data.prototype['reportDate'] = undefined;
+
+/**
+ * List of allocations by sector.
+ * @member {Array.<module:model/InlineResponse2009DataSectors>} sectors
+ */
+InlineResponse2009Data.prototype['sectors'] = undefined;
 
 
 

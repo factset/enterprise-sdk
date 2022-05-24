@@ -48,6 +48,7 @@ const path = "'Client:Foo/Bar'"; // String | The directory to get the accounts a
 // Call api endpoint
 apiInstance.getAccounts(path).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const accountPath = "accountPath_example"; // String | URL encoded account path
 // Call api endpoint
 apiInstance.getSPARReturnsType(accountPath).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

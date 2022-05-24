@@ -36,14 +36,14 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// </summary>
         /// <param name="reportId">The unique ID for an event..</param>
         /// <param name="snippetEndTimestamp">The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint .</param>
-        /// <param name="snippetData">snippetData.</param>
+        /// <param name="transcriptData">transcriptData.</param>
         /// <param name="snippetSequence">The sequence number of the snippet from the start of the current call .</param>
         /// <param name="audioSourceId">The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple AudioSource ids..</param>
-        public NRTSnippetsData(int reportId = default(int), string snippetEndTimestamp = default(string), List<NRTSnippetsSnippetData> snippetData = default(List<NRTSnippetsSnippetData>), int snippetSequence = default(int), int audioSourceId = default(int))
+        public NRTSnippetsData(int reportId = default(int), string snippetEndTimestamp = default(string), List<NRTSnippetsTranscriptData> transcriptData = default(List<NRTSnippetsTranscriptData>), int snippetSequence = default(int), int audioSourceId = default(int))
         {
             this.ReportId = reportId;
             this.SnippetEndTimestamp = snippetEndTimestamp;
-            this.SnippetData = snippetData;
+            this.TranscriptData = transcriptData;
             this.SnippetSequence = snippetSequence;
             this.AudioSourceId = audioSourceId;
         }
@@ -63,10 +63,10 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public string SnippetEndTimestamp { get; set; }
 
         /// <summary>
-        /// Gets or Sets SnippetData
+        /// Gets or Sets TranscriptData
         /// </summary>
-        [DataMember(Name = "snippetData", EmitDefaultValue = false)]
-        public List<NRTSnippetsSnippetData> SnippetData { get; set; }
+        [DataMember(Name = "transcriptData", EmitDefaultValue = false)]
+        public List<NRTSnippetsTranscriptData> TranscriptData { get; set; }
 
         /// <summary>
         /// The sequence number of the snippet from the start of the current call 
@@ -88,11 +88,11 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NRTSnippetsData {\n");
             sb.Append("  ReportId: ").Append(ReportId).Append("\n");
             sb.Append("  SnippetEndTimestamp: ").Append(SnippetEndTimestamp).Append("\n");
-            sb.Append("  SnippetData: ").Append(SnippetData).Append("\n");
+            sb.Append("  TranscriptData: ").Append(TranscriptData).Append("\n");
             sb.Append("  SnippetSequence: ").Append(SnippetSequence).Append("\n");
             sb.Append("  AudioSourceId: ").Append(AudioSourceId).Append("\n");
             sb.Append("}\n");
@@ -126,8 +126,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(NRTSnippetsData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReportId == input.ReportId ||
@@ -139,10 +140,10 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
                     this.SnippetEndTimestamp.Equals(input.SnippetEndTimestamp))
                 ) && 
                 (
-                    this.SnippetData == input.SnippetData ||
-                    this.SnippetData != null &&
-                    input.SnippetData != null &&
-                    this.SnippetData.SequenceEqual(input.SnippetData)
+                    this.TranscriptData == input.TranscriptData ||
+                    this.TranscriptData != null &&
+                    input.TranscriptData != null &&
+                    this.TranscriptData.SequenceEqual(input.TranscriptData)
                 ) && 
                 (
                     this.SnippetSequence == input.SnippetSequence ||
@@ -163,13 +164,17 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ReportId.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReportId.GetHashCode();
                 if (this.SnippetEndTimestamp != null)
-                    hashCode = hashCode * 59 + this.SnippetEndTimestamp.GetHashCode();
-                if (this.SnippetData != null)
-                    hashCode = hashCode * 59 + this.SnippetData.GetHashCode();
-                hashCode = hashCode * 59 + this.SnippetSequence.GetHashCode();
-                hashCode = hashCode * 59 + this.AudioSourceId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SnippetEndTimestamp.GetHashCode();
+                }
+                if (this.TranscriptData != null)
+                {
+                    hashCode = (hashCode * 59) + this.TranscriptData.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SnippetSequence.GetHashCode();
+                hashCode = (hashCode * 59) + this.AudioSourceId.GetHashCode();
                 return hashCode;
             }
         }

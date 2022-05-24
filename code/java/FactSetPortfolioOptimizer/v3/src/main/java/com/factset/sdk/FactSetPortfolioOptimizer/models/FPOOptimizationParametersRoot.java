@@ -47,6 +47,8 @@ public class FPOOptimizationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public FPOOptimizationParametersRoot() { 
+  }
 
   public FPOOptimizationParametersRoot data(FPOOptimizationParameters data) {
     this.data = data;

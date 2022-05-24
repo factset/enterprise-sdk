@@ -98,6 +98,8 @@ public class StockDividendListMeta implements Serializable {
   public static final String JSON_PROPERTY_SORT = "sort";
   private java.util.Set<SortEnum> sort = null;
 
+  public StockDividendListMeta() { 
+  }
 
   public StockDividendListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

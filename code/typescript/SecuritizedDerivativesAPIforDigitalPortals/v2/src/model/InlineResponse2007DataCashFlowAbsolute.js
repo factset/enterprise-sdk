@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2007DataCashFlowAbsolute model module.
  * @module model/InlineResponse2007DataCashFlowAbsolute
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataCashFlowAbsolute {
     /**

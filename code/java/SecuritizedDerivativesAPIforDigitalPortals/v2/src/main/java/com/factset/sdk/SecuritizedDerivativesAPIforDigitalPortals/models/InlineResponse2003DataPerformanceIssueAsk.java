@@ -52,6 +52,8 @@ public class InlineResponse2003DataPerformanceIssueAsk implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private BigDecimal annualized;
 
+  public InlineResponse2003DataPerformanceIssueAsk() { 
+  }
 
   public InlineResponse2003DataPerformanceIssueAsk absolute(BigDecimal absolute) {
     this.absolute = absolute;

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StructureRequest model module.
  * @module model/StructureRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class StructureRequest {
     /**

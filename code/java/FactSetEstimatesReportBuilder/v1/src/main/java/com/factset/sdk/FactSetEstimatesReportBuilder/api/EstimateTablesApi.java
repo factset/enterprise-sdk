@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEstimatesReportBuilder.Configuration;
 import com.factset.sdk.FactSetEstimatesReportBuilder.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimatesReportBuilder.models.ErrorResponse;
 import com.factset.sdk.FactSetEstimatesReportBuilder.models.Response;
@@ -22,6 +25,18 @@ public class EstimateTablesApi {
   public EstimateTablesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEstimateTablesTableResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEstimateTablesTableResponseTypeMap.put(200, new GenericType<Response>(){});
+    getEstimateTablesTableResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEstimateTablesTableResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEstimateTablesTableResponseTypeMap.put(404, new GenericType<ErrorResponse>(){});
+    getEstimateTablesTableResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,10 +135,16 @@ public class EstimateTablesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("EstimateTablesApi.getEstimateTablesTable", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("EstimateTablesApi.getEstimateTablesTable", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEstimateTablesTableResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

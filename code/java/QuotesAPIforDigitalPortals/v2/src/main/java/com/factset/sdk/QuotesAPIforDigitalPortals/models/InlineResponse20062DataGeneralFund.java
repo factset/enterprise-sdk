@@ -53,6 +53,8 @@ public class InlineResponse20062DataGeneralFund implements Serializable {
   public static final String JSON_PROPERTY_DOMICILE = "domicile";
   private InlineResponse20062DataGeneralFundDomicile domicile;
 
+  public InlineResponse20062DataGeneralFund() { 
+  }
 
   public InlineResponse20062DataGeneralFund id(BigDecimal id) {
     this.id = id;

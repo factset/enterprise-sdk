@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntityUniverse(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const entityMappingRequest = new factsetconcordance.EntityMappingRequest(); // E
 // Call api endpoint
 apiInstance.saveEntityMapping(entityMappingRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

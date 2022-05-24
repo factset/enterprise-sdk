@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,7 +17,7 @@ import PhoneNumberTypeDto from './PhoneNumberTypeDto';
 /**
  * The ContactPhoneDto model module.
  * @module model/ContactPhoneDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactPhoneDto {
     /**
@@ -48,17 +48,17 @@ class ContactPhoneDto {
         if (data) {
             obj = obj || new ContactPhoneDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('number')) {
-                obj['number'] = ApiClient.convertToType(data['number'], 'String');
+            if (data.hasOwnProperty('Number')) {
+                obj['Number'] = ApiClient.convertToType(data['Number'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = PhoneNumberTypeDto.constructFromObject(data['type']);
+            if (data.hasOwnProperty('Type')) {
+                obj['Type'] = PhoneNumberTypeDto.constructFromObject(data['Type']);
             }
-            if (data.hasOwnProperty('isPrimary')) {
-                obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
+            if (data.hasOwnProperty('IsPrimary')) {
+                obj['IsPrimary'] = ApiClient.convertToType(data['IsPrimary'], 'Boolean');
             }
         }
         return obj;
@@ -68,24 +68,24 @@ class ContactPhoneDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-ContactPhoneDto.prototype['id'] = undefined;
+ContactPhoneDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} number
+ * @member {String} Number
  */
-ContactPhoneDto.prototype['number'] = undefined;
+ContactPhoneDto.prototype['Number'] = undefined;
 
 /**
- * @member {module:model/PhoneNumberTypeDto} type
+ * @member {module:model/PhoneNumberTypeDto} Type
  */
-ContactPhoneDto.prototype['type'] = undefined;
+ContactPhoneDto.prototype['Type'] = undefined;
 
 /**
- * @member {Boolean} isPrimary
+ * @member {Boolean} IsPrimary
  */
-ContactPhoneDto.prototype['isPrimary'] = undefined;
+ContactPhoneDto.prototype['IsPrimary'] = undefined;
 
 
 

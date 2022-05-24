@@ -46,6 +46,7 @@ const apiInstance = new CurrenciesApi();
 // Call api endpoint
 apiInstance.getPACurrencies().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

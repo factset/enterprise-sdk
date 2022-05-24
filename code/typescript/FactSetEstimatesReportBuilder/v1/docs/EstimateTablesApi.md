@@ -50,6 +50,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEstimateTablesTable(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

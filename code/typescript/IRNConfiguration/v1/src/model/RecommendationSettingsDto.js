@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecommendationSettingsDto model module.
  * @module model/RecommendationSettingsDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RecommendationSettingsDto {
     /**
@@ -47,8 +47,17 @@ class RecommendationSettingsDto {
         if (data) {
             obj = obj || new RecommendationSettingsDto();
 
-            if (data.hasOwnProperty('defaultId')) {
-                obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
+            if (data.hasOwnProperty('IsHidden')) {
+                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            }
+            if (data.hasOwnProperty('IsMandatory')) {
+                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            }
+            if (data.hasOwnProperty('UsePrevious')) {
+                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            }
+            if (data.hasOwnProperty('DefaultId')) {
+                obj['DefaultId'] = ApiClient.convertToType(data['DefaultId'], 'String');
             }
         }
         return obj;
@@ -58,9 +67,24 @@ class RecommendationSettingsDto {
 }
 
 /**
- * @member {String} defaultId
+ * @member {Boolean} IsHidden
  */
-RecommendationSettingsDto.prototype['defaultId'] = undefined;
+RecommendationSettingsDto.prototype['IsHidden'] = undefined;
+
+/**
+ * @member {Boolean} IsMandatory
+ */
+RecommendationSettingsDto.prototype['IsMandatory'] = undefined;
+
+/**
+ * @member {Boolean} UsePrevious
+ */
+RecommendationSettingsDto.prototype['UsePrevious'] = undefined;
+
+/**
+ * @member {String} DefaultId
+ */
+RecommendationSettingsDto.prototype['DefaultId'] = undefined;
 
 
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Returns the requestId and status
 
-Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Shenzhen OR Shanghai - 300782-SHE, 300792-SHE</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
+Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
 
 ### Example
 
@@ -38,41 +38,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetTickHistory.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetTickHistory.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetTickHistory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = request_files_api.RequestFilesApi(api_client)
+
     start_date = dateutil_parser('2021-01-01').date() # date | The date for (or from which) the data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
     end_date = dateutil_parser('2021-01-31').date() # date | The date to which data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
     ticker = "IBM,F,AAPL,GOOG" # str | any ticker. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can be requested per request (optional)
     iso_code = "USA" # str | iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple iso_codes**</p> (optional)
-    fields = "*" # str | Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\">Output fileds list</a>. for available fields.</p> **In trial default=all fields** (optional) if omitted the server will use the default value of "*"
+    fields = "*" # str | Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\">Output fileds list</a>. for available fields.</p> **In trial default=all fields** (optional) (default to "*")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns the requestId and status
-        api_response = api_instance.v1_request_files_get(start_date, end_date)
-        pprint(api_response)
-    except fds.sdk.FactSetTickHistory.ApiException as e:
-        print("Exception when calling RequestFilesApi->v1_request_files_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns the requestId and status
         api_response = api_instance.v1_request_files_get(start_date, end_date, ticker=ticker, iso_code=iso_code, fields=fields)
         pprint(api_response)
+
     except fds.sdk.FactSetTickHistory.ApiException as e:
         print("Exception when calling RequestFilesApi->v1_request_files_get: %s\n" % e)
 ```

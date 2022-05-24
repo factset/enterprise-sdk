@@ -48,6 +48,8 @@ public class InlineResponse20055Data implements Serializable {
   public static final String JSON_PROPERTY_VALIDITY = "validity";
   private InlineResponse20055DataValidity validity;
 
+  public InlineResponse20055Data() { 
+  }
 
   public InlineResponse20055Data id(String id) {
     this.id = id;

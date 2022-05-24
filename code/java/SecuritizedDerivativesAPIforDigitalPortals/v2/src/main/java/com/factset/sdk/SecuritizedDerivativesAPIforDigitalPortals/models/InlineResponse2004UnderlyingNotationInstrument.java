@@ -86,6 +86,8 @@ public class InlineResponse2004UnderlyingNotationInstrument implements Serializa
   public static final String JSON_PROPERTY_TYPE_COMPOSITE = "typeComposite";
   private TypeCompositeEnum typeComposite;
 
+  public InlineResponse2004UnderlyingNotationInstrument() { 
+  }
 
   public InlineResponse2004UnderlyingNotationInstrument id(String id) {
     this.id = id;

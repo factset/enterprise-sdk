@@ -46,6 +46,8 @@ public class RequestFilesResponse implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
 
+  public RequestFilesResponse() { 
+  }
 
   public RequestFilesResponse requestId(String requestId) {
     this.requestId = requestId;

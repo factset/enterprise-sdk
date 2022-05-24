@@ -22,7 +22,7 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Convertibles service.
 * @module api/ConvertiblesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ConvertiblesApi {
 
@@ -65,7 +65,10 @@ export default class ConvertiblesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ConvertibleDetailsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/convertible-details', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -77,7 +80,7 @@ export default class ConvertiblesApi {
      * Return Convertible Details for a list of Convertible Fixed Income securities.
      * Returns Convertible Details for a list of securities, such as -   * Convertible Currency   * Convertible Effective Date   * Convertible Notice Days Max and Min   * Convertible Payment Form   * Convertible Payment Details   * Convertible Payment Form Election   * Convertible Price Method   * Convertible Type   * Convertibles Ratio   * More 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConvertibleDetailsResponse}
+     * @return { Promise.< module:model/ConvertibleDetailsResponse > } a Promise, with data of type {@link module:model/ConvertibleDetailsResponse }
      */
     getConvertibleDetails(ids) {
       return this.getConvertibleDetailsWithHttpInfo(ids)
@@ -112,7 +115,10 @@ export default class ConvertiblesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ConvertibleDetailsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/convertible-details', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -124,7 +130,7 @@ export default class ConvertiblesApi {
      * Return Convertible Details data for a large list of Fixed Income securities.
      * Returns Convertible Details for a list of securities, such as -   * Convertible Currency   * Convertible Effective Date   * Convertible Notice Days Max and Min   * Convertible Payment Form   * Convertible Payment Details   * Convertible Payment Form Election   * Convertible Price Method   * Convertible Type   * Convertibles Ratio   * More 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Convertible Details.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConvertibleDetailsResponse}
+     * @return { Promise.< module:model/ConvertibleDetailsResponse > } a Promise, with data of type {@link module:model/ConvertibleDetailsResponse }
      */
     getConvertibleDetailsForList(termsAndConditionsScalarRequest) {
       return this.getConvertibleDetailsForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -160,7 +166,10 @@ export default class ConvertiblesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ConvertibleHistoryResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/convertible-history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -172,7 +181,7 @@ export default class ConvertiblesApi {
      * Return Convertible History data for a list of Fixed Income securities.
      * Returns Convertible History data for the Fixed Income security, including - * Convertibles Price * Convertibles Effective Date 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConvertibleHistoryResponse}
+     * @return { Promise.< module:model/ConvertibleHistoryResponse > } a Promise, with data of type {@link module:model/ConvertibleHistoryResponse }
      */
     getConvertibleHistory(ids) {
       return this.getConvertibleHistoryWithHttpInfo(ids)
@@ -207,7 +216,10 @@ export default class ConvertiblesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ConvertibleHistoryResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/convertible-history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -219,7 +231,7 @@ export default class ConvertiblesApi {
      * Return Convertible History data for a large list of Fixed Income securities.
      * Returns Convertible History data for a list of Fixed Income securities. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Issue Size.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConvertibleHistoryResponse}
+     * @return { Promise.< module:model/ConvertibleHistoryResponse > } a Promise, with data of type {@link module:model/ConvertibleHistoryResponse }
      */
     getConvertibleHistoryForList(termsAndConditionsScalarRequest) {
       return this.getConvertibleHistoryForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -255,7 +267,10 @@ export default class ConvertiblesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ConvertibleTriggersResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/convertible-triggers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -267,7 +282,7 @@ export default class ConvertiblesApi {
      * Return Convertible Triggers data for a list of Fixed Income securities.
      * Returns Convertible Triggers data for the Fixed Income security including the Convertible Trigger Id, Event, and Description. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConvertibleTriggersResponse}
+     * @return { Promise.< module:model/ConvertibleTriggersResponse > } a Promise, with data of type {@link module:model/ConvertibleTriggersResponse }
      */
     getConvertibleTriggers(ids) {
       return this.getConvertibleTriggersWithHttpInfo(ids)
@@ -302,7 +317,10 @@ export default class ConvertiblesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ConvertibleTriggersResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/convertible-triggers', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -314,7 +332,7 @@ export default class ConvertiblesApi {
      * Return Convertible Trigger data for a large list of Fixed Income securities.
      * Returns Convertible Triggers data for the Fixed Income security including the Convertible Trigger Id, Event, and Description. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Issue Size.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConvertibleTriggersResponse}
+     * @return { Promise.< module:model/ConvertibleTriggersResponse > } a Promise, with data of type {@link module:model/ConvertibleTriggersResponse }
      */
     getConvertibleTriggersForList(termsAndConditionsScalarRequest) {
       return this.getConvertibleTriggersForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -325,3 +343,8 @@ export default class ConvertiblesApi {
 
 
 }
+
+
+
+
+

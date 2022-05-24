@@ -75,7 +75,6 @@ Name | Type | Description  | Notes
  **payload** | [**Input**](Input.md)|  | 
 
 ### Return type
-
 [**Response**](Response.md)
 
 ### Authorization

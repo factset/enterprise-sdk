@@ -42,31 +42,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
+
     entity_mapping_delete_request = EntityMappingDeleteRequest(
         universe_id=1,
         client_id=["abc-123","dfg-456"],
     ) # EntityMappingDeleteRequest | A request to delete entity mappings specified by the client
 
-    # example passing only required values which don't have defaults set
     try:
         # Deletes mapping specified by the client.
         api_response = api_instance.get_entity_mapping_delete_for_list(entity_mapping_delete_request)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling MappingsApi->get_entity_mapping_delete_for_list: %s\n" % e)
 ```
@@ -137,21 +138,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
+
     entity_mapping_request = EntityMappingRequest(
         universe_id=1,
         client_id="FDS-USA",
@@ -162,11 +164,11 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         client_url="www.factset.com",
     ) # EntityMappingRequest | A request to create a single mapping.
 
-    # example passing only required values which don't have defaults set
     try:
         # Saves a single-mapping specified by the client.
         api_response = api_instance.get_entity_mapping_for_list(entity_mapping_request)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling MappingsApi->get_entity_mapping_for_list: %s\n" % e)
 ```
@@ -236,43 +238,35 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
+
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
     client_id = ["abc-123","def-456"] # [str] | Filter by the clientId(s) created by the user in a previous mapping.  (optional)
     map_status = [
         "MAPPED",
     ] # [str] | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional)
-    offset = 0 # int | Starting row for records to return or rows to skip. (optional) if omitted the server will use the default value of 0
+    offset = 0 # int | Starting row for records to return or rows to skip. (optional) (default to 0)
     limit = 10 # int | Limits the number of records in the response. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Retrieve all saved mappings within a requested universe
-        api_response = api_instance.get_entity_universe(universe_id)
-        pprint(api_response)
-    except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling MappingsApi->get_entity_universe: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve all saved mappings within a requested universe
         api_response = api_instance.get_entity_universe(universe_id, client_id=client_id, map_status=map_status, offset=offset, limit=limit)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling MappingsApi->get_entity_universe: %s\n" % e)
 ```
@@ -347,21 +341,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = mappings_api.MappingsApi(api_client)
+
     entity_universe_request = EntityUniverseRequest(
         universe_id=1,
         offset=0,
@@ -372,11 +367,11 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         client_id=["abc-123","dfg-456"],
     ) # EntityUniverseRequest | A request to fetch all entities of a given universe
 
-    # example passing only required values which don't have defaults set
     try:
         # Retrieve all saved mappings within a requested universe or large list of client ids
         api_response = api_instance.get_entity_universe_for_list(entity_universe_request)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling MappingsApi->get_entity_universe_for_list: %s\n" % e)
 ```

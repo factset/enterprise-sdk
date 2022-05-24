@@ -68,7 +68,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20054Data {\n");
             sb.Append("  Occurrence: ").Append(Occurrence).Append("\n");
             sb.Append("  InterestRate: ").Append(InterestRate).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20054Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Occurrence == input.Occurrence ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Occurrence != null)
-                    hashCode = hashCode * 59 + this.Occurrence.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Occurrence.GetHashCode();
+                }
                 if (this.InterestRate != null)
-                    hashCode = hashCode * 59 + this.InterestRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InterestRate.GetHashCode();
+                }
                 if (this.DayCountConvention != null)
-                    hashCode = hashCode * 59 + this.DayCountConvention.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DayCountConvention.GetHashCode();
+                }
                 return hashCode;
             }
         }

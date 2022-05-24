@@ -19,7 +19,7 @@ import InlineResponse2003InstrumentCategorizationLevel3 from './InlineResponse20
 /**
  * The InlineResponse2003InstrumentCategorization model module.
  * @module model/InlineResponse2003InstrumentCategorization
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentCategorization {
     /**

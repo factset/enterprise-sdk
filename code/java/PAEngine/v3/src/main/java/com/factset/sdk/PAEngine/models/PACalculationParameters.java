@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.PAEngine.models.PACalculationColumn;
+import com.factset.sdk.PAEngine.models.PACalculationDataSources;
 import com.factset.sdk.PAEngine.models.PACalculationGroup;
 import com.factset.sdk.PAEngine.models.PADateParameters;
 import com.factset.sdk.PAEngine.models.PAIdentifier;
@@ -44,6 +45,7 @@ import com.factset.sdk.PAEngine.JSON;
   PACalculationParameters.JSON_PROPERTY_GROUPS,
   PACalculationParameters.JSON_PROPERTY_CURRENCYISOCODE,
   PACalculationParameters.JSON_PROPERTY_COLUMNS,
+  PACalculationParameters.JSON_PROPERTY_DATASOURCES,
   PACalculationParameters.JSON_PROPERTY_COMPONENTDETAIL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -71,9 +73,22 @@ public class PACalculationParameters implements Serializable {
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private java.util.List<PACalculationColumn> columns = null;
 
+  public static final String JSON_PROPERTY_DATASOURCES = "datasources";
+  private PACalculationDataSources datasources;
+
   public static final String JSON_PROPERTY_COMPONENTDETAIL = "componentdetail";
   private String componentdetail;
 
+  public PACalculationParameters() { 
+  }
+
+  @JsonCreator
+  public PACalculationParameters(
+    @JsonProperty(value=JSON_PROPERTY_COMPONENTID, required=true) String componentid
+  ) {
+    this();
+    this.componentid = componentid;
+  }
 
   public PACalculationParameters componentid(String componentid) {
     this.componentid = componentid;
@@ -289,6 +304,32 @@ public class PACalculationParameters implements Serializable {
   }
 
 
+  public PACalculationParameters datasources(PACalculationDataSources datasources) {
+    this.datasources = datasources;
+    return this;
+  }
+
+   /**
+   * Get datasources
+   * @return datasources
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DATASOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PACalculationDataSources getDatasources() {
+    return datasources;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATASOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDatasources(PACalculationDataSources datasources) {
+    this.datasources = datasources;
+  }
+
+
   public PACalculationParameters componentdetail(String componentdetail) {
     this.componentdetail = componentdetail;
     return this;
@@ -334,12 +375,13 @@ public class PACalculationParameters implements Serializable {
         Objects.equals(this.groups, paCalculationParameters.groups) &&
         Objects.equals(this.currencyisocode, paCalculationParameters.currencyisocode) &&
         Objects.equals(this.columns, paCalculationParameters.columns) &&
+        Objects.equals(this.datasources, paCalculationParameters.datasources) &&
         Objects.equals(this.componentdetail, paCalculationParameters.componentdetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(componentid, accounts, benchmarks, dates, groups, currencyisocode, columns, componentdetail);
+    return Objects.hash(componentid, accounts, benchmarks, dates, groups, currencyisocode, columns, datasources, componentdetail);
   }
 
   @Override
@@ -353,6 +395,7 @@ public class PACalculationParameters implements Serializable {
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    currencyisocode: ").append(toIndentedString(currencyisocode)).append("\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("    datasources: ").append(toIndentedString(datasources)).append("\n");
     sb.append("    componentdetail: ").append(toIndentedString(componentdetail)).append("\n");
     sb.append("}");
     return sb.toString();

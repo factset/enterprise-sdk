@@ -30,7 +30,6 @@ src/main/java/com/factset/sdk/FactSetGeoRev/ApiClient.java
 src/main/java/com/factset/sdk/FactSetGeoRev/ApiException.java
 src/main/java/com/factset/sdk/FactSetGeoRev/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetGeoRev/Configuration.java
-src/main/java/com/factset/sdk/FactSetGeoRev/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetGeoRev/JSON.java
 src/main/java/com/factset/sdk/FactSetGeoRev/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetGeoRev/Pair.java

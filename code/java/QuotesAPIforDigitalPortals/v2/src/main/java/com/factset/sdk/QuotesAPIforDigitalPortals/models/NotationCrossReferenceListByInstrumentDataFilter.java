@@ -53,6 +53,8 @@ public class NotationCrossReferenceListByInstrumentDataFilter implements Seriali
   public static final String JSON_PROPERTY_ONLY_ACTIVE = "onlyActive";
   private Boolean onlyActive = false;
 
+  public NotationCrossReferenceListByInstrumentDataFilter() { 
+  }
 
   public NotationCrossReferenceListByInstrumentDataFilter markets(NotationCrossReferenceListByInstrumentDataFilterMarkets markets) {
     this.markets = markets;

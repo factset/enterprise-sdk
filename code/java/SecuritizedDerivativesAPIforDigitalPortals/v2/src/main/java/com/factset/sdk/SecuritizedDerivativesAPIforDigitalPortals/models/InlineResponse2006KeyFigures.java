@@ -123,6 +123,8 @@ public class InlineResponse2006KeyFigures implements Serializable {
   public static final String JSON_PROPERTY_PARITY = "parity";
   private BigDecimal parity;
 
+  public InlineResponse2006KeyFigures() { 
+  }
 
   public InlineResponse2006KeyFigures currency(InlineResponse2006KeyFiguresCurrency currency) {
     this.currency = currency;

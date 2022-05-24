@@ -1,14 +1,12 @@
 # FactSet.SDK.ETFProfileandPrices.Model.InlineResponse2007Data
-Class information of given ETP.
+List of allocations.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Asset** | **string** | Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions. | [optional] 
-**EconomicDevelopment** | **string** | The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions. | [optional] 
-**Geography** | [**InlineResponse2007DataGeography**](InlineResponse2007DataGeography.md) |  | [optional] 
-**Category** | [**InlineResponse2007DataCategory**](InlineResponse2007DataCategory.md) |  | [optional] 
+**ReportDate** | **DateTime** | Reporting date for the allocations. | [optional] 
+**Classifications** | [**List&lt;InlineResponse2007DataClassifications&gt;**](InlineResponse2007DataClassifications.md) | List of allocations classified by a holding&#39;s total market capitalization (e.g. small caps, large caps). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

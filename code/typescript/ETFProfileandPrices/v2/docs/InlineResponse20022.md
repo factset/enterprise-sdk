@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse20022Data]**](InlineResponse20022Data.md) | Time series. | [optional] 
-**meta** | [**InlineResponse2001Meta**](InlineResponse2001Meta.md) |  | [optional] 
+**data** | [**InlineResponse20022Data**](InlineResponse20022Data.md) |  | [optional] 
+**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

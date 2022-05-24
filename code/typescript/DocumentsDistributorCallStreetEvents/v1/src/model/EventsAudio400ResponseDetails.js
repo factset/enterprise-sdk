@@ -17,7 +17,7 @@ import EventsAudio400ResponseDetailsValidParameters from './EventsAudio400Respon
 /**
  * The EventsAudio400ResponseDetails model module.
  * @module model/EventsAudio400ResponseDetails
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EventsAudio400ResponseDetails {
     /**

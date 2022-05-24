@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -18,6 +18,7 @@ import ContactEventDto from '../model/ContactEventDto';
 import ContactRelationshipDto from '../model/ContactRelationshipDto';
 import ContactSaveDto from '../model/ContactSaveDto';
 import ContactSummaryDto from '../model/ContactSummaryDto';
+import NewItemDto from '../model/NewItemDto';
 import Operation from '../model/Operation';
 import ProblemDetails from '../model/ProblemDetails';
 import RecordPreviewDto from '../model/RecordPreviewDto';
@@ -25,7 +26,7 @@ import RecordPreviewDto from '../model/RecordPreviewDto';
 /**
 * Contacts service.
 * @module api/ContactsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ContactsApi {
 
@@ -43,206 +44,16 @@ export default class ContactsApi {
 
 
     /**
-     * Get the About field content for a specific contact
-     * @param {String} contactId contactId of associated record
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
-     */
-    v1ContactsContactIdAboutGetWithHttpInfo(contactId) {
-      let postBody = null;
-      // verify the required parameter 'contactId' is set
-      if (contactId === undefined || contactId === null) {
-        throw new Error("Missing the required parameter 'contactId' when calling v1ContactsContactIdAboutGet");
-      }
-
-      let pathParams = {
-        'contactId': contactId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = 'String';
-      return this.apiClient.callApi(
-        '/v1/contacts/{contactId}/about', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get the About field content for a specific contact
-     * @param {String} contactId contactId of associated record
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
-     */
-    v1ContactsContactIdAboutGet(contactId) {
-      return this.v1ContactsContactIdAboutGetWithHttpInfo(contactId)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Delete a contact
-     * @param {String} contactId contactId to delete associated record
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
-     */
-    v1ContactsContactIdDeleteWithHttpInfo(contactId) {
-      let postBody = null;
-      // verify the required parameter 'contactId' is set
-      if (contactId === undefined || contactId === null) {
-        throw new Error("Missing the required parameter 'contactId' when calling v1ContactsContactIdDelete");
-      }
-
-      let pathParams = {
-        'contactId': contactId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/v1/contacts/{contactId}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Delete a contact
-     * @param {String} contactId contactId to delete associated record
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
-     */
-    v1ContactsContactIdDelete(contactId) {
-      return this.v1ContactsContactIdDeleteWithHttpInfo(contactId)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Get a contact’s audit history
-     * @param {String} contactId contactId to get associated records
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ContactEventDto>} and HTTP response
-     */
-    v1ContactsContactIdEventsGetWithHttpInfo(contactId) {
-      let postBody = null;
-      // verify the required parameter 'contactId' is set
-      if (contactId === undefined || contactId === null) {
-        throw new Error("Missing the required parameter 'contactId' when calling v1ContactsContactIdEventsGet");
-      }
-
-      let pathParams = {
-        'contactId': contactId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = [ContactEventDto];
-      return this.apiClient.callApi(
-        '/v1/contacts/{contactId}/events', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get a contact’s audit history
-     * @param {String} contactId contactId to get associated records
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ContactEventDto>}
-     */
-    v1ContactsContactIdEventsGet(contactId) {
-      return this.v1ContactsContactIdEventsGetWithHttpInfo(contactId)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Get all custom field and standard field details on a specific contact
-     * @param {String} contactId contactId to get associated record
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ContactDto} and HTTP response
-     */
-    v1ContactsContactIdGetWithHttpInfo(contactId) {
-      let postBody = null;
-      // verify the required parameter 'contactId' is set
-      if (contactId === undefined || contactId === null) {
-        throw new Error("Missing the required parameter 'contactId' when calling v1ContactsContactIdGet");
-      }
-
-      let pathParams = {
-        'contactId': contactId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = ContactDto;
-      return this.apiClient.callApi(
-        '/v1/contacts/{contactId}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get all custom field and standard field details on a specific contact
-     * @param {String} contactId contactId to get associated record
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ContactDto}
-     */
-    v1ContactsContactIdGet(contactId) {
-      return this.v1ContactsContactIdGetWithHttpInfo(contactId)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Edit a contact’s standard field and custom field data
-     * @param {String} contactId contactId to update associated record
+     * Create a contact
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/Operation>} opts.operation contactSaveDtoPatch object to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     * @param {module:model/ContactSaveDto} opts.contactSaveDto contactSaveDto object to save
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NewItemDto} and HTTP response
      */
-    v1ContactsContactIdPatchWithHttpInfo(contactId, opts) {
+    createContactWithHttpInfo(opts) {
       opts = opts || {};
-      let postBody = opts['operation'];
-      // verify the required parameter 'contactId' is set
-      if (contactId === undefined || contactId === null) {
-        throw new Error("Missing the required parameter 'contactId' when calling v1ContactsContactIdPatch");
-      }
+      let postBody = opts['contactSaveDto'];
 
       let pathParams = {
-        'contactId': contactId
       };
       let queryParams = {
       };
@@ -254,23 +65,221 @@ export default class ContactsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
-      let returnType = null;
+
+
+      let returnType = NewItemDto;
+
       return this.apiClient.callApi(
-        '/v1/contacts/{contactId}', 'PATCH',
+        '/v1/contacts', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Edit a contact’s standard field and custom field data
-     * @param {String} contactId contactId to update associated record
+     * Create a contact
      * @param {Object} opts Optional parameters
-     * @param {Array.<module:model/Operation>} opts.operation contactSaveDtoPatch object to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @param {module:model/ContactSaveDto} opts.contactSaveDto contactSaveDto object to save
+     * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
-    v1ContactsContactIdPatch(contactId, opts) {
-      return this.v1ContactsContactIdPatchWithHttpInfo(contactId, opts)
+    createContact(opts) {
+      return this.createContactWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Delete a contact
+     * @param {String} contactId contactId to delete associated record
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    deleteContactWithHttpInfo(contactId) {
+      let postBody = null;
+      // verify the required parameter 'contactId' is set
+      if (contactId === undefined || contactId === null) {
+        throw new Error("Missing the required parameter 'contactId' when calling deleteContact");
+      }
+
+      let pathParams = {
+        'contactId': contactId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/v1/contacts/{contactId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Delete a contact
+     * @param {String} contactId contactId to delete associated record
+     * @return { Promise } a Promise
+     */
+    deleteContact(contactId) {
+      return this.deleteContactWithHttpInfo(contactId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get all custom field and standard field details on a specific contact
+     * @param {String} contactId contactId to get associated record
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ContactDto} and HTTP response
+     */
+    getContactWithHttpInfo(contactId) {
+      let postBody = null;
+      // verify the required parameter 'contactId' is set
+      if (contactId === undefined || contactId === null) {
+        throw new Error("Missing the required parameter 'contactId' when calling getContact");
+      }
+
+      let pathParams = {
+        'contactId': contactId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = ContactDto;
+
+      return this.apiClient.callApi(
+        '/v1/contacts/{contactId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all custom field and standard field details on a specific contact
+     * @param {String} contactId contactId to get associated record
+     * @return { Promise.< module:model/ContactDto > } a Promise, with data of type {@link module:model/ContactDto }
+     */
+    getContact(contactId) {
+      return this.getContactWithHttpInfo(contactId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get a contact’s audit history
+     * @param {String} contactId contactId to get associated records
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ContactEventDto>} and HTTP response
+     */
+    getContactEventsWithHttpInfo(contactId) {
+      let postBody = null;
+      // verify the required parameter 'contactId' is set
+      if (contactId === undefined || contactId === null) {
+        throw new Error("Missing the required parameter 'contactId' when calling getContactEvents");
+      }
+
+      let pathParams = {
+        'contactId': contactId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = [ContactEventDto];
+
+      return this.apiClient.callApi(
+        '/v1/contacts/{contactId}/events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get a contact’s audit history
+     * @param {String} contactId contactId to get associated records
+     * @return { Promise.< Array.<module:model/ContactEventDto> > } a Promise, with data of type {@link Array.<module:model/ContactEventDto> }
+     */
+    getContactEvents(contactId) {
+      return this.getContactEventsWithHttpInfo(contactId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get the About field content for a specific contact
+     * @param {String} contactId contactId of associated record
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
+     */
+    getContactNotesWithHttpInfo(contactId) {
+      let postBody = null;
+      // verify the required parameter 'contactId' is set
+      if (contactId === undefined || contactId === null) {
+        throw new Error("Missing the required parameter 'contactId' when calling getContactNotes");
+      }
+
+      let pathParams = {
+        'contactId': contactId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = 'String';
+
+      return this.apiClient.callApi(
+        '/v1/contacts/{contactId}/about', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get the About field content for a specific contact
+     * @param {String} contactId contactId of associated record
+     * @return { Promise.< String > } a Promise, with data of type {@link String }
+     */
+    getContactNotes(contactId) {
+      return this.getContactNotesWithHttpInfo(contactId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -282,11 +291,11 @@ export default class ContactsApi {
      * @param {String} contactId contactId to get associated records
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RecordPreviewDto>} and HTTP response
      */
-    v1ContactsContactIdRecordsGetWithHttpInfo(contactId) {
+    getContactRecordsWithHttpInfo(contactId) {
       let postBody = null;
       // verify the required parameter 'contactId' is set
       if (contactId === undefined || contactId === null) {
-        throw new Error("Missing the required parameter 'contactId' when calling v1ContactsContactIdRecordsGet");
+        throw new Error("Missing the required parameter 'contactId' when calling getContactRecords");
       }
 
       let pathParams = {
@@ -302,7 +311,10 @@ export default class ContactsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [RecordPreviewDto];
+
       return this.apiClient.callApi(
         '/v1/contacts/{contactId}/records', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -313,10 +325,10 @@ export default class ContactsApi {
     /**
      * Get all notes and meetings where a specific contact was tagged
      * @param {String} contactId contactId to get associated records
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RecordPreviewDto>}
+     * @return { Promise.< Array.<module:model/RecordPreviewDto> > } a Promise, with data of type {@link Array.<module:model/RecordPreviewDto> }
      */
-    v1ContactsContactIdRecordsGet(contactId) {
-      return this.v1ContactsContactIdRecordsGetWithHttpInfo(contactId)
+    getContactRecords(contactId) {
+      return this.getContactRecordsWithHttpInfo(contactId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -328,11 +340,11 @@ export default class ContactsApi {
      * @param {String} contactId contactId to get associated records
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ContactRelationshipDto>} and HTTP response
      */
-    v1ContactsContactIdRelationshipsGetWithHttpInfo(contactId) {
+    getContactRelationshipsWithHttpInfo(contactId) {
       let postBody = null;
       // verify the required parameter 'contactId' is set
       if (contactId === undefined || contactId === null) {
-        throw new Error("Missing the required parameter 'contactId' when calling v1ContactsContactIdRelationshipsGet");
+        throw new Error("Missing the required parameter 'contactId' when calling getContactRelationships");
       }
 
       let pathParams = {
@@ -348,7 +360,10 @@ export default class ContactsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [ContactRelationshipDto];
+
       return this.apiClient.callApi(
         '/v1/contacts/{contactId}/relationships', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -359,10 +374,10 @@ export default class ContactsApi {
     /**
      * Returns a list of a contact’s relationships
      * @param {String} contactId contactId to get associated records
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ContactRelationshipDto>}
+     * @return { Promise.< Array.<module:model/ContactRelationshipDto> > } a Promise, with data of type {@link Array.<module:model/ContactRelationshipDto> }
      */
-    v1ContactsContactIdRelationshipsGet(contactId) {
-      return this.v1ContactsContactIdRelationshipsGetWithHttpInfo(contactId)
+    getContactRelationships(contactId) {
+      return this.getContactRelationshipsWithHttpInfo(contactId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -383,7 +398,7 @@ export default class ContactsApi {
      * @param {Number} opts.limit Restrict number of records returned (default to 0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ContactSummaryDto>} and HTTP response
      */
-    v1ContactsGetWithHttpInfo(opts) {
+    getContactsWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -408,7 +423,10 @@ export default class ContactsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [ContactSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/contacts', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -428,10 +446,10 @@ export default class ContactsApi {
      * @param {String} opts.sort 
      * @param {Boolean} opts.includeLastMeetingDate If true, returns when they were last tagged as an attendee in an IRN meeting (default to false)
      * @param {Number} opts.limit Restrict number of records returned (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ContactSummaryDto>}
+     * @return { Promise.< Array.<module:model/ContactSummaryDto> > } a Promise, with data of type {@link Array.<module:model/ContactSummaryDto> }
      */
-    v1ContactsGet(opts) {
-      return this.v1ContactsGetWithHttpInfo(opts)
+    getContacts(opts) {
+      return this.getContactsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -439,16 +457,22 @@ export default class ContactsApi {
 
 
     /**
-     * Create a contact
+     * Edit a contact’s standard field and custom field data
+     * @param {String} contactId contactId to update associated record
      * @param {Object} opts Optional parameters
-     * @param {module:model/ContactSaveDto} opts.contactSaveDto contactSaveDto object to save
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
+     * @param {Array.<module:model/Operation>} opts.operation contactSaveDtoPatch object to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    v1ContactsPostWithHttpInfo(opts) {
+    patchContactWithHttpInfo(contactId, opts) {
       opts = opts || {};
-      let postBody = opts['contactSaveDto'];
+      let postBody = opts['operation'];
+      // verify the required parameter 'contactId' is set
+      if (contactId === undefined || contactId === null) {
+        throw new Error("Missing the required parameter 'contactId' when calling patchContact");
+      }
 
       let pathParams = {
+        'contactId': contactId
       };
       let queryParams = {
       };
@@ -460,22 +484,26 @@ export default class ContactsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
-      let returnType = 'String';
+
+
+      let returnType = null;
+
       return this.apiClient.callApi(
-        '/v1/contacts', 'POST',
+        '/v1/contacts/{contactId}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Create a contact
+     * Edit a contact’s standard field and custom field data
+     * @param {String} contactId contactId to update associated record
      * @param {Object} opts Optional parameters
-     * @param {module:model/ContactSaveDto} opts.contactSaveDto contactSaveDto object to save
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
+     * @param {Array.<module:model/Operation>} opts.operation contactSaveDtoPatch object to update
+     * @return { Promise } a Promise
      */
-    v1ContactsPost(opts) {
-      return this.v1ContactsPostWithHttpInfo(opts)
+    patchContact(contactId, opts) {
+      return this.patchContactWithHttpInfo(contactId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -483,3 +511,8 @@ export default class ContactsApi {
 
 
 }
+
+
+
+
+

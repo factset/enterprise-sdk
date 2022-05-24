@@ -49,6 +49,8 @@ public class InlineResponse2006DataProfitLoss implements Serializable {
   public static final String JSON_PROPERTY_POTENTIAL = "potential";
   private InlineResponse2001DataProfitLossPotential potential;
 
+  public InlineResponse2006DataProfitLoss() { 
+  }
 
   public InlineResponse2006DataProfitLoss intraday(InlineResponse2001DataProfitLossToday intraday) {
     this.intraday = intraday;

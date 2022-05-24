@@ -29,6 +29,7 @@ docs/Metric.md
 docs/MetricsRequest.md
 docs/MetricsResponse.md
 docs/Periodicity.md
+docs/PeriodicityDetail.md
 docs/PeriodicitySurprise.md
 docs/RatingsApi.md
 docs/RollingConsensusRequest.md
@@ -57,7 +58,6 @@ src/main/java/com/factset/sdk/FactSetEstimates/ApiClient.java
 src/main/java/com/factset/sdk/FactSetEstimates/ApiException.java
 src/main/java/com/factset/sdk/FactSetEstimates/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/Configuration.java
-src/main/java/com/factset/sdk/FactSetEstimates/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetEstimates/JSON.java
 src/main/java/com/factset/sdk/FactSetEstimates/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetEstimates/Pair.java
@@ -99,6 +99,7 @@ src/main/java/com/factset/sdk/FactSetEstimates/models/Metric.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/MetricsRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/MetricsResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Periodicity.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/PeriodicityDetail.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/PeriodicitySurprise.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/RollingConsensusRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/RollingDetailRequest.java

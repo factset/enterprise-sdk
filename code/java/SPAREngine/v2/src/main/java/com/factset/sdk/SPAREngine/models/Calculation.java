@@ -58,6 +58,8 @@ public class Calculation implements Serializable {
   public static final String JSON_PROPERTY_PUB = "pub";
   private java.util.Map<String, PubCalculationParameters> pub = null;
 
+  public Calculation() { 
+  }
 
   public Calculation pa(java.util.Map<String, PACalculationParameters> pa) {
     this.pa = pa;

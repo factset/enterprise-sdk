@@ -13,13 +13,14 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse2001Categories from './InlineResponse2001Categories';
+import InlineResponse2001Instruments from './InlineResponse2001Instruments';
 import InlineResponse2001Language from './InlineResponse2001Language';
 import InlineResponse2001Types from './InlineResponse2001Types';
 
 /**
  * The InlineResponse2002DataArticles model module.
  * @module model/InlineResponse2002DataArticles
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2002DataArticles {
     /**
@@ -59,6 +60,9 @@ class InlineResponse2002DataArticles {
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
+            if (data.hasOwnProperty('summary')) {
+                obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+            }
             if (data.hasOwnProperty('types')) {
                 obj['types'] = ApiClient.convertToType(data['types'], [InlineResponse2001Types]);
             }
@@ -67,6 +71,9 @@ class InlineResponse2002DataArticles {
             }
             if (data.hasOwnProperty('categories')) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [InlineResponse2001Categories]);
+            }
+            if (data.hasOwnProperty('instruments')) {
+                obj['instruments'] = ApiClient.convertToType(data['instruments'], [InlineResponse2001Instruments]);
             }
         }
         return obj;
@@ -94,6 +101,12 @@ InlineResponse2002DataArticles.prototype['time'] = undefined;
 InlineResponse2002DataArticles.prototype['headline'] = undefined;
 
 /**
+ * Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.
+ * @member {String} summary
+ */
+InlineResponse2002DataArticles.prototype['summary'] = undefined;
+
+/**
  * Types of news article. See endpoint `/news/article/type/list` for possible values.
  * @member {Array.<module:model/InlineResponse2001Types>} types
  */
@@ -109,6 +122,12 @@ InlineResponse2002DataArticles.prototype['language'] = undefined;
  * @member {Array.<module:model/InlineResponse2001Categories>} categories
  */
 InlineResponse2002DataArticles.prototype['categories'] = undefined;
+
+/**
+ * Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.
+ * @member {Array.<module:model/InlineResponse2001Instruments>} instruments
+ */
+InlineResponse2002DataArticles.prototype['instruments'] = undefined;
 
 
 

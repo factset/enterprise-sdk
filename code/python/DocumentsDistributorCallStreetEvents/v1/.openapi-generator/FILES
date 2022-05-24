@@ -13,6 +13,7 @@ docs/EventsAudioApi.md
 docs/EventsAudioData.md
 docs/EventsAudioMeta.md
 docs/EventsAudioMetaPagination.md
+docs/IndexedNRT.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -27,8 +28,8 @@ docs/NRTSnippetsData.md
 docs/NRTSnippetsMeta.md
 docs/NRTSnippetsMetaPagination.md
 docs/NRTSnippetsMetaPartial.md
-docs/NRTSnippetsMetadata.md
 docs/NRTSnippetsSnippetData.md
+docs/NRTSnippetsTranscriptData.md
 docs/NRTSpeakerids.md
 docs/NRTSpeakerids400Response.md
 docs/NRTSpeakerids400ResponseDetails.md
@@ -55,6 +56,7 @@ fds/sdk/DocumentsDistributorCallStreetEvents/model/events_audio400_response_deta
 fds/sdk/DocumentsDistributorCallStreetEvents/model/events_audio_data.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/events_audio_meta.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/events_audio_meta_pagination.py
+fds/sdk/DocumentsDistributorCallStreetEvents/model/indexed_nrt.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_calls.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_calls400_response.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_calls400_response_details.py
@@ -69,8 +71,8 @@ fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_snippets_data.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_snippets_meta.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_snippets_meta_pagination.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_snippets_meta_partial.py
-fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_snippets_metadata.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_snippets_snippet_data.py
+fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_snippets_transcript_data.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_speakerids.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_speakerids400_response.py
 fds/sdk/DocumentsDistributorCallStreetEvents/model/nrt_speakerids400_response_details.py

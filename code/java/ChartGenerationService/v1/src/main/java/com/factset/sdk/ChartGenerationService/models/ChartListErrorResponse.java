@@ -77,6 +77,8 @@ public class ChartListErrorResponse implements Serializable {
   public static final String JSON_PROPERTY_ERROR = "error";
   private ErrorEnum error;
 
+  public ChartListErrorResponse() { 
+  }
 
   public ChartListErrorResponse error(ErrorEnum error) {
     this.error = error;

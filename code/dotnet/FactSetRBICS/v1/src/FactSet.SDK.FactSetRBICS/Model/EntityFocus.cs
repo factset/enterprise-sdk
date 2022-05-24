@@ -112,7 +112,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityFocus {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
@@ -151,8 +151,9 @@ namespace FactSet.SDK.FactSetRBICS.Model
         public bool Equals(EntityFocus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return base.Equals(input) && 
                 (
                     this.RequestId == input.RequestId ||
@@ -187,15 +188,25 @@ namespace FactSet.SDK.FactSetRBICS.Model
             {
                 int hashCode = base.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.FirstDate != null)
-                    hashCode = hashCode * 59 + this.FirstDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FirstDate.GetHashCode();
+                }
                 if (this.LastDate != null)
-                    hashCode = hashCode * 59 + this.LastDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastDate.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
-                    hashCode = hashCode * 59 + this.AdditionalProperties.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

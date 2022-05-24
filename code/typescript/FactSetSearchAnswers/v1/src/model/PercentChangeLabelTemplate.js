@@ -20,7 +20,7 @@ import Template from './Template';
 /**
  * The PercentChangeLabelTemplate model module.
  * @module model/PercentChangeLabelTemplate
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PercentChangeLabelTemplate {
     /**

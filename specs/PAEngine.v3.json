@@ -3043,13 +3043,225 @@
         }
       }
     },
+    "/analytics/engines/pa/v3/grouping-frequencies": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "summary": "Get PA grouping frequencies",
+        "description": "This endpoint lists all the PA grouping frequencies that can be applied to a PA calculation.",
+        "operationId": "getPAGroupingFrequencies",
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of PA grouping frequencies",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FrequencyRoot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/analytics/engines/pa/v3/linked-templates": {
       "post": {
         "tags": [
           "LinkedPATemplates"
         ],
         "summary": "Create a linked PA template",
-        "description": "This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.\r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.",
+        "description": "This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.\r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.",
         "operationId": "createLinkedPATemplates",
         "requestBody": {
           "description": "Request Parameters",
@@ -3701,7 +3913,7 @@
           "LinkedPATemplates"
         ],
         "summary": "Update a linked PA template",
-        "description": "This endpoint allows the user to change the request body and description from an existing template.\r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.",
+        "description": "This endpoint allows the user to change the request body and description from an existing template.\r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.",
         "operationId": "updateLinkedPATemplates",
         "parameters": [
           {
@@ -4679,7 +4891,7 @@
           "PACalculations"
         ],
         "summary": "Create and Run PA calculation",
-        "description": "This endpoint runs the PA calculation specified in the POST body parameters.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in POST body will act as a one-time override over the settings saved in the PA template.",
+        "description": "This endpoint runs the PA calculation specified in the POST body parameters.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "postAndCalculate",
         "parameters": [
           {
@@ -5136,7 +5348,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       }
     },
     "/analytics/engines/pa/v3/calculations/{id}": {
@@ -5145,7 +5358,7 @@
           "PACalculations"
         ],
         "summary": "Create or Update PA calculation and run it.",
-        "description": "This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in PUT body will act as a one-time override over the settings saved in the PA template.",
+        "description": "This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.\r\nIt can take one or more calculation units as input.\r\n\r\nRemarks:\r\n\r\n*\tAny settings in PUT body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "putAndCalculate",
         "parameters": [
           {
@@ -5661,7 +5874,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       },
       "get": {
         "tags": [
@@ -6819,13 +7033,352 @@
         }
       }
     },
+    "/analytics/engines/pa/v3/pricing-sources": {
+      "get": {
+        "tags": [
+          "PricingSources"
+        ],
+        "summary": "Get PA pricing sources",
+        "description": "This endpoint lists all the PA pricing sources that can be applied to a PA calculation.",
+        "operationId": "getPAPricingSources",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "PA pricing sources name",
+            "schema": {
+              "type": "string",
+              "description": "PA pricing sources name",
+              "default": ""
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "PA pricing sources category",
+            "schema": {
+              "type": "string",
+              "description": "PA pricing sources category",
+              "default": ""
+            }
+          },
+          {
+            "name": "directory",
+            "in": "query",
+            "description": "The directory to get the PA pricing sources in",
+            "schema": {
+              "type": "string",
+              "description": "The directory to get the PA pricing sources in",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, returns a list of PA pricing sources",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Age": {
+                "description": "Standard HTTP header. Header will specify the age of pricing sources list cached response.",
+                "schema": {
+                  "type": "integer",
+                  "description": "Standard HTTP header. Header will specify the age of pricing sources list cached response."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PAPricingSourceRoot"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data provided. Please check the request parameters before attempting again.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Pricing sources not found.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "Retry-After": {
+                "description": "Time to wait in seconds before making a new request as the rate limit has reached.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/analytics/engines/pa/v3/templated-components": {
       "post": {
         "tags": [
           "TemplatedPAComponents"
         ],
         "summary": "Create templated PA component",
-        "description": "This endpoint creates new component based off of linked PA template or unlinked PA template.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.",
+        "description": "This endpoint creates new component based off of linked PA template or unlinked PA template.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "createTemplatedPAComponents",
         "requestBody": {
           "description": "Request Parameters",
@@ -6862,7 +7415,8 @@
                     ],
                     "groups": [
                       {
-                        "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA"
+                        "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA",
+                        "frequency": "BeginningOfPeriod"
                       }
                     ],
                     "columns": [
@@ -6873,6 +7427,19 @@
                         ]
                       }
                     ],
+                    "datasources": {
+                      "portfoliopricingsources": [
+                        {
+                          "id": "39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"
+                        }
+                      ],
+                      "benchmarkpricingsources": [
+                        {
+                          "id": "9BB2A3142C450AF54A7486C1D37A210A64474B2499A1E4A30E19801B9FC55E8C"
+                        }
+                      ],
+                      "useportfoliopricingsourcesforbenchmark": false
+                    },
                     "currencyisocode": "USD",
                     "componentdetail": "GROUPS"
                   }
@@ -7460,7 +8027,7 @@
           "TemplatedPAComponents"
         ],
         "summary": "Update templated PA component",
-        "description": "This endpoint allows the user to change the request body from an existing templated PA component.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.",
+        "description": "This endpoint allows the user to change the request body from an existing templated PA component.\r\n\r\nRemarks:\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "updateTemplatedPAComponents",
         "parameters": [
           {
@@ -7509,7 +8076,8 @@
                     ],
                     "groups": [
                       {
-                        "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA"
+                        "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA",
+                        "frequency": "BeginningOfPeriod"
                       }
                     ],
                     "columns": [
@@ -7520,6 +8088,19 @@
                         ]
                       }
                     ],
+                    "datasources": {
+                      "portfoliopricingsources": [
+                        {
+                          "id": "39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"
+                        }
+                      ],
+                      "benchmarkpricingsources": [
+                        {
+                          "id": "9BB2A3142C450AF54A7486C1D37A210A64474B2499A1E4A30E19801B9FC55E8C"
+                        }
+                      ],
+                      "useportfoliopricingsourcesforbenchmark": false
+                    },
                     "currencyisocode": "USD",
                     "componentdetail": "GROUPS"
                   }
@@ -8462,7 +9043,7 @@
           "UnlinkedPATemplates"
         ],
         "summary": "Create unlinked PA template",
-        "description": "This endpoint creates a template which is not linked to any specific PA3 tile. \r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.",
+        "description": "This endpoint creates a template which is not linked to any specific PA3 tile. \r\n\r\nRemarks:\r\n\r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also \r\n    overriding the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "createUnlinkedPATemplates",
         "requestBody": {
           "description": "Request Parameters",
@@ -8511,9 +9092,23 @@
                   },
                   "groups": [
                     {
-                      "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA"
+                      "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA",
+                      "frequency": "BeginningOfPeriod"
                     }
                   ],
+                  "datasources": {
+                    "portfoliopricingsources": [
+                      {
+                        "id": "39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"
+                      }
+                    ],
+                    "benchmarkpricingsources": [
+                      {
+                        "id": "9BB2A3142C450AF54A7486C1D37A210A64474B2499A1E4A30E19801B9FC55E8C"
+                      }
+                    ],
+                    "useportfoliopricingsourcesforbenchmark": false
+                  },
                   "currencyisocode": "USD",
                   "componentdetail": "GROUPS",
                   "content": {
@@ -9065,7 +9660,7 @@
           "UnlinkedPATemplates"
         ],
         "summary": "Update unlinked PA template",
-        "description": "This endpoint updates an existing unlinked PA template.\r\n\r\nRemarks:\r\n            \r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.",
+        "description": "This endpoint updates an existing unlinked PA template.\r\n\r\nRemarks:\r\n            \r\n*   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. \r\n    If no mandatory fields are passed, then we can use the template as a component and skip the component creation.\r\n    \r\n*   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".\r\n\r\n*   We cannot override the Locked fields when creating the Component.\r\n\r\n*   Mandatory and locked strings are mutually exclusive.\r\n\r\n*   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.\r\n\r\n*   Multi-horizon frequencies are not supported through this endpoint.\r\n\r\n*   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.\r\n\r\n*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding \r\n    the default frequency of the Beginning of Period to whatever we pass in the request body.\r\n    \r\n*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.",
         "operationId": "updateUnlinkedPATemplates",
         "parameters": [
           {
@@ -9125,9 +9720,23 @@
                   },
                   "groups": [
                     {
-                      "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA"
+                      "id": "5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA",
+                      "frequency": "BeginningOfPeriod"
                     }
                   ],
+                  "datasources": {
+                    "portfoliopricingsources": [
+                      {
+                        "id": "39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"
+                      }
+                    ],
+                    "benchmarkpricingsources": [
+                      {
+                        "id": "9BB2A3142C450AF54A7486C1D37A210A64474B2499A1E4A30E19801B9FC55E8C"
+                      }
+                    ],
+                    "useportfoliopricingsourcesforbenchmark": false
+                  },
                   "currencyisocode": "USD",
                   "componentdetail": "GROUPS",
                   "content": {
@@ -11244,6 +11853,10 @@
           "id": {
             "type": "string",
             "description": "FactSet-defined or User-defined Group identifier."
+          },
+          "frequency": {
+            "type": "string",
+            "description": "Grouping frequency"
           }
         },
         "additionalProperties": false
@@ -11261,6 +11874,40 @@
               "type": "string"
             },
             "description": "Column Statistic identifier"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PACalculationPricingSource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Pricing source identifier"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PACalculationDataSources": {
+        "type": "object",
+        "properties": {
+          "portfoliopricingsources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PACalculationPricingSource"
+            },
+            "description": "List of portfilio pricing source for the PA calculation"
+          },
+          "benchmarkpricingsources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PACalculationPricingSource"
+            },
+            "description": "List of benchmark pricing source for the PA calculation"
+          },
+          "useportfoliopricingsourcesforbenchmark": {
+            "type": "boolean",
+            "description": "Use portfolio pricing sources for benchmark"
           }
         },
         "additionalProperties": false
@@ -11309,6 +11956,9 @@
               "$ref": "#/components/schemas/PACalculationColumn"
             },
             "description": "List of columns for the PA calculation. This will take precedence over the columns saved in the PA document."
+          },
+          "datasources": {
+            "$ref": "#/components/schemas/PACalculationDataSources"
           },
           "componentdetail": {
             "type": "string",
@@ -11497,6 +12147,40 @@
         },
         "additionalProperties": false
       },
+      "PAPricingSource": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Pricing source Name"
+          },
+          "directory": {
+            "type": "string",
+            "description": "Pricing source directory"
+          },
+          "category": {
+            "type": "string",
+            "description": "Pricing source category"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PAPricingSourceRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PAPricingSource"
+            }
+          },
+          "meta": {}
+        },
+        "additionalProperties": false
+      },
       "PAComponentData": {
         "type": "object",
         "properties": {
@@ -11530,6 +12214,9 @@
           },
           "dates": {
             "$ref": "#/components/schemas/PADateParameters"
+          },
+          "datasources": {
+            "$ref": "#/components/schemas/PACalculationDataSources"
           },
           "currencyisocode": {
             "type": "string",
@@ -11771,6 +12458,9 @@
             },
             "description": "List of groupings for the PA calculation"
           },
+          "datasources": {
+            "$ref": "#/components/schemas/PACalculationDataSources"
+          },
           "currencyisocode": {
             "type": "string",
             "description": "Currency ISO code for calculation."
@@ -11905,6 +12595,9 @@
             },
             "description": "List of groupings for the PA calculation"
           },
+          "datasources": {
+            "$ref": "#/components/schemas/PACalculationDataSources"
+          },
           "currencyisocode": {
             "type": "string",
             "description": "Currency ISO code for calculation."
@@ -11981,6 +12674,9 @@
               "$ref": "#/components/schemas/PACalculationGroup"
             },
             "description": "List of groupings for the PA calculation"
+          },
+          "datasources": {
+            "$ref": "#/components/schemas/PACalculationDataSources"
           },
           "currencyisocode": {
             "type": "string",
@@ -12082,6 +12778,10 @@
           "id": {
             "type": "string",
             "description": "FactSet-defined or User-defined Group identifier."
+          },
+          "frequency": {
+            "type": "string",
+            "description": "Grouping frequency"
           }
         },
         "additionalProperties": false

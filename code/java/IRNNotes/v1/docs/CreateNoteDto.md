@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | [**UserSerialDto**](UserSerialDto.md) |  | 
 **title** | **String** |  |  [optional]
-**identifier** | **String** |  | 
+**identifier** | **String** |  |  [optional]
 **date** | **String** |  | 
 **subjectId** | **java.util.UUID** |  |  [optional]
 **recommendationId** | **java.util.UUID** |  |  [optional]

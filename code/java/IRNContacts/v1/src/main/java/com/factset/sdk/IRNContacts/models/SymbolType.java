@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -30,28 +30,28 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SymbolType {
   
-  UNKNOWN("UNKNOWN"),
+  NUMBER_0(0),
   
-  ACCOUNT("ACCOUNT"),
+  NUMBER_1(1),
   
-  CUSTOM("CUSTOM"),
+  NUMBER_2(2),
   
-  INSTRUMENT("INSTRUMENT"),
+  NUMBER_3(3),
   
-  CONTACT("CONTACT"),
+  NUMBER_4(4),
   
-  MARKET_NOTE("MARKET_NOTE"),
+  NUMBER_5(5),
   
-  PORTFOLIO("PORTFOLIO");
+  NUMBER_6(6);
 
-  private String value;
+  private Integer value;
 
-  SymbolType(String value) {
+  SymbolType(Integer value) {
     this.value = value;
   }
 
   @JsonValue
-  public String getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -61,7 +61,7 @@ public enum SymbolType {
   }
 
   @JsonCreator
-  public static SymbolType fromValue(String value) {
+  public static SymbolType fromValue(Integer value) {
     for (SymbolType b : SymbolType.values()) {
       if (b.value.equals(value)) {
         return b;

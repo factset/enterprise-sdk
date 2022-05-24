@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -81,12 +81,7 @@ class InlineResponse20017Data(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'return1_m': (float,),  # noqa: E501
-            'return3_m': (float,),  # noqa: E501
-            'return_ytd': (float,),  # noqa: E501
-            'return1_y': (float,),  # noqa: E501
-            'return3_y': (float,),  # noqa: E501
-            'return5_y': (float,),  # noqa: E501
+            'focus_category': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,12 +90,7 @@ class InlineResponse20017Data(ModelNormal):
 
 
     attribute_map = {
-        'return1_m': 'return1M',  # noqa: E501
-        'return3_m': 'return3M',  # noqa: E501
-        'return_ytd': 'returnYTD',  # noqa: E501
-        'return1_y': 'return1Y',  # noqa: E501
-        'return3_y': 'return3Y',  # noqa: E501
-        'return5_y': 'return5Y',  # noqa: E501
+        'focus_category': 'focusCategory',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,12 +134,7 @@ class InlineResponse20017Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            return1_m (float): 1 month performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return3_m (float): 3 month performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return_ytd (float): YTD performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return1_y (float): 1 year performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return3_y (float): 3 year performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return5_y (float): 5 year performance. This data is available for the US regions.. [optional]  # noqa: E501
+            focus_category (str): ETP class focus category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,12 +216,7 @@ class InlineResponse20017Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            return1_m (float): 1 month performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return3_m (float): 3 month performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return_ytd (float): YTD performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return1_y (float): 1 year performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return3_y (float): 3 year performance. This data is available for the US regions.. [optional]  # noqa: E501
-            return5_y (float): 5 year performance. This data is available for the US regions.. [optional]  # noqa: E501
+            focus_category (str): ETP class focus category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

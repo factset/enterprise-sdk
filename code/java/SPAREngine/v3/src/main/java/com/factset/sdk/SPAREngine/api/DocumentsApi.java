@@ -7,6 +7,9 @@ import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SPAREngine.models.ClientErrorResponse;
 import com.factset.sdk.SPAREngine.models.DocumentDirectoriesRoot;
@@ -22,6 +25,16 @@ public class DocumentsApi {
   public DocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSPAR3DocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSPAR3DocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
+    getSPAR3DocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getSPAR3DocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,10 +132,16 @@ public class DocumentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DocumentDirectoriesRoot> localVarReturnType = new GenericType<DocumentDirectoriesRoot>() {};
 
-    return apiClient.invokeAPI("DocumentsApi.getSPAR3Documents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DocumentDirectoriesRoot
+      
+    > apiResponse = apiClient.invokeAPI("DocumentsApi.getSPAR3Documents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSPAR3DocumentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

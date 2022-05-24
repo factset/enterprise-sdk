@@ -470,6 +470,79 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
     {
         private FactSet.SDK.FactSetEstimatesReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesBalanceSheetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesCashFlowResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesGeographicSegmentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesIncomeStatementResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesIndustryMetricsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesPerShareResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesProductSegmentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEstimatesValuationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AllEstimatesApi"/> class.
         /// </summary>
@@ -582,7 +655,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesBalanceSheet(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesBalanceSheetWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesBalanceSheetWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -594,11 +667,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesBalanceSheetWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesBalanceSheetWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesBalanceSheet");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -611,10 +686,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -628,13 +709,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -646,15 +727,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/balance-sheet", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesBalanceSheetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/balance-sheet", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesBalanceSheet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -667,9 +752,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesBalanceSheetAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesBalanceSheetAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesBalanceSheetWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesBalanceSheetWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -682,11 +767,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesBalanceSheetWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesBalanceSheetWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesBalanceSheet");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -699,12 +787,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -718,13 +811,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -736,14 +829,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesBalanceSheetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/balance-sheet", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesBalanceSheet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -759,7 +856,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesCashFlow(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesCashFlowWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesCashFlowWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -771,11 +868,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesCashFlowWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesCashFlowWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesCashFlow");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -788,10 +887,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -805,13 +910,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -823,15 +928,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/cash-flow", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesCashFlowResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/cash-flow", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesCashFlow", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -844,9 +953,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesCashFlowAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesCashFlowAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesCashFlowWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesCashFlowWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -859,11 +968,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesCashFlowWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesCashFlowWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesCashFlow");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -876,12 +988,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -895,13 +1012,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -913,14 +1030,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesCashFlowResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/cash-flow", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesCashFlow", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -936,7 +1057,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesGeographicSegments(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesGeographicSegmentsWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesGeographicSegmentsWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -948,11 +1069,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesGeographicSegmentsWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesGeographicSegmentsWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesGeographicSegments");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -965,10 +1088,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -982,13 +1111,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1000,15 +1129,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/geographic-segments", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesGeographicSegmentsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/geographic-segments", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesGeographicSegments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1021,9 +1154,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesGeographicSegmentsAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesGeographicSegmentsAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesGeographicSegmentsWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesGeographicSegmentsWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1036,11 +1169,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesGeographicSegmentsWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesGeographicSegmentsWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesGeographicSegments");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -1053,12 +1189,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1072,13 +1213,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1090,14 +1231,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesGeographicSegmentsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/geographic-segments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesGeographicSegments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1113,7 +1258,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesIncomeStatement(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesIncomeStatementWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesIncomeStatementWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -1125,11 +1270,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesIncomeStatementWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesIncomeStatementWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesIncomeStatement");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -1142,10 +1289,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1159,13 +1312,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1177,15 +1330,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/income-statement", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesIncomeStatementResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/income-statement", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesIncomeStatement", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1198,9 +1355,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesIncomeStatementAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesIncomeStatementAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesIncomeStatementWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesIncomeStatementWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1213,11 +1370,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesIncomeStatementWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesIncomeStatementWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesIncomeStatement");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -1230,12 +1390,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1249,13 +1414,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1267,14 +1432,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesIncomeStatementResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/income-statement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesIncomeStatement", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1290,7 +1459,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesIndustryMetrics(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesIndustryMetricsWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesIndustryMetricsWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -1302,11 +1471,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesIndustryMetricsWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesIndustryMetricsWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesIndustryMetrics");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -1319,10 +1490,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1336,13 +1513,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1354,15 +1531,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/industry-metrics", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesIndustryMetricsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/industry-metrics", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesIndustryMetrics", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1375,9 +1556,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesIndustryMetricsAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesIndustryMetricsAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesIndustryMetricsWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesIndustryMetricsWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1390,11 +1571,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesIndustryMetricsWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesIndustryMetricsWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesIndustryMetrics");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -1407,12 +1591,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1426,13 +1615,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1444,14 +1633,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesIndustryMetricsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/industry-metrics", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesIndustryMetrics", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1467,7 +1660,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesPerShare(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesPerShareWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesPerShareWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -1479,11 +1672,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesPerShareWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesPerShareWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesPerShare");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -1496,10 +1691,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1513,13 +1714,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1531,15 +1732,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/per-share", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesPerShareResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/per-share", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesPerShare", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1552,9 +1757,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesPerShareAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesPerShareAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesPerShareWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesPerShareWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1567,11 +1772,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesPerShareWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesPerShareWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesPerShare");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -1584,12 +1792,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1603,13 +1816,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1621,14 +1834,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesPerShareResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/per-share", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesPerShare", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1644,7 +1861,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesProductSegments(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesProductSegmentsWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesProductSegmentsWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -1656,11 +1873,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesProductSegmentsWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesProductSegmentsWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesProductSegments");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -1673,10 +1892,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1690,13 +1915,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1708,15 +1933,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/product-segments", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesProductSegmentsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/product-segments", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesProductSegments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1729,9 +1958,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesProductSegmentsAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesProductSegmentsAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesProductSegmentsWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesProductSegmentsWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1744,11 +1973,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesProductSegmentsWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesProductSegmentsWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesProductSegments");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -1761,12 +1993,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1780,13 +2017,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1798,14 +2035,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesProductSegmentsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/product-segments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesProductSegments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1821,7 +2062,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetEstimatesValuation(string id, string periodicity = default(string), string schema = default(string))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = GetEstimatesValuationWithHttpInfo(id, periodicity, schema);
+            var localVarResponse = GetEstimatesValuationWithHttpInfo(id, periodicity, schema);
             return localVarResponse.Data;
         }
 
@@ -1833,11 +2074,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="periodicity">Periodicity or frequency of the fiscal periods. (optional, default to ANN)</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> GetEstimatesValuationWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
+        public ApiResponse<Response> GetEstimatesValuationWithHttpInfo(string id, string periodicity = default(string), string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesValuation");
+            }
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
 
@@ -1850,10 +2093,16 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1867,13 +2116,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1885,15 +2134,19 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/valuation", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesValuationResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/valuation", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesValuation", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1906,9 +2159,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetEstimatesValuationAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetEstimatesValuationAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetEstimatesValuationWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEstimatesValuationWithHttpInfoAsync(id, periodicity, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1921,11 +2174,14 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiResponse<Response>> GetEstimatesValuationWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetEstimatesValuationWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetEstimatesReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling AllEstimatesApi->GetEstimatesValuation");
+            }
 
 
             FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimatesReportBuilder.Client.RequestOptions();
@@ -1938,12 +2194,17 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -1957,13 +2218,13 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimatesReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1975,14 +2236,18 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEstimatesValuationResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/valuation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEstimatesValuation", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

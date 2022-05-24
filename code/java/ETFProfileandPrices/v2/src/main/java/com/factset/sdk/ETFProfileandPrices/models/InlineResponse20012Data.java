@@ -17,8 +17,10 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20012DataCapitalGains;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20012DataDividend;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20012DataBeta;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20012DataEfficiency;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20012DataFit;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20012DataTradability;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,133 +35,285 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * Distribution.
+ * Score analytics.
  */
-@ApiModel(description = "Distribution.")
+@ApiModel(description = "Score analytics.")
 @JsonPropertyOrder({
-  InlineResponse20012Data.JSON_PROPERTY_DIVIDEND,
-  InlineResponse20012Data.JSON_PROPERTY_CAPITAL_GAINS,
-  InlineResponse20012Data.JSON_PROPERTY_TOTAL_DISTRIBUTION,
-  InlineResponse20012Data.JSON_PROPERTY_DISTRIBUTION_YIELD
+  InlineResponse20012Data.JSON_PROPERTY_EFFICIENCY,
+  InlineResponse20012Data.JSON_PROPERTY_TRADABILITY,
+  InlineResponse20012Data.JSON_PROPERTY_FIT,
+  InlineResponse20012Data.JSON_PROPERTY_GRADE,
+  InlineResponse20012Data.JSON_PROPERTY_ANALYST_PICK,
+  InlineResponse20012Data.JSON_PROPERTY_ON_OPPORTUNITIES_LIST,
+  InlineResponse20012Data.JSON_PROPERTY_FIT_RSQUARED,
+  InlineResponse20012Data.JSON_PROPERTY_BETA,
+  InlineResponse20012Data.JSON_PROPERTY_STANDARD_DEVIATION_DOWN
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20012Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DIVIDEND = "dividend";
-  private InlineResponse20012DataDividend dividend;
+  public static final String JSON_PROPERTY_EFFICIENCY = "efficiency";
+  private InlineResponse20012DataEfficiency efficiency;
 
-  public static final String JSON_PROPERTY_CAPITAL_GAINS = "capitalGains";
-  private InlineResponse20012DataCapitalGains capitalGains;
+  public static final String JSON_PROPERTY_TRADABILITY = "tradability";
+  private InlineResponse20012DataTradability tradability;
 
-  public static final String JSON_PROPERTY_TOTAL_DISTRIBUTION = "totalDistribution";
-  private BigDecimal totalDistribution;
+  public static final String JSON_PROPERTY_FIT = "fit";
+  private InlineResponse20012DataFit fit;
 
-  public static final String JSON_PROPERTY_DISTRIBUTION_YIELD = "distributionYield";
-  private BigDecimal distributionYield;
+  public static final String JSON_PROPERTY_GRADE = "grade";
+  private String grade;
 
+  public static final String JSON_PROPERTY_ANALYST_PICK = "analystPick";
+  private Boolean analystPick;
 
-  public InlineResponse20012Data dividend(InlineResponse20012DataDividend dividend) {
-    this.dividend = dividend;
+  public static final String JSON_PROPERTY_ON_OPPORTUNITIES_LIST = "onOpportunitiesList";
+  private Boolean onOpportunitiesList;
+
+  public static final String JSON_PROPERTY_FIT_RSQUARED = "fitRsquared";
+  private BigDecimal fitRsquared;
+
+  public static final String JSON_PROPERTY_BETA = "beta";
+  private InlineResponse20012DataBeta beta;
+
+  public static final String JSON_PROPERTY_STANDARD_DEVIATION_DOWN = "standardDeviationDown";
+  private BigDecimal standardDeviationDown;
+
+  public InlineResponse20012Data() { 
+  }
+
+  public InlineResponse20012Data efficiency(InlineResponse20012DataEfficiency efficiency) {
+    this.efficiency = efficiency;
     return this;
   }
 
    /**
-   * Get dividend
-   * @return dividend
+   * Get efficiency
+   * @return efficiency
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_DIVIDEND)
+  @JsonProperty(JSON_PROPERTY_EFFICIENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20012DataDividend getDividend() {
-    return dividend;
+  public InlineResponse20012DataEfficiency getEfficiency() {
+    return efficiency;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DIVIDEND)
+  @JsonProperty(JSON_PROPERTY_EFFICIENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDividend(InlineResponse20012DataDividend dividend) {
-    this.dividend = dividend;
+  public void setEfficiency(InlineResponse20012DataEfficiency efficiency) {
+    this.efficiency = efficiency;
   }
 
 
-  public InlineResponse20012Data capitalGains(InlineResponse20012DataCapitalGains capitalGains) {
-    this.capitalGains = capitalGains;
+  public InlineResponse20012Data tradability(InlineResponse20012DataTradability tradability) {
+    this.tradability = tradability;
     return this;
   }
 
    /**
-   * Get capitalGains
-   * @return capitalGains
+   * Get tradability
+   * @return tradability
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CAPITAL_GAINS)
+  @JsonProperty(JSON_PROPERTY_TRADABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20012DataCapitalGains getCapitalGains() {
-    return capitalGains;
+  public InlineResponse20012DataTradability getTradability() {
+    return tradability;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CAPITAL_GAINS)
+  @JsonProperty(JSON_PROPERTY_TRADABILITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCapitalGains(InlineResponse20012DataCapitalGains capitalGains) {
-    this.capitalGains = capitalGains;
+  public void setTradability(InlineResponse20012DataTradability tradability) {
+    this.tradability = tradability;
   }
 
 
-  public InlineResponse20012Data totalDistribution(BigDecimal totalDistribution) {
-    this.totalDistribution = totalDistribution;
+  public InlineResponse20012Data fit(InlineResponse20012DataFit fit) {
+    this.fit = fit;
     return this;
   }
 
    /**
-   * Total Distribution on exDividend-date. Values are in the ETP&#39;s listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.
-   * @return totalDistribution
+   * Get fit
+   * @return fit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.")
-  @JsonProperty(JSON_PROPERTY_TOTAL_DISTRIBUTION)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getTotalDistribution() {
-    return totalDistribution;
+  public InlineResponse20012DataFit getFit() {
+    return fit;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_DISTRIBUTION)
+  @JsonProperty(JSON_PROPERTY_FIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTotalDistribution(BigDecimal totalDistribution) {
-    this.totalDistribution = totalDistribution;
+  public void setFit(InlineResponse20012DataFit fit) {
+    this.fit = fit;
   }
 
 
-  public InlineResponse20012Data distributionYield(BigDecimal distributionYield) {
-    this.distributionYield = distributionYield;
+  public InlineResponse20012Data grade(String grade) {
+    this.grade = grade;
     return this;
   }
 
    /**
-   * Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.
-   * @return distributionYield
+   * Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.
+   * @return grade
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.")
-  @JsonProperty(JSON_PROPERTY_DISTRIBUTION_YIELD)
+  @ApiModelProperty(value = "Combining the efficiency and tradability scores, FactSet assigns a letter grade (A-F) that provides a concise view on how efficient and tradable each ETP is. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_GRADE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getDistributionYield() {
-    return distributionYield;
+  public String getGrade() {
+    return grade;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DISTRIBUTION_YIELD)
+  @JsonProperty(JSON_PROPERTY_GRADE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDistributionYield(BigDecimal distributionYield) {
-    this.distributionYield = distributionYield;
+  public void setGrade(String grade) {
+    this.grade = grade;
+  }
+
+
+  public InlineResponse20012Data analystPick(Boolean analystPick) {
+    this.analystPick = analystPick;
+    return this;
+  }
+
+   /**
+   * If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
+   * @return analystPick
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, this fund has been chosen by the FactSet ETP Analytics Team to provide comprehensive, market-like exposure to an area of the market/segment, keeping costs and liquidity in mind. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_ANALYST_PICK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAnalystPick() {
+    return analystPick;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ANALYST_PICK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAnalystPick(Boolean analystPick) {
+    this.analystPick = analystPick;
+  }
+
+
+  public InlineResponse20012Data onOpportunitiesList(Boolean onOpportunitiesList) {
+    this.onOpportunitiesList = onOpportunitiesList;
+    return this;
+  }
+
+   /**
+   * If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.
+   * @return onOpportunitiesList
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If true, this fund has been chosen by the FactSet ETP Analytics Team as providing potentially valuable but alternative exposure to the market/segment, keeping costs and liquidity in mind. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_ON_OPPORTUNITIES_LIST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getOnOpportunitiesList() {
+    return onOpportunitiesList;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ON_OPPORTUNITIES_LIST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOnOpportunitiesList(Boolean onOpportunitiesList) {
+    this.onOpportunitiesList = onOpportunitiesList;
+  }
+
+
+  public InlineResponse20012Data fitRsquared(BigDecimal fitRsquared) {
+    this.fitRsquared = fitRsquared;
+    return this;
+  }
+
+   /**
+   * The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.
+   * @return fitRsquared
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The degree to which the daily returns of fund NAV and its FactSet designated segment benchmark move up and down in unison, ranging from 1.0 (perfect co-movement) to zero (no relation). Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_FIT_RSQUARED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getFitRsquared() {
+    return fitRsquared;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FIT_RSQUARED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFitRsquared(BigDecimal fitRsquared) {
+    this.fitRsquared = fitRsquared;
+  }
+
+
+  public InlineResponse20012Data beta(InlineResponse20012DataBeta beta) {
+    this.beta = beta;
+    return this;
+  }
+
+   /**
+   * Get beta
+   * @return beta
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BETA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse20012DataBeta getBeta() {
+    return beta;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BETA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBeta(InlineResponse20012DataBeta beta) {
+    this.beta = beta;
+  }
+
+
+  public InlineResponse20012Data standardDeviationDown(BigDecimal standardDeviationDown) {
+    this.standardDeviationDown = standardDeviationDown;
+    return this;
+  }
+
+   /**
+   * A measure of the variability between the fund&#39;s returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.
+   * @return standardDeviationDown
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A measure of the variability between the fund's returns and the FactSet designated segment benchmark returns on days when the fund underperforms the benchmark. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_STANDARD_DEVIATION_DOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getStandardDeviationDown() {
+    return standardDeviationDown;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STANDARD_DEVIATION_DOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStandardDeviationDown(BigDecimal standardDeviationDown) {
+    this.standardDeviationDown = standardDeviationDown;
   }
 
 
@@ -175,25 +329,35 @@ public class InlineResponse20012Data implements Serializable {
       return false;
     }
     InlineResponse20012Data inlineResponse20012Data = (InlineResponse20012Data) o;
-    return Objects.equals(this.dividend, inlineResponse20012Data.dividend) &&
-        Objects.equals(this.capitalGains, inlineResponse20012Data.capitalGains) &&
-        Objects.equals(this.totalDistribution, inlineResponse20012Data.totalDistribution) &&
-        Objects.equals(this.distributionYield, inlineResponse20012Data.distributionYield);
+    return Objects.equals(this.efficiency, inlineResponse20012Data.efficiency) &&
+        Objects.equals(this.tradability, inlineResponse20012Data.tradability) &&
+        Objects.equals(this.fit, inlineResponse20012Data.fit) &&
+        Objects.equals(this.grade, inlineResponse20012Data.grade) &&
+        Objects.equals(this.analystPick, inlineResponse20012Data.analystPick) &&
+        Objects.equals(this.onOpportunitiesList, inlineResponse20012Data.onOpportunitiesList) &&
+        Objects.equals(this.fitRsquared, inlineResponse20012Data.fitRsquared) &&
+        Objects.equals(this.beta, inlineResponse20012Data.beta) &&
+        Objects.equals(this.standardDeviationDown, inlineResponse20012Data.standardDeviationDown);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dividend, capitalGains, totalDistribution, distributionYield);
+    return Objects.hash(efficiency, tradability, fit, grade, analystPick, onOpportunitiesList, fitRsquared, beta, standardDeviationDown);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20012Data {\n");
-    sb.append("    dividend: ").append(toIndentedString(dividend)).append("\n");
-    sb.append("    capitalGains: ").append(toIndentedString(capitalGains)).append("\n");
-    sb.append("    totalDistribution: ").append(toIndentedString(totalDistribution)).append("\n");
-    sb.append("    distributionYield: ").append(toIndentedString(distributionYield)).append("\n");
+    sb.append("    efficiency: ").append(toIndentedString(efficiency)).append("\n");
+    sb.append("    tradability: ").append(toIndentedString(tradability)).append("\n");
+    sb.append("    fit: ").append(toIndentedString(fit)).append("\n");
+    sb.append("    grade: ").append(toIndentedString(grade)).append("\n");
+    sb.append("    analystPick: ").append(toIndentedString(analystPick)).append("\n");
+    sb.append("    onOpportunitiesList: ").append(toIndentedString(onOpportunitiesList)).append("\n");
+    sb.append("    fitRsquared: ").append(toIndentedString(fitRsquared)).append("\n");
+    sb.append("    beta: ").append(toIndentedString(beta)).append("\n");
+    sb.append("    standardDeviationDown: ").append(toIndentedString(standardDeviationDown)).append("\n");
     sb.append("}");
     return sb.toString();
   }

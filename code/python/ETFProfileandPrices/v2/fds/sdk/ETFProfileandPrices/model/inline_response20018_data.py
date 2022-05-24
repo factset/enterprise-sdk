@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -81,14 +81,7 @@ class InlineResponse20018Data(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'description': (str,),  # noqa: E501
-            'group': (str,),  # noqa: E501
-            'cluster': (str,),  # noqa: E501
-            'select_criteria': (str,),  # noqa: E501
-            'weighting': (str,),  # noqa: E501
-            'segment': (str,),  # noqa: E501
-            'is_transparent': (bool,),  # noqa: E501
-            'fund_of_funds': (str,),  # noqa: E501
+            'niche_category': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -97,14 +90,7 @@ class InlineResponse20018Data(ModelNormal):
 
 
     attribute_map = {
-        'description': 'description',  # noqa: E501
-        'group': 'group',  # noqa: E501
-        'cluster': 'cluster',  # noqa: E501
-        'select_criteria': 'selectCriteria',  # noqa: E501
-        'weighting': 'weighting',  # noqa: E501
-        'segment': 'segment',  # noqa: E501
-        'is_transparent': 'isTransparent',  # noqa: E501
-        'fund_of_funds': 'fundOfFunds',  # noqa: E501
+        'niche_category': 'nicheCategory',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,14 +134,7 @@ class InlineResponse20018Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): Descriptive Summary of the methods used by a ETP or its index in selection and weighting of its holdings, text and standardized value available.  This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            group (str): Factset's Universal Screening tool code allows screening the greatest number of ETP's to surface based on a similar ETP strategy. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            cluster (str): Factset's Universal Screening tool code allows us to screen a greater number of ETP's to surface; all must have similar ETP strategy characteristics. This data item is more granular and narrow than the strategy group. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            select_criteria (str): Description of the security selection criteria used by the ETP or its index (e.g., Market Cap, Earnings, Dividends), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            weighting (str): Text that specifies the weighting selection criteria used by the ETP or its index (e.g., Market Cap, Equal, Momentum, Fundamental) , text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            segment (str): Determines the unique segment the ETP falls into, based on FactSet ETP Analytics rules-based classification system determined by geography, category, focus, and niche. Text and standardized value available for this data item. This data is available for the US regions. See endpoint /factset/etf/strategy/segment/list for possible values.. [optional]  # noqa: E501
-            is_transparent (bool): Description that States whether or not the methodology behind the underlying index can be clearly understood from offering documents. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            fund_of_funds (str): Description of the ETP that holds a portfolio of other ETPs. This data is available for the Canada regions.. [optional]  # noqa: E501
+            niche_category (str): ETP class niche category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,14 +216,7 @@ class InlineResponse20018Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): Descriptive Summary of the methods used by a ETP or its index in selection and weighting of its holdings, text and standardized value available.  This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            group (str): Factset's Universal Screening tool code allows screening the greatest number of ETP's to surface based on a similar ETP strategy. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            cluster (str): Factset's Universal Screening tool code allows us to screen a greater number of ETP's to surface; all must have similar ETP strategy characteristics. This data item is more granular and narrow than the strategy group. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            select_criteria (str): Description of the security selection criteria used by the ETP or its index (e.g., Market Cap, Earnings, Dividends), text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            weighting (str): Text that specifies the weighting selection criteria used by the ETP or its index (e.g., Market Cap, Equal, Momentum, Fundamental) , text and standardized value available. This data is available for all the regions.. [optional]  # noqa: E501
-            segment (str): Determines the unique segment the ETP falls into, based on FactSet ETP Analytics rules-based classification system determined by geography, category, focus, and niche. Text and standardized value available for this data item. This data is available for the US regions. See endpoint /factset/etf/strategy/segment/list for possible values.. [optional]  # noqa: E501
-            is_transparent (bool): Description that States whether or not the methodology behind the underlying index can be clearly understood from offering documents. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            fund_of_funds (str): Description of the ETP that holds a portfolio of other ETPs. This data is available for the Canada regions.. [optional]  # noqa: E501
+            niche_category (str): ETP class niche category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

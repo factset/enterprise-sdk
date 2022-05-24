@@ -62,7 +62,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CurrencyRoot {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         public bool Equals(CurrencyRoot input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
@@ -117,7 +118,9 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 return hashCode;
             }
         }

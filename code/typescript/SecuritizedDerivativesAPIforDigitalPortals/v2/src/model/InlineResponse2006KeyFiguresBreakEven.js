@@ -17,7 +17,7 @@ import InlineResponse2006KeyFiguresBreakEvenDistance from './InlineResponse2006K
 /**
  * The InlineResponse2006KeyFiguresBreakEven model module.
  * @module model/InlineResponse2006KeyFiguresBreakEven
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006KeyFiguresBreakEven {
     /**

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.AgentsResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
@@ -23,6 +26,28 @@ public class AgentsApi {
   public AgentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getAgentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAgentsResponseTypeMap.put(200, new GenericType<AgentsResponse>(){});
+    getAgentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getAgentsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getAgentsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getAgentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getAgentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getAgentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAgentsForListResponseTypeMap.put(200, new GenericType<AgentsResponse>(){});
+    getAgentsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getAgentsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getAgentsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getAgentsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getAgentsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class AgentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AgentsResponse> localVarReturnType = new GenericType<AgentsResponse>() {};
 
-    return apiClient.invokeAPI("AgentsApi.getAgents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AgentsResponse
+      
+    > apiResponse = apiClient.invokeAPI("AgentsApi.getAgents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAgentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Agents items for a list of Fixed Income securities.
@@ -191,10 +222,16 @@ public class AgentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AgentsResponse> localVarReturnType = new GenericType<AgentsResponse>() {};
 
-    return apiClient.invokeAPI("AgentsApi.getAgentsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AgentsResponse
+      
+    > apiResponse = apiClient.invokeAPI("AgentsApi.getAgentsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAgentsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

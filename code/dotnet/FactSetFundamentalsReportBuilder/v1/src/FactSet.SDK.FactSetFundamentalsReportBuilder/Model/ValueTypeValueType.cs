@@ -84,7 +84,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ValueTypeValueType {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         public bool Equals(ValueTypeValueType input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Value == input.Value ||
@@ -136,7 +137,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 return hashCode;
             }
         }

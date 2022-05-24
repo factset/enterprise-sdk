@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **FactorCertificates** | [**SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates**](SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates.md) |  | [optional] 
 **KnockedOut** | **string** | Specifies whether knocked-out securitized derivatives are included in the response. Particularly relevant for knock-out certificates. | [optional] [default to KnockedOutEnum.Exclude]
 **KnockedIn** | **string** | Specifies whether knocked-in securitized derivatives are included in the response. Particularly relevant for bonus certificates but also for securitized derivatives that might have additional protection such as reverse convertible bonds, discount certificates, and capital-protection certificates. | [optional] [default to KnockedInEnum.Exclude]
+**Performance** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformance**](SecuritizedDerivativeNotationRankingIntradayListDataPerformance.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

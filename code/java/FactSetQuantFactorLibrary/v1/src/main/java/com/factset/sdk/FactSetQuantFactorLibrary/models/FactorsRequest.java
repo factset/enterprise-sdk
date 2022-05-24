@@ -64,6 +64,22 @@ public class FactorsRequest implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private Frequency frequency = Frequency.D;
 
+  public FactorsRequest() { 
+  }
+
+  @JsonCreator
+  public FactorsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids, 
+    @JsonProperty(value=JSON_PROPERTY_FACTORS, required=true) java.util.List<String> factors, 
+    @JsonProperty(value=JSON_PROPERTY_START_DATE, required=true) String startDate, 
+    @JsonProperty(value=JSON_PROPERTY_END_DATE, required=true) String endDate
+  ) {
+    this();
+    this.ids = ids;
+    this.factors = factors;
+    this.startDate = startDate;
+    this.endDate = endDate;
+  }
 
   public FactorsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

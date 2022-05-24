@@ -47,6 +47,7 @@ const document = "'Client:Foo'"; // String | Document Name
 // Call api endpoint
 apiInstance.getSPARComponents(document).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

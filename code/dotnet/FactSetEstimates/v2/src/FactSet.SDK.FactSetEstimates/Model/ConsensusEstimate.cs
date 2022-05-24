@@ -209,7 +209,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConsensusEstimate {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -260,8 +260,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(ConsensusEstimate input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -354,30 +355,44 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Metric != null)
-                    hashCode = hashCode * 59 + this.Metric.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Metric.GetHashCode();
+                }
                 if (this.Periodicity != null)
-                    hashCode = hashCode * 59 + this.Periodicity.GetHashCode();
-                hashCode = hashCode * 59 + this.FiscalPeriod.GetHashCode();
-                hashCode = hashCode * 59 + this.FiscalYear.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Periodicity.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FiscalPeriod.GetHashCode();
+                hashCode = (hashCode * 59) + this.FiscalYear.GetHashCode();
                 if (this.FiscalEndDate != null)
-                    hashCode = hashCode * 59 + this.FiscalEndDate.GetHashCode();
-                hashCode = hashCode * 59 + this.RelativePeriod.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FiscalEndDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RelativePeriod.GetHashCode();
                 if (this.EstimateDate != null)
-                    hashCode = hashCode * 59 + this.EstimateDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EstimateDate.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                hashCode = hashCode * 59 + this.Mean.GetHashCode();
-                hashCode = hashCode * 59 + this.Median.GetHashCode();
-                hashCode = hashCode * 59 + this.StandardDeviation.GetHashCode();
-                hashCode = hashCode * 59 + this.High.GetHashCode();
-                hashCode = hashCode * 59 + this.Low.GetHashCode();
-                hashCode = hashCode * 59 + this.EstimateCount.GetHashCode();
-                hashCode = hashCode * 59 + this.Up.GetHashCode();
-                hashCode = hashCode * 59 + this.Down.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Mean.GetHashCode();
+                hashCode = (hashCode * 59) + this.Median.GetHashCode();
+                hashCode = (hashCode * 59) + this.StandardDeviation.GetHashCode();
+                hashCode = (hashCode * 59) + this.High.GetHashCode();
+                hashCode = (hashCode * 59) + this.Low.GetHashCode();
+                hashCode = (hashCode * 59) + this.EstimateCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.Up.GetHashCode();
+                hashCode = (hashCode * 59) + this.Down.GetHashCode();
                 return hashCode;
             }
         }

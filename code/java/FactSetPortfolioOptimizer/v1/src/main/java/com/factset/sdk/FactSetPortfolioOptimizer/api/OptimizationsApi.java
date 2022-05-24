@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPortfolioOptimizer.models.FPOOptimizationParameters;
 
@@ -21,6 +24,13 @@ public class OptimizationsApi {
   public OptimizationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> cancelFPOOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getFPOOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> runFPOOptimizationResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -113,9 +123,15 @@ public class OptimizationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("OptimizationsApi.cancelFPOOptimizationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("OptimizationsApi.cancelFPOOptimizationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, cancelFPOOptimizationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get FPO optimization by id
@@ -192,9 +208,15 @@ public class OptimizationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("OptimizationsApi.getFPOOptimizationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("OptimizationsApi.getFPOOptimizationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, getFPOOptimizationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Run FPO optimization
@@ -269,8 +291,14 @@ public class OptimizationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("OptimizationsApi.runFPOOptimization", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("OptimizationsApi.runFPOOptimization", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, runFPOOptimizationResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

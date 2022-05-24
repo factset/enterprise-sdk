@@ -43,6 +43,8 @@ public class SegmentsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<SegmentsEstimate> data = null;
 
+  public SegmentsResponse() { 
+  }
 
   public SegmentsResponse data(java.util.List<SegmentsEstimate> data) {
     this.data = data;

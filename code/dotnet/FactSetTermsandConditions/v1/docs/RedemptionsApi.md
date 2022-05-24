@@ -52,7 +52,7 @@ namespace Example
 
             var apiInstance = new RedemptionsApi(config);
             var ids = new List<string>(); // List<string> | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-            var categories = categories_example;  // string | Filters the list of Redemption Prices Categories -   * **CALL** = Call prices.   * **PUT** = Put prices.   * **SF** = Sinking Fund prices.  (default to ALL)
+            var categories = "ALL";  // string | Filters the list of Redemption Prices Categories -   * **CALL** = Call prices.   * **PUT** = Put prices.   * **SF** = Sinking Fund prices.  (default to ALL)
 
             try
             {
@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **categories** | **string**| Filters the list of Redemption Prices Categories -   * **CALL** &#x3D; Call prices.   * **PUT** &#x3D; Put prices.   * **SF** &#x3D; Sinking Fund prices.  | [default to ALL]
 
 ### Return type
-
 [**RedemptionPricesResponse**](RedemptionPricesResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **redemptionPricesRequest** | [**RedemptionPricesRequest**](RedemptionPricesRequest.md)| Request object for Fixed Income Redemption Prices. | 
 
 ### Return type
-
 [**RedemptionPricesResponse**](RedemptionPricesResponse.md)
 
 ### Authorization

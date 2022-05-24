@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UserSerialDto model module.
  * @module model/UserSerialDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UserSerialDto {
     /**

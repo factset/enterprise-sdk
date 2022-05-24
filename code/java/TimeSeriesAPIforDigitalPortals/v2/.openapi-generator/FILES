@@ -87,7 +87,6 @@ src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/ApiClient.java
 src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/ApiException.java
 src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/ApiResponse.java
 src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/Configuration.java
-src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/JSON.java
 src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/TimeSeriesAPIforDigitalPortals/Pair.java

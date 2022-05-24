@@ -7,6 +7,9 @@ import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -20,6 +23,38 @@ public class ViewApi {
   public ViewApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getDatabaseResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> v1DatabasePathDatesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathDatesGetResponseTypeMap.put(200, new GenericType<java.util.List<Integer>>(){});
+    v1DatabasePathDatesGetResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathDatesGetResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathDatesGetResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathDatesGetResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathDatesGetResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathFieldsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathFieldsGetResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
+    v1DatabasePathFieldsGetResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathFieldsGetResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathFieldsGetResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathFieldsGetResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathFieldsGetResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathSymbolsGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathSymbolsGetResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
+    v1DatabasePathSymbolsGetResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathSymbolsGetResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathSymbolsGetResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathSymbolsGetResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathSymbolsGetResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -147,9 +182,15 @@ public class ViewApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("ViewApi.getDatabase", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("ViewApi.getDatabase", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, getDatabaseResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -160,7 +201,7 @@ public class ViewApi {
    * @param before Returns list of dates which are before mentioned date (optional)
    * @param after Returns list of dates which are after mentioned date (optional)
    * @param orderBy Returns dates in the mentioned sorted order, should provide asc or desc (optional)
-   * @return java.util.List&lt;Integer&gt;
+   * @return java.util.List<Integer>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -188,7 +229,7 @@ public class ViewApi {
    * @param before Returns list of dates which are before mentioned date (optional)
    * @param after Returns list of dates which are after mentioned date (optional)
    * @param orderBy Returns dates in the mentioned sorted order, should provide asc or desc (optional)
-   * @return ApiResponse&lt;java.util.List&lt;Integer&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<Integer>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -242,17 +283,23 @@ public class ViewApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<Integer>> localVarReturnType = new GenericType<java.util.List<Integer>>() {};
 
-    return apiClient.invokeAPI("ViewApi.v1DatabasePathDatesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<Integer>
+      
+    > apiResponse = apiClient.invokeAPI("ViewApi.v1DatabasePathDatesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathDatesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
    * Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
    * @param path Encode database path (required)
-   * @return java.util.List&lt;Object&gt;
+   * @return java.util.List<Object>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -275,7 +322,7 @@ public class ViewApi {
    * 
    * Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
    * @param path Encode database path (required)
-   * @return ApiResponse&lt;java.util.List&lt;Object&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<Object>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -324,11 +371,17 @@ public class ViewApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<Object>> localVarReturnType = new GenericType<java.util.List<Object>>() {};
 
-    return apiClient.invokeAPI("ViewApi.v1DatabasePathFieldsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<Object>
+      
+    > apiResponse = apiClient.invokeAPI("ViewApi.v1DatabasePathFieldsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathFieldsGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -339,7 +392,7 @@ public class ViewApi {
    * @param contains Returns list of symbols which contains mentioned string (optional)
    * @param equals Returns symbol which matches mentioned string (optional)
    * @param orderBy Returns symbols in the mentioned sorted order, should provide asc or desc (optional)
-   * @return java.util.List&lt;String&gt;
+   * @return java.util.List<String>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -367,7 +420,7 @@ public class ViewApi {
    * @param contains Returns list of symbols which contains mentioned string (optional)
    * @param equals Returns symbol which matches mentioned string (optional)
    * @param orderBy Returns symbols in the mentioned sorted order, should provide asc or desc (optional)
-   * @return ApiResponse&lt;java.util.List&lt;String&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<String>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -421,10 +474,16 @@ public class ViewApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<String>> localVarReturnType = new GenericType<java.util.List<String>>() {};
 
-    return apiClient.invokeAPI("ViewApi.v1DatabasePathSymbolsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<String>
+      
+    > apiResponse = apiClient.invokeAPI("ViewApi.v1DatabasePathSymbolsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathSymbolsGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -47,6 +47,8 @@ public class InlineResponse200DataCurrency implements Serializable {
   public static final String JSON_PROPERTY_FUND = "fund";
   private String fund;
 
+  public InlineResponse200DataCurrency() { 
+  }
 
   public InlineResponse200DataCurrency listing(String listing) {
     this.listing = listing;

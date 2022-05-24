@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataRatingGrade implements Seri
   public static final String JSON_PROPERTY_MINIMUM = "minimum";
   private DebtInstrumentNotationScreenerSearchDataRatingGradeMinimum minimum;
 
+  public DebtInstrumentNotationScreenerSearchDataRatingGrade() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataRatingGrade minimum(DebtInstrumentNotationScreenerSearchDataRatingGradeMinimum minimum) {
     this.minimum = minimum;

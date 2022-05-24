@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentTradingVolumeOtc from './InlineResponse2003In
 /**
  * The InlineResponse2003InstrumentTradingVolume model module.
  * @module model/InlineResponse2003InstrumentTradingVolume
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentTradingVolume {
     /**

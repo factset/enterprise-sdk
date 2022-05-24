@@ -276,7 +276,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005Data {\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
             sb.Append("  Categorization: ").Append(Categorization).Append("\n");
@@ -337,8 +337,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TotalCount == input.TotalCount ||
@@ -497,61 +498,115 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TotalCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
                 if (this.Categorization != null)
-                    hashCode = hashCode * 59 + this.Categorization.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Categorization.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Exercise != null)
-                    hashCode = hashCode * 59 + this.Exercise.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exercise.GetHashCode();
+                }
                 if (this.Settlement != null)
-                    hashCode = hashCode * 59 + this.Settlement.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Settlement.GetHashCode();
+                }
                 if (this.Collateralized != null)
-                    hashCode = hashCode * 59 + this.Collateralized.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Collateralized.GetHashCode();
+                }
                 if (this.Quanto != null)
-                    hashCode = hashCode * 59 + this.Quanto.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Quanto.GetHashCode();
+                }
                 if (this.CapitalProtection != null)
-                    hashCode = hashCode * 59 + this.CapitalProtection.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CapitalProtection.GetHashCode();
+                }
                 if (this.Underlying != null)
-                    hashCode = hashCode * 59 + this.Underlying.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
                 if (this.Strike != null)
-                    hashCode = hashCode * 59 + this.Strike.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Strike.GetHashCode();
+                }
                 if (this.BonusLevel != null)
-                    hashCode = hashCode * 59 + this.BonusLevel.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BonusLevel.GetHashCode();
+                }
                 if (this.Cap != null)
-                    hashCode = hashCode * 59 + this.Cap.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cap.GetHashCode();
+                }
                 if (this.KnockOut != null)
-                    hashCode = hashCode * 59 + this.KnockOut.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KnockOut.GetHashCode();
+                }
                 if (this.KnockIn != null)
-                    hashCode = hashCode * 59 + this.KnockIn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KnockIn.GetHashCode();
+                }
                 if (this.LockOut != null)
-                    hashCode = hashCode * 59 + this.LockOut.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LockOut.GetHashCode();
+                }
                 if (this.LockIn != null)
-                    hashCode = hashCode * 59 + this.LockIn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LockIn.GetHashCode();
+                }
                 if (this.CapitalGuarantee != null)
-                    hashCode = hashCode * 59 + this.CapitalGuarantee.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CapitalGuarantee.GetHashCode();
+                }
                 if (this.CouponTriggerLevel != null)
-                    hashCode = hashCode * 59 + this.CouponTriggerLevel.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponTriggerLevel.GetHashCode();
+                }
                 if (this.RangeKnockOut != null)
-                    hashCode = hashCode * 59 + this.RangeKnockOut.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RangeKnockOut.GetHashCode();
+                }
                 if (this.Participation != null)
-                    hashCode = hashCode * 59 + this.Participation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Participation.GetHashCode();
+                }
                 if (this.ConstantLeverage != null)
-                    hashCode = hashCode * 59 + this.ConstantLeverage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConstantLeverage.GetHashCode();
+                }
                 if (this.NominalCurrency != null)
-                    hashCode = hashCode * 59 + this.NominalCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NominalCurrency.GetHashCode();
+                }
                 if (this.CurrentInterestRate != null)
-                    hashCode = hashCode * 59 + this.CurrentInterestRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentInterestRate.GetHashCode();
+                }
                 if (this.KeyFigures != null)
-                    hashCode = hashCode * 59 + this.KeyFigures.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KeyFigures.GetHashCode();
+                }
                 if (this.Performance != null)
-                    hashCode = hashCode * 59 + this.Performance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
                 if (this.Volatility != null)
-                    hashCode = hashCode * 59 + this.Volatility.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                }
                 return hashCode;
             }
         }

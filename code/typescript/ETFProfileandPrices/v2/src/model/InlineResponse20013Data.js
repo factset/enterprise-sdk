@@ -12,16 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20013DataBlockTrade from './InlineResponse20013DataBlockTrade';
+import InlineResponse20013DataImpedimentsToCreation from './InlineResponse20013DataImpedimentsToCreation';
+import InlineResponse20013DataPremiumDiscount from './InlineResponse20013DataPremiumDiscount';
+import InlineResponse20013DataSpread from './InlineResponse20013DataSpread';
+import InlineResponse20013DataTrackingDifference from './InlineResponse20013DataTrackingDifference';
 
 /**
  * The InlineResponse20013Data model module.
  * @module model/InlineResponse20013Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20013Data {
     /**
      * Constructs a new <code>InlineResponse20013Data</code>.
-     * Fund flows (i.e., the amount invested or divested from a fund) based on the creation/redemption process. The data returned may not be related to overall volume or price movement. All fund flow inputs use transaction-day values to ensure that all assets under management (AUM) and flows are fully comparable and reflective of the same, verified market conditions. This data is available for all the regions.
+     * Trade analytics.
      * @alias module:model/InlineResponse20013Data
      */
     constructor() { 
@@ -48,20 +53,20 @@ class InlineResponse20013Data {
         if (data) {
             obj = obj || new InlineResponse20013Data();
 
-            if (data.hasOwnProperty('flows1D')) {
-                obj['flows1D'] = ApiClient.convertToType(data['flows1D'], 'Number');
+            if (data.hasOwnProperty('impedimentsToCreation')) {
+                obj['impedimentsToCreation'] = InlineResponse20013DataImpedimentsToCreation.constructFromObject(data['impedimentsToCreation']);
             }
-            if (data.hasOwnProperty('flows1W')) {
-                obj['flows1W'] = ApiClient.convertToType(data['flows1W'], 'Number');
+            if (data.hasOwnProperty('premiumDiscount')) {
+                obj['premiumDiscount'] = InlineResponse20013DataPremiumDiscount.constructFromObject(data['premiumDiscount']);
             }
-            if (data.hasOwnProperty('flows1M')) {
-                obj['flows1M'] = ApiClient.convertToType(data['flows1M'], 'Number');
+            if (data.hasOwnProperty('blockTrade')) {
+                obj['blockTrade'] = InlineResponse20013DataBlockTrade.constructFromObject(data['blockTrade']);
             }
-            if (data.hasOwnProperty('flowsYTD')) {
-                obj['flowsYTD'] = ApiClient.convertToType(data['flowsYTD'], 'Number');
+            if (data.hasOwnProperty('spread')) {
+                obj['spread'] = InlineResponse20013DataSpread.constructFromObject(data['spread']);
             }
-            if (data.hasOwnProperty('flows1Y')) {
-                obj['flows1Y'] = ApiClient.convertToType(data['flows1Y'], 'Number');
+            if (data.hasOwnProperty('trackingDifference')) {
+                obj['trackingDifference'] = InlineResponse20013DataTrackingDifference.constructFromObject(data['trackingDifference']);
             }
         }
         return obj;
@@ -71,34 +76,29 @@ class InlineResponse20013Data {
 }
 
 /**
- * One-day fund flows. This data is available for all the regions.
- * @member {Number} flows1D
+ * @member {module:model/InlineResponse20013DataImpedimentsToCreation} impedimentsToCreation
  */
-InlineResponse20013Data.prototype['flows1D'] = undefined;
+InlineResponse20013Data.prototype['impedimentsToCreation'] = undefined;
 
 /**
- * One-week fund flows. This data is available for all the regions.
- * @member {Number} flows1W
+ * @member {module:model/InlineResponse20013DataPremiumDiscount} premiumDiscount
  */
-InlineResponse20013Data.prototype['flows1W'] = undefined;
+InlineResponse20013Data.prototype['premiumDiscount'] = undefined;
 
 /**
- * One-month fund flows. This data is available for all the regions.
- * @member {Number} flows1M
+ * @member {module:model/InlineResponse20013DataBlockTrade} blockTrade
  */
-InlineResponse20013Data.prototype['flows1M'] = undefined;
+InlineResponse20013Data.prototype['blockTrade'] = undefined;
 
 /**
- * Year-to-date fund flows. This data is available for all the regions.
- * @member {Number} flowsYTD
+ * @member {module:model/InlineResponse20013DataSpread} spread
  */
-InlineResponse20013Data.prototype['flowsYTD'] = undefined;
+InlineResponse20013Data.prototype['spread'] = undefined;
 
 /**
- * One-year fund flows. This data is available for all the regions.
- * @member {Number} flows1Y
+ * @member {module:model/InlineResponse20013DataTrackingDifference} trackingDifference
  */
-InlineResponse20013Data.prototype['flows1Y'] = undefined;
+InlineResponse20013Data.prototype['trackingDifference'] = undefined;
 
 
 

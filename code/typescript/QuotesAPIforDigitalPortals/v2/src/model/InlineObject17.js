@@ -18,7 +18,7 @@ import NotationCrossReferenceListByISINData from './NotationCrossReferenceListBy
 /**
  * The InlineObject17 model module.
  * @module model/InlineObject17
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject17 {
     /**

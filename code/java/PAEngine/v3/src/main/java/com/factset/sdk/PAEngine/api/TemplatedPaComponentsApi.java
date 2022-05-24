@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.ClientErrorResponse;
 import com.factset.sdk.PAEngine.models.TemplatedPAComponentParametersRoot;
@@ -26,6 +29,33 @@ public class TemplatedPaComponentsApi {
   public TemplatedPaComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createTemplatedPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createTemplatedPAComponentsResponseTypeMap.put(201, new GenericType<TemplatedPAComponentPostSummaryRoot>(){});
+    createTemplatedPAComponentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> deleteTemplatedPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getTemplatedPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTemplatedPAComponentByIdResponseTypeMap.put(200, new GenericType<TemplatedPAComponentRoot>(){});
+    getTemplatedPAComponentByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getTemplatedPAComponentByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getTemplatedPAComponentsInPathResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTemplatedPAComponentsInPathResponseTypeMap.put(200, new GenericType<TemplatedPAComponentSummaryRoot>(){});
+    getTemplatedPAComponentsInPathResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> updateTemplatedPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    updateTemplatedPAComponentsResponseTypeMap.put(200, new GenericType<TemplatedPAComponentPostSummaryRoot>(){});
+    updateTemplatedPAComponentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    updateTemplatedPAComponentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -47,7 +77,7 @@ public class TemplatedPaComponentsApi {
 
   /**
    * Create templated PA component
-   * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param templatedPAComponentParametersRoot Request Parameters (required)
    * @return TemplatedPAComponentPostSummaryRoot
    * @throws ApiException if fails to make API call
@@ -71,7 +101,7 @@ public class TemplatedPaComponentsApi {
 
   /**
    * Create templated PA component
-   * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param templatedPAComponentParametersRoot Request Parameters (required)
    * @return ApiResponse&lt;TemplatedPAComponentPostSummaryRoot&gt;
    * @throws ApiException if fails to make API call
@@ -122,11 +152,17 @@ public class TemplatedPaComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TemplatedPAComponentPostSummaryRoot> localVarReturnType = new GenericType<TemplatedPAComponentPostSummaryRoot>() {};
 
-    return apiClient.invokeAPI("TemplatedPaComponentsApi.createTemplatedPAComponents", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TemplatedPAComponentPostSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("TemplatedPaComponentsApi.createTemplatedPAComponents", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createTemplatedPAComponentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete templated PA component
@@ -205,9 +241,15 @@ public class TemplatedPaComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("TemplatedPaComponentsApi.deleteTemplatedPAComponents", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("TemplatedPaComponentsApi.deleteTemplatedPAComponents", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteTemplatedPAComponentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get templated PA component by id
@@ -287,11 +329,17 @@ public class TemplatedPaComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TemplatedPAComponentRoot> localVarReturnType = new GenericType<TemplatedPAComponentRoot>() {};
 
-    return apiClient.invokeAPI("TemplatedPaComponentsApi.getTemplatedPAComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TemplatedPAComponentRoot
+      
+    > apiResponse = apiClient.invokeAPI("TemplatedPaComponentsApi.getTemplatedPAComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getTemplatedPAComponentByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get templated PA components in path
@@ -369,15 +417,21 @@ public class TemplatedPaComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TemplatedPAComponentSummaryRoot> localVarReturnType = new GenericType<TemplatedPAComponentSummaryRoot>() {};
 
-    return apiClient.invokeAPI("TemplatedPaComponentsApi.getTemplatedPAComponentsInPath", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TemplatedPAComponentSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("TemplatedPaComponentsApi.getTemplatedPAComponentsInPath", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getTemplatedPAComponentsInPathResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Update templated PA component
-   * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param id Unique identifier for a templated PA component (required)
    * @param templatedPAComponentUpdateParametersRoot Request Parameters (required)
    * @return TemplatedPAComponentPostSummaryRoot
@@ -402,7 +456,7 @@ public class TemplatedPaComponentsApi {
 
   /**
    * Update templated PA component
-   * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+   * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
    * @param id Unique identifier for a templated PA component (required)
    * @param templatedPAComponentUpdateParametersRoot Request Parameters (required)
    * @return ApiResponse&lt;TemplatedPAComponentPostSummaryRoot&gt;
@@ -460,10 +514,16 @@ public class TemplatedPaComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TemplatedPAComponentPostSummaryRoot> localVarReturnType = new GenericType<TemplatedPAComponentPostSummaryRoot>() {};
 
-    return apiClient.invokeAPI("TemplatedPaComponentsApi.updateTemplatedPAComponents", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TemplatedPAComponentPostSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("TemplatedPaComponentsApi.updateTemplatedPAComponents", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, updateTemplatedPAComponentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

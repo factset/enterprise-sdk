@@ -56,6 +56,8 @@ public class InlineResponse20013Data implements Serializable {
   public static final String JSON_PROPERTY_KIND = "kind";
   private InlineResponse20013Kind kind;
 
+  public InlineResponse20013Data() { 
+  }
 
   public InlineResponse20013Data id(BigDecimal id) {
     this.id = id;

@@ -48,6 +48,8 @@ public class InlineResponse20071Data implements Serializable {
   public static final String JSON_PROPERTY_REGIONAL = "regional";
   private java.util.List<InlineResponse20070DataRegional> regional = null;
 
+  public InlineResponse20071Data() { 
+  }
 
   public InlineResponse20071Data permanentIdentifier(String permanentIdentifier) {
     this.permanentIdentifier = permanentIdentifier;

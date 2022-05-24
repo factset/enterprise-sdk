@@ -60,7 +60,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006DataProfitLoss {\n");
             sb.Append("  Intraday: ").Append(Intraday).Append("\n");
             sb.Append("  Potential: ").Append(Potential).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006DataProfitLoss input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Intraday == input.Intraday ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Intraday != null)
-                    hashCode = hashCode * 59 + this.Intraday.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Intraday.GetHashCode();
+                }
                 if (this.Potential != null)
-                    hashCode = hashCode * 59 + this.Potential.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Potential.GetHashCode();
+                }
                 return hashCode;
             }
         }

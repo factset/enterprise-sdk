@@ -47,6 +47,16 @@ public class SPARBenchmarkRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public SPARBenchmarkRoot() { 
+  }
+
+  @JsonCreator
+  public SPARBenchmarkRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) SPARBenchmark data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public SPARBenchmarkRoot data(SPARBenchmark data) {
     this.data = data;

@@ -40,7 +40,6 @@ src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/ApiClient.java
 src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/ApiException.java
 src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/ApiResponse.java
 src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/Configuration.java
-src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/JSON.java
 src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/AxiomaFixedIncomeOptimizer/Pair.java

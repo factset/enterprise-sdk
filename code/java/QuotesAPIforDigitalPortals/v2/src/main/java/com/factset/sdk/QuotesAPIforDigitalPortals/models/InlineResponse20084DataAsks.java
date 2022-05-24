@@ -67,6 +67,8 @@ public class InlineResponse20084DataAsks implements Serializable {
   public static final String JSON_PROPERTY_MARKET_MAKER = "marketMaker";
   private String marketMaker;
 
+  public InlineResponse20084DataAsks() { 
+  }
 
   public InlineResponse20084DataAsks id(String id) {
     this.id = id;

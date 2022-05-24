@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetPrices.JSON;
@@ -60,6 +60,8 @@ public class ErrorResponse implements Serializable {
   public static final String JSON_PROPERTY_SUB_ERRORS = "subErrors";
   private ErrorResponseSubErrors subErrors;
 
+  public ErrorResponse() { 
+  }
 
   public ErrorResponse status(String status) {
     this.status = status;

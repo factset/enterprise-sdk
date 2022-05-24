@@ -22,7 +22,7 @@ import InlineResponse20089ValueUnit from './InlineResponse20089ValueUnit';
 /**
  * The InlineResponse20089Data model module.
  * @module model/InlineResponse20089Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20089Data {
     /**

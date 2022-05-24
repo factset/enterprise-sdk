@@ -42,6 +42,8 @@ public class Frequency implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public Frequency() { 
+  }
 
   public Frequency name(String name) {
     this.name = name;

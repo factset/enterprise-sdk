@@ -44,6 +44,8 @@ public class InlineResponse2004EstimatesFirstFiscalYearReturnOnAssets implements
   public static final String JSON_PROPERTY_MEAN = "mean";
   private BigDecimal mean;
 
+  public InlineResponse2004EstimatesFirstFiscalYearReturnOnAssets() { 
+  }
 
   public InlineResponse2004EstimatesFirstFiscalYearReturnOnAssets mean(BigDecimal mean) {
     this.mean = mean;

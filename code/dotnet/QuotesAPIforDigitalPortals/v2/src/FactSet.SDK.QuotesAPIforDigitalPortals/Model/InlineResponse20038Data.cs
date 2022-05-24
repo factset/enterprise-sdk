@@ -53,7 +53,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20038Data {\n");
             sb.Append("  Categories: ").Append(Categories).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20038Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Categories == input.Categories ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Categories != null)
-                    hashCode = hashCode * 59 + this.Categories.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Categories.GetHashCode();
+                }
                 return hashCode;
             }
         }

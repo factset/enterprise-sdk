@@ -11,6 +11,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.FactSetConcordance.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.FactSetConcordance.model_utils import (  # noqa: F401
@@ -22,10 +24,14 @@ from fds.sdk.FactSetConcordance.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.FactSetConcordance.exceptions import ApiException
 from fds.sdk.FactSetConcordance.model.entity_decisions_response import EntityDecisionsResponse
 from fds.sdk.FactSetConcordance.model.entity_task_response import EntityTaskResponse
 from fds.sdk.FactSetConcordance.model.entity_task_status_response import EntityTaskStatusResponse
 from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
+
+
+
 
 
 class EntityMatchBulkApi(object):
@@ -41,7 +47,10 @@ class EntityMatchBulkApi(object):
         self.api_client = api_client
         self.create_entity_task_endpoint = _Endpoint(
             settings={
-                'response_type': (EntityTaskResponse,),
+                'response_type': (
+                  { 200: (EntityTaskResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -153,7 +162,10 @@ class EntityMatchBulkApi(object):
         )
         self.get_entity_decisions_endpoint = _Endpoint(
             settings={
-                'response_type': (EntityDecisionsResponse,),
+                'response_type': (
+                  { 200: (EntityDecisionsResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -216,7 +228,10 @@ class EntityMatchBulkApi(object):
         )
         self.get_entity_task_status_endpoint = _Endpoint(
             settings={
-                'response_type': (EntityTaskStatusResponse,),
+                'response_type': (
+                  { 200: (EntityTaskStatusResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -292,6 +307,18 @@ class EntityMatchBulkApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def create_entity_task(
         self,
         task_name,
@@ -299,15 +326,11 @@ class EntityMatchBulkApi(object):
         client_id_column,
         name_column,
         **kwargs
-    ):
+    ) -> EntityTaskResponse:
         """Input a file with names and attributes, creating a taskId.  # noqa: E501
 
         Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names and attributes and receive a `taskId`. The taskId is then used for reference in the */entity-task-status* and */entity-decisions* endpoints to receive results once the task is successful. <p> **Number of ids is limited to 10,000 ids per upload file.** </p><p>This is the first step in the overall \"Bulk\" workflow. Use the /entity-task-status endpoint to check the status.</p>   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.create_entity_task(task_name, input_file, client_id_column, name_column, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             task_name (str): User defined name for the task that will be used to name the output files.
@@ -323,8 +346,6 @@ class EntityMatchBulkApi(object):
             exclude_entity_type ([str]): Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** . [optional]
             include_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
             exclude_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -338,35 +359,218 @@ class EntityMatchBulkApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             EntityTaskResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['task_name'] = \
+            task_name
+        kwargs['input_file'] = \
+            input_file
+        kwargs['client_id_column'] = \
+            client_id_column
+        kwargs['name_column'] = \
+            name_column
+        return self.create_entity_task_endpoint.call_with_http_info(**kwargs)
+
+    def create_entity_task_with_http_info(
+        self,
+        task_name,
+        input_file,
+        client_id_column,
+        name_column,
+        **kwargs
+    ) -> typing.Tuple[EntityTaskResponse, int, typing.MutableMapping]:
+        """Input a file with names and attributes, creating a taskId.  # noqa: E501
+
+        Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names and attributes and receive a `taskId`. The taskId is then used for reference in the */entity-task-status* and */entity-decisions* endpoints to receive results once the task is successful. <p> **Number of ids is limited to 10,000 ids per upload file.** </p><p>This is the first step in the overall \"Bulk\" workflow. Use the /entity-task-status endpoint to check the status.</p>   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            task_name (str): User defined name for the task that will be used to name the output files.
+            input_file (file_type): The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. Only 10,001 rows are accepted, including the Header row. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
+            client_id_column (str): Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
+            name_column (str): Header name of the column in the input file that contains the Entity Name to be matched. 
+
+        Keyword Args:
+            country_column (str): Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision. . [optional]
+            url_column (str): Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match. . [optional]
+            state_column (str): Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported. . [optional]
+            include_entity_type ([str]): Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            exclude_entity_type ([str]): Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** . [optional]
+            include_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            exclude_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            EntityTaskResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['task_name'] = \
+            task_name
+        kwargs['input_file'] = \
+            input_file
+        kwargs['client_id_column'] = \
+            client_id_column
+        kwargs['name_column'] = \
+            name_column
+        return self.create_entity_task_endpoint.call_with_http_info(**kwargs)
+
+    def create_entity_task_async(
+        self,
+        task_name,
+        input_file,
+        client_id_column,
+        name_column,
+        **kwargs
+    ) -> "ApplyResult[EntityTaskResponse]":
+        """Input a file with names and attributes, creating a taskId.  # noqa: E501
+
+        Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names and attributes and receive a `taskId`. The taskId is then used for reference in the */entity-task-status* and */entity-decisions* endpoints to receive results once the task is successful. <p> **Number of ids is limited to 10,000 ids per upload file.** </p><p>This is the first step in the overall \"Bulk\" workflow. Use the /entity-task-status endpoint to check the status.</p>   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            task_name (str): User defined name for the task that will be used to name the output files.
+            input_file (file_type): The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. Only 10,001 rows are accepted, including the Header row. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
+            client_id_column (str): Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
+            name_column (str): Header name of the column in the input file that contains the Entity Name to be matched. 
+
+        Keyword Args:
+            country_column (str): Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision. . [optional]
+            url_column (str): Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match. . [optional]
+            state_column (str): Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported. . [optional]
+            include_entity_type ([str]): Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            exclude_entity_type ([str]): Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** . [optional]
+            include_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            exclude_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[EntityTaskResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['task_name'] = \
+            task_name
+        kwargs['input_file'] = \
+            input_file
+        kwargs['client_id_column'] = \
+            client_id_column
+        kwargs['name_column'] = \
+            name_column
+        return self.create_entity_task_endpoint.call_with_http_info(**kwargs)
+
+    def create_entity_task_with_http_info_async(
+        self,
+        task_name,
+        input_file,
+        client_id_column,
+        name_column,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[EntityTaskResponse, int, typing.MutableMapping]]":
+        """Input a file with names and attributes, creating a taskId.  # noqa: E501
+
+        Upload a Comma-Separated List file (.csv / UTF-8 encoding) with a list of names and attributes and receive a `taskId`. The taskId is then used for reference in the */entity-task-status* and */entity-decisions* endpoints to receive results once the task is successful. <p> **Number of ids is limited to 10,000 ids per upload file.** </p><p>This is the first step in the overall \"Bulk\" workflow. Use the /entity-task-status endpoint to check the status.</p>   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            task_name (str): User defined name for the task that will be used to name the output files.
+            input_file (file_type): The UTF-8 encoded CSV File containing the entity names to be concorded to a FactSet Entity Identifier. The files first row **MUST** include headers as defined in the *Column parameters. Be mindful of casing and spacing in column headers. Only 10,001 rows are accepted, including the Header row. The input file is posted as a file object in the form. For this reason, the mime type of this post request must be multipart/form-data. 
+            client_id_column (str): Header Name of the column in the input file that contains a unique identifier supplied by the user referred to as a \\\"clientId\\\". This clientId can be used to create custom mappings or references. 
+            name_column (str): Header name of the column in the input file that contains the Entity Name to be matched. 
+
+        Keyword Args:
+            country_column (str): Header Name of the column in the input file that contains the country's ISO Code. This is used to filter the candidates before taking a match decision. . [optional]
+            url_column (str): Header Name of the column in the input file that contains the Entity's URL. URL corresponding to the entity name that is used when evaluating candidates for a match. . [optional]
+            state_column (str): Header Name of the column in the input file that contains the two letter State Code of the state or province where the Entity is located. Currently, only US state codes are supported. . [optional]
+            include_entity_type ([str]): Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Only candidates with an entity type specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            exclude_entity_type ([str]): Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** . [optional]
+            include_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            exclude_entity_sub_type ([str]): Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(EntityTaskResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['task_name'] = \
             task_name
         kwargs['input_file'] = \
@@ -381,15 +585,11 @@ class EntityMatchBulkApi(object):
         self,
         task_id,
         **kwargs
-    ):
+    ) -> EntityDecisionsResponse:
         """Get the decisions of matches for the requested taskId.  # noqa: E501
 
         Retrieves the `Decision` objects for an Entity Task (taskId). The decisions do not include all candidates, but rather the status of concording the requested list of names included in the input file. Mapped entities will include a FactSet Entity Identifier (-E).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_entity_decisions(task_id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             task_id (int): Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
@@ -397,8 +597,6 @@ class EntityMatchBulkApi(object):
         Keyword Args:
             offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
             limit (int): Limits the number of records in the response.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -412,35 +610,167 @@ class EntityMatchBulkApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             EntityDecisionsResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['task_id'] = \
+            task_id
+        return self.get_entity_decisions_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_decisions_with_http_info(
+        self,
+        task_id,
+        **kwargs
+    ) -> typing.Tuple[EntityDecisionsResponse, int, typing.MutableMapping]:
+        """Get the decisions of matches for the requested taskId.  # noqa: E501
+
+        Retrieves the `Decision` objects for an Entity Task (taskId). The decisions do not include all candidates, but rather the status of concording the requested list of names included in the input file. Mapped entities will include a FactSet Entity Identifier (-E).   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            task_id (int): Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
+
+        Keyword Args:
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            EntityDecisionsResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['task_id'] = \
+            task_id
+        return self.get_entity_decisions_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_decisions_async(
+        self,
+        task_id,
+        **kwargs
+    ) -> "ApplyResult[EntityDecisionsResponse]":
+        """Get the decisions of matches for the requested taskId.  # noqa: E501
+
+        Retrieves the `Decision` objects for an Entity Task (taskId). The decisions do not include all candidates, but rather the status of concording the requested list of names included in the input file. Mapped entities will include a FactSet Entity Identifier (-E).   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            task_id (int): Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
+
+        Keyword Args:
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[EntityDecisionsResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['task_id'] = \
+            task_id
+        return self.get_entity_decisions_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_decisions_with_http_info_async(
+        self,
+        task_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[EntityDecisionsResponse, int, typing.MutableMapping]]":
+        """Get the decisions of matches for the requested taskId.  # noqa: E501
+
+        Retrieves the `Decision` objects for an Entity Task (taskId). The decisions do not include all candidates, but rather the status of concording the requested list of names included in the input file. Mapped entities will include a FactSet Entity Identifier (-E).   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            task_id (int): Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
+
+        Keyword Args:
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(EntityDecisionsResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['task_id'] = \
             task_id
         return self.get_entity_decisions_endpoint.call_with_http_info(**kwargs)
@@ -448,15 +778,11 @@ class EntityMatchBulkApi(object):
     def get_entity_task_status(
         self,
         **kwargs
-    ):
+    ) -> EntityTaskStatusResponse:
         """Gets the status of the requested taskId or all tasks for a User  # noqa: E501
 
         Pulls the **status** for ALL the Entity Tasks submitted by a client within the last 30 days, and related details such as task duration and decision rates. Specific Tasks can also be retrieved by using the _taskId_ parameter.<p>Status types include -   * PENDING - The task has not yet started.   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_entity_task_status(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
@@ -464,8 +790,6 @@ class EntityMatchBulkApi(object):
             offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
             limit (int): Limits the number of records in the response.. [optional]
             status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -479,34 +803,157 @@ class EntityMatchBulkApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             EntityTaskStatusResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_entity_task_status_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_task_status_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[EntityTaskStatusResponse, int, typing.MutableMapping]:
+        """Gets the status of the requested taskId or all tasks for a User  # noqa: E501
+
+        Pulls the **status** for ALL the Entity Tasks submitted by a client within the last 30 days, and related details such as task duration and decision rates. Specific Tasks can also be retrieved by using the _taskId_ parameter.<p>Status types include -   * PENDING - The task has not yet started.   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            task_id (int): Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.. [optional]
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            EntityTaskStatusResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_entity_task_status_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_task_status_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[EntityTaskStatusResponse]":
+        """Gets the status of the requested taskId or all tasks for a User  # noqa: E501
+
+        Pulls the **status** for ALL the Entity Tasks submitted by a client within the last 30 days, and related details such as task duration and decision rates. Specific Tasks can also be retrieved by using the _taskId_ parameter.<p>Status types include -   * PENDING - The task has not yet started.   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            task_id (int): Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.. [optional]
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[EntityTaskStatusResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_entity_task_status_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_task_status_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[EntityTaskStatusResponse, int, typing.MutableMapping]]":
+        """Gets the status of the requested taskId or all tasks for a User  # noqa: E501
+
+        Pulls the **status** for ALL the Entity Tasks submitted by a client within the last 30 days, and related details such as task duration and decision rates. Specific Tasks can also be retrieved by using the _taskId_ parameter.<p>Status types include -   * PENDING - The task has not yet started.   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            task_id (int): Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.. [optional]
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            status ([str]): Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. . [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(EntityTaskStatusResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.get_entity_task_status_endpoint.call_with_http_info(**kwargs)
 

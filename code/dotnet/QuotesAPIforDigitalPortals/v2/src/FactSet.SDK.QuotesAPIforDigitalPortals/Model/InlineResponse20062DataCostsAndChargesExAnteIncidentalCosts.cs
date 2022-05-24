@@ -61,7 +61,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataCostsAndChargesExAnteIncidentalCosts {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataCostsAndChargesExAnteIncidentalCosts input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Value == input.Value ||
@@ -119,9 +120,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 return hashCode;
             }
         }

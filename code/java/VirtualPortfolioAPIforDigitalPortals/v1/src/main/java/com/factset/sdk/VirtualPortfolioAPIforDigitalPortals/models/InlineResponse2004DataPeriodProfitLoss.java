@@ -44,6 +44,8 @@ public class InlineResponse2004DataPeriodProfitLoss implements Serializable {
   public static final String JSON_PROPERTY_ABSOLUTE = "absolute";
   private BigDecimal absolute;
 
+  public InlineResponse2004DataPeriodProfitLoss() { 
+  }
 
   public InlineResponse2004DataPeriodProfitLoss absolute(BigDecimal absolute) {
     this.absolute = absolute;

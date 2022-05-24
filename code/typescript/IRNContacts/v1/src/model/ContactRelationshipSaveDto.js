@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactRelationshipSaveDto model module.
  * @module model/ContactRelationshipSaveDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactRelationshipSaveDto {
     /**
@@ -47,29 +47,29 @@ class ContactRelationshipSaveDto {
         if (data) {
             obj = obj || new ContactRelationshipSaveDto();
 
-            if (data.hasOwnProperty('relationshipId')) {
-                obj['relationshipId'] = ApiClient.convertToType(data['relationshipId'], 'String');
+            if (data.hasOwnProperty('RelationshipId')) {
+                obj['RelationshipId'] = ApiClient.convertToType(data['RelationshipId'], 'String');
             }
-            if (data.hasOwnProperty('contactId')) {
-                obj['contactId'] = ApiClient.convertToType(data['contactId'], 'String');
+            if (data.hasOwnProperty('ContactId')) {
+                obj['ContactId'] = ApiClient.convertToType(data['ContactId'], 'String');
             }
-            if (data.hasOwnProperty('start')) {
-                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
+            if (data.hasOwnProperty('Start')) {
+                obj['Start'] = ApiClient.convertToType(data['Start'], 'Date');
             }
-            if (data.hasOwnProperty('end')) {
-                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
+            if (data.hasOwnProperty('End')) {
+                obj['End'] = ApiClient.convertToType(data['End'], 'Date');
             }
-            if (data.hasOwnProperty('comment')) {
-                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
+            if (data.hasOwnProperty('Comment')) {
+                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
             }
-            if (data.hasOwnProperty('isCurrent')) {
-                obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
+            if (data.hasOwnProperty('IsCurrent')) {
+                obj['IsCurrent'] = ApiClient.convertToType(data['IsCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
+            if (data.hasOwnProperty('Symbol')) {
+                obj['Symbol'] = ApiClient.convertToType(data['Symbol'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            if (data.hasOwnProperty('Title')) {
+                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
             }
         }
         return obj;
@@ -79,44 +79,44 @@ class ContactRelationshipSaveDto {
 }
 
 /**
- * @member {String} relationshipId
+ * @member {String} RelationshipId
  */
-ContactRelationshipSaveDto.prototype['relationshipId'] = undefined;
+ContactRelationshipSaveDto.prototype['RelationshipId'] = undefined;
 
 /**
- * @member {String} contactId
+ * @member {String} ContactId
  */
-ContactRelationshipSaveDto.prototype['contactId'] = undefined;
+ContactRelationshipSaveDto.prototype['ContactId'] = undefined;
 
 /**
- * @member {Date} start
+ * @member {Date} Start
  */
-ContactRelationshipSaveDto.prototype['start'] = undefined;
+ContactRelationshipSaveDto.prototype['Start'] = undefined;
 
 /**
- * @member {Date} end
+ * @member {Date} End
  */
-ContactRelationshipSaveDto.prototype['end'] = undefined;
+ContactRelationshipSaveDto.prototype['End'] = undefined;
 
 /**
- * @member {String} comment
+ * @member {String} Comment
  */
-ContactRelationshipSaveDto.prototype['comment'] = undefined;
+ContactRelationshipSaveDto.prototype['Comment'] = undefined;
 
 /**
- * @member {Boolean} isCurrent
+ * @member {Boolean} IsCurrent
  */
-ContactRelationshipSaveDto.prototype['isCurrent'] = undefined;
+ContactRelationshipSaveDto.prototype['IsCurrent'] = undefined;
 
 /**
- * @member {String} symbol
+ * @member {String} Symbol
  */
-ContactRelationshipSaveDto.prototype['symbol'] = undefined;
+ContactRelationshipSaveDto.prototype['Symbol'] = undefined;
 
 /**
- * @member {String} title
+ * @member {String} Title
  */
-ContactRelationshipSaveDto.prototype['title'] = undefined;
+ContactRelationshipSaveDto.prototype['Title'] = undefined;
 
 
 

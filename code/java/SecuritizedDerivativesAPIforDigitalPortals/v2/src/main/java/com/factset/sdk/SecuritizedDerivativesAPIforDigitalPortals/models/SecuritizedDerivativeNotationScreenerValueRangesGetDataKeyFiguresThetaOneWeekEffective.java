@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresTh
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMaximum maximum;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeekEffective() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeekEffective minimum(SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinimum minimum) {
     this.minimum = minimum;

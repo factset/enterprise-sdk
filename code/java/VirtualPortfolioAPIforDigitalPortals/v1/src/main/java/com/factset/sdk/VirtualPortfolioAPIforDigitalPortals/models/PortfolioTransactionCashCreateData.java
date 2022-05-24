@@ -52,6 +52,20 @@ public class PortfolioTransactionCashCreateData implements Serializable {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private BigDecimal amount;
 
+  public PortfolioTransactionCashCreateData() { 
+  }
+
+  @JsonCreator
+  public PortfolioTransactionCashCreateData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_TIME, required=true) String time, 
+    @JsonProperty(value=JSON_PROPERTY_AMOUNT, required=true) BigDecimal amount
+  ) {
+    this();
+    this.id = id;
+    this.time = time;
+    this.amount = amount;
+  }
 
   public PortfolioTransactionCashCreateData id(String id) {
     this.id = id;

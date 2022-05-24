@@ -40,30 +40,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bloomberg_figi_api.BloombergFIGIApi(api_client)
+
     bloomberg_translation_request = BloombergTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
     ) # BloombergTranslationRequest | Request Body for Bloomberg FIGIs.
 
-    # example passing only required values which don't have defaults set
     try:
         # Translate market security symbols into Bloomberg Identifiers.
         api_response = api_instance.batch_translate_bloomberg(bloomberg_translation_request)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling BloombergFIGIApi->batch_translate_bloomberg: %s\n" % e)
 ```
@@ -133,28 +134,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bloomberg_figi_api.BloombergFIGIApi(api_client)
+
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
-    # example passing only required values which don't have defaults set
     try:
         # Translate FactSet symbols into Bloomberg Identifiers.
         api_response = api_instance.translate_bloomberg(ids)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling BloombergFIGIApi->translate_bloomberg: %s\n" % e)
 ```

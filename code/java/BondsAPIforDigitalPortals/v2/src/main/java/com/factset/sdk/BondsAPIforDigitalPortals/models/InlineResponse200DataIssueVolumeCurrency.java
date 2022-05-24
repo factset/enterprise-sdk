@@ -52,6 +52,8 @@ public class InlineResponse200DataIssueVolumeCurrency implements Serializable {
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private String isoCode;
 
+  public InlineResponse200DataIssueVolumeCurrency() { 
+  }
 
   public InlineResponse200DataIssueVolumeCurrency id(BigDecimal id) {
     this.id = id;

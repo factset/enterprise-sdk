@@ -8,8 +8,8 @@ Value range of the implied volatility. It represents the volatility of the under
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**minimum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum.md) |  |  [optional]
-**maximum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum.md) |  |  [optional]
+**minimum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum.md) |  |  [optional]
+**maximum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum.md) |  |  [optional]
 
 
 ## Implemented Interfaces

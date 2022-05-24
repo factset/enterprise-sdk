@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.JSON;
@@ -68,6 +68,8 @@ public class InlineResponse2007DataSubsamples implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private BigDecimal tradingValue;
 
+  public InlineResponse2007DataSubsamples() { 
+  }
 
   public InlineResponse2007DataSubsamples date(LocalDate date) {
     this.date = date;

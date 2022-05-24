@@ -48,6 +48,8 @@ public class NRTSnippetsMeta implements Serializable {
   public static final String JSON_PROPERTY_PARTIAL = "partial";
   private NRTSnippetsMetaPartial partial;
 
+  public NRTSnippetsMeta() { 
+  }
 
   public NRTSnippetsMeta pagination(NRTSnippetsMetaPagination pagination) {
     this.pagination = pagination;

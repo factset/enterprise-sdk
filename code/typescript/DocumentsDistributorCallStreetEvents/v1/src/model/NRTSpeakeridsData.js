@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSpeakeridsData model module.
  * @module model/NRTSpeakeridsData
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSpeakeridsData {
     /**
@@ -85,7 +85,7 @@ NRTSpeakeridsData.prototype['speakerStartOffset'] = undefined;
 NRTSpeakeridsData.prototype['speakerId'] = undefined;
 
 /**
- * The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set
+ * The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set
  * @member {Number} cosineScore
  */
 NRTSpeakeridsData.prototype['cosineScore'] = undefined;

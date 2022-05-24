@@ -39,15 +39,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -55,11 +55,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = columns_api.ColumnsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    id = "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5" # str | Unique identifier for a column (default to "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5")
+
     try:
         # Get PA column settings
-        api_response = api_instance.get_pa_column_by_id()
+        api_response = api_instance.get_pa_column_by_id(id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling ColumnsApi->get_pa_column_by_id: %s\n" % e)
 ```
@@ -131,31 +133,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = columns_api.ColumnsApi(api_client)
-    name = "" # str | Column name (optional) if omitted the server will use the default value of ""
-    category = "" # str | Column category (optional) if omitted the server will use the default value of ""
-    directory = "" # str | The directory to get the columns in (optional) if omitted the server will use the default value of ""
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    name = "" # str | Column name (optional) (default to "")
+    category = "" # str | Column category (optional) (default to "")
+    directory = "" # str | The directory to get the columns in (optional) (default to "")
+
     try:
         # Get PA columns
         api_response = api_instance.get_pa_columns(name=name, category=category, directory=directory)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling ColumnsApi->get_pa_columns: %s\n" % e)
 ```

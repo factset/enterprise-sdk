@@ -82,6 +82,8 @@ public class EventsAudio400ResponseDetailsValidParameters implements Serializabl
   public static final String JSON_PROPERTY_UPLOAD_TIME = "uploadTime";
   private java.util.List<String> uploadTime = null;
 
+  public EventsAudio400ResponseDetailsValidParameters() { 
+  }
 
   public EventsAudio400ResponseDetailsValidParameters sort(java.util.List<String> sort) {
     this.sort = sort;

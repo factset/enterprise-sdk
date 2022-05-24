@@ -44,6 +44,8 @@ public class NewsPublisherSearchByNameDataFilterDelivery implements Serializable
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public NewsPublisherSearchByNameDataFilterDelivery() { 
+  }
 
   public NewsPublisherSearchByNameDataFilterDelivery id(BigDecimal id) {
     this.id = id;

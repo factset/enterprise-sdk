@@ -251,6 +251,51 @@ namespace FactSet.SDK.FactSetEstimates.Api
     {
         private FactSet.SDK.FactSetEstimates.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetConsensusRatingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ConsensusRatingsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetConsensusRatingsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ConsensusRatingsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetDetailRatingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DetailRatingsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetDetailRatingsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DetailRatingsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RatingsApi"/> class.
         /// </summary>
@@ -364,7 +409,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>ConsensusRatingsResponse</returns>
         public ConsensusRatingsResponse GetConsensusRatings(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse> localVarResponse = GetConsensusRatingsWithHttpInfo(ids, startDate, endDate, frequency);
+            var localVarResponse = GetConsensusRatingsWithHttpInfo(ids, startDate, endDate, frequency);
             return localVarResponse.Data;
         }
 
@@ -377,11 +422,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
         /// <returns>ApiResponse of ConsensusRatingsResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
+        public ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling RatingsApi->GetConsensusRatings");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -394,10 +441,16 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -415,13 +468,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -433,15 +486,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ConsensusRatingsResponse>("/factset-estimates/v2/consensus-ratings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetConsensusRatingsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ConsensusRatingsResponse>("/factset-estimates/v2/consensus-ratings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetConsensusRatings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -455,9 +512,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsensusRatingsResponse</returns>
-        public async System.Threading.Tasks.Task<ConsensusRatingsResponse> GetConsensusRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConsensusRatingsResponse>GetConsensusRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse> localVarResponse = await GetConsensusRatingsWithHttpInfoAsync(ids, startDate, endDate, frequency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetConsensusRatingsWithHttpInfoAsync(ids, startDate, endDate, frequency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -471,11 +528,14 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="frequency">Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsensusRatingsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling RatingsApi->GetConsensusRatings");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -488,12 +548,17 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -511,13 +576,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -529,14 +594,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetConsensusRatingsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ConsensusRatingsResponse>("/factset-estimates/v2/consensus-ratings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetConsensusRatings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -550,7 +619,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>ConsensusRatingsResponse</returns>
         public ConsensusRatingsResponse GetConsensusRatingsForList(ConsensusRatingsRequest consensusRatingsRequest)
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse> localVarResponse = GetConsensusRatingsForListWithHttpInfo(consensusRatingsRequest);
+            var localVarResponse = GetConsensusRatingsForListWithHttpInfo(consensusRatingsRequest);
             return localVarResponse.Data;
         }
 
@@ -560,11 +629,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="consensusRatingsRequest">Request object for Estimate Data Items.</param>
         /// <returns>ApiResponse of ConsensusRatingsResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsForListWithHttpInfo(ConsensusRatingsRequest consensusRatingsRequest)
+        public ApiResponse<ConsensusRatingsResponse> GetConsensusRatingsForListWithHttpInfo(ConsensusRatingsRequest consensusRatingsRequest)
         {
             // verify the required parameter 'consensusRatingsRequest' is set
             if (consensusRatingsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'consensusRatingsRequest' when calling RatingsApi->GetConsensusRatingsForList");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -578,22 +649,28 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = consensusRatingsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -605,15 +682,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ConsensusRatingsResponse>("/factset-estimates/v2/consensus-ratings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetConsensusRatingsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            ConsensusRatingsResponse>("/factset-estimates/v2/consensus-ratings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetConsensusRatingsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -624,9 +705,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="consensusRatingsRequest">Request object for Estimate Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ConsensusRatingsResponse</returns>
-        public async System.Threading.Tasks.Task<ConsensusRatingsResponse> GetConsensusRatingsForListAsync(ConsensusRatingsRequest consensusRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ConsensusRatingsResponse>GetConsensusRatingsForListAsync(ConsensusRatingsRequest consensusRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse> localVarResponse = await GetConsensusRatingsForListWithHttpInfoAsync(consensusRatingsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetConsensusRatingsForListWithHttpInfoAsync(consensusRatingsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -637,11 +718,14 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="consensusRatingsRequest">Request object for Estimate Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ConsensusRatingsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsForListWithHttpInfoAsync(ConsensusRatingsRequest consensusRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ConsensusRatingsResponse>> GetConsensusRatingsForListWithHttpInfoAsync(ConsensusRatingsRequest consensusRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'consensusRatingsRequest' is set
             if (consensusRatingsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'consensusRatingsRequest' when calling RatingsApi->GetConsensusRatingsForList");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -655,24 +739,29 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = consensusRatingsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -684,14 +773,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetConsensusRatingsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<ConsensusRatingsResponse>("/factset-estimates/v2/consensus-ratings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetConsensusRatingsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -707,7 +800,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>DetailRatingsResponse</returns>
         public DetailRatingsResponse GetDetailRatings(List<string> ids, string startDate = default(string), string endDate = default(string))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse> localVarResponse = GetDetailRatingsWithHttpInfo(ids, startDate, endDate);
+            var localVarResponse = GetDetailRatingsWithHttpInfo(ids, startDate, endDate);
             return localVarResponse.Data;
         }
 
@@ -719,11 +812,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="startDate">Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <returns>ApiResponse of DetailRatingsResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse> GetDetailRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string))
+        public ApiResponse<DetailRatingsResponse> GetDetailRatingsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling RatingsApi->GetDetailRatings");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -736,10 +831,16 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -753,13 +854,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -771,15 +872,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DetailRatingsResponse>("/factset-estimates/v2/detail-ratings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetDetailRatingsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DetailRatingsResponse>("/factset-estimates/v2/detail-ratings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDetailRatings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -792,9 +897,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailRatingsResponse</returns>
-        public async System.Threading.Tasks.Task<DetailRatingsResponse> GetDetailRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetailRatingsResponse>GetDetailRatingsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse> localVarResponse = await GetDetailRatingsWithHttpInfoAsync(ids, startDate, endDate, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDetailRatingsWithHttpInfoAsync(ids, startDate, endDate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -807,11 +912,14 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="endDate">End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailRatingsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse>> GetDetailRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DetailRatingsResponse>> GetDetailRatingsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling RatingsApi->GetDetailRatings");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -824,12 +932,17 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -843,13 +956,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -861,14 +974,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetDetailRatingsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DetailRatingsResponse>("/factset-estimates/v2/detail-ratings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDetailRatings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -882,7 +999,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>DetailRatingsResponse</returns>
         public DetailRatingsResponse GetDetailRatingsForList(DetailRatingsRequest detailRatingsRequest)
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse> localVarResponse = GetDetailRatingsForListWithHttpInfo(detailRatingsRequest);
+            var localVarResponse = GetDetailRatingsForListWithHttpInfo(detailRatingsRequest);
             return localVarResponse.Data;
         }
 
@@ -892,11 +1009,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="detailRatingsRequest">Request object for Detail Reatings Data Items.</param>
         /// <returns>ApiResponse of DetailRatingsResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse> GetDetailRatingsForListWithHttpInfo(DetailRatingsRequest detailRatingsRequest)
+        public ApiResponse<DetailRatingsResponse> GetDetailRatingsForListWithHttpInfo(DetailRatingsRequest detailRatingsRequest)
         {
             // verify the required parameter 'detailRatingsRequest' is set
             if (detailRatingsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'detailRatingsRequest' when calling RatingsApi->GetDetailRatingsForList");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -910,22 +1029,28 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = detailRatingsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -937,15 +1062,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<DetailRatingsResponse>("/factset-estimates/v2/detail-ratings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetDetailRatingsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            DetailRatingsResponse>("/factset-estimates/v2/detail-ratings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDetailRatingsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -956,9 +1085,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="detailRatingsRequest">Request object for Detail Reatings Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DetailRatingsResponse</returns>
-        public async System.Threading.Tasks.Task<DetailRatingsResponse> GetDetailRatingsForListAsync(DetailRatingsRequest detailRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DetailRatingsResponse>GetDetailRatingsForListAsync(DetailRatingsRequest detailRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse> localVarResponse = await GetDetailRatingsForListWithHttpInfoAsync(detailRatingsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDetailRatingsForListWithHttpInfoAsync(detailRatingsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -969,11 +1098,14 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="detailRatingsRequest">Request object for Detail Reatings Data Items.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DetailRatingsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<DetailRatingsResponse>> GetDetailRatingsForListWithHttpInfoAsync(DetailRatingsRequest detailRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DetailRatingsResponse>> GetDetailRatingsForListWithHttpInfoAsync(DetailRatingsRequest detailRatingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'detailRatingsRequest' is set
             if (detailRatingsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'detailRatingsRequest' when calling RatingsApi->GetDetailRatingsForList");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -987,24 +1119,29 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = detailRatingsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1016,14 +1153,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetDetailRatingsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<DetailRatingsResponse>("/factset-estimates/v2/detail-ratings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDetailRatingsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

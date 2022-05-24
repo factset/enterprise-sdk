@@ -7,6 +7,9 @@ import com.factset.sdk.IntradayTickHistory.Configuration;
 import com.factset.sdk.IntradayTickHistory.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IntradayTickHistory.models.TickhistoryResponse;
 
@@ -21,6 +24,17 @@ public class LastTradeApi {
   public LastTradeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> tickHistoryLasttradeGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    tickHistoryLasttradeGetResponseTypeMap.put(200, new GenericType<TickhistoryResponse>(){});
+    tickHistoryLasttradeGetResponseTypeMap.put(401, new GenericType<Object>(){});
+    tickHistoryLasttradeGetResponseTypeMap.put(403, new GenericType<Object>(){});
+    tickHistoryLasttradeGetResponseTypeMap.put(405, new GenericType<Object>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -117,10 +131,16 @@ public class LastTradeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TickhistoryResponse> localVarReturnType = new GenericType<TickhistoryResponse>() {};
 
-    return apiClient.invokeAPI("LastTradeApi.tickHistoryLasttradeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TickhistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("LastTradeApi.tickHistoryLasttradeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, tickHistoryLasttradeGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import BasicBackgroundTextTypeListData from './model/BasicBackgroundTextTypeListData';
 import BasicBackgroundTextTypeListDataFilter from './model/BasicBackgroundTextTypeListDataFilter';
@@ -494,6 +493,7 @@ import PricesTradingScheduleEventListDataFilterRange from './model/PricesTrading
 import PricesTradingScheduleEventListMeta from './model/PricesTradingScheduleEventListMeta';
 import PricesTradingScheduleEventListMetaPagination from './model/PricesTradingScheduleEventListMetaPagination';
 import StatusObject from './model/StatusObject';
+
 import BasicApi from './api/BasicApi';
 import CategoryApi from './api/CategoryApi';
 import InstrumentApi from './api/InstrumentApi';
@@ -530,7 +530,7 @@ import PricesApi from './api/PricesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.9.2
 */
 export {
     /**
@@ -3453,5 +3453,6 @@ export {
     * The PricesApi service constructor.
     * @property {module:api/PricesApi}
     */
-    PricesApi
+    PricesApi,
+
 };

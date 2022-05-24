@@ -57,10 +57,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var id = id_example;  // string | Identifier of the notation.
-            var quality = quality_example;  // string | Quality of the price. (optional)  (default to DLY)
+            var id = "id_example";  // string | Identifier of the notation.
+            var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var subscriptionMinimumInterval = 8.14;  // decimal? | Minimum number of milliseconds at which updates are send. (optional)  (default to 5000.0M)
+            var subscriptionMinimumInterval = 1000D;  // decimal? | Minimum number of milliseconds at which updates are send. (optional)  (default to 5000.0M)
 
             try
             {
@@ -89,7 +89,6 @@ Name | Type | Description  | Notes
  **subscriptionMinimumInterval** | **decimal?**| Minimum number of milliseconds at which updates are send. | [optional] [default to 5000.0M]
 
 ### Return type
-
 [**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
@@ -153,7 +152,7 @@ namespace Example
 
             var apiInstance = new PricesApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
-            var quality = quality_example;  // string | Quality of the price. (optional)  (default to DLY)
+            var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var sameQuality = true;  // bool? | Assure that the prices for all notations are of the same quality. (optional)  (default to true)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -184,7 +183,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse20082**](InlineResponse20082.md)
 
 ### Authorization
@@ -247,10 +245,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var id = id_example;  // string | Identifier of the notation.
-            var quality = quality_example;  // string | Quality of the price. (optional)  (default to DLY)
+            var id = "id_example";  // string | Identifier of the notation.
+            var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var subscriptionMinimumInterval = 8.14;  // decimal? | Minimum number of milliseconds at which updates are send. (optional)  (default to 5000.0M)
+            var subscriptionMinimumInterval = 1000D;  // decimal? | Minimum number of milliseconds at which updates are send. (optional)  (default to 5000.0M)
 
             try
             {
@@ -279,7 +277,6 @@ Name | Type | Description  | Notes
  **subscriptionMinimumInterval** | **decimal?**| Minimum number of milliseconds at which updates are send. | [optional] [default to 5000.0M]
 
 ### Return type
-
 [**InlineResponse20079**](InlineResponse20079.md)
 
 ### Authorization
@@ -343,7 +340,7 @@ namespace Example
 
             var apiInstance = new PricesApi(config);
             var ids = new List<string>(); // List<string> | List of notations.
-            var quality = quality_example;  // string | Quality of the price. (optional)  (default to DLY)
+            var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
             var sameQuality = true;  // bool? | Assure that the prices for all notations are of the same quality. (optional)  (default to true)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
@@ -374,7 +371,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse20080**](InlineResponse20080.md)
 
 ### Authorization
@@ -437,8 +433,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var id = id_example;  // string | Identifier of the notation.
-            var quality = quality_example;  // string | Quality of the price. (optional)  (default to RLT)
+            var id = "id_example";  // string | Identifier of the notation.
+            var quality = "RLT";  // string | Quality of the price. (optional)  (default to RLT)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -467,7 +463,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse20083**](InlineResponse20083.md)
 
 ### Authorization
@@ -530,8 +525,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PricesApi(config);
-            var id = id_example;  // string | Identifier of the notation.
-            var quality = quality_example;  // string | Quality of the price. (optional)  (default to RLT)
+            var id = "id_example";  // string | Identifier of the notation.
+            var quality = "RLT";  // string | Quality of the price. (optional)  (default to RLT)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -560,7 +555,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse20084**](InlineResponse20084.md)
 
 ### Authorization
@@ -649,7 +643,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse20086**](InlineResponse20086.md)
 
 ### Authorization
@@ -738,7 +731,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject21**](InlineObject21.md)|  | 
 
 ### Return type
-
 [**InlineResponse20085**](InlineResponse20085.md)
 
 ### Authorization

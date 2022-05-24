@@ -42,6 +42,16 @@ public class PaDoc implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public PaDoc() { 
+  }
+
+  @JsonCreator
+  public PaDoc(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public PaDoc id(String id) {
     this.id = id;

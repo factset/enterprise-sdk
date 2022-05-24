@@ -48,6 +48,16 @@ public class EntitySecuritiesRequest implements Serializable {
   public static final String JSON_PROPERTY_SECURITY_TYPE = "securityType";
   private SecurityType securityType = SecurityType.EQ;
 
+  public EntitySecuritiesRequest() { 
+  }
+
+  @JsonCreator
+  public EntitySecuritiesRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public EntitySecuritiesRequest ids(java.util.List<String> ids) {
     this.ids = ids;

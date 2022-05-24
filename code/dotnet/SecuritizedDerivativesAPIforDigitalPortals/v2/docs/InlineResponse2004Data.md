@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Identifier of a notation. | [optional] 
 **Symbol** | **string** | The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market. | [optional] 
+**Fsym** | [**InlineResponse2004Fsym**](InlineResponse2004Fsym.md) |  | [optional] 
 **Market** | [**InlineResponse2004Market**](InlineResponse2004Market.md) |  | [optional] 
 **ValueUnit** | [**InlineResponse2004ValueUnit**](InlineResponse2004ValueUnit.md) |  | [optional] 
 **Trade** | [**InlineResponse2004Trade**](InlineResponse2004Trade.md) |  | [optional] 

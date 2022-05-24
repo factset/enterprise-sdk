@@ -18,7 +18,7 @@ import InlineResponse2005NotationMarket from './InlineResponse2005NotationMarket
 /**
  * The InlineResponse2005Notation model module.
  * @module model/InlineResponse2005Notation
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005Notation {
     /**

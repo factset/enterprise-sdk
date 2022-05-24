@@ -791,6 +791,8 @@ public class StockNotationScreenerSearchMeta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private StockNotationScreenerSearchMetaPagination pagination;
 
+  public StockNotationScreenerSearchMeta() { 
+  }
 
   public StockNotationScreenerSearchMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

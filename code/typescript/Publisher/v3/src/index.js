@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AccountDirectories from './model/AccountDirectories';
 import AccountDirectoriesRoot from './model/AccountDirectoriesRoot';
@@ -30,10 +29,13 @@ import PubCalculationParameters from './model/PubCalculationParameters';
 import PubCalculationParametersRoot from './model/PubCalculationParametersRoot';
 import PubDateParameters from './model/PubDateParameters';
 import PubIdentifier from './model/PubIdentifier';
+
 import AccountsApi from './api/AccountsApi';
 import CurrenciesApi from './api/CurrenciesApi';
 import DocumentsApi from './api/DocumentsApi';
 import PubCalculationsApi from './api/PubCalculationsApi';
+import PostAndCalculateResponseWrapper from './api/PubCalculationsApi';
+import PutAndCalculateResponseWrapper from './api/PubCalculationsApi';
 
 
 /**
@@ -65,7 +67,7 @@ import PubCalculationsApi from './api/PubCalculationsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -198,5 +200,18 @@ export {
     * The PubCalculationsApi service constructor.
     * @property {module:api/PubCalculationsApi}
     */
-    PubCalculationsApi
+    PubCalculationsApi,
+
+    /**
+    * The PostAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PostAndCalculateResponseWrapper,
+
+    /**
+    * The PutAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PutAndCalculateResponseWrapper,
+
 };

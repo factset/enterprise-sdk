@@ -86,6 +86,8 @@ public class InlineResponse2005DataStockType implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataStockType() { 
+  }
 
   public InlineResponse2005DataStockType value(ValueEnum value) {
     this.value = value;

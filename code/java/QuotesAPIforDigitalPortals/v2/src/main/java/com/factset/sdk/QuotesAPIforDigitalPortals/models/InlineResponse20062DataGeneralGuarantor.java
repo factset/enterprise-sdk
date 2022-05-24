@@ -52,6 +52,8 @@ public class InlineResponse20062DataGeneralGuarantor implements Serializable {
   public static final String JSON_PROPERTY_LEI = "lei";
   private String lei;
 
+  public InlineResponse20062DataGeneralGuarantor() { 
+  }
 
   public InlineResponse20062DataGeneralGuarantor id(BigDecimal id) {
     this.id = id;

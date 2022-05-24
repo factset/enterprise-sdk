@@ -39,13 +39,15 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <param name="shortName">Short name of the instrument..</param>
         /// <param name="isin">The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument..</param>
         /// <param name="nsin">nsin.</param>
-        public InlineResponse2004Instrument(string id = default(string), string name = default(string), string shortName = default(string), string isin = default(string), InlineResponse200DataNsin nsin = default(InlineResponse200DataNsin))
+        /// <param name="fsym">fsym.</param>
+        public InlineResponse2004Instrument(string id = default(string), string name = default(string), string shortName = default(string), string isin = default(string), InlineResponse200DataNsin nsin = default(InlineResponse200DataNsin), InlineResponse2004InstrumentFsym fsym = default(InlineResponse2004InstrumentFsym))
         {
             this.Id = id;
             this.Name = name;
             this.ShortName = shortName;
             this.Isin = isin;
             this.Nsin = nsin;
+            this.Fsym = fsym;
         }
 
         /// <summary>
@@ -83,18 +85,25 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public InlineResponse200DataNsin Nsin { get; set; }
 
         /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse2004InstrumentFsym Fsym { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004Instrument {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ShortName: ").Append(ShortName).Append("\n");
             sb.Append("  Isin: ").Append(Isin).Append("\n");
             sb.Append("  Nsin: ").Append(Nsin).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,8 +135,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004Instrument input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -153,6 +163,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
                     this.Nsin == input.Nsin ||
                     (this.Nsin != null &&
                     this.Nsin.Equals(input.Nsin))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
                 );
         }
 
@@ -166,15 +181,29 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ShortName != null)
-                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
                 if (this.Isin != null)
-                    hashCode = hashCode * 59 + this.Isin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                }
                 if (this.Nsin != null)
-                    hashCode = hashCode * 59 + this.Nsin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
                 return hashCode;
             }
         }

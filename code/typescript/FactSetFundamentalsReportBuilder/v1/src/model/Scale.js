@@ -17,7 +17,7 @@ import ScaleScale from './ScaleScale';
 /**
  * The Scale model module.
  * @module model/Scale
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Scale {
     /**

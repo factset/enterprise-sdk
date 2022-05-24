@@ -43,6 +43,8 @@ public class EntitySecuritiesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntitySecurities> data = null;
 
+  public EntitySecuritiesResponse() { 
+  }
 
   public EntitySecuritiesResponse data(java.util.List<EntitySecurities> data) {
     this.data = data;

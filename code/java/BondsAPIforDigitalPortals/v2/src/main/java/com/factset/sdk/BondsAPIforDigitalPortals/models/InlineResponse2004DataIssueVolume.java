@@ -44,6 +44,8 @@ public class InlineResponse2004DataIssueVolume implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private java.util.List<InlineResponse2004DataIssueVolumeCurrency> currency = null;
 
+  public InlineResponse2004DataIssueVolume() { 
+  }
 
   public InlineResponse2004DataIssueVolume currency(java.util.List<InlineResponse2004DataIssueVolumeCurrency> currency) {
     this.currency = currency;

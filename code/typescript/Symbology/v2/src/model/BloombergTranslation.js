@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BloombergTranslation model module.
  * @module model/BloombergTranslation
- * @version 0.9.1
+ * @version 0.20.0
  */
 class BloombergTranslation {
     /**

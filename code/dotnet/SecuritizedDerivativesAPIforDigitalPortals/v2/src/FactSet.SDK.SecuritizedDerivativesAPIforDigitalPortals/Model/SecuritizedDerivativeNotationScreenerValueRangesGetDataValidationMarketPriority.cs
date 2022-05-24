@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.SecuritizedDerivativesAPIforDigitalPort
 namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
 {
     /// <summary>
-    /// Sequence of markets specifying the priority order of the markets for the selection of one notation per instrument. If for a given instrument with two matching notations, A and B, the market of notation A precedes the market of notation B in this list, A will be selected. The list does not restrict the request to only those markets (use the parameter &#x60;market.selection&#x60; for that purpose).
+    /// Sequence of markets specifying the priority order of the markets for the selection of one notation per instrument. If for a given instrument with two matching notations, A and B, the market of notation A precedes the market of notation B in this list or if the market of notation B is not in this list, A is selected. If neither of the markets is in this list, the notation with the highest trading volume, averaged over one month, is selected.          The list does not restrict the request to only those markets (use the parameter &#x60;market.selection&#x60; for that purpose).
     /// </summary>
     [DataContract(Name = "_securitizedDerivative_notation_screener_valueRanges_get_data_validation_market_priority")]
     public partial class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketPriority : IEquatable<SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketPriority>, IValidatableObject
@@ -53,7 +53,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketPriority {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketPriority input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 return hashCode;
             }
         }

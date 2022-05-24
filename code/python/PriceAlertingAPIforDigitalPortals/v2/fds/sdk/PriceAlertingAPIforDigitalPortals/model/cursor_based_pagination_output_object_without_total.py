@@ -24,8 +24,8 @@ from fds.sdk.PriceAlertingAPIforDigitalPortals.model_utils import (  # noqa: F40
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.PriceAlertingAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -106,8 +106,8 @@ class CursorBasedPaginationOutputObjectWithoutTotal(ModelNormal):
         """CursorBasedPaginationOutputObjectWithoutTotal - a model defined in OpenAPI
 
         Args:
-            next (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
-            previous (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+            next (str): The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
+            previous (str): The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -193,8 +193,8 @@ class CursorBasedPaginationOutputObjectWithoutTotal(ModelNormal):
         """CursorBasedPaginationOutputObjectWithoutTotal - a model defined in OpenAPI
 
         Args:
-            next (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
-            previous (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+            next (str): The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
+            previous (str): The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

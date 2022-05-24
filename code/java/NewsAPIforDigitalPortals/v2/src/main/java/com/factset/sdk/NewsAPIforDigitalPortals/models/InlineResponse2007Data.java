@@ -48,6 +48,8 @@ public class InlineResponse2007Data implements Serializable {
   public static final String JSON_PROPERTY_DISTRIBUTOR = "distributor";
   private InlineResponse2007DataDistributor distributor;
 
+  public InlineResponse2007Data() { 
+  }
 
   public InlineResponse2007Data name(String name) {
     this.name = name;

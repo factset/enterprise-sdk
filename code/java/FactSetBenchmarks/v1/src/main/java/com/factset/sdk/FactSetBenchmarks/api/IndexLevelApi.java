@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetBenchmarks.models.BenchmarkRatiosRequest;
 import com.factset.sdk.FactSetBenchmarks.models.BenchmarkRatiosResponse;
@@ -27,6 +30,64 @@ public class IndexLevelApi {
   public IndexLevelApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getBenchmarkRatiosResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getBenchmarkRatiosResponseTypeMap.put(200, new GenericType<BenchmarkRatiosResponse>(){});
+    getBenchmarkRatiosResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getBenchmarkRatiosForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getBenchmarkRatiosForListResponseTypeMap.put(200, new GenericType<BenchmarkRatiosResponse>(){});
+    getBenchmarkRatiosForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getBenchmarkRatiosForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getIndexHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIndexHistoryResponseTypeMap.put(200, new GenericType<IndexHistoryResponse>(){});
+    getIndexHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIndexHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIndexHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIndexHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIndexHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getIndexHistoryForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIndexHistoryForListResponseTypeMap.put(200, new GenericType<IndexHistoryResponse>(){});
+    getIndexHistoryForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIndexHistoryForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIndexHistoryForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIndexHistoryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIndexHistoryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getIndexSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIndexSnapshotResponseTypeMap.put(200, new GenericType<IndexSnapshotResponse>(){});
+    getIndexSnapshotResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getIndexSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIndexSnapshotForListResponseTypeMap.put(200, new GenericType<IndexSnapshotResponse>(){});
+    getIndexSnapshotForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIndexSnapshotForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -141,11 +202,17 @@ public class IndexLevelApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkRatiosResponse> localVarReturnType = new GenericType<BenchmarkRatiosResponse>() {};
 
-    return apiClient.invokeAPI("IndexLevelApi.getBenchmarkRatios", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkRatiosResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getBenchmarkRatios", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getBenchmarkRatiosResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the aggregated ratios of a requested benchmark
@@ -218,11 +285,17 @@ public class IndexLevelApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkRatiosResponse> localVarReturnType = new GenericType<BenchmarkRatiosResponse>() {};
 
-    return apiClient.invokeAPI("IndexLevelApi.getBenchmarkRatiosForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkRatiosResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getBenchmarkRatiosForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getBenchmarkRatiosForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
@@ -232,6 +305,7 @@ public class IndexLevelApi {
    * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
+   * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
    * @param currency Currency for response. (optional)
    * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
    * @return IndexHistoryResponse
@@ -247,8 +321,8 @@ public class IndexLevelApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public IndexHistoryResponse getIndexHistory(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String currency, String calendar) throws ApiException {
-    return getIndexHistoryWithHttpInfo(ids, startDate, endDate, frequency, returnType, currency, calendar).getData();
+  public IndexHistoryResponse getIndexHistory(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String hedgeType, String currency, String calendar) throws ApiException {
+    return getIndexHistoryWithHttpInfo(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar).getData();
   }
 
   /**
@@ -259,6 +333,7 @@ public class IndexLevelApi {
    * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
+   * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
    * @param currency Currency for response. (optional)
    * @param calendar Calendar of data returned. SEVENDAY includes weekends. (optional, default to FIVEDAY)
    * @return ApiResponse&lt;IndexHistoryResponse&gt;
@@ -274,7 +349,7 @@ public class IndexLevelApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<IndexHistoryResponse> getIndexHistoryWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String currency, String calendar) throws ApiException {
+  public ApiResponse<IndexHistoryResponse> getIndexHistoryWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String returnType, String hedgeType, String currency, String calendar) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -296,6 +371,7 @@ public class IndexLevelApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "frequency", frequency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "returnType", returnType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "hedgeType", hedgeType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "calendar", calendar));
 
@@ -314,11 +390,17 @@ public class IndexLevelApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IndexHistoryResponse> localVarReturnType = new GenericType<IndexHistoryResponse>() {};
 
-    return apiClient.invokeAPI("IndexLevelApi.getIndexHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IndexHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getIndexHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getIndexHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
@@ -391,11 +473,17 @@ public class IndexLevelApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IndexHistoryResponse> localVarReturnType = new GenericType<IndexHistoryResponse>() {};
 
-    return apiClient.invokeAPI("IndexLevelApi.getIndexHistoryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IndexHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getIndexHistoryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getIndexHistoryForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Index Level Prices, Returns, and related information as of a single date.
@@ -481,11 +569,17 @@ public class IndexLevelApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IndexSnapshotResponse> localVarReturnType = new GenericType<IndexSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("IndexLevelApi.getIndexSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IndexSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getIndexSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getIndexSnapshotResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.
@@ -558,10 +652,16 @@ public class IndexLevelApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IndexSnapshotResponse> localVarReturnType = new GenericType<IndexSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("IndexLevelApi.getIndexSnapshotForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IndexSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getIndexSnapshotForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getIndexSnapshotForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

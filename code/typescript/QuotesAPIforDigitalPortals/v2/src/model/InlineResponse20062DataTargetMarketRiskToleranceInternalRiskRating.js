@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataTargetMarketRiskToleranceInternalRiskRating model module.
  * @module model/InlineResponse20062DataTargetMarketRiskToleranceInternalRiskRating
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20062DataTargetMarketRiskToleranceInternalRiskRating {
     /**

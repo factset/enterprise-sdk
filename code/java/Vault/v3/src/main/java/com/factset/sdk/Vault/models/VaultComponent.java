@@ -72,6 +72,8 @@ public class VaultComponent implements Serializable {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
+  public VaultComponent() { 
+  }
 
   public VaultComponent id(String id) {
     this.id = id;

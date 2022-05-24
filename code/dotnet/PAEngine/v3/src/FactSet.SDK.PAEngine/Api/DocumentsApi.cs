@@ -99,6 +99,21 @@ namespace FactSet.SDK.PAEngine.Api
     {
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetPA3DocumentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DocumentDirectoriesRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentsApi"/> class.
         /// </summary>
@@ -209,7 +224,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>DocumentDirectoriesRoot</returns>
         public DocumentDirectoriesRoot GetPA3Documents(string path)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<DocumentDirectoriesRoot> localVarResponse = GetPA3DocumentsWithHttpInfo(path);
+            var localVarResponse = GetPA3DocumentsWithHttpInfo(path);
             return localVarResponse.Data;
         }
 
@@ -219,11 +234,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectoriesRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<DocumentDirectoriesRoot> GetPA3DocumentsWithHttpInfo(string path)
+        public ApiResponse<DocumentDirectoriesRoot> GetPA3DocumentsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'path' when calling DocumentsApi->GetPA3Documents");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -236,22 +253,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -263,15 +286,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DocumentDirectoriesRoot>("/analytics/engines/pa/v3/documents/{path}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPA3DocumentsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DocumentDirectoriesRoot>("/analytics/engines/pa/v3/documents/{path}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPA3Documents", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -282,9 +309,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="path">The directory to get the documents and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectoriesRoot</returns>
-        public async System.Threading.Tasks.Task<DocumentDirectoriesRoot> GetPA3DocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DocumentDirectoriesRoot>GetPA3DocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<DocumentDirectoriesRoot> localVarResponse = await GetPA3DocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPA3DocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -295,11 +322,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="path">The directory to get the documents and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<DocumentDirectoriesRoot>> GetPA3DocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetPA3DocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'path' when calling DocumentsApi->GetPA3Documents");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -312,24 +342,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -341,14 +376,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPA3DocumentsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectoriesRoot>("/analytics/engines/pa/v3/documents/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPA3Documents", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

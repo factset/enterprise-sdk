@@ -44,6 +44,8 @@ public class StockDividendListDataFilterType implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public StockDividendListDataFilterType() { 
+  }
 
   public StockDividendListDataFilterType id(BigDecimal id) {
     this.id = id;

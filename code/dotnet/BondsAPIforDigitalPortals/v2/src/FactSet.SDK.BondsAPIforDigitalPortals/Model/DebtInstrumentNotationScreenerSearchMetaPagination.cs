@@ -62,7 +62,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DebtInstrumentNotationScreenerSearchMetaPagination {\n");
             sb.Append("  Offset: ").Append(Offset).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(DebtInstrumentNotationScreenerSearchMetaPagination input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Offset == input.Offset ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Offset.GetHashCode();
-                hashCode = hashCode * 59 + this.Limit.GetHashCode();
+                hashCode = (hashCode * 59) + this.Offset.GetHashCode();
+                hashCode = (hashCode * 59) + this.Limit.GetHashCode();
                 return hashCode;
             }
         }
@@ -133,19 +134,19 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Offset (decimal) minimum
-            if(this.Offset < (decimal)0)
+            if (this.Offset < (decimal)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Offset, must be a value greater than or equal to 0.", new [] { "Offset" });
             }
 
             // Limit (decimal) maximum
-            if(this.Limit > (decimal)5E+2)
+            if (this.Limit > (decimal)5E+2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value less than or equal to 5E+2.", new [] { "Limit" });
             }
 
             // Limit (decimal) minimum
-            if(this.Limit < (decimal)0)
+            if (this.Limit < (decimal)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value greater than or equal to 0.", new [] { "Limit" });
             }

@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
@@ -59,6 +59,8 @@ public class InlineResponse2007DataCashFlow implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private InlineResponse2007DataCashFlowRelative relative;
 
+  public InlineResponse2007DataCashFlow() { 
+  }
 
   public InlineResponse2007DataCashFlow currency(InlineResponse2007DataCashFlowCurrency currency) {
     this.currency = currency;

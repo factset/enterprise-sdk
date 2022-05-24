@@ -28,6 +28,11 @@ Remarks:
 
 *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
 
+*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
+    the default frequency of the Beginning of Period to whatever we pass in the request body.
+    
+*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+
 ### Example
 
 ```java
@@ -36,14 +41,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.TemplatedPaComponentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -53,20 +57,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         TemplatedPaComponentsApi apiInstance = new TemplatedPaComponentsApi(defaultClient);
         TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot = new TemplatedPAComponentParametersRoot(); // TemplatedPAComponentParametersRoot | Request Parameters
         try {
             TemplatedPAComponentPostSummaryRoot result = apiInstance.createTemplatedPAComponents(templatedPAComponentParametersRoot);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling TemplatedPaComponentsApi#createTemplatedPAComponents");
             System.err.println("Status code: " + e.getCode());
@@ -128,14 +133,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.TemplatedPaComponentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -145,19 +149,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         TemplatedPaComponentsApi apiInstance = new TemplatedPaComponentsApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for a templated PA component
         try {
             apiInstance.deleteTemplatedPAComponents(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling TemplatedPaComponentsApi#deleteTemplatedPAComponents");
             System.err.println("Status code: " + e.getCode());
@@ -219,14 +224,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.TemplatedPaComponentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -236,20 +240,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         TemplatedPaComponentsApi apiInstance = new TemplatedPaComponentsApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for a templated PA component
         try {
             TemplatedPAComponentRoot result = apiInstance.getTemplatedPAComponentById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling TemplatedPaComponentsApi#getTemplatedPAComponentById");
             System.err.println("Status code: " + e.getCode());
@@ -311,14 +316,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.TemplatedPaComponentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -328,20 +332,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         TemplatedPaComponentsApi apiInstance = new TemplatedPaComponentsApi(defaultClient);
         String directory = "Personal:TemplatedPAComponents/"; // String | Get templated PA components in path
         try {
             TemplatedPAComponentSummaryRoot result = apiInstance.getTemplatedPAComponentsInPath(directory);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling TemplatedPaComponentsApi#getTemplatedPAComponentsInPath");
             System.err.println("Status code: " + e.getCode());
@@ -402,6 +407,11 @@ Remarks:
 
 *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
 
+*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
+    the default frequency of the Beginning of Period to whatever we pass in the request body.
+    
+*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+
 ### Example
 
 ```java
@@ -410,14 +420,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.TemplatedPaComponentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -427,14 +436,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         TemplatedPaComponentsApi apiInstance = new TemplatedPaComponentsApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for a templated PA component
@@ -442,6 +451,7 @@ public class Example {
         try {
             TemplatedPAComponentPostSummaryRoot result = apiInstance.updateTemplatedPAComponents(id, templatedPAComponentUpdateParametersRoot);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling TemplatedPaComponentsApi#updateTemplatedPAComponents");
             System.err.println("Status code: " + e.getCode());

@@ -54,8 +54,8 @@ namespace Example
 
             var apiInstance = new BenchmarkConstituentsApi(config);
             var ids = new List<string>(); // List<string> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
-            var date = date_example;  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
-            var currency = currency_example;  // string | Currency for response. (optional) 
+            var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
+            var currency = "currency_example";  // string | Currency for response. (optional) 
 
             try
             {
@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency for response. | [optional] 
 
 ### Return type
-
 [**BenchmarkConstituentsResponse**](BenchmarkConstituentsResponse.md)
 
 ### Authorization
@@ -177,7 +176,6 @@ Name | Type | Description  | Notes
  **benchmarkConstituentsRequest** | [**BenchmarkConstituentsRequest**](BenchmarkConstituentsRequest.md)| Requests Benchmark Constituents for the given identifier and date. | 
 
 ### Return type
-
 [**BenchmarkConstituentsResponse**](BenchmarkConstituentsResponse.md)
 
 ### Authorization
@@ -246,8 +244,8 @@ namespace Example
 
             var apiInstance = new BenchmarkConstituentsApi(config);
             var ids = new List<string>(); // List<string> | Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
-            var date = date_example;  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
-            var currency = currency_example;  // string | Currency for response. (optional) 
+            var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
+            var currency = "currency_example";  // string | Currency for response. (optional) 
 
             try
             {
@@ -275,7 +273,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency for response. | [optional] 
 
 ### Return type
-
 [**FixedIncomeBenchmarkConstituentsResponse**](FixedIncomeBenchmarkConstituentsResponse.md)
 
 ### Authorization
@@ -369,7 +366,6 @@ Name | Type | Description  | Notes
  **fixedIncomeBenchmarkConstituentsRequest** | [**FixedIncomeBenchmarkConstituentsRequest**](FixedIncomeBenchmarkConstituentsRequest.md)| Requests Fixed Income Benchmark Constituents for the given identifier and date. | 
 
 ### Return type
-
 [**FixedIncomeBenchmarkConstituentsResponse**](FixedIncomeBenchmarkConstituentsResponse.md)
 
 ### Authorization

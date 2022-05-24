@@ -17,7 +17,7 @@ import SecurityHolders from './SecurityHolders';
 /**
  * The SecurityHoldersResponse model module.
  * @module model/SecurityHoldersResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SecurityHoldersResponse {
     /**

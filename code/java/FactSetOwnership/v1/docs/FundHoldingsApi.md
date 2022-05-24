@@ -26,14 +26,13 @@ import com.factset.sdk.FactSetOwnership.ApiClient;
 import com.factset.sdk.FactSetOwnership.ApiException;
 import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
-import com.factset.sdk.FactSetOwnership.model.*;
+import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.FundHoldingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,14 +42,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FundHoldingsApi apiInstance = new FundHoldingsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
@@ -61,6 +60,7 @@ public class Example {
         try {
             FundHoldingsResponse result = apiInstance.getOwnershipHoldings(ids, date, topn, assetType, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FundHoldingsApi#getOwnershipHoldings");
             System.err.println("Status code: " + e.getCode());
@@ -123,14 +123,13 @@ import com.factset.sdk.FactSetOwnership.ApiClient;
 import com.factset.sdk.FactSetOwnership.ApiException;
 import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
-import com.factset.sdk.FactSetOwnership.model.*;
+import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.FundHoldingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -140,20 +139,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FundHoldingsApi apiInstance = new FundHoldingsApi(defaultClient);
         FundHoldingsRequest fundHoldingsRequest = new FundHoldingsRequest(); // FundHoldingsRequest | Requesting Underlying Holdings for a list of Fund Identifiers.
         try {
             FundHoldingsResponse result = apiInstance.postOwnershipHoldings(fundHoldingsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FundHoldingsApi#postOwnershipHoldings");
             System.err.println("Status code: " + e.getCode());

@@ -17,7 +17,7 @@ import InlineResponse2003DataNotationInstrument from './InlineResponse2003DataNo
 /**
  * The InlineResponse2003DataNotation model module.
  * @module model/InlineResponse2003DataNotation
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003DataNotation {
     /**

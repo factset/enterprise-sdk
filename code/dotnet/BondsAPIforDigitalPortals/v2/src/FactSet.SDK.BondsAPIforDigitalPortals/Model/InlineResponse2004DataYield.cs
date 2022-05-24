@@ -68,7 +68,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataYield {\n");
             sb.Append("  Current: ").Append(Current).Append("\n");
             sb.Append("  ToMaturity: ").Append(ToMaturity).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataYield input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Current == input.Current ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Current != null)
-                    hashCode = hashCode * 59 + this.Current.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Current.GetHashCode();
+                }
                 if (this.ToMaturity != null)
-                    hashCode = hashCode * 59 + this.ToMaturity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ToMaturity.GetHashCode();
+                }
                 if (this.Spread != null)
-                    hashCode = hashCode * 59 + this.Spread.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Spread.GetHashCode();
+                }
                 return hashCode;
             }
         }

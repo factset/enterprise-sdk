@@ -90,7 +90,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NPOOptimizerStrategyOverrides {\n");
             sb.Append("  Objective: ").Append(Objective).Append("\n");
             sb.Append("  Constraints: ").Append(Constraints).Append("\n");
@@ -128,8 +128,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         public bool Equals(NPOOptimizerStrategyOverrides input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Objective == input.Objective ||
@@ -170,15 +171,25 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Objective != null)
-                    hashCode = hashCode * 59 + this.Objective.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Objective.GetHashCode();
+                }
                 if (this.Constraints != null)
-                    hashCode = hashCode * 59 + this.Constraints.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Constraints.GetHashCode();
+                }
                 if (this.Tax != null)
-                    hashCode = hashCode * 59 + this.Tax.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tax.GetHashCode();
+                }
                 if (this.TransactionCost != null)
-                    hashCode = hashCode * 59 + this.TransactionCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransactionCost.GetHashCode();
+                }
                 if (this.Alpha != null)
-                    hashCode = hashCode * 59 + this.Alpha.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Alpha.GetHashCode();
+                }
                 return hashCode;
             }
         }

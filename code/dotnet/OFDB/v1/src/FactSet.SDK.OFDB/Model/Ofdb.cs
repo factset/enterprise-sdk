@@ -53,7 +53,7 @@ namespace FactSet.SDK.OFDB.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Ofdb {\n");
             sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.OFDB.Model
         public bool Equals(Ofdb input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Username == input.Username ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.OFDB.Model
             {
                 int hashCode = 41;
                 if (this.Username != null)
-                    hashCode = hashCode * 59 + this.Username.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Username.GetHashCode();
+                }
                 return hashCode;
             }
         }

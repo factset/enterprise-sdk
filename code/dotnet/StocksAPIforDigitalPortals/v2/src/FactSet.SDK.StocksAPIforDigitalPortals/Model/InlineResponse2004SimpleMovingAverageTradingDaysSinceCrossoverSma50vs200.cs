@@ -83,7 +83,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 {\n");
             sb.Append("  NumberDays: ").Append(NumberDays).Append("\n");
             sb.Append("  Direction: ").Append(Direction).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NumberDays == input.NumberDays ||
@@ -140,8 +141,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.NumberDays.GetHashCode();
-                hashCode = hashCode * 59 + this.Direction.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberDays.GetHashCode();
+                hashCode = (hashCode * 59) + this.Direction.GetHashCode();
                 return hashCode;
             }
         }

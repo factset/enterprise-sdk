@@ -52,7 +52,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InterimMatDateChg {\n");
             sb.Append("  _InterimMatDateChg: ").Append(_InterimMatDateChg).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         public bool Equals(InterimMatDateChg input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._InterimMatDateChg == input._InterimMatDateChg ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._InterimMatDateChg != null)
-                    hashCode = hashCode * 59 + this._InterimMatDateChg.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._InterimMatDateChg.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -18,7 +18,7 @@ import InlineResponse2007DataSingle from './InlineResponse2007DataSingle';
 /**
  * The InlineResponse2007DataBarriers model module.
  * @module model/InlineResponse2007DataBarriers
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataBarriers {
     /**

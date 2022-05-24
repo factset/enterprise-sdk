@@ -83,6 +83,8 @@ public class FileUploadStatus implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  public FileUploadStatus() { 
+  }
 
   public FileUploadStatus id(String id) {
     this.id = id;

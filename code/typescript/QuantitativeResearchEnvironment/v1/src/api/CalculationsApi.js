@@ -19,7 +19,7 @@ import CalculationStatus from '../model/CalculationStatus';
 /**
 * Calculations service.
 * @module api/CalculationsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CalculationsApi {
 
@@ -62,7 +62,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CalculationStatus;
+
       return this.apiClient.callApi(
         '/analytics/quant/qre/v1/calculations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class CalculationsApi {
      * Get calculation status by id
      * This is the endpoint to check on the progress of a previous calculation request.
      * @param {String} id From url, provided by location header or response body in the calculation start endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CalculationStatus}
+     * @return { Promise.< module:model/CalculationStatus > } a Promise, with data of type {@link module:model/CalculationStatus }
      */
     analyticsQuantQreV1CalculationsIdGet(id) {
       return this.analyticsQuantQreV1CalculationsIdGetWithHttpInfo(id)
@@ -110,7 +113,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['text/plain'];
+
+
       let returnType = File;
+
       return this.apiClient.callApi(
         '/analytics/quant/qre/v1/calculations/{id}/log', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class CalculationsApi {
      * Get calculation log for a specific calculation
      * This endpoint returns the log from the calculation.
      * @param {String} id From url, provided by location header or response body in the calculation start endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
+     * @return { Promise.< File > } a Promise, with data of type {@link File }
      */
     analyticsQuantQreV1CalculationsIdLogGet(id) {
       return this.analyticsQuantQreV1CalculationsIdLogGetWithHttpInfo(id)
@@ -158,7 +164,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['*'];
+
+
       let returnType = File;
+
       return this.apiClient.callApi(
         '/analytics/quant/qre/v1/calculations/{id}/output', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -170,7 +179,7 @@ export default class CalculationsApi {
      * Get calculation output for a specific calculation
      * This endpoint returns the specified output from the calculation.
      * @param {String} id From url, provided by location header or response body in the calculation start endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
+     * @return { Promise.< File > } a Promise, with data of type {@link File }
      */
     analyticsQuantQreV1CalculationsIdOutputGet(id) {
       return this.analyticsQuantQreV1CalculationsIdOutputGetWithHttpInfo(id)
@@ -203,7 +212,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CalculationStatus;
+
       return this.apiClient.callApi(
         '/analytics/quant/qre/v1/calculations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -216,7 +228,7 @@ export default class CalculationsApi {
      * This endpoint takes a python script and starts executing it within QRE
      * @param {Object} opts Optional parameters
      * @param {module:model/Calculation} opts.calculation 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CalculationStatus}
+     * @return { Promise.< module:model/CalculationStatus > } a Promise, with data of type {@link module:model/CalculationStatus }
      */
     analyticsQuantQreV1CalculationsPost(opts) {
       return this.analyticsQuantQreV1CalculationsPostWithHttpInfo(opts)
@@ -227,3 +239,8 @@ export default class CalculationsApi {
 
 
 }
+
+
+
+
+

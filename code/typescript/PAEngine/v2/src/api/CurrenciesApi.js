@@ -18,7 +18,7 @@ import Currency from '../model/Currency';
 /**
 * Currencies service.
 * @module api/CurrenciesApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class CurrenciesApi {
 
@@ -55,7 +55,10 @@ export default class CurrenciesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': Currency};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/pa/currencies', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -66,7 +69,7 @@ export default class CurrenciesApi {
     /**
      * Get PA currencies
      * This endpoint lists all the PA currencies that can be applied to a calculation.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: Currency}>}
+     * @return { Promise.< Object.<String, module:model/{String: Currency}> > } a Promise, with data of type {@link Object.<String, module:model/{String: Currency}> }
      */
     getPACurrencies() {
       return this.getPACurrenciesWithHttpInfo()
@@ -77,3 +80,8 @@ export default class CurrenciesApi {
 
 
 }
+
+
+
+
+

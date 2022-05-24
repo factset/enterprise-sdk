@@ -53,7 +53,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Calculation {\n");
             sb.Append("  Script: ").Append(Script).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Model
         public bool Equals(Calculation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Script == input.Script ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Model
             {
                 int hashCode = 41;
                 if (this.Script != null)
-                    hashCode = hashCode * 59 + this.Script.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Script.GetHashCode();
+                }
                 return hashCode;
             }
         }

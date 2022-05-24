@@ -143,6 +143,33 @@ namespace FactSet.SDK.Symbology.Api
     {
         private FactSet.SDK.Symbology.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> BatchTranslateBloombergResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(BloombergTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> TranslateBloombergResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(BloombergTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BloombergFIGIApi"/> class.
         /// </summary>
@@ -253,7 +280,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>BloombergTranslationResponse</returns>
         public BloombergTranslationResponse BatchTranslateBloomberg(BloombergTranslationRequest bloombergTranslationRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse> localVarResponse = BatchTranslateBloombergWithHttpInfo(bloombergTranslationRequest);
+            var localVarResponse = BatchTranslateBloombergWithHttpInfo(bloombergTranslationRequest);
             return localVarResponse.Data;
         }
 
@@ -263,11 +290,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="bloombergTranslationRequest">Request Body for Bloomberg FIGIs.</param>
         /// <returns>ApiResponse of BloombergTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse> BatchTranslateBloombergWithHttpInfo(BloombergTranslationRequest bloombergTranslationRequest)
+        public ApiResponse<BloombergTranslationResponse> BatchTranslateBloombergWithHttpInfo(BloombergTranslationRequest bloombergTranslationRequest)
         {
             // verify the required parameter 'bloombergTranslationRequest' is set
             if (bloombergTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'bloombergTranslationRequest' when calling BloombergFIGIApi->BatchTranslateBloomberg");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -281,22 +310,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = bloombergTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -308,15 +343,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<BloombergTranslationResponse>("/symbology/v1/bloomberg", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateBloombergResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            BloombergTranslationResponse>("/symbology/v1/bloomberg", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateBloomberg", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -327,9 +366,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="bloombergTranslationRequest">Request Body for Bloomberg FIGIs.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BloombergTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<BloombergTranslationResponse> BatchTranslateBloombergAsync(BloombergTranslationRequest bloombergTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BloombergTranslationResponse>BatchTranslateBloombergAsync(BloombergTranslationRequest bloombergTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse> localVarResponse = await BatchTranslateBloombergWithHttpInfoAsync(bloombergTranslationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchTranslateBloombergWithHttpInfoAsync(bloombergTranslationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -340,11 +379,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="bloombergTranslationRequest">Request Body for Bloomberg FIGIs.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BloombergTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse>> BatchTranslateBloombergWithHttpInfoAsync(BloombergTranslationRequest bloombergTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<BloombergTranslationResponse>> BatchTranslateBloombergWithHttpInfoAsync(BloombergTranslationRequest bloombergTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'bloombergTranslationRequest' is set
             if (bloombergTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'bloombergTranslationRequest' when calling BloombergFIGIApi->BatchTranslateBloomberg");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -358,24 +400,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = bloombergTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -387,14 +434,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateBloombergResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<BloombergTranslationResponse>("/symbology/v1/bloomberg", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateBloomberg", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -408,7 +459,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>BloombergTranslationResponse</returns>
         public BloombergTranslationResponse TranslateBloomberg(List<string> ids)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse> localVarResponse = TranslateBloombergWithHttpInfo(ids);
+            var localVarResponse = TranslateBloombergWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -418,11 +469,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <returns>ApiResponse of BloombergTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse> TranslateBloombergWithHttpInfo(List<string> ids)
+        public ApiResponse<BloombergTranslationResponse> TranslateBloombergWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling BloombergFIGIApi->TranslateBloomberg");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -435,22 +488,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -462,15 +521,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<BloombergTranslationResponse>("/symbology/v1/bloomberg", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = TranslateBloombergResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            BloombergTranslationResponse>("/symbology/v1/bloomberg", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateBloomberg", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -481,9 +544,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BloombergTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<BloombergTranslationResponse> TranslateBloombergAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BloombergTranslationResponse>TranslateBloombergAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse> localVarResponse = await TranslateBloombergWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TranslateBloombergWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -494,11 +557,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BloombergTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<BloombergTranslationResponse>> TranslateBloombergWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<BloombergTranslationResponse>> TranslateBloombergWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling BloombergFIGIApi->TranslateBloomberg");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -511,24 +577,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -540,14 +611,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = TranslateBloombergResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<BloombergTranslationResponse>("/symbology/v1/bloomberg", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateBloomberg", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

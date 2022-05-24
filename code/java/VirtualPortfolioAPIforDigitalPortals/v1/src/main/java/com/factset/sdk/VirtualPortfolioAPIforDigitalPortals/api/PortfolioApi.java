@@ -7,6 +7,9 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.InlineObject;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.InlineObject1;
@@ -41,6 +44,66 @@ public class PortfolioApi {
   public PortfolioApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> portfolioCreatePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioCreatePostResponseTypeMap.put(201, new GenericType<InlineResponse201>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioDeletePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioDeletePostResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioEvaluationListPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioEvaluationListPostResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioGetGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioGetGetResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioListGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioListGetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioModifyPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioModifyPostResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioNameListGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioNameListGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioPositionListGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioPositionListGetResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioTransactionCashCreatePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioTransactionCashCreatePostResponseTypeMap.put(200, new GenericType<InlineResponse2011>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioTransactionCashDeletePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioTransactionCashDeletePostResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioTransactionCreatePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioTransactionCreatePostResponseTypeMap.put(201, new GenericType<InlineResponse2011>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioTransactionDeletePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioTransactionDeletePostResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioTransactionListGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioTransactionListGetResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
+  }
+  private static final Map<Integer, GenericType> portfolioTransactionModifyPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    portfolioTransactionModifyPostResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -121,11 +184,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse201> localVarReturnType = new GenericType<InlineResponse201>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse201
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioCreatePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a portfolio.
@@ -183,11 +252,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioDeletePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Evaluate a portfolio.
@@ -245,11 +320,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioEvaluationListPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2004
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioEvaluationListPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioEvaluationListPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Details of a portfolio.
@@ -316,11 +397,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioGetGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioGetGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioGetGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of portfolios with keyfigures.
@@ -382,11 +469,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioListGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Modify a portfolio.
@@ -444,11 +537,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioModifyPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of portfolios.
@@ -510,11 +609,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2005> localVarReturnType = new GenericType<InlineResponse2005>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioNameListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2005
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioNameListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioNameListGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List all positions of a portfolio.
@@ -581,11 +686,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2006> localVarReturnType = new GenericType<InlineResponse2006>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioPositionListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2006
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioPositionListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioPositionListGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Add a cash transaction to a portfolio.
@@ -643,11 +754,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2011> localVarReturnType = new GenericType<InlineResponse2011>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioTransactionCashCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2011
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioTransactionCashCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioTransactionCashCreatePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a cash transaction.
@@ -705,11 +822,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2007> localVarReturnType = new GenericType<InlineResponse2007>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioTransactionCashDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2007
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioTransactionCashDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioTransactionCashDeletePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Add a transaction to a portfolio.
@@ -767,11 +890,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2011> localVarReturnType = new GenericType<InlineResponse2011>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioTransactionCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2011
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioTransactionCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioTransactionCreatePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a transaction of a portfolio.
@@ -829,11 +958,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2007> localVarReturnType = new GenericType<InlineResponse2007>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioTransactionDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2007
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioTransactionDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioTransactionDeletePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of transactions in a portfolio.
@@ -900,11 +1035,17 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2008> localVarReturnType = new GenericType<InlineResponse2008>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioTransactionListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2008
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioTransactionListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioTransactionListGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Modify a transaction in a portfolio.
@@ -962,10 +1103,16 @@ public class PortfolioApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2009> localVarReturnType = new GenericType<InlineResponse2009>() {};
 
-    return apiClient.invokeAPI("PortfolioApi.portfolioTransactionModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2009
+      
+    > apiResponse = apiClient.invokeAPI("PortfolioApi.portfolioTransactionModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, portfolioTransactionModifyPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

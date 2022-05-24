@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -62,45 +62,47 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "primaryEmailAddress";
+  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "PrimaryEmailAddress";
   private JsonNullable<String> primaryEmailAddress = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
+  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
   private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FULL_NAME = "fullName";
+  public static final String JSON_PROPERTY_FULL_NAME = "FullName";
   private JsonNullable<String> fullName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ADDRESS = "address";
+  public static final String JSON_PROPERTY_ADDRESS = "Address";
   private ContactAddressDto address;
 
-  public static final String JSON_PROPERTY_LINKED_IN_PROFILE = "linkedInProfile";
+  public static final String JSON_PROPERTY_LINKED_IN_PROFILE = "LinkedInProfile";
   private JsonNullable<String> linkedInProfile = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  public static final String JSON_PROPERTY_IS_DELETED = "IsDeleted";
   private Boolean isDeleted;
 
-  public static final String JSON_PROPERTY_EMPLOYER = "employer";
+  public static final String JSON_PROPERTY_EMPLOYER = "Employer";
   private EmployerDto employer;
 
-  public static final String JSON_PROPERTY_ROLE = "role";
+  public static final String JSON_PROPERTY_ROLE = "Role";
   private ContactRoleDto role;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
+  public static final String JSON_PROPERTY_TYPE = "Type";
   private ContactTypeDto type;
 
-  public static final String JSON_PROPERTY_PHONE_NUMBERS = "phoneNumbers";
+  public static final String JSON_PROPERTY_PHONE_NUMBERS = "PhoneNumbers";
   private JsonNullable<java.util.List<ContactPhoneDto>> phoneNumbers = JsonNullable.<java.util.List<ContactPhoneDto>>undefined();
 
-  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "alternativeEmailAddresses";
+  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "AlternativeEmailAddresses";
   private JsonNullable<java.util.List<AlternativeEmailAddressDto>> alternativeEmailAddresses = JsonNullable.<java.util.List<AlternativeEmailAddressDto>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "customFields";
+  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "CustomFields";
   private JsonNullable<java.util.List<ContactCustomFieldValueDto>> customFields = JsonNullable.<java.util.List<ContactCustomFieldValueDto>>undefined();
 
+  public ContactDto() { 
+  }
 
   public ContactDto id(java.util.UUID id) {
     this.id = id;

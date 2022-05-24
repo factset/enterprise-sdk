@@ -20,6 +20,7 @@ import java.util.HashMap;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Categories;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Chain;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Distributor;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Instruments;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Language;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Publisher;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse2001Types;
@@ -42,12 +43,14 @@ import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
   InlineResponse2001Data.JSON_PROPERTY_CODE,
   InlineResponse2001Data.JSON_PROPERTY_TIME,
   InlineResponse2001Data.JSON_PROPERTY_HEADLINE,
+  InlineResponse2001Data.JSON_PROPERTY_SUMMARY,
   InlineResponse2001Data.JSON_PROPERTY_TYPES,
   InlineResponse2001Data.JSON_PROPERTY_LANGUAGE,
   InlineResponse2001Data.JSON_PROPERTY_DISTRIBUTOR,
   InlineResponse2001Data.JSON_PROPERTY_PUBLISHER,
   InlineResponse2001Data.JSON_PROPERTY_CATEGORIES,
-  InlineResponse2001Data.JSON_PROPERTY_CHAIN
+  InlineResponse2001Data.JSON_PROPERTY_CHAIN,
+  InlineResponse2001Data.JSON_PROPERTY_INSTRUMENTS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2001Data implements Serializable {
@@ -61,6 +64,9 @@ public class InlineResponse2001Data implements Serializable {
 
   public static final String JSON_PROPERTY_HEADLINE = "headline";
   private String headline;
+
+  public static final String JSON_PROPERTY_SUMMARY = "summary";
+  private String summary;
 
   public static final String JSON_PROPERTY_TYPES = "types";
   private java.util.List<InlineResponse2001Types> types = null;
@@ -80,6 +86,11 @@ public class InlineResponse2001Data implements Serializable {
   public static final String JSON_PROPERTY_CHAIN = "chain";
   private InlineResponse2001Chain chain;
 
+  public static final String JSON_PROPERTY_INSTRUMENTS = "instruments";
+  private java.util.List<InlineResponse2001Instruments> instruments = null;
+
+  public InlineResponse2001Data() { 
+  }
 
   public InlineResponse2001Data code(String code) {
     this.code = code;
@@ -156,6 +167,32 @@ public class InlineResponse2001Data implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHeadline(String headline) {
     this.headline = headline;
+  }
+
+
+  public InlineResponse2001Data summary(String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+   /**
+   * Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor.
+   * @return summary
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.")
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSummary() {
+    return summary;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSummary(String summary) {
+    this.summary = summary;
   }
 
 
@@ -331,6 +368,40 @@ public class InlineResponse2001Data implements Serializable {
   }
 
 
+  public InlineResponse2001Data instruments(java.util.List<InlineResponse2001Instruments> instruments) {
+    this.instruments = instruments;
+    return this;
+  }
+
+  public InlineResponse2001Data addInstrumentsItem(InlineResponse2001Instruments instrumentsItem) {
+    if (this.instruments == null) {
+      this.instruments = new java.util.ArrayList<>();
+    }
+    this.instruments.add(instrumentsItem);
+    return this;
+  }
+
+   /**
+   * Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.
+   * @return instruments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.")
+  @JsonProperty(JSON_PROPERTY_INSTRUMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<InlineResponse2001Instruments> getInstruments() {
+    return instruments;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INSTRUMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstruments(java.util.List<InlineResponse2001Instruments> instruments) {
+    this.instruments = instruments;
+  }
+
+
   /**
    * Return true if this inline_response_200_1_data object is equal to o.
    */
@@ -346,17 +417,19 @@ public class InlineResponse2001Data implements Serializable {
     return Objects.equals(this.code, inlineResponse2001Data.code) &&
         Objects.equals(this.time, inlineResponse2001Data.time) &&
         Objects.equals(this.headline, inlineResponse2001Data.headline) &&
+        Objects.equals(this.summary, inlineResponse2001Data.summary) &&
         Objects.equals(this.types, inlineResponse2001Data.types) &&
         Objects.equals(this.language, inlineResponse2001Data.language) &&
         Objects.equals(this.distributor, inlineResponse2001Data.distributor) &&
         Objects.equals(this.publisher, inlineResponse2001Data.publisher) &&
         Objects.equals(this.categories, inlineResponse2001Data.categories) &&
-        Objects.equals(this.chain, inlineResponse2001Data.chain);
+        Objects.equals(this.chain, inlineResponse2001Data.chain) &&
+        Objects.equals(this.instruments, inlineResponse2001Data.instruments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, time, headline, types, language, distributor, publisher, categories, chain);
+    return Objects.hash(code, time, headline, summary, types, language, distributor, publisher, categories, chain, instruments);
   }
 
   @Override
@@ -366,12 +439,14 @@ public class InlineResponse2001Data implements Serializable {
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    headline: ").append(toIndentedString(headline)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    distributor: ").append(toIndentedString(distributor)).append("\n");
     sb.append("    publisher: ").append(toIndentedString(publisher)).append("\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    chain: ").append(toIndentedString(chain)).append("\n");
+    sb.append("    instruments: ").append(toIndentedString(instruments)).append("\n");
     sb.append("}");
     return sb.toString();
   }

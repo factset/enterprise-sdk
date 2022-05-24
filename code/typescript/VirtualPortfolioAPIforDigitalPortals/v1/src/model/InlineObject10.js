@@ -18,7 +18,7 @@ import WatchlistDeleteData from './WatchlistDeleteData';
 /**
  * The InlineObject10 model module.
  * @module model/InlineObject10
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject10 {
     /**

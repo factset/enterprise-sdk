@@ -91,7 +91,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class WatchlistPositionModifyData {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
@@ -128,8 +128,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(WatchlistPositionModifyData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -163,13 +164,21 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Position != null)
-                    hashCode = hashCode * 59 + this.Position.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Position.GetHashCode();
+                }
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
                 if (this.Comment != null)
-                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Comment.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -182,7 +191,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Comment (string) maxLength
-            if(this.Comment != null && this.Comment.Length > 200)
+            if (this.Comment != null && this.Comment.Length > 200)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Comment, length must be less than 200.", new [] { "Comment" });
             }

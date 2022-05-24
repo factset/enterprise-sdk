@@ -95,7 +95,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005Data {\n");
             sb.Append("  HasNotationData: ").Append(HasNotationData).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
@@ -134,8 +134,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.HasNotationData == input.HasNotationData ||
@@ -175,15 +176,21 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.HasNotationData.GetHashCode();
-                hashCode = hashCode * 59 + this.Position.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasNotationData.GetHashCode();
+                hashCode = (hashCode * 59) + this.Position.GetHashCode();
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.Weight.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Weight.GetHashCode();
                 if (this.RecommendationClass != null)
-                    hashCode = hashCode * 59 + this.RecommendationClass.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RecommendationClass.GetHashCode();
+                }
                 return hashCode;
             }
         }

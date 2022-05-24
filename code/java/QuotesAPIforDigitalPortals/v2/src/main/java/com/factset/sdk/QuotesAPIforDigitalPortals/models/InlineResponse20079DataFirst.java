@@ -52,6 +52,8 @@ public class InlineResponse20079DataFirst implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VOLUME = "tradingVolume";
   private BigDecimal tradingVolume;
 
+  public InlineResponse20079DataFirst() { 
+  }
 
   public InlineResponse20079DataFirst time(String time) {
     this.time = time;

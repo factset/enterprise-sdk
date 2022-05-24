@@ -19,7 +19,7 @@ import DocumentDirectoriesRoot from '../model/DocumentDirectoriesRoot';
 /**
 * Documents service.
 * @module api/DocumentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class DocumentsApi {
 
@@ -62,7 +62,10 @@ export default class DocumentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DocumentDirectoriesRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/documents/{path}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class DocumentsApi {
      * Get PA3 documents and sub-directories in a directory
      * This endpoint looks up all PA3 documents and sub-directories in a given directory.
      * @param {String} path The directory to get the documents and sub-directories in
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DocumentDirectoriesRoot}
+     * @return { Promise.< module:model/DocumentDirectoriesRoot > } a Promise, with data of type {@link module:model/DocumentDirectoriesRoot }
      */
     getPA3Documents(path) {
       return this.getPA3DocumentsWithHttpInfo(path)
@@ -85,3 +88,8 @@ export default class DocumentsApi {
 
 
 }
+
+
+
+
+

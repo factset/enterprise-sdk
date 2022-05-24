@@ -52,6 +52,8 @@ public class InlineResponse2003DataSidewaysYield implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private BigDecimal annualized;
 
+  public InlineResponse2003DataSidewaysYield() { 
+  }
 
   public InlineResponse2003DataSidewaysYield absolute(BigDecimal absolute) {
     this.absolute = absolute;

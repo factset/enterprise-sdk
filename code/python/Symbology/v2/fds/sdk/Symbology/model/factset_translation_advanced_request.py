@@ -25,15 +25,15 @@ from fds.sdk.Symbology.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.Symbology.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.Symbology.model.get_ids import GetIds
+    from fds.sdk.Symbology.model.get_advanced_ids import GetAdvancedIds
     from fds.sdk.Symbology.model.get_symbol_type import GetSymbolType
-    globals()['GetIds'] = GetIds
+    globals()['GetAdvancedIds'] = GetAdvancedIds
     globals()['GetSymbolType'] = GetSymbolType
 
 
@@ -90,7 +90,7 @@ class FactsetTranslationAdvancedRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (GetIds,),  # noqa: E501
+            'ids': (GetAdvancedIds,),  # noqa: E501
             'symbol_type': (GetSymbolType,),  # noqa: E501
         }
 
@@ -115,7 +115,7 @@ class FactsetTranslationAdvancedRequest(ModelNormal):
         """FactsetTranslationAdvancedRequest - a model defined in OpenAPI
 
         Args:
-            ids (GetIds):
+            ids (GetAdvancedIds):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,7 +201,7 @@ class FactsetTranslationAdvancedRequest(ModelNormal):
         """FactsetTranslationAdvancedRequest - a model defined in OpenAPI
 
         Args:
-            ids (GetIds):
+            ids (GetAdvancedIds):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

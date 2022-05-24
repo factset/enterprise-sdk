@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEven {\n");
             sb.Append("  BreakEvenPoint: ").Append(BreakEvenPoint).Append("\n");
             sb.Append("  Distance: ").Append(Distance).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEven input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BreakEvenPoint == input.BreakEvenPoint ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.BreakEvenPoint != null)
-                    hashCode = hashCode * 59 + this.BreakEvenPoint.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BreakEvenPoint.GetHashCode();
+                }
                 if (this.Distance != null)
-                    hashCode = hashCode * 59 + this.Distance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Distance.GetHashCode();
+                }
                 return hashCode;
             }
         }

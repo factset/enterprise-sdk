@@ -48,6 +48,8 @@ public class InlineObject12 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private PortfolioCreateMeta meta;
 
+  public InlineObject12() { 
+  }
 
   public InlineObject12 data(WatchlistPositionCreateData data) {
     this.data = data;

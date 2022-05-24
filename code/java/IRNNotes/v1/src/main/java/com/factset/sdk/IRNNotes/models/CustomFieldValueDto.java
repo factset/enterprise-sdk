@@ -46,18 +46,20 @@ import com.factset.sdk.IRNNotes.JSON;
 public class CustomFieldValueDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_VALUE = "value";
+  public static final String JSON_PROPERTY_VALUE = "Value";
   private JsonNullable<String> value = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OPTIONS = "options";
+  public static final String JSON_PROPERTY_OPTIONS = "Options";
   private JsonNullable<java.util.List<String>> options = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_CONTACT_VALUES = "contactValues";
+  public static final String JSON_PROPERTY_CONTACT_VALUES = "ContactValues";
   private JsonNullable<java.util.List<java.util.UUID>> contactValues = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
+  public CustomFieldValueDto() { 
+  }
 
   public CustomFieldValueDto code(String code) {
     this.code = JsonNullable.<String>of(code);

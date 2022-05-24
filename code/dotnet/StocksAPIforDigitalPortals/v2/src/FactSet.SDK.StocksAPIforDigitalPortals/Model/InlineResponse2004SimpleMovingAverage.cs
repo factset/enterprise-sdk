@@ -79,7 +79,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004SimpleMovingAverage {\n");
             sb.Append("  Days20: ").Append(Days20).Append("\n");
             sb.Append("  Days50: ").Append(Days50).Append("\n");
@@ -116,8 +116,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004SimpleMovingAverage input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Days20 == input.Days20 ||
@@ -147,11 +148,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Days20.GetHashCode();
-                hashCode = hashCode * 59 + this.Days50.GetHashCode();
-                hashCode = hashCode * 59 + this.Days200.GetHashCode();
+                hashCode = (hashCode * 59) + this.Days20.GetHashCode();
+                hashCode = (hashCode * 59) + this.Days50.GetHashCode();
+                hashCode = (hashCode * 59) + this.Days200.GetHashCode();
                 if (this.TradingDaysSinceCrossover != null)
-                    hashCode = hashCode * 59 + this.TradingDaysSinceCrossover.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingDaysSinceCrossover.GetHashCode();
+                }
                 return hashCode;
             }
         }

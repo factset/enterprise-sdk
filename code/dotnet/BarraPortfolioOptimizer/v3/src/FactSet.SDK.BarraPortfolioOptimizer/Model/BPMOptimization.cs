@@ -90,7 +90,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BPMOptimization {\n");
             sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  InvestAllCash: ").Append(InvestAllCash).Append("\n");
@@ -128,8 +128,9 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         public bool Equals(BPMOptimization input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Market == input.Market ||
@@ -167,14 +168,22 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
-                hashCode = hashCode * 59 + this.InvestAllCash.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.InvestAllCash.GetHashCode();
                 if (this.RiskModelDate != null)
-                    hashCode = hashCode * 59 + this.RiskModelDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RiskModelDate.GetHashCode();
+                }
                 if (this.BacktestDate != null)
-                    hashCode = hashCode * 59 + this.BacktestDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BacktestDate.GetHashCode();
+                }
                 if (this.Cashflow != null)
-                    hashCode = hashCode * 59 + this.Cashflow.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cashflow.GetHashCode();
+                }
                 return hashCode;
             }
         }

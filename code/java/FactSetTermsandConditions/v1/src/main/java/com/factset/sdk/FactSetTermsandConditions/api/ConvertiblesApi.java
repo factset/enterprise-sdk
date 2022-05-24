@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.ConvertibleDetailsResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.ConvertibleHistoryResponse;
@@ -25,6 +28,64 @@ public class ConvertiblesApi {
   public ConvertiblesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getConvertibleDetailsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConvertibleDetailsResponseTypeMap.put(200, new GenericType<ConvertibleDetailsResponse>(){});
+    getConvertibleDetailsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getConvertibleDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConvertibleDetailsForListResponseTypeMap.put(200, new GenericType<ConvertibleDetailsResponse>(){});
+    getConvertibleDetailsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConvertibleDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getConvertibleHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConvertibleHistoryResponseTypeMap.put(200, new GenericType<ConvertibleHistoryResponse>(){});
+    getConvertibleHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getConvertibleHistoryForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConvertibleHistoryForListResponseTypeMap.put(200, new GenericType<ConvertibleHistoryResponse>(){});
+    getConvertibleHistoryForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConvertibleHistoryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getConvertibleTriggersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConvertibleTriggersResponseTypeMap.put(200, new GenericType<ConvertibleTriggersResponse>(){});
+    getConvertibleTriggersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getConvertibleTriggersForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getConvertibleTriggersForListResponseTypeMap.put(200, new GenericType<ConvertibleTriggersResponse>(){});
+    getConvertibleTriggersForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getConvertibleTriggersForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -116,11 +177,17 @@ public class ConvertiblesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConvertibleDetailsResponse> localVarReturnType = new GenericType<ConvertibleDetailsResponse>() {};
 
-    return apiClient.invokeAPI("ConvertiblesApi.getConvertibleDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConvertibleDetailsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ConvertiblesApi.getConvertibleDetails", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConvertibleDetailsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Convertible Details data for a large list of Fixed Income securities.
@@ -193,11 +260,17 @@ public class ConvertiblesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConvertibleDetailsResponse> localVarReturnType = new GenericType<ConvertibleDetailsResponse>() {};
 
-    return apiClient.invokeAPI("ConvertiblesApi.getConvertibleDetailsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConvertibleDetailsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ConvertiblesApi.getConvertibleDetailsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConvertibleDetailsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Convertible History data for a list of Fixed Income securities.
@@ -271,11 +344,17 @@ public class ConvertiblesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConvertibleHistoryResponse> localVarReturnType = new GenericType<ConvertibleHistoryResponse>() {};
 
-    return apiClient.invokeAPI("ConvertiblesApi.getConvertibleHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConvertibleHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("ConvertiblesApi.getConvertibleHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConvertibleHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Convertible History data for a large list of Fixed Income securities.
@@ -348,11 +427,17 @@ public class ConvertiblesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConvertibleHistoryResponse> localVarReturnType = new GenericType<ConvertibleHistoryResponse>() {};
 
-    return apiClient.invokeAPI("ConvertiblesApi.getConvertibleHistoryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConvertibleHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("ConvertiblesApi.getConvertibleHistoryForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConvertibleHistoryForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Convertible Triggers data for a list of Fixed Income securities.
@@ -426,11 +511,17 @@ public class ConvertiblesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConvertibleTriggersResponse> localVarReturnType = new GenericType<ConvertibleTriggersResponse>() {};
 
-    return apiClient.invokeAPI("ConvertiblesApi.getConvertibleTriggers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConvertibleTriggersResponse
+      
+    > apiResponse = apiClient.invokeAPI("ConvertiblesApi.getConvertibleTriggers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConvertibleTriggersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Convertible Trigger data for a large list of Fixed Income securities.
@@ -503,10 +594,16 @@ public class ConvertiblesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ConvertibleTriggersResponse> localVarReturnType = new GenericType<ConvertibleTriggersResponse>() {};
 
-    return apiClient.invokeAPI("ConvertiblesApi.getConvertibleTriggersForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ConvertibleTriggersResponse
+      
+    > apiResponse = apiClient.invokeAPI("ConvertiblesApi.getConvertibleTriggersForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getConvertibleTriggersForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

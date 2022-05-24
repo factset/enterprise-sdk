@@ -46,6 +46,8 @@ public class DateParametersSummary implements Serializable {
   public static final String JSON_PROPERTY_ENDDATE = "enddate";
   private String enddate;
 
+  public DateParametersSummary() { 
+  }
 
   public DateParametersSummary startdate(String startdate) {
     this.startdate = startdate;

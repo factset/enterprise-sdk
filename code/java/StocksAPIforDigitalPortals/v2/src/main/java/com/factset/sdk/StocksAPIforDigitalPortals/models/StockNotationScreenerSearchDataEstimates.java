@@ -63,6 +63,16 @@ public class StockNotationScreenerSearchDataEstimates implements Serializable {
   public static final String JSON_PROPERTY_RATIOS = "ratios";
   private StockNotationScreenerSearchDataRatios1 ratios;
 
+  public StockNotationScreenerSearchDataEstimates() { 
+  }
+
+  @JsonCreator
+  public StockNotationScreenerSearchDataEstimates(
+    @JsonProperty(value=JSON_PROPERTY_FISCAL_YEAR, required=true) StockNotationScreenerSearchDataFiscalYear1 fiscalYear
+  ) {
+    this();
+    this.fiscalYear = fiscalYear;
+  }
 
   public StockNotationScreenerSearchDataEstimates fiscalYear(StockNotationScreenerSearchDataFiscalYear1 fiscalYear) {
     this.fiscalYear = fiscalYear;

@@ -43,6 +43,8 @@ public class InlineResponse20088Nsin implements Serializable {
   public static final String JSON_PROPERTY_SEDOL = "sedol";
   private String sedol;
 
+  public InlineResponse20088Nsin() { 
+  }
 
   public InlineResponse20088Nsin sedol(String sedol) {
     this.sedol = sedol;

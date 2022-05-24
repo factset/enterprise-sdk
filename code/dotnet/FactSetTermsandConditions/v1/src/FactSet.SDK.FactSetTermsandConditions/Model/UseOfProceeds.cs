@@ -72,7 +72,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UseOfProceeds {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(UseOfProceeds input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -138,11 +139,17 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this._UseOfProceeds != null)
-                    hashCode = hashCode * 59 + this._UseOfProceeds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._UseOfProceeds.GetHashCode();
+                }
                 return hashCode;
             }
         }

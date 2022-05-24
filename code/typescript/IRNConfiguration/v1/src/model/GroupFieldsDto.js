@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -12,14 +12,25 @@
  */
 
 import ApiClient from '../ApiClient';
+import DateSettingsDto from './DateSettingsDto';
+import IdentifierSettingsDto from './IdentifierSettingsDto';
+import LinkSettingsDto from './LinkSettingsDto';
+import NoteSettingsDto from './NoteSettingsDto';
+import OrganizerSettingsDto from './OrganizerSettingsDto';
 import RecommendationSettingsDto from './RecommendationSettingsDto';
+import RelatedContactsSettingsDto from './RelatedContactsSettingsDto';
+import RelatedResearchSettingsDto from './RelatedResearchSettingsDto';
+import RelatedSymbolsSettingsDto from './RelatedSymbolsSettingsDto';
 import SentimentSettingsDto from './SentimentSettingsDto';
+import SourceSettingsDto from './SourceSettingsDto';
 import SubjectSettingsDto from './SubjectSettingsDto';
+import TeamSettingsDto from './TeamSettingsDto';
+import TitleSettingsDto from './TitleSettingsDto';
 
 /**
  * The GroupFieldsDto model module.
  * @module model/GroupFieldsDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class GroupFieldsDto {
     /**
@@ -50,14 +61,47 @@ class GroupFieldsDto {
         if (data) {
             obj = obj || new GroupFieldsDto();
 
-            if (data.hasOwnProperty('subject')) {
-                obj['subject'] = SubjectSettingsDto.constructFromObject(data['subject']);
+            if (data.hasOwnProperty('Title')) {
+                obj['Title'] = TitleSettingsDto.constructFromObject(data['Title']);
             }
-            if (data.hasOwnProperty('recommendation')) {
-                obj['recommendation'] = RecommendationSettingsDto.constructFromObject(data['recommendation']);
+            if (data.hasOwnProperty('Date')) {
+                obj['Date'] = DateSettingsDto.constructFromObject(data['Date']);
             }
-            if (data.hasOwnProperty('sentiment')) {
-                obj['sentiment'] = SentimentSettingsDto.constructFromObject(data['sentiment']);
+            if (data.hasOwnProperty('Identifier')) {
+                obj['Identifier'] = IdentifierSettingsDto.constructFromObject(data['Identifier']);
+            }
+            if (data.hasOwnProperty('Subject')) {
+                obj['Subject'] = SubjectSettingsDto.constructFromObject(data['Subject']);
+            }
+            if (data.hasOwnProperty('Recommendation')) {
+                obj['Recommendation'] = RecommendationSettingsDto.constructFromObject(data['Recommendation']);
+            }
+            if (data.hasOwnProperty('Sentiment')) {
+                obj['Sentiment'] = SentimentSettingsDto.constructFromObject(data['Sentiment']);
+            }
+            if (data.hasOwnProperty('Link')) {
+                obj['Link'] = LinkSettingsDto.constructFromObject(data['Link']);
+            }
+            if (data.hasOwnProperty('Note')) {
+                obj['Note'] = NoteSettingsDto.constructFromObject(data['Note']);
+            }
+            if (data.hasOwnProperty('Source')) {
+                obj['Source'] = SourceSettingsDto.constructFromObject(data['Source']);
+            }
+            if (data.hasOwnProperty('RelatedSymbols')) {
+                obj['RelatedSymbols'] = RelatedSymbolsSettingsDto.constructFromObject(data['RelatedSymbols']);
+            }
+            if (data.hasOwnProperty('RelatedResearch')) {
+                obj['RelatedResearch'] = RelatedResearchSettingsDto.constructFromObject(data['RelatedResearch']);
+            }
+            if (data.hasOwnProperty('RelatedContacts')) {
+                obj['RelatedContacts'] = RelatedContactsSettingsDto.constructFromObject(data['RelatedContacts']);
+            }
+            if (data.hasOwnProperty('Team')) {
+                obj['Team'] = TeamSettingsDto.constructFromObject(data['Team']);
+            }
+            if (data.hasOwnProperty('Organizer')) {
+                obj['Organizer'] = OrganizerSettingsDto.constructFromObject(data['Organizer']);
             }
         }
         return obj;
@@ -67,19 +111,74 @@ class GroupFieldsDto {
 }
 
 /**
- * @member {module:model/SubjectSettingsDto} subject
+ * @member {module:model/TitleSettingsDto} Title
  */
-GroupFieldsDto.prototype['subject'] = undefined;
+GroupFieldsDto.prototype['Title'] = undefined;
 
 /**
- * @member {module:model/RecommendationSettingsDto} recommendation
+ * @member {module:model/DateSettingsDto} Date
  */
-GroupFieldsDto.prototype['recommendation'] = undefined;
+GroupFieldsDto.prototype['Date'] = undefined;
 
 /**
- * @member {module:model/SentimentSettingsDto} sentiment
+ * @member {module:model/IdentifierSettingsDto} Identifier
  */
-GroupFieldsDto.prototype['sentiment'] = undefined;
+GroupFieldsDto.prototype['Identifier'] = undefined;
+
+/**
+ * @member {module:model/SubjectSettingsDto} Subject
+ */
+GroupFieldsDto.prototype['Subject'] = undefined;
+
+/**
+ * @member {module:model/RecommendationSettingsDto} Recommendation
+ */
+GroupFieldsDto.prototype['Recommendation'] = undefined;
+
+/**
+ * @member {module:model/SentimentSettingsDto} Sentiment
+ */
+GroupFieldsDto.prototype['Sentiment'] = undefined;
+
+/**
+ * @member {module:model/LinkSettingsDto} Link
+ */
+GroupFieldsDto.prototype['Link'] = undefined;
+
+/**
+ * @member {module:model/NoteSettingsDto} Note
+ */
+GroupFieldsDto.prototype['Note'] = undefined;
+
+/**
+ * @member {module:model/SourceSettingsDto} Source
+ */
+GroupFieldsDto.prototype['Source'] = undefined;
+
+/**
+ * @member {module:model/RelatedSymbolsSettingsDto} RelatedSymbols
+ */
+GroupFieldsDto.prototype['RelatedSymbols'] = undefined;
+
+/**
+ * @member {module:model/RelatedResearchSettingsDto} RelatedResearch
+ */
+GroupFieldsDto.prototype['RelatedResearch'] = undefined;
+
+/**
+ * @member {module:model/RelatedContactsSettingsDto} RelatedContacts
+ */
+GroupFieldsDto.prototype['RelatedContacts'] = undefined;
+
+/**
+ * @member {module:model/TeamSettingsDto} Team
+ */
+GroupFieldsDto.prototype['Team'] = undefined;
+
+/**
+ * @member {module:model/OrganizerSettingsDto} Organizer
+ */
+GroupFieldsDto.prototype['Organizer'] = undefined;
 
 
 

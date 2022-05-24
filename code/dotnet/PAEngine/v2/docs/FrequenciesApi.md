@@ -72,7 +72,6 @@ namespace Example
 This endpoint does not need any parameter.
 
 ### Return type
-
 [**Dictionary&lt;string, Frequency&gt;**](Frequency.md)
 
 ### Authorization

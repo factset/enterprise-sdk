@@ -50,6 +50,8 @@ public class ComponentAccount implements Serializable {
   public static final String JSON_PROPERTY_HOLDINGSMODE = "holdingsmode";
   private String holdingsmode;
 
+  public ComponentAccount() { 
+  }
 
   public ComponentAccount id(String id) {
     this.id = id;

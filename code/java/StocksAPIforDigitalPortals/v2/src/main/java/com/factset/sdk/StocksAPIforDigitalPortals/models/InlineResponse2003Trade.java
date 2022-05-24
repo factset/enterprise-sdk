@@ -53,6 +53,8 @@ public class InlineResponse2003Trade implements Serializable {
   public static final String JSON_PROPERTY_PERFORMANCE = "performance";
   private InlineResponse2003TradePerformance performance;
 
+  public InlineResponse2003Trade() { 
+  }
 
   public InlineResponse2003Trade time(String time) {
     this.time = time;

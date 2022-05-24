@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -89,12 +89,12 @@ class RecordChangeDto(ModelNormal):
 
 
     attribute_map = {
-        'field': 'field',  # noqa: E501
-        'operation': 'operation',  # noqa: E501
-        'old_value': 'oldValue',  # noqa: E501
-        'new_value': 'newValue',  # noqa: E501
-        'old_list': 'oldList',  # noqa: E501
-        'new_list': 'newList',  # noqa: E501
+        'field': 'Field',  # noqa: E501
+        'operation': 'Operation',  # noqa: E501
+        'old_value': 'OldValue',  # noqa: E501
+        'new_value': 'NewValue',  # noqa: E501
+        'old_list': 'OldList',  # noqa: E501
+        'new_list': 'NewList',  # noqa: E501
     }
 
     read_only_vars = {

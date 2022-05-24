@@ -70,7 +70,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CreateCustomFieldValueDto {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  IntegerValue: ").Append(IntegerValue).Append("\n");
@@ -176,8 +176,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(CreateCustomFieldValueDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Code == input.Code ||
@@ -243,25 +244,45 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.IntegerValue != null)
-                    hashCode = hashCode * 59 + this.IntegerValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IntegerValue.GetHashCode();
+                }
                 if (this.TextValue != null)
-                    hashCode = hashCode * 59 + this.TextValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TextValue.GetHashCode();
+                }
                 if (this.FilePathValue != null)
-                    hashCode = hashCode * 59 + this.FilePathValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FilePathValue.GetHashCode();
+                }
                 if (this.NumericValue != null)
-                    hashCode = hashCode * 59 + this.NumericValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NumericValue.GetHashCode();
+                }
                 if (this.DateValue != null)
-                    hashCode = hashCode * 59 + this.DateValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateValue.GetHashCode();
+                }
                 if (this.ExtendedTextValue != null)
-                    hashCode = hashCode * 59 + this.ExtendedTextValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExtendedTextValue.GetHashCode();
+                }
                 if (this.ContactLookupValues != null)
-                    hashCode = hashCode * 59 + this.ContactLookupValues.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ContactLookupValues.GetHashCode();
+                }
                 if (this.OptionValue != null)
-                    hashCode = hashCode * 59 + this.OptionValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OptionValue.GetHashCode();
+                }
                 if (this.OptionValues != null)
-                    hashCode = hashCode * 59 + this.OptionValues.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OptionValues.GetHashCode();
+                }
                 return hashCode;
             }
         }

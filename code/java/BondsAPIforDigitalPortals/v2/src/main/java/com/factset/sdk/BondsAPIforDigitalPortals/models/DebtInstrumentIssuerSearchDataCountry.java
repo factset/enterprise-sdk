@@ -44,6 +44,8 @@ public class DebtInstrumentIssuerSearchDataCountry implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public DebtInstrumentIssuerSearchDataCountry() { 
+  }
 
   public DebtInstrumentIssuerSearchDataCountry ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

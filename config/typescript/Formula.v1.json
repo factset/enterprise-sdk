@@ -1,0 +1,15 @@
+{
+  "projectName": "@factset/sdk-formula",
+  "projectVersion": "0.20.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Formula client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "formula",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/Formula/0.20.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

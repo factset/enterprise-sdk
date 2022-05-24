@@ -18,7 +18,7 @@ import InlineResponse2004DataRange from './InlineResponse2004DataRange';
 /**
  * The InlineResponse20010Data model module.
  * @module model/InlineResponse20010Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20010Data {
     /**

@@ -87,6 +87,8 @@ public class InlineResponse20084Data implements Serializable {
   public static final String JSON_PROPERTY_BIDS = "bids";
   private java.util.List<InlineResponse20084DataAsks> bids = null;
 
+  public InlineResponse20084Data() { 
+  }
 
   public InlineResponse20084Data quality(QualityEnum quality) {
     this.quality = quality;

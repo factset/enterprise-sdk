@@ -41,14 +41,13 @@ import com.factset.sdk.FactSetESG.ApiClient;
 import com.factset.sdk.FactSetESG.ApiException;
 import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.auth.*;
-import com.factset.sdk.FactSetESG.model.*;
+import com.factset.sdk.FactSetESG.models.*;
 import com.factset.sdk.FactSetESG.api.SasbApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -58,14 +57,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SasbApi apiInstance = new SasbApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may exceed this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -76,6 +75,7 @@ public class Example {
         try {
             SasbRanksResponse result = apiInstance.getSasbRanks(ids, categories, startDate, endDate, frequency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SasbApi#getSasbRanks");
             System.err.println("Status code: " + e.getCode());
@@ -150,14 +150,13 @@ import com.factset.sdk.FactSetESG.ApiClient;
 import com.factset.sdk.FactSetESG.ApiException;
 import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.auth.*;
-import com.factset.sdk.FactSetESG.model.*;
+import com.factset.sdk.FactSetESG.models.*;
 import com.factset.sdk.FactSetESG.api.SasbApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -167,20 +166,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SasbApi apiInstance = new SasbApi(defaultClient);
         SasbRanksRequest sasbRanksRequest = new SasbRanksRequest(); // SasbRanksRequest | The SASB Ranks Request Object
         try {
             SasbRanksResponse result = apiInstance.getSasbRanksPost(sasbRanksRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SasbApi#getSasbRanksPost");
             System.err.println("Status code: " + e.getCode());
@@ -240,14 +240,13 @@ import com.factset.sdk.FactSetESG.ApiClient;
 import com.factset.sdk.FactSetESG.ApiException;
 import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.auth.*;
-import com.factset.sdk.FactSetESG.model.*;
+import com.factset.sdk.FactSetESG.models.*;
 import com.factset.sdk.FactSetESG.api.SasbApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -257,14 +256,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SasbApi apiInstance = new SasbApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may exceed this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -276,6 +275,7 @@ public class Example {
         try {
             SasbScoresResponse result = apiInstance.getSasbScores(ids, scoreTypes, categories, startDate, endDate, frequency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SasbApi#getSasbScores");
             System.err.println("Status code: " + e.getCode());
@@ -340,14 +340,13 @@ import com.factset.sdk.FactSetESG.ApiClient;
 import com.factset.sdk.FactSetESG.ApiException;
 import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.auth.*;
-import com.factset.sdk.FactSetESG.model.*;
+import com.factset.sdk.FactSetESG.models.*;
 import com.factset.sdk.FactSetESG.api.SasbApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -357,14 +356,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SasbApi apiInstance = new SasbApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may exceed this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -375,6 +374,7 @@ public class Example {
         try {
             SasbScoresAllResponse result = apiInstance.getSasbScoresAll(ids, scoreTypes, startDate, endDate, frequency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SasbApi#getSasbScoresAll");
             System.err.println("Status code: " + e.getCode());
@@ -438,14 +438,13 @@ import com.factset.sdk.FactSetESG.ApiClient;
 import com.factset.sdk.FactSetESG.ApiException;
 import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.auth.*;
-import com.factset.sdk.FactSetESG.model.*;
+import com.factset.sdk.FactSetESG.models.*;
 import com.factset.sdk.FactSetESG.api.SasbApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -455,20 +454,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SasbApi apiInstance = new SasbApi(defaultClient);
         SasbScoresAllRequest sasbScoresAllRequest = new SasbScoresAllRequest(); // SasbScoresAllRequest | The SASB Scores request body, allowing the user to specify a list of ids, SASB Score Items, SASB categories, date range, and frequency.
         try {
             SasbScoresAllResponse result = apiInstance.getSasbScoresAllPost(sasbScoresAllRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SasbApi#getSasbScoresAllPost");
             System.err.println("Status code: " + e.getCode());
@@ -528,14 +528,13 @@ import com.factset.sdk.FactSetESG.ApiClient;
 import com.factset.sdk.FactSetESG.ApiException;
 import com.factset.sdk.FactSetESG.Configuration;
 import com.factset.sdk.FactSetESG.auth.*;
-import com.factset.sdk.FactSetESG.model.*;
+import com.factset.sdk.FactSetESG.models.*;
 import com.factset.sdk.FactSetESG.api.SasbApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -545,20 +544,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SasbApi apiInstance = new SasbApi(defaultClient);
         SasbScoresRequest sasbScoresRequest = new SasbScoresRequest(); // SasbScoresRequest | The SASB Scores request body, allowing the user to specify a list of ids, SASB Score Items, SASB categories, date range, and frequency.
         try {
             SasbScoresResponse result = apiInstance.getSasbScoresPost(sasbScoresRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SasbApi#getSasbScoresPost");
             System.err.println("Status code: " + e.getCode());

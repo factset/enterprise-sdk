@@ -24,10 +24,14 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_instrument_fsym import InlineResponse2004InstrumentFsym
+    globals()['InlineResponse2004InstrumentFsym'] = InlineResponse2004InstrumentFsym
 
 
 class InlineResponse2007DataNotationInstrument(ModelNormal):
@@ -72,6 +76,7 @@ class InlineResponse2007DataNotationInstrument(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -86,8 +91,10 @@ class InlineResponse2007DataNotationInstrument(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'id': (str,),  # noqa: E501
+            'fsym': (InlineResponse2004InstrumentFsym,),  # noqa: E501
             'type_composite': (str,),  # noqa: E501
         }
 
@@ -98,6 +105,7 @@ class InlineResponse2007DataNotationInstrument(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
         'type_composite': 'typeComposite',  # noqa: E501
     }
 
@@ -143,6 +151,7 @@ class InlineResponse2007DataNotationInstrument(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the instrument.. [optional]  # noqa: E501
+            fsym (InlineResponse2004InstrumentFsym): [optional]  # noqa: E501
             type_composite (str): Type of composite instrument, in case the underlying is a composite instrument.. [optional]  # noqa: E501
         """
 
@@ -226,6 +235,7 @@ class InlineResponse2007DataNotationInstrument(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the instrument.. [optional]  # noqa: E501
+            fsym (InlineResponse2004InstrumentFsym): [optional]  # noqa: E501
             type_composite (str): Type of composite instrument, in case the underlying is a composite instrument.. [optional]  # noqa: E501
         """
 

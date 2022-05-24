@@ -53,36 +53,46 @@ import com.factset.sdk.IRNNotes.JSON;
 public class CreateCustomFieldValueDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private String code;
 
-  public static final String JSON_PROPERTY_INTEGER_VALUE = "integerValue";
+  public static final String JSON_PROPERTY_INTEGER_VALUE = "IntegerValue";
   private JsonNullable<Integer> integerValue = JsonNullable.<Integer>undefined();
 
-  public static final String JSON_PROPERTY_TEXT_VALUE = "textValue";
+  public static final String JSON_PROPERTY_TEXT_VALUE = "TextValue";
   private JsonNullable<String> textValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FILE_PATH_VALUE = "filePathValue";
+  public static final String JSON_PROPERTY_FILE_PATH_VALUE = "FilePathValue";
   private JsonNullable<String> filePathValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NUMERIC_VALUE = "numericValue";
+  public static final String JSON_PROPERTY_NUMERIC_VALUE = "NumericValue";
   private JsonNullable<Double> numericValue = JsonNullable.<Double>undefined();
 
-  public static final String JSON_PROPERTY_DATE_VALUE = "dateValue";
+  public static final String JSON_PROPERTY_DATE_VALUE = "DateValue";
   private JsonNullable<String> dateValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EXTENDED_TEXT_VALUE = "extendedTextValue";
+  public static final String JSON_PROPERTY_EXTENDED_TEXT_VALUE = "ExtendedTextValue";
   private JsonNullable<String> extendedTextValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CONTACT_LOOKUP_VALUES = "contactLookupValues";
+  public static final String JSON_PROPERTY_CONTACT_LOOKUP_VALUES = "ContactLookupValues";
   private JsonNullable<java.util.List<java.util.UUID>> contactLookupValues = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_OPTION_VALUE = "optionValue";
+  public static final String JSON_PROPERTY_OPTION_VALUE = "OptionValue";
   private JsonNullable<String> optionValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OPTION_VALUES = "optionValues";
+  public static final String JSON_PROPERTY_OPTION_VALUES = "OptionValues";
   private JsonNullable<java.util.List<String>> optionValues = JsonNullable.<java.util.List<String>>undefined();
 
+  public CreateCustomFieldValueDto() { 
+  }
+
+  @JsonCreator
+  public CreateCustomFieldValueDto(
+    @JsonProperty(value=JSON_PROPERTY_CODE, required=true) String code
+  ) {
+    this();
+    this.code = code;
+  }
 
   public CreateCustomFieldValueDto code(String code) {
     this.code = code;
@@ -93,7 +103,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

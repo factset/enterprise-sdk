@@ -100,6 +100,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataRangeBarrier
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlow cashFlow;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataRangeBarriers() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataRangeBarriers type(TypeEnum type) {
     this.type = type;

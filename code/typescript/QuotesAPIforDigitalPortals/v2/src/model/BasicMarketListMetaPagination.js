@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BasicMarketListMetaPagination model module.
  * @module model/BasicMarketListMetaPagination
- * @version 0.9.1
+ * @version 0.9.2
  */
 class BasicMarketListMetaPagination {
     /**

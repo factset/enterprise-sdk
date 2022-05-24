@@ -24,18 +24,20 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_fsym import InlineResponse2004Fsym
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_value_unit import InlineResponse2004ValueUnit
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_instrument import InlineResponse2006Instrument
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_key_figures import InlineResponse2006KeyFigures
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_market import InlineResponse2006Market
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_performance import InlineResponse2006Performance
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_volatility import InlineResponse2006Volatility
+    globals()['InlineResponse2004Fsym'] = InlineResponse2004Fsym
     globals()['InlineResponse2004ValueUnit'] = InlineResponse2004ValueUnit
     globals()['InlineResponse2006Instrument'] = InlineResponse2006Instrument
     globals()['InlineResponse2006KeyFigures'] = InlineResponse2006KeyFigures
@@ -99,6 +101,7 @@ class InlineResponse2006Data(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'symbol': (str,),  # noqa: E501
+            'fsym': (InlineResponse2004Fsym,),  # noqa: E501
             'value_unit': (InlineResponse2004ValueUnit,),  # noqa: E501
             'market': (InlineResponse2006Market,),  # noqa: E501
             'instrument': (InlineResponse2006Instrument,),  # noqa: E501
@@ -115,6 +118,7 @@ class InlineResponse2006Data(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'symbol': 'symbol',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
         'value_unit': 'valueUnit',  # noqa: E501
         'market': 'market',  # noqa: E501
         'instrument': 'instrument',  # noqa: E501
@@ -166,6 +170,7 @@ class InlineResponse2006Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the notation.. [optional]  # noqa: E501
             symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            fsym (InlineResponse2004Fsym): [optional]  # noqa: E501
             value_unit (InlineResponse2004ValueUnit): [optional]  # noqa: E501
             market (InlineResponse2006Market): [optional]  # noqa: E501
             instrument (InlineResponse2006Instrument): [optional]  # noqa: E501
@@ -255,6 +260,7 @@ class InlineResponse2006Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of the notation.. [optional]  # noqa: E501
             symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            fsym (InlineResponse2004Fsym): [optional]  # noqa: E501
             value_unit (InlineResponse2004ValueUnit): [optional]  # noqa: E501
             market (InlineResponse2006Market): [optional]  # noqa: E501
             instrument (InlineResponse2006Instrument): [optional]  # noqa: E501

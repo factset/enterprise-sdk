@@ -54,6 +54,8 @@ public class InlineResponse2005DataCapitalGuarantee implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private InlineResponse2005DataCapCashFlow cashFlow;
 
+  public InlineResponse2005DataCapitalGuarantee() { 
+  }
 
   public InlineResponse2005DataCapitalGuarantee value(InlineResponse2005DataCapitalGuaranteeValue value) {
     this.value = value;

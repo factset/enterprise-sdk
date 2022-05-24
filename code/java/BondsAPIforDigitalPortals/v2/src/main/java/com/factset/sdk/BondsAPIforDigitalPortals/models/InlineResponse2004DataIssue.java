@@ -44,6 +44,8 @@ public class InlineResponse2004DataIssue implements Serializable {
   public static final String JSON_PROPERTY_VOLUME = "volume";
   private InlineResponse2004DataIssueVolume volume;
 
+  public InlineResponse2004DataIssue() { 
+  }
 
   public InlineResponse2004DataIssue volume(InlineResponse2004DataIssueVolume volume) {
     this.volume = volume;

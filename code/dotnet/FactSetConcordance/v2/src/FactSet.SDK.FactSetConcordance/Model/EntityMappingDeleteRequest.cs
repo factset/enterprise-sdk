@@ -72,7 +72,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityMappingDeleteRequest {\n");
             sb.Append("  UniverseId: ").Append(UniverseId).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(EntityMappingDeleteRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UniverseId == input.UniverseId ||
@@ -131,9 +132,11 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UniverseId.GetHashCode();
+                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
                 if (this.ClientId != null)
-                    hashCode = hashCode * 59 + this.ClientId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
                 return hashCode;
             }
         }

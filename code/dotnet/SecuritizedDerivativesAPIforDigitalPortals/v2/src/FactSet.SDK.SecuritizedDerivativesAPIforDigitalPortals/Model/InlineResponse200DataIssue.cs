@@ -79,7 +79,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataIssue {\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  AdmittedVolume: ").Append(AdmittedVolume).Append("\n");
@@ -116,8 +116,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataIssue input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Price == input.Price ||
@@ -147,11 +148,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Price.GetHashCode();
-                hashCode = hashCode * 59 + this.AdmittedVolume.GetHashCode();
+                hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                hashCode = (hashCode * 59) + this.AdmittedVolume.GetHashCode();
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
-                hashCode = hashCode * 59 + this.Surcharge.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Surcharge.GetHashCode();
                 return hashCode;
             }
         }

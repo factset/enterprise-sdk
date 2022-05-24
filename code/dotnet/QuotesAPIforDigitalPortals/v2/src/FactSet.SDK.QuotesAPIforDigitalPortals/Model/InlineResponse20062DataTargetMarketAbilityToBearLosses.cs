@@ -221,7 +221,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketAbilityToBearLosses {\n");
             sb.Append("  NoCapitalLoss: ").Append(NoCapitalLoss).Append("\n");
             sb.Append("  LimitedCapitalLoss: ").Append(LimitedCapitalLoss).Append("\n");
@@ -259,8 +259,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketAbilityToBearLosses input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NoCapitalLoss == input.NoCapitalLoss ||
@@ -293,11 +294,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.NoCapitalLoss.GetHashCode();
-                hashCode = hashCode * 59 + this.LimitedCapitalLoss.GetHashCode();
-                hashCode = hashCode * 59 + this.NoCapitalGuarantee.GetHashCode();
-                hashCode = hashCode * 59 + this.LossBeyondCapital.GetHashCode();
-                hashCode = hashCode * 59 + this.MaximumCapitalLoss.GetHashCode();
+                hashCode = (hashCode * 59) + this.NoCapitalLoss.GetHashCode();
+                hashCode = (hashCode * 59) + this.LimitedCapitalLoss.GetHashCode();
+                hashCode = (hashCode * 59) + this.NoCapitalGuarantee.GetHashCode();
+                hashCode = (hashCode * 59) + this.LossBeyondCapital.GetHashCode();
+                hashCode = (hashCode * 59) + this.MaximumCapitalLoss.GetHashCode();
                 return hashCode;
             }
         }

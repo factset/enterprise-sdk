@@ -7,6 +7,9 @@ import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Vault.models.ClientErrorResponse;
 import com.factset.sdk.Vault.models.VaultConfigurationRoot;
@@ -23,6 +26,22 @@ public class ConfigurationsApi {
   public ConfigurationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getVaultConfigurationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVaultConfigurationByIdResponseTypeMap.put(200, new GenericType<VaultConfigurationRoot>(){});
+    getVaultConfigurationByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getVaultConfigurationByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getVaultConfigurationsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVaultConfigurationsResponseTypeMap.put(200, new GenericType<VaultConfigurationSummaryRoot>(){});
+    getVaultConfigurationsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getVaultConfigurationsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,11 +139,17 @@ public class ConfigurationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<VaultConfigurationRoot> localVarReturnType = new GenericType<VaultConfigurationRoot>() {};
 
-    return apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        VaultConfigurationRoot
+      
+    > apiResponse = apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVaultConfigurationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Vault configurations
@@ -204,10 +229,16 @@ public class ConfigurationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<VaultConfigurationSummaryRoot> localVarReturnType = new GenericType<VaultConfigurationSummaryRoot>() {};
 
-    return apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        VaultConfigurationSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVaultConfigurationsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

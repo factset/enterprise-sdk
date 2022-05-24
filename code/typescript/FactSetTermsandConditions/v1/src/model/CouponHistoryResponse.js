@@ -17,7 +17,7 @@ import CouponHistory from './CouponHistory';
 /**
  * The CouponHistoryResponse model module.
  * @module model/CouponHistoryResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CouponHistoryResponse {
     /**

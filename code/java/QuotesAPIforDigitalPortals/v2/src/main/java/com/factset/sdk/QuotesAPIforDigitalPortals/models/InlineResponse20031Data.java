@@ -70,6 +70,8 @@ public class InlineResponse20031Data implements Serializable {
   public static final String JSON_PROPERTY_SYSTEM = "system";
   private InlineResponse20031DataSystem system;
 
+  public InlineResponse20031Data() { 
+  }
 
   public InlineResponse20031Data code(String code) {
     this.code = code;

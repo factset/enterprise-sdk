@@ -59,6 +59,8 @@ public class SedolTranslation implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public SedolTranslation() { 
+  }
 
   public SedolTranslation fsymId(String fsymId) {
     this.fsymId = fsymId;

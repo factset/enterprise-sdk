@@ -43,6 +43,8 @@ public class InlineResponse20064DataInstrument implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public InlineResponse20064DataInstrument() { 
+  }
 
   public InlineResponse20064DataInstrument id(String id) {
     this.id = id;

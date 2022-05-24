@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataKnockOutObservation model module.
  * @module model/InlineResponse2005DataKnockOutObservation
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKnockOutObservation {
     /**

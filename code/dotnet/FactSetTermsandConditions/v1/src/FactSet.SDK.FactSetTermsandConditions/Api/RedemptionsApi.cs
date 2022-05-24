@@ -147,6 +147,33 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
     {
         private FactSet.SDK.FactSetTermsandConditions.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFixedIncomeRedemptionPricesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(RedemptionPricesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFixedIncomeRedemptionPricesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(RedemptionPricesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RedemptionsApi"/> class.
         /// </summary>
@@ -258,7 +285,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <returns>RedemptionPricesResponse</returns>
         public RedemptionPricesResponse GetFixedIncomeRedemptionPrices(List<string> ids, string categories)
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse> localVarResponse = GetFixedIncomeRedemptionPricesWithHttpInfo(ids, categories);
+            var localVarResponse = GetFixedIncomeRedemptionPricesWithHttpInfo(ids, categories);
             return localVarResponse.Data;
         }
 
@@ -269,15 +296,19 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="ids">List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT &#x3D; 250** *per request*. </param>
         /// <param name="categories">Filters the list of Redemption Prices Categories -   * **CALL** &#x3D; Call prices.   * **PUT** &#x3D; Put prices.   * **SF** &#x3D; Sinking Fund prices. </param>
         /// <returns>ApiResponse of RedemptionPricesResponse</returns>
-        public FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse> GetFixedIncomeRedemptionPricesWithHttpInfo(List<string> ids, string categories)
+        public ApiResponse<RedemptionPricesResponse> GetFixedIncomeRedemptionPricesWithHttpInfo(List<string> ids, string categories)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'ids' when calling RedemptionsApi->GetFixedIncomeRedemptionPrices");
+            }
 
             // verify the required parameter 'categories' is set
             if (categories == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'categories' when calling RedemptionsApi->GetFixedIncomeRedemptionPrices");
+            }
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
 
@@ -290,23 +321,29 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("", "categories", categories));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -318,15 +355,19 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<RedemptionPricesResponse>("/factset-terms-and-conditions/v1/redemption-prices", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedIncomeRedemptionPricesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            RedemptionPricesResponse>("/factset-terms-and-conditions/v1/redemption-prices", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedIncomeRedemptionPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -338,9 +379,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="categories">Filters the list of Redemption Prices Categories -   * **CALL** &#x3D; Call prices.   * **PUT** &#x3D; Put prices.   * **SF** &#x3D; Sinking Fund prices. </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionPricesResponse</returns>
-        public async System.Threading.Tasks.Task<RedemptionPricesResponse> GetFixedIncomeRedemptionPricesAsync(List<string> ids, string categories, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RedemptionPricesResponse>GetFixedIncomeRedemptionPricesAsync(List<string> ids, string categories, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse> localVarResponse = await GetFixedIncomeRedemptionPricesWithHttpInfoAsync(ids, categories, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFixedIncomeRedemptionPricesWithHttpInfoAsync(ids, categories, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -352,15 +393,20 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="categories">Filters the list of Redemption Prices Categories -   * **CALL** &#x3D; Call prices.   * **PUT** &#x3D; Put prices.   * **SF** &#x3D; Sinking Fund prices. </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionPricesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse>> GetFixedIncomeRedemptionPricesWithHttpInfoAsync(List<string> ids, string categories, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<RedemptionPricesResponse>> GetFixedIncomeRedemptionPricesWithHttpInfoAsync(List<string> ids, string categories, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'ids' when calling RedemptionsApi->GetFixedIncomeRedemptionPrices");
+            }
 
             // verify the required parameter 'categories' is set
             if (categories == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'categories' when calling RedemptionsApi->GetFixedIncomeRedemptionPrices");
+            }
 
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
@@ -373,25 +419,30 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.ParameterToMultiMap("", "categories", categories));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -403,14 +454,18 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedIncomeRedemptionPricesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<RedemptionPricesResponse>("/factset-terms-and-conditions/v1/redemption-prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedIncomeRedemptionPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -424,7 +479,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <returns>RedemptionPricesResponse</returns>
         public RedemptionPricesResponse GetFixedIncomeRedemptionPricesForList(RedemptionPricesRequest redemptionPricesRequest)
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse> localVarResponse = GetFixedIncomeRedemptionPricesForListWithHttpInfo(redemptionPricesRequest);
+            var localVarResponse = GetFixedIncomeRedemptionPricesForListWithHttpInfo(redemptionPricesRequest);
             return localVarResponse.Data;
         }
 
@@ -434,11 +489,13 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <exception cref="FactSet.SDK.FactSetTermsandConditions.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionPricesRequest">Request object for Fixed Income Redemption Prices.</param>
         /// <returns>ApiResponse of RedemptionPricesResponse</returns>
-        public FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse> GetFixedIncomeRedemptionPricesForListWithHttpInfo(RedemptionPricesRequest redemptionPricesRequest)
+        public ApiResponse<RedemptionPricesResponse> GetFixedIncomeRedemptionPricesForListWithHttpInfo(RedemptionPricesRequest redemptionPricesRequest)
         {
             // verify the required parameter 'redemptionPricesRequest' is set
             if (redemptionPricesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'redemptionPricesRequest' when calling RedemptionsApi->GetFixedIncomeRedemptionPricesForList");
+            }
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
 
@@ -452,22 +509,28 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = redemptionPricesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -479,15 +542,19 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<RedemptionPricesResponse>("/factset-terms-and-conditions/v1/redemption-prices", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedIncomeRedemptionPricesForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            RedemptionPricesResponse>("/factset-terms-and-conditions/v1/redemption-prices", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedIncomeRedemptionPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -498,9 +565,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="redemptionPricesRequest">Request object for Fixed Income Redemption Prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionPricesResponse</returns>
-        public async System.Threading.Tasks.Task<RedemptionPricesResponse> GetFixedIncomeRedemptionPricesForListAsync(RedemptionPricesRequest redemptionPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RedemptionPricesResponse>GetFixedIncomeRedemptionPricesForListAsync(RedemptionPricesRequest redemptionPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse> localVarResponse = await GetFixedIncomeRedemptionPricesForListWithHttpInfoAsync(redemptionPricesRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFixedIncomeRedemptionPricesForListWithHttpInfoAsync(redemptionPricesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -511,11 +578,14 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
         /// <param name="redemptionPricesRequest">Request object for Fixed Income Redemption Prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionPricesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetTermsandConditions.Client.ApiResponse<RedemptionPricesResponse>> GetFixedIncomeRedemptionPricesForListWithHttpInfoAsync(RedemptionPricesRequest redemptionPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<RedemptionPricesResponse>> GetFixedIncomeRedemptionPricesForListWithHttpInfoAsync(RedemptionPricesRequest redemptionPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'redemptionPricesRequest' is set
             if (redemptionPricesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetTermsandConditions.Client.ApiException(400, "Missing required parameter 'redemptionPricesRequest' when calling RedemptionsApi->GetFixedIncomeRedemptionPricesForList");
+            }
 
 
             FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTermsandConditions.Client.RequestOptions();
@@ -529,24 +599,29 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = redemptionPricesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTermsandConditions.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -558,14 +633,18 @@ namespace FactSet.SDK.FactSetTermsandConditions.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFixedIncomeRedemptionPricesForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<RedemptionPricesResponse>("/factset-terms-and-conditions/v1/redemption-prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFixedIncomeRedemptionPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataPerformance implements Serializable 
   public static final String JSON_PROPERTY_END_OF_DAY = "endOfDay";
   private StockNotationScreenerSearchDataPerformanceEndOfDay endOfDay;
 
+  public StockNotationScreenerSearchDataPerformance() { 
+  }
 
   public StockNotationScreenerSearchDataPerformance intraday(StockNotationScreenerSearchDataPerformanceIntraday intraday) {
     this.intraday = intraday;

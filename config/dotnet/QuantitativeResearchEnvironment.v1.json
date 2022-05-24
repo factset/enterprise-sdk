@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.QuantitativeResearchEnvironment",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageGuid": "{5a245e6f-57db-5f8b-8e74-eccd006266e2}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/QuantitativeResearchEnvironment/0.9.1",
+  "httpUserAgent": "fds-sdk/dotnet/QuantitativeResearchEnvironment/0.20.0",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

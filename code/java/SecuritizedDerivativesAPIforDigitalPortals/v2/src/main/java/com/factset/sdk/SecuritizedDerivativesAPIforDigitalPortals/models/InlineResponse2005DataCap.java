@@ -54,6 +54,8 @@ public class InlineResponse2005DataCap implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private InlineResponse2005DataCapCashFlow cashFlow;
 
+  public InlineResponse2005DataCap() { 
+  }
 
   public InlineResponse2005DataCap value(InlineResponse2005DataCapValue value) {
     this.value = value;

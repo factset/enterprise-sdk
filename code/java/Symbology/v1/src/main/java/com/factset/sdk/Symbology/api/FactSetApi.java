@@ -7,6 +7,9 @@ import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Symbology.models.ErrorResponse;
 import com.factset.sdk.Symbology.models.FactsetTranslationRequest;
@@ -23,6 +26,28 @@ public class FactSetApi {
   public FactSetApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> batchTranslateFactsetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchTranslateFactsetResponseTypeMap.put(200, new GenericType<FactsetTranslationResponse>(){});
+    batchTranslateFactsetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchTranslateFactsetResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchTranslateFactsetResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchTranslateFactsetResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchTranslateFactsetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> translateFactsetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    translateFactsetResponseTypeMap.put(200, new GenericType<FactsetTranslationResponse>(){});
+    translateFactsetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    translateFactsetResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    translateFactsetResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    translateFactsetResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    translateFactsetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -113,11 +138,17 @@ public class FactSetApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FactsetTranslationResponse> localVarReturnType = new GenericType<FactsetTranslationResponse>() {};
 
-    return apiClient.invokeAPI("FactSetApi.batchTranslateFactset", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FactsetTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("FactSetApi.batchTranslateFactset", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchTranslateFactsetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate market security symbols into FactSet Permanent Identifiers.
@@ -191,10 +222,16 @@ public class FactSetApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FactsetTranslationResponse> localVarReturnType = new GenericType<FactsetTranslationResponse>() {};
 
-    return apiClient.invokeAPI("FactSetApi.translateFactset", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FactsetTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("FactSetApi.translateFactset", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, translateFactsetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

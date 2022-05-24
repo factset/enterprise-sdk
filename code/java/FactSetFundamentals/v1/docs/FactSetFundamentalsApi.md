@@ -26,14 +26,13 @@ import com.factset.sdk.FactSetFundamentals.ApiClient;
 import com.factset.sdk.FactSetFundamentals.ApiException;
 import com.factset.sdk.FactSetFundamentals.Configuration;
 import com.factset.sdk.FactSetFundamentals.auth.*;
-import com.factset.sdk.FactSetFundamentals.model.*;
+import com.factset.sdk.FactSetFundamentals.models.*;
 import com.factset.sdk.FactSetFundamentals.api.FactSetFundamentalsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,14 +42,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FactSetFundamentalsApi apiInstance = new FactSetFundamentalsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted as input. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -63,6 +62,7 @@ public class Example {
         try {
             FundamentalsResponse result = apiInstance.getFdsFundamentals(ids, metrics, periodicity, fiscalPeriodStart, fiscalPeriodEnd, currency, restated);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FactSetFundamentalsApi#getFdsFundamentals");
             System.err.println("Status code: " + e.getCode());
@@ -128,14 +128,13 @@ import com.factset.sdk.FactSetFundamentals.ApiClient;
 import com.factset.sdk.FactSetFundamentals.ApiException;
 import com.factset.sdk.FactSetFundamentals.Configuration;
 import com.factset.sdk.FactSetFundamentals.auth.*;
-import com.factset.sdk.FactSetFundamentals.model.*;
+import com.factset.sdk.FactSetFundamentals.models.*;
 import com.factset.sdk.FactSetFundamentals.api.FactSetFundamentalsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -145,20 +144,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FactSetFundamentalsApi apiInstance = new FactSetFundamentalsApi(defaultClient);
         FundamentalsRequest fundamentalsRequest = new FundamentalsRequest(); // FundamentalsRequest | Request object for requesting fundamentals data
         try {
             FundamentalsResponse result = apiInstance.getFdsFundamentalsForList(fundamentalsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FactSetFundamentalsApi#getFdsFundamentalsForList");
             System.err.println("Status code: " + e.getCode());

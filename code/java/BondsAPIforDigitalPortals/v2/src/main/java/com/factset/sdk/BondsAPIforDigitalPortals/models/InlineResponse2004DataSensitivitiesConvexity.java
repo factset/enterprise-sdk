@@ -48,6 +48,8 @@ public class InlineResponse2004DataSensitivitiesConvexity implements Serializabl
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataSensitivitiesConvexity() { 
+  }
 
   public InlineResponse2004DataSensitivitiesConvexity minimum(BigDecimal minimum) {
     this.minimum = minimum;

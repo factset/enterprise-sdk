@@ -86,7 +86,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RankedTableTemplate {\n");
             sb.Append("  Headline: ").Append(Headline).Append("\n");
             sb.Append("  Footer: ").Append(Footer).Append("\n");
@@ -123,8 +123,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(RankedTableTemplate input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Headline == input.Headline ||
@@ -158,13 +159,21 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Headline != null)
-                    hashCode = hashCode * 59 + this.Headline.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Headline.GetHashCode();
+                }
                 if (this.Footer != null)
-                    hashCode = hashCode * 59 + this.Footer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Footer.GetHashCode();
+                }
                 if (this.Fdc3Context != null)
-                    hashCode = hashCode * 59 + this.Fdc3Context.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Fdc3Context.GetHashCode();
+                }
                 if (this.Table != null)
-                    hashCode = hashCode * 59 + this.Table.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Table.GetHashCode();
+                }
                 return hashCode;
             }
         }

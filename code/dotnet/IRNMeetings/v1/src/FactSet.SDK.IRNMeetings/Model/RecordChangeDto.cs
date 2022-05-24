@@ -92,7 +92,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RecordChangeDto {\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("  Operation: ").Append(Operation).Append("\n");
@@ -131,8 +131,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(RecordChangeDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Field == input.Field ||
@@ -178,17 +179,29 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.Field != null)
-                    hashCode = hashCode * 59 + this.Field.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Field.GetHashCode();
+                }
                 if (this.Operation != null)
-                    hashCode = hashCode * 59 + this.Operation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Operation.GetHashCode();
+                }
                 if (this.OldValue != null)
-                    hashCode = hashCode * 59 + this.OldValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OldValue.GetHashCode();
+                }
                 if (this.NewValue != null)
-                    hashCode = hashCode * 59 + this.NewValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NewValue.GetHashCode();
+                }
                 if (this.OldList != null)
-                    hashCode = hashCode * 59 + this.OldList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OldList.GetHashCode();
+                }
                 if (this.NewList != null)
-                    hashCode = hashCode * 59 + this.NewList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NewList.GetHashCode();
+                }
                 return hashCode;
             }
         }

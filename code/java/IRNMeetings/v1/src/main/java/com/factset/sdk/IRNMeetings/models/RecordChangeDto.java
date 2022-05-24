@@ -66,6 +66,8 @@ public class RecordChangeDto implements Serializable {
   public static final String JSON_PROPERTY_NEW_LIST = "newList";
   private JsonNullable<java.util.List<String>> newList = JsonNullable.<java.util.List<String>>undefined();
 
+  public RecordChangeDto() { 
+  }
 
   public RecordChangeDto field(String field) {
     this.field = JsonNullable.<String>of(field);

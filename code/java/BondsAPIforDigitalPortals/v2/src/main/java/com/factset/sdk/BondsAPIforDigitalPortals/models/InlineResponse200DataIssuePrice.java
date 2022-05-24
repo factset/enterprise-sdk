@@ -49,6 +49,8 @@ public class InlineResponse200DataIssuePrice implements Serializable {
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse200DataIssuePriceValueUnit valueUnit;
 
+  public InlineResponse200DataIssuePrice() { 
+  }
 
   public InlineResponse200DataIssuePrice value(BigDecimal value) {
     this.value = value;

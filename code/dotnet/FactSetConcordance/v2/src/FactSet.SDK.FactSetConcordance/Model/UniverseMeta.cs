@@ -117,7 +117,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UniverseMeta {\n");
             sb.Append("  UniverseId: ").Append(UniverseId).Append("\n");
             sb.Append("  UniverseName: ").Append(UniverseName).Append("\n");
@@ -158,8 +158,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(UniverseMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UniverseId == input.UniverseId ||
@@ -210,20 +211,32 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UniverseId.GetHashCode();
+                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
                 if (this.UniverseName != null)
-                    hashCode = hashCode * 59 + this.UniverseName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UniverseName.GetHashCode();
+                }
                 if (this.UniverseDescription != null)
-                    hashCode = hashCode * 59 + this.UniverseDescription.GetHashCode();
-                hashCode = hashCode * 59 + this.SelfManaged.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UniverseDescription.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SelfManaged.GetHashCode();
                 if (this.CreatedBy != null)
-                    hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
+                }
                 if (this.CreatedOn != null)
-                    hashCode = hashCode * 59 + this.CreatedOn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedOn.GetHashCode();
+                }
                 if (this.UpdatedBy != null)
-                    hashCode = hashCode * 59 + this.UpdatedBy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedBy.GetHashCode();
+                }
                 if (this.UpdatedOn != null)
-                    hashCode = hashCode * 59 + this.UpdatedOn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedOn.GetHashCode();
+                }
                 return hashCode;
             }
         }

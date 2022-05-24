@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataTradedValueDays30 implement
   public static final String JSON_PROPERTY_AVERAGE = "average";
   private DebtInstrumentNotationScreenerSearchDataTradedValueDays30Average average;
 
+  public DebtInstrumentNotationScreenerSearchDataTradedValueDays30() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataTradedValueDays30 sum(DebtInstrumentNotationScreenerSearchDataTradedValueDays30Sum sum) {
     this.sum = sum;

@@ -128,7 +128,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsArticleSearchByTextDataTextCriteria {\n");
             sb.Append("  SelectionType: ").Append(SelectionType).Append("\n");
             sb.Append("  Phrases: ").Append(Phrases).Append("\n");
@@ -165,8 +165,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsArticleSearchByTextDataTextCriteria input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SelectionType == input.SelectionType ||
@@ -197,11 +198,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.SelectionType.GetHashCode();
+                hashCode = (hashCode * 59) + this.SelectionType.GetHashCode();
                 if (this.Phrases != null)
-                    hashCode = hashCode * 59 + this.Phrases.GetHashCode();
-                hashCode = hashCode * 59 + this.MinimumMatchScore.GetHashCode();
-                hashCode = hashCode * 59 + this.Scope.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Phrases.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MinimumMatchScore.GetHashCode();
+                hashCode = (hashCode * 59) + this.Scope.GetHashCode();
                 return hashCode;
             }
         }

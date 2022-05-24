@@ -39,21 +39,27 @@ import com.factset.sdk.IRNNotes.JSON;
 @JsonPropertyOrder({
   AttachmentSummaryDto.JSON_PROPERTY_ID,
   AttachmentSummaryDto.JSON_PROPERTY_FILE_NAME,
-  AttachmentSummaryDto.JSON_PROPERTY_MIME_TYPE
+  AttachmentSummaryDto.JSON_PROPERTY_MIME_TYPE,
+  AttachmentSummaryDto.JSON_PROPERTY_SIZE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AttachmentSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_FILE_NAME = "fileName";
+  public static final String JSON_PROPERTY_FILE_NAME = "FileName";
   private JsonNullable<String> fileName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
+  public static final String JSON_PROPERTY_MIME_TYPE = "MimeType";
   private JsonNullable<String> mimeType = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_SIZE = "Size";
+  private JsonNullable<Long> size = JsonNullable.<Long>undefined();
+
+  public AttachmentSummaryDto() { 
+  }
 
   public AttachmentSummaryDto id(java.util.UUID id) {
     this.id = id;
@@ -149,6 +155,40 @@ public class AttachmentSummaryDto implements Serializable {
   }
 
 
+  public AttachmentSummaryDto size(Long size) {
+    this.size = JsonNullable.<Long>of(size);
+    return this;
+  }
+
+   /**
+   * Get size
+   * @return size
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Long getSize() {
+        return size.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getSize_JsonNullable() {
+    return size;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  public void setSize_JsonNullable(JsonNullable<Long> size) {
+    this.size = size;
+  }
+
+  public void setSize(Long size) {
+    this.size = JsonNullable.<Long>of(size);
+  }
+
+
   /**
    * Return true if this AttachmentSummaryDto object is equal to o.
    */
@@ -163,7 +203,8 @@ public class AttachmentSummaryDto implements Serializable {
     AttachmentSummaryDto attachmentSummaryDto = (AttachmentSummaryDto) o;
     return Objects.equals(this.id, attachmentSummaryDto.id) &&
         equalsNullable(this.fileName, attachmentSummaryDto.fileName) &&
-        equalsNullable(this.mimeType, attachmentSummaryDto.mimeType);
+        equalsNullable(this.mimeType, attachmentSummaryDto.mimeType) &&
+        equalsNullable(this.size, attachmentSummaryDto.size);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -172,7 +213,7 @@ public class AttachmentSummaryDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(fileName), hashCodeNullable(mimeType));
+    return Objects.hash(id, hashCodeNullable(fileName), hashCodeNullable(mimeType), hashCodeNullable(size));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -189,6 +230,7 @@ public class AttachmentSummaryDto implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }

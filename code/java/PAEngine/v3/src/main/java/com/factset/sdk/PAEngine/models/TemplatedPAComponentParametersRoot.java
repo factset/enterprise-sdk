@@ -51,6 +51,16 @@ public class TemplatedPAComponentParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public TemplatedPAComponentParametersRoot() { 
+  }
+
+  @JsonCreator
+  public TemplatedPAComponentParametersRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) TemplatedPAComponentParameters data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public TemplatedPAComponentParametersRoot data(TemplatedPAComponentParameters data) {
     this.data = data;

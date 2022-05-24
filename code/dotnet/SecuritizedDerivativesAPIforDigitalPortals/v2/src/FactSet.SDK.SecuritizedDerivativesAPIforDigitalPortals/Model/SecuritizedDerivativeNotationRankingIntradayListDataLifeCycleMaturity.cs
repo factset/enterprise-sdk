@@ -80,7 +80,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity {\n");
             sb.Append("  Perpetual: ").Append(Perpetual).Append("\n");
             sb.Append("}\n");
@@ -114,8 +114,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Perpetual == input.Perpetual ||
@@ -132,7 +133,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Perpetual.GetHashCode();
+                hashCode = (hashCode * 59) + this.Perpetual.GetHashCode();
                 return hashCode;
             }
         }

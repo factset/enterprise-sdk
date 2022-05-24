@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataOperatingMargin implements Serializa
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataEbitMarginMaximum maximum;
 
+  public StockNotationScreenerSearchDataOperatingMargin() { 
+  }
 
   public StockNotationScreenerSearchDataOperatingMargin minimum(StockNotationScreenerSearchDataEbitMarginMinimum minimum) {
     this.minimum = minimum;

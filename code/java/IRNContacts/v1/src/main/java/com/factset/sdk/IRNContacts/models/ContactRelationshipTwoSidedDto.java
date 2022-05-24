@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -28,8 +28,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.threeten.bp.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -58,39 +58,41 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactRelationshipTwoSidedDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP_CATEGORY = "relationshipCategory";
+  public static final String JSON_PROPERTY_RELATIONSHIP_CATEGORY = "RelationshipCategory";
   private RelationshipCategoryIdNameDto relationshipCategory;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP = "relationship";
+  public static final String JSON_PROPERTY_RELATIONSHIP = "Relationship";
   private RelationshipIdNameDto relationship;
 
-  public static final String JSON_PROPERTY_LEFT_CONTACT = "leftContact";
+  public static final String JSON_PROPERTY_LEFT_CONTACT = "LeftContact";
   private ContactIdNameDto leftContact;
 
-  public static final String JSON_PROPERTY_RIGHT_CONTACT = "rightContact";
+  public static final String JSON_PROPERTY_RIGHT_CONTACT = "RightContact";
   private ContactIdNameDto rightContact;
 
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
+  public static final String JSON_PROPERTY_SYMBOL = "Symbol";
   private RelationshipSymbolSummaryDto symbol;
 
-  public static final String JSON_PROPERTY_IS_CURRENT = "isCurrent";
+  public static final String JSON_PROPERTY_IS_CURRENT = "IsCurrent";
   private Boolean isCurrent;
 
-  public static final String JSON_PROPERTY_START = "start";
+  public static final String JSON_PROPERTY_START = "Start";
   private JsonNullable<OffsetDateTime> start = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_END = "end";
+  public static final String JSON_PROPERTY_END = "End";
   private JsonNullable<OffsetDateTime> end = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_TITLE = "title";
+  public static final String JSON_PROPERTY_TITLE = "Title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_COMMENT = "comment";
+  public static final String JSON_PROPERTY_COMMENT = "Comment";
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
+  public ContactRelationshipTwoSidedDto() { 
+  }
 
   public ContactRelationshipTwoSidedDto id(java.util.UUID id) {
     this.id = id;

@@ -17,7 +17,7 @@ import PAComponentData from './PAComponentData';
 /**
  * The TemplatedPAComponentUpdateParameters model module.
  * @module model/TemplatedPAComponentUpdateParameters
- * @version 0.9.1
+ * @version 0.20.0
  */
 class TemplatedPAComponentUpdateParameters {
     /**

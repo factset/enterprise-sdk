@@ -122,7 +122,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeIssuerSearchData {\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -162,8 +162,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeIssuerSearchData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Role == input.Role ||
@@ -210,19 +211,31 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Role.GetHashCode();
+                hashCode = (hashCode * 59) + this.Role.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 if (this.Underlying != null)
-                    hashCode = hashCode * 59 + this.Underlying.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
                 if (this.FactorCertificates != null)
-                    hashCode = hashCode * 59 + this.FactorCertificates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactorCertificates.GetHashCode();
+                }
                 if (this.RegistrationCountry != null)
-                    hashCode = hashCode * 59 + this.RegistrationCountry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RegistrationCountry.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 return hashCode;
             }
         }

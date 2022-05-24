@@ -71,7 +71,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20069DataRegionalListing {\n");
             sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
             sb.Append("  PermanentIdentifier: ").Append(PermanentIdentifier).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20069DataRegionalListing input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IsPrimary == input.IsPrimary ||
@@ -135,11 +136,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IsPrimary.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsPrimary.GetHashCode();
                 if (this.PermanentIdentifier != null)
-                    hashCode = hashCode * 59 + this.PermanentIdentifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PermanentIdentifier.GetHashCode();
+                }
                 if (this.TickerExchange != null)
-                    hashCode = hashCode * 59 + this.TickerExchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TickerExchange.GetHashCode();
+                }
                 return hashCode;
             }
         }

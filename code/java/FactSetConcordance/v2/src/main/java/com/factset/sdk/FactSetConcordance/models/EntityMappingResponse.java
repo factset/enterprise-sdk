@@ -43,6 +43,8 @@ public class EntityMappingResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private EntityMapping data;
 
+  public EntityMappingResponse() { 
+  }
 
   public EntityMappingResponse data(EntityMapping data) {
     this.data = data;

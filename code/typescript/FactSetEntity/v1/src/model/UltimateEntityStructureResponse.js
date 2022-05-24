@@ -17,7 +17,7 @@ import UtlimateEntityStructure from './UtlimateEntityStructure';
 /**
  * The UltimateEntityStructureResponse model module.
  * @module model/UltimateEntityStructureResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UltimateEntityStructureResponse {
     /**

@@ -44,6 +44,8 @@ public class InlineResponse2005DataRangeKnockOutUpper implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private InlineResponse2005DataRangeKnockOutUpperValue value;
 
+  public InlineResponse2005DataRangeKnockOutUpper() { 
+  }
 
   public InlineResponse2005DataRangeKnockOutUpper value(InlineResponse2005DataRangeKnockOutUpperValue value) {
     this.value = value;

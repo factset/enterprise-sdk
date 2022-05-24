@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecordChangeDto model module.
  * @module model/RecordChangeDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RecordChangeDto {
     /**
@@ -47,23 +47,23 @@ class RecordChangeDto {
         if (data) {
             obj = obj || new RecordChangeDto();
 
-            if (data.hasOwnProperty('field')) {
-                obj['field'] = ApiClient.convertToType(data['field'], 'String');
+            if (data.hasOwnProperty('Field')) {
+                obj['Field'] = ApiClient.convertToType(data['Field'], 'String');
             }
-            if (data.hasOwnProperty('operation')) {
-                obj['operation'] = ApiClient.convertToType(data['operation'], 'String');
+            if (data.hasOwnProperty('Operation')) {
+                obj['Operation'] = ApiClient.convertToType(data['Operation'], 'String');
             }
-            if (data.hasOwnProperty('oldValue')) {
-                obj['oldValue'] = ApiClient.convertToType(data['oldValue'], 'String');
+            if (data.hasOwnProperty('OldValue')) {
+                obj['OldValue'] = ApiClient.convertToType(data['OldValue'], 'String');
             }
-            if (data.hasOwnProperty('newValue')) {
-                obj['newValue'] = ApiClient.convertToType(data['newValue'], 'String');
+            if (data.hasOwnProperty('NewValue')) {
+                obj['NewValue'] = ApiClient.convertToType(data['NewValue'], 'String');
             }
-            if (data.hasOwnProperty('oldList')) {
-                obj['oldList'] = ApiClient.convertToType(data['oldList'], ['String']);
+            if (data.hasOwnProperty('OldList')) {
+                obj['OldList'] = ApiClient.convertToType(data['OldList'], ['String']);
             }
-            if (data.hasOwnProperty('newList')) {
-                obj['newList'] = ApiClient.convertToType(data['newList'], ['String']);
+            if (data.hasOwnProperty('NewList')) {
+                obj['NewList'] = ApiClient.convertToType(data['NewList'], ['String']);
             }
         }
         return obj;
@@ -73,34 +73,34 @@ class RecordChangeDto {
 }
 
 /**
- * @member {String} field
+ * @member {String} Field
  */
-RecordChangeDto.prototype['field'] = undefined;
+RecordChangeDto.prototype['Field'] = undefined;
 
 /**
- * @member {String} operation
+ * @member {String} Operation
  */
-RecordChangeDto.prototype['operation'] = undefined;
+RecordChangeDto.prototype['Operation'] = undefined;
 
 /**
- * @member {String} oldValue
+ * @member {String} OldValue
  */
-RecordChangeDto.prototype['oldValue'] = undefined;
+RecordChangeDto.prototype['OldValue'] = undefined;
 
 /**
- * @member {String} newValue
+ * @member {String} NewValue
  */
-RecordChangeDto.prototype['newValue'] = undefined;
+RecordChangeDto.prototype['NewValue'] = undefined;
 
 /**
- * @member {Array.<String>} oldList
+ * @member {Array.<String>} OldList
  */
-RecordChangeDto.prototype['oldList'] = undefined;
+RecordChangeDto.prototype['OldList'] = undefined;
 
 /**
- * @member {Array.<String>} newList
+ * @member {Array.<String>} NewList
  */
-RecordChangeDto.prototype['newList'] = undefined;
+RecordChangeDto.prototype['NewList'] = undefined;
 
 
 

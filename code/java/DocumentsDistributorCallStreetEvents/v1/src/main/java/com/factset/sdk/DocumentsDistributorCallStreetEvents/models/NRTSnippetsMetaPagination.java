@@ -54,6 +54,8 @@ public class NRTSnippetsMetaPagination implements Serializable {
   public static final String JSON_PROPERTY_OFFSET = "offset";
   private Integer offset;
 
+  public NRTSnippetsMetaPagination() { 
+  }
 
   public NRTSnippetsMetaPagination total(Integer total) {
     this.total = total;

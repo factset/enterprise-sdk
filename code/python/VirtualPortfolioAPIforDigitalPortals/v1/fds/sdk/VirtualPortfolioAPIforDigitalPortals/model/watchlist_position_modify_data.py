@@ -24,8 +24,8 @@ from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model_utils import (  # noqa: 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -67,7 +67,7 @@ class WatchlistPositionModifyData(ModelNormal):
         ('comment',): {
             'max_length': 200,
             'regex': {
-                'pattern': r'^[\u0020-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$',  # noqa: E501
+                'pattern': r'^[u0020-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$/',  # noqa: E501
             },
         },
     }

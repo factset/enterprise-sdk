@@ -44,6 +44,8 @@ public class InlineResponse2001DataSummaryCash implements Serializable {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private BigDecimal amount;
 
+  public InlineResponse2001DataSummaryCash() { 
+  }
 
   public InlineResponse2001DataSummaryCash amount(BigDecimal amount) {
     this.amount = amount;

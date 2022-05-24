@@ -108,7 +108,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataCostsAndChargesExPost {\n");
             sb.Append("  OneOffEntryCost: ").Append(OneOffEntryCost).Append("\n");
             sb.Append("  OneOffExitCost: ").Append(OneOffExitCost).Append("\n");
@@ -149,8 +149,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataCostsAndChargesExPost input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.OneOffEntryCost == input.OneOffEntryCost ||
@@ -204,21 +205,37 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.OneOffEntryCost != null)
-                    hashCode = hashCode * 59 + this.OneOffEntryCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffEntryCost.GetHashCode();
+                }
                 if (this.OneOffExitCost != null)
-                    hashCode = hashCode * 59 + this.OneOffExitCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffExitCost.GetHashCode();
+                }
                 if (this.OngoingCosts != null)
-                    hashCode = hashCode * 59 + this.OngoingCosts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OngoingCosts.GetHashCode();
+                }
                 if (this.OngoingCostAccumulated != null)
-                    hashCode = hashCode * 59 + this.OngoingCostAccumulated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OngoingCostAccumulated.GetHashCode();
+                }
                 if (this.ManagementFee != null)
-                    hashCode = hashCode * 59 + this.ManagementFee.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagementFee.GetHashCode();
+                }
                 if (this.DistributionFee != null)
-                    hashCode = hashCode * 59 + this.DistributionFee.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DistributionFee.GetHashCode();
+                }
                 if (this.TransactionCosts != null)
-                    hashCode = hashCode * 59 + this.TransactionCosts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransactionCosts.GetHashCode();
+                }
                 if (this.IncidentalCosts != null)
-                    hashCode = hashCode * 59 + this.IncidentalCosts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IncidentalCosts.GetHashCode();
+                }
                 return hashCode;
             }
         }

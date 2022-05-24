@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SubcommentSummaryDto model module.
  * @module model/SubcommentSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SubcommentSummaryDto {
     /**
@@ -47,14 +47,14 @@ class SubcommentSummaryDto {
         if (data) {
             obj = obj || new SubcommentSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('userId')) {
-                obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
+            if (data.hasOwnProperty('UserId')) {
+                obj['UserId'] = ApiClient.convertToType(data['UserId'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
-                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+            if (data.hasOwnProperty('CreatedAt')) {
+                obj['CreatedAt'] = ApiClient.convertToType(data['CreatedAt'], 'String');
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class SubcommentSummaryDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-SubcommentSummaryDto.prototype['id'] = undefined;
+SubcommentSummaryDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} userId
+ * @member {String} UserId
  */
-SubcommentSummaryDto.prototype['userId'] = undefined;
+SubcommentSummaryDto.prototype['UserId'] = undefined;
 
 /**
- * @member {String} createdAt
+ * @member {String} CreatedAt
  */
-SubcommentSummaryDto.prototype['createdAt'] = undefined;
+SubcommentSummaryDto.prototype['CreatedAt'] = undefined;
 
 
 

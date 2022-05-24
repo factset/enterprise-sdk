@@ -48,6 +48,8 @@ public class InlineResponse2006KeyFiguresBreakEvenDistance implements Serializab
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006KeyFiguresBreakEvenDistance() { 
+  }
 
   public InlineResponse2006KeyFiguresBreakEvenDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

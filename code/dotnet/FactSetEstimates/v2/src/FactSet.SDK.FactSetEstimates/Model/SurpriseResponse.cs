@@ -54,7 +54,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SurpriseResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(SurpriseResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
@@ -109,7 +110,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 return hashCode;
             }
         }

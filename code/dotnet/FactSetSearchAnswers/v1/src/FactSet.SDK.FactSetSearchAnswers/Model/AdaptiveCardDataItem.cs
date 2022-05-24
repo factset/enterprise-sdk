@@ -36,10 +36,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AdaptiveCardDataItem" /> class
-        /// with the <see cref="AdaptiveCardWithThumbnail" /> class
+        /// with the <see cref="Object" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of AdaptiveCardWithThumbnail.</param>
-        public AdaptiveCardDataItem(AdaptiveCardWithThumbnail actualInstance)
+        /// <param name="actualInstance">An instance of Object.</param>
+        public AdaptiveCardDataItem(Object actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -48,10 +48,10 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AdaptiveCardDataItem" /> class
-        /// with the <see cref="Object" /> class
+        /// with the <see cref="AdaptiveCardWithThumbnail" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Object.</param>
-        public AdaptiveCardDataItem(Object actualInstance)
+        /// <param name="actualInstance">An instance of AdaptiveCardWithThumbnail.</param>
+        public AdaptiveCardDataItem(AdaptiveCardWithThumbnail actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -72,11 +72,11 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             set
             {
-                if (value.GetType() == typeof(AdaptiveCardWithThumbnail))
+                if (value is AdaptiveCardWithThumbnail)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Object))
+                else if (value is Object)
                 {
                     this._actualInstance = value;
                 }
@@ -88,16 +88,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         }
 
         /// <summary>
-        /// Get the actual instance of `AdaptiveCardWithThumbnail`. If the actual instance is not `AdaptiveCardWithThumbnail`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of AdaptiveCardWithThumbnail</returns>
-        public AdaptiveCardWithThumbnail GetAdaptiveCardWithThumbnail()
-        {
-            return (AdaptiveCardWithThumbnail)this.ActualInstance;
-        }
-
-        /// <summary>
         /// Get the actual instance of `Object`. If the actual instance is not `Object`,
         /// the InvalidClassException will be thrown
         /// </summary>
@@ -105,6 +95,16 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public Object GetObject()
         {
             return (Object)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `AdaptiveCardWithThumbnail`. If the actual instance is not `AdaptiveCardWithThumbnail`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of AdaptiveCardWithThumbnail</returns>
+        public AdaptiveCardWithThumbnail GetAdaptiveCardWithThumbnail()
+        {
+            return (AdaptiveCardWithThumbnail)this.ActualInstance;
         }
 
         /// <summary>
@@ -147,15 +147,28 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(AdaptiveCardWithThumbnail).GetProperty("AdditionalProperties") == null)
+                var parsedValue = JsonConvert.DeserializeObject(jsonString);
+                if (parsedValue is Object)
                 {
-                    newAdaptiveCardDataItem = new AdaptiveCardDataItem(JsonConvert.DeserializeObject<AdaptiveCardWithThumbnail>(jsonString, AdaptiveCardDataItem.SerializerSettings));
+                    newAdaptiveCardDataItem = new AdaptiveCardDataItem((Object)parsedValue);
+                    matchedTypes.Add("Object");
+                    match++;
                 }
-                else
-                {
-                    newAdaptiveCardDataItem = new AdaptiveCardDataItem(JsonConvert.DeserializeObject<AdaptiveCardWithThumbnail>(jsonString, AdaptiveCardDataItem.AdditionalPropertiesSerializerSettings));
-                }
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Object: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                var hasAdditionalProperties = !(typeof(AdaptiveCardWithThumbnail).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<AdaptiveCardWithThumbnail>(
+                    jsonString, 
+                    hasAdditionalProperties ? AdaptiveCardDataItem.AdditionalPropertiesSerializerSettings : AdaptiveCardDataItem.SerializerSettings
+                );
+                newAdaptiveCardDataItem = new AdaptiveCardDataItem(parsedValue);
                 matchedTypes.Add("AdaptiveCardWithThumbnail");
                 match++;
             }
@@ -163,26 +176,6 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into AdaptiveCardWithThumbnail: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Object).GetProperty("AdditionalProperties") == null)
-                {
-                    newAdaptiveCardDataItem = new AdaptiveCardDataItem(JsonConvert.DeserializeObject<Object>(jsonString, AdaptiveCardDataItem.SerializerSettings));
-                }
-                else
-                {
-                    newAdaptiveCardDataItem = new AdaptiveCardDataItem(JsonConvert.DeserializeObject<Object>(jsonString, AdaptiveCardDataItem.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("Object");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Object: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
@@ -275,7 +268,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return AdaptiveCardDataItem.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return AdaptiveCardDataItem.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

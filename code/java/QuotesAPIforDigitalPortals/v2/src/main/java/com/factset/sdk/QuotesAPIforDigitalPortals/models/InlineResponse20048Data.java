@@ -51,6 +51,8 @@ public class InlineResponse20048Data implements Serializable {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public InlineResponse20048Data() { 
+  }
 
   public InlineResponse20048Data id(BigDecimal id) {
     this.id = id;

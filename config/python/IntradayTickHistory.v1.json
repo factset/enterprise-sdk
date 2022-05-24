@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.IntradayTickHistory",
   "projectName": "fds.sdk.IntradayTickHistory",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "Intraday Tick History client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/IntradayTickHistory/v1",
-  "httpUserAgent": "fds-sdk/python/IntradayTickHistory/0.9.1",
+  "httpUserAgent": "fds-sdk/python/IntradayTickHistory/0.20.0",
   "files": {
     "LICENSE": {}
   }

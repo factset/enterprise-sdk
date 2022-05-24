@@ -37,15 +37,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -53,11 +53,12 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = currencies_api.CurrenciesApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+
     try:
         # Get currencies
         api_response = api_instance.get_currencies()
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling CurrenciesApi->get_currencies: %s\n" % e)
 ```

@@ -80,6 +80,8 @@ public class InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios implement
   public static final String JSON_PROPERTY_DEBT_EQUITY = "debtEquity";
   private BigDecimal debtEquity;
 
+  public InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios() { 
+  }
 
   public InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios priceSales(BigDecimal priceSales) {
     this.priceSales = priceSales;

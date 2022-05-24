@@ -48,6 +48,16 @@ public class NotationCrossReferenceListByISINData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private NotationCrossReferenceListByInstrumentDataFilter filter;
 
+  public NotationCrossReferenceListByISINData() { 
+  }
+
+  @JsonCreator
+  public NotationCrossReferenceListByISINData(
+    @JsonProperty(value=JSON_PROPERTY_ISIN, required=true) String isin
+  ) {
+    this();
+    this.isin = isin;
+  }
 
   public NotationCrossReferenceListByISINData isin(String isin) {
     this.isin = isin;

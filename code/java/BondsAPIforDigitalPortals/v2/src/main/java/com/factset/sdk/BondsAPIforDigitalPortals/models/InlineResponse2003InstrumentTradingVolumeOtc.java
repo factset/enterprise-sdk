@@ -44,6 +44,8 @@ public class InlineResponse2003InstrumentTradingVolumeOtc implements Serializabl
   public static final String JSON_PROPERTY_MINIMUM = "minimum";
   private BigDecimal minimum;
 
+  public InlineResponse2003InstrumentTradingVolumeOtc() { 
+  }
 
   public InlineResponse2003InstrumentTradingVolumeOtc minimum(BigDecimal minimum) {
     this.minimum = minimum;

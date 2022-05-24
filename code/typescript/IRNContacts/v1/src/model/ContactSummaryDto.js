@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -20,7 +20,7 @@ import ContactTypeDto from './ContactTypeDto';
 /**
  * The ContactSummaryDto model module.
  * @module model/ContactSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactSummaryDto {
     /**
@@ -51,50 +51,53 @@ class ContactSummaryDto {
         if (data) {
             obj = obj || new ContactSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('primaryEmailAddress')) {
-                obj['primaryEmailAddress'] = ApiClient.convertToType(data['primaryEmailAddress'], 'String');
+            if (data.hasOwnProperty('PrimaryEmailAddress')) {
+                obj['PrimaryEmailAddress'] = ApiClient.convertToType(data['PrimaryEmailAddress'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
-                obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
+            if (data.hasOwnProperty('Identifier')) {
+                obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
             }
-            if (data.hasOwnProperty('fullName')) {
-                obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
+            if (data.hasOwnProperty('FullName')) {
+                obj['FullName'] = ApiClient.convertToType(data['FullName'], 'String');
             }
-            if (data.hasOwnProperty('employerName')) {
-                obj['employerName'] = ApiClient.convertToType(data['employerName'], 'String');
+            if (data.hasOwnProperty('EmployerName')) {
+                obj['EmployerName'] = ApiClient.convertToType(data['EmployerName'], 'String');
             }
-            if (data.hasOwnProperty('city')) {
-                obj['city'] = ApiClient.convertToType(data['city'], 'String');
+            if (data.hasOwnProperty('EmployerIdentifier')) {
+                obj['EmployerIdentifier'] = ApiClient.convertToType(data['EmployerIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('stateProvince')) {
-                obj['stateProvince'] = ApiClient.convertToType(data['stateProvince'], 'String');
+            if (data.hasOwnProperty('City')) {
+                obj['City'] = ApiClient.convertToType(data['City'], 'String');
             }
-            if (data.hasOwnProperty('postalCode')) {
-                obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
+            if (data.hasOwnProperty('StateProvince')) {
+                obj['StateProvince'] = ApiClient.convertToType(data['StateProvince'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
-                obj['country'] = ApiClient.convertToType(data['country'], 'String');
+            if (data.hasOwnProperty('PostalCode')) {
+                obj['PostalCode'] = ApiClient.convertToType(data['PostalCode'], 'String');
             }
-            if (data.hasOwnProperty('role')) {
-                obj['role'] = ContactRoleDto.constructFromObject(data['role']);
+            if (data.hasOwnProperty('Country')) {
+                obj['Country'] = ApiClient.convertToType(data['Country'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ContactTypeDto.constructFromObject(data['type']);
+            if (data.hasOwnProperty('Role')) {
+                obj['Role'] = ContactRoleDto.constructFromObject(data['Role']);
             }
-            if (data.hasOwnProperty('isDeleted')) {
-                obj['isDeleted'] = ApiClient.convertToType(data['isDeleted'], 'Boolean');
+            if (data.hasOwnProperty('Type')) {
+                obj['Type'] = ContactTypeDto.constructFromObject(data['Type']);
             }
-            if (data.hasOwnProperty('lastMeeting')) {
-                obj['lastMeeting'] = ApiClient.convertToType(data['lastMeeting'], 'String');
+            if (data.hasOwnProperty('IsDeleted')) {
+                obj['IsDeleted'] = ApiClient.convertToType(data['IsDeleted'], 'Boolean');
             }
-            if (data.hasOwnProperty('alternativeEmailAddresses')) {
-                obj['alternativeEmailAddresses'] = ApiClient.convertToType(data['alternativeEmailAddresses'], [AlternativeEmailAddressDto]);
+            if (data.hasOwnProperty('LastMeeting')) {
+                obj['LastMeeting'] = ApiClient.convertToType(data['LastMeeting'], 'String');
             }
-            if (data.hasOwnProperty('customFieldValues')) {
-                obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [ContactCustomFieldValueDto]);
+            if (data.hasOwnProperty('AlternativeEmailAddresses')) {
+                obj['AlternativeEmailAddresses'] = ApiClient.convertToType(data['AlternativeEmailAddresses'], [AlternativeEmailAddressDto]);
+            }
+            if (data.hasOwnProperty('CustomFieldValues')) {
+                obj['CustomFieldValues'] = ApiClient.convertToType(data['CustomFieldValues'], [ContactCustomFieldValueDto]);
             }
         }
         return obj;
@@ -104,79 +107,84 @@ class ContactSummaryDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-ContactSummaryDto.prototype['id'] = undefined;
+ContactSummaryDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} primaryEmailAddress
+ * @member {String} PrimaryEmailAddress
  */
-ContactSummaryDto.prototype['primaryEmailAddress'] = undefined;
+ContactSummaryDto.prototype['PrimaryEmailAddress'] = undefined;
 
 /**
- * @member {String} identifier
+ * @member {String} Identifier
  */
-ContactSummaryDto.prototype['identifier'] = undefined;
+ContactSummaryDto.prototype['Identifier'] = undefined;
 
 /**
- * @member {String} fullName
+ * @member {String} FullName
  */
-ContactSummaryDto.prototype['fullName'] = undefined;
+ContactSummaryDto.prototype['FullName'] = undefined;
 
 /**
- * @member {String} employerName
+ * @member {String} EmployerName
  */
-ContactSummaryDto.prototype['employerName'] = undefined;
+ContactSummaryDto.prototype['EmployerName'] = undefined;
 
 /**
- * @member {String} city
+ * @member {String} EmployerIdentifier
  */
-ContactSummaryDto.prototype['city'] = undefined;
+ContactSummaryDto.prototype['EmployerIdentifier'] = undefined;
 
 /**
- * @member {String} stateProvince
+ * @member {String} City
  */
-ContactSummaryDto.prototype['stateProvince'] = undefined;
+ContactSummaryDto.prototype['City'] = undefined;
 
 /**
- * @member {String} postalCode
+ * @member {String} StateProvince
  */
-ContactSummaryDto.prototype['postalCode'] = undefined;
+ContactSummaryDto.prototype['StateProvince'] = undefined;
 
 /**
- * @member {String} country
+ * @member {String} PostalCode
  */
-ContactSummaryDto.prototype['country'] = undefined;
+ContactSummaryDto.prototype['PostalCode'] = undefined;
 
 /**
- * @member {module:model/ContactRoleDto} role
+ * @member {String} Country
  */
-ContactSummaryDto.prototype['role'] = undefined;
+ContactSummaryDto.prototype['Country'] = undefined;
 
 /**
- * @member {module:model/ContactTypeDto} type
+ * @member {module:model/ContactRoleDto} Role
  */
-ContactSummaryDto.prototype['type'] = undefined;
+ContactSummaryDto.prototype['Role'] = undefined;
 
 /**
- * @member {Boolean} isDeleted
+ * @member {module:model/ContactTypeDto} Type
  */
-ContactSummaryDto.prototype['isDeleted'] = undefined;
+ContactSummaryDto.prototype['Type'] = undefined;
 
 /**
- * @member {String} lastMeeting
+ * @member {Boolean} IsDeleted
  */
-ContactSummaryDto.prototype['lastMeeting'] = undefined;
+ContactSummaryDto.prototype['IsDeleted'] = undefined;
 
 /**
- * @member {Array.<module:model/AlternativeEmailAddressDto>} alternativeEmailAddresses
+ * @member {String} LastMeeting
  */
-ContactSummaryDto.prototype['alternativeEmailAddresses'] = undefined;
+ContactSummaryDto.prototype['LastMeeting'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactCustomFieldValueDto>} customFieldValues
+ * @member {Array.<module:model/AlternativeEmailAddressDto>} AlternativeEmailAddresses
  */
-ContactSummaryDto.prototype['customFieldValues'] = undefined;
+ContactSummaryDto.prototype['AlternativeEmailAddresses'] = undefined;
+
+/**
+ * @member {Array.<module:model/ContactCustomFieldValueDto>} CustomFieldValues
+ */
+ContactSummaryDto.prototype['CustomFieldValues'] = undefined;
 
 
 

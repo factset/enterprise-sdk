@@ -116,6 +116,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarrie
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlow cashFlow;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriers() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriers type(TypeEnum type) {
     this.type = type;

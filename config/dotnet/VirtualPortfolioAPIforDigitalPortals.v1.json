@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.VirtualPortfolioAPIforDigitalPortals",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.9.2",
   "packageGuid": "{23980409-4074-51ba-9c1d-34c45c67dabd}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/VirtualPortfolioAPIforDigitalPortals/0.9.1",
+  "httpUserAgent": "fds-sdk/dotnet/VirtualPortfolioAPIforDigitalPortals/0.9.2",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

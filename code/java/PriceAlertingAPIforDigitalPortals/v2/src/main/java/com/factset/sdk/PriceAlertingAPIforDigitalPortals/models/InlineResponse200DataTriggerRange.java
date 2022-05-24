@@ -48,6 +48,8 @@ public class InlineResponse200DataTriggerRange implements Serializable {
   public static final String JSON_PROPERTY_LOWER_LIMIT = "lowerLimit";
   private BigDecimal lowerLimit;
 
+  public InlineResponse200DataTriggerRange() { 
+  }
 
   public InlineResponse200DataTriggerRange upperLimit(BigDecimal upperLimit) {
     this.upperLimit = upperLimit;

@@ -70,6 +70,16 @@ public class ValueLabelDateTemplate implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private String date;
 
+  public ValueLabelDateTemplate() { 
+  }
+
+  @JsonCreator
+  public ValueLabelDateTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public ValueLabelDateTemplate headline(String headline) {
     this.headline = headline;

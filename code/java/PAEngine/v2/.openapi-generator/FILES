@@ -60,7 +60,6 @@ src/main/java/com/factset/sdk/PAEngine/ApiClient.java
 src/main/java/com/factset/sdk/PAEngine/ApiException.java
 src/main/java/com/factset/sdk/PAEngine/ApiResponse.java
 src/main/java/com/factset/sdk/PAEngine/Configuration.java
-src/main/java/com/factset/sdk/PAEngine/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/PAEngine/JSON.java
 src/main/java/com/factset/sdk/PAEngine/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/PAEngine/Pair.java

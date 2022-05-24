@@ -20,7 +20,7 @@ import OptimizerOutputTypes from './OptimizerOutputTypes';
 /**
  * The BPMOptimizationParameters model module.
  * @module model/BPMOptimizationParameters
- * @version 0.9.1
+ * @version 0.20.0
  */
 class BPMOptimizationParameters {
     /**

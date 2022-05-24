@@ -55,6 +55,18 @@ public class TemplatedPAComponentParameters implements Serializable {
   public static final String JSON_PROPERTY_COMPONENT_DATA = "componentData";
   private PAComponentData componentData;
 
+  public TemplatedPAComponentParameters() { 
+  }
+
+  @JsonCreator
+  public TemplatedPAComponentParameters(
+    @JsonProperty(value=JSON_PROPERTY_DIRECTORY, required=true) String directory, 
+    @JsonProperty(value=JSON_PROPERTY_PARENT_TEMPLATE_ID, required=true) String parentTemplateId
+  ) {
+    this();
+    this.directory = directory;
+    this.parentTemplateId = parentTemplateId;
+  }
 
   public TemplatedPAComponentParameters directory(String directory) {
     this.directory = directory;

@@ -7,6 +7,9 @@ import com.factset.sdk.PriceAlertingAPIforDigitalPortals.Configuration;
 import com.factset.sdk.PriceAlertingAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import java.math.BigDecimal;
 import com.factset.sdk.PriceAlertingAPIforDigitalPortals.models.InlineObject;
@@ -26,6 +29,26 @@ public class AlertingApi {
   public AlertingApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getAlertingPricesBasicAlertGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAlertingPricesBasicAlertGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> getAlertingPricesBasicAlertListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAlertingPricesBasicAlertListResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> getAlertingPricesBasicTriggerGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAlertingPricesBasicTriggerGetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> postAlertingPricesBasicTriggerListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postAlertingPricesBasicTriggerListResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -110,11 +133,17 @@ public class AlertingApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("AlertingApi.getAlertingPricesBasicAlertGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("AlertingApi.getAlertingPricesBasicAlertGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAlertingPricesBasicAlertGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of alerts.
@@ -182,11 +211,17 @@ public class AlertingApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("AlertingApi.getAlertingPricesBasicAlertList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("AlertingApi.getAlertingPricesBasicAlertList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAlertingPricesBasicAlertListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Details of a trigger.
@@ -253,11 +288,17 @@ public class AlertingApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("AlertingApi.getAlertingPricesBasicTriggerGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("AlertingApi.getAlertingPricesBasicTriggerGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAlertingPricesBasicTriggerGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of triggers.
@@ -315,10 +356,16 @@ public class AlertingApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("AlertingApi.postAlertingPricesBasicTriggerList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("AlertingApi.postAlertingPricesBasicTriggerList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postAlertingPricesBasicTriggerListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

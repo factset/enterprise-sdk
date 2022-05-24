@@ -66,6 +66,20 @@ public class EntityMappingRequest implements Serializable {
   public static final String JSON_PROPERTY_CLIENT_URL = "clientUrl";
   private String clientUrl;
 
+  public EntityMappingRequest() { 
+  }
+
+  @JsonCreator
+  public EntityMappingRequest(
+    @JsonProperty(value=JSON_PROPERTY_UNIVERSE_ID, required=true) Integer universeId, 
+    @JsonProperty(value=JSON_PROPERTY_CLIENT_ID, required=true) String clientId, 
+    @JsonProperty(value=JSON_PROPERTY_CLIENT_NAME, required=true) String clientName
+  ) {
+    this();
+    this.universeId = universeId;
+    this.clientId = clientId;
+    this.clientName = clientName;
+  }
 
   public EntityMappingRequest universeId(Integer universeId) {
     this.universeId = universeId;

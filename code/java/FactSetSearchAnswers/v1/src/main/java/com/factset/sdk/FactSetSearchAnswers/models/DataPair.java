@@ -46,6 +46,18 @@ public class DataPair implements Serializable {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  public DataPair() { 
+  }
+
+  @JsonCreator
+  public DataPair(
+    @JsonProperty(value=JSON_PROPERTY_VALUE, required=true) String value, 
+    @JsonProperty(value=JSON_PROPERTY_LABEL, required=true) String label
+  ) {
+    this();
+    this.value = value;
+    this.label = label;
+  }
 
   public DataPair value(String value) {
     this.value = value;

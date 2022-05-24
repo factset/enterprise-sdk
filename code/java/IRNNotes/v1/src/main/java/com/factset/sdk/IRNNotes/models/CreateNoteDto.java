@@ -61,51 +61,63 @@ import com.factset.sdk.IRNNotes.JSON;
 public class CreateNoteDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_AUTHOR = "author";
+  public static final String JSON_PROPERTY_AUTHOR = "Author";
   private UserSerialDto author;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
+  public static final String JSON_PROPERTY_TITLE = "Title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
-  private String identifier;
+  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
+  private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_DATE = "date";
+  public static final String JSON_PROPERTY_DATE = "Date";
   private String date;
 
-  public static final String JSON_PROPERTY_SUBJECT_ID = "subjectId";
+  public static final String JSON_PROPERTY_SUBJECT_ID = "SubjectId";
   private JsonNullable<java.util.UUID> subjectId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "recommendationId";
+  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "RecommendationId";
   private JsonNullable<java.util.UUID> recommendationId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_SENTIMENT_ID = "sentimentId";
+  public static final String JSON_PROPERTY_SENTIMENT_ID = "SentimentId";
   private JsonNullable<java.util.UUID> sentimentId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_BODY = "body";
+  public static final String JSON_PROPERTY_BODY = "Body";
   private CreateBodyDto body;
 
-  public static final String JSON_PROPERTY_SOURCE = "source";
+  public static final String JSON_PROPERTY_SOURCE = "Source";
   private JsonNullable<String> source = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_LINK = "link";
+  public static final String JSON_PROPERTY_LINK = "Link";
   private JsonNullable<String> link = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "relatedSymbols";
+  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "RelatedSymbols";
   private JsonNullable<java.util.List<String>> relatedSymbols = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_CONTACTS = "relatedContacts";
+  public static final String JSON_PROPERTY_RELATED_CONTACTS = "RelatedContacts";
   private JsonNullable<java.util.List<java.util.UUID>> relatedContacts = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_RECORDS = "relatedRecords";
+  public static final String JSON_PROPERTY_RELATED_RECORDS = "RelatedRecords";
   private RelatedRecordsDto relatedRecords;
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "CustomFieldValues";
   private JsonNullable<java.util.List<CreateCustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<CreateCustomFieldValueDto>>undefined();
 
-  public static final String JSON_PROPERTY_IS_PERSONAL = "isPersonal";
-  private JsonNullable<Boolean> isPersonal = JsonNullable.<Boolean>undefined();
+  public static final String JSON_PROPERTY_IS_PERSONAL = "IsPersonal";
+  private Boolean isPersonal = false;
 
+  public CreateNoteDto() { 
+  }
+
+  @JsonCreator
+  public CreateNoteDto(
+    @JsonProperty(value=JSON_PROPERTY_AUTHOR, required=true) UserSerialDto author, 
+    @JsonProperty(value=JSON_PROPERTY_DATE, required=true) String date
+  ) {
+    this();
+    this.author = author;
+    this.date = date;
+  }
 
   public CreateNoteDto author(UserSerialDto author) {
     this.author = author;
@@ -168,7 +180,7 @@ public class CreateNoteDto implements Serializable {
 
 
   public CreateNoteDto identifier(String identifier) {
-    this.identifier = identifier;
+    this.identifier = JsonNullable.<String>of(identifier);
     return this;
   }
 
@@ -177,19 +189,27 @@ public class CreateNoteDto implements Serializable {
    * @return identifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @ApiModelProperty(value = "")
+  @JsonIgnore
 
   public String getIdentifier() {
-    return identifier;
+        return identifier.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIdentifier(String identifier) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIdentifier_JsonNullable() {
+    return identifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
+  public void setIdentifier_JsonNullable(JsonNullable<String> identifier) {
     this.identifier = identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = JsonNullable.<String>of(identifier);
   }
 
 
@@ -202,7 +222,7 @@ public class CreateNoteDto implements Serializable {
    * Get date
    * @return date
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -580,7 +600,7 @@ public class CreateNoteDto implements Serializable {
 
 
   public CreateNoteDto isPersonal(Boolean isPersonal) {
-    this.isPersonal = JsonNullable.<Boolean>of(isPersonal);
+    this.isPersonal = isPersonal;
     return this;
   }
 
@@ -590,26 +610,18 @@ public class CreateNoteDto implements Serializable {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Boolean getIsPersonal() {
-        return isPersonal.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_IS_PERSONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Boolean> getIsPersonal_JsonNullable() {
+  public Boolean getIsPersonal() {
     return isPersonal;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IS_PERSONAL)
-  public void setIsPersonal_JsonNullable(JsonNullable<Boolean> isPersonal) {
-    this.isPersonal = isPersonal;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_IS_PERSONAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIsPersonal(Boolean isPersonal) {
-    this.isPersonal = JsonNullable.<Boolean>of(isPersonal);
+    this.isPersonal = isPersonal;
   }
 
 
@@ -627,7 +639,7 @@ public class CreateNoteDto implements Serializable {
     CreateNoteDto createNoteDto = (CreateNoteDto) o;
     return Objects.equals(this.author, createNoteDto.author) &&
         equalsNullable(this.title, createNoteDto.title) &&
-        Objects.equals(this.identifier, createNoteDto.identifier) &&
+        equalsNullable(this.identifier, createNoteDto.identifier) &&
         Objects.equals(this.date, createNoteDto.date) &&
         equalsNullable(this.subjectId, createNoteDto.subjectId) &&
         equalsNullable(this.recommendationId, createNoteDto.recommendationId) &&
@@ -639,7 +651,7 @@ public class CreateNoteDto implements Serializable {
         equalsNullable(this.relatedContacts, createNoteDto.relatedContacts) &&
         Objects.equals(this.relatedRecords, createNoteDto.relatedRecords) &&
         equalsNullable(this.customFieldValues, createNoteDto.customFieldValues) &&
-        equalsNullable(this.isPersonal, createNoteDto.isPersonal);
+        Objects.equals(this.isPersonal, createNoteDto.isPersonal);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -648,7 +660,7 @@ public class CreateNoteDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, hashCodeNullable(title), identifier, date, hashCodeNullable(subjectId), hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), body, hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(relatedSymbols), hashCodeNullable(relatedContacts), relatedRecords, hashCodeNullable(customFieldValues), hashCodeNullable(isPersonal));
+    return Objects.hash(author, hashCodeNullable(title), hashCodeNullable(identifier), date, hashCodeNullable(subjectId), hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), body, hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(relatedSymbols), hashCodeNullable(relatedContacts), relatedRecords, hashCodeNullable(customFieldValues), isPersonal);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

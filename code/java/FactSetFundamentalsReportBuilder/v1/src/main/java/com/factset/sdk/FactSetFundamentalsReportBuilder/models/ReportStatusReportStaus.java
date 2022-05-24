@@ -78,6 +78,8 @@ public class ReportStatusReportStaus implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private ValueEnum value;
 
+  public ReportStatusReportStaus() { 
+  }
 
   public ReportStatusReportStaus value(ValueEnum value) {
     this.value = value;

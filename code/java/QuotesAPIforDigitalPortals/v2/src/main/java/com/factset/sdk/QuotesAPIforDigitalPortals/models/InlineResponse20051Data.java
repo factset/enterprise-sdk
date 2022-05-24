@@ -49,6 +49,8 @@ public class InlineResponse20051Data implements Serializable {
   public static final String JSON_PROPERTY_COUPONS = "coupons";
   private java.util.List<InlineResponse20051DataCoupons> coupons = null;
 
+  public InlineResponse20051Data() { 
+  }
 
   public InlineResponse20051Data currency(InlineResponse20051DataCurrency currency) {
     this.currency = currency;

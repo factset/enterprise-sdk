@@ -194,6 +194,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getAccountForDate(name, date, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -270,6 +271,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getAccountForDateAndSymbol(name, symbol, date, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -346,6 +348,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getAccountForSymbol(name, symbol, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -417,6 +420,7 @@ const name = "name_example"; // String | The path and filename of the account to
 // Call api endpoint
 apiInstance.getAccountSchema(name).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

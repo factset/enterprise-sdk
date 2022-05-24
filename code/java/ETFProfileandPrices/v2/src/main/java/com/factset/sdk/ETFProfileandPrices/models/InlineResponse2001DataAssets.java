@@ -47,6 +47,8 @@ public class InlineResponse2001DataAssets implements Serializable {
   public static final String JSON_PROPERTY_WEIGHT = "weight";
   private BigDecimal weight;
 
+  public InlineResponse2001DataAssets() { 
+  }
 
   public InlineResponse2001DataAssets assetClass(String assetClass) {
     this.assetClass = assetClass;

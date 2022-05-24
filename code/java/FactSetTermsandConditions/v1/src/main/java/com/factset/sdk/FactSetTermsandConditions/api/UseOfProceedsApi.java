@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.TermsAndConditionsScalarRequest;
@@ -23,6 +26,28 @@ public class UseOfProceedsApi {
   public UseOfProceedsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFixedIncomeUseOfProceedsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFixedIncomeUseOfProceedsResponseTypeMap.put(200, new GenericType<UseOfProceedsResponse>(){});
+    getFixedIncomeUseOfProceedsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFixedIncomeUseOfProceedsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFixedIncomeUseOfProceedsForListResponseTypeMap.put(200, new GenericType<UseOfProceedsResponse>(){});
+    getFixedIncomeUseOfProceedsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedIncomeUseOfProceedsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class UseOfProceedsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UseOfProceedsResponse> localVarReturnType = new GenericType<UseOfProceedsResponse>() {};
 
-    return apiClient.invokeAPI("UseOfProceedsApi.getFixedIncomeUseOfProceeds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UseOfProceedsResponse
+      
+    > apiResponse = apiClient.invokeAPI("UseOfProceedsApi.getFixedIncomeUseOfProceeds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFixedIncomeUseOfProceedsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Use of Proceeds for a list of Fixed Income securities.
@@ -191,10 +222,16 @@ public class UseOfProceedsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UseOfProceedsResponse> localVarReturnType = new GenericType<UseOfProceedsResponse>() {};
 
-    return apiClient.invokeAPI("UseOfProceedsApi.getFixedIncomeUseOfProceedsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UseOfProceedsResponse
+      
+    > apiResponse = apiClient.invokeAPI("UseOfProceedsApi.getFixedIncomeUseOfProceedsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFixedIncomeUseOfProceedsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

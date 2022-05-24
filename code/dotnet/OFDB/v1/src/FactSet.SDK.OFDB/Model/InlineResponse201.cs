@@ -54,7 +54,7 @@ namespace FactSet.SDK.OFDB.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse201 {\n");
             sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.SDK.OFDB.Model
         public bool Equals(InlineResponse201 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Path == input.Path ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.OFDB.Model
             {
                 int hashCode = 41;
                 if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Path.GetHashCode();
+                }
                 return hashCode;
             }
         }

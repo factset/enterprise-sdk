@@ -106,6 +106,22 @@ public class UpdateMeetingDto implements Serializable {
   public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
   private JsonNullable<java.util.List<CreateCustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<CreateCustomFieldValueDto>>undefined();
 
+  public UpdateMeetingDto() { 
+  }
+
+  @JsonCreator
+  public UpdateMeetingDto(
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title, 
+    @JsonProperty(value=JSON_PROPERTY_IDENTIFIER, required=true) String identifier, 
+    @JsonProperty(value=JSON_PROPERTY_START, required=true) String start, 
+    @JsonProperty(value=JSON_PROPERTY_END, required=true) String end
+  ) {
+    this();
+    this.title = title;
+    this.identifier = identifier;
+    this.start = start;
+    this.end = end;
+  }
 
   public UpdateMeetingDto title(String title) {
     this.title = title;
@@ -116,7 +132,7 @@ public class UpdateMeetingDto implements Serializable {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -142,7 +158,7 @@ public class UpdateMeetingDto implements Serializable {
    * Get identifier
    * @return identifier
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -168,7 +184,7 @@ public class UpdateMeetingDto implements Serializable {
    * Get start
    * @return start
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -194,7 +210,7 @@ public class UpdateMeetingDto implements Serializable {
    * Get end
    * @return end
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -265,7 +281,9 @@ public class UpdateMeetingDto implements Serializable {
    /**
    * Get organizer
    * @return organizer
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore

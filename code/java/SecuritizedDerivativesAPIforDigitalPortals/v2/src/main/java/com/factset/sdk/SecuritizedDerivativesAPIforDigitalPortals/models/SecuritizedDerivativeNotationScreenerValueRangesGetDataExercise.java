@@ -119,6 +119,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataExercise imp
   public static final String JSON_PROPERTY_STYLE = "style";
   private StyleEnum style;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataExercise() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataExercise right(RightEnum right) {
     this.right = right;

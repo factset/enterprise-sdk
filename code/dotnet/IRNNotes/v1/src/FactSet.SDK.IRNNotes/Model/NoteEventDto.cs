@@ -51,31 +51,31 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
+        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
+        [DataMember(Name = "Type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = true)]
+        [DataMember(Name = "User", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
         /// Gets or Sets Comment
         /// </summary>
-        [DataMember(Name = "comment", EmitDefaultValue = true)]
+        [DataMember(Name = "Comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>
         /// Gets or Sets ChangeList
         /// </summary>
-        [DataMember(Name = "changeList", EmitDefaultValue = true)]
+        [DataMember(Name = "ChangeList", EmitDefaultValue = true)]
         public List<RecordChangeDto> ChangeList { get; set; }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NoteEventDto {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -122,8 +122,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(NoteEventDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -163,15 +164,25 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.User != null)
-                    hashCode = hashCode * 59 + this.User.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.User.GetHashCode();
+                }
                 if (this.Comment != null)
-                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Comment.GetHashCode();
+                }
                 if (this.ChangeList != null)
-                    hashCode = hashCode * 59 + this.ChangeList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ChangeList.GetHashCode();
+                }
                 return hashCode;
             }
         }

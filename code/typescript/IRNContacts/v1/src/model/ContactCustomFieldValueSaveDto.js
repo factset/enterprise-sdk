@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactCustomFieldValueSaveDto model module.
  * @module model/ContactCustomFieldValueSaveDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactCustomFieldValueSaveDto {
     /**
@@ -35,7 +35,7 @@ class ContactCustomFieldValueSaveDto {
      * Only for internal use.
      */
     static initialize(obj, code) { 
-        obj['code'] = code;
+        obj['Code'] = code;
     }
 
     /**
@@ -49,17 +49,17 @@ class ContactCustomFieldValueSaveDto {
         if (data) {
             obj = obj || new ContactCustomFieldValueSaveDto();
 
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('Code')) {
+                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], 'String');
+            if (data.hasOwnProperty('Value')) {
+                obj['Value'] = ApiClient.convertToType(data['Value'], 'String');
             }
-            if (data.hasOwnProperty('optionValues')) {
-                obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['String']);
+            if (data.hasOwnProperty('OptionValues')) {
+                obj['OptionValues'] = ApiClient.convertToType(data['OptionValues'], ['String']);
             }
-            if (data.hasOwnProperty('evaluateFormula')) {
-                obj['evaluateFormula'] = ApiClient.convertToType(data['evaluateFormula'], 'Boolean');
+            if (data.hasOwnProperty('EvaluateFormula')) {
+                obj['EvaluateFormula'] = ApiClient.convertToType(data['EvaluateFormula'], 'Boolean');
             }
         }
         return obj;
@@ -69,25 +69,25 @@ class ContactCustomFieldValueSaveDto {
 }
 
 /**
- * @member {String} code
+ * @member {String} Code
  */
-ContactCustomFieldValueSaveDto.prototype['code'] = undefined;
+ContactCustomFieldValueSaveDto.prototype['Code'] = undefined;
 
 /**
- * @member {String} value
+ * @member {String} Value
  */
-ContactCustomFieldValueSaveDto.prototype['value'] = undefined;
+ContactCustomFieldValueSaveDto.prototype['Value'] = undefined;
 
 /**
- * @member {Array.<String>} optionValues
+ * @member {Array.<String>} OptionValues
  */
-ContactCustomFieldValueSaveDto.prototype['optionValues'] = undefined;
+ContactCustomFieldValueSaveDto.prototype['OptionValues'] = undefined;
 
 /**
- * @member {Boolean} evaluateFormula
+ * @member {Boolean} EvaluateFormula
  * @default false
  */
-ContactCustomFieldValueSaveDto.prototype['evaluateFormula'] = false;
+ContactCustomFieldValueSaveDto.prototype['EvaluateFormula'] = false;
 
 
 

@@ -178,7 +178,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketKnowledgeAndExperience {\n");
             sb.Append("  BasicInvestor: ").Append(BasicInvestor).Append("\n");
             sb.Append("  InformedInvestor: ").Append(InformedInvestor).Append("\n");
@@ -215,8 +215,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketKnowledgeAndExperience input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BasicInvestor == input.BasicInvestor ||
@@ -246,11 +247,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.BasicInvestor.GetHashCode();
-                hashCode = hashCode * 59 + this.InformedInvestor.GetHashCode();
-                hashCode = hashCode * 59 + this.AdvancedInvestor.GetHashCode();
+                hashCode = (hashCode * 59) + this.BasicInvestor.GetHashCode();
+                hashCode = (hashCode * 59) + this.InformedInvestor.GetHashCode();
+                hashCode = (hashCode * 59) + this.AdvancedInvestor.GetHashCode();
                 if (this.Germany != null)
-                    hashCode = hashCode * 59 + this.Germany.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Germany.GetHashCode();
+                }
                 return hashCode;
             }
         }

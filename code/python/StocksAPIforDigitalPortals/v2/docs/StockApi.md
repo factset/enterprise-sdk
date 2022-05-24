@@ -47,32 +47,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of dividend types.
         api_response = api_instance.get_stock_dividend_type_list(attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->get_stock_dividend_type_list: %s\n" % e)
 ```
@@ -137,21 +137,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
     id_notation_benchmark = [
         "idNotationBenchmark_example",
@@ -161,20 +162,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark)
-        pprint(api_response)
-    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_month_1_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
         api_response = api_instance.get_stock_notation_key_figures_benchmark_month_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_month_1_get: %s\n" % e)
 ```
@@ -241,21 +233,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
     id_notation_benchmark = [
         "idNotationBenchmark_example",
@@ -265,20 +258,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark)
-        pprint(api_response)
-    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_month_3_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
         api_response = api_instance.get_stock_notation_key_figures_benchmark_month_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_month_3_get: %s\n" % e)
 ```
@@ -345,21 +329,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
     id_notation_benchmark = [
         "idNotationBenchmark_example",
@@ -369,20 +354,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark)
-        pprint(api_response)
-    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_week_1_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
         api_response = api_instance.get_stock_notation_key_figures_benchmark_week_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_week_1_get: %s\n" % e)
 ```
@@ -449,21 +425,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
     id_notation_benchmark = [
         "idNotationBenchmark_example",
@@ -473,20 +450,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark)
-        pprint(api_response)
-    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_year_1_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_1_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_year_1_get: %s\n" % e)
 ```
@@ -553,21 +521,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
     id_notation_benchmark = [
         "idNotationBenchmark_example",
@@ -577,20 +546,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark)
-        pprint(api_response)
-    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_year_3_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_3_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_year_3_get: %s\n" % e)
 ```
@@ -657,21 +617,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
     id_notation_benchmark = [
         "idNotationBenchmark_example",
@@ -681,20 +642,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
-        api_response = api_instance.get_stock_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark)
-        pprint(api_response)
-    except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_year_5_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
         api_response = api_instance.get_stock_notation_key_figures_benchmark_year_5_get(id, id_notation_benchmark, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->get_stock_notation_key_figures_benchmark_year_5_get: %s\n" % e)
 ```
@@ -762,21 +714,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     body = InlineObject(
         data=StockDividendListData(
             id="id_example",
@@ -801,11 +754,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject | 
 
-    # example passing only required values which don't have defaults set
     try:
         # List of dividends for a stock.
         api_response = api_instance.post_stock_dividend_list(body)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->post_stock_dividend_list: %s\n" % e)
 ```
@@ -870,21 +823,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     body = InlineObject1(
         data=StockNotationRankingIntradayListData(
             prices=StockNotationRankingIntradayListDataPrices(
@@ -947,12 +901,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject1 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Ranking of stocks' notations using intraday figures.
         api_response = api_instance.post_stock_notation_ranking_intraday_list(body=body)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->post_stock_notation_ranking_intraday_list: %s\n" % e)
 ```
@@ -1017,21 +970,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     body = InlineObject2(
         data=StockNotationScreenerSearchData(
             validation=StockNotationScreenerSearchDataValidation(
@@ -1974,12 +1928,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject2 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Screener for stocks' notations based on stock-specific parameters.
         api_response = api_instance.post_stock_notation_screener_search(body=body)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->post_stock_notation_screener_search: %s\n" % e)
 ```
@@ -2044,21 +1997,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.StocksAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = stock_api.StockApi(api_client)
+
     body = InlineObject3(
         data=StockNotationScreenerSearchData(
             validation=StockNotationScreenerSearchDataValidation(
@@ -2994,12 +2948,11 @@ with fds.sdk.StocksAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject3 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/stock/notation/screener/search`.
         api_response = api_instance.post_stock_notation_screener_value_ranges_get(body=body)
         pprint(api_response)
+
     except fds.sdk.StocksAPIforDigitalPortals.ApiException as e:
         print("Exception when calling StockApi->post_stock_notation_screener_value_ranges_get: %s\n" % e)
 ```

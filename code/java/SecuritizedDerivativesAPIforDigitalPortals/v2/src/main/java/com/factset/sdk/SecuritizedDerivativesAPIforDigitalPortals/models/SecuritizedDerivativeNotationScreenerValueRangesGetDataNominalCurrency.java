@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataNominalCurre
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataNominalCurrency() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataNominalCurrency id(BigDecimal id) {
     this.id = id;

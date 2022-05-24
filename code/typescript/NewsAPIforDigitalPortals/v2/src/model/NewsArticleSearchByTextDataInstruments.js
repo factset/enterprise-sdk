@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleSearchByTextDataInstruments model module.
  * @module model/NewsArticleSearchByTextDataInstruments
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleSearchByTextDataInstruments {
     /**

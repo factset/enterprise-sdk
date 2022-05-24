@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPeople.Configuration;
 import com.factset.sdk.FactSetPeople.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPeople.models.CompanyCompensationRequest;
 import com.factset.sdk.FactSetPeople.models.CompanyCompensationResponse;
@@ -29,6 +32,82 @@ public class CompanyApi {
   public CompanyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getCompanyCompensationResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyCompensationResponseTypeMap.put(200, new GenericType<CompanyCompensationResponse>(){});
+    getCompanyCompensationResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCompanyCompensationForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyCompensationForListResponseTypeMap.put(200, new GenericType<CompanyCompensationResponse>(){});
+    getCompanyCompensationForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyCompensationForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCompanyPeopleResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyPeopleResponseTypeMap.put(200, new GenericType<CompanyPeopleResponse>(){});
+    getCompanyPeopleResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCompanyPeopleForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyPeopleForListResponseTypeMap.put(200, new GenericType<CompanyPeopleResponse>(){});
+    getCompanyPeopleForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyPeopleForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCompanyPositionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyPositionsResponseTypeMap.put(200, new GenericType<CompanyPositionsResponse>(){});
+    getCompanyPositionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCompanyPositionsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyPositionsForListResponseTypeMap.put(200, new GenericType<CompanyPositionsResponse>(){});
+    getCompanyPositionsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyPositionsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCompanyStatsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyStatsResponseTypeMap.put(200, new GenericType<CompanyStatsResponse>(){});
+    getCompanyStatsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyStatsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyStatsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyStatsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyStatsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCompanyStatsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyStatsForListResponseTypeMap.put(200, new GenericType<CompanyStatsResponse>(){});
+    getCompanyStatsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyStatsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyStatsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyStatsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCompanyStatsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,11 +199,17 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyCompensationResponse> localVarReturnType = new GenericType<CompanyCompensationResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyCompensation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyCompensationResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyCompensation", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyCompensationResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the compensation details for the people for the specified company identifier
@@ -197,11 +282,17 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyCompensationResponse> localVarReturnType = new GenericType<CompanyCompensationResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyCompensationForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyCompensationResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyCompensationForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyCompensationForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the list of people for the specified company identifiers
@@ -278,11 +369,17 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyPeopleResponse> localVarReturnType = new GenericType<CompanyPeopleResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyPeople", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyPeopleResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyPeople", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyPeopleResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the list of people associated for a large list of company identitifers
@@ -355,11 +452,17 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyPeopleResponse> localVarReturnType = new GenericType<CompanyPeopleResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyPeopleForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyPeopleResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyPeopleForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyPeopleForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the list of people for the specified company identifiers and position
@@ -436,11 +539,17 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyPositionsResponse> localVarReturnType = new GenericType<CompanyPositionsResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyPositions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyPositionsResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyPositions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyPositionsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the list of people associated for a large list of company identitifers and position
@@ -513,11 +622,17 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyPositionsResponse> localVarReturnType = new GenericType<CompanyPositionsResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyPositionsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyPositionsResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyPositionsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyPositionsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns statistics about top leadership of a company.
@@ -594,11 +709,17 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyStatsResponse> localVarReturnType = new GenericType<CompanyStatsResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyStats", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyStatsResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyStats", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyStatsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns statistics about top leadership of a company.
@@ -671,10 +792,16 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CompanyStatsResponse> localVarReturnType = new GenericType<CompanyStatsResponse>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyStatsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CompanyStatsResponse
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyStatsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyStatsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

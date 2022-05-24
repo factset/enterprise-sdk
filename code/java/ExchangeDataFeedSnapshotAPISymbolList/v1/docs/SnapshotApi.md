@@ -31,14 +31,13 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiClient;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiException;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.Configuration;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.auth.*;
-import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.model.*;
+import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.*;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.api.SnapshotApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -48,14 +47,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SnapshotApi apiInstance = new SnapshotApi(defaultClient);
         String ids = "ids_example"; // String | Requested symbols or securities. **Required** if not using `oc`. This is a comma-seperated list with a maximum of 500. Each symbol can be a FactSet Exchange Symbol, CUSIP, or SEDOL. This can be used in combination with `chain` parameter to pull in a custom portfolio.<P>**Try it out** - Choose one or multiple - IBM-USA, BABA-USA, WALMEX-MX, 7203-TKS, VOD-LON, NPN-JSE, MABAX, NZF, SPY-USA, AGG-USA, GLD-USA, AOR-USA, MNA-USA, UUP-USA, SP50-SPX, ESX-STX, XAO-ASX, WD-MSX, NG00-USA, GC00-USA, CC00-USA, C00-USA, FC00-USA, ER00-USA, EURUSD-FX1, USDMXN-FX1, AUDJPY-FX1, EURCZK-FX1, USDILS-FX1, USDZAR-FX1, US10YY-TU1, FDS#190621C00145000-USA, FDS#190621P00145000-USA. *Leave blank if you are trying the `oc` parameter*.</p>
@@ -68,6 +67,7 @@ public class Example {
         try {
             DFSnapshotResponse result = apiInstance.getDFSnapshot(ids, oc, fields, sf, format, serv, reqId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SnapshotApi#getDFSnapshot");
             System.err.println("Status code: " + e.getCode());
@@ -129,14 +129,13 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiClient;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.ApiException;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.Configuration;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.auth.*;
-import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.model.*;
+import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.*;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.api.SnapshotApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -146,14 +145,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SnapshotApi apiInstance = new SnapshotApi(defaultClient);
         String ids = "ids_example"; // String | Requested symbols or securities. **Required** if not using `oc`. This is a comma-seperated list with a maximum of 500. Each symbol can be a FactSet Exchange Symbol, CUSIP, or SEDOL. This can be used in combination with `chain` parameter to pull in a custom portfolio.<P>**Try it out** - Choose one or multiple - IBM-USA, BABA-USA, WALMEX-MX, 7203-TKS, VOD-LON, NPN-JSE, MABAX, NZF, SPY-USA, AGG-USA, GLD-USA, AOR-USA, MNA-USA, UUP-USA, SP50-SPX, ESX-STX, XAO-ASX, WD-MSX, NG00-USA, GC00-USA, CC00-USA, C00-USA, FC00-USA, ER00-USA, EURUSD-FX1, USDMXN-FX1, AUDJPY-FX1, EURCZK-FX1, USDILS-FX1, USDZAR-FX1, US10YY-TU1, FDS#190621C00145000-USA, FDS#190621P00145000-USA. *Leave blank if you are trying the `oc` parameter*.</p>
@@ -166,6 +165,7 @@ public class Example {
         try {
             DFSnapshotResponse result = apiInstance.postDFSnapshot(ids, oc, fields, sf, format, serv, reqId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SnapshotApi#postDFSnapshot");
             System.err.println("Status code: " + e.getCode());

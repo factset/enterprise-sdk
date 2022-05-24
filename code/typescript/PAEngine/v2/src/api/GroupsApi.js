@@ -18,7 +18,7 @@ import Group from '../model/Group';
 /**
 * Groups service.
 * @module api/GroupsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class GroupsApi {
 
@@ -55,7 +55,10 @@ export default class GroupsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': Group};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/pa/groups', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -66,7 +69,7 @@ export default class GroupsApi {
     /**
      * Get PA groups
      * This endpoint lists all the PA groups that can be applied to a PA calculation.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: Group}>}
+     * @return { Promise.< Object.<String, module:model/{String: Group}> > } a Promise, with data of type {@link Object.<String, module:model/{String: Group}> }
      */
     getPAGroups() {
       return this.getPAGroupsWithHttpInfo()
@@ -77,3 +80,8 @@ export default class GroupsApi {
 
 
 }
+
+
+
+
+

@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AccountDirectories from './model/AccountDirectories';
 import Calculation from './model/Calculation';
@@ -44,6 +43,7 @@ import SPARIdentifier from './model/SPARIdentifier';
 import VaultCalculationParameters from './model/VaultCalculationParameters';
 import VaultDateParameters from './model/VaultDateParameters';
 import VaultIdentifier from './model/VaultIdentifier';
+
 import AccountsApi from './api/AccountsApi';
 import CalculationsApi from './api/CalculationsApi';
 import ColumnStatisticsApi from './api/ColumnStatisticsApi';
@@ -85,7 +85,7 @@ import GroupsApi from './api/GroupsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -338,5 +338,6 @@ export {
     * The GroupsApi service constructor.
     * @property {module:api/GroupsApi}
     */
-    GroupsApi
+    GroupsApi,
+
 };

@@ -109,7 +109,7 @@ namespace FactSet.SDK.ForeignExchangeRate.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Forward {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  CurrencyName: ").Append(CurrencyName).Append("\n");
@@ -149,8 +149,9 @@ namespace FactSet.SDK.ForeignExchangeRate.Model
         public bool Equals(Forward input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -196,16 +197,24 @@ namespace FactSet.SDK.ForeignExchangeRate.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.CurrencyName != null)
-                    hashCode = hashCode * 59 + this.CurrencyName.GetHashCode();
-                hashCode = hashCode * 59 + this.ForwardBid.GetHashCode();
-                hashCode = hashCode * 59 + this.ForwardMid.GetHashCode();
-                hashCode = hashCode * 59 + this.ForwardAsk.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrencyName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ForwardBid.GetHashCode();
+                hashCode = (hashCode * 59) + this.ForwardMid.GetHashCode();
+                hashCode = (hashCode * 59) + this.ForwardAsk.GetHashCode();
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.ForwardPeriod != null)
-                    hashCode = hashCode * 59 + this.ForwardPeriod.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ForwardPeriod.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.4.0
+  version: 1.5.0
   title: FactSet Benchmarks API
   contact:
     name: FactSet Research Systems
@@ -263,6 +263,7 @@ paths:
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
         - $ref: '#/components/parameters/returnType'
+        - $ref: '#/components/parameters/hedgeType'
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/calendar'
       responses:
@@ -605,6 +606,20 @@ components:
         The return type adjustment used in returns response items. Adjustment
         can be made for GROSS and NET dividends that will be included in the
         return calculation. The service will default to GROSS.
+    hedgeType:
+      name: hedgeType
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - UNHEDGED
+          - HEDGED
+        default: UNHEDGED
+      description: >-
+        The hedge type adjustment used in returns response items. Adjustment can
+        be made for HEDGED and UNHEDGED values that will be included in the
+        return calculation. The service will default to UNHEDGED.
     calendar:
       name: calendar
       in: query
@@ -1175,6 +1190,8 @@ components:
           $ref: '#/components/schemas/frequency'
         returnType:
           $ref: '#/components/schemas/returnType'
+        hedgeType:
+          $ref: '#/components/schemas/hedgeType'
         currency:
           $ref: '#/components/schemas/currency'
         calendar:
@@ -1253,6 +1270,10 @@ components:
           description: The requested Return Type - GROSS or NET
           type: string
           example: GROSS
+        hedgeType:
+          description: The requested Hedge Type - HEDGED or UNHEDGED
+          type: string
+          example: UNHEDGED
         requestId:
           type: string
           description: Benchmark Identifier specified in the request
@@ -1435,6 +1456,18 @@ components:
         can be made for GROSS and NET dividends that will be included in the
         return calculation. The service will default to GROSS.
       example: GROSS
+    hedgeType:
+      title: Hedge Type
+      type: string
+      enum:
+        - UNHEDGED
+        - HEDGED
+      default: UNHEDGED
+      description: >-
+        The hedge type adjustment used in returns response items. Adjustment can
+        be made for HEDGED and UNHEDGED values that will be included in the
+        return calculation. The service weill default to UNHEDGED.
+      example: UNHEDGED
     calendar:
       title: Calendar
       type: string
@@ -2020,6 +2053,7 @@ components:
             priceReturnPercent: 0.643080929116979
             requestId: SP50
             returnType: GROSS
+            hedgeType: UNHEDGED
             totalReturnLevel: 6826.22108948631
             totalReturnPercent: 0.643080929117001
           - currency: LOCAL
@@ -2031,6 +2065,7 @@ components:
             priceReturnPercent: 0.642620385795123
             requestId: SP50
             returnType: GROSS
+            hedgeType: UNHEDGED
             totalReturnLevel: 6870.86168040129
             totalReturnPercent: 0.653957589855003
           - currency: LOCAL
@@ -2042,6 +2077,7 @@ components:
             priceReturnPercent: 0.751585489130235
             requestId: R.3000
             returnType: GROSS
+            hedgeType: UNHEDGED
             totalReturnLevel: 10542.973182
             totalReturnPercent: 0.751900743100942
           - currency: LOCAL
@@ -2053,6 +2089,7 @@ components:
             priceReturnPercent: 0.502392266457519
             requestId: R.3000
             returnType: GROSS
+            hedgeType: UNHEDGED
             totalReturnLevel: 10597.086657
             totalReturnPercent: 0.513265793869122
     allRatiosRequest:

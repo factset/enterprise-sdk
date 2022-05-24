@@ -1494,6 +1494,131 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
     {
         private FactSet.SDK.QuotesAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationCrossReferenceFactSetIdentifierGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20069) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20066) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20064) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20072) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20073) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth3ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth6GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresMonth6ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresWeek1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20072) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresWeek1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20073) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20072) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear1ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20073) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear3ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear5GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20074) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYear5ListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20075) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYearToDateGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20076) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationKeyFiguresYearToDateListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20077) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20065) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationSearchBasicResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20088) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationSearchByTextRankedByVolumeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20090) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotationStatusGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20078) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20070) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20071) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListByISINResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20067) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListByInstrumentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20067) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationCrossReferenceListBySymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20068) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostNotationSearchByTextResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse20089) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="NotationApi"/> class.
         /// </summary>
@@ -1605,7 +1730,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20069</returns>
         public InlineResponse20069 GetNotationCrossReferenceFactSetIdentifierGet(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20069> localVarResponse = GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -1616,11 +1741,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of a notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20069</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20069> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20069> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationCrossReferenceFactSetIdentifierGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1633,10 +1760,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1646,13 +1779,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1664,15 +1797,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20069>("/notation/crossReference/factSetIdentifier/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationCrossReferenceFactSetIdentifierGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20069>("/notation/crossReference/factSetIdentifier/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationCrossReferenceFactSetIdentifierGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1684,9 +1821,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20069</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20069> GetNotationCrossReferenceFactSetIdentifierGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20069>GetNotationCrossReferenceFactSetIdentifierGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20069> localVarResponse = await GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1698,11 +1835,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20069)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20069>> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20069>> GetNotationCrossReferenceFactSetIdentifierGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationCrossReferenceFactSetIdentifierGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1715,12 +1855,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1730,13 +1875,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1748,14 +1893,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationCrossReferenceFactSetIdentifierGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20069>("/notation/crossReference/factSetIdentifier/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationCrossReferenceFactSetIdentifierGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1771,7 +1920,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20066</returns>
         public InlineResponse20066 GetNotationCrossReferenceGetByFactSetMarketSymbol(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20066> localVarResponse = GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, attributes, language);
+            var localVarResponse = GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(factSetMarketSymbol, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1783,11 +1932,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20066</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20066> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse20066> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfo(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'factSetMarketSymbol' is set
             if (factSetMarketSymbol == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'factSetMarketSymbol' when calling NotationApi->GetNotationCrossReferenceGetByFactSetMarketSymbol");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1800,10 +1951,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "factSetMarketSymbol", factSetMarketSymbol));
             if (attributes != null)
@@ -1817,13 +1974,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1835,15 +1992,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20066>("/notation/crossReference/getByFactSetMarketSymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20066>("/notation/crossReference/getByFactSetMarketSymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationCrossReferenceGetByFactSetMarketSymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1856,9 +2017,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20066</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20066> GetNotationCrossReferenceGetByFactSetMarketSymbolAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20066>GetNotationCrossReferenceGetByFactSetMarketSymbolAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20066> localVarResponse = await GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(factSetMarketSymbol, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(factSetMarketSymbol, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1871,11 +2032,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20066)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20066>> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20066>> GetNotationCrossReferenceGetByFactSetMarketSymbolWithHttpInfoAsync(string factSetMarketSymbol, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'factSetMarketSymbol' is set
             if (factSetMarketSymbol == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'factSetMarketSymbol' when calling NotationApi->GetNotationCrossReferenceGetByFactSetMarketSymbol");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -1888,12 +2052,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "factSetMarketSymbol", factSetMarketSymbol));
             if (attributes != null)
@@ -1907,13 +2076,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1925,14 +2094,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationCrossReferenceGetByFactSetMarketSymbolResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20066>("/notation/crossReference/getByFactSetMarketSymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationCrossReferenceGetByFactSetMarketSymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1948,7 +2121,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20064</returns>
         public InlineResponse20064 GetNotationGet(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20064> localVarResponse = GetNotationGetWithHttpInfo(id, attributes, language);
+            var localVarResponse = GetNotationGetWithHttpInfo(id, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1960,11 +2133,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20064</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20064> GetNotationGetWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse20064> GetNotationGetWithHttpInfo(string id, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1977,10 +2152,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1994,13 +2175,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2012,15 +2193,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20064>("/notation/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20064>("/notation/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2033,9 +2218,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20064</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20064> GetNotationGetAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20064>GetNotationGetAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20064> localVarResponse = await GetNotationGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationGetWithHttpInfoAsync(id, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2048,11 +2233,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20064)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20064>> GetNotationGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20064>> GetNotationGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -2065,12 +2253,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2084,13 +2277,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2102,14 +2295,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20064>("/notation/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2124,7 +2321,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20072</returns>
         public InlineResponse20072 GetNotationKeyFiguresMonth1Get(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> localVarResponse = GetNotationKeyFiguresMonth1GetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresMonth1GetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -2135,11 +2332,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20072</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> GetNotationKeyFiguresMonth1GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20072> GetNotationKeyFiguresMonth1GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresMonth1Get");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2152,10 +2351,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2165,13 +2370,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2183,15 +2388,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20072>("/notation/keyFigures/month/1/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth1GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20072>("/notation/keyFigures/month/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2203,9 +2412,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20072</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20072> GetNotationKeyFiguresMonth1GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20072>GetNotationKeyFiguresMonth1GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> localVarResponse = await GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2217,11 +2426,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20072)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072>> GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20072>> GetNotationKeyFiguresMonth1GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresMonth1Get");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -2234,12 +2446,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2249,13 +2466,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2267,14 +2484,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth1GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20072>("/notation/keyFigures/month/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2289,7 +2510,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20073</returns>
         public InlineResponse20073 GetNotationKeyFiguresMonth1List(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> localVarResponse = GetNotationKeyFiguresMonth1ListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresMonth1ListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -2300,11 +2521,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20073</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> GetNotationKeyFiguresMonth1ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20073> GetNotationKeyFiguresMonth1ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresMonth1List");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2317,10 +2540,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -2330,13 +2559,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2348,15 +2577,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20073>("/notation/keyFigures/month/1/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth1ListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20073>("/notation/keyFigures/month/1/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth1List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2368,9 +2601,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20073</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20073> GetNotationKeyFiguresMonth1ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20073>GetNotationKeyFiguresMonth1ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> localVarResponse = await GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2382,11 +2615,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20073)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073>> GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20073>> GetNotationKeyFiguresMonth1ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresMonth1List");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -2399,12 +2635,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -2414,13 +2655,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2432,14 +2673,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth1ListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20073>("/notation/keyFigures/month/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth1List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2454,7 +2699,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20074</returns>
         public InlineResponse20074 GetNotationKeyFiguresMonth3Get(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = GetNotationKeyFiguresMonth3GetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresMonth3GetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -2465,11 +2710,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20074</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth3GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth3GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresMonth3Get");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2482,10 +2729,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2495,13 +2748,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2513,15 +2766,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20074>("/notation/keyFigures/month/3/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth3GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20074>("/notation/keyFigures/month/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2533,9 +2790,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresMonth3GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresMonth3GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = await GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2547,11 +2804,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth3GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresMonth3Get");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -2564,12 +2824,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2579,13 +2844,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2597,14 +2862,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth3GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/month/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2619,7 +2888,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20075</returns>
         public InlineResponse20075 GetNotationKeyFiguresMonth3List(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = GetNotationKeyFiguresMonth3ListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresMonth3ListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -2630,11 +2899,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20075</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth3ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth3ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresMonth3List");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2647,10 +2918,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -2660,13 +2937,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2678,15 +2955,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20075>("/notation/keyFigures/month/3/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth3ListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20075>("/notation/keyFigures/month/3/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth3List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2698,9 +2979,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresMonth3ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresMonth3ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = await GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2712,11 +2993,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth3ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresMonth3List");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -2729,12 +3013,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -2744,13 +3033,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2762,14 +3051,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth3ListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/month/3/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth3List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2784,7 +3077,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20074</returns>
         public InlineResponse20074 GetNotationKeyFiguresMonth6Get(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = GetNotationKeyFiguresMonth6GetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresMonth6GetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -2795,11 +3088,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20074</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth6GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresMonth6GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresMonth6Get");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2812,10 +3107,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2825,13 +3126,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2843,15 +3144,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20074>("/notation/keyFigures/month/6/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth6GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20074>("/notation/keyFigures/month/6/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth6Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2863,9 +3168,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresMonth6GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresMonth6GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = await GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2877,11 +3182,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresMonth6GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresMonth6Get");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -2894,12 +3202,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2909,13 +3222,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2927,14 +3240,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth6GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/month/6/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth6Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2949,7 +3266,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20075</returns>
         public InlineResponse20075 GetNotationKeyFiguresMonth6List(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = GetNotationKeyFiguresMonth6ListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresMonth6ListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -2960,11 +3277,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20075</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth6ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresMonth6ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresMonth6List");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2977,10 +3296,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -2990,13 +3315,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3008,15 +3333,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20075>("/notation/keyFigures/month/6/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth6ListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20075>("/notation/keyFigures/month/6/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth6List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3028,9 +3357,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresMonth6ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresMonth6ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = await GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3042,11 +3371,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresMonth6ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresMonth6List");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -3059,12 +3391,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -3074,13 +3411,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3092,14 +3429,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresMonth6ListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/month/6/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresMonth6List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3114,7 +3455,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20072</returns>
         public InlineResponse20072 GetNotationKeyFiguresWeek1Get(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> localVarResponse = GetNotationKeyFiguresWeek1GetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresWeek1GetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -3125,11 +3466,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20072</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> GetNotationKeyFiguresWeek1GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20072> GetNotationKeyFiguresWeek1GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresWeek1Get");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3142,10 +3485,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -3155,13 +3504,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3173,15 +3522,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20072>("/notation/keyFigures/week/1/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresWeek1GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20072>("/notation/keyFigures/week/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresWeek1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3193,9 +3546,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20072</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20072> GetNotationKeyFiguresWeek1GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20072>GetNotationKeyFiguresWeek1GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> localVarResponse = await GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3207,11 +3560,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20072)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072>> GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20072>> GetNotationKeyFiguresWeek1GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresWeek1Get");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -3224,12 +3580,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -3239,13 +3600,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3257,14 +3618,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresWeek1GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20072>("/notation/keyFigures/week/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresWeek1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3279,7 +3644,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20073</returns>
         public InlineResponse20073 GetNotationKeyFiguresWeek1List(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> localVarResponse = GetNotationKeyFiguresWeek1ListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresWeek1ListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -3290,11 +3655,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20073</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> GetNotationKeyFiguresWeek1ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20073> GetNotationKeyFiguresWeek1ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresWeek1List");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3307,10 +3674,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -3320,13 +3693,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3338,15 +3711,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20073>("/notation/keyFigures/week/1/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresWeek1ListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20073>("/notation/keyFigures/week/1/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresWeek1List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3358,9 +3735,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20073</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20073> GetNotationKeyFiguresWeek1ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20073>GetNotationKeyFiguresWeek1ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> localVarResponse = await GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3372,11 +3749,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20073)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073>> GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20073>> GetNotationKeyFiguresWeek1ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresWeek1List");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -3389,12 +3769,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -3404,13 +3789,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3422,14 +3807,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresWeek1ListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20073>("/notation/keyFigures/week/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresWeek1List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3444,7 +3833,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20072</returns>
         public InlineResponse20072 GetNotationKeyFiguresYear1Get(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> localVarResponse = GetNotationKeyFiguresYear1GetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresYear1GetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -3455,11 +3844,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20072</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> GetNotationKeyFiguresYear1GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20072> GetNotationKeyFiguresYear1GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYear1Get");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3472,10 +3863,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -3485,13 +3882,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3503,15 +3900,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20072>("/notation/keyFigures/year/1/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear1GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20072>("/notation/keyFigures/year/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3523,9 +3924,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20072</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20072> GetNotationKeyFiguresYear1GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20072>GetNotationKeyFiguresYear1GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072> localVarResponse = await GetNotationKeyFiguresYear1GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYear1GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3537,11 +3938,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20072)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20072>> GetNotationKeyFiguresYear1GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20072>> GetNotationKeyFiguresYear1GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYear1Get");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -3554,12 +3958,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -3569,13 +3978,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3587,14 +3996,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear1GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20072>("/notation/keyFigures/year/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3609,7 +4022,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20073</returns>
         public InlineResponse20073 GetNotationKeyFiguresYear1List(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> localVarResponse = GetNotationKeyFiguresYear1ListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresYear1ListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -3620,11 +4033,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20073</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> GetNotationKeyFiguresYear1ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20073> GetNotationKeyFiguresYear1ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYear1List");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3637,10 +4052,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -3650,13 +4071,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3668,15 +4089,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20073>("/notation/keyFigures/year/1/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear1ListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20073>("/notation/keyFigures/year/1/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear1List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3688,9 +4113,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20073</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20073> GetNotationKeyFiguresYear1ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20073>GetNotationKeyFiguresYear1ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073> localVarResponse = await GetNotationKeyFiguresYear1ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYear1ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3702,11 +4127,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20073)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20073>> GetNotationKeyFiguresYear1ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20073>> GetNotationKeyFiguresYear1ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYear1List");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -3719,12 +4147,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -3734,13 +4167,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3752,14 +4185,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear1ListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20073>("/notation/keyFigures/year/1/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear1List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3774,7 +4211,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20074</returns>
         public InlineResponse20074 GetNotationKeyFiguresYear3Get(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = GetNotationKeyFiguresYear3GetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresYear3GetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -3785,11 +4222,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20074</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear3GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear3GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYear3Get");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3802,10 +4241,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -3815,13 +4260,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3833,15 +4278,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20074>("/notation/keyFigures/year/3/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear3GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20074>("/notation/keyFigures/year/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -3853,9 +4302,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresYear3GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresYear3GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = await GetNotationKeyFiguresYear3GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYear3GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3867,11 +4316,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear3GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear3GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYear3Get");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -3884,12 +4336,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -3899,13 +4356,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3917,14 +4374,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear3GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/year/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -3939,7 +4400,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20075</returns>
         public InlineResponse20075 GetNotationKeyFiguresYear3List(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = GetNotationKeyFiguresYear3ListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresYear3ListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -3950,11 +4411,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20075</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear3ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear3ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYear3List");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -3967,10 +4430,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -3980,13 +4449,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -3998,15 +4467,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20075>("/notation/keyFigures/year/3/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear3ListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20075>("/notation/keyFigures/year/3/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear3List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4018,9 +4491,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear3ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear3ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = await GetNotationKeyFiguresYear3ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYear3ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4032,11 +4505,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear3ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear3ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYear3List");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -4049,12 +4525,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -4064,13 +4545,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4082,14 +4563,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear3ListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/3/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear3List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4104,7 +4589,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20074</returns>
         public InlineResponse20074 GetNotationKeyFiguresYear5Get(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = GetNotationKeyFiguresYear5GetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresYear5GetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -4115,11 +4600,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20074</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear5GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20074> GetNotationKeyFiguresYear5GetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYear5Get");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -4132,10 +4619,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -4145,13 +4638,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4163,15 +4656,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20074>("/notation/keyFigures/year/5/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear5GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20074>("/notation/keyFigures/year/5/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear5Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4183,9 +4680,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20074</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20074> GetNotationKeyFiguresYear5GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20074>GetNotationKeyFiguresYear5GetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074> localVarResponse = await GetNotationKeyFiguresYear5GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYear5GetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4197,11 +4694,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20074)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear5GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20074>> GetNotationKeyFiguresYear5GetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYear5Get");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -4214,12 +4714,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -4229,13 +4734,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4247,14 +4752,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear5GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20074>("/notation/keyFigures/year/5/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear5Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4269,7 +4778,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20075</returns>
         public InlineResponse20075 GetNotationKeyFiguresYear5List(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = GetNotationKeyFiguresYear5ListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresYear5ListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -4280,11 +4789,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20075</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear5ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20075> GetNotationKeyFiguresYear5ListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYear5List");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -4297,10 +4808,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -4310,13 +4827,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4328,15 +4845,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20075>("/notation/keyFigures/year/5/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear5ListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20075>("/notation/keyFigures/year/5/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear5List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4348,9 +4869,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20075</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20075> GetNotationKeyFiguresYear5ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20075>GetNotationKeyFiguresYear5ListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075> localVarResponse = await GetNotationKeyFiguresYear5ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYear5ListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4362,11 +4883,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20075)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear5ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20075>> GetNotationKeyFiguresYear5ListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYear5List");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -4379,12 +4903,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -4394,13 +4923,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4412,14 +4941,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYear5ListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20075>("/notation/keyFigures/year/5/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYear5List", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4434,7 +4967,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20076</returns>
         public InlineResponse20076 GetNotationKeyFiguresYearToDateGet(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20076> localVarResponse = GetNotationKeyFiguresYearToDateGetWithHttpInfo(id, attributes);
+            var localVarResponse = GetNotationKeyFiguresYearToDateGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -4445,11 +4978,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the notation.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20076</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20076> GetNotationKeyFiguresYearToDateGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20076> GetNotationKeyFiguresYearToDateGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYearToDateGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -4462,10 +4997,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -4475,13 +5016,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4493,15 +5034,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20076>("/notation/keyFigures/yearToDate/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYearToDateGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20076>("/notation/keyFigures/yearToDate/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYearToDateGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4513,9 +5058,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20076</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20076> GetNotationKeyFiguresYearToDateGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20076>GetNotationKeyFiguresYearToDateGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20076> localVarResponse = await GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4527,11 +5072,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20076)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20076>> GetNotationKeyFiguresYearToDateGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationKeyFiguresYearToDateGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -4544,12 +5092,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -4559,13 +5112,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4577,14 +5130,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYearToDateGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20076>("/notation/keyFigures/yearToDate/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYearToDateGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4599,7 +5156,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20077</returns>
         public InlineResponse20077 GetNotationKeyFiguresYearToDateList(List<string> ids, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20077> localVarResponse = GetNotationKeyFiguresYearToDateListWithHttpInfo(ids, attributes);
+            var localVarResponse = GetNotationKeyFiguresYearToDateListWithHttpInfo(ids, attributes);
             return localVarResponse.Data;
         }
 
@@ -4610,11 +5167,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="ids">List of notations.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20077</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20077> GetNotationKeyFiguresYearToDateListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20077> GetNotationKeyFiguresYearToDateListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYearToDateList");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -4627,10 +5186,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -4640,13 +5205,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4658,15 +5223,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20077>("/notation/keyFigures/yearToDate/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYearToDateListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20077>("/notation/keyFigures/yearToDate/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYearToDateList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4678,9 +5247,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20077</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20077> GetNotationKeyFiguresYearToDateListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20077>GetNotationKeyFiguresYearToDateListAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20077> localVarResponse = await GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(ids, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4692,11 +5261,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20077)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20077>> GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20077>> GetNotationKeyFiguresYearToDateListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationKeyFiguresYearToDateList");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -4709,12 +5281,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -4724,13 +5301,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4742,14 +5319,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationKeyFiguresYearToDateListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20077>("/notation/keyFigures/yearToDate/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationKeyFiguresYearToDateList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4765,7 +5346,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20065</returns>
         public InlineResponse20065 GetNotationList(List<string> ids, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20065> localVarResponse = GetNotationListWithHttpInfo(ids, attributes, language);
+            var localVarResponse = GetNotationListWithHttpInfo(ids, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -4777,11 +5358,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20065</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20065> GetNotationListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse20065> GetNotationListWithHttpInfo(List<string> ids, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationList");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -4794,10 +5377,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -4811,13 +5400,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4829,15 +5418,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20065>("/notation/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20065>("/notation/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -4850,9 +5443,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20065</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20065> GetNotationListAsync(List<string> ids, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20065>GetNotationListAsync(List<string> ids, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20065> localVarResponse = await GetNotationListWithHttpInfoAsync(ids, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationListWithHttpInfoAsync(ids, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4865,11 +5458,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20065)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20065>> GetNotationListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20065>> GetNotationListWithHttpInfoAsync(List<string> ids, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'ids' when calling NotationApi->GetNotationList");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -4882,12 +5478,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (attributes != null)
@@ -4901,13 +5502,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -4919,14 +5520,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20065>("/notation/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -4948,7 +5553,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20088</returns>
         public InlineResponse20088 GetNotationSearchBasic(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20088> localVarResponse = GetNotationSearchBasicWithHttpInfo(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
+            var localVarResponse = GetNotationSearchBasicWithHttpInfo(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -4966,11 +5571,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse20088</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20088> GetNotationSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse20088> GetNotationSearchBasicWithHttpInfo(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'searchValue' when calling NotationApi->GetNotationSearchBasic");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -4983,10 +5590,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "searchValue", searchValue));
             if (nsins != null)
@@ -5024,13 +5637,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5042,15 +5655,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20088>("/notation/search/basic", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationSearchBasicResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20088>("/notation/search/basic", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationSearchBasic", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5069,9 +5686,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20088</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20088> GetNotationSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20088>GetNotationSearchBasicAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20088> localVarResponse = await GetNotationSearchBasicWithHttpInfoAsync(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationSearchBasicWithHttpInfoAsync(searchValue, nsins, assetClass, onlyActive, popularity, attributes, language, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5090,11 +5707,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20088)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20088>> GetNotationSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20088>> GetNotationSearchBasicWithHttpInfoAsync(string searchValue, List<string> nsins = default(List<string>), string assetClass = default(string), bool? onlyActive = default(bool?), bool? popularity = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'searchValue' when calling NotationApi->GetNotationSearchBasic");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -5107,12 +5727,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "searchValue", searchValue));
             if (nsins != null)
@@ -5150,13 +5775,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5168,14 +5793,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationSearchBasicResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20088>("/notation/search/basic", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationSearchBasic", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -5197,7 +5826,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20090</returns>
         public InlineResponse20090 GetNotationSearchByTextRankedByVolume(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20090> localVarResponse = GetNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
+            var localVarResponse = GetNotationSearchByTextRankedByVolumeWithHttpInfo(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -5215,11 +5844,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationOffset">Non-negative number of entries to skip, or 0 (default). (optional, default to 0.0M)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse20090</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20090> GetNotationSearchByTextRankedByVolumeWithHttpInfo(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse20090> GetNotationSearchByTextRankedByVolumeWithHttpInfo(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'searchValue' when calling NotationApi->GetNotationSearchByTextRankedByVolume");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -5232,10 +5863,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "searchValue", searchValue));
             if (idMarkets != null)
@@ -5273,13 +5910,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5291,15 +5928,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20090>("/notation/searchByTextRankedByVolume", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationSearchByTextRankedByVolumeResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20090>("/notation/searchByTextRankedByVolume", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationSearchByTextRankedByVolume", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5318,9 +5959,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20090</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20090> GetNotationSearchByTextRankedByVolumeAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20090>GetNotationSearchByTextRankedByVolumeAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20090> localVarResponse = await GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(searchValue, idMarkets, nsins, assetClass, onlyActive, attributes, language, paginationOffset, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5339,11 +5980,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20090)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20090>> GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20090>> GetNotationSearchByTextRankedByVolumeWithHttpInfoAsync(string searchValue, List<decimal> idMarkets = default(List<decimal>), List<string> nsins = default(List<string>), List<string> assetClass = default(List<string>), bool? onlyActive = default(bool?), List<string> attributes = default(List<string>), string language = default(string), decimal? paginationOffset = default(decimal?), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'searchValue' is set
             if (searchValue == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'searchValue' when calling NotationApi->GetNotationSearchByTextRankedByVolume");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -5356,12 +6000,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "searchValue", searchValue));
             if (idMarkets != null)
@@ -5399,13 +6048,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5417,14 +6066,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationSearchByTextRankedByVolumeResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20090>("/notation/searchByTextRankedByVolume", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationSearchByTextRankedByVolume", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -5440,7 +6093,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20078</returns>
         public InlineResponse20078 GetNotationStatusGet(string id, string quality = default(string), List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20078> localVarResponse = GetNotationStatusGetWithHttpInfo(id, quality, attributes);
+            var localVarResponse = GetNotationStatusGetWithHttpInfo(id, quality, attributes);
             return localVarResponse.Data;
         }
 
@@ -5452,11 +6105,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="quality">Quality of the trading status. The trading status and related data for a notation cannot be retrieved in end-of-day quality (EOD). (optional, default to DLY)</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20078</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20078> GetNotationStatusGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse20078> GetNotationStatusGetWithHttpInfo(string id, string quality = default(string), List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationStatusGet");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -5469,10 +6124,16 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -5486,13 +6147,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5504,15 +6165,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse20078>("/notation/status/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationStatusGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse20078>("/notation/status/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationStatusGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5525,9 +6190,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20078</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20078> GetNotationStatusGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20078>GetNotationStatusGetAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20078> localVarResponse = await GetNotationStatusGetWithHttpInfoAsync(id, quality, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotationStatusGetWithHttpInfoAsync(id, quality, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5540,11 +6205,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20078)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20078>> GetNotationStatusGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20078>> GetNotationStatusGetWithHttpInfoAsync(string id, string quality = default(string), List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling NotationApi->GetNotationStatusGet");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -5557,12 +6225,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (quality != null)
@@ -5576,13 +6249,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5594,14 +6267,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotationStatusGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20078>("/notation/status/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotationStatusGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -5615,7 +6292,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20070</returns>
         public InlineResponse20070 PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier(InlineObject19 body)
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20070> localVarResponse = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(body);
+            var localVarResponse = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -5625,11 +6302,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse20070</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20070> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(InlineObject19 body)
+        public ApiResponse<InlineResponse20070> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfo(InlineObject19 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -5643,22 +6322,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5670,15 +6355,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20070>("/notation/crossReference/factSetIdentifier/listByFactSetIdentifier", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20070>("/notation/crossReference/factSetIdentifier/listByFactSetIdentifier", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5689,9 +6378,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20070</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20070> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierAsync(InlineObject19 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20070>PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierAsync(InlineObject19 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20070> localVarResponse = await PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5702,11 +6391,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20070)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20070>> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(InlineObject19 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20070>> PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierWithHttpInfoAsync(InlineObject19 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -5720,24 +6412,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5749,14 +6446,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifierResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20070>("/notation/crossReference/factSetIdentifier/listByFactSetIdentifier", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceFactSetIdentifierListByFactSetIdentifier", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -5770,7 +6471,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20071</returns>
         public InlineResponse20071 PostNotationCrossReferenceFactSetIdentifierListByInstrument(InlineObject20 body)
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20071> localVarResponse = PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(body);
+            var localVarResponse = PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -5780,11 +6481,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse20071</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20071> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(InlineObject20 body)
+        public ApiResponse<InlineResponse20071> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfo(InlineObject20 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByInstrument");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -5798,22 +6501,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5825,15 +6534,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20071>("/notation/crossReference/factSetIdentifier/listByInstrument", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20071>("/notation/crossReference/factSetIdentifier/listByInstrument", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceFactSetIdentifierListByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5844,9 +6557,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20071</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20071> PostNotationCrossReferenceFactSetIdentifierListByInstrumentAsync(InlineObject20 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20071>PostNotationCrossReferenceFactSetIdentifierListByInstrumentAsync(InlineObject20 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20071> localVarResponse = await PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5857,11 +6570,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20071)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20071>> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(InlineObject20 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20071>> PostNotationCrossReferenceFactSetIdentifierListByInstrumentWithHttpInfoAsync(InlineObject20 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NotationApi->PostNotationCrossReferenceFactSetIdentifierListByInstrument");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -5875,24 +6591,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5904,14 +6625,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceFactSetIdentifierListByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20071>("/notation/crossReference/factSetIdentifier/listByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceFactSetIdentifierListByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -5925,7 +6650,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20067</returns>
         public InlineResponse20067 PostNotationCrossReferenceListByISIN(InlineObject17 body = default(InlineObject17))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067> localVarResponse = PostNotationCrossReferenceListByISINWithHttpInfo(body);
+            var localVarResponse = PostNotationCrossReferenceListByISINWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -5935,7 +6660,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse20067</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067> PostNotationCrossReferenceListByISINWithHttpInfo(InlineObject17 body = default(InlineObject17))
+        public ApiResponse<InlineResponse20067> PostNotationCrossReferenceListByISINWithHttpInfo(InlineObject17 body = default(InlineObject17))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -5949,22 +6674,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -5976,15 +6707,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20067>("/notation/crossReference/listByISIN", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListByISINResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20067>("/notation/crossReference/listByISIN", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListByISIN", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -5995,9 +6730,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20067</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20067> PostNotationCrossReferenceListByISINAsync(InlineObject17 body = default(InlineObject17), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20067>PostNotationCrossReferenceListByISINAsync(InlineObject17 body = default(InlineObject17), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067> localVarResponse = await PostNotationCrossReferenceListByISINWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNotationCrossReferenceListByISINWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6008,7 +6743,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20067)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067>> PostNotationCrossReferenceListByISINWithHttpInfoAsync(InlineObject17 body = default(InlineObject17), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20067>> PostNotationCrossReferenceListByISINWithHttpInfoAsync(InlineObject17 body = default(InlineObject17), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -6022,24 +6758,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -6051,14 +6792,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListByISINResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20067>("/notation/crossReference/listByISIN", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListByISIN", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -6072,7 +6817,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20067</returns>
         public InlineResponse20067 PostNotationCrossReferenceListByInstrument(InlineObject16 body = default(InlineObject16))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067> localVarResponse = PostNotationCrossReferenceListByInstrumentWithHttpInfo(body);
+            var localVarResponse = PostNotationCrossReferenceListByInstrumentWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -6082,7 +6827,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse20067</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067> PostNotationCrossReferenceListByInstrumentWithHttpInfo(InlineObject16 body = default(InlineObject16))
+        public ApiResponse<InlineResponse20067> PostNotationCrossReferenceListByInstrumentWithHttpInfo(InlineObject16 body = default(InlineObject16))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -6096,22 +6841,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -6123,15 +6874,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20067>("/notation/crossReference/listByInstrument", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20067>("/notation/crossReference/listByInstrument", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -6142,9 +6897,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20067</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20067> PostNotationCrossReferenceListByInstrumentAsync(InlineObject16 body = default(InlineObject16), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20067>PostNotationCrossReferenceListByInstrumentAsync(InlineObject16 body = default(InlineObject16), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067> localVarResponse = await PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6155,7 +6910,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20067)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20067>> PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(InlineObject16 body = default(InlineObject16), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20067>> PostNotationCrossReferenceListByInstrumentWithHttpInfoAsync(InlineObject16 body = default(InlineObject16), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -6169,24 +6925,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -6198,14 +6959,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListByInstrumentResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20067>("/notation/crossReference/listByInstrument", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListByInstrument", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -6219,7 +6984,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20068</returns>
         public InlineResponse20068 PostNotationCrossReferenceListBySymbol(InlineObject18 body = default(InlineObject18))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20068> localVarResponse = PostNotationCrossReferenceListBySymbolWithHttpInfo(body);
+            var localVarResponse = PostNotationCrossReferenceListBySymbolWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -6229,7 +6994,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse20068</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20068> PostNotationCrossReferenceListBySymbolWithHttpInfo(InlineObject18 body = default(InlineObject18))
+        public ApiResponse<InlineResponse20068> PostNotationCrossReferenceListBySymbolWithHttpInfo(InlineObject18 body = default(InlineObject18))
         {
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -6243,22 +7008,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -6270,15 +7041,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20068>("/notation/crossReference/listBySymbol", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20068>("/notation/crossReference/listBySymbol", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListBySymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -6289,9 +7064,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20068</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20068> PostNotationCrossReferenceListBySymbolAsync(InlineObject18 body = default(InlineObject18), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20068>PostNotationCrossReferenceListBySymbolAsync(InlineObject18 body = default(InlineObject18), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20068> localVarResponse = await PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6302,7 +7077,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20068)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20068>> PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(InlineObject18 body = default(InlineObject18), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20068>> PostNotationCrossReferenceListBySymbolWithHttpInfoAsync(InlineObject18 body = default(InlineObject18), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -6316,24 +7092,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -6345,14 +7126,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationCrossReferenceListBySymbolResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20068>("/notation/crossReference/listBySymbol", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationCrossReferenceListBySymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -6366,7 +7151,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <returns>InlineResponse20089</returns>
         public InlineResponse20089 PostNotationSearchByText(InlineObject22 body)
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20089> localVarResponse = PostNotationSearchByTextWithHttpInfo(body);
+            var localVarResponse = PostNotationSearchByTextWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -6376,11 +7161,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse20089</returns>
-        public FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20089> PostNotationSearchByTextWithHttpInfo(InlineObject22 body)
+        public ApiResponse<InlineResponse20089> PostNotationSearchByTextWithHttpInfo(InlineObject22 body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NotationApi->PostNotationSearchByText");
+            }
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
 
@@ -6394,22 +7181,28 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -6421,15 +7214,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse20089>("/notation/searchByText", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationSearchByTextResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse20089>("/notation/searchByText", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationSearchByText", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -6440,9 +7237,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse20089</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20089> PostNotationSearchByTextAsync(InlineObject22 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse20089>PostNotationSearchByTextAsync(InlineObject22 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20089> localVarResponse = await PostNotationSearchByTextWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostNotationSearchByTextWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6453,11 +7250,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse20089)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiResponse<InlineResponse20089>> PostNotationSearchByTextWithHttpInfoAsync(InlineObject22 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20089>> PostNotationSearchByTextWithHttpInfoAsync(InlineObject22 body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.QuotesAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling NotationApi->PostNotationSearchByText");
+            }
 
 
             FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuotesAPIforDigitalPortals.Client.RequestOptions();
@@ -6471,24 +7271,29 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuotesAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -6500,14 +7305,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostNotationSearchByTextResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse20089>("/notation/searchByText", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostNotationSearchByText", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

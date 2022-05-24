@@ -12,18 +12,15 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20016DataNav from './InlineResponse20016DataNav';
-import InlineResponse20016DataSharesOutstanding from './InlineResponse20016DataSharesOutstanding';
 
 /**
  * The InlineResponse20016Data model module.
  * @module model/InlineResponse20016Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20016Data {
     /**
      * Constructs a new <code>InlineResponse20016Data</code>.
-     * Price.
      * @alias module:model/InlineResponse20016Data
      */
     constructor() { 
@@ -50,11 +47,8 @@ class InlineResponse20016Data {
         if (data) {
             obj = obj || new InlineResponse20016Data();
 
-            if (data.hasOwnProperty('nav')) {
-                obj['nav'] = InlineResponse20016DataNav.constructFromObject(data['nav']);
-            }
-            if (data.hasOwnProperty('sharesOutstanding')) {
-                obj['sharesOutstanding'] = InlineResponse20016DataSharesOutstanding.constructFromObject(data['sharesOutstanding']);
+            if (data.hasOwnProperty('broadCategory')) {
+                obj['broadCategory'] = ApiClient.convertToType(data['broadCategory'], 'String');
             }
         }
         return obj;
@@ -64,14 +58,10 @@ class InlineResponse20016Data {
 }
 
 /**
- * @member {module:model/InlineResponse20016DataNav} nav
+ * ETP class broad category.
+ * @member {String} broadCategory
  */
-InlineResponse20016Data.prototype['nav'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20016DataSharesOutstanding} sharesOutstanding
- */
-InlineResponse20016Data.prototype['sharesOutstanding'] = undefined;
+InlineResponse20016Data.prototype['broadCategory'] = undefined;
 
 
 

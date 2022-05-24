@@ -3,18 +3,18 @@
 ## Enum
 
 
-* `UNKNOWN` (value: `"UNKNOWN"`)
+* `0` (value: `0`)
 
-* `ACCOUNT` (value: `"ACCOUNT"`)
+* `1` (value: `1`)
 
-* `CUSTOM` (value: `"CUSTOM"`)
+* `2` (value: `2`)
 
-* `INSTRUMENT` (value: `"INSTRUMENT"`)
+* `3` (value: `3`)
 
-* `CONTACT` (value: `"CONTACT"`)
+* `4` (value: `4`)
 
-* `MARKET_NOTE` (value: `"MARKET_NOTE"`)
+* `5` (value: `5`)
 
-* `PORTFOLIO` (value: `"PORTFOLIO"`)
+* `6` (value: `6`)
 
 

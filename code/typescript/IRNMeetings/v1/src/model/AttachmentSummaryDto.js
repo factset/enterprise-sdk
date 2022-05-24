@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AttachmentSummaryDto model module.
  * @module model/AttachmentSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class AttachmentSummaryDto {
     /**
@@ -56,6 +56,9 @@ class AttachmentSummaryDto {
             if (data.hasOwnProperty('mimeType')) {
                 obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
             }
+            if (data.hasOwnProperty('size')) {
+                obj['size'] = ApiClient.convertToType(data['size'], 'Number');
+            }
         }
         return obj;
     }
@@ -77,6 +80,11 @@ AttachmentSummaryDto.prototype['fileName'] = undefined;
  * @member {String} mimeType
  */
 AttachmentSummaryDto.prototype['mimeType'] = undefined;
+
+/**
+ * @member {Number} size
+ */
+AttachmentSummaryDto.prototype['size'] = undefined;
 
 
 

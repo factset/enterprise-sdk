@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004DataSensitivitiesModifiedDuration model module.
  * @module model/InlineResponse2004DataSensitivitiesModifiedDuration
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataSensitivitiesModifiedDuration {
     /**

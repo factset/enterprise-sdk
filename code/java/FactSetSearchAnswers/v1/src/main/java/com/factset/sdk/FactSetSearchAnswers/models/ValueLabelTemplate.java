@@ -66,6 +66,16 @@ public class ValueLabelTemplate implements Serializable {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  public ValueLabelTemplate() { 
+  }
+
+  @JsonCreator
+  public ValueLabelTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public ValueLabelTemplate headline(String headline) {
     this.headline = headline;

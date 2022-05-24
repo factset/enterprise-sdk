@@ -44,12 +44,14 @@ import com.factset.sdk.IRNNotes.JSON;
 public class RelatedRecordsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NOTE_IDS = "noteIds";
+  public static final String JSON_PROPERTY_NOTE_IDS = "NoteIds";
   private JsonNullable<java.util.List<java.util.UUID>> noteIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_MEETING_IDS = "meetingIds";
+  public static final String JSON_PROPERTY_MEETING_IDS = "MeetingIds";
   private JsonNullable<java.util.List<java.util.UUID>> meetingIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
+  public RelatedRecordsDto() { 
+  }
 
   public RelatedRecordsDto noteIds(java.util.List<java.util.UUID> noteIds) {
     this.noteIds = JsonNullable.<java.util.List<java.util.UUID>>of(noteIds);

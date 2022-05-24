@@ -52,6 +52,8 @@ public class InlineResponse20051DataInterestRateAnnualized implements Serializab
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse20051DataInterestRateAnnualized() { 
+  }
 
   public InlineResponse20051DataInterestRateAnnualized fixed(BigDecimal fixed) {
     this.fixed = fixed;

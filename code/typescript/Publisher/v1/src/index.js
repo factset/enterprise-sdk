@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AccountDirectories from './model/AccountDirectories';
 import Calculation from './model/Calculation';
@@ -33,6 +32,7 @@ import SPARIdentifier from './model/SPARIdentifier';
 import VaultCalculationParameters from './model/VaultCalculationParameters';
 import VaultDateParameters from './model/VaultDateParameters';
 import VaultIdentifier from './model/VaultIdentifier';
+
 import AccountsApi from './api/AccountsApi';
 import CalculationsApi from './api/CalculationsApi';
 import DocumentsApi from './api/DocumentsApi';
@@ -67,7 +67,7 @@ import DocumentsApi from './api/DocumentsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -212,5 +212,6 @@ export {
     * The DocumentsApi service constructor.
     * @property {module:api/DocumentsApi}
     */
-    DocumentsApi
+    DocumentsApi,
+
 };

@@ -53,7 +53,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006Data {\n");
             sb.Append("  Positions: ").Append(Positions).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Positions == input.Positions ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Positions != null)
-                    hashCode = hashCode * 59 + this.Positions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Positions.GetHashCode();
+                }
                 return hashCode;
             }
         }

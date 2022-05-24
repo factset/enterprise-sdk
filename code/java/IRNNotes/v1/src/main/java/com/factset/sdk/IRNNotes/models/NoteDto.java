@@ -43,6 +43,7 @@ import com.factset.sdk.IRNNotes.JSON;
   NoteDto.JSON_PROPERTY_DATE,
   NoteDto.JSON_PROPERTY_CREATED_AT,
   NoteDto.JSON_PROPERTY_AUTHOR_ID,
+  NoteDto.JSON_PROPERTY_CONTRIBUTOR_ID,
   NoteDto.JSON_PROPERTY_TITLE,
   NoteDto.JSON_PROPERTY_IDENTIFIER,
   NoteDto.JSON_PROPERTY_RELATED_SYMBOLS,
@@ -53,6 +54,7 @@ import com.factset.sdk.IRNNotes.JSON;
   NoteDto.JSON_PROPERTY_LINK,
   NoteDto.JSON_PROPERTY_BODY,
   NoteDto.JSON_PROPERTY_IS_PERSONAL,
+  NoteDto.JSON_PROPERTY_STATE,
   NoteDto.JSON_PROPERTY_APPROVAL_STATUS,
   NoteDto.JSON_PROPERTY_AVERAGE_RATING,
   NoteDto.JSON_PROPERTY_RELATED_RECORDS,
@@ -63,63 +65,71 @@ import com.factset.sdk.IRNNotes.JSON;
 public class NoteDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_DATE = "date";
+  public static final String JSON_PROPERTY_DATE = "Date";
   private JsonNullable<String> date = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
+  public static final String JSON_PROPERTY_CREATED_AT = "CreatedAt";
   private JsonNullable<String> createdAt = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_AUTHOR_ID = "authorId";
+  public static final String JSON_PROPERTY_AUTHOR_ID = "AuthorId";
   private java.util.UUID authorId;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
+  public static final String JSON_PROPERTY_CONTRIBUTOR_ID = "ContributorId";
+  private java.util.UUID contributorId;
+
+  public static final String JSON_PROPERTY_TITLE = "Title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
+  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
   private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "relatedSymbols";
+  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "RelatedSymbols";
   private JsonNullable<java.util.List<String>> relatedSymbols = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_SUBJECT_ID = "subjectId";
+  public static final String JSON_PROPERTY_SUBJECT_ID = "SubjectId";
   private java.util.UUID subjectId;
 
-  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "recommendationId";
+  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "RecommendationId";
   private JsonNullable<java.util.UUID> recommendationId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_SENTIMENT_ID = "sentimentId";
+  public static final String JSON_PROPERTY_SENTIMENT_ID = "SentimentId";
   private JsonNullable<java.util.UUID> sentimentId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_SOURCE = "source";
+  public static final String JSON_PROPERTY_SOURCE = "Source";
   private JsonNullable<String> source = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_LINK = "link";
+  public static final String JSON_PROPERTY_LINK = "Link";
   private JsonNullable<String> link = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_BODY = "body";
+  public static final String JSON_PROPERTY_BODY = "Body";
   private JsonNullable<String> body = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_PERSONAL = "isPersonal";
+  public static final String JSON_PROPERTY_IS_PERSONAL = "IsPersonal";
   private Boolean isPersonal;
 
-  public static final String JSON_PROPERTY_APPROVAL_STATUS = "approvalStatus";
+  public static final String JSON_PROPERTY_STATE = "State";
+  private JsonNullable<String> state = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_APPROVAL_STATUS = "ApprovalStatus";
   private JsonNullable<String> approvalStatus = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_AVERAGE_RATING = "averageRating";
+  public static final String JSON_PROPERTY_AVERAGE_RATING = "AverageRating";
   private JsonNullable<Integer> averageRating = JsonNullable.<Integer>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_RECORDS = "relatedRecords";
+  public static final String JSON_PROPERTY_RELATED_RECORDS = "RelatedRecords";
   private RelatedRecordsDto relatedRecords;
 
-  public static final String JSON_PROPERTY_RELATED_CONTACTS = "relatedContacts";
+  public static final String JSON_PROPERTY_RELATED_CONTACTS = "RelatedContacts";
   private JsonNullable<java.util.List<java.util.UUID>> relatedContacts = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "customFields";
+  public static final String JSON_PROPERTY_CUSTOM_FIELDS = "CustomFields";
   private JsonNullable<java.util.List<CustomFieldValueDto>> customFields = JsonNullable.<java.util.List<CustomFieldValueDto>>undefined();
 
+  public NoteDto() { 
+  }
 
   public NoteDto id(java.util.UUID id) {
     this.id = id;
@@ -238,6 +248,32 @@ public class NoteDto implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAuthorId(java.util.UUID authorId) {
     this.authorId = authorId;
+  }
+
+
+  public NoteDto contributorId(java.util.UUID contributorId) {
+    this.contributorId = contributorId;
+    return this;
+  }
+
+   /**
+   * Get contributorId
+   * @return contributorId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CONTRIBUTOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.UUID getContributorId() {
+    return contributorId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CONTRIBUTOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setContributorId(java.util.UUID contributorId) {
+    this.contributorId = contributorId;
   }
 
 
@@ -577,6 +613,40 @@ public class NoteDto implements Serializable {
   }
 
 
+  public NoteDto state(String state) {
+    this.state = JsonNullable.<String>of(state);
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getState() {
+        return state.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getState_JsonNullable() {
+    return state;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STATE)
+  public void setState_JsonNullable(JsonNullable<String> state) {
+    this.state = state;
+  }
+
+  public void setState(String state) {
+    this.state = JsonNullable.<String>of(state);
+  }
+
+
   public NoteDto approvalStatus(String approvalStatus) {
     this.approvalStatus = JsonNullable.<String>of(approvalStatus);
     return this;
@@ -779,6 +849,7 @@ public class NoteDto implements Serializable {
         equalsNullable(this.date, noteDto.date) &&
         equalsNullable(this.createdAt, noteDto.createdAt) &&
         Objects.equals(this.authorId, noteDto.authorId) &&
+        Objects.equals(this.contributorId, noteDto.contributorId) &&
         equalsNullable(this.title, noteDto.title) &&
         equalsNullable(this.identifier, noteDto.identifier) &&
         equalsNullable(this.relatedSymbols, noteDto.relatedSymbols) &&
@@ -789,6 +860,7 @@ public class NoteDto implements Serializable {
         equalsNullable(this.link, noteDto.link) &&
         equalsNullable(this.body, noteDto.body) &&
         Objects.equals(this.isPersonal, noteDto.isPersonal) &&
+        equalsNullable(this.state, noteDto.state) &&
         equalsNullable(this.approvalStatus, noteDto.approvalStatus) &&
         equalsNullable(this.averageRating, noteDto.averageRating) &&
         Objects.equals(this.relatedRecords, noteDto.relatedRecords) &&
@@ -802,7 +874,7 @@ public class NoteDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(date), hashCodeNullable(createdAt), authorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(relatedSymbols), subjectId, hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(body), isPersonal, hashCodeNullable(approvalStatus), hashCodeNullable(averageRating), relatedRecords, hashCodeNullable(relatedContacts), hashCodeNullable(customFields));
+    return Objects.hash(id, hashCodeNullable(date), hashCodeNullable(createdAt), authorId, contributorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(relatedSymbols), subjectId, hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(body), isPersonal, hashCodeNullable(state), hashCodeNullable(approvalStatus), hashCodeNullable(averageRating), relatedRecords, hashCodeNullable(relatedContacts), hashCodeNullable(customFields));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -820,6 +892,7 @@ public class NoteDto implements Serializable {
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
+    sb.append("    contributorId: ").append(toIndentedString(contributorId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    relatedSymbols: ").append(toIndentedString(relatedSymbols)).append("\n");
@@ -830,6 +903,7 @@ public class NoteDto implements Serializable {
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    isPersonal: ").append(toIndentedString(isPersonal)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    approvalStatus: ").append(toIndentedString(approvalStatus)).append("\n");
     sb.append("    averageRating: ").append(toIndentedString(averageRating)).append("\n");
     sb.append("    relatedRecords: ").append(toIndentedString(relatedRecords)).append("\n");

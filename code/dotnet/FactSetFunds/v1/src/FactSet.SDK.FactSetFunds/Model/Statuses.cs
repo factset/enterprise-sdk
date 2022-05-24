@@ -90,7 +90,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Statuses {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  ActiveFlag: ").Append(ActiveFlag).Append("\n");
@@ -128,8 +128,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(Statuses input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -165,12 +166,16 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
-                hashCode = hashCode * 59 + this.ActiveFlag.GetHashCode();
-                hashCode = hashCode * 59 + this.ShrClassActiveFlag.GetHashCode();
-                hashCode = hashCode * 59 + this.IsonFFD.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ActiveFlag.GetHashCode();
+                hashCode = (hashCode * 59) + this.ShrClassActiveFlag.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsonFFD.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -43,6 +43,8 @@ public class LeadUnderwritersResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<LeadUnderwriter> data = null;
 
+  public LeadUnderwritersResponse() { 
+  }
 
   public LeadUnderwritersResponse data(java.util.List<LeadUnderwriter> data) {
     this.data = data;

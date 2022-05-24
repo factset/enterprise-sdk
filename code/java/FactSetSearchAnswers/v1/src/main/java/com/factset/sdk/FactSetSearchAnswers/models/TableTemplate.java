@@ -63,6 +63,16 @@ public class TableTemplate implements Serializable {
   public static final String JSON_PROPERTY_TABLE = "table";
   private Table table;
 
+  public TableTemplate() { 
+  }
+
+  @JsonCreator
+  public TableTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public TableTemplate headline(String headline) {
     this.headline = headline;

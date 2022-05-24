@@ -52,7 +52,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DebtInstrumentNotationScreenerSearchDataRating {\n");
             sb.Append("  Grade: ").Append(Grade).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(DebtInstrumentNotationScreenerSearchDataRating input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Grade == input.Grade ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Grade != null)
-                    hashCode = hashCode * 59 + this.Grade.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Grade.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -25,14 +25,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.ColumnsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -42,20 +41,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ColumnsApi apiInstance = new ColumnsApi(defaultClient);
         String id = "2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5"; // String | Unique identifier for a column
         try {
             Column result = apiInstance.getPAColumnById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ColumnsApi#getPAColumnById");
             System.err.println("Status code: " + e.getCode());
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ## getPAColumns
 
-> java.util.Map&lt;String, ColumnSummary&gt; getPAColumns(name, category, directory)
+> java.util.Map<String, ColumnSummary> getPAColumns(name, category, directory)
 
 Get PA columns
 
@@ -117,14 +117,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.ColumnsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -134,14 +133,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ColumnsApi apiInstance = new ColumnsApi(defaultClient);
         String name = ""; // String | 
@@ -150,6 +149,7 @@ public class Example {
         try {
             java.util.Map<String, ColumnSummary> result = apiInstance.getPAColumns(name, category, directory);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ColumnsApi#getPAColumns");
             System.err.println("Status code: " + e.getCode());

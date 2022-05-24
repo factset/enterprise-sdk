@@ -96,6 +96,8 @@ public class CompanyStats implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public CompanyStats() { 
+  }
 
   public CompanyStats averageMgmtCompensation(BigDecimal averageMgmtCompensation) {
     this.averageMgmtCompensation = averageMgmtCompensation;

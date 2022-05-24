@@ -54,6 +54,8 @@ public class InlineResponse2005DataReportedKeyFigures implements Serializable {
   public static final String JSON_PROPERTY_THIRD_FISCAL_YEAR = "thirdFiscalYear";
   private InlineResponse2005DataReportedKeyFiguresThirdFiscalYear thirdFiscalYear;
 
+  public InlineResponse2005DataReportedKeyFigures() { 
+  }
 
   public InlineResponse2005DataReportedKeyFigures firstFiscalYear(InlineResponse2005DataReportedKeyFiguresFirstFiscalYear firstFiscalYear) {
     this.firstFiscalYear = firstFiscalYear;

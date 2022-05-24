@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataFactorCertifica
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyingInstrument instrument;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEffectiveUnderlying() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEffectiveUnderlying instrument(SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyingInstrument instrument) {
     this.instrument = instrument;

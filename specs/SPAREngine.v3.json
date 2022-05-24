@@ -2519,7 +2519,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       }
     },
     "/analytics/engines/spar/v3/calculations/{id}": {
@@ -3092,7 +3093,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       },
       "get": {
         "tags": [

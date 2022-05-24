@@ -18,7 +18,7 @@ import TickhistoryResponse from '../model/TickhistoryResponse';
 /**
 * FirstTrade service.
 * @module api/FirstTradeApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FirstTradeApi {
 
@@ -74,7 +74,10 @@ export default class FirstTradeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json', 'application/xml', 'text/csv'];
+
+
       let returnType = TickhistoryResponse;
+
       return this.apiClient.callApi(
         '/TickHistory/firsttrade', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -92,7 +95,7 @@ export default class FirstTradeApi {
      * @param {module:model/String} opts.format The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (default to 'XML')
      * @param {module:model/String} opts.includeRequest Flag to include request id and key in the CSV output. (default to 'false')
      * @param {module:model/String} opts.dataset Decides what type of trades to return, default is all trades and quotes, alternatively charting can be selected which will filter out unofficial trades.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TickhistoryResponse}
+     * @return { Promise.< module:model/TickhistoryResponse > } a Promise, with data of type {@link module:model/TickhistoryResponse }
      */
     tickHistoryFirsttradeGet(id, opts) {
       return this.tickHistoryFirsttradeGetWithHttpInfo(id, opts)
@@ -103,3 +106,8 @@ export default class FirstTradeApi {
 
 
 }
+
+
+
+
+

@@ -89,6 +89,8 @@ public class InlineResponse2005DataEstimatesFirstFiscalYearRatios implements Ser
   public static final String JSON_PROPERTY_ENTERPRISE_VALUE_SALES = "enterpriseValueSales";
   private InlineResponse2005DataEstimatesFirstFiscalYearRatiosEnterpriseValueSales enterpriseValueSales;
 
+  public InlineResponse2005DataEstimatesFirstFiscalYearRatios() { 
+  }
 
   public InlineResponse2005DataEstimatesFirstFiscalYearRatios priceSales(InlineResponse2005DataEstimatesFirstFiscalYearRatiosPriceSales priceSales) {
     this.priceSales = priceSales;

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetTermsandConditions.JSON;
@@ -72,6 +72,18 @@ public class IssueSize implements Serializable {
   public static final String JSON_PROPERTY_OUT_AMT_CHANGE_TYPE = "outAmtChangeType";
   private String outAmtChangeType;
 
+  public IssueSize() { 
+  }
+
+  @JsonCreator
+  public IssueSize(
+    @JsonProperty(value=JSON_PROPERTY_REQUEST_ID, required=true) String requestId, 
+    @JsonProperty(value=JSON_PROPERTY_FSYM_ID, required=true) String fsymId
+  ) {
+    this();
+    this.requestId = requestId;
+    this.fsymId = fsymId;
+  }
 
   public IssueSize requestId(String requestId) {
     this.requestId = requestId;

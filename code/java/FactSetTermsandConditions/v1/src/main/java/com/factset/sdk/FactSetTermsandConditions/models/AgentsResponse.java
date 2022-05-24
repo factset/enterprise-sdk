@@ -43,6 +43,8 @@ public class AgentsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Agent> data = null;
 
+  public AgentsResponse() { 
+  }
 
   public AgentsResponse data(java.util.List<Agent> data) {
     this.data = data;

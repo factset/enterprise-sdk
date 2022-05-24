@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -87,10 +87,10 @@ class CustomFieldValueDto(ModelNormal):
 
 
     attribute_map = {
-        'code': 'code',  # noqa: E501
-        'value': 'value',  # noqa: E501
-        'options': 'options',  # noqa: E501
-        'contact_values': 'contactValues',  # noqa: E501
+        'code': 'Code',  # noqa: E501
+        'value': 'Value',  # noqa: E501
+        'options': 'Options',  # noqa: E501
+        'contact_values': 'ContactValues',  # noqa: E501
     }
 
     read_only_vars = {

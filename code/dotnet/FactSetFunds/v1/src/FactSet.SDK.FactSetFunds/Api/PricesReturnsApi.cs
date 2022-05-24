@@ -471,6 +471,87 @@ namespace FactSet.SDK.FactSetFunds.Api
     {
         private FactSet.SDK.FactSetFunds.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsPricesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundsPricesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsPricesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundsPricesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsReturnsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundsReturnsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsReturnsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundsReturnsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsReturnsRangeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ReturnsRangeResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsReturnsRangeForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ReturnsRangeResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsReturnsSnapshotResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundsReturnsSnapshotResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsReturnsSnapshotForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundsReturnsSnapshotResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PricesReturnsApi"/> class.
         /// </summary>
@@ -587,7 +668,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>FundsPricesResponse</returns>
         public FundsPricesResponse GetFundsPrices(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dataType = default(string), string splitAdjust = default(string))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse> localVarResponse = GetFundsPricesWithHttpInfo(ids, startDate, endDate, frequency, currency, dataType, splitAdjust);
+            var localVarResponse = GetFundsPricesWithHttpInfo(ids, startDate, endDate, frequency, currency, dataType, splitAdjust);
             return localVarResponse.Data;
         }
 
@@ -603,11 +684,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="dataType">The Data Type of the NAV expressed as Raw or Rolled values. (optional, default to ROLL)</param>
         /// <param name="splitAdjust">The price adjustment split or unsplit. (optional, default to SPLIT)</param>
         /// <returns>ApiResponse of FundsPricesResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse> GetFundsPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dataType = default(string), string splitAdjust = default(string))
+        public ApiResponse<FundsPricesResponse> GetFundsPricesWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dataType = default(string), string splitAdjust = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsPrices");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -620,10 +703,16 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -653,13 +742,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -671,15 +760,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FundsPricesResponse>("/factset-funds/v1/prices", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsPricesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FundsPricesResponse>("/factset-funds/v1/prices", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -696,9 +789,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="splitAdjust">The price adjustment split or unsplit. (optional, default to SPLIT)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundsPricesResponse</returns>
-        public async System.Threading.Tasks.Task<FundsPricesResponse> GetFundsPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dataType = default(string), string splitAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundsPricesResponse>GetFundsPricesAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dataType = default(string), string splitAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse> localVarResponse = await GetFundsPricesWithHttpInfoAsync(ids, startDate, endDate, frequency, currency, dataType, splitAdjust, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsPricesWithHttpInfoAsync(ids, startDate, endDate, frequency, currency, dataType, splitAdjust, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -715,11 +808,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="splitAdjust">The price adjustment split or unsplit. (optional, default to SPLIT)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundsPricesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse>> GetFundsPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dataType = default(string), string splitAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundsPricesResponse>> GetFundsPricesWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dataType = default(string), string splitAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsPrices");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -732,12 +828,17 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -767,13 +868,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -785,14 +886,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsPricesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FundsPricesResponse>("/factset-funds/v1/prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsPrices", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -806,7 +911,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>FundsPricesResponse</returns>
         public FundsPricesResponse GetFundsPricesForList(FundsPricesRequest fundsPricesRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse> localVarResponse = GetFundsPricesForListWithHttpInfo(fundsPricesRequest);
+            var localVarResponse = GetFundsPricesForListWithHttpInfo(fundsPricesRequest);
             return localVarResponse.Data;
         }
 
@@ -816,11 +921,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fundsPricesRequest">The Prices request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of FundsPricesResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse> GetFundsPricesForListWithHttpInfo(FundsPricesRequest fundsPricesRequest)
+        public ApiResponse<FundsPricesResponse> GetFundsPricesForListWithHttpInfo(FundsPricesRequest fundsPricesRequest)
         {
             // verify the required parameter 'fundsPricesRequest' is set
             if (fundsPricesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'fundsPricesRequest' when calling PricesReturnsApi->GetFundsPricesForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -834,22 +941,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundsPricesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -861,15 +974,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FundsPricesResponse>("/factset-funds/v1/prices", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsPricesForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FundsPricesResponse>("/factset-funds/v1/prices", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -880,9 +997,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="fundsPricesRequest">The Prices request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundsPricesResponse</returns>
-        public async System.Threading.Tasks.Task<FundsPricesResponse> GetFundsPricesForListAsync(FundsPricesRequest fundsPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundsPricesResponse>GetFundsPricesForListAsync(FundsPricesRequest fundsPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse> localVarResponse = await GetFundsPricesForListWithHttpInfoAsync(fundsPricesRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsPricesForListWithHttpInfoAsync(fundsPricesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -893,11 +1010,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="fundsPricesRequest">The Prices request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundsPricesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsPricesResponse>> GetFundsPricesForListWithHttpInfoAsync(FundsPricesRequest fundsPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundsPricesResponse>> GetFundsPricesForListWithHttpInfoAsync(FundsPricesRequest fundsPricesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'fundsPricesRequest' is set
             if (fundsPricesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'fundsPricesRequest' when calling PricesReturnsApi->GetFundsPricesForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -911,24 +1031,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundsPricesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -940,14 +1065,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsPricesForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FundsPricesResponse>("/factset-funds/v1/prices", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsPricesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -966,7 +1095,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>FundsReturnsResponse</returns>
         public FundsReturnsResponse GetFundsReturns(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dividendAdjust = default(string))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse> localVarResponse = GetFundsReturnsWithHttpInfo(ids, startDate, endDate, frequency, currency, dividendAdjust);
+            var localVarResponse = GetFundsReturnsWithHttpInfo(ids, startDate, endDate, frequency, currency, dividendAdjust);
             return localVarResponse.Data;
         }
 
@@ -981,11 +1110,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="currency">Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <returns>ApiResponse of FundsReturnsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse> GetFundsReturnsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dividendAdjust = default(string))
+        public ApiResponse<FundsReturnsResponse> GetFundsReturnsWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dividendAdjust = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsReturns");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -998,10 +1129,16 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -1027,13 +1164,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1045,15 +1182,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FundsReturnsResponse>("/factset-funds/v1/returns", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FundsReturnsResponse>("/factset-funds/v1/returns", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturns", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1069,9 +1210,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundsReturnsResponse</returns>
-        public async System.Threading.Tasks.Task<FundsReturnsResponse> GetFundsReturnsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundsReturnsResponse>GetFundsReturnsAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse> localVarResponse = await GetFundsReturnsWithHttpInfoAsync(ids, startDate, endDate, frequency, currency, dividendAdjust, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsReturnsWithHttpInfoAsync(ids, startDate, endDate, frequency, currency, dividendAdjust, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1087,11 +1228,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundsReturnsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse>> GetFundsReturnsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundsReturnsResponse>> GetFundsReturnsWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsReturns");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1104,12 +1248,17 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -1135,13 +1284,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1153,14 +1302,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FundsReturnsResponse>("/factset-funds/v1/returns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturns", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1174,7 +1327,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>FundsReturnsResponse</returns>
         public FundsReturnsResponse GetFundsReturnsForList(FundsReturnsRequest fundsReturnsRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse> localVarResponse = GetFundsReturnsForListWithHttpInfo(fundsReturnsRequest);
+            var localVarResponse = GetFundsReturnsForListWithHttpInfo(fundsReturnsRequest);
             return localVarResponse.Data;
         }
 
@@ -1184,11 +1337,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fundsReturnsRequest">The Returns request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of FundsReturnsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse> GetFundsReturnsForListWithHttpInfo(FundsReturnsRequest fundsReturnsRequest)
+        public ApiResponse<FundsReturnsResponse> GetFundsReturnsForListWithHttpInfo(FundsReturnsRequest fundsReturnsRequest)
         {
             // verify the required parameter 'fundsReturnsRequest' is set
             if (fundsReturnsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'fundsReturnsRequest' when calling PricesReturnsApi->GetFundsReturnsForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1202,22 +1357,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundsReturnsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1229,15 +1390,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FundsReturnsResponse>("/factset-funds/v1/returns", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FundsReturnsResponse>("/factset-funds/v1/returns", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1248,9 +1413,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="fundsReturnsRequest">The Returns request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundsReturnsResponse</returns>
-        public async System.Threading.Tasks.Task<FundsReturnsResponse> GetFundsReturnsForListAsync(FundsReturnsRequest fundsReturnsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundsReturnsResponse>GetFundsReturnsForListAsync(FundsReturnsRequest fundsReturnsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse> localVarResponse = await GetFundsReturnsForListWithHttpInfoAsync(fundsReturnsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsReturnsForListWithHttpInfoAsync(fundsReturnsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1261,11 +1426,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="fundsReturnsRequest">The Returns request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundsReturnsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsResponse>> GetFundsReturnsForListWithHttpInfoAsync(FundsReturnsRequest fundsReturnsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundsReturnsResponse>> GetFundsReturnsForListWithHttpInfoAsync(FundsReturnsRequest fundsReturnsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'fundsReturnsRequest' is set
             if (fundsReturnsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'fundsReturnsRequest' when calling PricesReturnsApi->GetFundsReturnsForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1279,24 +1447,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundsReturnsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1308,14 +1481,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FundsReturnsResponse>("/factset-funds/v1/returns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1332,7 +1509,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>ReturnsRangeResponse</returns>
         public ReturnsRangeResponse GetFundsReturnsRange(List<string> ids, string startDate = default(string), string endDate = default(string), string dividendAdjust = default(string))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse> localVarResponse = GetFundsReturnsRangeWithHttpInfo(ids, startDate, endDate, dividendAdjust);
+            var localVarResponse = GetFundsReturnsRangeWithHttpInfo(ids, startDate, endDate, dividendAdjust);
             return localVarResponse.Data;
         }
 
@@ -1345,11 +1522,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)</param>
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <returns>ApiResponse of ReturnsRangeResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse> GetFundsReturnsRangeWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string dividendAdjust = default(string))
+        public ApiResponse<ReturnsRangeResponse> GetFundsReturnsRangeWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string dividendAdjust = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsReturnsRange");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1362,10 +1541,16 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -1383,13 +1568,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1401,15 +1586,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ReturnsRangeResponse>("/factset-funds/v1/returns-range", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsRangeResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ReturnsRangeResponse>("/factset-funds/v1/returns-range", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsRange", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1423,9 +1612,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReturnsRangeResponse</returns>
-        public async System.Threading.Tasks.Task<ReturnsRangeResponse> GetFundsReturnsRangeAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReturnsRangeResponse>GetFundsReturnsRangeAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse> localVarResponse = await GetFundsReturnsRangeWithHttpInfoAsync(ids, startDate, endDate, dividendAdjust, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsReturnsRangeWithHttpInfoAsync(ids, startDate, endDate, dividendAdjust, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1439,11 +1628,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReturnsRangeResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse>> GetFundsReturnsRangeWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ReturnsRangeResponse>> GetFundsReturnsRangeWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsReturnsRange");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1456,12 +1648,17 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -1479,13 +1676,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1497,14 +1694,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsRangeResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ReturnsRangeResponse>("/factset-funds/v1/returns-range", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsRange", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1518,7 +1719,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>ReturnsRangeResponse</returns>
         public ReturnsRangeResponse GetFundsReturnsRangeForList(ReturnsRangeRequest returnsRangeRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse> localVarResponse = GetFundsReturnsRangeForListWithHttpInfo(returnsRangeRequest);
+            var localVarResponse = GetFundsReturnsRangeForListWithHttpInfo(returnsRangeRequest);
             return localVarResponse.Data;
         }
 
@@ -1528,11 +1729,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnsRangeRequest">The Returns Range request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of ReturnsRangeResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse> GetFundsReturnsRangeForListWithHttpInfo(ReturnsRangeRequest returnsRangeRequest)
+        public ApiResponse<ReturnsRangeResponse> GetFundsReturnsRangeForListWithHttpInfo(ReturnsRangeRequest returnsRangeRequest)
         {
             // verify the required parameter 'returnsRangeRequest' is set
             if (returnsRangeRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'returnsRangeRequest' when calling PricesReturnsApi->GetFundsReturnsRangeForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1546,22 +1749,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = returnsRangeRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1573,15 +1782,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ReturnsRangeResponse>("/factset-funds/v1/returns-range", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsRangeForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            ReturnsRangeResponse>("/factset-funds/v1/returns-range", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsRangeForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1592,9 +1805,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="returnsRangeRequest">The Returns Range request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReturnsRangeResponse</returns>
-        public async System.Threading.Tasks.Task<ReturnsRangeResponse> GetFundsReturnsRangeForListAsync(ReturnsRangeRequest returnsRangeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReturnsRangeResponse>GetFundsReturnsRangeForListAsync(ReturnsRangeRequest returnsRangeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse> localVarResponse = await GetFundsReturnsRangeForListWithHttpInfoAsync(returnsRangeRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsReturnsRangeForListWithHttpInfoAsync(returnsRangeRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1605,11 +1818,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="returnsRangeRequest">The Returns Range request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReturnsRangeResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<ReturnsRangeResponse>> GetFundsReturnsRangeForListWithHttpInfoAsync(ReturnsRangeRequest returnsRangeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ReturnsRangeResponse>> GetFundsReturnsRangeForListWithHttpInfoAsync(ReturnsRangeRequest returnsRangeRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'returnsRangeRequest' is set
             if (returnsRangeRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'returnsRangeRequest' when calling PricesReturnsApi->GetFundsReturnsRangeForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1623,24 +1839,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = returnsRangeRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1652,14 +1873,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsRangeForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<ReturnsRangeResponse>("/factset-funds/v1/returns-range", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsRangeForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1675,7 +1900,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>FundsReturnsSnapshotResponse</returns>
         public FundsReturnsSnapshotResponse GetFundsReturnsSnapshot(List<string> ids, string date = default(string), string dividendAdjust = default(string))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse> localVarResponse = GetFundsReturnsSnapshotWithHttpInfo(ids, date, dividendAdjust);
+            var localVarResponse = GetFundsReturnsSnapshotWithHttpInfo(ids, date, dividendAdjust);
             return localVarResponse.Data;
         }
 
@@ -1687,11 +1912,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="date">The date requested for a given date range in YYYY-MM-DD format. The date MUST be equal to or less than the &#x60;priceRecentDate&#x60; found within the /summary endpoint.  (optional)</param>
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <returns>ApiResponse of FundsReturnsSnapshotResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse> GetFundsReturnsSnapshotWithHttpInfo(List<string> ids, string date = default(string), string dividendAdjust = default(string))
+        public ApiResponse<FundsReturnsSnapshotResponse> GetFundsReturnsSnapshotWithHttpInfo(List<string> ids, string date = default(string), string dividendAdjust = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsReturnsSnapshot");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1704,10 +1931,16 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -1721,13 +1954,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1739,15 +1972,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FundsReturnsSnapshotResponse>("/factset-funds/v1/returns-snapshot", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsSnapshotResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FundsReturnsSnapshotResponse>("/factset-funds/v1/returns-snapshot", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsSnapshot", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1760,9 +1997,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundsReturnsSnapshotResponse</returns>
-        public async System.Threading.Tasks.Task<FundsReturnsSnapshotResponse> GetFundsReturnsSnapshotAsync(List<string> ids, string date = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundsReturnsSnapshotResponse>GetFundsReturnsSnapshotAsync(List<string> ids, string date = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse> localVarResponse = await GetFundsReturnsSnapshotWithHttpInfoAsync(ids, date, dividendAdjust, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsReturnsSnapshotWithHttpInfoAsync(ids, date, dividendAdjust, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1775,11 +2012,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="dividendAdjust">Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  (optional, default to DIV)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundsReturnsSnapshotResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse>> GetFundsReturnsSnapshotWithHttpInfoAsync(List<string> ids, string date = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundsReturnsSnapshotResponse>> GetFundsReturnsSnapshotWithHttpInfoAsync(List<string> ids, string date = default(string), string dividendAdjust = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling PricesReturnsApi->GetFundsReturnsSnapshot");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1792,12 +2032,17 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -1811,13 +2056,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1829,14 +2074,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsSnapshotResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FundsReturnsSnapshotResponse>("/factset-funds/v1/returns-snapshot", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsSnapshot", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1850,7 +2099,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>FundsReturnsSnapshotResponse</returns>
         public FundsReturnsSnapshotResponse GetFundsReturnsSnapshotForList(FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse> localVarResponse = GetFundsReturnsSnapshotForListWithHttpInfo(fundsReturnsSnapshotRequest);
+            var localVarResponse = GetFundsReturnsSnapshotForListWithHttpInfo(fundsReturnsSnapshotRequest);
             return localVarResponse.Data;
         }
 
@@ -1860,11 +2109,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fundsReturnsSnapshotRequest">The Returns Snapshot request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of FundsReturnsSnapshotResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse> GetFundsReturnsSnapshotForListWithHttpInfo(FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest)
+        public ApiResponse<FundsReturnsSnapshotResponse> GetFundsReturnsSnapshotForListWithHttpInfo(FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest)
         {
             // verify the required parameter 'fundsReturnsSnapshotRequest' is set
             if (fundsReturnsSnapshotRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'fundsReturnsSnapshotRequest' when calling PricesReturnsApi->GetFundsReturnsSnapshotForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1878,22 +2129,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundsReturnsSnapshotRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1905,15 +2162,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FundsReturnsSnapshotResponse>("/factset-funds/v1/returns-snapshot", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsSnapshotForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FundsReturnsSnapshotResponse>("/factset-funds/v1/returns-snapshot", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsSnapshotForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1924,9 +2185,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="fundsReturnsSnapshotRequest">The Returns Snapshot request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundsReturnsSnapshotResponse</returns>
-        public async System.Threading.Tasks.Task<FundsReturnsSnapshotResponse> GetFundsReturnsSnapshotForListAsync(FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundsReturnsSnapshotResponse>GetFundsReturnsSnapshotForListAsync(FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse> localVarResponse = await GetFundsReturnsSnapshotForListWithHttpInfoAsync(fundsReturnsSnapshotRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsReturnsSnapshotForListWithHttpInfoAsync(fundsReturnsSnapshotRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1937,11 +2198,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="fundsReturnsSnapshotRequest">The Returns Snapshot request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundsReturnsSnapshotResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<FundsReturnsSnapshotResponse>> GetFundsReturnsSnapshotForListWithHttpInfoAsync(FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundsReturnsSnapshotResponse>> GetFundsReturnsSnapshotForListWithHttpInfoAsync(FundsReturnsSnapshotRequest fundsReturnsSnapshotRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'fundsReturnsSnapshotRequest' is set
             if (fundsReturnsSnapshotRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'fundsReturnsSnapshotRequest' when calling PricesReturnsApi->GetFundsReturnsSnapshotForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1955,24 +2219,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundsReturnsSnapshotRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1984,14 +2253,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsReturnsSnapshotForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FundsReturnsSnapshotResponse>("/factset-funds/v1/returns-snapshot", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsReturnsSnapshotForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

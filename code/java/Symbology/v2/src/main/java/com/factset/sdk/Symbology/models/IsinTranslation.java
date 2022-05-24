@@ -55,6 +55,8 @@ public class IsinTranslation implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public IsinTranslation() { 
+  }
 
   public IsinTranslation fsymId(String fsymId) {
     this.fsymId = fsymId;

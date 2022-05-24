@@ -111,7 +111,7 @@ namespace FactSet.SDK.Publisher.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationUnitStatus {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
@@ -147,8 +147,9 @@ namespace FactSet.SDK.Publisher.Model
         public bool Equals(CalculationUnitStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -175,11 +176,15 @@ namespace FactSet.SDK.Publisher.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Error != null)
-                    hashCode = hashCode * 59 + this.Error.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Error.GetHashCode();
+                }
                 if (this.Result != null)
-                    hashCode = hashCode * 59 + this.Result.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Result.GetHashCode();
+                }
                 return hashCode;
             }
         }

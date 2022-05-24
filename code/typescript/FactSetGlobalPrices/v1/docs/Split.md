@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **adjFactorCombined** | **Number** | Combined adjustment factor for all distribution events on that day. | [optional] 
 **distOldTerm** | **Number** | Component of distribution ratio -  Number of shares held. | [optional] 
 **distNewTerm** | **Number** | Component of distribution ratio -  Number of shares received. | [optional] 
+**distInstFsymId** | **String** | Parent Spin-Off for a company | [optional] 
 **shortDesc** | **String** | Textual description identifying the event. | [optional] 
 **requestId** | **String** | Identifier that was used for the request. | [optional] 
 

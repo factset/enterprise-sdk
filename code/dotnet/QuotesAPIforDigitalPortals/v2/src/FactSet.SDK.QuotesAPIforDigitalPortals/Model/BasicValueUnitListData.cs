@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BasicValueUnitListData {\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(BasicValueUnitListData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Filter == input.Filter ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Filter != null)
-                    hashCode = hashCode * 59 + this.Filter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
                 return hashCode;
             }
         }

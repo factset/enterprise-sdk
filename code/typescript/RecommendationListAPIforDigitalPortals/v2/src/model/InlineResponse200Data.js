@@ -18,7 +18,7 @@ import InlineResponse200DataActiveRevision from './InlineResponse200DataActiveRe
 /**
  * The InlineResponse200Data model module.
  * @module model/InlineResponse200Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200Data {
     /**

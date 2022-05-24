@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **organizer_id** | **str** |  | [optional] 
 **body** | **str, none_type** |  | [optional] 
 **average_rating** | **int, none_type** |  | [optional] 
+**alert_attendees** | **bool** |  | [optional] 
+**alert_author** | **bool** |  | [optional] 
 **locations** | [**[LocationDto], none_type**](LocationDto.md) |  | [optional] 
 **attendees** | [**[AttendeeDto], none_type**](AttendeeDto.md) |  | [optional] 
 **custom_fields** | [**[CustomFieldValueDto], none_type**](CustomFieldValueDto.md) |  | [optional] 

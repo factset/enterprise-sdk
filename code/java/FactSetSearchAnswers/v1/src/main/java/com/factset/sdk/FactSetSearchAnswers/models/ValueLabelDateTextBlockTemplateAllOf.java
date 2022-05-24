@@ -54,6 +54,8 @@ public class ValueLabelDateTextBlockTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_BLURB = "blurb";
   private String blurb;
 
+  public ValueLabelDateTextBlockTemplateAllOf() { 
+  }
 
   public ValueLabelDateTextBlockTemplateAllOf value(String value) {
     this.value = value;

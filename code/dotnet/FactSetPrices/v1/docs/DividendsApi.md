@@ -85,7 +85,6 @@ Name | Type | Description  | Notes
  **adjust** | **string**| Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  | [optional] [default to SPLIT]
 
 ### Return type
-
 [**DividendsResponse**](DividendsResponse.md)
 
 ### Authorization
@@ -179,7 +178,6 @@ Name | Type | Description  | Notes
  **dividendsRequest** | [**DividendsRequest**](DividendsRequest.md)| Request object for &#x60;Security&#x60; dividends. | 
 
 ### Return type
-
 [**DividendsResponse**](DividendsResponse.md)
 
 ### Authorization

@@ -22,7 +22,7 @@ import InlineResponse2003 from '../model/InlineResponse2003';
 /**
 * Alerting service.
 * @module api/AlertingApi
-* @version 0.9.1
+* @version 0.10.0
 */
 export default class AlertingApi {
 
@@ -69,7 +69,10 @@ export default class AlertingApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/alerting/prices/basic/alert/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -83,7 +86,7 @@ export default class AlertingApi {
      * @param {String} id Identifier of the alert.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getAlertingPricesBasicAlertGet(id, opts) {
       return this.getAlertingPricesBasicAlertGetWithHttpInfo(id, opts)
@@ -123,7 +126,10 @@ export default class AlertingApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/alerting/prices/basic/alert/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -139,7 +145,7 @@ export default class AlertingApi {
      * @param {Number} opts.subscriptionMinimumInterval Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (default to 0.0)
      * @param {String} opts.paginationCursor Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     getAlertingPricesBasicAlertList(opts) {
       return this.getAlertingPricesBasicAlertListWithHttpInfo(opts)
@@ -179,7 +185,10 @@ export default class AlertingApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/alerting/prices/basic/trigger/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -193,7 +202,7 @@ export default class AlertingApi {
      * @param {String} id Identifier of the trigger.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     getAlertingPricesBasicTriggerGet(id, opts) {
       return this.getAlertingPricesBasicTriggerGetWithHttpInfo(id, opts)
@@ -226,7 +235,10 @@ export default class AlertingApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/alerting/prices/basic/trigger/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -239,7 +251,7 @@ export default class AlertingApi {
      * Returns a list of triggers sorted in descending order of creation.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     postAlertingPricesBasicTriggerList(opts) {
       return this.postAlertingPricesBasicTriggerListWithHttpInfo(opts)
@@ -250,3 +262,8 @@ export default class AlertingApi {
 
 
 }
+
+
+
+
+

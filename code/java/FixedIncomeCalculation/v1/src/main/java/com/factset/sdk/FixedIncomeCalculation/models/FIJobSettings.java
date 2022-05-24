@@ -46,6 +46,16 @@ public class FIJobSettings implements Serializable {
   public static final String JSON_PROPERTY_PARTIAL_DURATION_MONTHS = "partialDurationMonths";
   private java.util.List<Integer> partialDurationMonths = null;
 
+  public FIJobSettings() { 
+  }
+
+  @JsonCreator
+  public FIJobSettings(
+    @JsonProperty(value=JSON_PROPERTY_YIELD_CURVE_DATE, required=true) String yieldCurveDate
+  ) {
+    this();
+    this.yieldCurveDate = yieldCurveDate;
+  }
 
   public FIJobSettings yieldCurveDate(String yieldCurveDate) {
     this.yieldCurveDate = yieldCurveDate;

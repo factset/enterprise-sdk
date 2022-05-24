@@ -25,8 +25,8 @@ from fds.sdk.FactSetEstimates.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.FactSetEstimates.exceptions import ApiAttributeError
 
 
@@ -34,11 +34,11 @@ def lazy_import():
     from fds.sdk.FactSetEstimates.model.frequency import Frequency
     from fds.sdk.FactSetEstimates.model.ids import Ids
     from fds.sdk.FactSetEstimates.model.metrics import Metrics
-    from fds.sdk.FactSetEstimates.model.periodicity import Periodicity
+    from fds.sdk.FactSetEstimates.model.periodicity_detail import PeriodicityDetail
     globals()['Frequency'] = Frequency
     globals()['Ids'] = Ids
     globals()['Metrics'] = Metrics
-    globals()['Periodicity'] = Periodicity
+    globals()['PeriodicityDetail'] = PeriodicityDetail
 
 
 class RollingDetailRequest(ModelNormal):
@@ -102,7 +102,7 @@ class RollingDetailRequest(ModelNormal):
             'include_all': (bool,),  # noqa: E501
             'relative_fiscal_start': (int,),  # noqa: E501
             'relative_fiscal_end': (int,),  # noqa: E501
-            'periodicity': (Periodicity,),  # noqa: E501
+            'periodicity': (PeriodicityDetail,),  # noqa: E501
             'currency': (str,),  # noqa: E501
         }
 
@@ -175,7 +175,7 @@ class RollingDetailRequest(ModelNormal):
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
             relative_fiscal_start (int): Relative fiscal period, expressed as an integer, used to filter results.. [optional]  # noqa: E501
             relative_fiscal_end (int): Relative fiscal period, expressed as an integer, used to filter results.. [optional]  # noqa: E501
-            periodicity (Periodicity): [optional]  # noqa: E501
+            periodicity (PeriodicityDetail): [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
         """
 
@@ -270,7 +270,7 @@ class RollingDetailRequest(ModelNormal):
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
             relative_fiscal_start (int): Relative fiscal period, expressed as an integer, used to filter results.. [optional]  # noqa: E501
             relative_fiscal_end (int): Relative fiscal period, expressed as an integer, used to filter results.. [optional]  # noqa: E501
-            periodicity (Periodicity): [optional]  # noqa: E501
+            periodicity (PeriodicityDetail): [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
         """
 

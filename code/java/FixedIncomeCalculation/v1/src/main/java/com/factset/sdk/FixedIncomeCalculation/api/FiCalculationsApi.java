@@ -7,6 +7,9 @@ import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FixedIncomeCalculation.models.FICalculationParameters;
 
@@ -21,6 +24,19 @@ public class FiCalculationsApi {
   public FiCalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> cancelFICalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getFICalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFICalculationByIdResponseTypeMap.put(200, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> runFICalculationResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    runFICalculationResponseTypeMap.put(201, new GenericType<Object>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -113,9 +129,15 @@ public class FiCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("FiCalculationsApi.cancelFICalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.cancelFICalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, cancelFICalculationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get FI calculation by id
@@ -193,11 +215,17 @@ public class FiCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("FiCalculationsApi.getFICalculationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Object
+      
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.getFICalculationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFICalculationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Run FI calculation
@@ -281,10 +309,16 @@ if (xFactSetContentType != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("FiCalculationsApi.runFICalculation", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Object
+      
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.runFICalculation", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, runFICalculationResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

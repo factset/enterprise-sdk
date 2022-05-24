@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// InlineResponse20014Data
+    /// Characteristics.
     /// </summary>
     [DataContract(Name = "inline_response_200_14_data")]
     public partial class InlineResponse20014Data : IEquatable<InlineResponse20014Data>, IValidatableObject
@@ -34,37 +34,41 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20014Data" /> class.
         /// </summary>
-        /// <param name="navDate">Growth of the 10k calculation date.</param>
-        /// <param name="tenkValue">Growth of the 10k calculation value..</param>
-        /// <param name="tenkPercentChange">Growth of the 10k calculation percent change..</param>
-        public InlineResponse20014Data(DateTime navDate = default(DateTime), decimal tenkValue = default(decimal), decimal tenkPercentChange = default(decimal))
+        /// <param name="gearing">gearing.</param>
+        /// <param name="hedge">hedge.</param>
+        /// <param name="counterParty">counterParty.</param>
+        /// <param name="serviceProvider">serviceProvider.</param>
+        public InlineResponse20014Data(InlineResponse20014DataGearing gearing = default(InlineResponse20014DataGearing), InlineResponse20014DataHedge hedge = default(InlineResponse20014DataHedge), InlineResponse20014DataCounterParty counterParty = default(InlineResponse20014DataCounterParty), InlineResponse20014DataServiceProvider serviceProvider = default(InlineResponse20014DataServiceProvider))
         {
-            this.NavDate = navDate;
-            this.TenkValue = tenkValue;
-            this.TenkPercentChange = tenkPercentChange;
+            this.Gearing = gearing;
+            this.Hedge = hedge;
+            this.CounterParty = counterParty;
+            this.ServiceProvider = serviceProvider;
         }
 
         /// <summary>
-        /// Growth of the 10k calculation date
+        /// Gets or Sets Gearing
         /// </summary>
-        /// <value>Growth of the 10k calculation date</value>
-        [DataMember(Name = "navDate", EmitDefaultValue = false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime NavDate { get; set; }
+        [DataMember(Name = "gearing", EmitDefaultValue = false)]
+        public InlineResponse20014DataGearing Gearing { get; set; }
 
         /// <summary>
-        /// Growth of the 10k calculation value.
+        /// Gets or Sets Hedge
         /// </summary>
-        /// <value>Growth of the 10k calculation value.</value>
-        [DataMember(Name = "tenkValue", EmitDefaultValue = false)]
-        public decimal TenkValue { get; set; }
+        [DataMember(Name = "hedge", EmitDefaultValue = false)]
+        public InlineResponse20014DataHedge Hedge { get; set; }
 
         /// <summary>
-        /// Growth of the 10k calculation percent change.
+        /// Gets or Sets CounterParty
         /// </summary>
-        /// <value>Growth of the 10k calculation percent change.</value>
-        [DataMember(Name = "tenkPercentChange", EmitDefaultValue = false)]
-        public decimal TenkPercentChange { get; set; }
+        [DataMember(Name = "counterParty", EmitDefaultValue = false)]
+        public InlineResponse20014DataCounterParty CounterParty { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ServiceProvider
+        /// </summary>
+        [DataMember(Name = "serviceProvider", EmitDefaultValue = false)]
+        public InlineResponse20014DataServiceProvider ServiceProvider { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,11 +76,12 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20014Data {\n");
-            sb.Append("  NavDate: ").Append(NavDate).Append("\n");
-            sb.Append("  TenkValue: ").Append(TenkValue).Append("\n");
-            sb.Append("  TenkPercentChange: ").Append(TenkPercentChange).Append("\n");
+            sb.Append("  Gearing: ").Append(Gearing).Append("\n");
+            sb.Append("  Hedge: ").Append(Hedge).Append("\n");
+            sb.Append("  CounterParty: ").Append(CounterParty).Append("\n");
+            sb.Append("  ServiceProvider: ").Append(ServiceProvider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,21 +113,29 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20014Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.NavDate == input.NavDate ||
-                    (this.NavDate != null &&
-                    this.NavDate.Equals(input.NavDate))
+                    this.Gearing == input.Gearing ||
+                    (this.Gearing != null &&
+                    this.Gearing.Equals(input.Gearing))
                 ) && 
                 (
-                    this.TenkValue == input.TenkValue ||
-                    this.TenkValue.Equals(input.TenkValue)
+                    this.Hedge == input.Hedge ||
+                    (this.Hedge != null &&
+                    this.Hedge.Equals(input.Hedge))
                 ) && 
                 (
-                    this.TenkPercentChange == input.TenkPercentChange ||
-                    this.TenkPercentChange.Equals(input.TenkPercentChange)
+                    this.CounterParty == input.CounterParty ||
+                    (this.CounterParty != null &&
+                    this.CounterParty.Equals(input.CounterParty))
+                ) && 
+                (
+                    this.ServiceProvider == input.ServiceProvider ||
+                    (this.ServiceProvider != null &&
+                    this.ServiceProvider.Equals(input.ServiceProvider))
                 );
         }
 
@@ -135,10 +148,22 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NavDate != null)
-                    hashCode = hashCode * 59 + this.NavDate.GetHashCode();
-                hashCode = hashCode * 59 + this.TenkValue.GetHashCode();
-                hashCode = hashCode * 59 + this.TenkPercentChange.GetHashCode();
+                if (this.Gearing != null)
+                {
+                    hashCode = (hashCode * 59) + this.Gearing.GetHashCode();
+                }
+                if (this.Hedge != null)
+                {
+                    hashCode = (hashCode * 59) + this.Hedge.GetHashCode();
+                }
+                if (this.CounterParty != null)
+                {
+                    hashCode = (hashCode * 59) + this.CounterParty.GetHashCode();
+                }
+                if (this.ServiceProvider != null)
+                {
+                    hashCode = (hashCode * 59) + this.ServiceProvider.GetHashCode();
+                }
                 return hashCode;
             }
         }

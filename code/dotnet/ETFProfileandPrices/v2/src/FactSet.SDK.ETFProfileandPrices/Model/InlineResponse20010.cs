@@ -34,26 +34,25 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20010" /> class.
         /// </summary>
-        /// <param name="data">List of niche categories..</param>
+        /// <param name="data">data.</param>
         /// <param name="meta">meta.</param>
-        public InlineResponse20010(List<InlineResponse20010Data> data = default(List<InlineResponse20010Data>), InlineResponse2001Meta meta = default(InlineResponse2001Meta))
+        public InlineResponse20010(InlineResponse20010Data data = default(InlineResponse20010Data), InlineResponse200Meta meta = default(InlineResponse200Meta))
         {
             this.Data = data;
             this.Meta = meta;
         }
 
         /// <summary>
-        /// List of niche categories.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>List of niche categories.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<InlineResponse20010Data> Data { get; set; }
+        public InlineResponse20010Data Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public InlineResponse2001Meta Meta { get; set; }
+        public InlineResponse200Meta Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,7 +60,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20010 {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
@@ -96,14 +95,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20010 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
                     this.Meta == input.Meta ||
@@ -122,9 +121,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reportDate** | **Date** | Reporting date for the allocations. | [optional] 
-**exchanges** | [**[InlineResponse2003DataExchanges]**](InlineResponse2003DataExchanges.md) | List of allocations by exchange. | [optional] 
+**currencies** | [**[InlineResponse2003DataCurrencies]**](InlineResponse2003DataCurrencies.md) | List of allocations by currency. | [optional] 
 
 

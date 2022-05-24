@@ -49,6 +49,8 @@ public class InlineResponse200DataTrading implements Serializable {
   public static final String JSON_PROPERTY_MEDIAN = "median";
   private InlineResponse200DataTradingMedian median;
 
+  public InlineResponse200DataTrading() { 
+  }
 
   public InlineResponse200DataTrading average(InlineResponse200DataTradingAverage average) {
     this.average = average;

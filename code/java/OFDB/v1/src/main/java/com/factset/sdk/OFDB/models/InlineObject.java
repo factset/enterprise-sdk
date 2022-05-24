@@ -46,6 +46,8 @@ public class InlineObject implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Object> data = null;
 
+  public InlineObject() { 
+  }
 
   public InlineObject symbol(String symbol) {
     this.symbol = symbol;

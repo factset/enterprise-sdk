@@ -169,7 +169,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005Data {\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
@@ -217,8 +217,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TotalCount == input.TotalCount ||
@@ -309,35 +310,63 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TotalCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.StockType != null)
-                    hashCode = hashCode * 59 + this.StockType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StockType.GetHashCode();
+                }
                 if (this.IndustryClassification != null)
-                    hashCode = hashCode * 59 + this.IndustryClassification.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IndustryClassification.GetHashCode();
+                }
                 if (this.Company != null)
-                    hashCode = hashCode * 59 + this.Company.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Company.GetHashCode();
+                }
                 if (this.Compliance != null)
-                    hashCode = hashCode * 59 + this.Compliance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Compliance.GetHashCode();
+                }
                 if (this.ReportedKeyFigures != null)
-                    hashCode = hashCode * 59 + this.ReportedKeyFigures.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportedKeyFigures.GetHashCode();
+                }
                 if (this.Performance != null)
-                    hashCode = hashCode * 59 + this.Performance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
                 if (this.Volatility != null)
-                    hashCode = hashCode * 59 + this.Volatility.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                }
                 if (this.TradingValue != null)
-                    hashCode = hashCode * 59 + this.TradingValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
+                }
                 if (this.SimpleMovingAverage != null)
-                    hashCode = hashCode * 59 + this.SimpleMovingAverage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SimpleMovingAverage.GetHashCode();
+                }
                 if (this.RsiWilder != null)
-                    hashCode = hashCode * 59 + this.RsiWilder.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RsiWilder.GetHashCode();
+                }
                 if (this.Recommendation != null)
-                    hashCode = hashCode * 59 + this.Recommendation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Recommendation.GetHashCode();
+                }
                 if (this.Estimates != null)
-                    hashCode = hashCode * 59 + this.Estimates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Estimates.GetHashCode();
+                }
                 return hashCode;
             }
         }

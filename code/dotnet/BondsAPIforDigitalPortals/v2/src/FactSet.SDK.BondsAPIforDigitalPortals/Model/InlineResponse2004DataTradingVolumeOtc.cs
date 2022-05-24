@@ -52,7 +52,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataTradingVolumeOtc {\n");
             sb.Append("  Minimum: ").Append(Minimum).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataTradingVolumeOtc input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Minimum == input.Minimum ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Minimum != null)
-                    hashCode = hashCode * 59 + this.Minimum.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Minimum.GetHashCode();
+                }
                 return hashCode;
             }
         }

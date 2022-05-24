@@ -18,7 +18,7 @@ import InlineResponse200Meta from './InlineResponse200Meta';
 /**
  * The InlineResponse20020 model module.
  * @module model/InlineResponse20020
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20020 {
     /**
@@ -50,7 +50,7 @@ class InlineResponse20020 {
             obj = obj || new InlineResponse20020();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = InlineResponse20020Data.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20020Data]);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -63,7 +63,8 @@ class InlineResponse20020 {
 }
 
 /**
- * @member {module:model/InlineResponse20020Data} data
+ * Competitor's data.
+ * @member {Array.<module:model/InlineResponse20020Data>} data
  */
 InlineResponse20020.prototype['data'] = undefined;
 

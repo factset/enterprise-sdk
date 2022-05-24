@@ -17,7 +17,7 @@ import CountryID from './CountryID';
 /**
  * The Fdc3Country model module.
  * @module model/Fdc3Country
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Fdc3Country {
     /**

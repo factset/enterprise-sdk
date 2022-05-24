@@ -51,6 +51,8 @@ public class ValueChange implements Serializable {
   public static final String JSON_PROPERTY_COLOR = "color";
   private ChangeColor color;
 
+  public ValueChange() { 
+  }
 
   public ValueChange absoluteChange(String absoluteChange) {
     this.absoluteChange = absoluteChange;

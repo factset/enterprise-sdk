@@ -52,7 +52,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Description {\n");
             sb.Append("  _Description: ").Append(_Description).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         public bool Equals(Description input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._Description == input._Description ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._Description != null)
-                    hashCode = hashCode * 59 + this._Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._Description.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -19,7 +19,7 @@ import RequestFilestatus from '../model/RequestFilestatus';
 /**
 * RequestFiles service.
 * @module api/RequestFilesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class RequestFilesApi {
 
@@ -38,7 +38,7 @@ export default class RequestFilesApi {
 
     /**
      * Returns the requestId and status
-     * Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Shenzhen OR Shanghai - 300782-SHE, 300792-SHE</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
+     * Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
      * @param {Date} startDate The date for (or from which) the data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
      * @param {Date} endDate The date to which data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
      * @param {Object} opts Optional parameters
@@ -76,7 +76,10 @@ export default class RequestFilesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = RequestFilesResponse;
+
       return this.apiClient.callApi(
         '/v1/request-files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -86,14 +89,14 @@ export default class RequestFilesApi {
 
     /**
      * Returns the requestId and status
-     * Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Shenzhen OR Shanghai - 300782-SHE, 300792-SHE</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
+     * Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
      * @param {Date} startDate The date for (or from which) the data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
      * @param {Date} endDate The date to which data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
      * @param {Object} opts Optional parameters
      * @param {String} opts.ticker any ticker. <p>**Either ticker(s) + iso_code  (OR) product is allowed**</p> **NOTE**:Only one identifier can be requested per request
      * @param {String} opts.isoCode iso_code. <p>ticker(s) + iso_code</p> <p>**Does not support multiple iso_codes**</p>
      * @param {String} opts.fields Fields for which data is requested. Refer <a href= \"https://developer.factset.com/api-catalog/tick-history-api#apiDocumentation\">Output fileds list</a>. for available fields.</p> **In trial default=all fields** (default to '*')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RequestFilesResponse}
+     * @return { Promise.< module:model/RequestFilesResponse > } a Promise, with data of type {@link module:model/RequestFilesResponse }
      */
     v1RequestFilesGet(startDate, endDate, opts) {
       return this.v1RequestFilesGetWithHttpInfo(startDate, endDate, opts)
@@ -104,3 +107,8 @@ export default class RequestFilesApi {
 
 
 }
+
+
+
+
+

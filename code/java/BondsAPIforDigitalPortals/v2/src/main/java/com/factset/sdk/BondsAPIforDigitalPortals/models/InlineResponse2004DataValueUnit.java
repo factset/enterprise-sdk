@@ -51,6 +51,8 @@ public class InlineResponse2004DataValueUnit implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2004DataValueUnit() { 
+  }
 
   public InlineResponse2004DataValueUnit id(BigDecimal id) {
     this.id = id;

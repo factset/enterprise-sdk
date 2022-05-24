@@ -48,6 +48,8 @@ public class InlineResponse2004DataSensitivitiesModifiedDuration implements Seri
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataSensitivitiesModifiedDuration() { 
+  }
 
   public InlineResponse2004DataSensitivitiesModifiedDuration minimum(BigDecimal minimum) {
     this.minimum = minimum;

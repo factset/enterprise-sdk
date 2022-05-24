@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataValidationNotationSelection
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionListExclude exclude;
 
+  public DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionList() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionList restrict(DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionListRestrict restrict) {
     this.restrict = restrict;

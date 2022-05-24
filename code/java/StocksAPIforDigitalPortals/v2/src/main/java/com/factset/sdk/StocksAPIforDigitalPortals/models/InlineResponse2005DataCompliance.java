@@ -44,6 +44,8 @@ public class InlineResponse2005DataCompliance implements Serializable {
   public static final String JSON_PROPERTY_FRANCE = "france";
   private java.util.List<InlineResponse2005DataComplianceFrance> france = null;
 
+  public InlineResponse2005DataCompliance() { 
+  }
 
   public InlineResponse2005DataCompliance france(java.util.List<InlineResponse2005DataComplianceFrance> france) {
     this.france = france;

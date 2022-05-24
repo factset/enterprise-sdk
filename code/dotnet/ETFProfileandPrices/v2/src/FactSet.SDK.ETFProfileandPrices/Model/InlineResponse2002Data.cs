@@ -63,7 +63,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2002Data {\n");
             sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
             sb.Append("  Countries: ").Append(Countries).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse2002Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReportDate == input.ReportDate ||
@@ -124,9 +125,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.ReportDate != null)
-                    hashCode = hashCode * 59 + this.ReportDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
+                }
                 if (this.Countries != null)
-                    hashCode = hashCode * 59 + this.Countries.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Countries.GetHashCode();
+                }
                 return hashCode;
             }
         }

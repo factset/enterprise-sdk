@@ -48,6 +48,7 @@ const ids = ["AAPL-USA"]; // [String] | The requested list of security identifie
 // Call api endpoint
 apiInstance.getSecuritySplits(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const splitsRequest = new factsetprices.SplitsRequest(); // SplitsRequest | Requ
 // Call api endpoint
 apiInstance.getSecuritySplitsForList(splitsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

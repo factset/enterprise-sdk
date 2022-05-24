@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
@@ -168,6 +168,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_INSIGHT = "insight";
   private InlineResponse200DataInsight insight;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data asOfDate(LocalDate asOfDate) {
     this.asOfDate = asOfDate;

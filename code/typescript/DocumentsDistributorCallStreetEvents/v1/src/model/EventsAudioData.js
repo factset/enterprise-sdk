@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EventsAudioData model module.
  * @module model/EventsAudioData
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EventsAudioData {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ObjectRoot model module.
  * @module model/ObjectRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ObjectRoot {
     /**

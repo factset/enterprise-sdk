@@ -48,6 +48,8 @@ public class InlineResponse2005DataLifeCycleMaturityRemainingTermDays implements
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataLifeCycleMaturityRemainingTermDays() { 
+  }
 
   public InlineResponse2005DataLifeCycleMaturityRemainingTermDays minimum(BigDecimal minimum) {
     this.minimum = minimum;

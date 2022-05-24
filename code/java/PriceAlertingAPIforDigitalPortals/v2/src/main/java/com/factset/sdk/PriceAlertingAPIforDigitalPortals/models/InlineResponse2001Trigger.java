@@ -71,6 +71,8 @@ public class InlineResponse2001Trigger implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private InlineResponse2001TriggerStatus status;
 
+  public InlineResponse2001Trigger() { 
+  }
 
   public InlineResponse2001Trigger id(String id) {
     this.id = id;

@@ -24,7 +24,7 @@ import InlineResponse2005 from '../model/InlineResponse2005';
 /**
 * RecommendationList service.
 * @module api/RecommendationListApi
-* @version 0.9.1
+* @version 0.10.0
 */
 export default class RecommendationListApi {
 
@@ -73,7 +73,10 @@ export default class RecommendationListApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/recommendationList/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -88,7 +91,7 @@ export default class RecommendationListApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getRecommendationListGet(id, opts) {
       return this.getRecommendationListGetWithHttpInfo(id, opts)
@@ -130,7 +133,10 @@ export default class RecommendationListApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2005;
+
       return this.apiClient.callApi(
         '/recommendationList/revision/element/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -145,7 +151,7 @@ export default class RecommendationListApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2005}
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getRecommendationListRevisionElementList(idRevision, opts) {
       return this.getRecommendationListRevisionElementListWithHttpInfo(idRevision, opts)
@@ -187,7 +193,10 @@ export default class RecommendationListApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/recommendationList/revision/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -202,7 +211,7 @@ export default class RecommendationListApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     getRecommendationListRevisionGet(id, opts) {
       return this.getRecommendationListRevisionGetWithHttpInfo(id, opts)
@@ -242,7 +251,10 @@ export default class RecommendationListApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2004;
+
       return this.apiClient.callApi(
         '/recommendationList/revision/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -258,7 +270,7 @@ export default class RecommendationListApi {
      * @param {String} opts.idInstrument Restrict the search to revisions pointing to the identified instrument.
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     getRecommendationListRevisionSearch(opts) {
       return this.getRecommendationListRevisionSearchWithHttpInfo(opts)
@@ -298,7 +310,10 @@ export default class RecommendationListApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/recommendationList/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -314,7 +329,7 @@ export default class RecommendationListApi {
      * @param {Boolean} opts.onlyActive Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state.
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     getRecommendationListSearch(opts) {
       return this.getRecommendationListSearchWithHttpInfo(opts)
@@ -349,7 +364,10 @@ export default class RecommendationListApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/recommendationList/revision/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -361,7 +379,7 @@ export default class RecommendationListApi {
      * List of revisions of a recommendation list.
      * List of revisions of a recommendation list, excluding the elements of each revision.
      * @param {module:model/InlineObject} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     postRecommendationListRevisionList(body) {
       return this.postRecommendationListRevisionListWithHttpInfo(body)
@@ -372,3 +390,8 @@ export default class RecommendationListApi {
 
 
 }
+
+
+
+
+

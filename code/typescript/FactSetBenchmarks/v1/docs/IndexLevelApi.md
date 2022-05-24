@@ -60,6 +60,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getBenchmarkRatios(ids, metrics, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -137,6 +138,7 @@ const benchmarkRatiosRequest = new factsetbenchmarks.BenchmarkRatiosRequest(); /
 // Call api endpoint
 apiInstance.getBenchmarkRatiosForList(benchmarkRatiosRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -209,6 +211,7 @@ const opts = {
   'endDate': "endDate_example", // String | Requested End Date for Range expressed in YYYY-MM-DD format.
   'frequency': D, // String | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year. 
   'returnType': "'GROSS'", // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
+  'hedgeType': "'UNHEDGED'", // String | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
   'currency': "currency_example", // String | Currency for response.
   'calendar': FIVEDAY // String | Calendar of data returned. SEVENDAY includes weekends.
 };
@@ -216,6 +219,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getIndexHistory(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -237,6 +241,7 @@ Name | Type | Description  | Notes
  **endDate** | **String**| Requested End Date for Range expressed in YYYY-MM-DD format. | [optional] 
  **frequency** | **String**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  | [optional] [default to &#39;D&#39;]
  **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to &#39;GROSS&#39;]
+ **hedgeType** | **String**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to &#39;UNHEDGED&#39;]
  **currency** | **String**| Currency for response. | [optional] 
  **calendar** | **String**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to &#39;FIVEDAY&#39;]
 
@@ -293,6 +298,7 @@ const indexHistoryRequest = new factsetbenchmarks.IndexHistoryRequest(); // Inde
 // Call api endpoint
 apiInstance.getIndexHistoryForList(indexHistoryRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -370,6 +376,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getIndexSnapshot(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -445,6 +452,7 @@ const indexSnapshotRequest = new factsetbenchmarks.IndexSnapshotRequest(); // In
 // Call api endpoint
 apiInstance.getIndexSnapshotForList(indexSnapshotRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

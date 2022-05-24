@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataYieldCurrent implements Ser
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataYieldCurrent() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataYieldCurrent minimum(DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMinimum minimum) {
     this.minimum = minimum;

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Frequency model module.
  * @module model/Frequency
- * @version 0.8.1
+ * @version 0.8.2
  */
 class Frequency {
     /**

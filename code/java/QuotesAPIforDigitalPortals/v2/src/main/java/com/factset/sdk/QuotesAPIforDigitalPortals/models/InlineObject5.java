@@ -48,6 +48,8 @@ public class InlineObject5 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private BasicBackgroundTextTypeListMeta meta;
 
+  public InlineObject5() { 
+  }
 
   public InlineObject5 data(BasicTimezoneListData data) {
     this.data = data;

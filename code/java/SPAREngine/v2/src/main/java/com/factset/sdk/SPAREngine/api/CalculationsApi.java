@@ -7,6 +7,9 @@ import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SPAREngine.models.Calculation;
 import com.factset.sdk.SPAREngine.models.CalculationStatus;
@@ -23,6 +26,20 @@ public class CalculationsApi {
   public CalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getCalculationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationStatusByIdResponseTypeMap.put(200, new GenericType<CalculationStatus>(){});
+  }
+  private static final Map<Integer, GenericType> getCalculationStatusSummariesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationStatusSummariesResponseTypeMap.put(200, new GenericType<java.util.Map<String, CalculationStatusSummary>>(){});
+  }
+  private static final Map<Integer, GenericType> runCalculationResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -117,9 +134,15 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("CalculationsApi.cancelCalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.cancelCalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, cancelCalculationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get calculation status by id
@@ -199,16 +222,22 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CalculationStatus> localVarReturnType = new GenericType<CalculationStatus>() {};
 
-    return apiClient.invokeAPI("CalculationsApi.getCalculationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CalculationStatus
+      
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.getCalculationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationStatusByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get all calculation statuses
    * This endpoints returns all active calculation requests.
-   * @return java.util.Map&lt;String, CalculationStatusSummary&gt;
+   * @return java.util.Map<String, CalculationStatusSummary>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -229,7 +258,7 @@ public class CalculationsApi {
   /**
    * Get all calculation statuses
    * This endpoints returns all active calculation requests.
-   * @return ApiResponse&lt;java.util.Map&lt;String, CalculationStatusSummary&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, CalculationStatusSummary>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -271,11 +300,17 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, CalculationStatusSummary>> localVarReturnType = new GenericType<java.util.Map<String, CalculationStatusSummary>>() {};
 
-    return apiClient.invokeAPI("CalculationsApi.getCalculationStatusSummaries", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, CalculationStatusSummary>
+      
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.getCalculationStatusSummaries", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationStatusSummariesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Run calculation
@@ -346,8 +381,14 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("CalculationsApi.runCalculation", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.runCalculation", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, runCalculationResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

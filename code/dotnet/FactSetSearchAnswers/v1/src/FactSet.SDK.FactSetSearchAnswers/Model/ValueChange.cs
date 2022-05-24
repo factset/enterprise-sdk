@@ -69,7 +69,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ValueChange {\n");
             sb.Append("  AbsoluteChange: ").Append(AbsoluteChange).Append("\n");
             sb.Append("  PercentageChange: ").Append(PercentageChange).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(ValueChange input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AbsoluteChange == input.AbsoluteChange ||
@@ -134,10 +135,14 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.AbsoluteChange != null)
-                    hashCode = hashCode * 59 + this.AbsoluteChange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AbsoluteChange.GetHashCode();
+                }
                 if (this.PercentageChange != null)
-                    hashCode = hashCode * 59 + this.PercentageChange.GetHashCode();
-                hashCode = hashCode * 59 + this.Color.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PercentageChange.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Color.GetHashCode();
                 return hashCode;
             }
         }

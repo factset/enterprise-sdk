@@ -155,6 +155,23 @@ namespace FactSet.SDK.FactSetConcordance.Api
     {
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetSnowflakeEntityMatchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SnowflakeEntityMatchResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSnowflakeEntityMatchForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SnowflakeEntityMatchResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SnowflakeApi"/> class.
         /// </summary>
@@ -268,7 +285,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>SnowflakeEntityMatchResponse</returns>
         public SnowflakeEntityMatchResponse GetSnowflakeEntityMatch(string name, string country = default(string), string state = default(string), string url = default(string))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse> localVarResponse = GetSnowflakeEntityMatchWithHttpInfo(name, country, state, url);
+            var localVarResponse = GetSnowflakeEntityMatchWithHttpInfo(name, country, state, url);
             return localVarResponse.Data;
         }
 
@@ -281,11 +298,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="state">Two-character state code corresponding to the entity name that is used when evaluating candidates for a match. Currently, only US state codes are supported. (optional)</param>
         /// <param name="url">URL corresponding to the entity name that is used when evaluating candidates for a match. (optional)</param>
         /// <returns>ApiResponse of SnowflakeEntityMatchResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse> GetSnowflakeEntityMatchWithHttpInfo(string name, string country = default(string), string state = default(string), string url = default(string))
+        public ApiResponse<SnowflakeEntityMatchResponse> GetSnowflakeEntityMatchWithHttpInfo(string name, string country = default(string), string state = default(string), string url = default(string))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'name' when calling SnowflakeApi->GetSnowflakeEntityMatch");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -298,10 +317,16 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             if (country != null)
@@ -319,13 +344,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -337,15 +362,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<SnowflakeEntityMatchResponse>("/factset-concordance/v1/snowflake-entity-match", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSnowflakeEntityMatchResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            SnowflakeEntityMatchResponse>("/factset-concordance/v1/snowflake-entity-match", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSnowflakeEntityMatch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -359,9 +388,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="url">URL corresponding to the entity name that is used when evaluating candidates for a match. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SnowflakeEntityMatchResponse</returns>
-        public async System.Threading.Tasks.Task<SnowflakeEntityMatchResponse> GetSnowflakeEntityMatchAsync(string name, string country = default(string), string state = default(string), string url = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SnowflakeEntityMatchResponse>GetSnowflakeEntityMatchAsync(string name, string country = default(string), string state = default(string), string url = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse> localVarResponse = await GetSnowflakeEntityMatchWithHttpInfoAsync(name, country, state, url, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSnowflakeEntityMatchWithHttpInfoAsync(name, country, state, url, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -375,11 +404,14 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="url">URL corresponding to the entity name that is used when evaluating candidates for a match. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SnowflakeEntityMatchResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse>> GetSnowflakeEntityMatchWithHttpInfoAsync(string name, string country = default(string), string state = default(string), string url = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SnowflakeEntityMatchResponse>> GetSnowflakeEntityMatchWithHttpInfoAsync(string name, string country = default(string), string state = default(string), string url = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'name' when calling SnowflakeApi->GetSnowflakeEntityMatch");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -392,12 +424,17 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             if (country != null)
@@ -415,13 +452,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -433,14 +470,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSnowflakeEntityMatchResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<SnowflakeEntityMatchResponse>("/factset-concordance/v1/snowflake-entity-match", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSnowflakeEntityMatch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -454,7 +495,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>SnowflakeEntityMatchResponse</returns>
         public SnowflakeEntityMatchResponse GetSnowflakeEntityMatchForList(SnowflakeEntityMatchRequest snowflakeEntityMatchRequest)
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse> localVarResponse = GetSnowflakeEntityMatchForListWithHttpInfo(snowflakeEntityMatchRequest);
+            var localVarResponse = GetSnowflakeEntityMatchForListWithHttpInfo(snowflakeEntityMatchRequest);
             return localVarResponse.Data;
         }
 
@@ -464,11 +505,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <exception cref="FactSet.SDK.FactSetConcordance.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="snowflakeEntityMatchRequest">A request to match an entity name and its attributes within Snowflake.</param>
         /// <returns>ApiResponse of SnowflakeEntityMatchResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse> GetSnowflakeEntityMatchForListWithHttpInfo(SnowflakeEntityMatchRequest snowflakeEntityMatchRequest)
+        public ApiResponse<SnowflakeEntityMatchResponse> GetSnowflakeEntityMatchForListWithHttpInfo(SnowflakeEntityMatchRequest snowflakeEntityMatchRequest)
         {
             // verify the required parameter 'snowflakeEntityMatchRequest' is set
             if (snowflakeEntityMatchRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'snowflakeEntityMatchRequest' when calling SnowflakeApi->GetSnowflakeEntityMatchForList");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -482,22 +525,28 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = snowflakeEntityMatchRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -509,15 +558,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<SnowflakeEntityMatchResponse>("/factset-concordance/v1/snowflake-entity-match", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSnowflakeEntityMatchForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            SnowflakeEntityMatchResponse>("/factset-concordance/v1/snowflake-entity-match", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSnowflakeEntityMatchForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -528,9 +581,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="snowflakeEntityMatchRequest">A request to match an entity name and its attributes within Snowflake.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SnowflakeEntityMatchResponse</returns>
-        public async System.Threading.Tasks.Task<SnowflakeEntityMatchResponse> GetSnowflakeEntityMatchForListAsync(SnowflakeEntityMatchRequest snowflakeEntityMatchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SnowflakeEntityMatchResponse>GetSnowflakeEntityMatchForListAsync(SnowflakeEntityMatchRequest snowflakeEntityMatchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse> localVarResponse = await GetSnowflakeEntityMatchForListWithHttpInfoAsync(snowflakeEntityMatchRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSnowflakeEntityMatchForListWithHttpInfoAsync(snowflakeEntityMatchRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -541,11 +594,14 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="snowflakeEntityMatchRequest">A request to match an entity name and its attributes within Snowflake.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SnowflakeEntityMatchResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<SnowflakeEntityMatchResponse>> GetSnowflakeEntityMatchForListWithHttpInfoAsync(SnowflakeEntityMatchRequest snowflakeEntityMatchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SnowflakeEntityMatchResponse>> GetSnowflakeEntityMatchForListWithHttpInfoAsync(SnowflakeEntityMatchRequest snowflakeEntityMatchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'snowflakeEntityMatchRequest' is set
             if (snowflakeEntityMatchRequest == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'snowflakeEntityMatchRequest' when calling SnowflakeApi->GetSnowflakeEntityMatchForList");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -559,24 +615,29 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = snowflakeEntityMatchRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -588,14 +649,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSnowflakeEntityMatchForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<SnowflakeEntityMatchResponse>("/factset-concordance/v1/snowflake-entity-match", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSnowflakeEntityMatchForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

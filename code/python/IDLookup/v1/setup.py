@@ -15,7 +15,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.IDLookup"
-VERSION = "0.9.1"
+VERSION = "0.20.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -26,7 +26,7 @@ VERSION = "0.9.1"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",
-  "fds.sdk.utils >= 0.10.0",
+  "fds.sdk.utils >= 1.0.0",
 ]
 
 setup(

@@ -7,6 +7,9 @@ import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SPAREngine.models.AccountDirectoriesRoot;
 import com.factset.sdk.SPAREngine.models.ClientErrorResponse;
@@ -23,6 +26,22 @@ public class AccountsApi {
   public AccountsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getAccountsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAccountsResponseTypeMap.put(200, new GenericType<AccountDirectoriesRoot>(){});
+    getAccountsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getAccountsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSPARReturnsTypeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSPARReturnsTypeResponseTypeMap.put(200, new GenericType<SPARAccountsRoot>(){});
+    getSPARReturnsTypeResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getSPARReturnsTypeResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,11 +139,17 @@ public class AccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AccountDirectoriesRoot> localVarReturnType = new GenericType<AccountDirectoriesRoot>() {};
 
-    return apiClient.invokeAPI("AccountsApi.getAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AccountDirectoriesRoot
+      
+    > apiResponse = apiClient.invokeAPI("AccountsApi.getAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAccountsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get SPAR account returns type details
@@ -204,10 +229,16 @@ public class AccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SPARAccountsRoot> localVarReturnType = new GenericType<SPARAccountsRoot>() {};
 
-    return apiClient.invokeAPI("AccountsApi.getSPARReturnsType", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SPARAccountsRoot
+      
+    > apiResponse = apiClient.invokeAPI("AccountsApi.getSPARReturnsType", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSPARReturnsTypeResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

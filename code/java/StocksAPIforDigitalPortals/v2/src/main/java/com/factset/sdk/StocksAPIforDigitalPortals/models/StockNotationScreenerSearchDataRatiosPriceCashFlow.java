@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRatiosPriceCashFlow implements Seria
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataRatiosPriceCashFlow() { 
+  }
 
   public StockNotationScreenerSearchDataRatiosPriceCashFlow minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

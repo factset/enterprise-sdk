@@ -185,6 +185,39 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
     {
         private FactSet.SDK.CapitalStructureReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetDcsDetailResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetDcsSummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSourceOfCapitalResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CapitalStructureApi"/> class.
         /// </summary>
@@ -296,7 +329,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetDcsDetail(string id, string schema = default(string))
         {
-            FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> localVarResponse = GetDcsDetailWithHttpInfo(id, schema);
+            var localVarResponse = GetDcsDetailWithHttpInfo(id, schema);
             return localVarResponse.Data;
         }
 
@@ -307,11 +340,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="id">Company ticker</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> GetDcsDetailWithHttpInfo(string id, string schema = default(string))
+        public ApiResponse<Response> GetDcsDetailWithHttpInfo(string id, string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CapitalStructureReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling CapitalStructureApi->GetDcsDetail");
+            }
 
             FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions();
 
@@ -324,10 +359,16 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (schema != null)
@@ -337,13 +378,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -355,15 +396,19 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/dcs-detail", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetDcsDetailResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/dcs-detail", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDcsDetail", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -375,9 +420,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetDcsDetailAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetDcsDetailAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetDcsDetailWithHttpInfoAsync(id, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDcsDetailWithHttpInfoAsync(id, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -389,11 +434,14 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response>> GetDcsDetailWithHttpInfoAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetDcsDetailWithHttpInfoAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CapitalStructureReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling CapitalStructureApi->GetDcsDetail");
+            }
 
 
             FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions();
@@ -406,12 +454,17 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (schema != null)
@@ -421,13 +474,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -439,14 +492,18 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetDcsDetailResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/dcs-detail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDcsDetail", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -461,7 +518,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetDcsSummary(string id, string schema = default(string))
         {
-            FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> localVarResponse = GetDcsSummaryWithHttpInfo(id, schema);
+            var localVarResponse = GetDcsSummaryWithHttpInfo(id, schema);
             return localVarResponse.Data;
         }
 
@@ -472,11 +529,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="id">Company ticker</param>
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> GetDcsSummaryWithHttpInfo(string id, string schema = default(string))
+        public ApiResponse<Response> GetDcsSummaryWithHttpInfo(string id, string schema = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CapitalStructureReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling CapitalStructureApi->GetDcsSummary");
+            }
 
             FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions();
 
@@ -489,10 +548,16 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (schema != null)
@@ -502,13 +567,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -520,15 +585,19 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/dcs-summary", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetDcsSummaryResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/dcs-summary", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDcsSummary", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -540,9 +609,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetDcsSummaryAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetDcsSummaryAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetDcsSummaryWithHttpInfoAsync(id, schema, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDcsSummaryWithHttpInfoAsync(id, schema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -554,11 +623,14 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="schema">The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional, default to table_parent_child_columns)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response>> GetDcsSummaryWithHttpInfoAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetDcsSummaryWithHttpInfoAsync(string id, string schema = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CapitalStructureReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling CapitalStructureApi->GetDcsSummary");
+            }
 
 
             FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions();
@@ -571,12 +643,17 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (schema != null)
@@ -586,13 +663,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -604,14 +681,18 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetDcsSummaryResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/dcs-summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDcsSummary", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -625,7 +706,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetSourceOfCapital(string id)
         {
-            FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> localVarResponse = GetSourceOfCapitalWithHttpInfo(id);
+            var localVarResponse = GetSourceOfCapitalWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -635,11 +716,13 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <exception cref="FactSet.SDK.CapitalStructureReportBuilder.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Company ticker</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> GetSourceOfCapitalWithHttpInfo(string id)
+        public ApiResponse<Response> GetSourceOfCapitalWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CapitalStructureReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling CapitalStructureApi->GetSourceOfCapital");
+            }
 
             FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions();
 
@@ -652,22 +735,28 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -679,15 +768,19 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/source-of-capital", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSourceOfCapitalResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/source-of-capital", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSourceOfCapital", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -698,9 +791,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="id">Company ticker</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetSourceOfCapitalAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetSourceOfCapitalAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetSourceOfCapitalWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSourceOfCapitalWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -711,11 +804,14 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
         /// <param name="id">Company ticker</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.CapitalStructureReportBuilder.Client.ApiResponse<Response>> GetSourceOfCapitalWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetSourceOfCapitalWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.CapitalStructureReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling CapitalStructureApi->GetSourceOfCapital");
+            }
 
 
             FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.CapitalStructureReportBuilder.Client.RequestOptions();
@@ -728,24 +824,29 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.CapitalStructureReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -757,14 +858,18 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSourceOfCapitalResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/source-of-capital", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSourceOfCapital", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

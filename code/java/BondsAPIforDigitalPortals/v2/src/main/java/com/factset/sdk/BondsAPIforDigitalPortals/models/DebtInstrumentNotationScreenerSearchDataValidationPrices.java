@@ -88,6 +88,8 @@ public class DebtInstrumentNotationScreenerSearchDataValidationPrices implements
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private DebtInstrumentNotationScreenerSearchDataValidationPricesPrevious previous;
 
+  public DebtInstrumentNotationScreenerSearchDataValidationPrices() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataValidationPrices quality(QualityEnum quality) {
     this.quality = quality;

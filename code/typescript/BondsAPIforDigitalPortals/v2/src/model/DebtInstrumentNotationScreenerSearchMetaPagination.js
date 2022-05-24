@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchMetaPagination model module.
  * @module model/DebtInstrumentNotationScreenerSearchMetaPagination
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchMetaPagination {
     /**

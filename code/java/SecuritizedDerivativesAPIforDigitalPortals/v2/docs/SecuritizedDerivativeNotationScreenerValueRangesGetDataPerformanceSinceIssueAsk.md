@@ -8,8 +8,8 @@ Value range for the ask-based relative performance since issue.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**minimum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum.md) |  |  [optional]
-**maximum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum.md) |  |  [optional]
+**minimum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum.md) |  |  [optional]
+**maximum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum.md) |  |  [optional]
 
 
 ## Implemented Interfaces

@@ -1,0 +1,420 @@
+openapi: 3.0.0
+info:
+  description: Through the Market Intelligence API, stay up to date on the companies
+    and sectors you care most about with ease. Request the templates you have made
+    in Market Intelligence to receive news and data on your portfolio.
+  title: Market Intelligence
+  version: "1.0"
+servers:
+- description: Production
+  url: https://api.factset.com/market-intelligence/
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /create:
+    post:
+      description: Endpoint to create a new Market Intelligence report. If you want
+        to retrieve a report you created, use get-reports call mentioned below.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MIAPIPostRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post_Response_info'
+          description: Successful response, report created.
+        "400":
+          description: Invalid identifier or Unknown error
+        "401":
+          description: Missing/invalid Credentials or Authentication failure
+      summary: Create new report templates including portfolio or market news and
+        data.
+      tags:
+      - Create Report
+      x-contentType: application/json
+      x-accepts: application/json
+  /get-reports:
+    get:
+      description: Endpoint to retrieve list of all available Market Intelligence
+        reports for specific User in JSON format.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Get_Report_Info'
+          description: Successful response, Previously created report list fetched.
+        "400":
+          description: Unknown Error
+        "401":
+          description: Missing/invalid Credentials  or authentication failure
+      summary: Retrieve a list of previously created reports and associated report
+        metadata.
+      tags:
+      - Retrieve Report List
+      x-accepts: application/json
+  /get-data/{report_id}:
+    get:
+      description: |-
+        Endpoint to retrieve raw data in JSON format for a particular Market Intelligence report.
+        If the report has not been refreshed within the last hour, a pollUrl will be returned which can be used to call the refreshed report. If the report has been refreshed within 1 hour, the report data from the most recent refresh will be returned.
+      parameters:
+      - description: 'example: 65ba6dd63fb366464646426d0b'
+        explode: false
+        in: path
+        name: report_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fetch_Report_PollID'
+          description: Successful response. If the report requested has been refreshed
+            within an hour, the report data will be returned. If the report has not
+            been refreshed within the last hour, a pollUrl will be returned which
+            can be used to call the refreshed report.
+        "202":
+          description: Your report is being processed. Please Check again after sometime.
+        "400":
+          description: Unknown Error.
+        "401":
+          description: Missing/invalid Credentials or authentication failure
+        "503":
+          description: Unrecognized report_id
+      summary: Retrieve data for desired report.
+      tags:
+      - Retrieve Refreshed Report
+      x-accepts: application/json
+  /get-data/{poll_id}/result:
+    get:
+      description: Endpoint to retrieve raw data in JSON format for a particular Market
+        Intelligence report.
+      parameters:
+      - description: 'example: 65ba6dd63fb366464646426d0b'
+        explode: false
+        in: path
+        name: poll_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Report_Data_Header'
+          description: Successful response. Report data retrieved.
+        "400":
+          description: Unknown Error.
+        "401":
+          description: Missing/invalid Credentials or authentication failure
+      summary: Retrieve data for desired report.
+      tags:
+      - Retrieve Refreshed Data
+      x-accepts: application/json
+components:
+  schemas:
+    MIAPIPostRequest:
+      description: Post request allows users to pass the necessary parameters such
+        as the report name, identifier, id type, time zone, and report content.
+      example:
+        identifier: OEX
+        id_type: B
+        report_name: Morning Portfolio Update
+        time_zone: EST5EDT
+        content:
+        - section_id: top_news
+          filters: '["MI_MARKET_SYNOPSIS","MI_TOP_STORIES","MI_ECONOMIC_CALENDAR","MI_WEB_STORIES"]'
+        - section_id: top_news
+          filters: '["MI_MARKET_SYNOPSIS","MI_TOP_STORIES","MI_ECONOMIC_CALENDAR","MI_WEB_STORIES"]'
+      properties:
+        report_name:
+          description: report name
+          example: Morning Portfolio Update
+          type: string
+        identifier:
+          description: Index or portfolio for which the report to be created.
+          example: OEX
+          type: string
+        id_type:
+          description: identifier type
+          example: B
+          type: string
+        time_zone:
+          description: Time zone for the report (this shall be utilized if a user
+            wants to use the report via API and also from Workstation/web).
+          example: EST5EDT
+          type: string
+        content:
+          items:
+            $ref: '#/components/schemas/Post_Request_example'
+          type: array
+      title: Post_Request
+      type: object
+    Post_Request_example:
+      example:
+        section_id: top_news
+        filters: '["MI_MARKET_SYNOPSIS","MI_TOP_STORIES","MI_ECONOMIC_CALENDAR","MI_WEB_STORIES"]'
+      properties:
+        section_id:
+          description: Section name
+          example: top_news
+          type: string
+        filters:
+          description: Filter name
+          example: '["MI_MARKET_SYNOPSIS","MI_TOP_STORIES","MI_ECONOMIC_CALENDAR","MI_WEB_STORIES"]'
+          type: string
+      type: object
+    Post_Response_info:
+      description: Response that a user will receive on successful report creation
+      example:
+        report_id: 65ba6dd63fb366464646426d0b
+        status: "200"
+      properties:
+        status:
+          description: successful response status
+          example: "200"
+          type: string
+        report_id:
+          description: Report ID
+          example: 65ba6dd63fb366464646426d0b
+          type: string
+      title: Report creation_Response
+      type: object
+    Get_Report_Info:
+      description: Information users receive about their reports with the get-reports
+        call.
+      example:
+        last_run_date_time: 2021-01-21T15:03:46.000Z
+        report_id: 65ba6dd63fb366464646426d0b
+        report_name: Morning Portfolio Update.
+        time_zone: EST5EDT
+      properties:
+        report_id:
+          description: Report ID
+          example: 65ba6dd63fb366464646426d0b
+          type: string
+        report_name:
+          description: Report Name
+          example: Morning Portfolio Update.
+          type: string
+        time_zone:
+          description: Time zone
+          example: EST5EDT
+          type: string
+        last_run_date_time:
+          description: Last time the report was refreshed.
+          example: 2021-01-21T15:03:46.000Z
+          type: string
+      title: Get Report_Response
+      type: object
+    Fetch_Report_PollID:
+      description: Response for the get-data call in a scenario where the report has
+        not been refreshed.
+      example:
+        Pollurl: /get-data/414c98a9ccb740a3a338c4a4460b6ebf/result
+      properties:
+        Pollurl:
+          description: Poll URL.
+          example: /get-data/414c98a9ccb740a3a338c4a4460b6ebf/result
+          type: object
+      title: Retrieve report_Response
+      type: object
+    Report_Content:
+      description: lowest level of data for table return
+      example:
+        subject_matched_order: "0"
+        story_dt: 2/9/22 5:59:00 AM
+        doc_disp_content: "<ul>\n<li>\n<b>S&amp;P futures</b> up 0.8% in Wednesday\
+          \ morning trading after US equities finished higher on Tuesday with three\
+          \ of the four major indexes up over 1%. Reopening plays extended their recent\
+          \ outperformance while energy was the notable laggard. <b>Asian markets</b>\
+          \ higher overnight with Hong Kong the standout, up over 2%, while Japan\
+          \ gained more than 1%. European markets catching a big rally. <b>Treasuries\
+          \ </b>firmer across the curve with European bonds also finding some reprieve.\
+          \ <b>Dollar</b> weaker on the major crosses. <b>Gold</b> little changed.\
+          \ <b>Bitcoin futures</b> down 1.3%. <b>WTI crude</b> off 0.3% despite a\
+          \ surprise decline in API inventories.\n</li>\n<li>\nOnce again, nothing\
+          \ specific behind firmer tone in equities. <b>Rate stabilization</b> in\
+          \ both US and Europe may be helping. <b>ECB's Villeroy pushed back against\
+          \ rate hike</b> <b>expectations</b> and FT article rehashed concerns about\
+          \ an ECB policy mistake. Comments from BoJ official also highlighted a high\
+          \ bar for a policy shift. In addition, there has been some <b>speculation\
+          \ that Thursday's January CPI print may come in less hot than expected</b>,\
+          \ while sell-side and price has started to highlight some easing of vehicle\
+          \ prices. <b>Improving Covid trends</b> and move to scrap some related restrictions\
+          \ another recently highlighted tailwind. Fauci said \"full blown\" pandemic\
+          \ phase nearly over in US. <b>Slight easing of geopolitical tensions</b>\
+          \ also in focus and has helped to dampen the surge in energy prices. \n\
+          </li>\n<li>\nOnly a few higher-profile earnings releases after the close\
+          \ on Tuesday and nothing to change the broader narrative. ~<b>CMG-US~</b>\
+          \ boosted by increase in long-term unit growth for NA. However, <b>~YUMC-US~\
+          \ </b>hit by China's zero-Covid policy. <b>~LYFT-US~</b> disappointed on\
+          \ guidance, flagging Omicron headwinds, though did flag continued improvement\
+          \ in driver supply. <b>~PAYC-US~</b> results and guidance ahead with Street\
+          \ positive on record annual revenue retention and initial guidance implying\
+          \ \"Rule of 65\". <b>~NEWR-US~</b> beat underwhelmed and guidance only largely\
+          \ in line. <b>~NCR-US~</b> boosted by plan to evaluate strategic alternatives.\
+          \ <b>~MNDT-US~</b> billings growth accelerated after stock rallied on ~MSFT-US~\
+          \ acquisition speculation. <b>~XPO-US~</b> results and guidance ahead with\
+          \ some positive commentary around pricing.\n</li>\n</ul>"
+        headline: S&P futures higher
+      properties:
+        subject_matched_order:
+          example: "0"
+          type: string
+        headline:
+          example: S&P futures higher
+          type: string
+        story_dt:
+          description: Content publishing date
+          example: 2/9/22 5:59:00 AM
+          type: string
+        doc_disp_content:
+          description: MI Content
+          example: "<ul>\n<li>\n<b>S&amp;P futures</b> up 0.8% in Wednesday morning\
+            \ trading after US equities finished higher on Tuesday with three of the\
+            \ four major indexes up over 1%. Reopening plays extended their recent\
+            \ outperformance while energy was the notable laggard. <b>Asian markets</b>\
+            \ higher overnight with Hong Kong the standout, up over 2%, while Japan\
+            \ gained more than 1%. European markets catching a big rally. <b>Treasuries\
+            \ </b>firmer across the curve with European bonds also finding some reprieve.\
+            \ <b>Dollar</b> weaker on the major crosses. <b>Gold</b> little changed.\
+            \ <b>Bitcoin futures</b> down 1.3%. <b>WTI crude</b> off 0.3% despite\
+            \ a surprise decline in API inventories.\n</li>\n<li>\nOnce again, nothing\
+            \ specific behind firmer tone in equities. <b>Rate stabilization</b> in\
+            \ both US and Europe may be helping. <b>ECB's Villeroy pushed back against\
+            \ rate hike</b> <b>expectations</b> and FT article rehashed concerns about\
+            \ an ECB policy mistake. Comments from BoJ official also highlighted a\
+            \ high bar for a policy shift. In addition, there has been some <b>speculation\
+            \ that Thursday's January CPI print may come in less hot than expected</b>,\
+            \ while sell-side and price has started to highlight some easing of vehicle\
+            \ prices. <b>Improving Covid trends</b> and move to scrap some related\
+            \ restrictions another recently highlighted tailwind. Fauci said \"full\
+            \ blown\" pandemic phase nearly over in US. <b>Slight easing of geopolitical\
+            \ tensions</b> also in focus and has helped to dampen the surge in energy\
+            \ prices. \n</li>\n<li>\nOnly a few higher-profile earnings releases after\
+            \ the close on Tuesday and nothing to change the broader narrative. ~<b>CMG-US~</b>\
+            \ boosted by increase in long-term unit growth for NA. However, <b>~YUMC-US~\
+            \ </b>hit by China's zero-Covid policy. <b>~LYFT-US~</b> disappointed\
+            \ on guidance, flagging Omicron headwinds, though did flag continued improvement\
+            \ in driver supply. <b>~PAYC-US~</b> results and guidance ahead with Street\
+            \ positive on record annual revenue retention and initial guidance implying\
+            \ \"Rule of 65\". <b>~NEWR-US~</b> beat underwhelmed and guidance only\
+            \ largely in line. <b>~NCR-US~</b> boosted by plan to evaluate strategic\
+            \ alternatives. <b>~MNDT-US~</b> billings growth accelerated after stock\
+            \ rallied on ~MSFT-US~ acquisition speculation. <b>~XPO-US~</b> results\
+            \ and guidance ahead with some positive commentary around pricing.\n</li>\n\
+            </ul>"
+          type: string
+      type: object
+    Report_Data_Header:
+      example:
+        data:
+        - subject_matched_order: "0"
+          story_dt: 2/9/22 5:59:00 AM
+          doc_disp_content: "<ul>\n<li>\n<b>S&amp;P futures</b> up 0.8% in Wednesday\
+            \ morning trading after US equities finished higher on Tuesday with three\
+            \ of the four major indexes up over 1%. Reopening plays extended their\
+            \ recent outperformance while energy was the notable laggard. <b>Asian\
+            \ markets</b> higher overnight with Hong Kong the standout, up over 2%,\
+            \ while Japan gained more than 1%. European markets catching a big rally.\
+            \ <b>Treasuries </b>firmer across the curve with European bonds also finding\
+            \ some reprieve. <b>Dollar</b> weaker on the major crosses. <b>Gold</b>\
+            \ little changed. <b>Bitcoin futures</b> down 1.3%. <b>WTI crude</b> off\
+            \ 0.3% despite a surprise decline in API inventories.\n</li>\n<li>\nOnce\
+            \ again, nothing specific behind firmer tone in equities. <b>Rate stabilization</b>\
+            \ in both US and Europe may be helping. <b>ECB's Villeroy pushed back\
+            \ against rate hike</b> <b>expectations</b> and FT article rehashed concerns\
+            \ about an ECB policy mistake. Comments from BoJ official also highlighted\
+            \ a high bar for a policy shift. In addition, there has been some <b>speculation\
+            \ that Thursday's January CPI print may come in less hot than expected</b>,\
+            \ while sell-side and price has started to highlight some easing of vehicle\
+            \ prices. <b>Improving Covid trends</b> and move to scrap some related\
+            \ restrictions another recently highlighted tailwind. Fauci said \"full\
+            \ blown\" pandemic phase nearly over in US. <b>Slight easing of geopolitical\
+            \ tensions</b> also in focus and has helped to dampen the surge in energy\
+            \ prices. \n</li>\n<li>\nOnly a few higher-profile earnings releases after\
+            \ the close on Tuesday and nothing to change the broader narrative. ~<b>CMG-US~</b>\
+            \ boosted by increase in long-term unit growth for NA. However, <b>~YUMC-US~\
+            \ </b>hit by China's zero-Covid policy. <b>~LYFT-US~</b> disappointed\
+            \ on guidance, flagging Omicron headwinds, though did flag continued improvement\
+            \ in driver supply. <b>~PAYC-US~</b> results and guidance ahead with Street\
+            \ positive on record annual revenue retention and initial guidance implying\
+            \ \"Rule of 65\". <b>~NEWR-US~</b> beat underwhelmed and guidance only\
+            \ largely in line. <b>~NCR-US~</b> boosted by plan to evaluate strategic\
+            \ alternatives. <b>~MNDT-US~</b> billings growth accelerated after stock\
+            \ rallied on ~MSFT-US~ acquisition speculation. <b>~XPO-US~</b> results\
+            \ and guidance ahead with some positive commentary around pricing.\n</li>\n\
+            </ul>"
+          headline: S&P futures higher
+        - subject_matched_order: "0"
+          story_dt: 2/9/22 5:59:00 AM
+          doc_disp_content: "<ul>\n<li>\n<b>S&amp;P futures</b> up 0.8% in Wednesday\
+            \ morning trading after US equities finished higher on Tuesday with three\
+            \ of the four major indexes up over 1%. Reopening plays extended their\
+            \ recent outperformance while energy was the notable laggard. <b>Asian\
+            \ markets</b> higher overnight with Hong Kong the standout, up over 2%,\
+            \ while Japan gained more than 1%. European markets catching a big rally.\
+            \ <b>Treasuries </b>firmer across the curve with European bonds also finding\
+            \ some reprieve. <b>Dollar</b> weaker on the major crosses. <b>Gold</b>\
+            \ little changed. <b>Bitcoin futures</b> down 1.3%. <b>WTI crude</b> off\
+            \ 0.3% despite a surprise decline in API inventories.\n</li>\n<li>\nOnce\
+            \ again, nothing specific behind firmer tone in equities. <b>Rate stabilization</b>\
+            \ in both US and Europe may be helping. <b>ECB's Villeroy pushed back\
+            \ against rate hike</b> <b>expectations</b> and FT article rehashed concerns\
+            \ about an ECB policy mistake. Comments from BoJ official also highlighted\
+            \ a high bar for a policy shift. In addition, there has been some <b>speculation\
+            \ that Thursday's January CPI print may come in less hot than expected</b>,\
+            \ while sell-side and price has started to highlight some easing of vehicle\
+            \ prices. <b>Improving Covid trends</b> and move to scrap some related\
+            \ restrictions another recently highlighted tailwind. Fauci said \"full\
+            \ blown\" pandemic phase nearly over in US. <b>Slight easing of geopolitical\
+            \ tensions</b> also in focus and has helped to dampen the surge in energy\
+            \ prices. \n</li>\n<li>\nOnly a few higher-profile earnings releases after\
+            \ the close on Tuesday and nothing to change the broader narrative. ~<b>CMG-US~</b>\
+            \ boosted by increase in long-term unit growth for NA. However, <b>~YUMC-US~\
+            \ </b>hit by China's zero-Covid policy. <b>~LYFT-US~</b> disappointed\
+            \ on guidance, flagging Omicron headwinds, though did flag continued improvement\
+            \ in driver supply. <b>~PAYC-US~</b> results and guidance ahead with Street\
+            \ positive on record annual revenue retention and initial guidance implying\
+            \ \"Rule of 65\". <b>~NEWR-US~</b> beat underwhelmed and guidance only\
+            \ largely in line. <b>~NCR-US~</b> boosted by plan to evaluate strategic\
+            \ alternatives. <b>~MNDT-US~</b> billings growth accelerated after stock\
+            \ rallied on ~MSFT-US~ acquisition speculation. <b>~XPO-US~</b> results\
+            \ and guidance ahead with some positive commentary around pricing.\n</li>\n\
+            </ul>"
+          headline: S&P futures higher
+        subject_category: ~MARKET SYNOPSIS
+      properties:
+        subject_category:
+          description: Column Title
+          example: ~MARKET SYNOPSIS
+          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/Report_Content'
+          type: array
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

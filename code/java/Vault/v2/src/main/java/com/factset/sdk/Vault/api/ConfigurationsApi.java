@@ -7,6 +7,9 @@ import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Vault.models.VaultConfiguration;
 import com.factset.sdk.Vault.models.VaultConfigurationSummary;
@@ -22,6 +25,18 @@ public class ConfigurationsApi {
   public ConfigurationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getVaultConfigurationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVaultConfigurationByIdResponseTypeMap.put(200, new GenericType<VaultConfiguration>(){});
+  }
+  private static final Map<Integer, GenericType> getVaultConfigurationsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVaultConfigurationsResponseTypeMap.put(200, new GenericType<java.util.Map<String, VaultConfigurationSummary>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,17 +134,23 @@ public class ConfigurationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<VaultConfiguration> localVarReturnType = new GenericType<VaultConfiguration>() {};
 
-    return apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        VaultConfiguration
+      
+    > apiResponse = apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVaultConfigurationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Vault configurations
    * This endpoint returns all the Vault configurations saved in the provided account.
    * @param account Required account query parameter to filter configurations for a specific account (required)
-   * @return java.util.Map&lt;String, VaultConfigurationSummary&gt;
+   * @return java.util.Map<String, VaultConfigurationSummary>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -153,7 +174,7 @@ public class ConfigurationsApi {
    * Get Vault configurations
    * This endpoint returns all the Vault configurations saved in the provided account.
    * @param account Required account query parameter to filter configurations for a specific account (required)
-   * @return ApiResponse&lt;java.util.Map&lt;String, VaultConfigurationSummary&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, VaultConfigurationSummary>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -203,10 +224,16 @@ public class ConfigurationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, VaultConfigurationSummary>> localVarReturnType = new GenericType<java.util.Map<String, VaultConfigurationSummary>>() {};
 
-    return apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, VaultConfigurationSummary>
+      
+    > apiResponse = apiClient.invokeAPI("ConfigurationsApi.getVaultConfigurations", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVaultConfigurationsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

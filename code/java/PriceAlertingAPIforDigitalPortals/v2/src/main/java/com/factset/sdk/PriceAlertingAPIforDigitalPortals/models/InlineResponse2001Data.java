@@ -56,6 +56,8 @@ public class InlineResponse2001Data implements Serializable {
   public static final String JSON_PROPERTY_TRIGGER = "trigger";
   private InlineResponse2001Trigger trigger;
 
+  public InlineResponse2001Data() { 
+  }
 
   public InlineResponse2001Data id(String id) {
     this.id = id;

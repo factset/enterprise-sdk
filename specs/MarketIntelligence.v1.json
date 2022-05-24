@@ -1,0 +1,339 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Through the Market Intelligence API, stay up to date on the companies and sectors you care most about with ease. Request the templates you have made in Market Intelligence to receive news and data on your portfolio.",
+    "title": "Market Intelligence",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com/market-intelligence/",
+      "description": "Production"
+    }
+  ],
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "tags": [],
+  "paths": {
+    "/create": {
+      "post": {
+        "tags": [
+          "Create Report"
+        ],
+        "summary": "Create new report templates including portfolio or market news and data.",
+        "description": "Endpoint to create a new Market Intelligence report. If you want to retrieve a report you created, use get-reports call mentioned below.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MIAPIPostRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response, report created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post_Response_info"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid identifier or Unknown error"
+          },
+          "401": {
+            "description": "Missing/invalid Credentials or Authentication failure"
+          }
+        }
+      }
+    },
+    "/get-reports": {
+      "get": {
+        "tags": [
+          "Retrieve Report List"
+        ],
+        "summary": "Retrieve a list of previously created reports and associated report metadata.",
+        "description": "Endpoint to retrieve list of all available Market Intelligence reports for specific User in JSON format.",
+        "responses": {
+          "200": {
+            "description": "Successful response, Previously created report list fetched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Get_Report_Info"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unknown Error"
+          },
+          "401": {
+            "description": "Missing/invalid Credentials  or authentication failure"
+          }
+        }
+      }
+    },
+    "/get-data/{report_id}": {
+      "get": {
+        "tags": [
+          "Retrieve Refreshed Report"
+        ],
+        "summary": "Retrieve data for desired report.",
+        "description": "Endpoint to retrieve raw data in JSON format for a particular Market Intelligence report.\nIf the report has not been refreshed within the last hour, a pollUrl will be returned which can be used to call the refreshed report. If the report has been refreshed within 1 hour, the report data from the most recent refresh will be returned.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "report_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "example: 65ba6dd63fb366464646426d0b"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response. If the report requested has been refreshed within an hour, the report data will be returned. If the report has not been refreshed within the last hour, a pollUrl will be returned which can be used to call the refreshed report.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Fetch_Report_PollID"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Your report is being processed. Please Check again after sometime."
+          },
+          "400": {
+            "description": "Unknown Error."
+          },
+          "401": {
+            "description": "Missing/invalid Credentials or authentication failure"
+          },
+          "503": {
+            "description": "Unrecognized report_id"
+          }
+        }
+      }
+    },
+    "/get-data/{poll_id}/result": {
+      "get": {
+        "tags": [
+          "Retrieve Refreshed Data"
+        ],
+        "summary": "Retrieve data for desired report.",
+        "description": "Endpoint to retrieve raw data in JSON format for a particular Market Intelligence report.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "poll_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "example: 65ba6dd63fb366464646426d0b"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response. Report data retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report_Data_Header"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unknown Error."
+          },
+          "401": {
+            "description": "Missing/invalid Credentials or authentication failure"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "MIAPIPostRequest": {
+        "title": "Post_Request",
+        "description": "Post request allows users to pass the necessary parameters such as the report name, identifier, id type, time zone, and report content.",
+        "type": "object",
+        "properties": {
+          "report_name": {
+            "type": "string",
+            "description": "report name",
+            "example": "Morning Portfolio Update"
+          },
+          "identifier": {
+            "type": "string",
+            "description": "Index or portfolio for which the report to be created.",
+            "example": "OEX"
+          },
+          "id_type": {
+            "type": "string",
+            "description": "identifier type",
+            "example": "B"
+          },
+          "time_zone": {
+            "type": "string",
+            "description": "Time zone for the report (this shall be utilized if a user wants to use the report via API and also from Workstation/web).",
+            "example": "EST5EDT"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Post_Request_example"
+            }
+          }
+        }
+      },
+      "Post_Request_example": {
+        "type": "object",
+        "properties": {
+          "section_id": {
+            "type": "string",
+            "description": "Section name",
+            "example": "top_news"
+          },
+          "filters": {
+            "type": "string",
+            "description": "Filter name",
+            "example": [
+              "MI_MARKET_SYNOPSIS",
+              "MI_TOP_STORIES",
+              "MI_ECONOMIC_CALENDAR",
+              "MI_WEB_STORIES"
+            ]
+          }
+        }
+      },
+      "Post_Response_info": {
+        "title": "Report creation_Response",
+        "description": "Response that a user will receive on successful report creation",
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "successful response status",
+            "example": 200
+          },
+          "report_id": {
+            "type": "string",
+            "description": "Report ID",
+            "example": "65ba6dd63fb366464646426d0b"
+          }
+        }
+      },
+      "Get_Report_Info": {
+        "title": "Get Report_Response",
+        "description": "Information users receive about their reports with the get-reports call.",
+        "type": "object",
+        "properties": {
+          "report_id": {
+            "type": "string",
+            "description": "Report ID",
+            "example": "65ba6dd63fb366464646426d0b"
+          },
+          "report_name": {
+            "type": "string",
+            "description": "Report Name",
+            "example": "Morning Portfolio Update."
+          },
+          "time_zone": {
+            "type": "string",
+            "description": "Time zone",
+            "example": "EST5EDT"
+          },
+          "last_run_date_time": {
+            "type": "string",
+            "description": "Last time the report was refreshed.",
+            "example": "2021-01-21T15:03:46.000Z"
+          }
+        }
+      },
+      "Fetch_Report_PollID": {
+        "title": "Retrieve report_Response",
+        "description": "Response for the get-data call in a scenario where the report has not been refreshed.",
+        "type": "object",
+        "properties": {
+          "Pollurl": {
+            "type": "object",
+            "description": "Poll URL.",
+            "example": "/get-data/414c98a9ccb740a3a338c4a4460b6ebf/result"
+          }
+        }
+      },
+      "Report_Content": {
+        "description": "lowest level of data for table return",
+        "type": "object",
+        "properties": {
+          "subject_matched_order": {
+            "type": "string",
+            "example": 0
+          },
+          "headline": {
+            "type": "string",
+            "example": "S&P futures higher"
+          },
+          "story_dt": {
+            "type": "string",
+            "description": "Content publishing date",
+            "example": "2/9/22 5:59:00 AM"
+          },
+          "doc_disp_content": {
+            "type": "string",
+            "description": "MI Content",
+            "example": "<ul>\n<li>\n<b>S&amp;P futures</b> up 0.8% in Wednesday morning trading after US equities finished higher on Tuesday with three of the four major indexes up over 1%. Reopening plays extended their recent outperformance while energy was the notable laggard. <b>Asian markets</b> higher overnight with Hong Kong the standout, up over 2%, while Japan gained more than 1%. European markets catching a big rally. <b>Treasuries </b>firmer across the curve with European bonds also finding some reprieve. <b>Dollar</b> weaker on the major crosses. <b>Gold</b> little changed. <b>Bitcoin futures</b> down 1.3%. <b>WTI crude</b> off 0.3% despite a surprise decline in API inventories.\n</li>\n<li>\nOnce again, nothing specific behind firmer tone in equities. <b>Rate stabilization</b> in both US and Europe may be helping. <b>ECB's Villeroy pushed back against rate hike</b> <b>expectations</b> and FT article rehashed concerns about an ECB policy mistake. Comments from BoJ official also highlighted a high bar for a policy shift. In addition, there has been some <b>speculation that Thursday's January CPI print may come in less hot than expected</b>, while sell-side and price has started to highlight some easing of vehicle prices. <b>Improving Covid trends</b> and move to scrap some related restrictions another recently highlighted tailwind. Fauci said \"full blown\" pandemic phase nearly over in US. <b>Slight easing of geopolitical tensions</b> also in focus and has helped to dampen the surge in energy prices. \n</li>\n<li>\nOnly a few higher-profile earnings releases after the close on Tuesday and nothing to change the broader narrative. ~<b>CMG-US~</b> boosted by increase in long-term unit growth for NA. However, <b>~YUMC-US~ </b>hit by China's zero-Covid policy. <b>~LYFT-US~</b> disappointed on guidance, flagging Omicron headwinds, though did flag continued improvement in driver supply. <b>~PAYC-US~</b> results and guidance ahead with Street positive on record annual revenue retention and initial guidance implying \"Rule of 65\". <b>~NEWR-US~</b> beat underwhelmed and guidance only largely in line. <b>~NCR-US~</b> boosted by plan to evaluate strategic alternatives. <b>~MNDT-US~</b> billings growth accelerated after stock rallied on ~MSFT-US~ acquisition speculation. <b>~XPO-US~</b> results and guidance ahead with some positive commentary around pricing.\n</li>\n</ul>"
+          }
+        }
+      },
+      "Report_Data_Header": {
+        "type": "object",
+        "properties": {
+          "subject_category": {
+            "type": "string",
+            "description": "Column Title",
+            "example": "~MARKET SYNOPSIS"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Report_Content"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -51,21 +51,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject(
         data=PortfolioCreateData(
             name="H",
@@ -80,11 +81,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Create a portfolio.
         api_response = api_instance.portfolio_create_post(body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_create_post: %s\n" % e)
 ```
@@ -149,21 +150,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject1(
         data=PortfolioDeleteData(
             id="id_example",
@@ -175,12 +177,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject1 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete a portfolio.
         api_response = api_instance.portfolio_delete_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_delete_post: %s\n" % e)
 ```
@@ -245,21 +246,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject3(
         data=PortfolioEvaluationListData(
             id="id_example",
@@ -276,12 +278,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject3 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Evaluate a portfolio.
         api_response = api_instance.portfolio_evaluation_list_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_evaluation_list_post: %s\n" % e)
 ```
@@ -345,40 +346,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     id = "id_example" # str | Identifier of the portfolio.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Details of a portfolio.
-        api_response = api_instance.portfolio_get_get(id)
-        pprint(api_response)
-    except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PortfolioApi->portfolio_get_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Details of a portfolio.
         api_response = api_instance.portfolio_get_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_get_get: %s\n" % e)
 ```
@@ -443,34 +436,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of portfolios with keyfigures.
         api_response = api_instance.portfolio_list_get(attributes=attributes, sort=sort)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_list_get: %s\n" % e)
 ```
@@ -536,21 +529,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject2(
         data=PortfolioModifyData(
             id="id_example",
@@ -563,12 +557,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject2 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Modify a portfolio.
         api_response = api_instance.portfolio_modify_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_modify_post: %s\n" % e)
 ```
@@ -632,34 +625,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of portfolios.
         api_response = api_instance.portfolio_name_list_get(attributes=attributes, sort=sort)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_name_list_get: %s\n" % e)
 ```
@@ -724,40 +717,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     id = "id_example" # str | Identifier of the portfolio.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List all positions of a portfolio.
-        api_response = api_instance.portfolio_position_list_get(id)
-        pprint(api_response)
-    except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PortfolioApi->portfolio_position_list_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List all positions of a portfolio.
         api_response = api_instance.portfolio_position_list_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_position_list_get: %s\n" % e)
 ```
@@ -823,21 +808,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject7(
         data=PortfolioTransactionCashCreateData(
             id="id_example",
@@ -851,12 +837,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject7 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add a cash transaction to a portfolio.
         api_response = api_instance.portfolio_transaction_cash_create_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_transaction_cash_create_post: %s\n" % e)
 ```
@@ -921,21 +906,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject8(
         data=PortfolioTransactionCashDeleteData(
             id="id_example",
@@ -950,12 +936,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject8 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete a cash transaction.
         api_response = api_instance.portfolio_transaction_cash_delete_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_transaction_cash_delete_post: %s\n" % e)
 ```
@@ -1020,21 +1005,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject4(
         data=PortfolioTransactionCreateData(
             id="id_example",
@@ -1058,12 +1044,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject4 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add a transaction to a portfolio.
         api_response = api_instance.portfolio_transaction_create_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_transaction_create_post: %s\n" % e)
 ```
@@ -1128,21 +1113,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject5(
         data=PortfolioTransactionDeleteData(
             id="id_example",
@@ -1160,12 +1146,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject5 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Delete a transaction of a portfolio.
         api_response = api_instance.portfolio_transaction_delete_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_transaction_delete_post: %s\n" % e)
 ```
@@ -1229,40 +1214,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     id = "id_example" # str | Identifier of the portfolio.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List of transactions in a portfolio.
-        api_response = api_instance.portfolio_transaction_list_get(id)
-        pprint(api_response)
-    except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PortfolioApi->portfolio_transaction_list_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of transactions in a portfolio.
         api_response = api_instance.portfolio_transaction_list_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_transaction_list_get: %s\n" % e)
 ```
@@ -1328,21 +1305,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_api.PortfolioApi(api_client)
+
     body = InlineObject6(
         data=PortfolioTransactionModifyData(
             id="id_example",
@@ -1365,12 +1343,11 @@ with fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient(configuration) as ap
         ),
     ) # InlineObject6 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Modify a transaction in a portfolio.
         api_response = api_instance.portfolio_transaction_modify_post(body=body)
         pprint(api_response)
+
     except fds.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PortfolioApi->portfolio_transaction_modify_post: %s\n" % e)
 ```

@@ -1,0 +1,1449 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Signals API",
+    "description": "Collection of endpoints for providing Signal Events, Definitions and Metadata",
+    "version": "2.4.0",
+    "contact": {
+      "name": "Signals API Support",
+      "email": "signals.api@factset.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com/signals/v2",
+      "description": "Production"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Events",
+      "description": "Fetch signal events"
+    },
+    {
+      "name": "Metadata",
+      "description": "Fetch signal metadata"
+    }
+  ],
+  "paths": {
+    "/events/headlines": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "getEventHeadlines",
+        "description": "Fetch Signals event headlines based on the filtering criteria",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/createdParam"
+          },
+          {
+            "$ref": "#/components/parameters/updatedParam"
+          },
+          {
+            "$ref": "#/components/parameters/signalIdsParam"
+          },
+          {
+            "$ref": "#/components/parameters/idsParam"
+          },
+          {
+            "$ref": "#/components/parameters/portfoliosParam"
+          },
+          {
+            "$ref": "#/components/parameters/themesParam"
+          },
+          {
+            "$ref": "#/components/parameters/categoriesParam"
+          },
+          {
+            "$ref": "#/components/parameters/relevanceScoreParam"
+          },
+          {
+            "$ref": "#/components/parameters/sortParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventHeadlines"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "postEventHeadlines",
+        "description": "Fetch Signals event headlines based on the filtering criteria for up to 1000 identifiers",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/eventRequestBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventHeadlines"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/details": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "getEventDetails",
+        "description": "Fetch Signals event headlines plus all additional event details based on the filtering criteria",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/createdParam"
+          },
+          {
+            "$ref": "#/components/parameters/updatedParam"
+          },
+          {
+            "$ref": "#/components/parameters/signalIdsParam"
+          },
+          {
+            "$ref": "#/components/parameters/idsParam"
+          },
+          {
+            "$ref": "#/components/parameters/portfoliosParam"
+          },
+          {
+            "$ref": "#/components/parameters/themesParam"
+          },
+          {
+            "$ref": "#/components/parameters/categoriesParam"
+          },
+          {
+            "$ref": "#/components/parameters/relevanceScoreParam"
+          },
+          {
+            "$ref": "#/components/parameters/sortParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "postEventDetails",
+        "description": "Fetch Signals event headlines plus all additional event details for up to 1000 identifiers",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/eventRequestBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/details/{eventId}": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "getEventDetailById",
+        "description": "Fetch Signals event headlines plus all additional event details for a single requested Signal event",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/eventIdParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/adaptive-cards": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "getEventAdaptiveCards",
+        "description": "Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, based on the filtering criteria",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/createdParam"
+          },
+          {
+            "$ref": "#/components/parameters/updatedParam"
+          },
+          {
+            "$ref": "#/components/parameters/signalIdsParam"
+          },
+          {
+            "$ref": "#/components/parameters/idsParam"
+          },
+          {
+            "$ref": "#/components/parameters/portfoliosParam"
+          },
+          {
+            "$ref": "#/components/parameters/themesParam"
+          },
+          {
+            "$ref": "#/components/parameters/categoriesParam"
+          },
+          {
+            "$ref": "#/components/parameters/relevanceScoreParam"
+          },
+          {
+            "$ref": "#/components/parameters/sortParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventAdaptiveCards"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/adaptive-cards/{eventId}": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "getEventAdaptiveCardById",
+        "description": "Fetch Microsoft's Adaptive Cards, which includes headlines and event details data plus hyperlinks to FactSet reports, for a single requested Signal event",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/eventIdParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventAdaptiveCard"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/entities": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "operationId": "getEventEntities",
+        "description": "Fetch FactSet entity IDs for events that match the filtering criteria",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/createdParam"
+          },
+          {
+            "$ref": "#/components/parameters/updatedParam"
+          },
+          {
+            "$ref": "#/components/parameters/signalIdsParam"
+          },
+          {
+            "$ref": "#/components/parameters/themesParam"
+          },
+          {
+            "$ref": "#/components/parameters/categoriesParam"
+          },
+          {
+            "$ref": "#/components/parameters/relevanceScoreParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/eventsEntities"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data-dictionary": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "operationId": "getDataDictionary",
+        "description": "Fetch a list of all active signals",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/signalMetaData"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/data-dictionary/{signalId}": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "operationId": "getDataDictionaryById",
+        "description": "Fetch the metadata and contract for the requested signal",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/signalIdParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/signalDefinition"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/themes": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "operationId": "getThemes",
+        "description": "Fetch a list of available signal themes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/signalMetaData"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "operationId": "getCategories",
+        "description": "Fetch a list of available signal categories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/signalMetaData"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "examples": {
+      "lowerBound": {
+        "value": {
+          "gt": "2022-01-01T00:00:00.000Z"
+        }
+      },
+      "upperBound": {
+        "value": {
+          "lt": "2022-01-02T00:00:00.000Z"
+        }
+      },
+      "bothBounds": {
+        "value": {
+          "gt": "2022-01-01T00:00:00.000Z",
+          "lt": "2022-01-02T00:00:00.000Z"
+        }
+      }
+    },
+    "parameters": {
+      "createdParam": {
+        "name": "created",
+        "in": "query",
+        "schema": {
+          "$ref": "#/components/schemas/DateTimeInterval"
+        },
+        "style": "deepObject",
+        "explode": true,
+        "description": "A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted.",
+        "examples": {
+          "default": {
+            "value": {}
+          },
+          "lowerBound": {
+            "$ref": "#/components/examples/lowerBound"
+          },
+          "upperBound": {
+            "$ref": "#/components/examples/upperBound"
+          },
+          "bothBounds": {
+            "$ref": "#/components/examples/bothBounds"
+          }
+        }
+      },
+      "updatedParam": {
+        "name": "updated",
+        "in": "query",
+        "schema": {
+          "$ref": "#/components/schemas/DateTimeInterval"
+        },
+        "style": "deepObject",
+        "explode": true,
+        "description": "A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 7 days if omitted.",
+        "examples": {
+          "default": {
+            "value": {}
+          },
+          "lowerBound": {
+            "$ref": "#/components/examples/lowerBound"
+          },
+          "upperBound": {
+            "$ref": "#/components/examples/upperBound"
+          },
+          "bothBounds": {
+            "$ref": "#/components/examples/bothBounds"
+          }
+        }
+      },
+      "signalIdsParam": {
+        "name": "signalIds",
+        "in": "query",
+        "schema": {
+          "type": "string",
+          "description": "Comma delimited string of signalIds"
+        },
+        "example": "dilutionTrigger,freeCashFlow"
+      },
+      "idsParam": {
+        "name": "ids",
+        "in": "query",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.",
+        "example": "FDS-US,AMZN-US"
+      },
+      "portfoliosParam": {
+        "name": "portfolios",
+        "in": "query",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb"
+      },
+      "themesParam": {
+        "name": "themes",
+        "in": "query",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes."
+      },
+      "categoriesParam": {
+        "name": "categories",
+        "in": "query",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Comma delimited string of category ids. Full list of signal categories can be viewed at /categories."
+      },
+      "relevanceScoreParam": {
+        "name": "userRelevanceScore",
+        "in": "query",
+        "schema": {
+          "$ref": "#/components/schemas/RelevanceScoreRange"
+        },
+        "style": "deepObject",
+        "explode": true,
+        "description": "A range for filtering signal events based on their relevancy score.",
+        "examples": {
+          "lowerBound": {
+            "value": {
+              "gte": 0
+            }
+          },
+          "upperBound": {
+            "value": {
+              "lt": 1
+            }
+          },
+          "bothBounds": {
+            "value": {
+              "gt": 0,
+              "lt": 1
+            }
+          }
+        }
+      },
+      "eventIdParam": {
+        "name": "eventId",
+        "in": "path",
+        "required": true,
+        "description": "The UUID of the event to return.",
+        "schema": {
+          "type": "string",
+          "format": "uuid",
+          "minimum": 1
+        }
+      },
+      "signalIdParam": {
+        "name": "signalId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "description": "A single signalId."
+        },
+        "example": "dilutionTrigger"
+      },
+      "sortParam": {
+        "name": "sort",
+        "in": "query",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending. If sort is not provided, the default sort applied is -userRelevanceScore (userRelevanceScore in descending order).",
+        "example": "-userRelevanceScore,-eventDate"
+      }
+    },
+    "schemas": {
+      "errorResponse": {
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "A short description of the error.",
+            "example": "There was an error processing your request. Please try again later."
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/errorItem"
+            },
+            "description": "Optional list of errors. e.g. Validation errors for multiple parameters"
+          }
+        }
+      },
+      "errorItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "code",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string",
+            "example": "parameterError"
+          },
+          "title": {
+            "type": "string",
+            "example": "Invalid type/value"
+          },
+          "detail": {
+            "type": "string",
+            "example": "Value must be a valid UTC date/time that conforms to ISO 8601 format"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "parameter": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "eventMeta": {
+        "type": "object",
+        "required": [
+          "signalRequestId",
+          "idResolutions"
+        ],
+        "properties": {
+          "signalRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "idResolutions": {
+            "$ref": "#/components/schemas/idResolutionsMeta"
+          }
+        }
+      },
+      "eventsMeta": {
+        "type": "object",
+        "required": [
+          "signalRequestId",
+          "idResolutions",
+          "dateRange"
+        ],
+        "properties": {
+          "signalRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sort": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              },
+              "isEstimatedTotal": {
+                "type": "boolean"
+              }
+            }
+          },
+          "idResolutions": {
+            "$ref": "#/components/schemas/idResolutionsMeta"
+          },
+          "dateRange": {
+            "type": "object",
+            "properties": {
+              "created": {
+                "$ref": "#/components/schemas/DateTimeInterval"
+              },
+              "updated": {
+                "$ref": "#/components/schemas/DateTimeInterval"
+              }
+            }
+          }
+        }
+      },
+      "idResolutionsMeta": {
+        "type": "object",
+        "properties": {
+          "tickerRegion": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "regionalPermId": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        }
+      },
+      "screenMeta": {
+        "type": "object",
+        "required": [
+          "signalRequestId",
+          "dateRange"
+        ],
+        "properties": {
+          "signalRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "dateRange": {
+            "type": "object",
+            "properties": {
+              "created": {
+                "$ref": "#/components/schemas/DateTimeInterval"
+              },
+              "updated": {
+                "$ref": "#/components/schemas/DateTimeInterval"
+              }
+            }
+          }
+        }
+      },
+      "eventHeadlineDataItem": {
+        "type": "object",
+        "required": [
+          "requestId",
+          "signalId",
+          "signalName",
+          "theme",
+          "source",
+          "eventId",
+          "eventDate",
+          "summary",
+          "userRelevanceScore"
+        ],
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "description": "The id that was requested. This can be a ticker, cusip or factset entity id."
+          },
+          "signalId": {
+            "type": "string",
+            "description": "Signal Id for this event. e.g. dilutionTrigger"
+          },
+          "signalName": {
+            "type": "string",
+            "description": "Signal Name for this event. e.g. dilutionTrigger"
+          },
+          "theme": {
+            "type": "string",
+            "description": "Theme name of the signal for this event. e.g. Debt Capital Structure"
+          },
+          "source": {
+            "type": "string",
+            "description": "Primary data provider for the signal this event belongs to. e.g. FactSet, Bitvore"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "A unique id for this event."
+          },
+          "eventDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The UTC date/time of the event in ISO 8601 format."
+          },
+          "summary": {
+            "type": "string",
+            "description": "One sentence summary of the event."
+          },
+          "userRelevanceScore": {
+            "type": "number",
+            "format": "float",
+            "description": "Relevancy score of this event for the requesting user on a scale of 0 to 1. Higher value indicates more relevancy."
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date/Time in UTC the event was first recorded in our data store.",
+            "example": "2021-04-26T06:39:40.094Z"
+          }
+        }
+      },
+      "eventDetailDataItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/eventHeadlineDataItem"
+          },
+          {
+            "type": "object",
+            "required": [
+              "created",
+              "updated",
+              "details"
+            ],
+            "properties": {
+              "created": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Date/Time in UTC the event was first recorded in our data store.",
+                "example": "2021-04-26T06:39:40.094Z"
+              },
+              "updated": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Date/Time in UTC the event was last updated.",
+                "example": "2021-04-26T06:39:40.094Z"
+              },
+              "details": {
+                "type": "object",
+                "description": "Signal specific event properties.",
+                "additionalProperties": true
+              }
+            }
+          }
+        ]
+      },
+      "eventAdaptiveDataItem": {
+        "type": "object",
+        "required": [
+          "requestId",
+          "signalId",
+          "adaptiveCard"
+        ],
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "description": "The id that was requested, ticker, cusip, factset entity id etc.",
+            "example": "FDS-US"
+          },
+          "signalId": {
+            "type": "string",
+            "description": "Signal Id for this event.",
+            "example": "dilutionTrigger"
+          },
+          "adaptiveCard": {
+            "type": "object",
+            "description": "A JSON object that's compliant with MS adaptive card schema.",
+            "additionalProperties": true
+          }
+        }
+      },
+      "eventHeadlines": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/eventHeadlineDataItem"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/eventsMeta"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/errorItem"
+            }
+          }
+        }
+      },
+      "eventDetail": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/eventDetailDataItem"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/eventMeta"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/errorItem"
+            }
+          }
+        }
+      },
+      "eventDetails": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/eventDetailDataItem"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/eventMeta"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/errorItem"
+            }
+          }
+        }
+      },
+      "eventAdaptiveCard": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/eventAdaptiveDataItem"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/eventMeta"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/errorItem"
+            }
+          }
+        }
+      },
+      "eventAdaptiveCards": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/eventAdaptiveDataItem"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/eventMeta"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/errorItem"
+            }
+          }
+        }
+      },
+      "eventRequestBody": {
+        "type": "object",
+        "properties": {
+          "created": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DateTimeInterval"
+              }
+            ],
+            "description": "A date/time interval for filtering signal events based on their creation date. Defaults to NOW - 7 days if omitted."
+          },
+          "updated": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DateTimeInterval"
+              }
+            ],
+            "description": "A date/time interval for filtering signal events based on their last updated date. Defaults to NOW - 24 hours if omitted."
+          },
+          "signalIds": {
+            "type": "string",
+            "description": "Comma delimited string of signalIds",
+            "example": "dilutionTrigger,freeCashFlow"
+          },
+          "ids": {
+            "type": "string",
+            "description": "Comma delimited string of identifiers. An identifier can be a ticker, FactSet entity id, CUSIP or ISIN. Only the first 1,000 ids are processed. You must provide a list of identifiers either via a ids or a portfolios parameter. If both are provided, only ids filter is used.",
+            "example": "FDS-US,AMZN-US"
+          },
+          "portfolios": {
+            "type": "string",
+            "description": "Name of a portfolio file stored by FactSet. If the portfolio contains more than 1,000 ids, only the first 1,000 ids are processed. e.g. client:techstocks.ofdb"
+          },
+          "themes": {
+            "type": "string",
+            "description": "Comma delimited string of theme ids. Full list of signal themes can be viewed at /themes."
+          },
+          "categories": {
+            "type": "string",
+            "description": "Comma delimited string of category ids. Full list of signal categories can be viewed at /categories."
+          },
+          "userRelevanceScore": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RelevanceScoreRange"
+              }
+            ],
+            "description": "A range for filtering signal events based on their relevancy score."
+          },
+          "sort": {
+            "type": "string",
+            "description": "Comma delimited string of sortable attributes. The sort order for each sort attribute is ascending unless it is prefixed with a minus sign, in which case it is descending."
+          }
+        }
+      },
+      "eventsEntities": {
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "The FactSet entity ID of a company with an event",
+              "example": "0016YD-E"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/screenMeta"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/errorItem"
+            }
+          }
+        }
+      },
+      "signalMetaData": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "signalDefinition": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "object",
+            "required": [
+              "signalId",
+              "theme",
+              "categories",
+              "contract"
+            ],
+            "properties": {
+              "signalId": {
+                "type": "string"
+              },
+              "theme": {
+                "type": "string"
+              },
+              "categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "contract": {
+                "$ref": "#/components/schemas/contract"
+              }
+            }
+          }
+        }
+      },
+      "contract": {
+        "type": "object",
+        "required": [
+          "fields",
+          "version"
+        ],
+        "properties": {
+          "fields": {
+            "$ref": "#/components/schemas/contractFields"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "contractFields": {
+        "type": "object",
+        "required": [
+          "summary",
+          "eventDate"
+        ],
+        "properties": {
+          "summary": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          },
+          "eventDate": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "additionalProperties": {
+            "$ref": "#/components/schemas/contractProperty"
+          }
+        }
+      },
+      "contractProperty": {
+        "type": "object",
+        "required": [
+          "description",
+          "type"
+        ],
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "DateTime": {
+        "type": "string",
+        "format": "date-time",
+        "description": "A date/time string in ISO 8601 format.",
+        "example": "2021-01-01T00:00:00Z"
+      },
+      "RelevanceScoreRange": {
+        "type": "object",
+        "description": "Represents a valid range for user relevancy score for signal events. The upper bound of the range is represented by the attribute **gt** or **gte**. The lower bound of the range is presented by **lt** or **lte** The range can contain either of the bounds or both. e.g. { \"gt\": 0.4, \"lt\": 0.8 }\n",
+        "minProperties": 1,
+        "properties": {
+          "gt": {
+            "type": "number",
+            "format": "float"
+          },
+          "gte": {
+            "type": "number",
+            "format": "float"
+          },
+          "lt": {
+            "type": "number",
+            "format": "float"
+          },
+          "lte": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "DateTimeInterval": {
+        "type": "object",
+        "description": "Represents a valid date/time interval. The upper bound of the interval is represented by the attribute **gt** or **gte**. The lower bound of the interval is presented by **lt** or **lte** The interval can contain either of the bounds or both. e.g. { \"gt\": \"2021-05-01T00:00:00.000Z\", \"lt\": \"2021-05-08T00:00:00.000Z\" }\n",
+        "minProperties": 1,
+        "properties": {
+          "gt": {
+            "$ref": "#/components/schemas/DateTime"
+          },
+          "gte": {
+            "$ref": "#/components/schemas/DateTime"
+          },
+          "lt": {
+            "$ref": "#/components/schemas/DateTime"
+          },
+          "lte": {
+            "$ref": "#/components/schemas/DateTime"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

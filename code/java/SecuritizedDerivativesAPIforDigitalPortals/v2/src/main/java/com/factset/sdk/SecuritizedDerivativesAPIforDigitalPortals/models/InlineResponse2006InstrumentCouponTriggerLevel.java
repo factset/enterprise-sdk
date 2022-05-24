@@ -53,6 +53,8 @@ public class InlineResponse2006InstrumentCouponTriggerLevel implements Serializa
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private BigDecimal cashFlow;
 
+  public InlineResponse2006InstrumentCouponTriggerLevel() { 
+  }
 
   public InlineResponse2006InstrumentCouponTriggerLevel value(BigDecimal value) {
     this.value = value;

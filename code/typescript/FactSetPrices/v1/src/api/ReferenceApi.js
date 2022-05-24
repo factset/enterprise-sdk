@@ -20,7 +20,7 @@ import ReferencesResponse from '../model/ReferencesResponse';
 /**
 * Reference service.
 * @module api/ReferenceApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ReferenceApi {
 
@@ -62,7 +62,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ReferencesResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/references', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class ReferenceApi {
      * Requests security reference details a list of securities
      * Gets security reference details for a large list of `ids`, such as Name, Security Type, Currency, Country, Primary Exchange, Local Index, and dates of First and Last Trade. 
      * @param {module:model/ReferencesRequest} referencesRequest Request object for `Security` prices.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReferencesResponse}
+     * @return { Promise.< module:model/ReferencesResponse > } a Promise, with data of type {@link module:model/ReferencesResponse }
      */
     getSecurityReferenceForList(referencesRequest) {
       return this.getSecurityReferenceForListWithHttpInfo(referencesRequest)
@@ -110,7 +113,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ReferencesResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/references', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class ReferenceApi {
      * Gets security reference details for a list of securities
      * Gets security reference details for a list of `ids`, such as Name, Security Type, Currency, Country, Primary Exchange, Local Index, and dates of First and Last Trade. 
      * @param {Array.<String>} ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  2000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReferencesResponse}
+     * @return { Promise.< module:model/ReferencesResponse > } a Promise, with data of type {@link module:model/ReferencesResponse }
      */
     getSecurityReferences(ids) {
       return this.getSecurityReferencesWithHttpInfo(ids)
@@ -133,3 +139,8 @@ export default class ReferenceApi {
 
 
 }
+
+
+
+
+

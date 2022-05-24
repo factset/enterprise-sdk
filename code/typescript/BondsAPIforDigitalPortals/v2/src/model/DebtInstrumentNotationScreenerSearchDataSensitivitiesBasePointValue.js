@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemai
 /**
  * The DebtInstrumentNotationScreenerSearchDataSensitivitiesBasePointValue model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataSensitivitiesBasePointValue
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataSensitivitiesBasePointValue {
     /**

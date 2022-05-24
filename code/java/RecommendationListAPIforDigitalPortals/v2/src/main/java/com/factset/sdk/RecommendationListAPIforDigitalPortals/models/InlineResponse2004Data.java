@@ -72,6 +72,8 @@ public class InlineResponse2004Data implements Serializable {
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse2002DataInstrument instrument;
 
+  public InlineResponse2004Data() { 
+  }
 
   public InlineResponse2004Data id(BigDecimal id) {
     this.id = id;

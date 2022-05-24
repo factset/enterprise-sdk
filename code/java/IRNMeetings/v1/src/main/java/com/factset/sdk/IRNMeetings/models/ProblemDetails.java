@@ -13,6 +13,10 @@
 
 package com.factset.sdk.IRNMeetings.models;
 
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
@@ -41,8 +45,7 @@ import com.factset.sdk.IRNMeetings.JSON;
   ProblemDetails.JSON_PROPERTY_TITLE,
   ProblemDetails.JSON_PROPERTY_STATUS,
   ProblemDetails.JSON_PROPERTY_DETAIL,
-  ProblemDetails.JSON_PROPERTY_INSTANCE,
-  ProblemDetails.JSON_PROPERTY_EXTENSIONS
+  ProblemDetails.JSON_PROPERTY_INSTANCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProblemDetails implements Serializable {
@@ -63,9 +66,8 @@ public class ProblemDetails implements Serializable {
   public static final String JSON_PROPERTY_INSTANCE = "instance";
   private JsonNullable<String> instance = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EXTENSIONS = "extensions";
-  private JsonNullable<java.util.Map<String, Object>> extensions = JsonNullable.<java.util.Map<String, Object>>undefined();
-
+  public ProblemDetails() { 
+  }
 
   public ProblemDetails type(String type) {
     this.type = JsonNullable.<String>of(type);
@@ -236,36 +238,43 @@ public class ProblemDetails implements Serializable {
     this.instance = JsonNullable.<String>of(instance);
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
 
-   /**
-   * Get extensions
-   * @return extensions
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public java.util.Map<String, Object> getExtensions() {
-    
-    if (extensions == null) {
-      extensions = JsonNullable.<java.util.Map<String, Object>>of(new java.util.HashMap<>());
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   */
+  @JsonAnySetter
+  public ProblemDetails putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
     }
-    return extensions.orElse(null);
+    this.additionalProperties.put(key, value);
+    return this;
   }
 
-  @JsonProperty(JSON_PROPERTY_EXTENSIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<java.util.Map<String, Object>> getExtensions_JsonNullable() {
-    return extensions;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_EXTENSIONS)
-  private void setExtensions_JsonNullable(JsonNullable<java.util.Map<String, Object>> extensions) {
-    this.extensions = extensions;
+  /**
+   * Return the additional (undeclared) property.
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
   }
 
-
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
   /**
    * Return true if this ProblemDetails object is equal to o.
@@ -283,8 +292,8 @@ public class ProblemDetails implements Serializable {
         equalsNullable(this.title, problemDetails.title) &&
         equalsNullable(this.status, problemDetails.status) &&
         equalsNullable(this.detail, problemDetails.detail) &&
-        equalsNullable(this.instance, problemDetails.instance) &&
-        equalsNullable(this.extensions, problemDetails.extensions);
+        equalsNullable(this.instance, problemDetails.instance)&&
+        Objects.equals(this.additionalProperties, problemDetails.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -293,7 +302,7 @@ public class ProblemDetails implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(type), hashCodeNullable(title), hashCodeNullable(status), hashCodeNullable(detail), hashCodeNullable(instance), hashCodeNullable(extensions));
+    return Objects.hash(hashCodeNullable(type), hashCodeNullable(title), hashCodeNullable(status), hashCodeNullable(detail), hashCodeNullable(instance), additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -312,7 +321,7 @@ public class ProblemDetails implements Serializable {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
-    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

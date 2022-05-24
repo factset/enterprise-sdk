@@ -42,6 +42,8 @@ public class ErrorObjectLinks implements Serializable {
   public static final String JSON_PROPERTY_ABOUT = "about";
   private String about;
 
+  public ErrorObjectLinks() { 
+  }
 
   public ErrorObjectLinks about(String about) {
     this.about = about;

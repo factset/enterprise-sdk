@@ -51,6 +51,8 @@ public class InlineResponse2003InstrumentNsin implements Serializable {
   public static final String JSON_PROPERTY_CUSIP = "cusip";
   private String cusip;
 
+  public InlineResponse2003InstrumentNsin() { 
+  }
 
   public InlineResponse2003InstrumentNsin wkn(String wkn) {
     this.wkn = wkn;

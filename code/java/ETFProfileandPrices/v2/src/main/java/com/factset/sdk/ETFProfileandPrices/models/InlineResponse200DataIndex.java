@@ -110,6 +110,8 @@ public class InlineResponse200DataIndex implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public InlineResponse200DataIndex() { 
+  }
 
   public InlineResponse200DataIndex name(String name) {
     this.name = name;

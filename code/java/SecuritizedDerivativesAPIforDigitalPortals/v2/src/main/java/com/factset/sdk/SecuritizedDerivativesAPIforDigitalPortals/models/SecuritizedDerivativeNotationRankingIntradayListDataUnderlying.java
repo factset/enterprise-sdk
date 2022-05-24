@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataUnderlying impl
   public static final String JSON_PROPERTY_NOTATION = "notation";
   private SecuritizedDerivativeNotationRankingIntradayListDataUnderlyingNotation notation;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataUnderlying() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataUnderlying instrument(SecuritizedDerivativeNotationRankingIntradayListDataUnderlyingInstrument instrument) {
     this.instrument = instrument;

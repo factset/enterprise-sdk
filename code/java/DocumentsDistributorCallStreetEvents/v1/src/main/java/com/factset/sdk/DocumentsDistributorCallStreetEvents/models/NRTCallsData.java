@@ -78,6 +78,8 @@ public class NRTCallsData implements Serializable {
   public static final String JSON_PROPERTY_EVENT_DATETIME_UTC = "eventDatetimeUtc";
   private String eventDatetimeUtc;
 
+  public NRTCallsData() { 
+  }
 
   public NRTCallsData callStatus(String callStatus) {
     this.callStatus = callStatus;

@@ -52,7 +52,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EventsAudio400ResponseDetails {\n");
             sb.Append("  ValidParameters: ").Append(ValidParameters).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(EventsAudio400ResponseDetails input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ValidParameters == input.ValidParameters ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             {
                 int hashCode = 41;
                 if (this.ValidParameters != null)
-                    hashCode = hashCode * 59 + this.ValidParameters.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValidParameters.GetHashCode();
+                }
                 return hashCode;
             }
         }

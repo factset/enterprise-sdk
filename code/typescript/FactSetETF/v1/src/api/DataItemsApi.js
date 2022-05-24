@@ -19,7 +19,7 @@ import MetricsResponse from '../model/MetricsResponse';
 /**
 * DataItems service.
 * @module api/DataItemsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class DataItemsApi {
 
@@ -60,7 +60,10 @@ export default class DataItemsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = MetricsResponse;
+
       return this.apiClient.callApi(
         '/factset-etf/v1/metrics', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -73,7 +76,7 @@ export default class DataItemsApi {
      * Returns a list of available metrics that can be used in the `metrics` parameter of related endpoints. Leave _category_ blank to request all available items. 
      * @param {Object} opts Optional parameters
      * @param {module:model/Category} opts.category The available categories that can be used to select collections of metrics for use within the ETF endpoints. |category|description| |---|---| |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark| |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.| |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.| |COUNTERPARTY|Credit and Swap Counterparty details| |CREATE_REDEEM|Creation and Redemption Sizes| |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.| |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains| |DOCUMENTATION|Details surrounding reporting information.| |GEARING|Leverage factors, inverse flags, and more.| |HEDGE|Hedging Information| |RISK|CIFSC Risk Ratings| |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details| |STATUS|Actively Managed Flags| |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.| |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.| |TAX|Tax Types, distribution takes, K1 Flags, and more.| 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MetricsResponse}
+     * @return { Promise.< module:model/MetricsResponse > } a Promise, with data of type {@link module:model/MetricsResponse }
      */
     getEtfMetrics(opts) {
       return this.getEtfMetricsWithHttpInfo(opts)
@@ -84,3 +87,8 @@ export default class DataItemsApi {
 
 
 }
+
+
+
+
+

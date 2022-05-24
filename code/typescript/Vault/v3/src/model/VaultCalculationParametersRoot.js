@@ -18,7 +18,7 @@ import VaultCalculationParameters from './VaultCalculationParameters';
 /**
  * The VaultCalculationParametersRoot model module.
  * @module model/VaultCalculationParametersRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class VaultCalculationParametersRoot {
     /**

@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresBreakEvenDistanceAbsolute implement
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresBreakEvenDistanceAbsolute() { 
+  }
 
   public InlineResponse2005DataKeyFiguresBreakEvenDistanceAbsolute minimum(BigDecimal minimum) {
     this.minimum = minimum;

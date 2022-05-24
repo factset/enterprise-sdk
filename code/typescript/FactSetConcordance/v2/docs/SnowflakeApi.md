@@ -47,6 +47,7 @@ const snowflakeEntityMatchRequest = new factsetconcordance.SnowflakeEntityMatchR
 // Call api endpoint
 apiInstance.getSnowflakeEntityMatchForList(snowflakeEntityMatchRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

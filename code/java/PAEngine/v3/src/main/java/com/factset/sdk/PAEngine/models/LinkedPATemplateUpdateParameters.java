@@ -51,6 +51,8 @@ public class LinkedPATemplateUpdateParameters implements Serializable {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private TemplateContentTypes content;
 
+  public LinkedPATemplateUpdateParameters() { 
+  }
 
   public LinkedPATemplateUpdateParameters parentComponentId(String parentComponentId) {
     this.parentComponentId = parentComponentId;

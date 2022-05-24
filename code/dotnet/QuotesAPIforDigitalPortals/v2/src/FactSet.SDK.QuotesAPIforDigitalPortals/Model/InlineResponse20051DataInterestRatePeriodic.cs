@@ -62,7 +62,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20051DataInterestRatePeriodic {\n");
             sb.Append("  Fixed: ").Append(Fixed).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20051DataInterestRatePeriodic input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Fixed == input.Fixed ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Fixed.GetHashCode();
-                hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                hashCode = (hashCode * 59) + this.Fixed.GetHashCode();
+                hashCode = (hashCode * 59) + this.Amount.GetHashCode();
                 return hashCode;
             }
         }

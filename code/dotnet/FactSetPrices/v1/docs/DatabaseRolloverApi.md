@@ -73,7 +73,6 @@ namespace Example
 This endpoint does not need any parameter.
 
 ### Return type
-
 [**RolloverResponse**](RolloverResponse.md)
 
 ### Authorization
@@ -163,7 +162,6 @@ namespace Example
 This endpoint does not need any parameter.
 
 ### Return type
-
 [**RolloverResponse**](RolloverResponse.md)
 
 ### Authorization

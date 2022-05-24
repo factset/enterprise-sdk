@@ -92,7 +92,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20083Data {\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
             sb.Append("  Asks: ").Append(Asks).Append("\n");
@@ -128,8 +128,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20083Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Quality == input.Quality ||
@@ -158,11 +159,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Asks != null)
-                    hashCode = hashCode * 59 + this.Asks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Asks.GetHashCode();
+                }
                 if (this.Bids != null)
-                    hashCode = hashCode * 59 + this.Bids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Bids.GetHashCode();
+                }
                 return hashCode;
             }
         }

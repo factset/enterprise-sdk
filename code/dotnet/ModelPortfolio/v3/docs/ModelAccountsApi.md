@@ -53,7 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModelAccountsApi(config);
-            var name = name_example;  // string | The path and filename of the model account to create or update
+            var name = "name_example";  // string | The path and filename of the model account to create or update
             var modelAccountFieldsRoot = new ModelAccountFieldsRoot(); // ModelAccountFieldsRoot | The object containing the input values (optional) 
 
             try
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **modelAccountFieldsRoot** | [**ModelAccountFieldsRoot**](ModelAccountFieldsRoot.md)| The object containing the input values | [optional] 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -149,7 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModelAccountsApi(config);
-            var name = name_example;  // string | The path and filename of model account to delete
+            var name = "name_example";  // string | The path and filename of model account to delete
 
             try
             {
@@ -174,7 +173,6 @@ Name | Type | Description  | Notes
  **name** | **string**| The path and filename of model account to delete | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -240,9 +238,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModelAccountsApi(config);
-            var name = name_example;  // string | The path and filename of the account to get
-            var date = date_example;  // string | The date for which data needs to be updated
-            var format = format_example;  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
+            var name = "name_example";  // string | The path and filename of the account to get
+            var date = "date_example";  // string | The date for which data needs to be updated
+            var format = "\"JsonStach\"";  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
 
             try
             {
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **format** | **string**| Optional format for the response, supported formats are JsonStach and AccountModel | [optional] [default to &quot;JsonStach&quot;]
 
 ### Return type
-
 **string**
 
 ### Authorization
@@ -338,10 +335,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModelAccountsApi(config);
-            var name = name_example;  // string | The path and filename of the account to get
-            var symbol = symbol_example;  // string | The symbol for which data needs to be updated
-            var date = date_example;  // string | The date for which data needs to be updated
-            var format = format_example;  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
+            var name = "name_example";  // string | The path and filename of the account to get
+            var symbol = "symbol_example";  // string | The symbol for which data needs to be updated
+            var date = "date_example";  // string | The date for which data needs to be updated
+            var format = "\"JsonStach\"";  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
 
             try
             {
@@ -370,7 +367,6 @@ Name | Type | Description  | Notes
  **format** | **string**| Optional format for the response, supported formats are JsonStach and AccountModel | [optional] [default to &quot;JsonStach&quot;]
 
 ### Return type
-
 **string**
 
 ### Authorization
@@ -438,9 +434,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModelAccountsApi(config);
-            var name = name_example;  // string | The path and filename of the account to get
-            var symbol = symbol_example;  // string | The symbol for which data needs to be updated
-            var format = format_example;  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
+            var name = "name_example";  // string | The path and filename of the account to get
+            var symbol = "symbol_example";  // string | The symbol for which data needs to be updated
+            var format = "\"JsonStach\"";  // string | Optional format for the response, supported formats are JsonStach and AccountModel (optional)  (default to "JsonStach")
 
             try
             {
@@ -468,7 +464,6 @@ Name | Type | Description  | Notes
  **format** | **string**| Optional format for the response, supported formats are JsonStach and AccountModel | [optional] [default to &quot;JsonStach&quot;]
 
 ### Return type
-
 **string**
 
 ### Authorization
@@ -536,7 +531,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModelAccountsApi(config);
-            var name = name_example;  // string | The path and filename of the account to get its schema
+            var name = "name_example";  // string | The path and filename of the account to get its schema
 
             try
             {
@@ -562,7 +557,6 @@ Name | Type | Description  | Notes
  **name** | **string**| The path and filename of the account to get its schema | 
 
 ### Return type
-
 **string**
 
 ### Authorization

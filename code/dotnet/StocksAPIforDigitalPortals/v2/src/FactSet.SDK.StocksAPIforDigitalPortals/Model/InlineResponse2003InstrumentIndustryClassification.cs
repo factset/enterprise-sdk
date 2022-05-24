@@ -53,7 +53,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003InstrumentIndustryClassification {\n");
             sb.Append("  Rbics: ").Append(Rbics).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003InstrumentIndustryClassification input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Rbics == input.Rbics ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Rbics != null)
-                    hashCode = hashCode * 59 + this.Rbics.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Rbics.GetHashCode();
+                }
                 return hashCode;
             }
         }

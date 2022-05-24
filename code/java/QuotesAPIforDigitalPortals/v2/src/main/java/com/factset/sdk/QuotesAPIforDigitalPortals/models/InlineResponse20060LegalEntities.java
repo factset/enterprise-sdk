@@ -53,6 +53,8 @@ public class InlineResponse20060LegalEntities implements Serializable {
   public static final String JSON_PROPERTY_BACKGROUND_TEXTS = "backgroundTexts";
   private InlineResponse20060LegalEntitiesBackgroundTexts backgroundTexts;
 
+  public InlineResponse20060LegalEntities() { 
+  }
 
   public InlineResponse20060LegalEntities id(BigDecimal id) {
     this.id = id;

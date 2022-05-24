@@ -39,16 +39,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PartialOutputObject" /> class.
         /// </summary>
-        /// <param name="isPartial">Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable. (required).</param>
+        /// <param name="isPartial">Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If &#x60;true&#x60;, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable. (required).</param>
         public PartialOutputObject(bool isPartial = default(bool))
         {
             this.IsPartial = isPartial;
         }
 
         /// <summary>
-        /// Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
+        /// Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If &#x60;true&#x60;, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
         /// </summary>
-        /// <value>Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.</value>
+        /// <value>Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If &#x60;true&#x60;, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.</value>
         [DataMember(Name = "isPartial", IsRequired = true, EmitDefaultValue = true)]
         public bool IsPartial { get; set; }
 
@@ -58,7 +58,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PartialOutputObject {\n");
             sb.Append("  IsPartial: ").Append(IsPartial).Append("\n");
             sb.Append("}\n");
@@ -92,8 +92,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(PartialOutputObject input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IsPartial == input.IsPartial ||
@@ -110,7 +111,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IsPartial.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsPartial.GetHashCode();
                 return hashCode;
             }
         }

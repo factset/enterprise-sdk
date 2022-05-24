@@ -48,6 +48,8 @@ public class StockNotationScreenerSearchDataFiscalYear implements Serializable {
   public static final String JSON_PROPERTY_YEAR = "year";
   private BigDecimal year;
 
+  public StockNotationScreenerSearchDataFiscalYear() { 
+  }
 
   public StockNotationScreenerSearchDataFiscalYear yearEnd(BigDecimal yearEnd) {
     this.yearEnd = yearEnd;

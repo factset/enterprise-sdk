@@ -49,6 +49,8 @@ public class InlineResponse2004DataTradedValueDays30 implements Serializable {
   public static final String JSON_PROPERTY_AVERAGE = "average";
   private InlineResponse2004DataTradedValueDays30Average average;
 
+  public InlineResponse2004DataTradedValueDays30() { 
+  }
 
   public InlineResponse2004DataTradedValueDays30 sum(InlineResponse2004DataTradedValueDays30Sum sum) {
     this.sum = sum;

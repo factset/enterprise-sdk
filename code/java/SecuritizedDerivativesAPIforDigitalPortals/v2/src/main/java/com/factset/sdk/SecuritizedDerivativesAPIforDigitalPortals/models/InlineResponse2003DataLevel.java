@@ -48,6 +48,8 @@ public class InlineResponse2003DataLevel implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private BigDecimal value;
 
+  public InlineResponse2003DataLevel() { 
+  }
 
   public InlineResponse2003DataLevel time(String time) {
     this.time = time;

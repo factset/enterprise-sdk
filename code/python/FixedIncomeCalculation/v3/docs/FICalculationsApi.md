@@ -42,24 +42,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel FI calculation by id
         api_instance.cancel_calculation_by_id(id)
@@ -133,28 +133,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get FI calculation parameters by id
         api_response = api_instance.get_calculation_parameters(id)
         pprint(api_response)
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->get_calculation_parameters: %s\n" % e)
 ```
@@ -225,28 +226,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Get FI calculation status by id endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get FI calculation result by id
         api_response = api_instance.get_calculation_result(id)
         pprint(api_response)
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->get_calculation_result: %s\n" % e)
 ```
@@ -317,28 +319,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get FI calculation status by id
         api_response = api_instance.get_calculation_status_by_id(id)
         pprint(api_response)
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->get_calculation_status_by_id: %s\n" % e)
 ```
@@ -412,21 +415,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     fi_calculation_parameters_root = FICalculationParametersRoot(
@@ -434,6 +438,25 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
             securities=[
                 FISecurity(
                     settlement="settlement_example",
+                    call_method="No Call",
+                    reference_security=FIReferenceSecurity(
+                        security_type="security_type_example",
+                        security_name="security_name_example",
+                        calc_from_method="calc_from_method_example",
+                        calc_from_value=3.14,
+                        prepay=FIReferencePrepay(
+                            prepay_name="prepay_name_example",
+                        ),
+                        settlement="settlement_example",
+                    ),
+                    loss=FILoss(
+                        loss_name="loss_name_example",
+                    ),
+                    prepay=FIPrepay(
+                        prepay_name="prepay_name_example",
+                    ),
+                    matrix_spread_adjustment=3.14,
+                    matrix_multiplier=3.14,
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
                     face=1,
@@ -450,6 +473,12 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                 partial_duration_months=[
                     1,
                 ],
+                call_method="No Call",
+                settlement="settlement_example",
+                calc_from_method="calc_from_method_example",
+                market_environment=FIMarketEnvironment(
+                    rate_path="FLAT & FORWARD",
+                ),
             ),
         ),
         meta=CalculationMeta(
@@ -460,12 +489,15 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
         ),
     ) # FICalculationParametersRoot | Calculation Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create and Run FI calculation
         api_response = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, fi_calculation_parameters_root=fi_calculation_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->post_and_calculate: %s\n" % e)
 ```
@@ -543,21 +575,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FixedIncomeCalculation.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fi_calculations_api.FICalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run FI calculation endpoint
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
@@ -566,6 +599,25 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
             securities=[
                 FISecurity(
                     settlement="settlement_example",
+                    call_method="No Call",
+                    reference_security=FIReferenceSecurity(
+                        security_type="security_type_example",
+                        security_name="security_name_example",
+                        calc_from_method="calc_from_method_example",
+                        calc_from_value=3.14,
+                        prepay=FIReferencePrepay(
+                            prepay_name="prepay_name_example",
+                        ),
+                        settlement="settlement_example",
+                    ),
+                    loss=FILoss(
+                        loss_name="loss_name_example",
+                    ),
+                    prepay=FIPrepay(
+                        prepay_name="prepay_name_example",
+                    ),
+                    matrix_spread_adjustment=3.14,
+                    matrix_multiplier=3.14,
                     calc_from_method="calc_from_method_example",
                     calc_from_value=3.14,
                     face=1,
@@ -582,6 +634,12 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
                 partial_duration_months=[
                     1,
                 ],
+                call_method="No Call",
+                settlement="settlement_example",
+                calc_from_method="calc_from_method_example",
+                market_environment=FIMarketEnvironment(
+                    rate_path="FLAT & FORWARD",
+                ),
             ),
         ),
         meta=CalculationMeta(
@@ -592,20 +650,15 @@ with fds.sdk.FixedIncomeCalculation.ApiClient(configuration) as api_client:
         ),
     ) # FICalculationParametersRoot | Calculation Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create or Update FI calculation and run it.
-        api_response = api_instance.put_and_calculate(id)
-        pprint(api_response)
-    except fds.sdk.FixedIncomeCalculation.ApiException as e:
-        print("Exception when calling FICalculationsApi->put_and_calculate: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create or Update FI calculation and run it.
         api_response = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, fi_calculation_parameters_root=fi_calculation_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.FixedIncomeCalculation.ApiException as e:
         print("Exception when calling FICalculationsApi->put_and_calculate: %s\n" % e)
 ```

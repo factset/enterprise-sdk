@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create a linked PA template
 
-This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
 
 ### Example
 
@@ -51,6 +51,7 @@ const linkedPATemplateParametersRoot = {"data":{"directory":"Personal:LinkedPATe
 // Call api endpoint
 apiInstance.createLinkedPATemplates(linkedPATemplateParametersRoot).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -196,6 +197,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getLinkedPATemplates(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -269,6 +271,7 @@ const id = "'01234567890123456789012345678901'"; // String | Unique identifier f
 // Call api endpoint
 apiInstance.getLinkedPATemplatesById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -307,7 +310,7 @@ Name | Type | Description  | Notes
 
 Update a linked PA template
 
-This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
 
 ### Example
 
@@ -341,6 +344,7 @@ const linkedPATemplateUpdateParametersRoot = {"data":{"parentComponentId":"801B8
 // Call api endpoint
 apiInstance.updateLinkedPATemplates(id, linkedPATemplateUpdateParametersRoot).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

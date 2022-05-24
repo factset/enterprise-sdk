@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReferenceAttendeeDto model module.
  * @module model/ReferenceAttendeeDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ReferenceAttendeeDto {
     /**

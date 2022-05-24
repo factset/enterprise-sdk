@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemai
 /**
  * The DebtInstrumentNotationScreenerSearchDataMacaulayDuration model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataMacaulayDuration
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataMacaulayDuration {
     /**

@@ -64,6 +64,8 @@ public class ErrorObject implements Serializable {
   public static final String JSON_PROPERTY_SOURCE = "source";
   private ErrorObjectSource source;
 
+  public ErrorObject() { 
+  }
 
   public ErrorObject id(String id) {
     this.id = id;

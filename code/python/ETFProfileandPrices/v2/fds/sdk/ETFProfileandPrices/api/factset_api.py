@@ -10,6 +10,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.ETFProfileandPrices.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
@@ -21,6 +23,7 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.ETFProfileandPrices.exceptions import ApiException
 from fds.sdk.ETFProfileandPrices.model.inline_response200 import InlineResponse200
 from fds.sdk.ETFProfileandPrices.model.inline_response2001 import InlineResponse2001
 from fds.sdk.ETFProfileandPrices.model.inline_response20010 import InlineResponse20010
@@ -37,13 +40,27 @@ from fds.sdk.ETFProfileandPrices.model.inline_response2002 import InlineResponse
 from fds.sdk.ETFProfileandPrices.model.inline_response20020 import InlineResponse20020
 from fds.sdk.ETFProfileandPrices.model.inline_response20021 import InlineResponse20021
 from fds.sdk.ETFProfileandPrices.model.inline_response20022 import InlineResponse20022
+from fds.sdk.ETFProfileandPrices.model.inline_response20023 import InlineResponse20023
+from fds.sdk.ETFProfileandPrices.model.inline_response20024 import InlineResponse20024
+from fds.sdk.ETFProfileandPrices.model.inline_response20025 import InlineResponse20025
+from fds.sdk.ETFProfileandPrices.model.inline_response20026 import InlineResponse20026
+from fds.sdk.ETFProfileandPrices.model.inline_response20027 import InlineResponse20027
+from fds.sdk.ETFProfileandPrices.model.inline_response20028 import InlineResponse20028
+from fds.sdk.ETFProfileandPrices.model.inline_response20029 import InlineResponse20029
 from fds.sdk.ETFProfileandPrices.model.inline_response2003 import InlineResponse2003
+from fds.sdk.ETFProfileandPrices.model.inline_response20030 import InlineResponse20030
+from fds.sdk.ETFProfileandPrices.model.inline_response20031 import InlineResponse20031
+from fds.sdk.ETFProfileandPrices.model.inline_response20032 import InlineResponse20032
+from fds.sdk.ETFProfileandPrices.model.inline_response20033 import InlineResponse20033
 from fds.sdk.ETFProfileandPrices.model.inline_response2004 import InlineResponse2004
 from fds.sdk.ETFProfileandPrices.model.inline_response2005 import InlineResponse2005
 from fds.sdk.ETFProfileandPrices.model.inline_response2006 import InlineResponse2006
 from fds.sdk.ETFProfileandPrices.model.inline_response2007 import InlineResponse2007
 from fds.sdk.ETFProfileandPrices.model.inline_response2008 import InlineResponse2008
 from fds.sdk.ETFProfileandPrices.model.inline_response2009 import InlineResponse2009
+
+
+
 
 
 class FactsetApi(object):
@@ -57,15 +74,18 @@ class FactsetApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-        self.factset_etf_allocation_asset_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_allocation_asset_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2001,),
+                'response_type': (
+                  { 200: (InlineResponse2001,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/allocation/asset/listBySymbol',
-                'operation_id': 'factset_etf_allocation_asset_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_allocation_asset_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -145,15 +165,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_allocation_country_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_allocation_country_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2002,),
+                'response_type': (
+                  { 200: (InlineResponse2002,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/allocation/country/listBySymbol',
-                'operation_id': 'factset_etf_allocation_country_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_allocation_country_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -233,15 +256,200 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_allocation_exchange_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_allocation_currency_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2003,),
+                'response_type': (
+                  { 200: (InlineResponse2003,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/allocation/currency/listBySymbol',
+                'operation_id': 'get_factset_etf_allocation_currency_list_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                    ('pagination_offset',): {
+
+                        'inclusive_minimum': 0,
+                    },
+                    ('pagination_limit',): {
+
+                        'inclusive_maximum': 500,
+                        'inclusive_minimum': 0,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                    'pagination_offset':
+                        (float,),
+                    'pagination_limit':
+                        (float,),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                    'pagination_offset': '_paginationOffset',
+                    'pagination_limit': '_paginationLimit',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                    'pagination_offset': 'query',
+                    'pagination_limit': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_allocation_economic_development_list_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2004,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/allocation/economicDevelopment/listBySymbol',
+                'operation_id': 'get_factset_etf_allocation_economic_development_list_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                    ('pagination_offset',): {
+
+                        'inclusive_minimum': 0,
+                    },
+                    ('pagination_limit',): {
+
+                        'inclusive_maximum': 500,
+                        'inclusive_minimum': 0,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                    'pagination_offset':
+                        (float,),
+                    'pagination_limit':
+                        (float,),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                    'pagination_offset': '_paginationOffset',
+                    'pagination_limit': '_paginationLimit',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                    'pagination_offset': 'query',
+                    'pagination_limit': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_allocation_exchange_list_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2005,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/allocation/exchange/listBySymbol',
-                'operation_id': 'factset_etf_allocation_exchange_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_allocation_exchange_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -321,15 +529,200 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_allocation_region_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_allocation_industry_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2004,),
+                'response_type': (
+                  { 200: (InlineResponse2006,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/allocation/industry/listBySymbol',
+                'operation_id': 'get_factset_etf_allocation_industry_list_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                    ('pagination_offset',): {
+
+                        'inclusive_minimum': 0,
+                    },
+                    ('pagination_limit',): {
+
+                        'inclusive_maximum': 500,
+                        'inclusive_minimum': 0,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                    'pagination_offset':
+                        (float,),
+                    'pagination_limit':
+                        (float,),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                    'pagination_offset': '_paginationOffset',
+                    'pagination_limit': '_paginationLimit',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                    'pagination_offset': 'query',
+                    'pagination_limit': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_allocation_market_capitalization_list_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2007,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/allocation/marketCapitalization/listBySymbol',
+                'operation_id': 'get_factset_etf_allocation_market_capitalization_list_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                    ('pagination_offset',): {
+
+                        'inclusive_minimum': 0,
+                    },
+                    ('pagination_limit',): {
+
+                        'inclusive_maximum': 500,
+                        'inclusive_minimum': 0,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                    'pagination_offset':
+                        (float,),
+                    'pagination_limit':
+                        (float,),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                    'pagination_offset': '_paginationOffset',
+                    'pagination_limit': '_paginationLimit',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                    'pagination_offset': 'query',
+                    'pagination_limit': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_allocation_region_list_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse2008,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/allocation/region/listBySymbol',
-                'operation_id': 'factset_etf_allocation_region_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_allocation_region_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -409,15 +802,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_allocation_sector_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_allocation_sector_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2005,),
+                'response_type': (
+                  { 200: (InlineResponse2009,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/allocation/sector/listBySymbol',
-                'operation_id': 'factset_etf_allocation_sector_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_allocation_sector_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -497,15 +893,298 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_characteristics_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_analytics_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2006,),
+                'response_type': (
+                  { 200: (InlineResponse20010,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/analytics/getBySymbol',
+                'operation_id': 'get_factset_etf_analytics_get_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_analytics_holdings_statistics_get_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20011,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/analytics/holdings/statistics/getBySymbol',
+                'operation_id': 'get_factset_etf_analytics_holdings_statistics_get_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_analytics_score_get_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20012,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/analytics/score/getBySymbol',
+                'operation_id': 'get_factset_etf_analytics_score_get_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_analytics_trade_get_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20013,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/analytics/trade/getBySymbol',
+                'operation_id': 'get_factset_etf_analytics_trade_get_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_characteristics_get_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20014,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/characteristics/getBySymbol',
-                'operation_id': 'factset_etf_characteristics_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_characteristics_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -564,15 +1243,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_class_category_broad_list_get_endpoint = _Endpoint(
+        self.get_factset_etf_class_category_broad_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2008,),
+                'response_type': (
+                  { 200: (InlineResponse20016,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/class/category/broad/list',
-                'operation_id': 'factset_etf_class_category_broad_list_get',
+                'operation_id': 'get_factset_etf_class_category_broad_list',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -620,15 +1302,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_class_category_focus_list_get_endpoint = _Endpoint(
+        self.get_factset_etf_class_category_focus_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2009,),
+                'response_type': (
+                  { 200: (InlineResponse20017,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/class/category/focus/list',
-                'operation_id': 'factset_etf_class_category_focus_list_get',
+                'operation_id': 'get_factset_etf_class_category_focus_list',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -697,15 +1382,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_class_category_niche_list_get_endpoint = _Endpoint(
+        self.get_factset_etf_class_category_niche_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20010,),
+                'response_type': (
+                  { 200: (InlineResponse20018,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/class/category/niche/list',
-                'operation_id': 'factset_etf_class_category_niche_list_get',
+                'operation_id': 'get_factset_etf_class_category_niche_list',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -774,15 +1462,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_class_geography_list_get_endpoint = _Endpoint(
+        self.get_factset_etf_class_geography_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20011,),
+                'response_type': (
+                  { 200: (InlineResponse20019,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/class/geography/list',
-                'operation_id': 'factset_etf_class_geography_list_get',
+                'operation_id': 'get_factset_etf_class_geography_list',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -830,15 +1521,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_class_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_class_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2007,),
+                'response_type': (
+                  { 200: (InlineResponse20015,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/class/getBySymbol',
-                'operation_id': 'factset_etf_class_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_class_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -897,15 +1591,88 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_distribution_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_competitors_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20012,),
+                'response_type': (
+                  { 200: (InlineResponse20020,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/competitors/listBySymbol',
+                'operation_id': 'get_factset_etf_competitors_list_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_distribution_get_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20021,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/distribution/getBySymbol',
-                'operation_id': 'factset_etf_distribution_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_distribution_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -964,15 +1731,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_fund_flows_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_fund_flows_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20013,),
+                'response_type': (
+                  { 200: (InlineResponse20022,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/fundFlows/getBySymbol',
-                'operation_id': 'factset_etf_fund_flows_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_fund_flows_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1031,15 +1801,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse200,),
+                'response_type': (
+                  { 200: (InlineResponse200,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/getBySymbol',
-                'operation_id': 'factset_etf_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1098,15 +1871,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_growth_of_ten_k_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_growth_of_ten_k_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20014,),
+                'response_type': (
+                  { 200: (InlineResponse20023,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/growthOfTenK/listBySymbol',
-                'operation_id': 'factset_etf_growth_of_ten_k_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_growth_of_ten_k_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1115,6 +1891,7 @@ class FactsetApi(object):
                     'symbol',
                     'time_period',
                     'calculation_type',
+                    'alignment',
                     'attributes',
                     'pagination_offset',
                     'pagination_limit',
@@ -1127,6 +1904,7 @@ class FactsetApi(object):
                 'enum': [
                     'time_period',
                     'calculation_type',
+                    'alignment',
                 ],
                 'validation': [
                     'symbol',
@@ -1172,6 +1950,12 @@ class FactsetApi(object):
                         "I": "I",
                         "SI": "SI"
                     },
+                    ('alignment',): {
+
+                        "DAY": "day",
+                        "WEEK-END": "week-end",
+                        "MONTH-END": "month-end"
+                    },
                 },
                 'openapi_types': {
                     'symbol':
@@ -1179,6 +1963,8 @@ class FactsetApi(object):
                     'time_period':
                         (str,),
                     'calculation_type':
+                        (str,),
+                    'alignment':
                         (str,),
                     'attributes':
                         ([str],),
@@ -1191,6 +1977,7 @@ class FactsetApi(object):
                     'symbol': 'symbol',
                     'time_period': 'timePeriod',
                     'calculation_type': 'calculationType',
+                    'alignment': 'alignment',
                     'attributes': '_attributes',
                     'pagination_offset': '_paginationOffset',
                     'pagination_limit': '_paginationLimit',
@@ -1199,6 +1986,7 @@ class FactsetApi(object):
                     'symbol': 'query',
                     'time_period': 'query',
                     'calculation_type': 'query',
+                    'alignment': 'query',
                     'attributes': 'query',
                     'pagination_offset': 'query',
                     'pagination_limit': 'query',
@@ -1215,15 +2003,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_holdings_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_holdings_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20015,),
+                'response_type': (
+                  { 200: (InlineResponse20024,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/holdings/listBySymbol',
-                'operation_id': 'factset_etf_holdings_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_holdings_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1303,15 +2094,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_price_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_market_aggregates_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20016,),
+                'response_type': (
+                  { 200: (InlineResponse20025,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/factset/etf/price/getBySymbol',
-                'operation_id': 'factset_etf_price_get_by_symbol_get',
+                'endpoint_path': '/factset/etf/marketAggregates/getBySymbol',
+                'operation_id': 'get_factset_etf_market_aggregates_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1370,15 +2164,204 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_returns_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_premium_discount_summary_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20017,),
+                'response_type': (
+                  { 200: (InlineResponse20026,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/premiumDiscount/summary/listBySymbol',
+                'operation_id': 'get_factset_etf_premium_discount_summary_list_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'time_period',
+                    'alignment',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'time_period',
+                    'alignment',
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                    'pagination_offset',
+                    'pagination_limit',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                    ('pagination_offset',): {
+
+                        'inclusive_minimum': 0,
+                    },
+                    ('pagination_limit',): {
+
+                        'inclusive_maximum': 500,
+                        'inclusive_minimum': 0,
+                    },
+                },
+                'allowed_values': {
+                    ('time_period',): {
+
+                        "YTD": "YTD",
+                        "2Y": "2Y",
+                        "3Y": "3Y",
+                        "5Y": "5Y"
+                    },
+                    ('alignment',): {
+
+                        "MONTH-END": "month-end",
+                        "QUARTER-END": "quarter-end",
+                        "YEAR-END": "year-end"
+                    },
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'time_period':
+                        (str,),
+                    'alignment':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                    'pagination_offset':
+                        (float,),
+                    'pagination_limit':
+                        (float,),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'time_period': 'timePeriod',
+                    'alignment': 'alignment',
+                    'attributes': '_attributes',
+                    'pagination_offset': '_paginationOffset',
+                    'pagination_limit': '_paginationLimit',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'time_period': 'query',
+                    'alignment': 'query',
+                    'attributes': 'query',
+                    'pagination_offset': 'query',
+                    'pagination_limit': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_price_get_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20027,),  },
+                  None
+                ),
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/factset/etf/price/getBySymbol',
+                'operation_id': 'get_factset_etf_price_get_by_symbol',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'symbol',
+                    'attributes',
+                ],
+                'required': [
+                    'symbol',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'symbol',
+                    'attributes',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('symbol',): {
+                        'max_length': 10,
+                    },
+                    ('attributes',): {
+
+                        'max_items': 50,
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'symbol':
+                        (str,),
+                    'attributes':
+                        ([str],),
+                },
+                'attribute_map': {
+                    'symbol': 'symbol',
+                    'attributes': '_attributes',
+                },
+                'location_map': {
+                    'symbol': 'query',
+                    'attributes': 'query',
+                },
+                'collection_format_map': {
+                    'attributes': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_factset_etf_returns_get_by_symbol_endpoint = _Endpoint(
+            settings={
+                'response_type': (
+                  { 200: (InlineResponse20028,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/returns/getBySymbol',
-                'operation_id': 'factset_etf_returns_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_returns_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1452,15 +2435,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_strategy_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_strategy_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20018,),
+                'response_type': (
+                  { 200: (InlineResponse20029,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/strategy/getBySymbol',
-                'operation_id': 'factset_etf_strategy_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_strategy_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1519,15 +2505,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_strategy_segment_list_get_endpoint = _Endpoint(
+        self.get_factset_etf_strategy_segment_list_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20019,),
+                'response_type': (
+                  { 200: (InlineResponse20030,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/strategy/segment/list',
-                'operation_id': 'factset_etf_strategy_segment_list_get',
+                'operation_id': 'get_factset_etf_strategy_segment_list',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1596,15 +2585,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_structure_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_structure_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20020,),
+                'response_type': (
+                  { 200: (InlineResponse20031,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/structure/getBySymbol',
-                'operation_id': 'factset_etf_structure_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_structure_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1663,15 +2655,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_taxes_and_fees_us_get_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_taxes_and_fees_us_get_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20021,),
+                'response_type': (
+                  { 200: (InlineResponse20032,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/taxesAndFees/us/getBySymbol',
-                'operation_id': 'factset_etf_taxes_and_fees_us_get_by_symbol_get',
+                'operation_id': 'get_factset_etf_taxes_and_fees_us_get_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1730,15 +2725,18 @@ class FactsetApi(object):
             },
             api_client=api_client
         )
-        self.factset_etf_time_series_list_by_symbol_get_endpoint = _Endpoint(
+        self.get_factset_etf_time_series_list_by_symbol_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse20022,),
+                'response_type': (
+                  { 200: (InlineResponse20033,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
                 'endpoint_path': '/factset/etf/timeSeries/listBySymbol',
-                'operation_id': 'factset_etf_time_series_list_by_symbol_get',
+                'operation_id': 'get_factset_etf_time_series_list_by_symbol',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1746,6 +2744,7 @@ class FactsetApi(object):
                 'all': [
                     'symbol',
                     'time_period',
+                    'alignment',
                     'attributes',
                     'pagination_offset',
                     'pagination_limit',
@@ -1757,6 +2756,7 @@ class FactsetApi(object):
                 ],
                 'enum': [
                     'time_period',
+                    'alignment',
                 ],
                 'validation': [
                     'symbol',
@@ -1780,7 +2780,7 @@ class FactsetApi(object):
                     },
                     ('pagination_limit',): {
 
-                        'inclusive_maximum': 500,
+                        'inclusive_maximum': 1000,
                         'inclusive_minimum': 0,
                     },
                 },
@@ -1792,16 +2792,25 @@ class FactsetApi(object):
                         "6M": "6M",
                         "YTD": "YTD",
                         "1Y": "1Y",
+                        "2Y": "2Y",
                         "3Y": "3Y",
                         "5Y": "5Y",
                         "10Y": "10Y",
                         "SI": "SI"
+                    },
+                    ('alignment',): {
+
+                        "DAY": "day",
+                        "WEEK-END": "week-end",
+                        "MONTH-END": "month-end"
                     },
                 },
                 'openapi_types': {
                     'symbol':
                         (str,),
                     'time_period':
+                        (str,),
+                    'alignment':
                         (str,),
                     'attributes':
                         ([str],),
@@ -1813,6 +2822,7 @@ class FactsetApi(object):
                 'attribute_map': {
                     'symbol': 'symbol',
                     'time_period': 'timePeriod',
+                    'alignment': 'alignment',
                     'attributes': '_attributes',
                     'pagination_offset': '_paginationOffset',
                     'pagination_limit': '_paginationLimit',
@@ -1820,6 +2830,7 @@ class FactsetApi(object):
                 'location_map': {
                     'symbol': 'query',
                     'time_period': 'query',
+                    'alignment': 'query',
                     'attributes': 'query',
                     'pagination_offset': 'query',
                     'pagination_limit': 'query',
@@ -1837,19 +2848,27 @@ class FactsetApi(object):
             api_client=api_client
         )
 
-    def factset_etf_allocation_asset_list_by_symbol_get(
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
+    def get_factset_etf_allocation_asset_list_by_symbol(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> InlineResponse2001:
         """This endpoint returns selected ETP's asset allocations.  # noqa: E501
 
         This endpoint returns selected ETP's allocations grouped by asset class. The response will be sorted by weight in descending order.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_allocation_asset_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -1858,8 +2877,6 @@ class FactsetApi(object):
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1873,52 +2890,183 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse2001
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_allocation_asset_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_allocation_asset_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_allocation_country_list_by_symbol_get(
+    def get_factset_etf_allocation_asset_list_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse2001, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's asset allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by asset class. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2001
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_asset_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_asset_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2001]":
+        """This endpoint returns selected ETP's asset allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by asset class. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2001]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_asset_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_asset_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2001, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's asset allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by asset class. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2001, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_asset_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_country_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2002:
         """This endpoint returns selected ETP's country allocations.  # noqa: E501
 
         This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_allocation_country_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -1927,8 +3075,6 @@ class FactsetApi(object):
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -1942,52 +3088,579 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse2002
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_allocation_country_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_allocation_country_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_allocation_exchange_list_by_symbol_get(
+    def get_factset_etf_allocation_country_list_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse2002, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's country allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2002
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_country_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_country_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2002]":
+        """This endpoint returns selected ETP's country allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2002]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_country_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_country_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2002, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's country allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by country names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2002, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_country_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_currency_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2003:
+        """This endpoint returns selected ETP's currency allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2003
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_currency_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_currency_list_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2003, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's currency allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2003
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_currency_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_currency_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2003]":
+        """This endpoint returns selected ETP's currency allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2003]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_currency_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_currency_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2003, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's currency allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2003, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_currency_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_economic_development_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2004:
+        """List of allocations classified by a holding's economic development status.  # noqa: E501
+
+        List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2004
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_economic_development_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_economic_development_list_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2004, int, typing.MutableMapping]:
+        """List of allocations classified by a holding's economic development status.  # noqa: E501
+
+        List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2004
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_economic_development_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_economic_development_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2004]":
+        """List of allocations classified by a holding's economic development status.  # noqa: E501
+
+        List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2004]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_economic_development_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_economic_development_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2004, int, typing.MutableMapping]]":
+        """List of allocations classified by a holding's economic development status.  # noqa: E501
+
+        List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2004, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_economic_development_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_exchange_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2005:
         """This endpoint returns selected ETP's exchange allocations.  # noqa: E501
 
         This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_allocation_exchange_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -1996,8 +3669,6 @@ class FactsetApi(object):
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2011,52 +3682,579 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse2003
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse2005
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_allocation_exchange_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_allocation_exchange_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_allocation_region_list_by_symbol_get(
+    def get_factset_etf_allocation_exchange_list_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse2005, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's exchange allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2005
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_exchange_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_exchange_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2005]":
+        """This endpoint returns selected ETP's exchange allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2005]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_exchange_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_exchange_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2005, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's exchange allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2005, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_exchange_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_industry_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2006:
+        """This endpoint returns selected ETP's industry allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2006
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_industry_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_industry_list_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2006, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's industry allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2006
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_industry_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_industry_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2006]":
+        """This endpoint returns selected ETP's industry allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2006]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_industry_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_industry_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2006, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's industry allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2006, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_industry_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_market_capitalization_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2007:
+        """List of allocations classified by a holding's total market capitalization.  # noqa: E501
+
+        List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2007
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_market_capitalization_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_market_capitalization_list_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse2007, int, typing.MutableMapping]:
+        """List of allocations classified by a holding's total market capitalization.  # noqa: E501
+
+        List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2007
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_market_capitalization_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_market_capitalization_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2007]":
+        """List of allocations classified by a holding's total market capitalization.  # noqa: E501
+
+        List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2007]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_market_capitalization_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_market_capitalization_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2007, int, typing.MutableMapping]]":
+        """List of allocations classified by a holding's total market capitalization.  # noqa: E501
+
+        List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2007, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_market_capitalization_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_region_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2008:
         """This endpoint returns selected ETP's region allocations.  # noqa: E501
 
         This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_allocation_region_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -2065,8 +4263,6 @@ class FactsetApi(object):
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2080,52 +4276,183 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse2004
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse2008
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_allocation_region_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_allocation_region_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_allocation_sector_list_by_symbol_get(
+    def get_factset_etf_allocation_region_list_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse2008, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's region allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2008
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_region_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_region_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2008]":
+        """This endpoint returns selected ETP's region allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2008]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_region_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_region_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2008, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's region allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2008, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_region_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_sector_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse2009:
         """This endpoint returns selected ETP's sector allocations.  # noqa: E501
 
         This endpoint returns selected ETP's allocations grouped by sector names. The response will be sorted by weight in descending order.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_allocation_sector_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -2134,8 +4461,6 @@ class FactsetApi(object):
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2149,60 +4474,949 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse2005
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse2009
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_allocation_sector_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_allocation_sector_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_characteristics_get_by_symbol_get(
+    def get_factset_etf_allocation_sector_list_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse2009, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's sector allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by sector names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse2009
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_sector_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_sector_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse2009]":
+        """This endpoint returns selected ETP's sector allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by sector names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse2009]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_sector_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_allocation_sector_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse2009, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's sector allocations.  # noqa: E501
+
+        This endpoint returns selected ETP's allocations grouped by sector names. The response will be sorted by weight in descending order.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse2009, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_allocation_sector_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20010:
+        """FactSet proprietary analytics datapoints for ETPs.  # noqa: E501
+
+        FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20010
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20010, int, typing.MutableMapping]:
+        """FactSet proprietary analytics datapoints for ETPs.  # noqa: E501
+
+        FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20010
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20010]":
+        """FactSet proprietary analytics datapoints for ETPs.  # noqa: E501
+
+        FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20010]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20010, int, typing.MutableMapping]]":
+        """FactSet proprietary analytics datapoints for ETPs.  # noqa: E501
+
+        FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20010, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_holdings_statistics_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20011:
+        """FactSet's portfolio statistics for ETPs.  # noqa: E501
+
+        FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20011
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_holdings_statistics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_holdings_statistics_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20011, int, typing.MutableMapping]:
+        """FactSet's portfolio statistics for ETPs.  # noqa: E501
+
+        FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20011
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_holdings_statistics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_holdings_statistics_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20011]":
+        """FactSet's portfolio statistics for ETPs.  # noqa: E501
+
+        FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20011]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_holdings_statistics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_holdings_statistics_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20011, int, typing.MutableMapping]]":
+        """FactSet's portfolio statistics for ETPs.  # noqa: E501
+
+        FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20011, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_holdings_statistics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_score_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20012:
+        """FactSet proprietary ETP rankings.  # noqa: E501
+
+        FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20012
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_score_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_score_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20012, int, typing.MutableMapping]:
+        """FactSet proprietary ETP rankings.  # noqa: E501
+
+        FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20012
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_score_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_score_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20012]":
+        """FactSet proprietary ETP rankings.  # noqa: E501
+
+        FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20012]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_score_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_score_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20012, int, typing.MutableMapping]]":
+        """FactSet proprietary ETP rankings.  # noqa: E501
+
+        FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20012, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_score_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_trade_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20013:
+        """Trade statistics for specific ETP.  # noqa: E501
+
+        Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20013
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_trade_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_trade_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20013, int, typing.MutableMapping]:
+        """Trade statistics for specific ETP.  # noqa: E501
+
+        Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20013
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_trade_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_trade_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20013]":
+        """Trade statistics for specific ETP.  # noqa: E501
+
+        Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20013]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_trade_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_analytics_trade_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20013, int, typing.MutableMapping]]":
+        """Trade statistics for specific ETP.  # noqa: E501
+
+        Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20013, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_analytics_trade_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_characteristics_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20014:
         """Retrieve basic characteristic information for a specified ETP.  # noqa: E501
 
         An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_characteristics_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETF defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2216,57 +5430,180 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse2006
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20014
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_characteristics_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_characteristics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_class_category_broad_list_get(
+    def get_factset_etf_characteristics_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20014, int, typing.MutableMapping]:
+        """Retrieve basic characteristic information for a specified ETP.  # noqa: E501
+
+        An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETF defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20014
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_characteristics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_characteristics_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20014]":
+        """Retrieve basic characteristic information for a specified ETP.  # noqa: E501
+
+        An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETF defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20014]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_characteristics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_characteristics_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20014, int, typing.MutableMapping]]":
+        """Retrieve basic characteristic information for a specified ETP.  # noqa: E501
+
+        An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETF defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20014, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_characteristics_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_broad_list(
         self,
         **kwargs
-    ):
+    ) -> InlineResponse20016:
         """List of ETP class broad categories.  # noqa: E501
 
         List of ETP class broad categories.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_class_category_broad_list_get(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2280,57 +5617,165 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse2008
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20016
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.factset_etf_class_category_broad_list_get_endpoint.call_with_http_info(**kwargs)
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_factset_etf_class_category_broad_list_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_class_category_focus_list_get(
+    def get_factset_etf_class_category_broad_list_with_http_info(
         self,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20016, int, typing.MutableMapping]:
+        """List of ETP class broad categories.  # noqa: E501
+
+        List of ETP class broad categories.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20016
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_factset_etf_class_category_broad_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_broad_list_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20016]":
+        """List of ETP class broad categories.  # noqa: E501
+
+        List of ETP class broad categories.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20016]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_factset_etf_class_category_broad_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_broad_list_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20016, int, typing.MutableMapping]]":
+        """List of ETP class broad categories.  # noqa: E501
+
+        List of ETP class broad categories.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20016, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_factset_etf_class_category_broad_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_focus_list(
+        self,
+        **kwargs
+    ) -> InlineResponse20017:
         """List of ETP class focus categories.  # noqa: E501
 
         List of ETP class focus categories.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_class_category_focus_list_get(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2344,57 +5789,171 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse2009
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20017
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.factset_etf_class_category_focus_list_get_endpoint.call_with_http_info(**kwargs)
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_factset_etf_class_category_focus_list_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_class_category_niche_list_get(
+    def get_factset_etf_class_category_focus_list_with_http_info(
         self,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20017, int, typing.MutableMapping]:
+        """List of ETP class focus categories.  # noqa: E501
+
+        List of ETP class focus categories.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20017
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_factset_etf_class_category_focus_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_focus_list_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20017]":
+        """List of ETP class focus categories.  # noqa: E501
+
+        List of ETP class focus categories.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20017]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_factset_etf_class_category_focus_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_focus_list_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20017, int, typing.MutableMapping]]":
+        """List of ETP class focus categories.  # noqa: E501
+
+        List of ETP class focus categories.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20017, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_factset_etf_class_category_focus_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_niche_list(
+        self,
+        **kwargs
+    ) -> InlineResponse20018:
         """List of ETP class niche categories.  # noqa: E501
 
         List of ETP class niche categories.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_class_category_niche_list_get(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2408,55 +5967,169 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20010
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20018
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.factset_etf_class_category_niche_list_get_endpoint.call_with_http_info(**kwargs)
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_factset_etf_class_category_niche_list_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_class_geography_list_get(
+    def get_factset_etf_class_category_niche_list_with_http_info(
         self,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20018, int, typing.MutableMapping]:
+        """List of ETP class niche categories.  # noqa: E501
+
+        List of ETP class niche categories.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20018
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_factset_etf_class_category_niche_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_niche_list_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20018]":
+        """List of ETP class niche categories.  # noqa: E501
+
+        List of ETP class niche categories.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20018]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_factset_etf_class_category_niche_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_category_niche_list_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20018, int, typing.MutableMapping]]":
+        """List of ETP class niche categories.  # noqa: E501
+
+        List of ETP class niche categories.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20018, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_factset_etf_class_category_niche_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_geography_list(
+        self,
+        **kwargs
+    ) -> InlineResponse20019:
         """List of ETP class geographies.  # noqa: E501
 
         List of ETP class geographies.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_class_geography_list_get(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2470,58 +6143,166 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20011
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20019
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.factset_etf_class_geography_list_get_endpoint.call_with_http_info(**kwargs)
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_factset_etf_class_geography_list_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_class_get_by_symbol_get(
+    def get_factset_etf_class_geography_list_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20019, int, typing.MutableMapping]:
+        """List of ETP class geographies.  # noqa: E501
+
+        List of ETP class geographies.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20019
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_factset_etf_class_geography_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_geography_list_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20019]":
+        """List of ETP class geographies.  # noqa: E501
+
+        List of ETP class geographies.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20019]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_factset_etf_class_geography_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_geography_list_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20019, int, typing.MutableMapping]]":
+        """List of ETP class geographies.  # noqa: E501
+
+        List of ETP class geographies.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20019, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_factset_etf_class_geography_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_get_by_symbol(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> InlineResponse20015:
         """Retrieve an ETP's classification specific to asset class, geography, or investment strategy.  # noqa: E501
 
         ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_class_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2535,60 +6316,373 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse2007
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20015
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_class_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_class_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_distribution_get_by_symbol_get(
+    def get_factset_etf_class_get_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20015, int, typing.MutableMapping]:
+        """Retrieve an ETP's classification specific to asset class, geography, or investment strategy.  # noqa: E501
+
+        ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20015
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_class_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20015]":
+        """Retrieve an ETP's classification specific to asset class, geography, or investment strategy.  # noqa: E501
+
+        ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20015]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_class_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_class_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20015, int, typing.MutableMapping]]":
+        """Retrieve an ETP's classification specific to asset class, geography, or investment strategy.  # noqa: E501
+
+        ETP classification is divided into three categories: Asset Class, Geography, and Investment Strategy. Asset class is determined based on the various asset types held by the fund, A fund's geography can be classified by region (e.g. Asia-Pac), specific geography (e.g. China) or economic development (e.g. BRIC). An ETP's investment strategy is classified in broad categories (e.g. Large Cap) and more granular categorizations.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20015, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_class_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_competitors_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20020:
+        """FactSet's proprietary list of competing companies.  # noqa: E501
+
+        FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20020
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_competitors_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_competitors_list_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20020, int, typing.MutableMapping]:
+        """FactSet's proprietary list of competing companies.  # noqa: E501
+
+        FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20020
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_competitors_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_competitors_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20020]":
+        """FactSet's proprietary list of competing companies.  # noqa: E501
+
+        FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20020]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_competitors_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_competitors_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20020, int, typing.MutableMapping]]":
+        """FactSet's proprietary list of competing companies.  # noqa: E501
+
+        FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of a security as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20020, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_competitors_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_distribution_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20021:
         """Retrieve an ETP's current distribution details.  # noqa: E501
 
         Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_distribution_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2602,60 +6696,183 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20012
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20021
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_distribution_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_distribution_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_fund_flows_get_by_symbol_get(
+    def get_factset_etf_distribution_get_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20021, int, typing.MutableMapping]:
+        """Retrieve an ETP's current distribution details.  # noqa: E501
+
+        Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20021
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_distribution_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_distribution_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20021]":
+        """Retrieve an ETP's current distribution details.  # noqa: E501
+
+        Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20021]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_distribution_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_distribution_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20021, int, typing.MutableMapping]]":
+        """Retrieve an ETP's current distribution details.  # noqa: E501
+
+        Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20021, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_distribution_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_fund_flows_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20022:
         """Retrieve an ETP's cash inflow/outflows for various time periods.  # noqa: E501
 
         Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_fund_flows_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2669,60 +6886,183 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20013
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20022
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_fund_flows_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_fund_flows_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_get_by_symbol_get(
+    def get_factset_etf_fund_flows_get_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20022, int, typing.MutableMapping]:
+        """Retrieve an ETP's cash inflow/outflows for various time periods.  # noqa: E501
+
+        Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20022
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_fund_flows_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_fund_flows_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20022]":
+        """Retrieve an ETP's cash inflow/outflows for various time periods.  # noqa: E501
+
+        Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20022]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_fund_flows_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_fund_flows_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20022, int, typing.MutableMapping]]":
+        """Retrieve an ETP's cash inflow/outflows for various time periods.  # noqa: E501
+
+        Retrieve the amount invested or divested in a specific ETP over various time periods including one-day, one-week, one-month, one-year, and YTD.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20022, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_fund_flows_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse200:
         """Retrieve basic profile information for a specified ETP.  # noqa: E501
 
         An ETP can be profiled by defining several common attributes such as issuer, fund description, and benchmark.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2736,52 +7076,177 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             InlineResponse200
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_growth_of_ten_k_list_by_symbol_get(
+    def get_factset_etf_get_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse200, int, typing.MutableMapping]:
+        """Retrieve basic profile information for a specified ETP.  # noqa: E501
+
+        An ETP can be profiled by defining several common attributes such as issuer, fund description, and benchmark.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse200
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse200]":
+        """Retrieve basic profile information for a specified ETP.  # noqa: E501
+
+        An ETP can be profiled by defining several common attributes such as issuer, fund description, and benchmark.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse200]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse200, int, typing.MutableMapping]]":
+        """Retrieve basic profile information for a specified ETP.  # noqa: E501
+
+        An ETP can be profiled by defining several common attributes such as issuer, fund description, and benchmark.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse200, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_growth_of_ten_k_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20023:
         """This endpoint returns selected ETP's Growth of 10K calculated values.  # noqa: E501
 
         Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_growth_of_ten_k_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -2789,11 +7254,10 @@ class FactsetApi(object):
         Keyword Args:
             time_period (str): Historice NAV date value.. [optional]
             calculation_type (str): Historice NAV date value.. [optional]
+            alignment (str): Indicates the reference point for growth of 10k data.. [optional]
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2807,52 +7271,192 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20014
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20023
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_growth_of_ten_k_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_growth_of_ten_k_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_holdings_list_by_symbol_get(
+    def get_factset_etf_growth_of_ten_k_list_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20023, int, typing.MutableMapping]:
+        """This endpoint returns selected ETP's Growth of 10K calculated values.  # noqa: E501
+
+        Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Historice NAV date value.. [optional]
+            calculation_type (str): Historice NAV date value.. [optional]
+            alignment (str): Indicates the reference point for growth of 10k data.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20023
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_growth_of_ten_k_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_growth_of_ten_k_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20023]":
+        """This endpoint returns selected ETP's Growth of 10K calculated values.  # noqa: E501
+
+        Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Historice NAV date value.. [optional]
+            calculation_type (str): Historice NAV date value.. [optional]
+            alignment (str): Indicates the reference point for growth of 10k data.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20023]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_growth_of_ten_k_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_growth_of_ten_k_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20023, int, typing.MutableMapping]]":
+        """This endpoint returns selected ETP's Growth of 10K calculated values.  # noqa: E501
+
+        Growth of 10K (or growth of 10,000) is a commonly used chart that highlights the change in the value of an initial 10,000 investment in the ETP during a given period of time. Often, this period of time is either since inception or the calculation between the pre-defined range.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Historice NAV date value.. [optional]
+            calculation_type (str): Historice NAV date value.. [optional]
+            alignment (str): Indicates the reference point for growth of 10k data.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20023, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_growth_of_ten_k_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_holdings_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20024:
         """Holdings details for an individual ETP.  # noqa: E501
 
         Retrieve an ETP's holdings information including security, shares held, and weight.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_holdings_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -2861,8 +7465,6 @@ class FactsetApi(object):
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2876,60 +7478,42 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20015
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20024
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_holdings_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_holdings_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_price_get_by_symbol_get(
+    def get_factset_etf_holdings_list_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
-        """Retrieve historical ETP NAV values.  # noqa: E501
+    ) -> typing.Tuple[InlineResponse20024, int, typing.MutableMapping]:
+        """Holdings details for an individual ETP.  # noqa: E501
 
-        Retrieve an ETP's historical NAV and shares outstanding for a specified time range.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_price_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        Retrieve an ETP's holdings information including security, shares held, and weight.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -2943,52 +7527,720 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20016
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20024
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_price_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_holdings_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_returns_get_by_symbol_get(
+    def get_factset_etf_holdings_list_by_symbol_async(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> "ApplyResult[InlineResponse20024]":
+        """Holdings details for an individual ETP.  # noqa: E501
+
+        Retrieve an ETP's holdings information including security, shares held, and weight.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20024]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_holdings_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_holdings_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20024, int, typing.MutableMapping]]":
+        """Holdings details for an individual ETP.  # noqa: E501
+
+        Retrieve an ETP's holdings information including security, shares held, and weight.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20024, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_holdings_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_market_aggregates_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20025:
+        """Market aggregate data for ETPs.  # noqa: E501
+
+        Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Ticker-region of an ETP as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20025
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_market_aggregates_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_market_aggregates_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20025, int, typing.MutableMapping]:
+        """Market aggregate data for ETPs.  # noqa: E501
+
+        Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Ticker-region of an ETP as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20025
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_market_aggregates_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_market_aggregates_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20025]":
+        """Market aggregate data for ETPs.  # noqa: E501
+
+        Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of an ETP as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20025]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_market_aggregates_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_market_aggregates_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20025, int, typing.MutableMapping]]":
+        """Market aggregate data for ETPs.  # noqa: E501
+
+        Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Ticker-region of an ETP as defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20025, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_market_aggregates_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_premium_discount_summary_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20026:
+        """Summary of ETP premium discount data.  # noqa: E501
+
+        Summary of ETP premium discount data.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "YTD"
+            alignment (str): Indicates the reference point for the historical NAV and price values.. [optional] if omitted the server will use the default value of "quarter-end"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20026
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_premium_discount_summary_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_premium_discount_summary_list_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20026, int, typing.MutableMapping]:
+        """Summary of ETP premium discount data.  # noqa: E501
+
+        Summary of ETP premium discount data.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "YTD"
+            alignment (str): Indicates the reference point for the historical NAV and price values.. [optional] if omitted the server will use the default value of "quarter-end"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20026
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_premium_discount_summary_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_premium_discount_summary_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20026]":
+        """Summary of ETP premium discount data.  # noqa: E501
+
+        Summary of ETP premium discount data.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "YTD"
+            alignment (str): Indicates the reference point for the historical NAV and price values.. [optional] if omitted the server will use the default value of "quarter-end"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20026]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_premium_discount_summary_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_premium_discount_summary_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20026, int, typing.MutableMapping]]":
+        """Summary of ETP premium discount data.  # noqa: E501
+
+        Summary of ETP premium discount data.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "YTD"
+            alignment (str): Indicates the reference point for the historical NAV and price values.. [optional] if omitted the server will use the default value of "quarter-end"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20026, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_premium_discount_summary_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_price_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20027:
+        """Retrieve historical ETP NAV values.  # noqa: E501
+
+        Retrieve an ETP's historical NAV and shares outstanding for a specified time range.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20027
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_price_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_price_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20027, int, typing.MutableMapping]:
+        """Retrieve historical ETP NAV values.  # noqa: E501
+
+        Retrieve an ETP's historical NAV and shares outstanding for a specified time range.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20027
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_price_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_price_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20027]":
+        """Retrieve historical ETP NAV values.  # noqa: E501
+
+        Retrieve an ETP's historical NAV and shares outstanding for a specified time range.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20027]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_price_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_price_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20027, int, typing.MutableMapping]]":
+        """Retrieve historical ETP NAV values.  # noqa: E501
+
+        Retrieve an ETP's historical NAV and shares outstanding for a specified time range.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20027, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_price_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_returns_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20028:
         """Retrieve total return data for a specified ETP.  # noqa: E501
 
-        An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_returns_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
@@ -2996,8 +8248,6 @@ class FactsetApi(object):
         Keyword Args:
             return_type (str): Return type.. [optional] if omitted the server will use the default value of "price"
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3011,60 +8261,186 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20017
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20028
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_returns_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_returns_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_strategy_get_by_symbol_get(
+    def get_factset_etf_returns_get_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20028, int, typing.MutableMapping]:
+        """Retrieve total return data for a specified ETP.  # noqa: E501
+
+        An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            return_type (str): Return type.. [optional] if omitted the server will use the default value of "price"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20028
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_returns_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_returns_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20028]":
+        """Retrieve total return data for a specified ETP.  # noqa: E501
+
+        An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            return_type (str): Return type.. [optional] if omitted the server will use the default value of "price"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20028]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_returns_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_returns_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20028, int, typing.MutableMapping]]":
+        """Retrieve total return data for a specified ETP.  # noqa: E501
+
+        An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            return_type (str): Return type.. [optional] if omitted the server will use the default value of "price"
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20028, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_returns_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_strategy_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20029:
         """Retrieve various classification details for a specified ETP.  # noqa: E501
 
         ETP's can be classified in many different ways including investment strategy, security weightings, and fund composition.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_strategy_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3078,59 +8454,182 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20018
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20029
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_strategy_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_strategy_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_strategy_segment_list_get(
+    def get_factset_etf_strategy_get_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20029, int, typing.MutableMapping]:
+        """Retrieve various classification details for a specified ETP.  # noqa: E501
+
+        ETP's can be classified in many different ways including investment strategy, security weightings, and fund composition.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20029
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_strategy_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_strategy_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20029]":
+        """Retrieve various classification details for a specified ETP.  # noqa: E501
+
+        ETP's can be classified in many different ways including investment strategy, security weightings, and fund composition.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20029]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_strategy_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_strategy_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20029, int, typing.MutableMapping]]":
+        """Retrieve various classification details for a specified ETP.  # noqa: E501
+
+        ETP's can be classified in many different ways including investment strategy, security weightings, and fund composition.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20029, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_strategy_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_strategy_segment_list(
         self,
         **kwargs
-    ):
+    ) -> InlineResponse20030:
         """Retrieve a list of ETP strategy segments.  # noqa: E501
 
         Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_strategy_segment_list_get(async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3144,58 +8643,172 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20019
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20030
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        return self.factset_etf_strategy_segment_list_get_endpoint.call_with_http_info(**kwargs)
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        return self.get_factset_etf_strategy_segment_list_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_structure_get_by_symbol_get(
+    def get_factset_etf_strategy_segment_list_with_http_info(
+        self,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20030, int, typing.MutableMapping]:
+        """Retrieve a list of ETP strategy segments.  # noqa: E501
+
+        Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20030
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        return self.get_factset_etf_strategy_segment_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_strategy_segment_list_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20030]":
+        """Retrieve a list of ETP strategy segments.  # noqa: E501
+
+        Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20030]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        return self.get_factset_etf_strategy_segment_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_strategy_segment_list_with_http_info_async(
+        self,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20030, int, typing.MutableMapping]]":
+        """Retrieve a list of ETP strategy segments.  # noqa: E501
+
+        Retrieve the various segments assigned to a specific ETP. Segment data is used to group funds for comparison and relative performance analyses.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20030, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        return self.get_factset_etf_strategy_segment_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_structure_get_by_symbol(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> InlineResponse20031:
         """Retrieve the basic structure information for a specified ETP.  # noqa: E501
 
         Retrieve details on a fund's structure including its type, investment style (active/passive), and legal structure.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_structure_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3209,60 +8822,183 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20020
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20031
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_structure_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_structure_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_taxes_and_fees_us_get_by_symbol_get(
+    def get_factset_etf_structure_get_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20031, int, typing.MutableMapping]:
+        """Retrieve the basic structure information for a specified ETP.  # noqa: E501
+
+        Retrieve details on a fund's structure including its type, investment style (active/passive), and legal structure.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20031
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_structure_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_structure_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20031]":
+        """Retrieve the basic structure information for a specified ETP.  # noqa: E501
+
+        Retrieve details on a fund's structure including its type, investment style (active/passive), and legal structure.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20031]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_structure_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_structure_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20031, int, typing.MutableMapping]]":
+        """Retrieve the basic structure information for a specified ETP.  # noqa: E501
+
+        Retrieve details on a fund's structure including its type, investment style (active/passive), and legal structure.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20031, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_structure_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_taxes_and_fees_us_get_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20032:
         """Retrieve the tax and fee related information for a specified ETP.  # noqa: E501
 
         Retrieve various fee and tax related details on a specified ETP including expense ratio and tax treatment for dividends and capital gains.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_taxes_and_fees_us_get_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3276,63 +9012,187 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20021
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20032
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_taxes_and_fees_us_get_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_taxes_and_fees_us_get_by_symbol_endpoint.call_with_http_info(**kwargs)
 
-    def factset_etf_time_series_list_by_symbol_get(
+    def get_factset_etf_taxes_and_fees_us_get_by_symbol_with_http_info(
         self,
         symbol,
         **kwargs
-    ):
+    ) -> typing.Tuple[InlineResponse20032, int, typing.MutableMapping]:
+        """Retrieve the tax and fee related information for a specified ETP.  # noqa: E501
+
+        Retrieve various fee and tax related details on a specified ETP including expense ratio and tax treatment for dividends and capital gains.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20032
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_taxes_and_fees_us_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_taxes_and_fees_us_get_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20032]":
+        """Retrieve the tax and fee related information for a specified ETP.  # noqa: E501
+
+        Retrieve various fee and tax related details on a specified ETP including expense ratio and tax treatment for dividends and capital gains.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20032]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_taxes_and_fees_us_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_taxes_and_fees_us_get_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20032, int, typing.MutableMapping]]":
+        """Retrieve the tax and fee related information for a specified ETP.  # noqa: E501
+
+        Retrieve various fee and tax related details on a specified ETP including expense ratio and tax treatment for dividends and capital gains.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20032, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_taxes_and_fees_us_get_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_time_series_list_by_symbol(
+        self,
+        symbol,
+        **kwargs
+    ) -> InlineResponse20033:
         """Retrieve historical NAV data for a specified ETP.  # noqa: E501
 
         Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.factset_etf_time_series_list_by_symbol_get(symbol, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             symbol (str): Market symbol of ETP defined by FactSet.
 
         Keyword Args:
             time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "1Y"
+            alignment (str): Indicates the reference point for the time series data.. [optional]
             attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
             pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
             pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -3346,36 +9206,177 @@ class FactsetApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
-            InlineResponse20022
-                If the method is called asynchronously, returns the request
-                thread.
+            InlineResponse20033
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
         kwargs['symbol'] = \
             symbol
-        return self.factset_etf_time_series_list_by_symbol_get_endpoint.call_with_http_info(**kwargs)
+        return self.get_factset_etf_time_series_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_time_series_list_by_symbol_with_http_info(
+        self,
+        symbol,
+        **kwargs
+    ) -> typing.Tuple[InlineResponse20033, int, typing.MutableMapping]:
+        """Retrieve historical NAV data for a specified ETP.  # noqa: E501
+
+        Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "1Y"
+            alignment (str): Indicates the reference point for the time series data.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            InlineResponse20033
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_time_series_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_time_series_list_by_symbol_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[InlineResponse20033]":
+        """Retrieve historical NAV data for a specified ETP.  # noqa: E501
+
+        Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "1Y"
+            alignment (str): Indicates the reference point for the time series data.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[InlineResponse20033]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_time_series_list_by_symbol_endpoint.call_with_http_info(**kwargs)
+
+    def get_factset_etf_time_series_list_by_symbol_with_http_info_async(
+        self,
+        symbol,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[InlineResponse20033, int, typing.MutableMapping]]":
+        """Retrieve historical NAV data for a specified ETP.  # noqa: E501
+
+        Retrieve the historical NAV data and the respective fund flows and shares outstanding for a specified fund and time period. Please refer currency.fund in /factset/etf/getBySymbol for currency value.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            symbol (str): Market symbol of ETP defined by FactSet.
+
+        Keyword Args:
+            time_period (str): Time frame of the data.. [optional] if omitted the server will use the default value of "1Y"
+            alignment (str): Indicates the reference point for the time series data.. [optional]
+            attributes ([str]): Limit the attributes returned in the response to the specified set.. [optional]
+            pagination_offset (float): Non-negative number of entries to skip, or 0 (default).. [optional] if omitted the server will use the default value of 0.0
+            pagination_limit (float): Non-negative maximum number of entries to return.. [optional] if omitted the server will use the default value of 20.0
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(InlineResponse20033, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['symbol'] = \
+            symbol
+        return self.get_factset_etf_time_series_list_by_symbol_endpoint.call_with_http_info(**kwargs)
 

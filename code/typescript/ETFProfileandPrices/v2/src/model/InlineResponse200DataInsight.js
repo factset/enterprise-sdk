@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataInsight model module.
  * @module model/InlineResponse200DataInsight
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataInsight {
     /**

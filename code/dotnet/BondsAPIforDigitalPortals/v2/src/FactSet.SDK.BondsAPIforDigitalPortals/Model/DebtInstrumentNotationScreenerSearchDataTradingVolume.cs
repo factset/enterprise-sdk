@@ -52,7 +52,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DebtInstrumentNotationScreenerSearchDataTradingVolume {\n");
             sb.Append("  Otc: ").Append(Otc).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(DebtInstrumentNotationScreenerSearchDataTradingVolume input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Otc == input.Otc ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Otc != null)
-                    hashCode = hashCode * 59 + this.Otc.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Otc.GetHashCode();
+                }
                 return hashCode;
             }
         }

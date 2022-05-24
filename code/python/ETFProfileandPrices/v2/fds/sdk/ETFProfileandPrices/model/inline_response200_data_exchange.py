@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -149,7 +149,7 @@ class InlineResponse200DataExchange(ModelNormal):
             code (str): Short Code of the exchange. This data is available for all the regions.. [optional]  # noqa: E501
             name (str): Name of the exchance where ETP is listed. This data is available for all the regions.. [optional]  # noqa: E501
             country (str): Short country code where ETP exchange is located. This data is available for all the regions and country code is in format ISO 3166-1 alpha-2.. [optional]  # noqa: E501
-            region (str): short region code where ETP exchange is located. This data is available for all the regions.. [optional]  # noqa: E501
+            region (str): Short region code where ETP exchange is located. This data is available for all the regions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,7 +234,7 @@ class InlineResponse200DataExchange(ModelNormal):
             code (str): Short Code of the exchange. This data is available for all the regions.. [optional]  # noqa: E501
             name (str): Name of the exchance where ETP is listed. This data is available for all the regions.. [optional]  # noqa: E501
             country (str): Short country code where ETP exchange is located. This data is available for all the regions and country code is in format ISO 3166-1 alpha-2.. [optional]  # noqa: E501
-            region (str): short region code where ETP exchange is located. This data is available for all the regions.. [optional]  # noqa: E501
+            region (str): Short region code where ETP exchange is located. This data is available for all the regions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

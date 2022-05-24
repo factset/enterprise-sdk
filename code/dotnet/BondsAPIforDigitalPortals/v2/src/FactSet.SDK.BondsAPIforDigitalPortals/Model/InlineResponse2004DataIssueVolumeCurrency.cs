@@ -71,7 +71,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataIssueVolumeCurrency {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsoCode: ").Append(IsoCode).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataIssueVolumeCurrency input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -134,10 +135,12 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 if (this.IsoCode != null)
-                    hashCode = hashCode * 59 + this.IsoCode.GetHashCode();
-                hashCode = hashCode * 59 + this.Count.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IsoCode.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Count.GetHashCode();
                 return hashCode;
             }
         }

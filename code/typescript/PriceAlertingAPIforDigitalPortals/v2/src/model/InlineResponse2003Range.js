@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003Range model module.
  * @module model/InlineResponse2003Range
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003Range {
     /**

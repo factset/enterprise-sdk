@@ -57,11 +57,11 @@ namespace Example
             var apiInstance = new IndexLevelApi(config);
             var ids = new List<string>(); // List<string> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
             var metrics = new List<string>(); // List<string> | Requested List of  FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list. |metric item|Description|category|periodicity |:- --|:- --|:- --|:- --| |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |ROA|Return on Assets|Profitability (%)|LTM |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2 |ROIC|Return on Invested Capital|Profitability (%)| LTM |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |PEX|Price/Earnings (excl negatives)|Valuation|LTM |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2 |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2 |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2 |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM |NDEBT_FFO|Net Debt/FFO|Coverage|LTM |LTD_FFO|LT Debt/FFO|Coverage|LTM |FCF_DEBT|FCF/Total Debt|Coverage|LTM |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM |<p>***metrics limit** =  38 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-            var startDate = startDate_example;  // string | Requested start date expressed in YYYY-MM-DD format. (optional) 
-            var endDate = endDate_example;  // string | Requested End Date for Range expressed in YYYY-MM-DD format. (optional) 
+            var startDate = "startDate_example";  // string | Requested start date expressed in YYYY-MM-DD format. (optional) 
+            var endDate = "endDate_example";  // string | Requested End Date for Range expressed in YYYY-MM-DD format. (optional) 
             var frequency = D;  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional)  (default to D)
-            var periodicity = periodicity_example;  // string | The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:- --|:- --| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  (optional)  (default to LTM)
-            var currency = currency_example;  // string | Currency for response. (optional) 
+            var periodicity = "LTM";  // string | The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:- --|:- --| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  (optional)  (default to LTM)
+            var currency = "currency_example";  // string | Currency for response. (optional) 
 
             try
             {
@@ -93,7 +93,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency for response. | [optional] 
 
 ### Return type
-
 [**BenchmarkRatiosResponse**](BenchmarkRatiosResponse.md)
 
 ### Authorization
@@ -187,7 +186,6 @@ Name | Type | Description  | Notes
  **benchmarkRatiosRequest** | [**BenchmarkRatiosRequest**](BenchmarkRatiosRequest.md)| Requests benchmark ratios for a given id | 
 
 ### Return type
-
 [**BenchmarkRatiosResponse**](BenchmarkRatiosResponse.md)
 
 ### Authorization
@@ -214,7 +212,7 @@ Name | Type | Description  | Notes
 
 <a name="getindexhistory"></a>
 # **GetIndexHistory**
-> IndexHistoryResponse GetIndexHistory (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string returnType = null, string currency = null, string calendar = null)
+> IndexHistoryResponse GetIndexHistory (List<string> ids, string startDate = null, string endDate = null, string frequency = null, string returnType = null, string hedgeType = null, string currency = null, string calendar = null)
 
 Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
 
@@ -256,17 +254,18 @@ namespace Example
 
             var apiInstance = new IndexLevelApi(config);
             var ids = new List<string>(); // List<string> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
-            var startDate = startDate_example;  // string | Requested start date expressed in YYYY-MM-DD format. (optional) 
-            var endDate = endDate_example;  // string | Requested End Date for Range expressed in YYYY-MM-DD format. (optional) 
+            var startDate = "startDate_example";  // string | Requested start date expressed in YYYY-MM-DD format. (optional) 
+            var endDate = "endDate_example";  // string | Requested End Date for Range expressed in YYYY-MM-DD format. (optional) 
             var frequency = D;  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional)  (default to D)
-            var returnType = returnType_example;  // string | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional)  (default to GROSS)
-            var currency = currency_example;  // string | Currency for response. (optional) 
+            var returnType = "GROSS";  // string | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional)  (default to GROSS)
+            var hedgeType = "UNHEDGED";  // string | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional)  (default to UNHEDGED)
+            var currency = "currency_example";  // string | Currency for response. (optional) 
             var calendar = FIVEDAY;  // string | Calendar of data returned. SEVENDAY includes weekends. (optional)  (default to FIVEDAY)
 
             try
             {
                 // Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
-                IndexHistoryResponse result = apiInstance.GetIndexHistory(ids, startDate, endDate, frequency, returnType, currency, calendar);
+                IndexHistoryResponse result = apiInstance.GetIndexHistory(ids, startDate, endDate, frequency, returnType, hedgeType, currency, calendar);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -289,11 +288,11 @@ Name | Type | Description  | Notes
  **endDate** | **string**| Requested End Date for Range expressed in YYYY-MM-DD format. | [optional] 
  **frequency** | **string**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  | [optional] [default to D]
  **returnType** | **string**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS]
+ **hedgeType** | **string**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to UNHEDGED]
  **currency** | **string**| Currency for response. | [optional] 
  **calendar** | **string**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY]
 
 ### Return type
-
 [**IndexHistoryResponse**](IndexHistoryResponse.md)
 
 ### Authorization
@@ -387,7 +386,6 @@ Name | Type | Description  | Notes
  **indexHistoryRequest** | [**IndexHistoryRequest**](IndexHistoryRequest.md)| Requests Index Level History Prices and Returns for a list of identifiers and specified date range. | 
 
 ### Return type
-
 [**IndexHistoryResponse**](IndexHistoryResponse.md)
 
 ### Authorization
@@ -456,9 +454,9 @@ namespace Example
 
             var apiInstance = new IndexLevelApi(config);
             var ids = new List<string>(); // List<string> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
-            var date = date_example;  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
-            var returnType = returnType_example;  // string | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional)  (default to GROSS)
-            var currency = currency_example;  // string | Currency for response. (optional) 
+            var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
+            var returnType = "GROSS";  // string | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional)  (default to GROSS)
+            var currency = "currency_example";  // string | Currency for response. (optional) 
             var calendar = FIVEDAY;  // string | Calendar of data returned. SEVENDAY includes weekends. (optional)  (default to FIVEDAY)
 
             try
@@ -489,7 +487,6 @@ Name | Type | Description  | Notes
  **calendar** | **string**| Calendar of data returned. SEVENDAY includes weekends. | [optional] [default to FIVEDAY]
 
 ### Return type
-
 [**IndexSnapshotResponse**](IndexSnapshotResponse.md)
 
 ### Authorization
@@ -583,7 +580,6 @@ Name | Type | Description  | Notes
  **indexSnapshotRequest** | [**IndexSnapshotRequest**](IndexSnapshotRequest.md)| Requests the Index Level Snapshot for a requested list of identifiers and specified date. | 
 
 ### Return type
-
 [**IndexSnapshotResponse**](IndexSnapshotResponse.md)
 
 ### Authorization

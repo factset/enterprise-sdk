@@ -47,6 +47,18 @@ public class TickerHistoryTranslationRequest implements Serializable {
   public static final String JSON_PROPERTY_TICKER_TYPE = "tickerType";
   private String tickerType;
 
+  public TickerHistoryTranslationRequest() { 
+  }
+
+  @JsonCreator
+  public TickerHistoryTranslationRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids, 
+    @JsonProperty(value=JSON_PROPERTY_TICKER_TYPE, required=true) String tickerType
+  ) {
+    this();
+    this.ids = ids;
+    this.tickerType = tickerType;
+  }
 
   public TickerHistoryTranslationRequest ids(java.util.List<String> ids) {
     this.ids = ids;

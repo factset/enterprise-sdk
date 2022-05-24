@@ -54,6 +54,8 @@ public class InlineResponse2004DataLifeCycle implements Serializable {
   public static final String JSON_PROPERTY_CALLABLE = "callable";
   private java.util.List<InlineResponse2004DataLifeCycleMaturityPerpetual> callable = null;
 
+  public InlineResponse2004DataLifeCycle() { 
+  }
 
   public InlineResponse2004DataLifeCycle issue(InlineResponse2004DataLifeCycleIssue issue) {
     this.issue = issue;

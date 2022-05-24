@@ -59,6 +59,8 @@ public class InlineResponse2007DataRangeUpper implements Serializable {
   public static final String JSON_PROPERTY_PARTICIPATION_FACTOR = "participationFactor";
   private InlineResponse2007DataRangeUpperParticipationFactor participationFactor;
 
+  public InlineResponse2007DataRangeUpper() { 
+  }
 
   public InlineResponse2007DataRangeUpper level(InlineResponse2007DataRangeUpperLevel level) {
     this.level = level;

@@ -69,6 +69,8 @@ public class InlineResponse2004InstrumentIndustryClassificationRbics implements 
   public static final String JSON_PROPERTY_LEVEL6 = "level6";
   private InlineResponse2004InstrumentIndustryClassificationRbicsLevel6 level6;
 
+  public InlineResponse2004InstrumentIndustryClassificationRbics() { 
+  }
 
   public InlineResponse2004InstrumentIndustryClassificationRbics level1(InlineResponse2004InstrumentIndustryClassificationRbicsLevel1 level1) {
     this.level1 = level1;

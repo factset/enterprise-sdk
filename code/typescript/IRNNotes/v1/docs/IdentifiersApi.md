@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getIdentifiers
 
-> [IdentifierResolutionDto] getIdentifiers(opts)
+> [Object] getIdentifiers(opts)
 
 Get all the identifier details for given identifiers
 
@@ -47,6 +47,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getIdentifiers(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -67,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[IdentifierResolutionDto]**](IdentifierResolutionDto.md)
+**[Object]**
 
 ### Authorization
 

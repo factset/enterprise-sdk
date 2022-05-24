@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlying {\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
             sb.Append("  Notation: ").Append(Notation).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlying input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Instrument == input.Instrument ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Instrument != null)
-                    hashCode = hashCode * 59 + this.Instrument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
                 return hashCode;
             }
         }

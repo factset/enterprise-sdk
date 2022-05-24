@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reportDate** | **Date** | Reporting date for the allocations. | [optional] 
-**sectors** | [**[InlineResponse2005DataSectors]**](InlineResponse2005DataSectors.md) | List of allocations by sector. | [optional] 
+**exchanges** | [**[InlineResponse2005DataExchanges]**](InlineResponse2005DataExchanges.md) | List of allocations by exchange. | [optional] 
 
 

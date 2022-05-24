@@ -48,6 +48,8 @@ public class StockNotationRankingIntradayListMetaPagination implements Serializa
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public StockNotationRankingIntradayListMetaPagination() { 
+  }
 
   public StockNotationRankingIntradayListMetaPagination offset(BigDecimal offset) {
     this.offset = offset;

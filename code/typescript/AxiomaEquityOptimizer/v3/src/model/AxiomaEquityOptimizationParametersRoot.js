@@ -17,7 +17,7 @@ import AxiomaEquityOptimizationParameters from './AxiomaEquityOptimizationParame
 /**
  * The AxiomaEquityOptimizationParametersRoot model module.
  * @module model/AxiomaEquityOptimizationParametersRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class AxiomaEquityOptimizationParametersRoot {
     /**

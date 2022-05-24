@@ -20,7 +20,7 @@ import HighLowResponse from '../model/HighLowResponse';
 /**
 * HighLow service.
 * @module api/HighLowApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class HighLowApi {
 
@@ -77,7 +77,10 @@ export default class HighLowApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = HighLowResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/high-low', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -96,7 +99,7 @@ export default class HighLowApi {
      * @param {module:model/String} opts.calendar Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (default to 'FIVEDAY')
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
      * @param {module:model/String} opts.adjust Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (default to 'SPLIT')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/HighLowResponse}
+     * @return { Promise.< module:model/HighLowResponse > } a Promise, with data of type {@link module:model/HighLowResponse }
      */
     getHighLow(ids, opts) {
       return this.getHighLowWithHttpInfo(ids, opts)
@@ -131,7 +134,10 @@ export default class HighLowApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = HighLowResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/high-low', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -143,7 +149,7 @@ export default class HighLowApi {
      * Requests the price high and price low of securities for a list of `ids` as of given date, period and frequency.
      * For given security(s), gets the high and low prices with the respective dates on which they occurred. This service gives options for fetching the price as of the close or intraday. 
      * @param {module:model/HighLowRequest} highLowRequest Request object for high low prices.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/HighLowResponse}
+     * @return { Promise.< module:model/HighLowResponse > } a Promise, with data of type {@link module:model/HighLowResponse }
      */
     getHighLowForList(highLowRequest) {
       return this.getHighLowForListWithHttpInfo(highLowRequest)
@@ -154,3 +160,8 @@ export default class HighLowApi {
 
 
 }
+
+
+
+
+

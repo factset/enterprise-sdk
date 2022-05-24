@@ -36,6 +36,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="time">Date and time of the news article..</param>
         /// <param name="headline">Headline of the news article represented as text with HTML entity encoding but without HTML tags..</param>
+        /// <param name="summary">Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor..</param>
         /// <param name="body">Text body of the news article..</param>
         /// <param name="types">Types of news article. See endpoint &#x60;/news/article/type/list&#x60; for possible values..</param>
         /// <param name="language">language.</param>
@@ -44,10 +45,11 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <param name="categories">Categories related to the news article. See endpoint &#x60;/category/list&#x60; for possible values..</param>
         /// <param name="instruments">Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off..</param>
         /// <param name="media">List of media elements of the news article..</param>
-        public InlineResponse200Data(string time = default(string), string headline = default(string), string body = default(string), List<InlineResponse200DataTypes> types = default(List<InlineResponse200DataTypes>), InlineResponse200DataLanguage language = default(InlineResponse200DataLanguage), InlineResponse200DataDistributor distributor = default(InlineResponse200DataDistributor), InlineResponse200DataPublisher publisher = default(InlineResponse200DataPublisher), List<InlineResponse200DataCategories> categories = default(List<InlineResponse200DataCategories>), List<InlineResponse200DataInstruments> instruments = default(List<InlineResponse200DataInstruments>), List<InlineResponse200DataMedia> media = default(List<InlineResponse200DataMedia>))
+        public InlineResponse200Data(string time = default(string), string headline = default(string), string summary = default(string), string body = default(string), List<InlineResponse200DataTypes> types = default(List<InlineResponse200DataTypes>), InlineResponse200DataLanguage language = default(InlineResponse200DataLanguage), InlineResponse200DataDistributor distributor = default(InlineResponse200DataDistributor), InlineResponse200DataPublisher publisher = default(InlineResponse200DataPublisher), List<InlineResponse200DataCategories> categories = default(List<InlineResponse200DataCategories>), List<InlineResponse200DataInstruments> instruments = default(List<InlineResponse200DataInstruments>), List<InlineResponse200DataMedia> media = default(List<InlineResponse200DataMedia>))
         {
             this.Time = time;
             this.Headline = headline;
+            this.Summary = summary;
             this.Body = body;
             this.Types = types;
             this.Language = language;
@@ -71,6 +73,13 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <value>Headline of the news article represented as text with HTML entity encoding but without HTML tags.</value>
         [DataMember(Name = "headline", EmitDefaultValue = false)]
         public string Headline { get; set; }
+
+        /// <summary>
+        /// Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor.
+        /// </summary>
+        /// <value>Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor.</value>
+        [DataMember(Name = "summary", EmitDefaultValue = false)]
+        public string Summary { get; set; }
 
         /// <summary>
         /// Text body of the news article.
@@ -131,10 +140,11 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200Data {\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
             sb.Append("  Headline: ").Append(Headline).Append("\n");
+            sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Types: ").Append(Types).Append("\n");
             sb.Append("  Language: ").Append(Language).Append("\n");
@@ -174,8 +184,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Time == input.Time ||
@@ -186,6 +197,11 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
                     this.Headline == input.Headline ||
                     (this.Headline != null &&
                     this.Headline.Equals(input.Headline))
+                ) && 
+                (
+                    this.Summary == input.Summary ||
+                    (this.Summary != null &&
+                    this.Summary.Equals(input.Summary))
                 ) && 
                 (
                     this.Body == input.Body ||
@@ -243,25 +259,49 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Time.GetHashCode();
+                }
                 if (this.Headline != null)
-                    hashCode = hashCode * 59 + this.Headline.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Headline.GetHashCode();
+                }
+                if (this.Summary != null)
+                {
+                    hashCode = (hashCode * 59) + this.Summary.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.Types != null)
-                    hashCode = hashCode * 59 + this.Types.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                }
                 if (this.Language != null)
-                    hashCode = hashCode * 59 + this.Language.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Language.GetHashCode();
+                }
                 if (this.Distributor != null)
-                    hashCode = hashCode * 59 + this.Distributor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Distributor.GetHashCode();
+                }
                 if (this.Publisher != null)
-                    hashCode = hashCode * 59 + this.Publisher.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Publisher.GetHashCode();
+                }
                 if (this.Categories != null)
-                    hashCode = hashCode * 59 + this.Categories.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Categories.GetHashCode();
+                }
                 if (this.Instruments != null)
-                    hashCode = hashCode * 59 + this.Instruments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instruments.GetHashCode();
+                }
                 if (this.Media != null)
-                    hashCode = hashCode * 59 + this.Media.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Media.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -19,7 +19,7 @@ import SPARBenchmarkRoot from '../model/SPARBenchmarkRoot';
 /**
 * Benchmarks service.
 * @module api/BenchmarksApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class BenchmarksApi {
 
@@ -62,7 +62,10 @@ export default class BenchmarksApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SPARBenchmarkRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/spar/v3/benchmarks', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class BenchmarksApi {
      * Get SPAR benchmark details
      * This endpoint returns the details of a given SPAR benchmark identifier.
      * @param {String} id Benchmark Identifier
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SPARBenchmarkRoot}
+     * @return { Promise.< module:model/SPARBenchmarkRoot > } a Promise, with data of type {@link module:model/SPARBenchmarkRoot }
      */
     getSPARBenchmarkById(id) {
       return this.getSPARBenchmarkByIdWithHttpInfo(id)
@@ -85,3 +88,8 @@ export default class BenchmarksApi {
 
 
 }
+
+
+
+
+

@@ -49,6 +49,7 @@ const categories = "'ALL'"; // String | Filters the list of Redemption Prices Ca
 // Call api endpoint
 apiInstance.getFixedIncomeRedemptionPrices(ids, categories).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const redemptionPricesRequest = new factsettermsandconditions.RedemptionPricesRe
 // Call api endpoint
 apiInstance.getFixedIncomeRedemptionPricesForList(redemptionPricesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

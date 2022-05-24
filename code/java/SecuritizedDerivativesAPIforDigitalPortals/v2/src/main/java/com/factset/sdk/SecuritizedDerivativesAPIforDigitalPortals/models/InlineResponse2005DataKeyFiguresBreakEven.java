@@ -49,6 +49,8 @@ public class InlineResponse2005DataKeyFiguresBreakEven implements Serializable {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private InlineResponse2005DataKeyFiguresBreakEvenDistance distance;
 
+  public InlineResponse2005DataKeyFiguresBreakEven() { 
+  }
 
   public InlineResponse2005DataKeyFiguresBreakEven breakEvenPoint(InlineResponse2005DataKeyFiguresBreakEvenBreakEvenPoint breakEvenPoint) {
     this.breakEvenPoint = breakEvenPoint;

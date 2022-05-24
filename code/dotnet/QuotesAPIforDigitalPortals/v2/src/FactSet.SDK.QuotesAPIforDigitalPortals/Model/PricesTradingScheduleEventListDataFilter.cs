@@ -74,7 +74,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PricesTradingScheduleEventListDataFilter {\n");
             sb.Append("  Types: ").Append(Types).Append("\n");
             sb.Append("  Range: ").Append(Range).Append("\n");
@@ -109,8 +109,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(PricesTradingScheduleEventListDataFilter input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Types == input.Types ||
@@ -135,9 +136,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Types != null)
-                    hashCode = hashCode * 59 + this.Types.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                }
                 if (this.Range != null)
-                    hashCode = hashCode * 59 + this.Range.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
                 return hashCode;
             }
         }

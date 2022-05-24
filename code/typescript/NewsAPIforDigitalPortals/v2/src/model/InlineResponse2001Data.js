@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import InlineResponse2001Categories from './InlineResponse2001Categories';
 import InlineResponse2001Chain from './InlineResponse2001Chain';
 import InlineResponse2001Distributor from './InlineResponse2001Distributor';
+import InlineResponse2001Instruments from './InlineResponse2001Instruments';
 import InlineResponse2001Language from './InlineResponse2001Language';
 import InlineResponse2001Publisher from './InlineResponse2001Publisher';
 import InlineResponse2001Types from './InlineResponse2001Types';
@@ -22,7 +23,7 @@ import InlineResponse2001Types from './InlineResponse2001Types';
 /**
  * The InlineResponse2001Data model module.
  * @module model/InlineResponse2001Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2001Data {
     /**
@@ -62,6 +63,9 @@ class InlineResponse2001Data {
             if (data.hasOwnProperty('headline')) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
+            if (data.hasOwnProperty('summary')) {
+                obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
+            }
             if (data.hasOwnProperty('types')) {
                 obj['types'] = ApiClient.convertToType(data['types'], [InlineResponse2001Types]);
             }
@@ -79,6 +83,9 @@ class InlineResponse2001Data {
             }
             if (data.hasOwnProperty('chain')) {
                 obj['chain'] = InlineResponse2001Chain.constructFromObject(data['chain']);
+            }
+            if (data.hasOwnProperty('instruments')) {
+                obj['instruments'] = ApiClient.convertToType(data['instruments'], [InlineResponse2001Instruments]);
             }
         }
         return obj;
@@ -104,6 +111,12 @@ InlineResponse2001Data.prototype['time'] = undefined;
  * @member {String} headline
  */
 InlineResponse2001Data.prototype['headline'] = undefined;
+
+/**
+ * Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.
+ * @member {String} summary
+ */
+InlineResponse2001Data.prototype['summary'] = undefined;
 
 /**
  * Types of news article. See endpoint `/news/article/type/list` for possible values.
@@ -136,6 +149,12 @@ InlineResponse2001Data.prototype['categories'] = undefined;
  * @member {module:model/InlineResponse2001Chain} chain
  */
 InlineResponse2001Data.prototype['chain'] = undefined;
+
+/**
+ * Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.
+ * @member {Array.<module:model/InlineResponse2001Instruments>} instruments
+ */
+InlineResponse2001Data.prototype['instruments'] = undefined;
 
 
 

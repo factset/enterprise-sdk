@@ -36,9 +36,11 @@ namespace FactSet.SDK.PAEngine.Model
         /// Initializes a new instance of the <see cref="PACalculationGroup" /> class.
         /// </summary>
         /// <param name="id">FactSet-defined or User-defined Group identifier..</param>
-        public PACalculationGroup(string id = default(string))
+        /// <param name="frequency">Grouping frequency.</param>
+        public PACalculationGroup(string id = default(string), string frequency = default(string))
         {
             this.Id = id;
+            this.Frequency = frequency;
         }
 
         /// <summary>
@@ -49,14 +51,22 @@ namespace FactSet.SDK.PAEngine.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Grouping frequency
+        /// </summary>
+        /// <value>Grouping frequency</value>
+        [DataMember(Name = "frequency", EmitDefaultValue = false)]
+        public string Frequency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PACalculationGroup {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,13 +98,19 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(PACalculationGroup input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Frequency == input.Frequency ||
+                    (this.Frequency != null &&
+                    this.Frequency.Equals(input.Frequency))
                 );
         }
 
@@ -108,7 +124,13 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Frequency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -84,6 +84,8 @@ public class InlineResponse2005DataExerciseStyle implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataExerciseStyle() { 
+  }
 
   public InlineResponse2005DataExerciseStyle value(ValueEnum value) {
     this.value = value;

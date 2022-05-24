@@ -690,6 +690,71 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
     {
         private FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioCreatePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(InlineResponse201) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioDeletePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioEvaluationListPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioGetGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioModifyPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioNameListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioPositionListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2006) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioTransactionCashCreatePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2011) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioTransactionCashDeletePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioTransactionCreatePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(InlineResponse2011) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioTransactionDeletePostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2007) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioTransactionListGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2008) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PortfolioTransactionModifyPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2009) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PortfolioApi"/> class.
         /// </summary>
@@ -800,7 +865,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse201</returns>
         public InlineResponse201 PortfolioCreatePost(InlineObject body)
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse201> localVarResponse = PortfolioCreatePostWithHttpInfo(body);
+            var localVarResponse = PortfolioCreatePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -810,11 +875,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse201</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse201> PortfolioCreatePostWithHttpInfo(InlineObject body)
+        public ApiResponse<InlineResponse201> PortfolioCreatePostWithHttpInfo(InlineObject body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PortfolioApi->PortfolioCreatePost");
+            }
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -828,22 +895,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -855,15 +928,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse201>("/portfolio/create", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse201>("/portfolio/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -874,9 +951,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse201</returns>
-        public async System.Threading.Tasks.Task<InlineResponse201> PortfolioCreatePostAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse201>PortfolioCreatePostAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse201> localVarResponse = await PortfolioCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -887,11 +964,14 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse201)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse201>> PortfolioCreatePostWithHttpInfoAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> PortfolioCreatePostWithHttpInfoAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling PortfolioApi->PortfolioCreatePost");
+            }
 
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -905,24 +985,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -934,14 +1019,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse201>("/portfolio/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -955,7 +1044,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 PortfolioDeletePost(InlineObject1 body = default(InlineObject1))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = PortfolioDeletePostWithHttpInfo(body);
+            var localVarResponse = PortfolioDeletePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -965,7 +1054,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> PortfolioDeletePostWithHttpInfo(InlineObject1 body = default(InlineObject1))
+        public ApiResponse<InlineResponse200> PortfolioDeletePostWithHttpInfo(InlineObject1 body = default(InlineObject1))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -979,22 +1068,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1006,15 +1101,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse200>("/portfolio/delete", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse200>("/portfolio/delete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1025,9 +1124,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> PortfolioDeletePostAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>PortfolioDeletePostAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await PortfolioDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1038,7 +1137,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> PortfolioDeletePostWithHttpInfoAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> PortfolioDeletePostWithHttpInfoAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1052,24 +1152,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1081,14 +1186,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse200>("/portfolio/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1102,7 +1211,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2004</returns>
         public InlineResponse2004 PortfolioEvaluationListPost(InlineObject3 body = default(InlineObject3))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = PortfolioEvaluationListPostWithHttpInfo(body);
+            var localVarResponse = PortfolioEvaluationListPostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1112,7 +1221,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> PortfolioEvaluationListPostWithHttpInfo(InlineObject3 body = default(InlineObject3))
+        public ApiResponse<InlineResponse2004> PortfolioEvaluationListPostWithHttpInfo(InlineObject3 body = default(InlineObject3))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1126,22 +1235,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1153,15 +1268,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2004>("/portfolio/evaluation/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioEvaluationListPostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2004>("/portfolio/evaluation/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioEvaluationListPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1172,9 +1291,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> PortfolioEvaluationListPostAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>PortfolioEvaluationListPostAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = await PortfolioEvaluationListPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioEvaluationListPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1185,7 +1304,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004>> PortfolioEvaluationListPostWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> PortfolioEvaluationListPostWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1199,24 +1319,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1228,14 +1353,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioEvaluationListPostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2004>("/portfolio/evaluation/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioEvaluationListPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1250,7 +1379,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PortfolioGetGet(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = PortfolioGetGetWithHttpInfo(id, attributes);
+            var localVarResponse = PortfolioGetGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -1261,11 +1390,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the portfolio.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> PortfolioGetGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2001> PortfolioGetGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PortfolioApi->PortfolioGetGet");
+            }
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1278,10 +1409,16 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1291,13 +1428,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1309,15 +1446,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2001>("/portfolio/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioGetGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2001>("/portfolio/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioGetGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1329,9 +1470,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> PortfolioGetGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>PortfolioGetGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await PortfolioGetGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioGetGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1343,11 +1484,14 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> PortfolioGetGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PortfolioGetGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PortfolioApi->PortfolioGetGet");
+            }
 
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1360,12 +1504,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1375,13 +1524,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1393,14 +1542,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioGetGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/portfolio/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioGetGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1415,7 +1568,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 PortfolioListGet(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = PortfolioListGetWithHttpInfo(attributes, sort);
+            var localVarResponse = PortfolioListGetWithHttpInfo(attributes, sort);
             return localVarResponse.Data;
         }
 
@@ -1426,7 +1579,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> PortfolioListGetWithHttpInfo(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
+        public ApiResponse<InlineResponse2002> PortfolioListGetWithHttpInfo(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1439,10 +1592,16 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1455,13 +1614,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1473,15 +1632,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/portfolio/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioListGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/portfolio/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1493,9 +1656,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> PortfolioListGetAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>PortfolioListGetAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await PortfolioListGetWithHttpInfoAsync(attributes, sort, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioListGetWithHttpInfoAsync(attributes, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1507,7 +1670,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> PortfolioListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PortfolioListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1520,12 +1684,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1538,13 +1707,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1556,14 +1725,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioListGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/portfolio/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1577,7 +1750,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 PortfolioModifyPost(InlineObject2 body = default(InlineObject2))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = PortfolioModifyPostWithHttpInfo(body);
+            var localVarResponse = PortfolioModifyPostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -1587,7 +1760,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> PortfolioModifyPostWithHttpInfo(InlineObject2 body = default(InlineObject2))
+        public ApiResponse<InlineResponse2003> PortfolioModifyPostWithHttpInfo(InlineObject2 body = default(InlineObject2))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1601,22 +1774,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1628,15 +1807,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2003>("/portfolio/modify", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/portfolio/modify", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1647,9 +1830,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> PortfolioModifyPostAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>PortfolioModifyPostAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await PortfolioModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1660,7 +1843,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> PortfolioModifyPostWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PortfolioModifyPostWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1674,24 +1858,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1703,14 +1892,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/portfolio/modify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1725,7 +1918,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 PortfolioNameListGet(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = PortfolioNameListGetWithHttpInfo(attributes, sort);
+            var localVarResponse = PortfolioNameListGetWithHttpInfo(attributes, sort);
             return localVarResponse.Data;
         }
 
@@ -1736,7 +1929,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> PortfolioNameListGetWithHttpInfo(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
+        public ApiResponse<InlineResponse2005> PortfolioNameListGetWithHttpInfo(List<string> attributes = default(List<string>), List<string> sort = default(List<string>))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1749,10 +1942,16 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1765,13 +1964,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1783,15 +1982,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2005>("/portfolio/name/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioNameListGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2005>("/portfolio/name/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioNameListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1803,9 +2006,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> PortfolioNameListGetAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2005>PortfolioNameListGetAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = await PortfolioNameListGetWithHttpInfoAsync(attributes, sort, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioNameListGetWithHttpInfoAsync(attributes, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1817,7 +2020,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="sort">Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005>> PortfolioNameListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PortfolioNameListGetWithHttpInfoAsync(List<string> attributes = default(List<string>), List<string> sort = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1830,12 +2034,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -1848,13 +2057,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1866,14 +2075,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioNameListGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/portfolio/name/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioNameListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1888,7 +2101,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2006</returns>
         public InlineResponse2006 PortfolioPositionListGet(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = PortfolioPositionListGetWithHttpInfo(id, attributes);
+            var localVarResponse = PortfolioPositionListGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -1899,11 +2112,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the portfolio.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> PortfolioPositionListGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2006> PortfolioPositionListGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PortfolioApi->PortfolioPositionListGet");
+            }
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1916,10 +2131,16 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -1929,13 +2150,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1947,15 +2168,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2006>("/portfolio/position/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioPositionListGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2006>("/portfolio/position/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioPositionListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1967,9 +2192,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> PortfolioPositionListGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2006>PortfolioPositionListGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006> localVarResponse = await PortfolioPositionListGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioPositionListGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1981,11 +2206,14 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2006>> PortfolioPositionListGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> PortfolioPositionListGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PortfolioApi->PortfolioPositionListGet");
+            }
 
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -1998,12 +2226,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2013,13 +2246,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2031,14 +2264,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioPositionListGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/portfolio/position/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioPositionListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2052,7 +2289,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2011</returns>
         public InlineResponse2011 PortfolioTransactionCashCreatePost(InlineObject7 body = default(InlineObject7))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011> localVarResponse = PortfolioTransactionCashCreatePostWithHttpInfo(body);
+            var localVarResponse = PortfolioTransactionCashCreatePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2062,7 +2299,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2011</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011> PortfolioTransactionCashCreatePostWithHttpInfo(InlineObject7 body = default(InlineObject7))
+        public ApiResponse<InlineResponse2011> PortfolioTransactionCashCreatePostWithHttpInfo(InlineObject7 body = default(InlineObject7))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2076,22 +2313,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2103,15 +2346,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2011>("/portfolio/transaction/cash/create", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionCashCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2011>("/portfolio/transaction/cash/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionCashCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2122,9 +2369,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2011> PortfolioTransactionCashCreatePostAsync(InlineObject7 body = default(InlineObject7), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2011>PortfolioTransactionCashCreatePostAsync(InlineObject7 body = default(InlineObject7), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011> localVarResponse = await PortfolioTransactionCashCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioTransactionCashCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2135,7 +2382,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011>> PortfolioTransactionCashCreatePostWithHttpInfoAsync(InlineObject7 body = default(InlineObject7), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> PortfolioTransactionCashCreatePostWithHttpInfoAsync(InlineObject7 body = default(InlineObject7), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -2149,24 +2397,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2178,14 +2431,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionCashCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2011>("/portfolio/transaction/cash/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionCashCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2199,7 +2456,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2007</returns>
         public InlineResponse2007 PortfolioTransactionCashDeletePost(InlineObject8 body = default(InlineObject8))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = PortfolioTransactionCashDeletePostWithHttpInfo(body);
+            var localVarResponse = PortfolioTransactionCashDeletePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2209,7 +2466,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> PortfolioTransactionCashDeletePostWithHttpInfo(InlineObject8 body = default(InlineObject8))
+        public ApiResponse<InlineResponse2007> PortfolioTransactionCashDeletePostWithHttpInfo(InlineObject8 body = default(InlineObject8))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2223,22 +2480,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2250,15 +2513,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2007>("/portfolio/transaction/cash/delete", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionCashDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2007>("/portfolio/transaction/cash/delete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionCashDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2269,9 +2536,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> PortfolioTransactionCashDeletePostAsync(InlineObject8 body = default(InlineObject8), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2007>PortfolioTransactionCashDeletePostAsync(InlineObject8 body = default(InlineObject8), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = await PortfolioTransactionCashDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioTransactionCashDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2282,7 +2549,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007>> PortfolioTransactionCashDeletePostWithHttpInfoAsync(InlineObject8 body = default(InlineObject8), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PortfolioTransactionCashDeletePostWithHttpInfoAsync(InlineObject8 body = default(InlineObject8), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -2296,24 +2564,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2325,14 +2598,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionCashDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2007>("/portfolio/transaction/cash/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionCashDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2346,7 +2623,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2011</returns>
         public InlineResponse2011 PortfolioTransactionCreatePost(InlineObject4 body = default(InlineObject4))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011> localVarResponse = PortfolioTransactionCreatePostWithHttpInfo(body);
+            var localVarResponse = PortfolioTransactionCreatePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2356,7 +2633,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2011</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011> PortfolioTransactionCreatePostWithHttpInfo(InlineObject4 body = default(InlineObject4))
+        public ApiResponse<InlineResponse2011> PortfolioTransactionCreatePostWithHttpInfo(InlineObject4 body = default(InlineObject4))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2370,22 +2647,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2397,15 +2680,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2011>("/portfolio/transaction/create", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2011>("/portfolio/transaction/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2416,9 +2703,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2011</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2011> PortfolioTransactionCreatePostAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2011>PortfolioTransactionCreatePostAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011> localVarResponse = await PortfolioTransactionCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioTransactionCreatePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2429,7 +2716,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2011)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2011>> PortfolioTransactionCreatePostWithHttpInfoAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2011>> PortfolioTransactionCreatePostWithHttpInfoAsync(InlineObject4 body = default(InlineObject4), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -2443,24 +2731,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2472,14 +2765,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionCreatePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2011>("/portfolio/transaction/create", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionCreatePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2493,7 +2790,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2007</returns>
         public InlineResponse2007 PortfolioTransactionDeletePost(InlineObject5 body = default(InlineObject5))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = PortfolioTransactionDeletePostWithHttpInfo(body);
+            var localVarResponse = PortfolioTransactionDeletePostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2503,7 +2800,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> PortfolioTransactionDeletePostWithHttpInfo(InlineObject5 body = default(InlineObject5))
+        public ApiResponse<InlineResponse2007> PortfolioTransactionDeletePostWithHttpInfo(InlineObject5 body = default(InlineObject5))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2517,22 +2814,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2544,15 +2847,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2007>("/portfolio/transaction/delete", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2007>("/portfolio/transaction/delete", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2563,9 +2870,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> PortfolioTransactionDeletePostAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2007>PortfolioTransactionDeletePostAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007> localVarResponse = await PortfolioTransactionDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioTransactionDeletePostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2576,7 +2883,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2007>> PortfolioTransactionDeletePostWithHttpInfoAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> PortfolioTransactionDeletePostWithHttpInfoAsync(InlineObject5 body = default(InlineObject5), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -2590,24 +2898,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2619,14 +2932,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionDeletePostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2007>("/portfolio/transaction/delete", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionDeletePost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2641,7 +2958,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2008</returns>
         public InlineResponse2008 PortfolioTransactionListGet(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> localVarResponse = PortfolioTransactionListGetWithHttpInfo(id, attributes);
+            var localVarResponse = PortfolioTransactionListGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -2652,11 +2969,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the portfolio.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2008</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> PortfolioTransactionListGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2008> PortfolioTransactionListGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PortfolioApi->PortfolioTransactionListGet");
+            }
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2669,10 +2988,16 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2682,13 +3007,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2700,15 +3025,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2008>("/portfolio/transaction/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionListGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2008>("/portfolio/transaction/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2720,9 +3049,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2008</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2008> PortfolioTransactionListGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2008>PortfolioTransactionListGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008> localVarResponse = await PortfolioTransactionListGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioTransactionListGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2734,11 +3063,14 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2008>> PortfolioTransactionListGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> PortfolioTransactionListGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling PortfolioApi->PortfolioTransactionListGet");
+            }
 
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -2751,12 +3083,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -2766,13 +3103,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2784,14 +3121,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionListGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2008>("/portfolio/transaction/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionListGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2805,7 +3146,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <returns>InlineResponse2009</returns>
         public InlineResponse2009 PortfolioTransactionModifyPost(InlineObject6 body = default(InlineObject6))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = PortfolioTransactionModifyPostWithHttpInfo(body);
+            var localVarResponse = PortfolioTransactionModifyPostWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2815,7 +3156,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> PortfolioTransactionModifyPostWithHttpInfo(InlineObject6 body = default(InlineObject6))
+        public ApiResponse<InlineResponse2009> PortfolioTransactionModifyPostWithHttpInfo(InlineObject6 body = default(InlineObject6))
         {
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2829,22 +3170,28 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2856,15 +3203,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2009>("/portfolio/transaction/modify", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2009>("/portfolio/transaction/modify", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2875,9 +3226,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> PortfolioTransactionModifyPostAsync(InlineObject6 body = default(InlineObject6), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2009>PortfolioTransactionModifyPostAsync(InlineObject6 body = default(InlineObject6), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009> localVarResponse = await PortfolioTransactionModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PortfolioTransactionModifyPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2888,7 +3239,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ApiResponse<InlineResponse2009>> PortfolioTransactionModifyPostWithHttpInfoAsync(InlineObject6 body = default(InlineObject6), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> PortfolioTransactionModifyPostWithHttpInfoAsync(InlineObject6 body = default(InlineObject6), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.RequestOptions();
@@ -2902,24 +3254,29 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2931,14 +3288,18 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PortfolioTransactionModifyPostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2009>("/portfolio/transaction/modify", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PortfolioTransactionModifyPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

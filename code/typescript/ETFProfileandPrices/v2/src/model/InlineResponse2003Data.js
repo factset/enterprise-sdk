@@ -12,17 +12,17 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2003DataExchanges from './InlineResponse2003DataExchanges';
+import InlineResponse2003DataCurrencies from './InlineResponse2003DataCurrencies';
 
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003Data {
     /**
      * Constructs a new <code>InlineResponse2003Data</code>.
-     * ETP exchange allocation data.
+     * ETP currency allocation data.
      * @alias module:model/InlineResponse2003Data
      */
     constructor() { 
@@ -52,8 +52,8 @@ class InlineResponse2003Data {
             if (data.hasOwnProperty('reportDate')) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('exchanges')) {
-                obj['exchanges'] = ApiClient.convertToType(data['exchanges'], [InlineResponse2003DataExchanges]);
+            if (data.hasOwnProperty('currencies')) {
+                obj['currencies'] = ApiClient.convertToType(data['currencies'], [InlineResponse2003DataCurrencies]);
             }
         }
         return obj;
@@ -69,10 +69,10 @@ class InlineResponse2003Data {
 InlineResponse2003Data.prototype['reportDate'] = undefined;
 
 /**
- * List of allocations by exchange.
- * @member {Array.<module:model/InlineResponse2003DataExchanges>} exchanges
+ * List of allocations by currency.
+ * @member {Array.<module:model/InlineResponse2003DataCurrencies>} currencies
  */
-InlineResponse2003Data.prototype['exchanges'] = undefined;
+InlineResponse2003Data.prototype['currencies'] = undefined;
 
 
 

@@ -108,7 +108,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RelatedFunds {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  RelatedFundIdOne: ").Append(RelatedFundIdOne).Append("\n");
@@ -148,8 +148,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(RelatedFunds input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -198,19 +199,33 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.RelatedFundIdOne != null)
-                    hashCode = hashCode * 59 + this.RelatedFundIdOne.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedFundIdOne.GetHashCode();
+                }
                 if (this.RelatedFundIdTwo != null)
-                    hashCode = hashCode * 59 + this.RelatedFundIdTwo.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedFundIdTwo.GetHashCode();
+                }
                 if (this.RelatedFundIdThree != null)
-                    hashCode = hashCode * 59 + this.RelatedFundIdThree.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedFundIdThree.GetHashCode();
+                }
                 if (this.RelatedFundIdFour != null)
-                    hashCode = hashCode * 59 + this.RelatedFundIdFour.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedFundIdFour.GetHashCode();
+                }
                 if (this.RelatedFundIdFive != null)
-                    hashCode = hashCode * 59 + this.RelatedFundIdFive.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedFundIdFive.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

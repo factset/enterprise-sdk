@@ -43,6 +43,8 @@ public class UltimateEntityStructureResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<UtlimateEntityStructure> data = null;
 
+  public UltimateEntityStructureResponse() { 
+  }
 
   public UltimateEntityStructureResponse data(java.util.List<UtlimateEntityStructure> data) {
     this.data = data;

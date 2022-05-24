@@ -127,7 +127,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SurpriseRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
@@ -168,8 +168,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(SurpriseRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -225,21 +226,37 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.Metrics != null)
-                    hashCode = hashCode * 59 + this.Metrics.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Metrics.GetHashCode();
+                }
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
                 if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
                 if (this.Periodicity != null)
-                    hashCode = hashCode * 59 + this.Periodicity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Periodicity.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Statistic != null)
-                    hashCode = hashCode * 59 + this.Statistic.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Statistic.GetHashCode();
+                }
                 return hashCode;
             }
         }

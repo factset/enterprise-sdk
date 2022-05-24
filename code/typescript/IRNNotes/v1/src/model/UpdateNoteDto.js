@@ -20,7 +20,7 @@ import UserSerialDto from './UserSerialDto';
 /**
  * The UpdateNoteDto model module.
  * @module model/UpdateNoteDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UpdateNoteDto {
     /**
@@ -51,41 +51,50 @@ class UpdateNoteDto {
         if (data) {
             obj = obj || new UpdateNoteDto();
 
-            if (data.hasOwnProperty('author')) {
-                obj['author'] = UserSerialDto.constructFromObject(data['author']);
+            if (data.hasOwnProperty('Author')) {
+                obj['Author'] = UserSerialDto.constructFromObject(data['Author']);
             }
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            if (data.hasOwnProperty('Title')) {
+                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
             }
-            if (data.hasOwnProperty('recommendationId')) {
-                obj['recommendationId'] = ApiClient.convertToType(data['recommendationId'], 'String');
+            if (data.hasOwnProperty('SubjectId')) {
+                obj['SubjectId'] = ApiClient.convertToType(data['SubjectId'], 'String');
             }
-            if (data.hasOwnProperty('sentimentId')) {
-                obj['sentimentId'] = ApiClient.convertToType(data['sentimentId'], 'String');
+            if (data.hasOwnProperty('NoteDate')) {
+                obj['NoteDate'] = ApiClient.convertToType(data['NoteDate'], 'String');
             }
-            if (data.hasOwnProperty('body')) {
-                obj['body'] = CreateBodyDto.constructFromObject(data['body']);
+            if (data.hasOwnProperty('RecommendationId')) {
+                obj['RecommendationId'] = ApiClient.convertToType(data['RecommendationId'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
-                obj['source'] = ApiClient.convertToType(data['source'], 'String');
+            if (data.hasOwnProperty('SentimentId')) {
+                obj['SentimentId'] = ApiClient.convertToType(data['SentimentId'], 'String');
             }
-            if (data.hasOwnProperty('link')) {
-                obj['link'] = ApiClient.convertToType(data['link'], 'String');
+            if (data.hasOwnProperty('Body')) {
+                obj['Body'] = CreateBodyDto.constructFromObject(data['Body']);
             }
-            if (data.hasOwnProperty('relatedSymbols')) {
-                obj['relatedSymbols'] = ApiClient.convertToType(data['relatedSymbols'], ['String']);
+            if (data.hasOwnProperty('Source')) {
+                obj['Source'] = ApiClient.convertToType(data['Source'], 'String');
             }
-            if (data.hasOwnProperty('relatedContacts')) {
-                obj['relatedContacts'] = ApiClient.convertToType(data['relatedContacts'], ['String']);
+            if (data.hasOwnProperty('Link')) {
+                obj['Link'] = ApiClient.convertToType(data['Link'], 'String');
             }
-            if (data.hasOwnProperty('relatedRecords')) {
-                obj['relatedRecords'] = RelatedRecordsDto.constructFromObject(data['relatedRecords']);
+            if (data.hasOwnProperty('RelatedSymbols')) {
+                obj['RelatedSymbols'] = ApiClient.convertToType(data['RelatedSymbols'], ['String']);
             }
-            if (data.hasOwnProperty('customFieldValues')) {
-                obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [CreateCustomFieldValueDto]);
+            if (data.hasOwnProperty('RelatedContacts')) {
+                obj['RelatedContacts'] = ApiClient.convertToType(data['RelatedContacts'], ['String']);
             }
-            if (data.hasOwnProperty('isPersonal')) {
-                obj['isPersonal'] = ApiClient.convertToType(data['isPersonal'], 'Boolean');
+            if (data.hasOwnProperty('RelatedRecords')) {
+                obj['RelatedRecords'] = RelatedRecordsDto.constructFromObject(data['RelatedRecords']);
+            }
+            if (data.hasOwnProperty('CustomFieldValues')) {
+                obj['CustomFieldValues'] = ApiClient.convertToType(data['CustomFieldValues'], [CreateCustomFieldValueDto]);
+            }
+            if (data.hasOwnProperty('IsPersonal')) {
+                obj['IsPersonal'] = ApiClient.convertToType(data['IsPersonal'], 'Boolean');
+            }
+            if (data.hasOwnProperty('Identifier')) {
+                obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
             }
         }
         return obj;
@@ -95,64 +104,79 @@ class UpdateNoteDto {
 }
 
 /**
- * @member {module:model/UserSerialDto} author
+ * @member {module:model/UserSerialDto} Author
  */
-UpdateNoteDto.prototype['author'] = undefined;
+UpdateNoteDto.prototype['Author'] = undefined;
 
 /**
- * @member {String} title
+ * @member {String} Title
  */
-UpdateNoteDto.prototype['title'] = undefined;
+UpdateNoteDto.prototype['Title'] = undefined;
 
 /**
- * @member {String} recommendationId
+ * @member {String} SubjectId
  */
-UpdateNoteDto.prototype['recommendationId'] = undefined;
+UpdateNoteDto.prototype['SubjectId'] = undefined;
 
 /**
- * @member {String} sentimentId
+ * @member {String} NoteDate
  */
-UpdateNoteDto.prototype['sentimentId'] = undefined;
+UpdateNoteDto.prototype['NoteDate'] = undefined;
 
 /**
- * @member {module:model/CreateBodyDto} body
+ * @member {String} RecommendationId
  */
-UpdateNoteDto.prototype['body'] = undefined;
+UpdateNoteDto.prototype['RecommendationId'] = undefined;
 
 /**
- * @member {String} source
+ * @member {String} SentimentId
  */
-UpdateNoteDto.prototype['source'] = undefined;
+UpdateNoteDto.prototype['SentimentId'] = undefined;
 
 /**
- * @member {String} link
+ * @member {module:model/CreateBodyDto} Body
  */
-UpdateNoteDto.prototype['link'] = undefined;
+UpdateNoteDto.prototype['Body'] = undefined;
 
 /**
- * @member {Array.<String>} relatedSymbols
+ * @member {String} Source
  */
-UpdateNoteDto.prototype['relatedSymbols'] = undefined;
+UpdateNoteDto.prototype['Source'] = undefined;
 
 /**
- * @member {Array.<String>} relatedContacts
+ * @member {String} Link
  */
-UpdateNoteDto.prototype['relatedContacts'] = undefined;
+UpdateNoteDto.prototype['Link'] = undefined;
 
 /**
- * @member {module:model/RelatedRecordsDto} relatedRecords
+ * @member {Array.<String>} RelatedSymbols
  */
-UpdateNoteDto.prototype['relatedRecords'] = undefined;
+UpdateNoteDto.prototype['RelatedSymbols'] = undefined;
 
 /**
- * @member {Array.<module:model/CreateCustomFieldValueDto>} customFieldValues
+ * @member {Array.<String>} RelatedContacts
  */
-UpdateNoteDto.prototype['customFieldValues'] = undefined;
+UpdateNoteDto.prototype['RelatedContacts'] = undefined;
 
 /**
- * @member {Boolean} isPersonal
+ * @member {module:model/RelatedRecordsDto} RelatedRecords
  */
-UpdateNoteDto.prototype['isPersonal'] = undefined;
+UpdateNoteDto.prototype['RelatedRecords'] = undefined;
+
+/**
+ * @member {Array.<module:model/CreateCustomFieldValueDto>} CustomFieldValues
+ */
+UpdateNoteDto.prototype['CustomFieldValues'] = undefined;
+
+/**
+ * @member {Boolean} IsPersonal
+ */
+UpdateNoteDto.prototype['IsPersonal'] = undefined;
+
+/**
+ * @member {String} Identifier
+ */
+UpdateNoteDto.prototype['Identifier'] = undefined;
 
 
 

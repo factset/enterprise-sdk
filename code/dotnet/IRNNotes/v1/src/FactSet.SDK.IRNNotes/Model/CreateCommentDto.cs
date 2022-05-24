@@ -47,19 +47,19 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets AuthorId
         /// </summary>
-        [DataMember(Name = "authorId", EmitDefaultValue = false)]
+        [DataMember(Name = "AuthorId", EmitDefaultValue = false)]
         public Guid AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets ParentCommentId
         /// </summary>
-        [DataMember(Name = "parentCommentId", EmitDefaultValue = true)]
+        [DataMember(Name = "ParentCommentId", EmitDefaultValue = true)]
         public Guid? ParentCommentId { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name = "body", EmitDefaultValue = true)]
+        [DataMember(Name = "Body", EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CreateCommentDto {\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  ParentCommentId: ").Append(ParentCommentId).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(CreateCommentDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AuthorId == input.AuthorId ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
                 if (this.ParentCommentId != null)
-                    hashCode = hashCode * 59 + this.ParentCommentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentCommentId.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -48,6 +48,8 @@ public class InlineResponse200DataRedemptionPriceValueUnit implements Serializab
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  public InlineResponse200DataRedemptionPriceValueUnit() { 
+  }
 
   public InlineResponse200DataRedemptionPriceValueUnit id(BigDecimal id) {
     this.id = id;

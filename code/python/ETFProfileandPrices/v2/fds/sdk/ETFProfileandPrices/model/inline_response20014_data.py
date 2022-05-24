@@ -24,10 +24,20 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.ETFProfileandPrices.model.inline_response20014_data_counter_party import InlineResponse20014DataCounterParty
+    from fds.sdk.ETFProfileandPrices.model.inline_response20014_data_gearing import InlineResponse20014DataGearing
+    from fds.sdk.ETFProfileandPrices.model.inline_response20014_data_hedge import InlineResponse20014DataHedge
+    from fds.sdk.ETFProfileandPrices.model.inline_response20014_data_service_provider import InlineResponse20014DataServiceProvider
+    globals()['InlineResponse20014DataCounterParty'] = InlineResponse20014DataCounterParty
+    globals()['InlineResponse20014DataGearing'] = InlineResponse20014DataGearing
+    globals()['InlineResponse20014DataHedge'] = InlineResponse20014DataHedge
+    globals()['InlineResponse20014DataServiceProvider'] = InlineResponse20014DataServiceProvider
 
 
 class InlineResponse20014Data(ModelNormal):
@@ -66,6 +76,7 @@ class InlineResponse20014Data(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -80,10 +91,12 @@ class InlineResponse20014Data(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'nav_date': (date,),  # noqa: E501
-            'tenk_value': (float,),  # noqa: E501
-            'tenk_percent_change': (float,),  # noqa: E501
+            'gearing': (InlineResponse20014DataGearing,),  # noqa: E501
+            'hedge': (InlineResponse20014DataHedge,),  # noqa: E501
+            'counter_party': (InlineResponse20014DataCounterParty,),  # noqa: E501
+            'service_provider': (InlineResponse20014DataServiceProvider,),  # noqa: E501
         }
 
     @cached_property
@@ -92,9 +105,10 @@ class InlineResponse20014Data(ModelNormal):
 
 
     attribute_map = {
-        'nav_date': 'navDate',  # noqa: E501
-        'tenk_value': 'tenkValue',  # noqa: E501
-        'tenk_percent_change': 'tenkPercentChange',  # noqa: E501
+        'gearing': 'gearing',  # noqa: E501
+        'hedge': 'hedge',  # noqa: E501
+        'counter_party': 'counterParty',  # noqa: E501
+        'service_provider': 'serviceProvider',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,9 +152,10 @@ class InlineResponse20014Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            nav_date (date): Growth of the 10k calculation date. [optional]  # noqa: E501
-            tenk_value (float): Growth of the 10k calculation value.. [optional]  # noqa: E501
-            tenk_percent_change (float): Growth of the 10k calculation percent change.. [optional]  # noqa: E501
+            gearing (InlineResponse20014DataGearing): [optional]  # noqa: E501
+            hedge (InlineResponse20014DataHedge): [optional]  # noqa: E501
+            counter_party (InlineResponse20014DataCounterParty): [optional]  # noqa: E501
+            service_provider (InlineResponse20014DataServiceProvider): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,9 +237,10 @@ class InlineResponse20014Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            nav_date (date): Growth of the 10k calculation date. [optional]  # noqa: E501
-            tenk_value (float): Growth of the 10k calculation value.. [optional]  # noqa: E501
-            tenk_percent_change (float): Growth of the 10k calculation percent change.. [optional]  # noqa: E501
+            gearing (InlineResponse20014DataGearing): [optional]  # noqa: E501
+            hedge (InlineResponse20014DataHedge): [optional]  # noqa: E501
+            counter_party (InlineResponse20014DataCounterParty): [optional]  # noqa: E501
+            service_provider (InlineResponse20014DataServiceProvider): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

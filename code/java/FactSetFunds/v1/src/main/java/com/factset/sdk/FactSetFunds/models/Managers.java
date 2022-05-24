@@ -66,6 +66,8 @@ public class Managers implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public Managers() { 
+  }
 
   public Managers fsymId(String fsymId) {
     this.fsymId = fsymId;

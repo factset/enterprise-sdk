@@ -58,6 +58,16 @@ public class RankedTableTemplate implements Serializable {
   public static final String JSON_PROPERTY_TABLE = "table";
   private RankedTable table;
 
+  public RankedTableTemplate() { 
+  }
+
+  @JsonCreator
+  public RankedTableTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public RankedTableTemplate headline(String headline) {
     this.headline = headline;

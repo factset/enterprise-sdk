@@ -45,15 +45,17 @@ import com.factset.sdk.IRNNotes.JSON;
 public class RecordEventSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
+  public static final String JSON_PROPERTY_TYPE = "Type";
   private JsonNullable<String> type = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
+  public static final String JSON_PROPERTY_CREATED_AT = "CreatedAt";
   private JsonNullable<String> createdAt = JsonNullable.<String>undefined();
 
+  public RecordEventSummaryDto() { 
+  }
 
   public RecordEventSummaryDto id(java.util.UUID id) {
     this.id = id;

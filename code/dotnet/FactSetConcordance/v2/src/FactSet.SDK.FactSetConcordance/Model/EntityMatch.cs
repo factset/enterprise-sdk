@@ -369,7 +369,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityMatch {\n");
             sb.Append("  UniverseId: ").Append(UniverseId).Append("\n");
             sb.Append("  TaskId: ").Append(TaskId).Append("\n");
@@ -435,8 +435,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(EntityMatch input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UniverseId == input.UniverseId ||
@@ -606,64 +607,114 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UniverseId.GetHashCode();
-                hashCode = hashCode * 59 + this.TaskId.GetHashCode();
-                hashCode = hashCode * 59 + this.RowIndex.GetHashCode();
-                hashCode = hashCode * 59 + this.MatchFlag.GetHashCode();
+                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
+                hashCode = (hashCode * 59) + this.TaskId.GetHashCode();
+                hashCode = (hashCode * 59) + this.RowIndex.GetHashCode();
+                hashCode = (hashCode * 59) + this.MatchFlag.GetHashCode();
                 if (this.EntityId != null)
-                    hashCode = hashCode * 59 + this.EntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityId.GetHashCode();
+                }
                 if (this.EntityName != null)
-                    hashCode = hashCode * 59 + this.EntityName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityName.GetHashCode();
+                }
                 if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
-                hashCode = hashCode * 59 + this.MapStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.SimilarityScore.GetHashCode();
-                hashCode = hashCode * 59 + this.ConfidenceScore.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MapStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this.SimilarityScore.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConfidenceScore.GetHashCode();
                 if (this.CountryCode != null)
-                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryCode.GetHashCode();
+                }
                 if (this.CountryName != null)
-                    hashCode = hashCode * 59 + this.CountryName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryName.GetHashCode();
+                }
                 if (this.StateCode != null)
-                    hashCode = hashCode * 59 + this.StateCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StateCode.GetHashCode();
+                }
                 if (this.StateName != null)
-                    hashCode = hashCode * 59 + this.StateName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StateName.GetHashCode();
+                }
                 if (this.SicCode != null)
-                    hashCode = hashCode * 59 + this.SicCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SicCode.GetHashCode();
+                }
                 if (this.EntityTypeCode != null)
-                    hashCode = hashCode * 59 + this.EntityTypeCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityTypeCode.GetHashCode();
+                }
                 if (this.EntityTypeDescription != null)
-                    hashCode = hashCode * 59 + this.EntityTypeDescription.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityTypeDescription.GetHashCode();
+                }
                 if (this.EntitySubTypeCode != null)
-                    hashCode = hashCode * 59 + this.EntitySubTypeCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntitySubTypeCode.GetHashCode();
+                }
                 if (this.LocationCity != null)
-                    hashCode = hashCode * 59 + this.LocationCity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LocationCity.GetHashCode();
+                }
                 if (this.RegionName != null)
-                    hashCode = hashCode * 59 + this.RegionName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RegionName.GetHashCode();
+                }
                 if (this.FactsetIndustryCode != null)
-                    hashCode = hashCode * 59 + this.FactsetIndustryCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactsetIndustryCode.GetHashCode();
+                }
                 if (this.FactsetIndustryName != null)
-                    hashCode = hashCode * 59 + this.FactsetIndustryName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactsetIndustryName.GetHashCode();
+                }
                 if (this.FactsetSectorCode != null)
-                    hashCode = hashCode * 59 + this.FactsetSectorCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactsetSectorCode.GetHashCode();
+                }
                 if (this.FactsetSectorName != null)
-                    hashCode = hashCode * 59 + this.FactsetSectorName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactsetSectorName.GetHashCode();
+                }
                 if (this.ParentName != null)
-                    hashCode = hashCode * 59 + this.ParentName.GetHashCode();
-                hashCode = hashCode * 59 + this.ParentMatchFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ParentMatchFlag.GetHashCode();
                 if (this.ClientId != null)
-                    hashCode = hashCode * 59 + this.ClientId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
                 if (this.ClientName != null)
-                    hashCode = hashCode * 59 + this.ClientName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientName.GetHashCode();
+                }
                 if (this.ClientCountry != null)
-                    hashCode = hashCode * 59 + this.ClientCountry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientCountry.GetHashCode();
+                }
                 if (this.ClientState != null)
-                    hashCode = hashCode * 59 + this.ClientState.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientState.GetHashCode();
+                }
                 if (this.ClientUrl != null)
-                    hashCode = hashCode * 59 + this.ClientUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientUrl.GetHashCode();
+                }
                 if (this.NameMatchString != null)
-                    hashCode = hashCode * 59 + this.NameMatchString.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NameMatchString.GetHashCode();
+                }
                 if (this.NameMatchSource != null)
-                    hashCode = hashCode * 59 + this.NameMatchSource.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NameMatchSource.GetHashCode();
+                }
                 return hashCode;
             }
         }

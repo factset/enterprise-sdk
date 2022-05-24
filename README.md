@@ -44,38 +44,8 @@ Each library linked above in the [overview](#overview) section also contains emb
 
 The FactSet Enterprise SDK supports two forms of authentication, both must be setup through [FactSet's Developer Portal](https://developer.factset.com).
 
-1. (preferred) OAuth 2.0 - client credentials flow
-2. API Key
-
-### OAuth 2.0
-
-[OAuth 2.0](https://github.com/factset/oauth2-guidelines) is the preferred authentication scheme when using FactSet's APIs and this SDK. Right now the SDK supports the client credentials flow, which can be used for machine-to-machine communication.
-
-#### Client Credentials Flow
-
-Follow these steps to register an application on FactSet's Developer Portal and create an OAuth 2.0 client:
-
-1. Open the [applications](https://developer.factset.com/applications) page on FactSet's Developer Portal.
-2. Click `Create Application` then `Confidential Client Application`. This will create a new OAuth 2.0 client that uses the client credentials flow.
-3. Enter the application details:
-   * Name: enter anything that you would like
-   * Description: enter anything that you would like
-   * Signing Key: select `Generate a key pair`
-      * **NOTE:** while FactSet does not store your generated private key, for production deployments you should generate your own key pair and only share the public key with FactSet by selecting the `Use my own public key` option to ensure that your private key remains secure.
-4. Click `Create`, then on the next screen click `Download` to download the configuration.
-5. Move the downloaded configuration file to somewhere that's accessible to your application and name it `app-config.json`.
-
-### API Key
-
-Follow these steps to create an API key on FactSet's Developer Portal:
-
-1. Open the [manage API keys](https://developer.factset.com/manage-api-keys) page on FactSet's Developer Portal.
-2. Click `Generate new API key`.
-3. Enter the API key details:
-   * Description: enter anything you would like
-   * IP Range: The `From IP` field will be populated with your current Internet-facing IP address. Click the `Add` button to add it to the list, or enter an alternate IP address range based on where your application is executed.
-4. Click `Create`.
-5. When the success message box pops up, copy your username (FactSet username-serial) and password (API key) somewhere safe to be used later.
+1. (preferred) [OAuth 2.0](https://developer.factset.com/learn/authentication-oauth2) - client credentials flow
+2. [API Key](https://developer.factset.com/learn/authentication-api-key)
 
 ## Contributing
 

@@ -47,6 +47,8 @@ public class VendorChartIQTimeSeriesEodListDataAdjustments implements Serializab
   public static final String JSON_PROPERTY_SPLIT = "split";
   private Boolean split = true;
 
+  public VendorChartIQTimeSeriesEodListDataAdjustments() { 
+  }
 
   public VendorChartIQTimeSeriesEodListDataAdjustments payout(Boolean payout) {
     this.payout = payout;

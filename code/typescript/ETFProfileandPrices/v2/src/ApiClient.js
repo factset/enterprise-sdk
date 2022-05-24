@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.9.1
+* @version 0.10.0
 */
 
 /**
@@ -33,11 +33,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'http://api-sandbox.factset.com/wealth/v1') {
+    constructor(basePath = 'https://api.factset.com/wealth/v1') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://api-sandbox.factset.com/wealth/v1
+         * @default https://api.factset.com/wealth/v1
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/ETFProfileandPrices/0.9.1'
+            'User-Agent': 'fds-sdk/javascript/ETFProfileandPrices/0.10.0'
         };
 
         /**
@@ -343,7 +343,7 @@ class ApiClient {
                     if (this.factsetOauth2Client !== undefined) {
                         const token = await this.factsetOauth2Client.getAccessToken()
                         request.set({'Authorization': 'Bearer ' + token});
-                
+
                     } else if (auth.accessToken) {
                         request.set({'Authorization': 'Bearer ' + auth.accessToken});
                     }
@@ -375,6 +375,15 @@ class ApiClient {
         if (data == null || (typeof data === 'object' && typeof data.length === 'undefined' && !Object.keys(data).length)) {
             // SuperAgent does not always produce a body; use the unparsed response as a fallback
             data = response.text;
+        }
+
+        if (typeof returnType._createResponseWrapper === "function") {
+            let deserialized = null;
+            if (returnType[response.status]) {
+              deserialized = ApiClient.convertToType(data, returnType[response.status])
+            }
+
+            return returnType._createResponseWrapper(response.status, deserialized);
         }
 
         return ApiClient.convertToType(data, returnType);
@@ -606,7 +615,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "//api-sandbox.factset.com/wealth/v1",
+              'url': "https://api.factset.com/wealth/v1",
               'description': "No description provided",
             }
       ];

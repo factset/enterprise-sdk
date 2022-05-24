@@ -151,6 +151,7 @@ const opts = {
 // Call api endpoint
 apiInstance.v1DatabasePathDatesGet(path, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -227,6 +228,7 @@ const path = "path_example"; // String | Encode database path
 // Call api endpoint
 apiInstance.v1DatabasePathFieldsGet(path).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -305,6 +307,7 @@ const opts = {
 // Call api endpoint
 apiInstance.v1DatabasePathSymbolsGet(path, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -63,7 +63,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorResponseSubErrors {\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         public bool Equals(ErrorResponseSubErrors input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Field == input.Field ||
@@ -123,9 +124,13 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
             {
                 int hashCode = 41;
                 if (this.Field != null)
-                    hashCode = hashCode * 59 + this.Field.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Field.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 return hashCode;
             }
         }

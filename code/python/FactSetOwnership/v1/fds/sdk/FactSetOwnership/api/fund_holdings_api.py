@@ -11,6 +11,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.FactSetOwnership.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.FactSetOwnership.model_utils import (  # noqa: F401
@@ -22,9 +24,13 @@ from fds.sdk.FactSetOwnership.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.FactSetOwnership.exceptions import ApiException
 from fds.sdk.FactSetOwnership.model.error_response import ErrorResponse
 from fds.sdk.FactSetOwnership.model.fund_holdings_request import FundHoldingsRequest
 from fds.sdk.FactSetOwnership.model.fund_holdings_response import FundHoldingsResponse
+
+
+
 
 
 class FundHoldingsApi(object):
@@ -40,7 +46,10 @@ class FundHoldingsApi(object):
         self.api_client = api_client
         self.get_ownership_holdings_endpoint = _Endpoint(
             settings={
-                'response_type': (FundHoldingsResponse,),
+                'response_type': (
+                  { 200: (FundHoldingsResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -126,7 +135,10 @@ class FundHoldingsApi(object):
         )
         self.post_ownership_holdings_endpoint = _Endpoint(
             settings={
-                'response_type': (FundHoldingsResponse,),
+                'response_type': (
+                  { 200: (FundHoldingsResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -178,19 +190,27 @@ class FundHoldingsApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def get_ownership_holdings(
         self,
         ids,
         **kwargs
-    ):
+    ) -> FundHoldingsResponse:
         """Get underlying holdings information for a requested fund identifer.  # noqa: E501
 
         Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_ownership_holdings(ids, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             ids ([str]): List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
@@ -200,8 +220,6 @@ class FundHoldingsApi(object):
             topn (str): Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number.. [optional] if omitted the server will use the default value of "ALL"
             asset_type (str): Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL . [optional] if omitted the server will use the default value of "EQ"
             currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -215,35 +233,173 @@ class FundHoldingsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             FundHoldingsResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['ids'] = \
+            ids
+        return self.get_ownership_holdings_endpoint.call_with_http_info(**kwargs)
+
+    def get_ownership_holdings_with_http_info(
+        self,
+        ids,
+        **kwargs
+    ) -> typing.Tuple[FundHoldingsResponse, int, typing.MutableMapping]:
+        """Get underlying holdings information for a requested fund identifer.  # noqa: E501
+
+        Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            ids ([str]): List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
+
+        Keyword Args:
+            date (str): Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close.. [optional]
+            topn (str): Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number.. [optional] if omitted the server will use the default value of "ALL"
+            asset_type (str): Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL . [optional] if omitted the server will use the default value of "EQ"
+            currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            FundHoldingsResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['ids'] = \
+            ids
+        return self.get_ownership_holdings_endpoint.call_with_http_info(**kwargs)
+
+    def get_ownership_holdings_async(
+        self,
+        ids,
+        **kwargs
+    ) -> "ApplyResult[FundHoldingsResponse]":
+        """Get underlying holdings information for a requested fund identifer.  # noqa: E501
+
+        Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            ids ([str]): List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
+
+        Keyword Args:
+            date (str): Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close.. [optional]
+            topn (str): Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number.. [optional] if omitted the server will use the default value of "ALL"
+            asset_type (str): Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL . [optional] if omitted the server will use the default value of "EQ"
+            currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[FundHoldingsResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['ids'] = \
+            ids
+        return self.get_ownership_holdings_endpoint.call_with_http_info(**kwargs)
+
+    def get_ownership_holdings_with_http_info_async(
+        self,
+        ids,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[FundHoldingsResponse, int, typing.MutableMapping]]":
+        """Get underlying holdings information for a requested fund identifer.  # noqa: E501
+
+        Gets holdings information for list of fund identifiers. The service allows you to filter by the TopN holdings and Asset Type.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            ids ([str]): List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
+
+        Keyword Args:
+            date (str): Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close.. [optional]
+            topn (str): Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number.. [optional] if omitted the server will use the default value of "ALL"
+            asset_type (str): Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL . [optional] if omitted the server will use the default value of "EQ"
+            currency (str): Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(FundHoldingsResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['ids'] = \
             ids
         return self.get_ownership_holdings_endpoint.call_with_http_info(**kwargs)
@@ -252,22 +408,16 @@ class FundHoldingsApi(object):
         self,
         fund_holdings_request,
         **kwargs
-    ):
+    ) -> FundHoldingsResponse:
         """Get holdings for a list of funds.  # noqa: E501
 
         Gets Holding information for a long list of Fund objects.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.post_ownership_holdings(fund_holdings_request, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             fund_holdings_request (FundHoldingsRequest): Requesting Underlying Holdings for a list of Fund Identifiers.
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -281,35 +431,161 @@ class FundHoldingsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             FundHoldingsResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['fund_holdings_request'] = \
+            fund_holdings_request
+        return self.post_ownership_holdings_endpoint.call_with_http_info(**kwargs)
+
+    def post_ownership_holdings_with_http_info(
+        self,
+        fund_holdings_request,
+        **kwargs
+    ) -> typing.Tuple[FundHoldingsResponse, int, typing.MutableMapping]:
+        """Get holdings for a list of funds.  # noqa: E501
+
+        Gets Holding information for a long list of Fund objects.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            fund_holdings_request (FundHoldingsRequest): Requesting Underlying Holdings for a list of Fund Identifiers.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            FundHoldingsResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['fund_holdings_request'] = \
+            fund_holdings_request
+        return self.post_ownership_holdings_endpoint.call_with_http_info(**kwargs)
+
+    def post_ownership_holdings_async(
+        self,
+        fund_holdings_request,
+        **kwargs
+    ) -> "ApplyResult[FundHoldingsResponse]":
+        """Get holdings for a list of funds.  # noqa: E501
+
+        Gets Holding information for a long list of Fund objects.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            fund_holdings_request (FundHoldingsRequest): Requesting Underlying Holdings for a list of Fund Identifiers.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[FundHoldingsResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['fund_holdings_request'] = \
+            fund_holdings_request
+        return self.post_ownership_holdings_endpoint.call_with_http_info(**kwargs)
+
+    def post_ownership_holdings_with_http_info_async(
+        self,
+        fund_holdings_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[FundHoldingsResponse, int, typing.MutableMapping]]":
+        """Get holdings for a list of funds.  # noqa: E501
+
+        Gets Holding information for a long list of Fund objects.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            fund_holdings_request (FundHoldingsRequest): Requesting Underlying Holdings for a list of Fund Identifiers.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(FundHoldingsResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['fund_holdings_request'] = \
             fund_holdings_request
         return self.post_ownership_holdings_endpoint.call_with_http_info(**kwargs)

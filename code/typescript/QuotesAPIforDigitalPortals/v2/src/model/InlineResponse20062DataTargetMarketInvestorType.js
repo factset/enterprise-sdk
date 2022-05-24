@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataTargetMarketInvestorType model module.
  * @module model/InlineResponse20062DataTargetMarketInvestorType
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20062DataTargetMarketInvestorType {
     /**

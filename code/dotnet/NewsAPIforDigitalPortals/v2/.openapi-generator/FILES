@@ -20,6 +20,9 @@ docs/InlineResponse2001Categories.md
 docs/InlineResponse2001Chain.md
 docs/InlineResponse2001Data.md
 docs/InlineResponse2001Distributor.md
+docs/InlineResponse2001Fsym.md
+docs/InlineResponse2001FsymSecurity.md
+docs/InlineResponse2001Instruments.md
 docs/InlineResponse2001Language.md
 docs/InlineResponse2001Meta.md
 docs/InlineResponse2001Publisher.md
@@ -48,6 +51,8 @@ docs/InlineResponse2009Data.md
 docs/InlineResponse200Data.md
 docs/InlineResponse200DataCategories.md
 docs/InlineResponse200DataDistributor.md
+docs/InlineResponse200DataFsym.md
+docs/InlineResponse200DataFsymSecurity.md
 docs/InlineResponse200DataInstruments.md
 docs/InlineResponse200DataLanguage.md
 docs/InlineResponse200DataMedia.md
@@ -129,6 +134,9 @@ src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Categories.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Chain.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Data.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Distributor.cs
+src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Fsym.cs
+src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001FsymSecurity.cs
+src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Instruments.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Language.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Meta.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2001Publisher.cs
@@ -157,6 +165,8 @@ src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse2009Data.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200Data.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200DataCategories.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200DataDistributor.cs
+src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200DataFsym.cs
+src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200DataFsymSecurity.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200DataInstruments.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200DataLanguage.cs
 src/FactSet.SDK.NewsAPIforDigitalPortals/Model/InlineResponse200DataMedia.cs

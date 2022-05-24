@@ -22,7 +22,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * CUSIP service.
 * @module api/CUSIPApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CUSIPApi {
 
@@ -64,7 +64,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CusipHistoryResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/cusip-history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class CUSIPApi {
      * Retrieve the full history or as of a specific date of CUSIP changes for the requested ID(s).
      * Return the full history of CUSIP changes for a given market security or FactSet Permanent Id.
      * @param {module:model/CusipHistoryTranslationRequest} cusipHistoryTranslationRequest Request Body for CUSIP History
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipHistoryResponse}
+     * @return { Promise.< module:model/CusipHistoryResponse > } a Promise, with data of type {@link module:model/CusipHistoryResponse }
      */
     batchCusipHistory(cusipHistoryTranslationRequest) {
       return this.batchCusipHistoryWithHttpInfo(cusipHistoryTranslationRequest)
@@ -111,7 +114,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CusipTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/cusip', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class CUSIPApi {
      * Translate market security symbols into CUSIP - Current Only
      * Translate market security symbols into CUSIP and FactSet Permanent Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system. <p>This method is best for requesting **large universes** of `ids`.</p>
      * @param {module:model/CusipTranslationRequest} cusipTranslationRequest Request Body for current only CUSIP Symbology Translation
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipTranslationResponse}
+     * @return { Promise.< module:model/CusipTranslationResponse > } a Promise, with data of type {@link module:model/CusipTranslationResponse }
      */
     batchTranslateCusips(cusipTranslationRequest) {
       return this.batchTranslateCusipsWithHttpInfo(cusipTranslationRequest)
@@ -163,7 +169,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CusipHistoryResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/cusip-history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -177,7 +186,7 @@ export default class CUSIPApi {
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {String} opts.asOfDate As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipHistoryResponse}
+     * @return { Promise.< module:model/CusipHistoryResponse > } a Promise, with data of type {@link module:model/CusipHistoryResponse }
      */
     cusipHistory(ids, opts) {
       return this.cusipHistoryWithHttpInfo(ids, opts)
@@ -213,7 +222,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CusipTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/cusip', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -225,7 +237,7 @@ export default class CUSIPApi {
      * Translate market security symbols into CUSIPs - Current Only
      * Translate market security symbols into CUSIP and FactSet Permanent Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system.
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipTranslationResponse}
+     * @return { Promise.< module:model/CusipTranslationResponse > } a Promise, with data of type {@link module:model/CusipTranslationResponse }
      */
     translateCusip(ids) {
       return this.translateCusipWithHttpInfo(ids)
@@ -236,3 +248,8 @@ export default class CUSIPApi {
 
 
 }
+
+
+
+
+

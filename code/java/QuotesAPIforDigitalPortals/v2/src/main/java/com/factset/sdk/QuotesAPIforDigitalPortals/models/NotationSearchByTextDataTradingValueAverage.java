@@ -44,6 +44,8 @@ public class NotationSearchByTextDataTradingValueAverage implements Serializable
   public static final String JSON_PROPERTY_DAYS30 = "days30";
   private NotationSearchByTextDataTradingValueAverageDays30 days30;
 
+  public NotationSearchByTextDataTradingValueAverage() { 
+  }
 
   public NotationSearchByTextDataTradingValueAverage days30(NotationSearchByTextDataTradingValueAverageDays30 days30) {
     this.days30 = days30;

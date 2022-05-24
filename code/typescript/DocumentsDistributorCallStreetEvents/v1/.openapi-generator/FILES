@@ -13,6 +13,7 @@ docs/EventsAudioApi.md
 docs/EventsAudioData.md
 docs/EventsAudioMeta.md
 docs/EventsAudioMetaPagination.md
+docs/IndexedNRT.md
 docs/NRTCalls.md
 docs/NRTCalls400Response.md
 docs/NRTCalls400ResponseDetails.md
@@ -27,8 +28,8 @@ docs/NRTSnippetsData.md
 docs/NRTSnippetsMeta.md
 docs/NRTSnippetsMetaPagination.md
 docs/NRTSnippetsMetaPartial.md
-docs/NRTSnippetsMetadata.md
 docs/NRTSnippetsSnippetData.md
+docs/NRTSnippetsTranscriptData.md
 docs/NRTSpeakerids.md
 docs/NRTSpeakerids400Response.md
 docs/NRTSpeakerids400ResponseDetails.md
@@ -52,6 +53,7 @@ src/model/EventsAudio400ResponseDetailsValidParameters.js
 src/model/EventsAudioData.js
 src/model/EventsAudioMeta.js
 src/model/EventsAudioMetaPagination.js
+src/model/IndexedNRT.js
 src/model/NRTCalls.js
 src/model/NRTCalls400Response.js
 src/model/NRTCalls400ResponseDetails.js
@@ -66,8 +68,8 @@ src/model/NRTSnippetsData.js
 src/model/NRTSnippetsMeta.js
 src/model/NRTSnippetsMetaPagination.js
 src/model/NRTSnippetsMetaPartial.js
-src/model/NRTSnippetsMetadata.js
 src/model/NRTSnippetsSnippetData.js
+src/model/NRTSnippetsTranscriptData.js
 src/model/NRTSpeakerids.js
 src/model/NRTSpeakerids400Response.js
 src/model/NRTSpeakerids400ResponseDetails.js

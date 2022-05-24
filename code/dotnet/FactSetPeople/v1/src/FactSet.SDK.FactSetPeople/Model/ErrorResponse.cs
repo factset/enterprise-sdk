@@ -89,7 +89,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorResponse {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
@@ -127,8 +127,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(ErrorResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -167,15 +168,25 @@ namespace FactSet.SDK.FactSetPeople.Model
             {
                 int hashCode = 41;
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Timestamp != null)
-                    hashCode = hashCode * 59 + this.Timestamp.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Timestamp.GetHashCode();
+                }
                 if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Path.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 if (this.SubErrors != null)
-                    hashCode = hashCode * 59 + this.SubErrors.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SubErrors.GetHashCode();
+                }
                 return hashCode;
             }
         }

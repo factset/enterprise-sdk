@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -83,8 +83,8 @@ class UserSerialDto(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'username': (str, none_type,),  # noqa: E501
-            'serial_number': (str, none_type,),  # noqa: E501
+            'username': (str,),  # noqa: E501
+            'serial_number': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -93,8 +93,8 @@ class UserSerialDto(ModelNormal):
 
 
     attribute_map = {
-        'username': 'username',  # noqa: E501
-        'serial_number': 'serialNumber',  # noqa: E501
+        'username': 'Username',  # noqa: E501
+        'serial_number': 'SerialNumber',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,8 +108,8 @@ class UserSerialDto(ModelNormal):
         """UserSerialDto - a model defined in OpenAPI
 
         Args:
-            username (str, none_type):
-            serial_number (str, none_type):
+            username (str):
+            serial_number (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -195,8 +195,8 @@ class UserSerialDto(ModelNormal):
         """UserSerialDto - a model defined in OpenAPI
 
         Args:
-            username (str, none_type):
-            serial_number (str, none_type):
+            username (str):
+            serial_number (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -43,6 +43,16 @@ public class PartialOutputObject implements Serializable {
   public static final String JSON_PROPERTY_IS_PARTIAL = "isPartial";
   private Boolean isPartial;
 
+  public PartialOutputObject() { 
+  }
+
+  @JsonCreator
+  public PartialOutputObject(
+    @JsonProperty(value=JSON_PROPERTY_IS_PARTIAL, required=true) Boolean isPartial
+  ) {
+    this();
+    this.isPartial = isPartial;
+  }
 
   public PartialOutputObject isPartial(Boolean isPartial) {
     this.isPartial = isPartial;
@@ -50,11 +60,11 @@ public class PartialOutputObject implements Serializable {
   }
 
    /**
-   * Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
+   * Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If &#x60;true&#x60;, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
    * @return isPartial
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.")
+  @ApiModelProperty(required = true, value = "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If `true`, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.")
   @JsonProperty(JSON_PROPERTY_IS_PARTIAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

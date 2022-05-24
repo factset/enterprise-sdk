@@ -43,6 +43,8 @@ public class AnswerWithoutDataAllOfTemplateData implements Serializable {
   public static final String JSON_PROPERTY_FDC3_CONTEXT = "fdc3Context";
   private Fdc3Context fdc3Context;
 
+  public AnswerWithoutDataAllOfTemplateData() { 
+  }
 
   public AnswerWithoutDataAllOfTemplateData fdc3Context(Fdc3Context fdc3Context) {
     this.fdc3Context = fdc3Context;

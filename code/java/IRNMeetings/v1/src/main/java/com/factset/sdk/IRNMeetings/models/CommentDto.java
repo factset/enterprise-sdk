@@ -72,6 +72,8 @@ public class CommentDto implements Serializable {
   public static final String JSON_PROPERTY_SUBCOMMENTS = "subcomments";
   private JsonNullable<java.util.List<SubcommentSummaryDto>> subcomments = JsonNullable.<java.util.List<SubcommentSummaryDto>>undefined();
 
+  public CommentDto() { 
+  }
 
   public CommentDto id(java.util.UUID id) {
     this.id = id;

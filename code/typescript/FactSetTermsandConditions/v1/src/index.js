@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Agent from './model/Agent';
 import AgentsResponse from './model/AgentsResponse';
@@ -46,6 +45,7 @@ import TermsAndConditionsResponse from './model/TermsAndConditionsResponse';
 import TermsAndConditionsScalarRequest from './model/TermsAndConditionsScalarRequest';
 import UseOfProceeds from './model/UseOfProceeds';
 import UseOfProceedsResponse from './model/UseOfProceedsResponse';
+
 import AgentsApi from './api/AgentsApi';
 import ConvertiblesApi from './api/ConvertiblesApi';
 import CouponsApi from './api/CouponsApi';
@@ -86,7 +86,7 @@ import UseOfProceedsApi from './api/UseOfProceedsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -345,5 +345,6 @@ export {
     * The UseOfProceedsApi service constructor.
     * @property {module:api/UseOfProceedsApi}
     */
-    UseOfProceedsApi
+    UseOfProceedsApi,
+
 };

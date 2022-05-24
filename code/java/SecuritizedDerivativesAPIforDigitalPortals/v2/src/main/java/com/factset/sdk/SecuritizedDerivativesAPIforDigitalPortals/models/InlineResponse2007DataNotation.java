@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Fsym;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2007DataNotationInstrument;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +37,7 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
 @ApiModel(description = "Notation of the underlying. If there is no notation for the underlying, the object is null.")
 @JsonPropertyOrder({
   InlineResponse2007DataNotation.JSON_PROPERTY_ID,
+  InlineResponse2007DataNotation.JSON_PROPERTY_FSYM,
   InlineResponse2007DataNotation.JSON_PROPERTY_INSTRUMENT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -45,9 +47,14 @@ public class InlineResponse2007DataNotation implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2004Fsym fsym;
+
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse2007DataNotationInstrument instrument;
 
+  public InlineResponse2007DataNotation() { 
+  }
 
   public InlineResponse2007DataNotation id(String id) {
     this.id = id;
@@ -72,6 +79,32 @@ public class InlineResponse2007DataNotation implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public InlineResponse2007DataNotation fsym(InlineResponse2004Fsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2004Fsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse2004Fsym fsym) {
+    this.fsym = fsym;
   }
 
 
@@ -114,12 +147,13 @@ public class InlineResponse2007DataNotation implements Serializable {
     }
     InlineResponse2007DataNotation inlineResponse2007DataNotation = (InlineResponse2007DataNotation) o;
     return Objects.equals(this.id, inlineResponse2007DataNotation.id) &&
+        Objects.equals(this.fsym, inlineResponse2007DataNotation.fsym) &&
         Objects.equals(this.instrument, inlineResponse2007DataNotation.instrument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, instrument);
+    return Objects.hash(id, fsym, instrument);
   }
 
   @Override
@@ -127,6 +161,7 @@ public class InlineResponse2007DataNotation implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2007DataNotation {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");
     sb.append("}");
     return sb.toString();

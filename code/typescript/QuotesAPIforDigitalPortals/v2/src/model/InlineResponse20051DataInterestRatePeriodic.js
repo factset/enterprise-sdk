@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20051DataInterestRatePeriodic model module.
  * @module model/InlineResponse20051DataInterestRatePeriodic
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20051DataInterestRatePeriodic {
     /**

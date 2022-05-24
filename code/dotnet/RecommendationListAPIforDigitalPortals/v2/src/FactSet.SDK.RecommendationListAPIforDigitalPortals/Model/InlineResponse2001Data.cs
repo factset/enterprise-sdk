@@ -87,7 +87,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -125,8 +125,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2001Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -162,14 +163,20 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ActiveRange != null)
-                    hashCode = hashCode * 59 + this.ActiveRange.GetHashCode();
-                hashCode = hashCode * 59 + this.NumberRevisions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActiveRange.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.NumberRevisions.GetHashCode();
                 if (this.ActiveRevision != null)
-                    hashCode = hashCode * 59 + this.ActiveRevision.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActiveRevision.GetHashCode();
+                }
                 return hashCode;
             }
         }

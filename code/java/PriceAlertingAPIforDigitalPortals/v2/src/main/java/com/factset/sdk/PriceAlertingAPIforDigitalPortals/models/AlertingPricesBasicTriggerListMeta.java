@@ -48,6 +48,8 @@ public class AlertingPricesBasicTriggerListMeta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private AlertingPricesBasicTriggerListMetaPagination pagination;
 
+  public AlertingPricesBasicTriggerListMeta() { 
+  }
 
   public AlertingPricesBasicTriggerListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

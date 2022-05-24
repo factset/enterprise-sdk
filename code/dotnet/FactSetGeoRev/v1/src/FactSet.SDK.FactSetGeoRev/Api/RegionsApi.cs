@@ -163,6 +163,33 @@ namespace FactSet.SDK.FactSetGeoRev.Api
     {
         private FactSet.SDK.FactSetGeoRev.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetRegionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(RegionResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRegionsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(RegionResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="RegionsApi"/> class.
         /// </summary>
@@ -278,7 +305,7 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <returns>RegionResponse</returns>
         public RegionResponse GetRegions(List<string> ids, List<string> regionIds = default(List<string>), string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse> localVarResponse = GetRegionsWithHttpInfo(ids, regionIds, startDate, endDate, frequency, currency);
+            var localVarResponse = GetRegionsWithHttpInfo(ids, regionIds, startDate, endDate, frequency, currency);
             return localVarResponse.Data;
         }
 
@@ -293,11 +320,13 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     (optional, default to FY)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of RegionResponse</returns>
-        public FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse> GetRegionsWithHttpInfo(List<string> ids, List<string> regionIds = default(List<string>), string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string))
+        public ApiResponse<RegionResponse> GetRegionsWithHttpInfo(List<string> ids, List<string> regionIds = default(List<string>), string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetGeoRev.Client.ApiException(400, "Missing required parameter 'ids' when calling RegionsApi->GetRegions");
+            }
 
             FactSet.SDK.FactSetGeoRev.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetGeoRev.Client.RequestOptions();
 
@@ -310,10 +339,16 @@ namespace FactSet.SDK.FactSetGeoRev.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGeoRev.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (regionIds != null)
@@ -339,13 +374,13 @@ namespace FactSet.SDK.FactSetGeoRev.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetGeoRev.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -357,15 +392,19 @@ namespace FactSet.SDK.FactSetGeoRev.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<RegionResponse>("/factset-georev/v1/regions", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRegionsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            RegionResponse>("/factset-georev/v1/regions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRegions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -381,9 +420,9 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RegionResponse</returns>
-        public async System.Threading.Tasks.Task<RegionResponse> GetRegionsAsync(List<string> ids, List<string> regionIds = default(List<string>), string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RegionResponse>GetRegionsAsync(List<string> ids, List<string> regionIds = default(List<string>), string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse> localVarResponse = await GetRegionsWithHttpInfoAsync(ids, regionIds, startDate, endDate, frequency, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRegionsWithHttpInfoAsync(ids, regionIds, startDate, endDate, frequency, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -399,11 +438,14 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RegionResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse>> GetRegionsWithHttpInfoAsync(List<string> ids, List<string> regionIds = default(List<string>), string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<RegionResponse>> GetRegionsWithHttpInfoAsync(List<string> ids, List<string> regionIds = default(List<string>), string startDate = default(string), string endDate = default(string), string frequency = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetGeoRev.Client.ApiException(400, "Missing required parameter 'ids' when calling RegionsApi->GetRegions");
+            }
 
 
             FactSet.SDK.FactSetGeoRev.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetGeoRev.Client.RequestOptions();
@@ -416,12 +458,17 @@ namespace FactSet.SDK.FactSetGeoRev.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetGeoRev.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (regionIds != null)
@@ -447,13 +494,13 @@ namespace FactSet.SDK.FactSetGeoRev.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetGeoRev.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -465,14 +512,18 @@ namespace FactSet.SDK.FactSetGeoRev.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRegionsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<RegionResponse>("/factset-georev/v1/regions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRegions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -486,7 +537,7 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <returns>RegionResponse</returns>
         public RegionResponse GetRegionsForList(RegionRequest regionRequest)
         {
-            FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse> localVarResponse = GetRegionsForListWithHttpInfo(regionRequest);
+            var localVarResponse = GetRegionsForListWithHttpInfo(regionRequest);
             return localVarResponse.Data;
         }
 
@@ -496,11 +547,13 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <exception cref="FactSet.SDK.FactSetGeoRev.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="regionRequest">The Region request body, allowing the user to specify a list of ids, time range, and regionIds.</param>
         /// <returns>ApiResponse of RegionResponse</returns>
-        public FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse> GetRegionsForListWithHttpInfo(RegionRequest regionRequest)
+        public ApiResponse<RegionResponse> GetRegionsForListWithHttpInfo(RegionRequest regionRequest)
         {
             // verify the required parameter 'regionRequest' is set
             if (regionRequest == null)
+            {
                 throw new FactSet.SDK.FactSetGeoRev.Client.ApiException(400, "Missing required parameter 'regionRequest' when calling RegionsApi->GetRegionsForList");
+            }
 
             FactSet.SDK.FactSetGeoRev.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetGeoRev.Client.RequestOptions();
 
@@ -514,22 +567,28 @@ namespace FactSet.SDK.FactSetGeoRev.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = regionRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetGeoRev.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -541,15 +600,19 @@ namespace FactSet.SDK.FactSetGeoRev.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<RegionResponse>("/factset-georev/v1/regions", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRegionsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            RegionResponse>("/factset-georev/v1/regions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRegionsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -560,9 +623,9 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <param name="regionRequest">The Region request body, allowing the user to specify a list of ids, time range, and regionIds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RegionResponse</returns>
-        public async System.Threading.Tasks.Task<RegionResponse> GetRegionsForListAsync(RegionRequest regionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RegionResponse>GetRegionsForListAsync(RegionRequest regionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse> localVarResponse = await GetRegionsForListWithHttpInfoAsync(regionRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRegionsForListWithHttpInfoAsync(regionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -573,11 +636,14 @@ namespace FactSet.SDK.FactSetGeoRev.Api
         /// <param name="regionRequest">The Region request body, allowing the user to specify a list of ids, time range, and regionIds.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RegionResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetGeoRev.Client.ApiResponse<RegionResponse>> GetRegionsForListWithHttpInfoAsync(RegionRequest regionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<RegionResponse>> GetRegionsForListWithHttpInfoAsync(RegionRequest regionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'regionRequest' is set
             if (regionRequest == null)
+            {
                 throw new FactSet.SDK.FactSetGeoRev.Client.ApiException(400, "Missing required parameter 'regionRequest' when calling RegionsApi->GetRegionsForList");
+            }
 
 
             FactSet.SDK.FactSetGeoRev.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetGeoRev.Client.RequestOptions();
@@ -591,24 +657,29 @@ namespace FactSet.SDK.FactSetGeoRev.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetGeoRev.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = regionRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetGeoRev.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -620,14 +691,18 @@ namespace FactSet.SDK.FactSetGeoRev.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRegionsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<RegionResponse>("/factset-georev/v1/regions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRegionsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

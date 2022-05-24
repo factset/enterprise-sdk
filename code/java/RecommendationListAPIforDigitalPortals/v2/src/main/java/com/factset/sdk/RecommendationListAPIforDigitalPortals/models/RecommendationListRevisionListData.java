@@ -53,6 +53,16 @@ public class RecommendationListRevisionListData implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE_RANGE = "activeRange";
   private RecommendationListRevisionListDataActiveRange activeRange;
 
+  public RecommendationListRevisionListData() { 
+  }
+
+  @JsonCreator
+  public RecommendationListRevisionListData(
+    @JsonProperty(value=JSON_PROPERTY_ID_LIST, required=true) BigDecimal idList
+  ) {
+    this();
+    this.idList = idList;
+  }
 
   public RecommendationListRevisionListData idList(BigDecimal idList) {
     this.idList = idList;

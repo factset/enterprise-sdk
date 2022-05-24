@@ -20,7 +20,7 @@ import LookupResponse from '../model/LookupResponse';
 /**
 * FactSetIDLookup service.
 * @module api/FactSetIDLookupApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FactSetIDLookupApi {
 
@@ -62,7 +62,10 @@ export default class FactSetIDLookupApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = LookupResponse;
+
       return this.apiClient.callApi(
         '/v1/idsearch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class FactSetIDLookupApi {
      * Search funtionality to return tickers, company names and unique identifiers for FactSet data
      * Service will accept request in JSON formatted request body. The request is sent by passing a query which is an array conitaining search query objects with parameters. The parameters contain search term and filters defined by the end user. This would display a specific set of identifiers based on the request. 
      * @param {module:model/LookupRequest} lookupRequest Post body to lookup any FactSet identifiers
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LookupResponse}
+     * @return { Promise.< module:model/LookupResponse > } a Promise, with data of type {@link module:model/LookupResponse }
      */
     searchCompanyname(lookupRequest) {
       return this.searchCompanynameWithHttpInfo(lookupRequest)
@@ -85,3 +88,8 @@ export default class FactSetIDLookupApi {
 
 
 }
+
+
+
+
+

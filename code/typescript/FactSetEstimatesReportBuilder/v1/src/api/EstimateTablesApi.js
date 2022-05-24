@@ -19,7 +19,7 @@ import Response from '../model/Response';
 /**
 * EstimateTables service.
 * @module api/EstimateTablesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EstimateTablesApi {
 
@@ -66,7 +66,10 @@ export default class EstimateTablesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/table', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -80,7 +83,7 @@ export default class EstimateTablesApi {
      * @param {String} id Company Ticker
      * @param {Object} opts Optional parameters
      * @param {String} opts.metric Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     getEstimateTablesTable(id, opts) {
       return this.getEstimateTablesTableWithHttpInfo(id, opts)
@@ -91,3 +94,8 @@ export default class EstimateTablesApi {
 
 
 }
+
+
+
+
+

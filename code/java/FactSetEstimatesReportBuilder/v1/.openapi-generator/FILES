@@ -43,7 +43,6 @@ src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/ApiClient.java
 src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/ApiException.java
 src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/Configuration.java
-src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/JSON.java
 src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetEstimatesReportBuilder/Pair.java

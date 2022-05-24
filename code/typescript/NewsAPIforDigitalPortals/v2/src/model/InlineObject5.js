@@ -18,7 +18,7 @@ import NewsArticleSearchByTextData from './NewsArticleSearchByTextData';
 /**
  * The InlineObject5 model module.
  * @module model/InlineObject5
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineObject5 {
     /**

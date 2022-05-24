@@ -67,6 +67,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_GROSS = "gross";
   private InlineResponse200Gross gross;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data id(String id) {
     this.id = id;

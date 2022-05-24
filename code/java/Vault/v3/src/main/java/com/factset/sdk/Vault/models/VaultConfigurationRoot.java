@@ -47,6 +47,16 @@ public class VaultConfigurationRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public VaultConfigurationRoot() { 
+  }
+
+  @JsonCreator
+  public VaultConfigurationRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) VaultConfiguration data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public VaultConfigurationRoot data(VaultConfiguration data) {
     this.data = data;

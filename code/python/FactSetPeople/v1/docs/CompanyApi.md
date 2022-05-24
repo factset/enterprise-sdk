@@ -45,28 +45,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the compensation details of the people for the specified company identifier
         api_response = api_instance.get_company_compensation(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_compensation: %s\n" % e)
 ```
@@ -137,30 +138,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     company_compensation_request = CompanyCompensationRequest(
         ids=CompanyIds(["AAPL-US"]),
     ) # CompanyCompensationRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the compensation details for the people for the specified company identifier
         api_response = api_instance.get_company_compensation_for_list(company_compensation_request)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_compensation_for_list: %s\n" % e)
 ```
@@ -230,38 +232,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    function = "PEOPLE" # str | Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |---|---|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional) if omitted the server will use the default value of "PEOPLE"
+    function = "PEOPLE" # str | Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |---|---|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional) (default to "PEOPLE")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns the list of people for the specified company identifiers
-        api_response = api_instance.get_company_people(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetPeople.ApiException as e:
-        print("Exception when calling CompanyApi->get_company_people: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns the list of people for the specified company identifiers
         api_response = api_instance.get_company_people(ids, function=function)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_people: %s\n" % e)
 ```
@@ -333,31 +327,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     company_people_request = CompanyPeopleRequest(
         ids=CompanyIds(["AAPL-US"]),
         function=Function("DIRECTOR"),
     ) # CompanyPeopleRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the list of people associated for a large list of company identitifers
         api_response = api_instance.get_company_people_for_list(company_people_request)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_people_for_list: %s\n" % e)
 ```
@@ -427,38 +422,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    position = "FOU" # str | Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |---|---|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional) if omitted the server will use the default value of "CEO"
+    position = "FOU" # str | Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |---|---|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional) (default to "CEO")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns the list of people for the specified company identifiers and position
-        api_response = api_instance.get_company_positions(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetPeople.ApiException as e:
-        print("Exception when calling CompanyApi->get_company_positions: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns the list of people for the specified company identifiers and position
         api_response = api_instance.get_company_positions(ids, position=position)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_positions: %s\n" % e)
 ```
@@ -530,31 +517,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     company_positions_request = CompanyPositionsRequest(
         ids=CompanyIds(["AAPL-US"]),
         position=Position("FOU"),
     ) # CompanyPositionsRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the list of people associated for a large list of company identitifers and position
         api_response = api_instance.get_company_positions_for_list(company_positions_request)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_positions_for_list: %s\n" % e)
 ```
@@ -624,38 +612,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     ids = ["AAPL-US","IBM-US"] # [str] | The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-    mb_type = "MB" # str | Search based on the management and board types. The types include -  |type|description| |---|---| |MB|Management & Board| |MGMT|Management| |BRD|Board|  (optional) if omitted the server will use the default value of "MB"
+    mb_type = "MB" # str | Search based on the management and board types. The types include -  |type|description| |---|---| |MB|Management & Board| |MGMT|Management| |BRD|Board|  (optional) (default to "MB")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns statistics about top leadership of a company.
-        api_response = api_instance.get_company_stats(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetPeople.ApiException as e:
-        print("Exception when calling CompanyApi->get_company_stats: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns statistics about top leadership of a company.
         api_response = api_instance.get_company_stats(ids, mb_type=mb_type)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_stats: %s\n" % e)
 ```
@@ -727,31 +707,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     company_stats_request = CompanyStatsRequest(
         ids=CompanyIds(["AAPL-US"]),
         mb_type=MbType("MB"),
     ) # CompanyStatsRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns statistics about top leadership of a company.
         api_response = api_instance.get_company_stats_for_list(company_stats_request)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling CompanyApi->get_company_stats_for_list: %s\n" % e)
 ```

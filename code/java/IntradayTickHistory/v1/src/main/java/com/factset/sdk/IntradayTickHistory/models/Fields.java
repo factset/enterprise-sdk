@@ -115,6 +115,8 @@ public class Fields implements Serializable {
   public static final String JSON_PROPERTY_P_R_I_C_E_C_U_R_R_E_N_C_Y = "PRICE_CURRENCY";
   private String PRICE_CURRENCY;
 
+  public Fields() { 
+  }
 
   public Fields BID_1(Float BID_1) {
     this.BID_1 = BID_1;

@@ -60,7 +60,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossover {\n");
             sb.Append("  Sma20vs50: ").Append(Sma20vs50).Append("\n");
             sb.Append("  Sma50vs200: ").Append(Sma50vs200).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossover input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sma20vs50 == input.Sma20vs50 ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Sma20vs50 != null)
-                    hashCode = hashCode * 59 + this.Sma20vs50.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sma20vs50.GetHashCode();
+                }
                 if (this.Sma50vs200 != null)
-                    hashCode = hashCode * 59 + this.Sma50vs200.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sma50vs200.GetHashCode();
+                }
                 return hashCode;
             }
         }

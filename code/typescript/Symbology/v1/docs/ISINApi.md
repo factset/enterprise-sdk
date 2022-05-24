@@ -50,6 +50,7 @@ const isinHistoryTranslationRequest = new symbology.IsinHistoryTranslationReques
 // Call api endpoint
 apiInstance.batchIsinHistory(isinHistoryTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const isinTranslationRequest = new symbology.IsinTranslationRequest(); // IsinTr
 // Call api endpoint
 apiInstance.batchTranslateIsin(isinTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -192,6 +194,7 @@ const ids = ["GOOGL-US"]; // [String] | Requested market securities or entities.
 // Call api endpoint
 apiInstance.isinHistory(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -266,6 +269,7 @@ const opts = {
 // Call api endpoint
 apiInstance.translateIsin(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

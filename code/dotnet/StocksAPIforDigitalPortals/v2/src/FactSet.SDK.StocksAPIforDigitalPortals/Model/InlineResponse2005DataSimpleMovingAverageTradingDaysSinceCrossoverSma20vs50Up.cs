@@ -61,7 +61,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50Up {\n");
             sb.Append("  NumberDays: ").Append(NumberDays).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50Up input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NumberDays == input.NumberDays ||
@@ -120,8 +121,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.NumberDays != null)
-                    hashCode = hashCode * 59 + this.NumberDays.GetHashCode();
-                hashCode = hashCode * 59 + this.Count.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NumberDays.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Count.GetHashCode();
                 return hashCode;
             }
         }

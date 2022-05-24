@@ -49,6 +49,8 @@ public class InlineResponse200DataFinancialReport implements Serializable {
   public static final String JSON_PROPERTY_SEMI_ANNUAL = "semiAnnual";
   private InlineResponse200DataFinancialReportSemiAnnual semiAnnual;
 
+  public InlineResponse200DataFinancialReport() { 
+  }
 
   public InlineResponse200DataFinancialReport annual(InlineResponse200DataFinancialReportAnnual annual) {
     this.annual = annual;

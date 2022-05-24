@@ -20,7 +20,7 @@ import ProblemDetails from '../model/ProblemDetails';
 /**
 * Attachments service.
 * @module api/AttachmentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class AttachmentsApi {
 
@@ -38,7 +38,7 @@ export default class AttachmentsApi {
 
 
     /**
-     * Create an attachment for an existing meeting
+     * Create an attachment for a existing meeting
      * @param {String} meetingId Meeting Id
      * @param {File} file 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NewItemDto} and HTTP response
@@ -68,7 +68,10 @@ export default class AttachmentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['multipart/form-data'];
       let accepts = ['application/json'];
+
+
       let returnType = NewItemDto;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/attachments', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -77,10 +80,10 @@ export default class AttachmentsApi {
     }
 
     /**
-     * Create an attachment for an existing meeting
+     * Create an attachment for a existing meeting
      * @param {String} meetingId Meeting Id
      * @param {File} file 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NewItemDto}
+     * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
     createAttachment(meetingId, file) {
       return this.createAttachmentWithHttpInfo(meetingId, file)
@@ -91,7 +94,7 @@ export default class AttachmentsApi {
 
 
     /**
-     * Download an attachment from a meeting
+     * Download an attachment from a Meeting
      * @param {String} meetingId 
      * @param {String} attachmentId 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
@@ -121,7 +124,10 @@ export default class AttachmentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/attachments/{attachmentId}/download', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -130,10 +136,10 @@ export default class AttachmentsApi {
     }
 
     /**
-     * Download an attachment from a meeting
+     * Download an attachment from a Meeting
      * @param {String} meetingId 
      * @param {String} attachmentId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     downloadAttachment(meetingId, attachmentId) {
       return this.downloadAttachmentWithHttpInfo(meetingId, attachmentId)
@@ -168,7 +174,10 @@ export default class AttachmentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [AttachmentSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/attachments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -179,7 +188,7 @@ export default class AttachmentsApi {
     /**
      * Get all the attachments belonging to a meeting
      * @param {String} meetingId Meeting Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/AttachmentSummaryDto>}
+     * @return { Promise.< Array.<module:model/AttachmentSummaryDto> > } a Promise, with data of type {@link Array.<module:model/AttachmentSummaryDto> }
      */
     getAttachments(meetingId) {
       return this.getAttachmentsWithHttpInfo(meetingId)
@@ -220,7 +229,10 @@ export default class AttachmentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/attachments/{attachmentId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -232,7 +244,7 @@ export default class AttachmentsApi {
      * Delete attachment from meeting
      * @param {String} meetingId Meeting Id
      * @param {String} attachmentId Attachment Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     softDeleteMeetingAttachment(meetingId, attachmentId) {
       return this.softDeleteMeetingAttachmentWithHttpInfo(meetingId, attachmentId)
@@ -243,3 +255,8 @@ export default class AttachmentsApi {
 
 
 }
+
+
+
+
+

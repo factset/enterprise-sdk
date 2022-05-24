@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20019Data;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2001Meta;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,8 +46,10 @@ public class InlineResponse20019 implements Serializable {
   private java.util.Set<InlineResponse20019Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse2001Meta meta;
+  private InlineResponse200Meta meta;
 
+  public InlineResponse20019() { 
+  }
 
   public InlineResponse20019 data(java.util.Set<InlineResponse20019Data> data) {
     this.data = data;
@@ -63,11 +65,11 @@ public class InlineResponse20019 implements Serializable {
   }
 
    /**
-   * List of strategy segments.
+   * List of class geographies.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of strategy segments.")
+  @ApiModelProperty(value = "List of class geographies.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -83,7 +85,7 @@ public class InlineResponse20019 implements Serializable {
   }
 
 
-  public InlineResponse20019 meta(InlineResponse2001Meta meta) {
+  public InlineResponse20019 meta(InlineResponse200Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -97,14 +99,14 @@ public class InlineResponse20019 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2001Meta getMeta() {
+  public InlineResponse200Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse2001Meta meta) {
+  public void setMeta(InlineResponse200Meta meta) {
     this.meta = meta;
   }
 

@@ -52,7 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FICalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Run FI Calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Run FI Calculation endpoint
 
             try
             {
@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Run FI Calculation endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -146,7 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FICalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Run FI Calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Run FI Calculation endpoint
 
             try
             {
@@ -172,7 +171,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Run FI Calculation endpoint | 
 
 ### Return type
-
 **Object**
 
 ### Authorization
@@ -242,8 +240,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FICalculationsApi(config);
-            var xFactSetContentOrganization = xFactSetContentOrganization_example;  // string | FactSet content organization (optional) 
-            var xFactSetContentType = xFactSetContentType_example;  // string | FactSet content type (optional) 
+            var xFactSetContentOrganization = "xFactSetContentOrganization_example";  // string | FactSet content organization (optional) 
+            var xFactSetContentType = "xFactSetContentType_example";  // string | FactSet content type (optional) 
             var fICalculationParameters = new FICalculationParameters(); // FICalculationParameters |  (optional) 
 
             try
@@ -272,7 +270,6 @@ Name | Type | Description  | Notes
  **fICalculationParameters** | [**FICalculationParameters**](FICalculationParameters.md)|  | [optional] 
 
 ### Return type
-
 **Object**
 
 ### Authorization

@@ -67,6 +67,8 @@ public class InlineResponse2001Data implements Serializable {
   public static final String JSON_PROPERTY_RISK_KEY_FIGURES = "riskKeyFigures";
   private InlineResponse2001DataRiskKeyFigures riskKeyFigures;
 
+  public InlineResponse2001Data() { 
+  }
 
   public InlineResponse2001Data id(String id) {
     this.id = id;

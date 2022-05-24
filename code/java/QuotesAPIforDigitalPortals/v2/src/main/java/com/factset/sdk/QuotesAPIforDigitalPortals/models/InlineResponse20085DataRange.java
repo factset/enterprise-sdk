@@ -47,6 +47,18 @@ public class InlineResponse20085DataRange implements Serializable {
   public static final String JSON_PROPERTY_END = "end";
   private String end;
 
+  public InlineResponse20085DataRange() { 
+  }
+
+  @JsonCreator
+  public InlineResponse20085DataRange(
+    @JsonProperty(value=JSON_PROPERTY_START, required=true) String start, 
+    @JsonProperty(value=JSON_PROPERTY_END, required=true) String end
+  ) {
+    this();
+    this.start = start;
+    this.end = end;
+  }
 
   public InlineResponse20085DataRange start(String start) {
     this.start = start;

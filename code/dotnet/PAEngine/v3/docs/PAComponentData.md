@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Groups** | [**List&lt;PACalculationGroup&gt;**](PACalculationGroup.md) | List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document. | [optional] 
 **Columns** | [**List&lt;PACalculationColumn&gt;**](PACalculationColumn.md) | List of columns for the PA calculation. This will take precedence over the columns saved in the PA document. | [optional] 
 **Dates** | [**PADateParameters**](PADateParameters.md) |  | [optional] 
+**Datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  | [optional] 
 **Currencyisocode** | **string** | Currency ISO code for calculation. | [optional] 
 **Componentdetail** | **string** | PA Storage type. It can be GROUPS or TOTALS or SECURITIES. | [optional] 
 

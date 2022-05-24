@@ -12,12 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import NRTSnippetsMetadata from './NRTSnippetsMetadata';
 
 /**
  * The NRTSnippetsSnippetData model module.
  * @module model/NRTSnippetsSnippetData
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSnippetsSnippetData {
     /**
@@ -48,8 +47,14 @@ class NRTSnippetsSnippetData {
         if (data) {
             obj = obj || new NRTSnippetsSnippetData();
 
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = NRTSnippetsMetadata.constructFromObject(data['metadata']);
+            if (data.hasOwnProperty('transcript')) {
+                obj['transcript'] = ApiClient.convertToType(data['transcript'], 'String');
+            }
+            if (data.hasOwnProperty('endTime')) {
+                obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Number');
+            }
+            if (data.hasOwnProperty('startTime')) {
+                obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Number');
             }
         }
         return obj;
@@ -59,9 +64,22 @@ class NRTSnippetsSnippetData {
 }
 
 /**
- * @member {module:model/NRTSnippetsMetadata} metadata
+ * The actual transcript snippet
+ * @member {String} transcript
  */
-NRTSnippetsSnippetData.prototype['metadata'] = undefined;
+NRTSnippetsSnippetData.prototype['transcript'] = undefined;
+
+/**
+ * The number of seconds into the call, when the transcript snippet ended
+ * @member {Number} endTime
+ */
+NRTSnippetsSnippetData.prototype['endTime'] = undefined;
+
+/**
+ * The number of seconds into the call,when the transcript snippet started
+ * @member {Number} startTime
+ */
+NRTSnippetsSnippetData.prototype['startTime'] = undefined;
 
 
 

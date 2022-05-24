@@ -18,7 +18,7 @@ import InlineResponse2005DataKeyFiguresBreakEvenDistanceRelative from './InlineR
 /**
  * The InlineResponse2005DataKeyFiguresBreakEvenDistance model module.
  * @module model/InlineResponse2005DataKeyFiguresBreakEvenDistance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKeyFiguresBreakEvenDistance {
     /**

@@ -102,7 +102,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataValidation {\n");
             sb.Append("  OnlyActive: ").Append(OnlyActive).Append("\n");
             sb.Append("  OnlyNotSuspended: ").Append(OnlyNotSuspended).Append("\n");
@@ -142,8 +142,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataValidation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.OnlyActive == input.OnlyActive ||
@@ -189,18 +190,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.OnlyActive.GetHashCode();
-                hashCode = hashCode * 59 + this.OnlyNotSuspended.GetHashCode();
+                hashCode = (hashCode * 59) + this.OnlyActive.GetHashCode();
+                hashCode = (hashCode * 59) + this.OnlyNotSuspended.GetHashCode();
                 if (this.Prices != null)
-                    hashCode = hashCode * 59 + this.Prices.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Prices.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.InstrumentSelectionList != null)
-                    hashCode = hashCode * 59 + this.InstrumentSelectionList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentSelectionList.GetHashCode();
+                }
                 if (this.NotationSelectionList != null)
-                    hashCode = hashCode * 59 + this.NotationSelectionList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NotationSelectionList.GetHashCode();
+                }
                 return hashCode;
             }
         }

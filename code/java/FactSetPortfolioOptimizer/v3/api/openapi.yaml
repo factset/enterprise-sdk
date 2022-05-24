@@ -905,6 +905,7 @@ paths:
       summary: Create and Run FPO optimization
       tags:
       - FPO Optimizer
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/fpo/v3/optimizations/{id}:
@@ -1812,6 +1813,7 @@ paths:
       summary: Create or Update FPO optimization and run it.
       tags:
       - FPO Optimizer
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/fpo/v3/optimizations/{id}/status:

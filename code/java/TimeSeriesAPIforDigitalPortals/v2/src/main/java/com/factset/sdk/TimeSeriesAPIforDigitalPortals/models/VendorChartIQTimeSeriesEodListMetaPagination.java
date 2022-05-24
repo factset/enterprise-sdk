@@ -48,6 +48,8 @@ public class VendorChartIQTimeSeriesEodListMetaPagination implements Serializabl
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public VendorChartIQTimeSeriesEodListMetaPagination() { 
+  }
 
   public VendorChartIQTimeSeriesEodListMetaPagination cursor(String cursor) {
     this.cursor = cursor;

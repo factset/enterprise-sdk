@@ -72,7 +72,7 @@ namespace FactSet.SDK.ChartGenerationService.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ChartListErrorResponse {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.ChartGenerationService.Model
         public bool Equals(ChartListErrorResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Error == input.Error ||
@@ -124,7 +125,7 @@ namespace FactSet.SDK.ChartGenerationService.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Error.GetHashCode();
+                hashCode = (hashCode * 59) + this.Error.GetHashCode();
                 return hashCode;
             }
         }

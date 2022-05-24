@@ -24,10 +24,18 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.ETFProfileandPrices.model.inline_response20010_data_index_change import InlineResponse20010DataIndexChange
+    from fds.sdk.ETFProfileandPrices.model.inline_response20010_data_risk import InlineResponse20010DataRisk
+    from fds.sdk.ETFProfileandPrices.model.inline_response20010_data_security_lending import InlineResponse20010DataSecurityLending
+    globals()['InlineResponse20010DataIndexChange'] = InlineResponse20010DataIndexChange
+    globals()['InlineResponse20010DataRisk'] = InlineResponse20010DataRisk
+    globals()['InlineResponse20010DataSecurityLending'] = InlineResponse20010DataSecurityLending
 
 
 class InlineResponse20010Data(ModelNormal):
@@ -66,6 +74,7 @@ class InlineResponse20010Data(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -80,8 +89,14 @@ class InlineResponse20010Data(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'niche_category': (str,),  # noqa: E501
+            'as_of_date': (date,),  # noqa: E501
+            'security_lending': (InlineResponse20010DataSecurityLending,),  # noqa: E501
+            'risk': (InlineResponse20010DataRisk,),  # noqa: E501
+            'benchmark_name': (str,),  # noqa: E501
+            'index_change': (InlineResponse20010DataIndexChange,),  # noqa: E501
+            'median_bid_ask_spread': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -90,7 +105,12 @@ class InlineResponse20010Data(ModelNormal):
 
 
     attribute_map = {
-        'niche_category': 'nicheCategory',  # noqa: E501
+        'as_of_date': 'asOfDate',  # noqa: E501
+        'security_lending': 'securityLending',  # noqa: E501
+        'risk': 'risk',  # noqa: E501
+        'benchmark_name': 'benchmarkName',  # noqa: E501
+        'index_change': 'indexChange',  # noqa: E501
+        'median_bid_ask_spread': 'medianBidAskSpread',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,7 +154,12 @@ class InlineResponse20010Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            niche_category (str): ETP class niche category.. [optional]  # noqa: E501
+            as_of_date (date): Date the analytics data was published. Available for the regions: US, Europe, and Canada.. [optional]  # noqa: E501
+            security_lending (InlineResponse20010DataSecurityLending): [optional]  # noqa: E501
+            risk (InlineResponse20010DataRisk): [optional]  # noqa: E501
+            benchmark_name (str): FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund's performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe.. [optional]  # noqa: E501
+            index_change (InlineResponse20010DataIndexChange): [optional]  # noqa: E501
+            median_bid_ask_spread (float): The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -216,7 +241,12 @@ class InlineResponse20010Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            niche_category (str): ETP class niche category.. [optional]  # noqa: E501
+            as_of_date (date): Date the analytics data was published. Available for the regions: US, Europe, and Canada.. [optional]  # noqa: E501
+            security_lending (InlineResponse20010DataSecurityLending): [optional]  # noqa: E501
+            risk (InlineResponse20010DataRisk): [optional]  # noqa: E501
+            benchmark_name (str): FactSet provides a neutral, broad market index that best represents an ETP segment, giving investors a measuring stick against which to compare a specific ETP. The fund's performance (for example, R2, beta, and standard deviation) and holdings are measured against it. Available for the regions: US and Europe.. [optional]  # noqa: E501
+            index_change (InlineResponse20010DataIndexChange): [optional]  # noqa: E501
+            median_bid_ask_spread (float): The exchange-traded fund’s median bid-ask spread, expressed as a percentage rounded to the nearest hundredth, computed by: (A) Identifying the exchange-traded fund’s national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days; (B) Dividing the ifference between each such bid and offer by the midpoint of the national best bid and national best offer; and (C) Identifying the median of those values. Available for the regions: US.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

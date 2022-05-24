@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemai
 /**
  * The DebtInstrumentNotationScreenerSearchDataTradedValueDays30Sum model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataTradedValueDays30Sum
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataTradedValueDays30Sum {
     /**

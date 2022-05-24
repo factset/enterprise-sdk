@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -86,6 +86,7 @@ class NoteDto(ModelNormal):
             'date': (str, none_type,),  # noqa: E501
             'created_at': (str, none_type,),  # noqa: E501
             'author_id': (str,),  # noqa: E501
+            'contributor_id': (str,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'identifier': (str, none_type,),  # noqa: E501
             'related_symbols': ([str], none_type,),  # noqa: E501
@@ -96,6 +97,7 @@ class NoteDto(ModelNormal):
             'link': (str, none_type,),  # noqa: E501
             'body': (str, none_type,),  # noqa: E501
             'is_personal': (bool,),  # noqa: E501
+            'state': (str, none_type,),  # noqa: E501
             'approval_status': (str, none_type,),  # noqa: E501
             'average_rating': (int, none_type,),  # noqa: E501
             'related_records': (RelatedRecordsDto,),  # noqa: E501
@@ -109,25 +111,27 @@ class NoteDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'date': 'date',  # noqa: E501
-        'created_at': 'createdAt',  # noqa: E501
-        'author_id': 'authorId',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'identifier': 'identifier',  # noqa: E501
-        'related_symbols': 'relatedSymbols',  # noqa: E501
-        'subject_id': 'subjectId',  # noqa: E501
-        'recommendation_id': 'recommendationId',  # noqa: E501
-        'sentiment_id': 'sentimentId',  # noqa: E501
-        'source': 'source',  # noqa: E501
-        'link': 'link',  # noqa: E501
-        'body': 'body',  # noqa: E501
-        'is_personal': 'isPersonal',  # noqa: E501
-        'approval_status': 'approvalStatus',  # noqa: E501
-        'average_rating': 'averageRating',  # noqa: E501
-        'related_records': 'relatedRecords',  # noqa: E501
-        'related_contacts': 'relatedContacts',  # noqa: E501
-        'custom_fields': 'customFields',  # noqa: E501
+        'id': 'Id',  # noqa: E501
+        'date': 'Date',  # noqa: E501
+        'created_at': 'CreatedAt',  # noqa: E501
+        'author_id': 'AuthorId',  # noqa: E501
+        'contributor_id': 'ContributorId',  # noqa: E501
+        'title': 'Title',  # noqa: E501
+        'identifier': 'Identifier',  # noqa: E501
+        'related_symbols': 'RelatedSymbols',  # noqa: E501
+        'subject_id': 'SubjectId',  # noqa: E501
+        'recommendation_id': 'RecommendationId',  # noqa: E501
+        'sentiment_id': 'SentimentId',  # noqa: E501
+        'source': 'Source',  # noqa: E501
+        'link': 'Link',  # noqa: E501
+        'body': 'Body',  # noqa: E501
+        'is_personal': 'IsPersonal',  # noqa: E501
+        'state': 'State',  # noqa: E501
+        'approval_status': 'ApprovalStatus',  # noqa: E501
+        'average_rating': 'AverageRating',  # noqa: E501
+        'related_records': 'RelatedRecords',  # noqa: E501
+        'related_contacts': 'RelatedContacts',  # noqa: E501
+        'custom_fields': 'CustomFields',  # noqa: E501
     }
 
     read_only_vars = {
@@ -175,6 +179,7 @@ class NoteDto(ModelNormal):
             date (str, none_type): [optional]  # noqa: E501
             created_at (str, none_type): [optional]  # noqa: E501
             author_id (str): [optional]  # noqa: E501
+            contributor_id (str): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             identifier (str, none_type): [optional]  # noqa: E501
             related_symbols ([str], none_type): [optional]  # noqa: E501
@@ -185,6 +190,7 @@ class NoteDto(ModelNormal):
             link (str, none_type): [optional]  # noqa: E501
             body (str, none_type): [optional]  # noqa: E501
             is_personal (bool): [optional]  # noqa: E501
+            state (str, none_type): [optional]  # noqa: E501
             approval_status (str, none_type): [optional]  # noqa: E501
             average_rating (int, none_type): [optional]  # noqa: E501
             related_records (RelatedRecordsDto): [optional]  # noqa: E501
@@ -275,6 +281,7 @@ class NoteDto(ModelNormal):
             date (str, none_type): [optional]  # noqa: E501
             created_at (str, none_type): [optional]  # noqa: E501
             author_id (str): [optional]  # noqa: E501
+            contributor_id (str): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             identifier (str, none_type): [optional]  # noqa: E501
             related_symbols ([str], none_type): [optional]  # noqa: E501
@@ -285,6 +292,7 @@ class NoteDto(ModelNormal):
             link (str, none_type): [optional]  # noqa: E501
             body (str, none_type): [optional]  # noqa: E501
             is_personal (bool): [optional]  # noqa: E501
+            state (str, none_type): [optional]  # noqa: E501
             approval_status (str, none_type): [optional]  # noqa: E501
             average_rating (int, none_type): [optional]  # noqa: E501
             related_records (RelatedRecordsDto): [optional]  # noqa: E501

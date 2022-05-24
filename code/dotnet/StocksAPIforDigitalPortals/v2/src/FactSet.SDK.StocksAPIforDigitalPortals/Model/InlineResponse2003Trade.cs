@@ -70,7 +70,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003Trade {\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003Trade input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Time == input.Time ||
@@ -135,10 +136,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
-                hashCode = hashCode * 59 + this.Price.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Time.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Price.GetHashCode();
                 if (this.Performance != null)
-                    hashCode = hashCode * 59 + this.Performance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
                 return hashCode;
             }
         }

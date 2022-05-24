@@ -102,7 +102,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Rollover {\n");
             sb.Append("  AmericasRollTime: ").Append(AmericasRollTime).Append("\n");
             sb.Append("  AmericasZeroDate: ").Append(AmericasZeroDate).Append("\n");
@@ -141,8 +141,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(Rollover input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AmericasRollTime == input.AmericasRollTime ||
@@ -186,17 +187,29 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.AmericasRollTime != null)
-                    hashCode = hashCode * 59 + this.AmericasRollTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AmericasRollTime.GetHashCode();
+                }
                 if (this.AmericasZeroDate != null)
-                    hashCode = hashCode * 59 + this.AmericasZeroDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AmericasZeroDate.GetHashCode();
+                }
                 if (this.AsiapacificRollTime != null)
-                    hashCode = hashCode * 59 + this.AsiapacificRollTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AsiapacificRollTime.GetHashCode();
+                }
                 if (this.AsiapacificZeroDate != null)
-                    hashCode = hashCode * 59 + this.AsiapacificZeroDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AsiapacificZeroDate.GetHashCode();
+                }
                 if (this.EuropeRollTime != null)
-                    hashCode = hashCode * 59 + this.EuropeRollTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EuropeRollTime.GetHashCode();
+                }
                 if (this.EuropeZeroDate != null)
-                    hashCode = hashCode * 59 + this.EuropeZeroDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EuropeZeroDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -17,7 +17,7 @@ import SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyin
 /**
  * The SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlying model module.
  * @module model/SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlying
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlying {
     /**

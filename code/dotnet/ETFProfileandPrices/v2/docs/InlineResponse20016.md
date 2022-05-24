@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**InlineResponse20016Data**](InlineResponse20016Data.md) |  | [optional] 
+**Data** | [**List&lt;InlineResponse20016Data&gt;**](InlineResponse20016Data.md) | List of ETP class broad categories. | [optional] 
 **Meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

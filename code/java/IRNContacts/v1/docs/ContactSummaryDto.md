@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **identifier** | **String** |  |  [optional]
 **fullName** | **String** |  |  [optional]
 **employerName** | **String** |  |  [optional]
+**employerIdentifier** | **String** |  |  [optional]
 **city** | **String** |  |  [optional]
 **stateProvince** | **String** |  |  [optional]
 **postalCode** | **String** |  |  [optional]

@@ -47,6 +47,8 @@ public class InlineResponse2006InstrumentKnockOutBreach implements Serializable 
   public static final String JSON_PROPERTY_DATETIME = "datetime";
   private String datetime;
 
+  public InlineResponse2006InstrumentKnockOutBreach() { 
+  }
 
   public InlineResponse2006InstrumentKnockOutBreach breached(Boolean breached) {
     this.breached = breached;

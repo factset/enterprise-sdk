@@ -22,7 +22,7 @@ import InlineResponse20082Bid from './InlineResponse20082Bid';
 /**
  * The InlineResponse20082Data model module.
  * @module model/InlineResponse20082Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20082Data {
     /**

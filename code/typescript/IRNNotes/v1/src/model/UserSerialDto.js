@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UserSerialDto model module.
  * @module model/UserSerialDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UserSerialDto {
     /**
@@ -36,8 +36,8 @@ class UserSerialDto {
      * Only for internal use.
      */
     static initialize(obj, username, serialNumber) { 
-        obj['username'] = username;
-        obj['serialNumber'] = serialNumber;
+        obj['Username'] = username;
+        obj['SerialNumber'] = serialNumber;
     }
 
     /**
@@ -51,11 +51,11 @@ class UserSerialDto {
         if (data) {
             obj = obj || new UserSerialDto();
 
-            if (data.hasOwnProperty('username')) {
-                obj['username'] = ApiClient.convertToType(data['username'], 'String');
+            if (data.hasOwnProperty('Username')) {
+                obj['Username'] = ApiClient.convertToType(data['Username'], 'String');
             }
-            if (data.hasOwnProperty('serialNumber')) {
-                obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
+            if (data.hasOwnProperty('SerialNumber')) {
+                obj['SerialNumber'] = ApiClient.convertToType(data['SerialNumber'], 'String');
             }
         }
         return obj;
@@ -65,14 +65,14 @@ class UserSerialDto {
 }
 
 /**
- * @member {String} username
+ * @member {String} Username
  */
-UserSerialDto.prototype['username'] = undefined;
+UserSerialDto.prototype['Username'] = undefined;
 
 /**
- * @member {String} serialNumber
+ * @member {String} SerialNumber
  */
-UserSerialDto.prototype['serialNumber'] = undefined;
+UserSerialDto.prototype['SerialNumber'] = undefined;
 
 
 

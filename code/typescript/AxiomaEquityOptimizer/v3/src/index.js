@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AccountDirectories from './model/AccountDirectories';
 import AccountDirectoriesRoot from './model/AccountDirectoriesRoot';
@@ -36,7 +35,10 @@ import OptimizerOutputTypes from './model/OptimizerOutputTypes';
 import OptimizerStrategy from './model/OptimizerStrategy';
 import OptimizerStrategyOverrides from './model/OptimizerStrategyOverrides';
 import OptimizerTradesList from './model/OptimizerTradesList';
+
 import AXPOptimizerApi from './api/AXPOptimizerApi';
+import PostAndOptimizeResponseWrapper from './api/AXPOptimizerApi';
+import PutAndOptimizeResponseWrapper from './api/AXPOptimizerApi';
 import AccountsApi from './api/AccountsApi';
 import CurrenciesApi from './api/CurrenciesApi';
 import StrategyDocumentsApi from './api/StrategyDocumentsApi';
@@ -71,7 +73,7 @@ import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -225,6 +227,18 @@ export {
     AXPOptimizerApi,
 
     /**
+    * The PostAndOptimize response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PostAndOptimizeResponseWrapper,
+
+    /**
+    * The PutAndOptimize response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PutAndOptimizeResponseWrapper,
+
+    /**
     * The AccountsApi service constructor.
     * @property {module:api/AccountsApi}
     */
@@ -240,5 +254,6 @@ export {
     * The StrategyDocumentsApi service constructor.
     * @property {module:api/StrategyDocumentsApi}
     */
-    StrategyDocumentsApi
+    StrategyDocumentsApi,
+
 };

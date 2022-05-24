@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssue implements Serializab
   public static final String JSON_PROPERTY_VOLUME = "volume";
   private DebtInstrumentNotationScreenerSearchDataIssueVolume volume;
 
+  public DebtInstrumentNotationScreenerSearchDataIssue() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssue volume(DebtInstrumentNotationScreenerSearchDataIssueVolume volume) {
     this.volume = volume;

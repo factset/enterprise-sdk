@@ -7,6 +7,9 @@ import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.Configuration;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.DFSnapshotResponse;
 import com.factset.sdk.ExchangeDataFeedSnapshotAPISymbolList.models.ErrorResponse;
@@ -22,6 +25,22 @@ public class SnapshotApi {
   public SnapshotApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getDFSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDFSnapshotResponseTypeMap.put(200, new GenericType<DFSnapshotResponse>(){});
+    getDFSnapshotResponseTypeMap.put(402, new GenericType<ErrorResponse>(){});
+    getDFSnapshotResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postDFSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postDFSnapshotResponseTypeMap.put(200, new GenericType<DFSnapshotResponse>(){});
+    postDFSnapshotResponseTypeMap.put(402, new GenericType<ErrorResponse>(){});
+    postDFSnapshotResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,11 +139,17 @@ public class SnapshotApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DFSnapshotResponse> localVarReturnType = new GenericType<DFSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("SnapshotApi.getDFSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DFSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("SnapshotApi.getDFSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDFSnapshotResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Snap exchange data. Use if URL lengh of 2,048 is exceeded.
@@ -205,10 +230,16 @@ public class SnapshotApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DFSnapshotResponse> localVarReturnType = new GenericType<DFSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("SnapshotApi.postDFSnapshot", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DFSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("SnapshotApi.postDFSnapshot", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postDFSnapshotResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

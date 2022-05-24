@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006InstrumentStrikeDistance model module.
  * @module model/InlineResponse2006InstrumentStrikeDistance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentStrikeDistance {
     /**

@@ -21,6 +21,7 @@ import SecuritizedDerivativeNotationRankingIntradayListDataIssuer from './Securi
 import SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle from './SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle';
 import SecuritizedDerivativeNotationRankingIntradayListDataMarket from './SecuritizedDerivativeNotationRankingIntradayListDataMarket';
 import SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList from './SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList';
+import SecuritizedDerivativeNotationRankingIntradayListDataPerformance from './SecuritizedDerivativeNotationRankingIntradayListDataPerformance';
 import SecuritizedDerivativeNotationRankingIntradayListDataPrices from './SecuritizedDerivativeNotationRankingIntradayListDataPrices';
 import SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry from './SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry';
 import SecuritizedDerivativeNotationRankingIntradayListDataUnderlying from './SecuritizedDerivativeNotationRankingIntradayListDataUnderlying';
@@ -29,7 +30,7 @@ import SecuritizedDerivativeNotationRankingIntradayListDataValueUnit from './Sec
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListData model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListData
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationRankingIntradayListData {
     /**
@@ -107,6 +108,9 @@ class SecuritizedDerivativeNotationRankingIntradayListData {
             }
             if (data.hasOwnProperty('knockedIn')) {
                 obj['knockedIn'] = ApiClient.convertToType(data['knockedIn'], 'String');
+            }
+            if (data.hasOwnProperty('performance')) {
+                obj['performance'] = SecuritizedDerivativeNotationRankingIntradayListDataPerformance.constructFromObject(data['performance']);
             }
         }
         return obj;
@@ -193,6 +197,11 @@ SecuritizedDerivativeNotationRankingIntradayListData.prototype['knockedOut'] = '
  * @default 'exclude'
  */
 SecuritizedDerivativeNotationRankingIntradayListData.prototype['knockedIn'] = 'exclude';
+
+/**
+ * @member {module:model/SecuritizedDerivativeNotationRankingIntradayListDataPerformance} performance
+ */
+SecuritizedDerivativeNotationRankingIntradayListData.prototype['performance'] = undefined;
 
 
 

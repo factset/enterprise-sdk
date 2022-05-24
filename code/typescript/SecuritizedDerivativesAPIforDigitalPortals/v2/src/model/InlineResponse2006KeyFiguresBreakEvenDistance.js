@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006KeyFiguresBreakEvenDistance model module.
  * @module model/InlineResponse2006KeyFiguresBreakEvenDistance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006KeyFiguresBreakEvenDistance {
     /**

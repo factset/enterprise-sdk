@@ -53,6 +53,8 @@ public class InlineResponse2007DataConditions implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private InlineResponse2007DataCashFlow cashFlow;
 
+  public InlineResponse2007DataConditions() { 
+  }
 
   public InlineResponse2007DataConditions observation(InlineResponse2007DataObservation observation) {
     this.observation = observation;

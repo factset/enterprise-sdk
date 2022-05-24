@@ -19,7 +19,7 @@ import VaultConfigurationSummary from '../model/VaultConfigurationSummary';
 /**
 * Configurations service.
 * @module api/ConfigurationsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ConfigurationsApi {
 
@@ -62,7 +62,10 @@ export default class ConfigurationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = VaultConfiguration;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/vault/configurations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class ConfigurationsApi {
      * Get Vault configuration by id
      * This endpoint returns details for a Vault configuration as well as a list of accounts it is used in.
      * @param {String} id Vault configuration id to get the details of
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/VaultConfiguration}
+     * @return { Promise.< module:model/VaultConfiguration > } a Promise, with data of type {@link module:model/VaultConfiguration }
      */
     getVaultConfigurationById(id) {
       return this.getVaultConfigurationByIdWithHttpInfo(id)
@@ -110,7 +113,10 @@ export default class ConfigurationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': VaultConfigurationSummary};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/vault/configurations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class ConfigurationsApi {
      * Get Vault configurations
      * This endpoint returns all the Vault configurations saved in the provided account.
      * @param {String} account Required account query parameter to filter configurations for a specific account
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: VaultConfigurationSummary}>}
+     * @return { Promise.< Object.<String, module:model/{String: VaultConfigurationSummary}> > } a Promise, with data of type {@link Object.<String, module:model/{String: VaultConfigurationSummary}> }
      */
     getVaultConfigurations(account) {
       return this.getVaultConfigurationsWithHttpInfo(account)
@@ -133,3 +139,8 @@ export default class ConfigurationsApi {
 
 
 }
+
+
+
+
+

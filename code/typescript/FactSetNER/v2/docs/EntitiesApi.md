@@ -47,6 +47,7 @@ const payload = new factsetner.Input(); // Input |
 // Call api endpoint
 apiInstance.postEntitiesEntities(payload).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

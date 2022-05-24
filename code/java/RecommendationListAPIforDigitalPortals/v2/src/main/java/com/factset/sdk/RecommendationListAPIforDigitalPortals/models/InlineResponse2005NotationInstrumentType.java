@@ -47,6 +47,8 @@ public class InlineResponse2005NotationInstrumentType implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2005NotationInstrumentType() { 
+  }
 
   public InlineResponse2005NotationInstrumentType id(BigDecimal id) {
     this.id = id;

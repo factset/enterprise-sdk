@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003DataLevel {\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003DataLevel input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Time == input.Time ||
@@ -121,8 +122,10 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Time.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 return hashCode;
             }
         }

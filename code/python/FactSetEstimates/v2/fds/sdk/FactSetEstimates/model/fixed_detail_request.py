@@ -25,8 +25,8 @@ from fds.sdk.FactSetEstimates.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.FactSetEstimates.exceptions import ApiAttributeError
 
 
@@ -34,11 +34,11 @@ def lazy_import():
     from fds.sdk.FactSetEstimates.model.frequency import Frequency
     from fds.sdk.FactSetEstimates.model.ids import Ids
     from fds.sdk.FactSetEstimates.model.metrics import Metrics
-    from fds.sdk.FactSetEstimates.model.periodicity import Periodicity
+    from fds.sdk.FactSetEstimates.model.periodicity_detail import PeriodicityDetail
     globals()['Frequency'] = Frequency
     globals()['Ids'] = Ids
     globals()['Metrics'] = Metrics
-    globals()['Periodicity'] = Periodicity
+    globals()['PeriodicityDetail'] = PeriodicityDetail
 
 
 class FixedDetailRequest(ModelNormal):
@@ -100,7 +100,7 @@ class FixedDetailRequest(ModelNormal):
             'end_date': (str,),  # noqa: E501
             'frequency': (Frequency,),  # noqa: E501
             'include_all': (bool,),  # noqa: E501
-            'periodicity': (Periodicity,),  # noqa: E501
+            'periodicity': (PeriodicityDetail,),  # noqa: E501
             'fiscal_period_start': (str,),  # noqa: E501
             'fiscal_period_end': (str,),  # noqa: E501
             'currency': (str,),  # noqa: E501
@@ -173,7 +173,7 @@ class FixedDetailRequest(ModelNormal):
             end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
             frequency (Frequency): [optional]  # noqa: E501
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
-            periodicity (Periodicity): [optional]  # noqa: E501
+            periodicity (PeriodicityDetail): [optional]  # noqa: E501
             fiscal_period_start (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]  # noqa: E501
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501
@@ -268,7 +268,7 @@ class FixedDetailRequest(ModelNormal):
             end_date (str): The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. . [optional]  # noqa: E501
             frequency (Frequency): [optional]  # noqa: E501
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
-            periodicity (Periodicity): [optional]  # noqa: E501
+            periodicity (PeriodicityDetail): [optional]  # noqa: E501
             fiscal_period_start (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]  # noqa: E501
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).. [optional]  # noqa: E501

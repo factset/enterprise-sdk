@@ -48,6 +48,8 @@ public class InlineResponse2004DataCouponCurrentInterestRateValue implements Ser
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataCouponCurrentInterestRateValue() { 
+  }
 
   public InlineResponse2004DataCouponCurrentInterestRateValue minimum(BigDecimal minimum) {
     this.minimum = minimum;

@@ -52,6 +52,8 @@ public class InlineResponse2004DataProfitLoss implements Serializable {
   public static final String JSON_PROPERTY_MODIFIED_DIETZ_PERFORMANCE = "modifiedDietzPerformance";
   private BigDecimal modifiedDietzPerformance;
 
+  public InlineResponse2004DataProfitLoss() { 
+  }
 
   public InlineResponse2004DataProfitLoss absolute(BigDecimal absolute) {
     this.absolute = absolute;

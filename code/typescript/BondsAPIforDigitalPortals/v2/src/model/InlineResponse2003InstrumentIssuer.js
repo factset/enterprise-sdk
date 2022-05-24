@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentIssuerCountry from './InlineResponse2003Instr
 /**
  * The InlineResponse2003InstrumentIssuer model module.
  * @module model/InlineResponse2003InstrumentIssuer
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentIssuer {
     /**

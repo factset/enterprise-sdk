@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresDiscountRelative implements Seriali
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresDiscountRelative() { 
+  }
 
   public InlineResponse2005DataKeyFiguresDiscountRelative minimum(BigDecimal minimum) {
     this.minimum = minimum;

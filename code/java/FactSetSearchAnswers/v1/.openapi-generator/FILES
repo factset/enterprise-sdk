@@ -84,7 +84,6 @@ src/main/java/com/factset/sdk/FactSetSearchAnswers/ApiClient.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/ApiException.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/Configuration.java
-src/main/java/com/factset/sdk/FactSetSearchAnswers/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/JSON.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetSearchAnswers/Pair.java

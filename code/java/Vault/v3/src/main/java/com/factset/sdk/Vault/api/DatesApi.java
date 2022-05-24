@@ -7,6 +7,9 @@ import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Vault.models.ClientErrorResponse;
 import com.factset.sdk.Vault.models.DateParametersSummaryRoot;
@@ -22,6 +25,16 @@ public class DatesApi {
   public DatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> convertVaultDatesToAbsoluteFormatResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    convertVaultDatesToAbsoluteFormatResponseTypeMap.put(200, new GenericType<DateParametersSummaryRoot>(){});
+    convertVaultDatesToAbsoluteFormatResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    convertVaultDatesToAbsoluteFormatResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -138,10 +151,16 @@ public class DatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DateParametersSummaryRoot> localVarReturnType = new GenericType<DateParametersSummaryRoot>() {};
 
-    return apiClient.invokeAPI("DatesApi.convertVaultDatesToAbsoluteFormat", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DateParametersSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("DatesApi.convertVaultDatesToAbsoluteFormat", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, convertVaultDatesToAbsoluteFormatResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

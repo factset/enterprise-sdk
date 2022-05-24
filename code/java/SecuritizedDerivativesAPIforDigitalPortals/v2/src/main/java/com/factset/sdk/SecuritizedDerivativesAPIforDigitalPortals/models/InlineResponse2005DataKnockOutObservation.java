@@ -82,6 +82,8 @@ public class InlineResponse2005DataKnockOutObservation implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataKnockOutObservation() { 
+  }
 
   public InlineResponse2005DataKnockOutObservation type(TypeEnum type) {
     this.type = type;

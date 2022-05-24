@@ -1,0 +1,19 @@
+
+
+# InlineResponse4044
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**schemas** | **String** |  |  [optional]
+**detail** | **String** |  |  [optional]
+**status** | **String** |  |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

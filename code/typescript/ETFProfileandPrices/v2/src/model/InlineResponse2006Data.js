@@ -12,20 +12,17 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2006DataCounterParty from './InlineResponse2006DataCounterParty';
-import InlineResponse2006DataGearing from './InlineResponse2006DataGearing';
-import InlineResponse2006DataHedge from './InlineResponse2006DataHedge';
-import InlineResponse2006DataServiceProvider from './InlineResponse2006DataServiceProvider';
+import InlineResponse2006DataIndustries from './InlineResponse2006DataIndustries';
 
 /**
  * The InlineResponse2006Data model module.
  * @module model/InlineResponse2006Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006Data {
     /**
      * Constructs a new <code>InlineResponse2006Data</code>.
-     * Characteristics.
+     * ETP industry allocation data.
      * @alias module:model/InlineResponse2006Data
      */
     constructor() { 
@@ -52,17 +49,11 @@ class InlineResponse2006Data {
         if (data) {
             obj = obj || new InlineResponse2006Data();
 
-            if (data.hasOwnProperty('gearing')) {
-                obj['gearing'] = InlineResponse2006DataGearing.constructFromObject(data['gearing']);
+            if (data.hasOwnProperty('reportDate')) {
+                obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('hedge')) {
-                obj['hedge'] = InlineResponse2006DataHedge.constructFromObject(data['hedge']);
-            }
-            if (data.hasOwnProperty('counterParty')) {
-                obj['counterParty'] = InlineResponse2006DataCounterParty.constructFromObject(data['counterParty']);
-            }
-            if (data.hasOwnProperty('serviceProvider')) {
-                obj['serviceProvider'] = InlineResponse2006DataServiceProvider.constructFromObject(data['serviceProvider']);
+            if (data.hasOwnProperty('industries')) {
+                obj['industries'] = ApiClient.convertToType(data['industries'], [InlineResponse2006DataIndustries]);
             }
         }
         return obj;
@@ -72,24 +63,16 @@ class InlineResponse2006Data {
 }
 
 /**
- * @member {module:model/InlineResponse2006DataGearing} gearing
+ * Reporting date for the allocations.
+ * @member {Date} reportDate
  */
-InlineResponse2006Data.prototype['gearing'] = undefined;
+InlineResponse2006Data.prototype['reportDate'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2006DataHedge} hedge
+ * List of allocations by industry.
+ * @member {Array.<module:model/InlineResponse2006DataIndustries>} industries
  */
-InlineResponse2006Data.prototype['hedge'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006DataCounterParty} counterParty
- */
-InlineResponse2006Data.prototype['counterParty'] = undefined;
-
-/**
- * @member {module:model/InlineResponse2006DataServiceProvider} serviceProvider
- */
-InlineResponse2006Data.prototype['serviceProvider'] = undefined;
+InlineResponse2006Data.prototype['industries'] = undefined;
 
 
 

@@ -72,7 +72,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LinkedPATemplateSummary {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(LinkedPATemplateSummary input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Description == input.Description ||
@@ -138,11 +139,17 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ParentComponentId != null)
-                    hashCode = hashCode * 59 + this.ParentComponentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentComponentId.GetHashCode();
+                }
                 return hashCode;
             }
         }

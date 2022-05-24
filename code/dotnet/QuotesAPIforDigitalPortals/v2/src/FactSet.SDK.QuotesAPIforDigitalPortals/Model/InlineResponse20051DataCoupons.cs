@@ -70,7 +70,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20051DataCoupons {\n");
             sb.Append("  Period: ").Append(Period).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20051DataCoupons input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Period == input.Period ||
@@ -136,11 +137,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Period != null)
-                    hashCode = hashCode * 59 + this.Period.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                }
                 if (this.PaymentDate != null)
-                    hashCode = hashCode * 59 + this.PaymentDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
                 if (this.InterestRate != null)
-                    hashCode = hashCode * 59 + this.InterestRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InterestRate.GetHashCode();
+                }
                 return hashCode;
             }
         }

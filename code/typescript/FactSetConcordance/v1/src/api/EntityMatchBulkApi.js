@@ -21,7 +21,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityMatchBulk service.
 * @module api/EntityMatchBulkApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class EntityMatchBulkApi {
 
@@ -98,7 +98,10 @@ export default class EntityMatchBulkApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['multipart/form-data'];
       let accepts = ['application/json;charset=utf-8', 'application/json'];
+
+
       let returnType = EntityTaskResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/entity-task', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -121,7 +124,7 @@ export default class EntityMatchBulkApi {
      * @param {Array.<String>} opts.excludeEntityType Three-character FactSet entity type code used to filter candidates in order to determine the final match result. Entities with these types will be excluded from the decisions. It is a global option used to filter the candidates before taking a match decision. Candidates with an entity type specified will *not* be considered for the final match result. **Do not include within `inputFile`.** 
      * @param {Array.<String>} opts.includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
      * @param {Array.<String>} opts.excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within `inputFile`.** 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityTaskResponse}
+     * @return { Promise.< module:model/EntityTaskResponse > } a Promise, with data of type {@link module:model/EntityTaskResponse }
      */
     createEntityTask(taskName, inputFile, clientIdColumn, nameColumn, opts) {
       return this.createEntityTaskWithHttpInfo(taskName, inputFile, clientIdColumn, nameColumn, opts)
@@ -163,7 +166,10 @@ export default class EntityMatchBulkApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json;charset=utf-8', 'application/json'];
+
+
       let returnType = EntityDecisionsResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/entity-decisions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -178,7 +184,7 @@ export default class EntityMatchBulkApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.offset Starting row for records to return or rows to skip. (default to 0)
      * @param {Number} opts.limit Limits the number of records in the response.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityDecisionsResponse}
+     * @return { Promise.< module:model/EntityDecisionsResponse > } a Promise, with data of type {@link module:model/EntityDecisionsResponse }
      */
     getEntityDecisions(taskId, opts) {
       return this.getEntityDecisionsWithHttpInfo(taskId, opts)
@@ -218,7 +224,10 @@ export default class EntityMatchBulkApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json;charset=utf-8', 'application/json'];
+
+
       let returnType = EntityTaskStatusResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/entity-task-status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -234,7 +243,7 @@ export default class EntityMatchBulkApi {
      * @param {Number} opts.offset Starting row for records to return or rows to skip. (default to 0)
      * @param {Number} opts.limit Limits the number of records in the response.
      * @param {Array.<module:model/String>} opts.status Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityTaskStatusResponse}
+     * @return { Promise.< module:model/EntityTaskStatusResponse > } a Promise, with data of type {@link module:model/EntityTaskStatusResponse }
      */
     getEntityTaskStatus(opts) {
       return this.getEntityTaskStatusWithHttpInfo(opts)
@@ -245,3 +254,8 @@ export default class EntityMatchBulkApi {
 
 
 }
+
+
+
+
+

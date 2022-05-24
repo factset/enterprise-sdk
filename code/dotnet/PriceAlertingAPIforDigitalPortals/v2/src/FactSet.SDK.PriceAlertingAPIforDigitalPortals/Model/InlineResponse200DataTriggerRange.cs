@@ -62,7 +62,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataTriggerRange {\n");
             sb.Append("  UpperLimit: ").Append(UpperLimit).Append("\n");
             sb.Append("  LowerLimit: ").Append(LowerLimit).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataTriggerRange input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UpperLimit == input.UpperLimit ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UpperLimit.GetHashCode();
-                hashCode = hashCode * 59 + this.LowerLimit.GetHashCode();
+                hashCode = (hashCode * 59) + this.UpperLimit.GetHashCode();
+                hashCode = (hashCode * 59) + this.LowerLimit.GetHashCode();
                 return hashCode;
             }
         }

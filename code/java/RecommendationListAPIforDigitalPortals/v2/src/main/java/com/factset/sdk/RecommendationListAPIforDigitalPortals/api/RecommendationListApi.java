@@ -7,6 +7,9 @@ import com.factset.sdk.RecommendationListAPIforDigitalPortals.Configuration;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import java.math.BigDecimal;
 import com.factset.sdk.RecommendationListAPIforDigitalPortals.models.InlineObject;
@@ -28,6 +31,34 @@ public class RecommendationListApi {
   public RecommendationListApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getRecommendationListGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRecommendationListGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> getRecommendationListRevisionElementListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRecommendationListRevisionElementListResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+  }
+  private static final Map<Integer, GenericType> getRecommendationListRevisionGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRecommendationListRevisionGetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> getRecommendationListRevisionSearchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRecommendationListRevisionSearchResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+  }
+  private static final Map<Integer, GenericType> getRecommendationListSearchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRecommendationListSearchResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postRecommendationListRevisionListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postRecommendationListRevisionListResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +146,17 @@ public class RecommendationListApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("RecommendationListApi.getRecommendationListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("RecommendationListApi.getRecommendationListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRecommendationListGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of elements of a given revision.
@@ -189,11 +226,17 @@ public class RecommendationListApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2005> localVarReturnType = new GenericType<InlineResponse2005>() {};
 
-    return apiClient.invokeAPI("RecommendationListApi.getRecommendationListRevisionElementList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2005
+      
+    > apiResponse = apiClient.invokeAPI("RecommendationListApi.getRecommendationListRevisionElementList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRecommendationListRevisionElementListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Attributes of a single revision.
@@ -263,11 +306,17 @@ public class RecommendationListApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("RecommendationListApi.getRecommendationListRevisionGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("RecommendationListApi.getRecommendationListRevisionGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRecommendationListRevisionGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Search for revisions of a recommendation list.
@@ -335,11 +384,17 @@ public class RecommendationListApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
 
-    return apiClient.invokeAPI("RecommendationListApi.getRecommendationListRevisionSearch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2004
+      
+    > apiResponse = apiClient.invokeAPI("RecommendationListApi.getRecommendationListRevisionSearch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRecommendationListRevisionSearchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Search for recommendation lists.
@@ -407,11 +462,17 @@ public class RecommendationListApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("RecommendationListApi.getRecommendationListSearch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("RecommendationListApi.getRecommendationListSearch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRecommendationListSearchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of revisions of a recommendation list.
@@ -474,10 +535,16 @@ public class RecommendationListApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("RecommendationListApi.postRecommendationListRevisionList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("RecommendationListApi.postRecommendationListRevisionList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postRecommendationListRevisionListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

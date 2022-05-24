@@ -75,10 +75,12 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// Initializes a new instance of the <see cref="InlineResponse2007DataNotationInstrument" /> class.
         /// </summary>
         /// <param name="id">Identifier of the instrument..</param>
+        /// <param name="fsym">fsym.</param>
         /// <param name="typeComposite">Type of composite instrument, in case the underlying is a composite instrument..</param>
-        public InlineResponse2007DataNotationInstrument(string id = default(string), TypeCompositeEnum? typeComposite = default(TypeCompositeEnum?))
+        public InlineResponse2007DataNotationInstrument(string id = default(string), InlineResponse2004InstrumentFsym fsym = default(InlineResponse2004InstrumentFsym), TypeCompositeEnum? typeComposite = default(TypeCompositeEnum?))
         {
             this.Id = id;
+            this.Fsym = fsym;
             this.TypeComposite = typeComposite;
         }
 
@@ -90,14 +92,21 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse2004InstrumentFsym Fsym { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataNotationInstrument {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("  TypeComposite: ").Append(TypeComposite).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -130,13 +139,19 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataNotationInstrument input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
                 ) && 
                 (
                     this.TypeComposite == input.TypeComposite ||
@@ -154,8 +169,14 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                hashCode = hashCode * 59 + this.TypeComposite.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TypeComposite.GetHashCode();
                 return hashCode;
             }
         }

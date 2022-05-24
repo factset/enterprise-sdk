@@ -119,7 +119,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FactorsRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  Factors: ").Append(Factors).Append("\n");
@@ -158,8 +158,9 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         public bool Equals(FactorsRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -206,17 +207,29 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.Factors != null)
-                    hashCode = hashCode * 59 + this.Factors.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Factors.GetHashCode();
+                }
                 if (this.FactorGroups != null)
-                    hashCode = hashCode * 59 + this.FactorGroups.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactorGroups.GetHashCode();
+                }
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
                 if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
                 return hashCode;
             }
         }

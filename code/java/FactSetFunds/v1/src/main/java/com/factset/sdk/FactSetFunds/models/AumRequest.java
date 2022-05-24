@@ -65,6 +65,16 @@ public class AumRequest implements Serializable {
   public static final String JSON_PROPERTY_DATA_TYPE = "dataType";
   private DataType dataType = DataType.RAW;
 
+  public AumRequest() { 
+  }
+
+  @JsonCreator
+  public AumRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public AumRequest ids(java.util.List<String> ids) {
     this.ids = ids;

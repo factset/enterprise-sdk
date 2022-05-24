@@ -84,7 +84,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200Dates {\n");
             sb.Append("  Announcement: ").Append(Announcement).Append("\n");
             sb.Append("  Record: ").Append(Record).Append("\n");
@@ -121,8 +121,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200Dates input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Announcement == input.Announcement ||
@@ -156,13 +157,21 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Announcement != null)
-                    hashCode = hashCode * 59 + this.Announcement.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Announcement.GetHashCode();
+                }
                 if (this.Record != null)
-                    hashCode = hashCode * 59 + this.Record.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Record.GetHashCode();
+                }
                 if (this.Effective != null)
-                    hashCode = hashCode * 59 + this.Effective.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Effective.GetHashCode();
+                }
                 if (this.Payment != null)
-                    hashCode = hashCode * 59 + this.Payment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Payment.GetHashCode();
+                }
                 return hashCode;
             }
         }

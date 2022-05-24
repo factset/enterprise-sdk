@@ -49,6 +49,8 @@ public class InlineResponse2005DataLockOutDistance implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private InlineResponse2005DataStrikeDistanceRelative relative;
 
+  public InlineResponse2005DataLockOutDistance() { 
+  }
 
   public InlineResponse2005DataLockOutDistance absolute(InlineResponse2005DataStrikeDistanceAbsolute absolute) {
     this.absolute = absolute;

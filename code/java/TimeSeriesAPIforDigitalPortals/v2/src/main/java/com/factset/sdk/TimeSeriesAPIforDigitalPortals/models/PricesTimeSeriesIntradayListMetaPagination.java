@@ -48,6 +48,8 @@ public class PricesTimeSeriesIntradayListMetaPagination implements Serializable 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public PricesTimeSeriesIntradayListMetaPagination() { 
+  }
 
   public PricesTimeSeriesIntradayListMetaPagination cursor(String cursor) {
     this.cursor = cursor;

@@ -71,7 +71,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimizerStrategy {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         public bool Equals(OptimizerStrategy input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -131,9 +132,13 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                }
                 return hashCode;
             }
         }

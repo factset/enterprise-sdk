@@ -38,15 +38,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -54,11 +54,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    path = "Client:folder1/folder2" # str | The directory to get the documents and sub-directories in (default to "Client:folder1/folder2")
+
     try:
         # Get PA3 documents and sub-directories in a directory
-        api_response = api_instance.get_pa3_documents()
+        api_response = api_instance.get_pa3_documents(path)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling DocumentsApi->get_pa3_documents: %s\n" % e)
 ```

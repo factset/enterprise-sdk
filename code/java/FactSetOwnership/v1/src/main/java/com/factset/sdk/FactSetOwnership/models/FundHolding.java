@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetOwnership.JSON;
@@ -88,6 +88,8 @@ public class FundHolding implements Serializable {
   public static final String JSON_PROPERTY_SECURITY_TICKER = "securityTicker";
   private String securityTicker;
 
+  public FundHolding() { 
+  }
 
   public FundHolding requestId(String requestId) {
     this.requestId = requestId;

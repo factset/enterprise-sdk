@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SPARDateParameters model module.
  * @module model/SPARDateParameters
- * @version 0.8.1
+ * @version 0.8.2
  */
 class SPARDateParameters {
     /**

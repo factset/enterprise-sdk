@@ -48,6 +48,8 @@ public class InlineResponse2006KeyFiguresSpread implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006KeyFiguresSpread() { 
+  }
 
   public InlineResponse2006KeyFiguresSpread harmonized(BigDecimal harmonized) {
     this.harmonized = harmonized;

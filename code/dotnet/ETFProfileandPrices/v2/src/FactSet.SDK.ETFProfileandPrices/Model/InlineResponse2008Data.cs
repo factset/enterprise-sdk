@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// InlineResponse2008Data
+    /// ETP region allocation data.
     /// </summary>
     [DataContract(Name = "inline_response_200_8_data")]
     public partial class InlineResponse2008Data : IEquatable<InlineResponse2008Data>, IValidatableObject
@@ -34,18 +34,28 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2008Data" /> class.
         /// </summary>
-        /// <param name="broadCategory">ETP class broad category..</param>
-        public InlineResponse2008Data(string broadCategory = default(string))
+        /// <param name="reportDate">Reporting date for the allocations..</param>
+        /// <param name="regions">List of allocations by region..</param>
+        public InlineResponse2008Data(DateTime reportDate = default(DateTime), List<InlineResponse2008DataRegions> regions = default(List<InlineResponse2008DataRegions>))
         {
-            this.BroadCategory = broadCategory;
+            this.ReportDate = reportDate;
+            this.Regions = regions;
         }
 
         /// <summary>
-        /// ETP class broad category.
+        /// Reporting date for the allocations.
         /// </summary>
-        /// <value>ETP class broad category.</value>
-        [DataMember(Name = "broadCategory", EmitDefaultValue = false)]
-        public string BroadCategory { get; set; }
+        /// <value>Reporting date for the allocations.</value>
+        [DataMember(Name = "reportDate", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime ReportDate { get; set; }
+
+        /// <summary>
+        /// List of allocations by region.
+        /// </summary>
+        /// <value>List of allocations by region.</value>
+        [DataMember(Name = "regions", EmitDefaultValue = false)]
+        public List<InlineResponse2008DataRegions> Regions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,9 +63,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2008Data {\n");
-            sb.Append("  BroadCategory: ").Append(BroadCategory).Append("\n");
+            sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
+            sb.Append("  Regions: ").Append(Regions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,13 +98,20 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse2008Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.BroadCategory == input.BroadCategory ||
-                    (this.BroadCategory != null &&
-                    this.BroadCategory.Equals(input.BroadCategory))
+                    this.ReportDate == input.ReportDate ||
+                    (this.ReportDate != null &&
+                    this.ReportDate.Equals(input.ReportDate))
+                ) && 
+                (
+                    this.Regions == input.Regions ||
+                    this.Regions != null &&
+                    input.Regions != null &&
+                    this.Regions.SequenceEqual(input.Regions)
                 );
         }
 
@@ -106,8 +124,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.BroadCategory != null)
-                    hashCode = hashCode * 59 + this.BroadCategory.GetHashCode();
+                if (this.ReportDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
+                }
+                if (this.Regions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Regions.GetHashCode();
+                }
                 return hashCode;
             }
         }

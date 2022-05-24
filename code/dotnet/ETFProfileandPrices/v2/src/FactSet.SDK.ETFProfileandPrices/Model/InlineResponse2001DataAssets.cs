@@ -62,7 +62,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001DataAssets {\n");
             sb.Append("  AssetClass: ").Append(AssetClass).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse2001DataAssets input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AssetClass == input.AssetClass ||
@@ -121,8 +122,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.AssetClass != null)
-                    hashCode = hashCode * 59 + this.AssetClass.GetHashCode();
-                hashCode = hashCode * 59 + this.Weight.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AssetClass.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Weight.GetHashCode();
                 return hashCode;
             }
         }

@@ -17,6 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20015DataCategory;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20015DataGeography;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,230 +26,223 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
-import org.threeten.bp.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * InlineResponse20015Data
+ * Class information of given ETP.
  */
+@ApiModel(description = "Class information of given ETP.")
 @JsonPropertyOrder({
-  InlineResponse20015Data.JSON_PROPERTY_SYMBOL,
-  InlineResponse20015Data.JSON_PROPERTY_NAME,
-  InlineResponse20015Data.JSON_PROPERTY_REPORT_DATE,
-  InlineResponse20015Data.JSON_PROPERTY_SHARES,
-  InlineResponse20015Data.JSON_PROPERTY_MARKET_VALUE,
-  InlineResponse20015Data.JSON_PROPERTY_CURRENCY_CODE,
-  InlineResponse20015Data.JSON_PROPERTY_WEIGHT
+  InlineResponse20015Data.JSON_PROPERTY_ASSET,
+  InlineResponse20015Data.JSON_PROPERTY_ECONOMIC_DEVELOPMENT,
+  InlineResponse20015Data.JSON_PROPERTY_GEOGRAPHY,
+  InlineResponse20015Data.JSON_PROPERTY_CATEGORY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20015Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
-  private String symbol;
+  /**
+   * Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
+   */
+  public enum AssetEnum {
+    EQUITY("Equity"),
+    
+    ALTERNATIVES("Alternatives"),
+    
+    FIXED_INCOME("Fixed Income"),
+    
+    COMMODITIES("Commodities"),
+    
+    CURRENCY("Currency"),
+    
+    ASSET_ALLOCATION("Asset Allocation");
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    private String value;
 
-  public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
-  private LocalDate reportDate;
+    AssetEnum(String value) {
+      this.value = value;
+    }
 
-  public static final String JSON_PROPERTY_SHARES = "shares";
-  private BigDecimal shares;
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
 
-  public static final String JSON_PROPERTY_MARKET_VALUE = "marketValue";
-  private BigDecimal marketValue;
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
 
-  public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
-  private String currencyCode;
+    @JsonCreator
+    public static AssetEnum fromValue(String value) {
+      for (AssetEnum b : AssetEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
 
-  public static final String JSON_PROPERTY_WEIGHT = "weight";
-  private BigDecimal weight;
+  public static final String JSON_PROPERTY_ASSET = "asset";
+  private AssetEnum asset;
 
+  /**
+   * The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
+   */
+  public enum EconomicDevelopmentEnum {
+    DEVELOPED_MARKETS("Developed Markets"),
+    
+    BLENDED_DEVELOPMENT("Blended Development"),
+    
+    EMERGING_MARKETS("Emerging Markets"),
+    
+    FRONTIER_MARKETS("Frontier Markets");
 
-  public InlineResponse20015Data symbol(String symbol) {
-    this.symbol = symbol;
+    private String value;
+
+    EconomicDevelopmentEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static EconomicDevelopmentEnum fromValue(String value) {
+      for (EconomicDevelopmentEnum b : EconomicDevelopmentEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ECONOMIC_DEVELOPMENT = "economicDevelopment";
+  private EconomicDevelopmentEnum economicDevelopment;
+
+  public static final String JSON_PROPERTY_GEOGRAPHY = "geography";
+  private InlineResponse20015DataGeography geography;
+
+  public static final String JSON_PROPERTY_CATEGORY = "category";
+  private InlineResponse20015DataCategory category;
+
+  public InlineResponse20015Data() { 
+  }
+
+  public InlineResponse20015Data asset(AssetEnum asset) {
+    this.asset = asset;
     return this;
   }
 
    /**
-   * Identifier of the holding. (when available).
-   * @return symbol
+   * Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
+   * @return asset
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Identifier of the holding. (when available).")
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
+  @ApiModelProperty(value = "Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.")
+  @JsonProperty(JSON_PROPERTY_ASSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getSymbol() {
-    return symbol;
+  public AssetEnum getAsset() {
+    return asset;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SYMBOL)
+  @JsonProperty(JSON_PROPERTY_ASSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSymbol(String symbol) {
-    this.symbol = symbol;
+  public void setAsset(AssetEnum asset) {
+    this.asset = asset;
   }
 
 
-  public InlineResponse20015Data name(String name) {
-    this.name = name;
+  public InlineResponse20015Data economicDevelopment(EconomicDevelopmentEnum economicDevelopment) {
+    this.economicDevelopment = economicDevelopment;
     return this;
   }
 
    /**
-   * Name of the holding.
-   * @return name
+   * The country development level of the ETP&#39;s holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
+   * @return economicDevelopment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the holding.")
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @ApiModelProperty(value = "The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.")
+  @JsonProperty(JSON_PROPERTY_ECONOMIC_DEVELOPMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public EconomicDevelopmentEnum getEconomicDevelopment() {
+    return economicDevelopment;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ECONOMIC_DEVELOPMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+  public void setEconomicDevelopment(EconomicDevelopmentEnum economicDevelopment) {
+    this.economicDevelopment = economicDevelopment;
   }
 
 
-  public InlineResponse20015Data reportDate(LocalDate reportDate) {
-    this.reportDate = reportDate;
+  public InlineResponse20015Data geography(InlineResponse20015DataGeography geography) {
+    this.geography = geography;
     return this;
   }
 
    /**
-   * Reporting date of the holding.
-   * @return reportDate
+   * Get geography
+   * @return geography
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Reporting date of the holding.")
-  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GEOGRAPHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public LocalDate getReportDate() {
-    return reportDate;
+  public InlineResponse20015DataGeography getGeography() {
+    return geography;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
+  @JsonProperty(JSON_PROPERTY_GEOGRAPHY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportDate(LocalDate reportDate) {
-    this.reportDate = reportDate;
+  public void setGeography(InlineResponse20015DataGeography geography) {
+    this.geography = geography;
   }
 
 
-  public InlineResponse20015Data shares(BigDecimal shares) {
-    this.shares = shares;
+  public InlineResponse20015Data category(InlineResponse20015DataCategory category) {
+    this.category = category;
     return this;
   }
 
    /**
-   * Number of shares held, unadjusted for corporate actions.
-   * @return shares
+   * Get category
+   * @return category
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of shares held, unadjusted for corporate actions.")
-  @JsonProperty(JSON_PROPERTY_SHARES)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getShares() {
-    return shares;
+  public InlineResponse20015DataCategory getCategory() {
+    return category;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHARES)
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShares(BigDecimal shares) {
-    this.shares = shares;
-  }
-
-
-  public InlineResponse20015Data marketValue(BigDecimal marketValue) {
-    this.marketValue = marketValue;
-    return this;
-  }
-
-   /**
-   * Market value of the holding, unadjusted for corporate actions.
-   * @return marketValue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Market value of the holding, unadjusted for corporate actions.")
-  @JsonProperty(JSON_PROPERTY_MARKET_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getMarketValue() {
-    return marketValue;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MARKET_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMarketValue(BigDecimal marketValue) {
-    this.marketValue = marketValue;
-  }
-
-
-  public InlineResponse20015Data currencyCode(String currencyCode) {
-    this.currencyCode = currencyCode;
-    return this;
-  }
-
-   /**
-   * Code representing the currency of the ETP and  it&#39;s in format ISO 4217
-   * @return currencyCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Code representing the currency of the ETP and  it's in format ISO 4217")
-  @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getCurrencyCode() {
-    return currencyCode;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrencyCode(String currencyCode) {
-    this.currencyCode = currencyCode;
-  }
-
-
-  public InlineResponse20015Data weight(BigDecimal weight) {
-    this.weight = weight;
-    return this;
-  }
-
-   /**
-   * Weight of the holding within the ETP.
-   * @return weight
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Weight of the holding within the ETP.")
-  @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getWeight() {
-    return weight;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWeight(BigDecimal weight) {
-    this.weight = weight;
+  public void setCategory(InlineResponse20015DataCategory category) {
+    this.category = category;
   }
 
 
@@ -263,31 +258,25 @@ public class InlineResponse20015Data implements Serializable {
       return false;
     }
     InlineResponse20015Data inlineResponse20015Data = (InlineResponse20015Data) o;
-    return Objects.equals(this.symbol, inlineResponse20015Data.symbol) &&
-        Objects.equals(this.name, inlineResponse20015Data.name) &&
-        Objects.equals(this.reportDate, inlineResponse20015Data.reportDate) &&
-        Objects.equals(this.shares, inlineResponse20015Data.shares) &&
-        Objects.equals(this.marketValue, inlineResponse20015Data.marketValue) &&
-        Objects.equals(this.currencyCode, inlineResponse20015Data.currencyCode) &&
-        Objects.equals(this.weight, inlineResponse20015Data.weight);
+    return Objects.equals(this.asset, inlineResponse20015Data.asset) &&
+        Objects.equals(this.economicDevelopment, inlineResponse20015Data.economicDevelopment) &&
+        Objects.equals(this.geography, inlineResponse20015Data.geography) &&
+        Objects.equals(this.category, inlineResponse20015Data.category);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(symbol, name, reportDate, shares, marketValue, currencyCode, weight);
+    return Objects.hash(asset, economicDevelopment, geography, category);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20015Data {\n");
-    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
-    sb.append("    shares: ").append(toIndentedString(shares)).append("\n");
-    sb.append("    marketValue: ").append(toIndentedString(marketValue)).append("\n");
-    sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
-    sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
+    sb.append("    asset: ").append(toIndentedString(asset)).append("\n");
+    sb.append("    economicDevelopment: ").append(toIndentedString(economicDevelopment)).append("\n");
+    sb.append("    geography: ").append(toIndentedString(geography)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("}");
     return sb.toString();
   }

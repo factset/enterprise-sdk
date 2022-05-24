@@ -49,6 +49,8 @@ public class InlineResponse2001Meta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private CursorBasedPaginationOutputObjectWithoutTotal pagination;
 
+  public InlineResponse2001Meta() { 
+  }
 
   public InlineResponse2001Meta status(StatusObject status) {
     this.status = status;

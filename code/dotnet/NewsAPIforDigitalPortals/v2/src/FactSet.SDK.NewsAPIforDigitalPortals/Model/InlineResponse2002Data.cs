@@ -69,7 +69,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2002Data {\n");
             sb.Append("  Distributor: ").Append(Distributor).Append("\n");
             sb.Append("  Publisher: ").Append(Publisher).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2002Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Distributor == input.Distributor ||
@@ -136,11 +137,17 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Distributor != null)
-                    hashCode = hashCode * 59 + this.Distributor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Distributor.GetHashCode();
+                }
                 if (this.Publisher != null)
-                    hashCode = hashCode * 59 + this.Publisher.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Publisher.GetHashCode();
+                }
                 if (this.Articles != null)
-                    hashCode = hashCode * 59 + this.Articles.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Articles.GetHashCode();
+                }
                 return hashCode;
             }
         }

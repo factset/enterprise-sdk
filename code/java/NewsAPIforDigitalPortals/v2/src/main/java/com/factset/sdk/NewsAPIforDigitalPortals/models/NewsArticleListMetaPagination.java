@@ -48,6 +48,8 @@ public class NewsArticleListMetaPagination implements Serializable {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public NewsArticleListMetaPagination() { 
+  }
 
   public NewsArticleListMetaPagination cursor(String cursor) {
     this.cursor = cursor;

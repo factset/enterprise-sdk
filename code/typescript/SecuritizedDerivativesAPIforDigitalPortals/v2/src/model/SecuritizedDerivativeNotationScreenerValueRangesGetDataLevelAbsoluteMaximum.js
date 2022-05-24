@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMaximum model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMaximum
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMaximum {
     /**

@@ -55,7 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
             var createCommentDto = new CreateCommentDto(); // CreateCommentDto |  (optional) 
 
             try
@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **createCommentDto** | [**CreateCommentDto**](CreateCommentDto.md)|  | [optional] 
 
 ### Return type
-
 [**NewItemDto**](NewItemDto.md)
 
 ### Authorization
@@ -99,7 +98,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -148,9 +147,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var commentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var file = BINARY_DATA_HERE;  // System.IO.Stream | 
+            var noteId = "noteId_example";  // Guid | 
+            var commentId = "commentId_example";  // Guid | 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
@@ -178,7 +177,6 @@ Name | Type | Description  | Notes
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
-
 [**NewItemDto**](NewItemDto.md)
 
 ### Authorization
@@ -194,7 +192,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -243,8 +241,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var commentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
+            var commentId = "commentId_example";  // Guid | 
 
             try
             {
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **commentId** | **Guid**|  | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -334,9 +331,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var commentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var attachmentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
+            var commentId = "commentId_example";  // Guid | 
+            var attachmentId = "attachmentId_example";  // Guid | 
 
             try
             {
@@ -363,7 +360,6 @@ Name | Type | Description  | Notes
  **attachmentId** | **Guid**|  | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -427,8 +423,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var commentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
+            var commentId = "commentId_example";  // Guid | 
 
             try
             {
@@ -455,7 +451,6 @@ Name | Type | Description  | Notes
  **commentId** | **Guid**|  | 
 
 ### Return type
-
 [**CommentDto**](CommentDto.md)
 
 ### Authorization
@@ -519,8 +514,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var commentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
+            var commentId = "commentId_example";  // Guid | 
 
             try
             {
@@ -547,7 +542,6 @@ Name | Type | Description  | Notes
  **commentId** | **Guid**|  | 
 
 ### Return type
-
 [**List&lt;AttachmentSummaryDto&gt;**](AttachmentSummaryDto.md)
 
 ### Authorization
@@ -611,7 +605,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
 
             try
             {
@@ -637,7 +631,6 @@ Name | Type | Description  | Notes
  **noteId** | **Guid**|  | 
 
 ### Return type
-
 [**List&lt;CommentSummaryDto&gt;**](CommentSummaryDto.md)
 
 ### Authorization
@@ -701,8 +694,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CommentsApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var commentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
+            var commentId = "commentId_example";  // Guid | 
             var operation = new List<Operation>(); // List<Operation> |  (optional) 
 
             try
@@ -730,7 +723,6 @@ Name | Type | Description  | Notes
  **operation** | [**List&lt;Operation&gt;**](Operation.md)|  | [optional] 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization

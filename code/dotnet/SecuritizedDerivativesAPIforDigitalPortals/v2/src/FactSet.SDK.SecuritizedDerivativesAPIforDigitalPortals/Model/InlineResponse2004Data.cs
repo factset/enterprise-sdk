@@ -92,6 +92,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of a notation..</param>
         /// <param name="symbol">The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market..</param>
+        /// <param name="fsym">fsym.</param>
         /// <param name="market">market.</param>
         /// <param name="valueUnit">valueUnit.</param>
         /// <param name="trade">trade.</param>
@@ -106,10 +107,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <param name="underlying">underlying.</param>
         /// <param name="knockedOut">Indicates whether the securitized derivative is knocked-out (&#x60;true&#x60;) or not (&#x60;false&#x60;). Particularly relevant for knock-out certificates..</param>
         /// <param name="knockedIn">Indicates whether the securitized derivative is knocked-in (&#x60;true&#x60;) or not (&#x60;false&#x60;). Particularly relevant for bonus certificates but also for securitized derivatives that might have additional protection such as reverse convertible bonds, discount certificates, and capital-protection certificates..</param>
-        public InlineResponse2004Data(string id = default(string), string symbol = default(string), InlineResponse2004Market market = default(InlineResponse2004Market), InlineResponse2004ValueUnit valueUnit = default(InlineResponse2004ValueUnit), InlineResponse2004Trade trade = default(InlineResponse2004Trade), QualityEnum? quality = default(QualityEnum?), InlineResponse2004Accumulated accumulated = default(InlineResponse2004Accumulated), InlineResponse2004Instrument instrument = default(InlineResponse2004Instrument), InlineResponse2004Categorization categorization = default(InlineResponse2004Categorization), InlineResponse2004LifeCycle lifeCycle = default(InlineResponse2004LifeCycle), InlineResponse2004Issuer issuer = default(InlineResponse2004Issuer), InlineResponse2004Exercise exercise = default(InlineResponse2004Exercise), ParticipationEnum? participation = default(ParticipationEnum?), InlineResponse2004Underlying underlying = default(InlineResponse2004Underlying), bool knockedOut = default(bool), bool knockedIn = default(bool))
+        public InlineResponse2004Data(string id = default(string), string symbol = default(string), InlineResponse2004Fsym fsym = default(InlineResponse2004Fsym), InlineResponse2004Market market = default(InlineResponse2004Market), InlineResponse2004ValueUnit valueUnit = default(InlineResponse2004ValueUnit), InlineResponse2004Trade trade = default(InlineResponse2004Trade), QualityEnum? quality = default(QualityEnum?), InlineResponse2004Accumulated accumulated = default(InlineResponse2004Accumulated), InlineResponse2004Instrument instrument = default(InlineResponse2004Instrument), InlineResponse2004Categorization categorization = default(InlineResponse2004Categorization), InlineResponse2004LifeCycle lifeCycle = default(InlineResponse2004LifeCycle), InlineResponse2004Issuer issuer = default(InlineResponse2004Issuer), InlineResponse2004Exercise exercise = default(InlineResponse2004Exercise), ParticipationEnum? participation = default(ParticipationEnum?), InlineResponse2004Underlying underlying = default(InlineResponse2004Underlying), bool knockedOut = default(bool), bool knockedIn = default(bool))
         {
             this.Id = id;
             this.Symbol = symbol;
+            this.Fsym = fsym;
             this.Market = market;
             this.ValueUnit = valueUnit;
             this.Trade = trade;
@@ -139,6 +141,12 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <value>The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.</value>
         [DataMember(Name = "symbol", EmitDefaultValue = false)]
         public string Symbol { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse2004Fsym Fsym { get; set; }
 
         /// <summary>
         /// Gets or Sets Market
@@ -220,10 +228,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Symbol: ").Append(Symbol).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
             sb.Append("  Trade: ").Append(Trade).Append("\n");
@@ -269,8 +278,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -281,6 +291,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
                     this.Symbol == input.Symbol ||
                     (this.Symbol != null &&
                     this.Symbol.Equals(input.Symbol))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
                 ) && 
                 (
                     this.Market == input.Market ||
@@ -360,33 +375,61 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Symbol != null)
-                    hashCode = hashCode * 59 + this.Symbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Trade != null)
-                    hashCode = hashCode * 59 + this.Trade.GetHashCode();
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Trade.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Accumulated != null)
-                    hashCode = hashCode * 59 + this.Accumulated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accumulated.GetHashCode();
+                }
                 if (this.Instrument != null)
-                    hashCode = hashCode * 59 + this.Instrument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
                 if (this.Categorization != null)
-                    hashCode = hashCode * 59 + this.Categorization.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Categorization.GetHashCode();
+                }
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Exercise != null)
-                    hashCode = hashCode * 59 + this.Exercise.GetHashCode();
-                hashCode = hashCode * 59 + this.Participation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exercise.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Participation.GetHashCode();
                 if (this.Underlying != null)
-                    hashCode = hashCode * 59 + this.Underlying.GetHashCode();
-                hashCode = hashCode * 59 + this.KnockedOut.GetHashCode();
-                hashCode = hashCode * 59 + this.KnockedIn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.KnockedOut.GetHashCode();
+                hashCode = (hashCode * 59) + this.KnockedIn.GetHashCode();
                 return hashCode;
             }
         }

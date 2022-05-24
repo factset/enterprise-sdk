@@ -117,7 +117,7 @@ namespace FactSet.SDK.Symbology.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FactsetTranslationAdvanced {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  FsymSecurityId: ").Append(FsymSecurityId).Append("\n");
@@ -158,8 +158,9 @@ namespace FactSet.SDK.Symbology.Model
         public bool Equals(FactsetTranslationAdvanced input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -213,21 +214,37 @@ namespace FactSet.SDK.Symbology.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.FsymSecurityId != null)
-                    hashCode = hashCode * 59 + this.FsymSecurityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymSecurityId.GetHashCode();
+                }
                 if (this.FsymRegionalId != null)
-                    hashCode = hashCode * 59 + this.FsymRegionalId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymRegionalId.GetHashCode();
+                }
                 if (this.FsymListingId != null)
-                    hashCode = hashCode * 59 + this.FsymListingId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymListingId.GetHashCode();
+                }
                 if (this.FsymEntityId != null)
-                    hashCode = hashCode * 59 + this.FsymEntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymEntityId.GetHashCode();
+                }
                 if (this.FsymTickerExchange != null)
-                    hashCode = hashCode * 59 + this.FsymTickerExchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymTickerExchange.GetHashCode();
+                }
                 if (this.FsymTickerRegion != null)
-                    hashCode = hashCode * 59 + this.FsymTickerRegion.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymTickerRegion.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

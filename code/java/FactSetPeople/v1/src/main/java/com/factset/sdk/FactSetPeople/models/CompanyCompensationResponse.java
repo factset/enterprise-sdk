@@ -43,6 +43,8 @@ public class CompanyCompensationResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<CompanyCompensation> data = null;
 
+  public CompanyCompensationResponse() { 
+  }
 
   public CompanyCompensationResponse data(java.util.List<CompanyCompensation> data) {
     this.data = data;

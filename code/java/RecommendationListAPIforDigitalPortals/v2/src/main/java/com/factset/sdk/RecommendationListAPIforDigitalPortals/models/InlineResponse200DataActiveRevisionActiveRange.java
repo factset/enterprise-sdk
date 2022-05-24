@@ -47,6 +47,18 @@ public class InlineResponse200DataActiveRevisionActiveRange implements Serializa
   public static final String JSON_PROPERTY_END = "end";
   private String end;
 
+  public InlineResponse200DataActiveRevisionActiveRange() { 
+  }
+
+  @JsonCreator
+  public InlineResponse200DataActiveRevisionActiveRange(
+    @JsonProperty(value=JSON_PROPERTY_START, required=true) String start, 
+    @JsonProperty(value=JSON_PROPERTY_END, required=true) String end
+  ) {
+    this();
+    this.start = start;
+    this.end = end;
+  }
 
   public InlineResponse200DataActiveRevisionActiveRange start(String start) {
     this.start = start;

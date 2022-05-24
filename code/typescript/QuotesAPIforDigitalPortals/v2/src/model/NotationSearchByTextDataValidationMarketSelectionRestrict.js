@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NotationSearchByTextDataValidationMarketSelectionRestrict model module.
  * @module model/NotationSearchByTextDataValidationMarketSelectionRestrict
- * @version 0.9.1
+ * @version 0.9.2
  */
 class NotationSearchByTextDataValidationMarketSelectionRestrict {
     /**

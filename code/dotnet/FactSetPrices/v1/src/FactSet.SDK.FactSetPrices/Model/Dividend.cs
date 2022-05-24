@@ -220,7 +220,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Dividend {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  DivsExDate: ").Append(DivsExDate).Append("\n");
@@ -267,8 +267,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(Dividend input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -348,29 +349,49 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.DivsExDate != null)
-                    hashCode = hashCode * 59 + this.DivsExDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DivsExDate.GetHashCode();
+                }
                 if (this.AdjDate != null)
-                    hashCode = hashCode * 59 + this.AdjDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AdjDate.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                hashCode = hashCode * 59 + this.DivsPaid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DivsPaid.GetHashCode();
                 if (this.DivsRecDate != null)
-                    hashCode = hashCode * 59 + this.DivsRecDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DivsRecDate.GetHashCode();
+                }
                 if (this.DivsPayDate != null)
-                    hashCode = hashCode * 59 + this.DivsPayDate.GetHashCode();
-                hashCode = hashCode * 59 + this.DivsTypeC.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DivsPayDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DivsTypeC.GetHashCode();
                 if (this.DivsTypeD != null)
-                    hashCode = hashCode * 59 + this.DivsTypeD.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DivsTypeD.GetHashCode();
+                }
                 if (this.DivsTaxC != null)
-                    hashCode = hashCode * 59 + this.DivsTaxC.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DivsTaxC.GetHashCode();
+                }
                 if (this.DivsTaxD != null)
-                    hashCode = hashCode * 59 + this.DivsTaxD.GetHashCode();
-                hashCode = hashCode * 59 + this.DivsNGFlag.GetHashCode();
-                hashCode = hashCode * 59 + this.DivsNGEquiv.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DivsTaxD.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DivsNGFlag.GetHashCode();
+                hashCode = (hashCode * 59) + this.DivsNGEquiv.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

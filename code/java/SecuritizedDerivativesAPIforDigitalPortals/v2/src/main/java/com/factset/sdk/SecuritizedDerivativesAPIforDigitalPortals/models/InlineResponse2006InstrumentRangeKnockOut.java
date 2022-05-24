@@ -64,6 +64,8 @@ public class InlineResponse2006InstrumentRangeKnockOut implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private BigDecimal cashFlow;
 
+  public InlineResponse2006InstrumentRangeKnockOut() { 
+  }
 
   public InlineResponse2006InstrumentRangeKnockOut observation(InlineResponse2006InstrumentKnockOutObservation observation) {
     this.observation = observation;

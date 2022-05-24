@@ -19,7 +19,7 @@ import StatusObject from './StatusObject';
 /**
  * The InlineResponse20036Meta model module.
  * @module model/InlineResponse20036Meta
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20036Meta {
     /**

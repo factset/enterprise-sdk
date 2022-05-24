@@ -57,7 +57,7 @@ import InlineResponse2009 from '../model/InlineResponse2009';
 /**
 * Basic service.
 * @module api/BasicApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class BasicApi {
 
@@ -98,7 +98,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/basic/assetClass/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -111,7 +114,7 @@ export default class BasicApi {
      * List of asset classes as defined by FactSet Digital Solutions.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getBasicAssetClassList(opts) {
       return this.getBasicAssetClassListWithHttpInfo(opts)
@@ -147,7 +150,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/basic/benchmark/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -161,7 +167,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     getBasicBenchmarkTypeList(opts) {
       return this.getBasicBenchmarkTypeListWithHttpInfo(opts)
@@ -197,7 +203,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2004;
+
       return this.apiClient.callApi(
         '/basic/frequency/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -211,7 +220,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     getBasicFrequencyTypeList(opts) {
       return this.getBasicFrequencyTypeListWithHttpInfo(opts)
@@ -253,7 +262,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2005;
+
       return this.apiClient.callApi(
         '/basic/language/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -268,7 +280,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2005}
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     getBasicLanguageGet(id, opts) {
       return this.getBasicLanguageGetWithHttpInfo(id, opts)
@@ -310,7 +322,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2006;
+
       return this.apiClient.callApi(
         '/basic/language/getByCode', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -325,7 +340,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2006}
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
     getBasicLanguageGetByCode(code, opts) {
       return this.getBasicLanguageGetByCodeWithHttpInfo(code, opts)
@@ -363,7 +378,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2007;
+
       return this.apiClient.callApi(
         '/basic/language/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -378,7 +396,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2007}
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
     getBasicLanguageList(opts) {
       return this.getBasicLanguageListWithHttpInfo(opts)
@@ -420,7 +438,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2008;
+
       return this.apiClient.callApi(
         '/basic/market/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -435,7 +456,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2008}
+     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
      */
     getBasicMarketGet(id, opts) {
       return this.getBasicMarketGetWithHttpInfo(id, opts)
@@ -473,7 +494,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20010;
+
       return this.apiClient.callApi(
         '/basic/market/group/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -488,7 +512,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20010}
+     * @return { Promise.< module:model/InlineResponse20010 > } a Promise, with data of type {@link module:model/InlineResponse20010 }
      */
     getBasicMarketGroupList(opts) {
       return this.getBasicMarketGroupListWithHttpInfo(opts)
@@ -526,7 +550,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20011;
+
       return this.apiClient.callApi(
         '/basic/market/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -541,7 +568,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20011}
+     * @return { Promise.< module:model/InlineResponse20011 > } a Promise, with data of type {@link module:model/InlineResponse20011 }
      */
     getBasicMarketTypeList(opts) {
       return this.getBasicMarketTypeListWithHttpInfo(opts)
@@ -575,7 +602,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20012;
+
       return this.apiClient.callApi(
         '/basic/media/kind/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -588,7 +618,7 @@ export default class BasicApi {
      * List of media kinds.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20012}
+     * @return { Promise.< module:model/InlineResponse20012 > } a Promise, with data of type {@link module:model/InlineResponse20012 }
      */
     getBasicMediaKindList(opts) {
       return this.getBasicMediaKindListWithHttpInfo(opts)
@@ -630,7 +660,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20017;
+
       return this.apiClient.callApi(
         '/basic/region/continent/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -645,7 +678,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20017}
+     * @return { Promise.< module:model/InlineResponse20017 > } a Promise, with data of type {@link module:model/InlineResponse20017 }
      */
     getBasicRegionContinentGet(id, opts) {
       return this.getBasicRegionContinentGetWithHttpInfo(id, opts)
@@ -683,7 +716,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20018;
+
       return this.apiClient.callApi(
         '/basic/region/continent/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -698,7 +734,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20018}
+     * @return { Promise.< module:model/InlineResponse20018 > } a Promise, with data of type {@link module:model/InlineResponse20018 }
      */
     getBasicRegionContinentList(opts) {
       return this.getBasicRegionContinentListWithHttpInfo(opts)
@@ -740,7 +776,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20019;
+
       return this.apiClient.callApi(
         '/basic/region/country/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -755,7 +794,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20019}
+     * @return { Promise.< module:model/InlineResponse20019 > } a Promise, with data of type {@link module:model/InlineResponse20019 }
      */
     getBasicRegionCountryGet(id, opts) {
       return this.getBasicRegionCountryGetWithHttpInfo(id, opts)
@@ -797,7 +836,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20020;
+
       return this.apiClient.callApi(
         '/basic/region/country/getByCode', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -812,7 +854,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20020}
+     * @return { Promise.< module:model/InlineResponse20020 > } a Promise, with data of type {@link module:model/InlineResponse20020 }
      */
     getBasicRegionCountryGetByCode(code, opts) {
       return this.getBasicRegionCountryGetByCodeWithHttpInfo(code, opts)
@@ -850,7 +892,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20021;
+
       return this.apiClient.callApi(
         '/basic/region/country/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -865,7 +910,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20021}
+     * @return { Promise.< module:model/InlineResponse20021 > } a Promise, with data of type {@link module:model/InlineResponse20021 }
      */
     getBasicRegionCountryList(opts) {
       return this.getBasicRegionCountryListWithHttpInfo(opts)
@@ -907,7 +952,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20015;
+
       return this.apiClient.callApi(
         '/basic/region/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -922,7 +970,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20015}
+     * @return { Promise.< module:model/InlineResponse20015 > } a Promise, with data of type {@link module:model/InlineResponse20015 }
      */
     getBasicRegionGet(id, opts) {
       return this.getBasicRegionGetWithHttpInfo(id, opts)
@@ -960,7 +1008,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20016;
+
       return this.apiClient.callApi(
         '/basic/region/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -975,7 +1026,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20016}
+     * @return { Promise.< module:model/InlineResponse20016 > } a Promise, with data of type {@link module:model/InlineResponse20016 }
      */
     getBasicRegionList(opts) {
       return this.getBasicRegionListWithHttpInfo(opts)
@@ -1015,7 +1066,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20022;
+
       return this.apiClient.callApi(
         '/basic/timezone/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1029,7 +1083,7 @@ export default class BasicApi {
      * @param {Number} id Identifier of a timezone. An invalid or unsupported identifier will result in an error.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20022}
+     * @return { Promise.< module:model/InlineResponse20022 > } a Promise, with data of type {@link module:model/InlineResponse20022 }
      */
     getBasicTimezoneGet(id, opts) {
       return this.getBasicTimezoneGetWithHttpInfo(id, opts)
@@ -1069,7 +1123,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20022;
+
       return this.apiClient.callApi(
         '/basic/timezone/getByName', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1083,7 +1140,7 @@ export default class BasicApi {
      * @param {String} name Name of a timezone. The result is determined by a case-sensitive equality comparison with the stored timezone names. An invalid or unsupported name will result in an error.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20022}
+     * @return { Promise.< module:model/InlineResponse20022 > } a Promise, with data of type {@link module:model/InlineResponse20022 }
      */
     getBasicTimezoneGetByName(name, opts) {
       return this.getBasicTimezoneGetByNameWithHttpInfo(name, opts)
@@ -1121,7 +1178,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20026;
+
       return this.apiClient.callApi(
         '/basic/valueUnit/alternative/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1136,7 +1196,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20026}
+     * @return { Promise.< module:model/InlineResponse20026 > } a Promise, with data of type {@link module:model/InlineResponse20026 }
      */
     getBasicValueUnitAlternativeList(opts) {
       return this.getBasicValueUnitAlternativeListWithHttpInfo(opts)
@@ -1178,7 +1238,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20028;
+
       return this.apiClient.callApi(
         '/basic/valueUnit/currency/fractional/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1193,7 +1256,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20028}
+     * @return { Promise.< module:model/InlineResponse20028 > } a Promise, with data of type {@link module:model/InlineResponse20028 }
      */
     getBasicValueUnitCurrencyFractionalGet(id, opts) {
       return this.getBasicValueUnitCurrencyFractionalGetWithHttpInfo(id, opts)
@@ -1231,7 +1294,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20029;
+
       return this.apiClient.callApi(
         '/basic/valueUnit/currency/fractional/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1246,7 +1312,7 @@ export default class BasicApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20029}
+     * @return { Promise.< module:model/InlineResponse20029 > } a Promise, with data of type {@link module:model/InlineResponse20029 }
      */
     getBasicValueUnitCurrencyFractionalList(opts) {
       return this.getBasicValueUnitCurrencyFractionalListWithHttpInfo(opts)
@@ -1288,7 +1354,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20024;
+
       return this.apiClient.callApi(
         '/basic/valueUnit/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1303,7 +1372,7 @@ export default class BasicApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20024}
+     * @return { Promise.< module:model/InlineResponse20024 > } a Promise, with data of type {@link module:model/InlineResponse20024 }
      */
     getBasicValueUnitGet(id, opts) {
       return this.getBasicValueUnitGetWithHttpInfo(id, opts)
@@ -1336,7 +1405,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/basic/backgroundText/type/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1349,7 +1421,7 @@ export default class BasicApi {
      * List of background text types.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     postBasicBackgroundTextTypeList(opts) {
       return this.postBasicBackgroundTextTypeListWithHttpInfo(opts)
@@ -1382,7 +1454,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/basic/delivery/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1395,7 +1470,7 @@ export default class BasicApi {
      * List of deliveries.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject1} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     postBasicDeliveryList(opts) {
       return this.postBasicDeliveryListWithHttpInfo(opts)
@@ -1428,7 +1503,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2009;
+
       return this.apiClient.callApi(
         '/basic/market/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1441,7 +1519,7 @@ export default class BasicApi {
      * List of markets.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject2} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2009}
+     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
      */
     postBasicMarketList(opts) {
       return this.postBasicMarketListWithHttpInfo(opts)
@@ -1474,7 +1552,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20013;
+
       return this.apiClient.callApi(
         '/basic/media/type/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1487,7 +1568,7 @@ export default class BasicApi {
      * List of Internet media types. See http://www.iana.org/assignments/media-types/ for further details. Not all such Internet media types are available on the MDG.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject3} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20013}
+     * @return { Promise.< module:model/InlineResponse20013 > } a Promise, with data of type {@link module:model/InlineResponse20013 }
      */
     postBasicMediaTypeList(opts) {
       return this.postBasicMediaTypeListWithHttpInfo(opts)
@@ -1520,7 +1601,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20014;
+
       return this.apiClient.callApi(
         '/basic/mic/operating/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1533,7 +1617,7 @@ export default class BasicApi {
      * List of operating market identifier codes (MIC).
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject4} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20014}
+     * @return { Promise.< module:model/InlineResponse20014 > } a Promise, with data of type {@link module:model/InlineResponse20014 }
      */
     postBasicMicOperatingList(opts) {
       return this.postBasicMicOperatingListWithHttpInfo(opts)
@@ -1566,7 +1650,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20023;
+
       return this.apiClient.callApi(
         '/basic/timezone/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1579,7 +1666,7 @@ export default class BasicApi {
      * List of timezones identified by id, as specified by the Internet Assigned Numbers Authority. See http://www.iana.org/time-zones for further details. Not all such timezones are available on the MDG.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject5} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20023}
+     * @return { Promise.< module:model/InlineResponse20023 > } a Promise, with data of type {@link module:model/InlineResponse20023 }
      */
     postBasicTimezoneList(opts) {
       return this.postBasicTimezoneListWithHttpInfo(opts)
@@ -1612,7 +1699,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20027;
+
       return this.apiClient.callApi(
         '/basic/valueUnit/currency/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1625,7 +1715,7 @@ export default class BasicApi {
      * List of currencies.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject7} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20027}
+     * @return { Promise.< module:model/InlineResponse20027 > } a Promise, with data of type {@link module:model/InlineResponse20027 }
      */
     postBasicValueUnitCurrencyList(opts) {
       return this.postBasicValueUnitCurrencyListWithHttpInfo(opts)
@@ -1658,7 +1748,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20030;
+
       return this.apiClient.callApi(
         '/basic/valueUnit/currency/main/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1671,7 +1764,7 @@ export default class BasicApi {
      * List of main currencies.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject8} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20030}
+     * @return { Promise.< module:model/InlineResponse20030 > } a Promise, with data of type {@link module:model/InlineResponse20030 }
      */
     postBasicValueUnitCurrencyMainList(opts) {
       return this.postBasicValueUnitCurrencyMainListWithHttpInfo(opts)
@@ -1704,7 +1797,10 @@ export default class BasicApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20025;
+
       return this.apiClient.callApi(
         '/basic/valueUnit/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1717,7 +1813,7 @@ export default class BasicApi {
      * List of value units.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject6} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20025}
+     * @return { Promise.< module:model/InlineResponse20025 > } a Promise, with data of type {@link module:model/InlineResponse20025 }
      */
     postBasicValueUnitList(opts) {
       return this.postBasicValueUnitListWithHttpInfo(opts)
@@ -1728,3 +1824,8 @@ export default class BasicApi {
 
 
 }
+
+
+
+
+

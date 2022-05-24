@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// ETP sector allocation data.
+    /// ETP exchange allocation data.
     /// </summary>
     [DataContract(Name = "inline_response_200_5_data")]
     public partial class InlineResponse2005Data : IEquatable<InlineResponse2005Data>, IValidatableObject
@@ -35,11 +35,11 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// Initializes a new instance of the <see cref="InlineResponse2005Data" /> class.
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
-        /// <param name="sectors">List of allocations by sector..</param>
-        public InlineResponse2005Data(DateTime reportDate = default(DateTime), List<InlineResponse2005DataSectors> sectors = default(List<InlineResponse2005DataSectors>))
+        /// <param name="exchanges">List of allocations by exchange..</param>
+        public InlineResponse2005Data(DateTime reportDate = default(DateTime), List<InlineResponse2005DataExchanges> exchanges = default(List<InlineResponse2005DataExchanges>))
         {
             this.ReportDate = reportDate;
-            this.Sectors = sectors;
+            this.Exchanges = exchanges;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public DateTime ReportDate { get; set; }
 
         /// <summary>
-        /// List of allocations by sector.
+        /// List of allocations by exchange.
         /// </summary>
-        /// <value>List of allocations by sector.</value>
-        [DataMember(Name = "sectors", EmitDefaultValue = false)]
-        public List<InlineResponse2005DataSectors> Sectors { get; set; }
+        /// <value>List of allocations by exchange.</value>
+        [DataMember(Name = "exchanges", EmitDefaultValue = false)]
+        public List<InlineResponse2005DataExchanges> Exchanges { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,10 +63,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005Data {\n");
             sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
-            sb.Append("  Sectors: ").Append(Sectors).Append("\n");
+            sb.Append("  Exchanges: ").Append(Exchanges).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,8 +98,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse2005Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReportDate == input.ReportDate ||
@@ -107,10 +108,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
                     this.ReportDate.Equals(input.ReportDate))
                 ) && 
                 (
-                    this.Sectors == input.Sectors ||
-                    this.Sectors != null &&
-                    input.Sectors != null &&
-                    this.Sectors.SequenceEqual(input.Sectors)
+                    this.Exchanges == input.Exchanges ||
+                    this.Exchanges != null &&
+                    input.Exchanges != null &&
+                    this.Exchanges.SequenceEqual(input.Exchanges)
                 );
         }
 
@@ -124,9 +125,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.ReportDate != null)
-                    hashCode = hashCode * 59 + this.ReportDate.GetHashCode();
-                if (this.Sectors != null)
-                    hashCode = hashCode * 59 + this.Sectors.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
+                }
+                if (this.Exchanges != null)
+                {
+                    hashCode = (hashCode * 59) + this.Exchanges.GetHashCode();
+                }
                 return hashCode;
             }
         }

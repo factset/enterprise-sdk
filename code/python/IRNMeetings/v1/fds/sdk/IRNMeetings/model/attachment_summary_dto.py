@@ -24,8 +24,8 @@ from fds.sdk.IRNMeetings.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNMeetings.exceptions import ApiAttributeError
 
 
@@ -78,6 +78,7 @@ class AttachmentSummaryDto(ModelNormal):
             'id': (str,),  # noqa: E501
             'file_name': (str, none_type,),  # noqa: E501
             'mime_type': (str, none_type,),  # noqa: E501
+            'size': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +90,7 @@ class AttachmentSummaryDto(ModelNormal):
         'id': 'id',  # noqa: E501
         'file_name': 'fileName',  # noqa: E501
         'mime_type': 'mimeType',  # noqa: E501
+        'size': 'size',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,6 +137,7 @@ class AttachmentSummaryDto(ModelNormal):
             id (str): [optional]  # noqa: E501
             file_name (str, none_type): [optional]  # noqa: E501
             mime_type (str, none_type): [optional]  # noqa: E501
+            size (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +222,7 @@ class AttachmentSummaryDto(ModelNormal):
             id (str): [optional]  # noqa: E501
             file_name (str, none_type): [optional]  # noqa: E501
             mime_type (str, none_type): [optional]  # noqa: E501
+            size (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

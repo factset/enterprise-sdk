@@ -49,6 +49,8 @@ public class InlineResponse2004DataCouponOccurrence implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private java.util.List<InlineResponse2004DataCouponOccurrenceFrequency> frequency = null;
 
+  public InlineResponse2004DataCouponOccurrence() { 
+  }
 
   public InlineResponse2004DataCouponOccurrence type(java.util.List<InlineResponse2004DataCouponOccurrenceType> type) {
     this.type = type;

@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004Fsym;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004ValueUnit;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2006Instrument;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2006KeyFigures;
@@ -41,6 +42,7 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
 @JsonPropertyOrder({
   InlineResponse2006Data.JSON_PROPERTY_ID,
   InlineResponse2006Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse2006Data.JSON_PROPERTY_FSYM,
   InlineResponse2006Data.JSON_PROPERTY_VALUE_UNIT,
   InlineResponse2006Data.JSON_PROPERTY_MARKET,
   InlineResponse2006Data.JSON_PROPERTY_INSTRUMENT,
@@ -57,6 +59,9 @@ public class InlineResponse2006Data implements Serializable {
 
   public static final String JSON_PROPERTY_SYMBOL = "symbol";
   private String symbol;
+
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2004Fsym fsym;
 
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse2004ValueUnit valueUnit;
@@ -76,6 +81,8 @@ public class InlineResponse2006Data implements Serializable {
   public static final String JSON_PROPERTY_VOLATILITY = "volatility";
   private InlineResponse2006Volatility volatility;
 
+  public InlineResponse2006Data() { 
+  }
 
   public InlineResponse2006Data id(String id) {
     this.id = id;
@@ -126,6 +133,32 @@ public class InlineResponse2006Data implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSymbol(String symbol) {
     this.symbol = symbol;
+  }
+
+
+  public InlineResponse2006Data fsym(InlineResponse2004Fsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2004Fsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse2004Fsym fsym) {
+    this.fsym = fsym;
   }
 
 
@@ -299,6 +332,7 @@ public class InlineResponse2006Data implements Serializable {
     InlineResponse2006Data inlineResponse2006Data = (InlineResponse2006Data) o;
     return Objects.equals(this.id, inlineResponse2006Data.id) &&
         Objects.equals(this.symbol, inlineResponse2006Data.symbol) &&
+        Objects.equals(this.fsym, inlineResponse2006Data.fsym) &&
         Objects.equals(this.valueUnit, inlineResponse2006Data.valueUnit) &&
         Objects.equals(this.market, inlineResponse2006Data.market) &&
         Objects.equals(this.instrument, inlineResponse2006Data.instrument) &&
@@ -309,7 +343,7 @@ public class InlineResponse2006Data implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, symbol, valueUnit, market, instrument, keyFigures, performance, volatility);
+    return Objects.hash(id, symbol, fsym, valueUnit, market, instrument, keyFigures, performance, volatility);
   }
 
   @Override
@@ -318,6 +352,7 @@ public class InlineResponse2006Data implements Serializable {
     sb.append("class InlineResponse2006Data {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("    valueUnit: ").append(toIndentedString(valueUnit)).append("\n");
     sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    instrument: ").append(toIndentedString(instrument)).append("\n");

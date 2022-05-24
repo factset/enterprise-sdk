@@ -47,6 +47,8 @@ public class InlineResponse20063Data implements Serializable {
   public static final String JSON_PROPERTY_RATINGS = "ratings";
   private java.util.List<InlineResponse20063Ratings> ratings = null;
 
+  public InlineResponse20063Data() { 
+  }
 
   public InlineResponse20063Data id(String id) {
     this.id = id;

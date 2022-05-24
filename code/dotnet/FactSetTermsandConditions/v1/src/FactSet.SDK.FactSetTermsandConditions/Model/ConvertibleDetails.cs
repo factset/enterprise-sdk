@@ -209,7 +209,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConvertibleDetails {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -260,8 +260,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(ConvertibleDetails input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -360,36 +361,62 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.ConvCurr != null)
-                    hashCode = hashCode * 59 + this.ConvCurr.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvCurr.GetHashCode();
+                }
                 if (this.ConvEffDate != null)
-                    hashCode = hashCode * 59 + this.ConvEffDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvEffDate.GetHashCode();
+                }
                 if (this.ConvEndDate != null)
-                    hashCode = hashCode * 59 + this.ConvEndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvEndDate.GetHashCode();
+                }
                 if (this.ConvFrequency != null)
-                    hashCode = hashCode * 59 + this.ConvFrequency.GetHashCode();
-                hashCode = hashCode * 59 + this.ConvId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvFrequency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ConvId.GetHashCode();
                 if (this.ConvIdentification != null)
-                    hashCode = hashCode * 59 + this.ConvIdentification.GetHashCode();
-                hashCode = hashCode * 59 + this.ConvNoticeDaysMax.GetHashCode();
-                hashCode = hashCode * 59 + this.ConvNoticeDaysMin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvIdentification.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ConvNoticeDaysMax.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConvNoticeDaysMin.GetHashCode();
                 if (this.ConvPayForm != null)
-                    hashCode = hashCode * 59 + this.ConvPayForm.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvPayForm.GetHashCode();
+                }
                 if (this.ConvPayFormDet != null)
-                    hashCode = hashCode * 59 + this.ConvPayFormDet.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvPayFormDet.GetHashCode();
+                }
                 if (this.ConvPayFormElect != null)
-                    hashCode = hashCode * 59 + this.ConvPayFormElect.GetHashCode();
-                hashCode = hashCode * 59 + this.ConvPremChgControl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvPayFormElect.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ConvPremChgControl.GetHashCode();
                 if (this.ConvPriceMethod != null)
-                    hashCode = hashCode * 59 + this.ConvPriceMethod.GetHashCode();
-                hashCode = hashCode * 59 + this.ConvRatio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvPriceMethod.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ConvRatio.GetHashCode();
                 if (this.ConvRatioDesc != null)
-                    hashCode = hashCode * 59 + this.ConvRatioDesc.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvRatioDesc.GetHashCode();
+                }
                 if (this.ConvType != null)
-                    hashCode = hashCode * 59 + this.ConvType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvType.GetHashCode();
+                }
                 return hashCode;
             }
         }

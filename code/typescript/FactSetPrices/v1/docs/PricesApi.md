@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFixedSecurityPrices(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const pricesFixedIncomeRequest = new factsetprices.PricesFixedIncomeRequest(); /
 // Call api endpoint
 apiInstance.getFixedSecurityPricesForList(pricesFixedIncomeRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -209,8 +211,22 @@ const opts = {
 // Call api endpoint
 apiInstance.getSecurityPrices(ids, opts).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: GetSecurityPricesResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // PricesResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -287,8 +303,22 @@ const pricesRequest = new factsetprices.PricesRequest(); // PricesRequest | Requ
 // Call api endpoint
 apiInstance.getSecurityPricesForList(pricesRequest).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: GetSecurityPricesForListResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // PricesResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

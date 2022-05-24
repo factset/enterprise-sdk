@@ -51,6 +51,8 @@ public class InlineResponse2005DataNominalCurrency implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataNominalCurrency() { 
+  }
 
   public InlineResponse2005DataNominalCurrency id(BigDecimal id) {
     this.id = id;

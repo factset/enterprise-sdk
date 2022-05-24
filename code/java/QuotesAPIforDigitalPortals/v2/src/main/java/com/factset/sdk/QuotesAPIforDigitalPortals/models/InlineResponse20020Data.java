@@ -53,6 +53,8 @@ public class InlineResponse20020Data implements Serializable {
   public static final String JSON_PROPERTY_SUBDIVISIONS = "subdivisions";
   private java.util.List<InlineResponse20020DataSubdivisions> subdivisions = null;
 
+  public InlineResponse20020Data() { 
+  }
 
   public InlineResponse20020Data id(BigDecimal id) {
     this.id = id;

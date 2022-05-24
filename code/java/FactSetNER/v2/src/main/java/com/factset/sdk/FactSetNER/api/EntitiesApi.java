@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetNER.Configuration;
 import com.factset.sdk.FactSetNER.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetNER.models.Input;
 import com.factset.sdk.FactSetNER.models.Response;
@@ -22,6 +25,14 @@ public class EntitiesApi {
   public EntitiesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> postEntitiesEntitiesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postEntitiesEntitiesResponseTypeMap.put(200, new GenericType<Response>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -108,10 +119,16 @@ public class EntitiesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Response> localVarReturnType = new GenericType<Response>() {};
 
-    return apiClient.invokeAPI("EntitiesApi.postEntitiesEntities", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Response
+      
+    > apiResponse = apiClient.invokeAPI("EntitiesApi.postEntitiesEntities", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postEntitiesEntitiesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

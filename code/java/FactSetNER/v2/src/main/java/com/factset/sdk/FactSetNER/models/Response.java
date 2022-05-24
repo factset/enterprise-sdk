@@ -43,6 +43,8 @@ public class Response implements Serializable {
   public static final String JSON_PROPERTY_ENTITIES = "entities";
   private java.util.List<Entity> entities = null;
 
+  public Response() { 
+  }
 
   public Response entities(java.util.List<Entity> entities) {
     this.entities = entities;

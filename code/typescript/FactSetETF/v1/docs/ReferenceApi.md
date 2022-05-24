@@ -52,6 +52,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEtfReferenceData(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -125,6 +126,7 @@ const etfReferenceDataRequest = new factsetetf.EtfReferenceDataRequest(); // Etf
 // Call api endpoint
 apiInstance.getEtfReferenceDataForList(etfReferenceDataRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

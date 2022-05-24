@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IsinTranslationRequest model module.
  * @module model/IsinTranslationRequest
- * @version 0.8.1
+ * @version 0.8.2
  */
 class IsinTranslationRequest {
     /**

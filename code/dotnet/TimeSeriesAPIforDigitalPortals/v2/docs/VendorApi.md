@@ -54,11 +54,11 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new VendorApi(config);
-            var id = id_example;  // string | Identifier of the notation.
-            var from = from_example;  // string | Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
-            var type = type_example;  // string | Type of the price as configured for the customer. (optional)  (default to trade)
-            var quality = quality_example;  // string | Quality of the price. (optional)  (default to DLY)
-            var granularity = granularity_example;  // string | Subsample granularities suitable for intraday data. (optional)  (default to 1h)
+            var id = "id_example";  // string | Identifier of the notation.
+            var from = "from_example";  // string | Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
+            var type = "trade";  // string | Type of the price as configured for the customer. (optional)  (default to trade)
+            var quality = "RLT";  // string | Quality of the price. (optional)  (default to DLY)
+            var granularity = "1s";  // string | Subsample granularities suitable for intraday data. (optional)  (default to 1h)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -90,7 +90,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -179,7 +178,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -268,7 +266,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -357,7 +354,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -446,7 +442,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
-
 [**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization

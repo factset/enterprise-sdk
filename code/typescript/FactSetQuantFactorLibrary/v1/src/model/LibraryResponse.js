@@ -17,7 +17,7 @@ import Library from './Library';
 /**
  * The LibraryResponse model module.
  * @module model/LibraryResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class LibraryResponse {
     /**

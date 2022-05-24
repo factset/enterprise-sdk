@@ -26,14 +26,13 @@ import com.factset.sdk.ForeignExchangeRate.ApiClient;
 import com.factset.sdk.ForeignExchangeRate.ApiException;
 import com.factset.sdk.ForeignExchangeRate.Configuration;
 import com.factset.sdk.ForeignExchangeRate.auth.*;
-import com.factset.sdk.ForeignExchangeRate.model.*;
+import com.factset.sdk.ForeignExchangeRate.models.*;
 import com.factset.sdk.ForeignExchangeRate.api.ForwardsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,14 +42,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ForwardsApi apiInstance = new ForwardsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The currency pair requested in the format of a ISO {source}{target}. For a complete list of ISO currencies, please visit [OA 1470](https://my.apps.factset.com/oa/pages/1470)
@@ -61,6 +60,7 @@ public class Example {
         try {
             ForwardsResponse result = apiInstance.getFXForwards(ids, forwardPeriod, startDate, endDate, frequency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ForwardsApi#getFXForwards");
             System.err.println("Status code: " + e.getCode());
@@ -124,14 +124,13 @@ import com.factset.sdk.ForeignExchangeRate.ApiClient;
 import com.factset.sdk.ForeignExchangeRate.ApiException;
 import com.factset.sdk.ForeignExchangeRate.Configuration;
 import com.factset.sdk.ForeignExchangeRate.auth.*;
-import com.factset.sdk.ForeignExchangeRate.model.*;
+import com.factset.sdk.ForeignExchangeRate.models.*;
 import com.factset.sdk.ForeignExchangeRate.api.ForwardsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -141,20 +140,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ForwardsApi apiInstance = new ForwardsApi(defaultClient);
         ForwardsRequest forwardsRequest = new ForwardsRequest(); // ForwardsRequest | Request object for FX Forwards.
         try {
             ForwardsResponse result = apiInstance.getFXForwardsForList(forwardsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ForwardsApi#getFXForwardsForList");
             System.err.println("Status code: " + e.getCode());

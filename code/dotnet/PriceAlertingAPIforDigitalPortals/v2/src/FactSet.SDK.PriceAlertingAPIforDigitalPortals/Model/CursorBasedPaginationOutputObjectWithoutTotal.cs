@@ -39,8 +39,8 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CursorBasedPaginationOutputObjectWithoutTotal" /> class.
         /// </summary>
-        /// <param name="next">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null. (required).</param>
-        /// <param name="previous">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null. (required).</param>
+        /// <param name="next">The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;. (required).</param>
+        /// <param name="previous">The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;. (required).</param>
         public CursorBasedPaginationOutputObjectWithoutTotal(string next = default(string), string previous = default(string))
         {
             // to ensure "next" is required (not null)
@@ -56,16 +56,16 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         }
 
         /// <summary>
-        /// Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null.
+        /// The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;.
         /// </summary>
-        /// <value>Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null.</value>
+        /// <value>The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;.</value>
         [DataMember(Name = "next", IsRequired = true, EmitDefaultValue = false)]
         public string Next { get; set; }
 
         /// <summary>
-        /// Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null.
+        /// The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;.
         /// </summary>
-        /// <value>Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null.</value>
+        /// <value>The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;.</value>
         [DataMember(Name = "previous", IsRequired = true, EmitDefaultValue = false)]
         public string Previous { get; set; }
 
@@ -75,7 +75,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CursorBasedPaginationOutputObjectWithoutTotal {\n");
             sb.Append("  Next: ").Append(Next).Append("\n");
             sb.Append("  Previous: ").Append(Previous).Append("\n");
@@ -110,8 +110,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         public bool Equals(CursorBasedPaginationOutputObjectWithoutTotal input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Next == input.Next ||
@@ -135,9 +136,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Next != null)
-                    hashCode = hashCode * 59 + this.Next.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Next.GetHashCode();
+                }
                 if (this.Previous != null)
-                    hashCode = hashCode * 59 + this.Previous.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Previous.GetHashCode();
+                }
                 return hashCode;
             }
         }

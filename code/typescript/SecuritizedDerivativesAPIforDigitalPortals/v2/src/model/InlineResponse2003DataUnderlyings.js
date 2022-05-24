@@ -19,7 +19,7 @@ import InlineResponse2003DataValueUnit from './InlineResponse2003DataValueUnit';
 /**
  * The InlineResponse2003DataUnderlyings model module.
  * @module model/InlineResponse2003DataUnderlyings
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003DataUnderlyings {
     /**

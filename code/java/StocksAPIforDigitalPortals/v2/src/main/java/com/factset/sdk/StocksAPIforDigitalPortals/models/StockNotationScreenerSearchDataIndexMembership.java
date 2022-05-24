@@ -43,6 +43,8 @@ public class StockNotationScreenerSearchDataIndexMembership implements Serializa
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<String> ids = null;
 
+  public StockNotationScreenerSearchDataIndexMembership() { 
+  }
 
   public StockNotationScreenerSearchDataIndexMembership ids(java.util.List<String> ids) {
     this.ids = ids;

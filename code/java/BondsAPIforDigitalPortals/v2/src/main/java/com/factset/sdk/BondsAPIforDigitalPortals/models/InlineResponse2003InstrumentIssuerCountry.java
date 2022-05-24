@@ -48,6 +48,8 @@ public class InlineResponse2003InstrumentIssuerCountry implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2003InstrumentIssuerCountry() { 
+  }
 
   public InlineResponse2003InstrumentIssuerCountry id(BigDecimal id) {
     this.id = id;

@@ -17,7 +17,7 @@ import InlineResponse20063Ratings from './InlineResponse20063Ratings';
 /**
  * The InlineResponse20063Data model module.
  * @module model/InlineResponse20063Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20063Data {
     /**

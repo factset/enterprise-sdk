@@ -83,6 +83,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataFactorCertifica
   public static final String JSON_PROPERTY_PARTICIPATION = "participation";
   private ParticipationEnum participation;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates effectiveUnderlying(SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEffectiveUnderlying effectiveUnderlying) {
     this.effectiveUnderlying = effectiveUnderlying;

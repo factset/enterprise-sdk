@@ -1,6 +1,6 @@
 # fds.sdk.NewsAPIforDigitalPortals.NewsApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -51,42 +51,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     code = "0" # str | Identifier of a news article.
-    include_media = False # bool | If true, media references are included if available. (optional) if omitted the server will use the default value of False
+    include_media = False # bool | If true, media references are included if available. (optional) (default to False)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Details for a news article.
-        api_response = api_instance.get_news_article_get(code)
-        pprint(api_response)
-    except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling NewsApi->get_news_article_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Details for a news article.
         api_response = api_instance.get_news_article_get(code, include_media=include_media, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_article_get: %s\n" % e)
 ```
@@ -153,41 +145,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     id = 3.14 # float | Identifier of a news article type.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Details for a news article type.
-        api_response = api_instance.get_news_article_type_get(id)
-        pprint(api_response)
-    except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling NewsApi->get_news_article_type_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Details for a news article type.
         api_response = api_instance.get_news_article_type_get(id, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_article_type_get: %s\n" % e)
 ```
@@ -253,32 +237,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of news article types.
         api_response = api_instance.get_news_article_type_list(attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_article_type_list: %s\n" % e)
 ```
@@ -343,40 +327,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     id = 3.14 # float | Identifier of a distributor.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Details of a distributor.
-        api_response = api_instance.get_news_distributor_get(id)
-        pprint(api_response)
-    except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling NewsApi->get_news_distributor_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Details of a distributor.
         api_response = api_instance.get_news_distributor_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_distributor_get: %s\n" % e)
 ```
@@ -441,21 +417,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     ids = [
         3.14,
     ] # [float] | Identifiers of distributors. (optional)
@@ -464,14 +441,13 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of distributors.
         api_response = api_instance.get_news_distributor_list(ids=ids, attributes=attributes, sort=sort)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_distributor_list: %s\n" % e)
 ```
@@ -537,40 +513,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     id = 3.14 # float | Identifier of a publisher.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Details of a publisher.
-        api_response = api_instance.get_news_publisher_get(id)
-        pprint(api_response)
-    except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling NewsApi->get_news_publisher_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Details of a publisher.
         api_response = api_instance.get_news_publisher_get(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_publisher_get: %s\n" % e)
 ```
@@ -635,21 +603,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     ids = [
         3.14,
     ] # [float] | Identifiers of publishers. (optional)
@@ -658,16 +627,15 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
-    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) if omitted the server will use the default value of 0.0
-    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) if omitted the server will use the default value of 20.0
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
+    pagination_offset = 0.0 # float | Non-negative number of entries to skip, or 0 (default). (optional) (default to 0.0)
+    pagination_limit = 20.0 # float | Non-negative maximum number of entries to return. (optional) (default to 20.0)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of publishers.
         api_response = api_instance.get_news_publisher_list(ids=ids, attributes=attributes, sort=sort, pagination_offset=pagination_offset, pagination_limit=pagination_limit)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_publisher_list: %s\n" % e)
 ```
@@ -735,43 +703,35 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     id = 3.14 # float | Identifier of a distributor.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     sort = [
         "["name"]",
-    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) if omitted the server will use the default value of ["name"]
+    ] # [str] | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) (default to ["name"])
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List of publishers provided by the given distributor.
-        api_response = api_instance.get_news_publisher_list_by_distributor(id)
-        pprint(api_response)
-    except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling NewsApi->get_news_publisher_list_by_distributor: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of publishers provided by the given distributor.
         api_response = api_instance.get_news_publisher_list_by_distributor(id, attributes=attributes, sort=sort)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->get_news_publisher_list_by_distributor: %s\n" % e)
 ```
@@ -838,21 +798,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     body = InlineObject(
         data=NewsArticleListData(
             filter=NewsArticleListDataFilter(
@@ -906,12 +867,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of news articles.
         api_response = api_instance.post_news_article_list(body=body)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->post_news_article_list: %s\n" % e)
 ```
@@ -976,21 +936,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     body = InlineObject1(
         data=NewsArticleListByChainData(
             id="id_example",
@@ -1015,11 +976,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject1 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # List news articles of an article chain.
         api_response = api_instance.post_news_article_list_by_chain(body)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->post_news_article_list_by_chain: %s\n" % e)
 ```
@@ -1084,21 +1045,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     body = InlineObject2(
         data=NewsArticleListByIndexData(
             ids=[
@@ -1155,11 +1117,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject2 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # News articles for instruments that are constituents of the given indices.
         api_response = api_instance.post_news_article_list_by_index(body)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->post_news_article_list_by_index: %s\n" % e)
 ```
@@ -1224,21 +1186,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     body = InlineObject3(
         data=NewsArticleListByInstrumentData(
             ids=[
@@ -1295,11 +1258,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject3 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # News articles for instruments.
         api_response = api_instance.post_news_article_list_by_instrument(body)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->post_news_article_list_by_instrument: %s\n" % e)
 ```
@@ -1364,21 +1327,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     body = InlineObject4(
         data=NewsArticleListByMediaKindData(
             ids=[
@@ -1435,11 +1399,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject4 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # List news articles which contain media of specific media kinds.
         api_response = api_instance.post_news_article_list_by_media_kind(body)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->post_news_article_list_by_media_kind: %s\n" % e)
 ```
@@ -1504,21 +1468,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     body = InlineObject5(
         data=NewsArticleSearchByTextData(
             text=NewsArticleSearchByTextDataText(
@@ -1595,12 +1560,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject5 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for news articles using a fulltext search.
         api_response = api_instance.post_news_article_search_by_text(body=body)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->post_news_article_search_by_text: %s\n" % e)
 ```
@@ -1665,21 +1629,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.NewsAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = news_api.NewsApi(api_client)
+
     body = InlineObject6(
         data=NewsPublisherSearchByNameData(
             search_value="search_value_example",
@@ -1703,11 +1668,11 @@ with fds.sdk.NewsAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject6 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Search for publishers.
         api_response = api_instance.post_news_publisher_search_by_name(body)
         pprint(api_response)
+
     except fds.sdk.NewsAPIforDigitalPortals.ApiException as e:
         print("Exception when calling NewsApi->post_news_publisher_search_by_name: %s\n" % e)
 ```

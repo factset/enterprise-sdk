@@ -103,7 +103,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2002Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Creation: ").Append(Creation).Append("\n");
@@ -143,8 +143,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2002Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -193,19 +194,33 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Creation != null)
-                    hashCode = hashCode * 59 + this.Creation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Creation.GetHashCode();
+                }
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
                 if (this.Price != null)
-                    hashCode = hashCode * 59 + this.Price.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                }
                 if (this.Range != null)
-                    hashCode = hashCode * 59 + this.Range.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
                 if (this.Comment != null)
-                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Comment.GetHashCode();
+                }
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 return hashCode;
             }
         }

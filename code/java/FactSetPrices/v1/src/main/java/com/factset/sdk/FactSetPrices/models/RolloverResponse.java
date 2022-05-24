@@ -43,6 +43,8 @@ public class RolloverResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Rollover> data = null;
 
+  public RolloverResponse() { 
+  }
 
   public RolloverResponse data(java.util.List<Rollover> data) {
     this.data = data;

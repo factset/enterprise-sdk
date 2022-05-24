@@ -43,6 +43,16 @@ public class OffsetBasedPaginationOutputObjectWithoutTotal implements Serializab
   public static final String JSON_PROPERTY_HAS_NEXT = "hasNext";
   private Boolean hasNext;
 
+  public OffsetBasedPaginationOutputObjectWithoutTotal() { 
+  }
+
+  @JsonCreator
+  public OffsetBasedPaginationOutputObjectWithoutTotal(
+    @JsonProperty(value=JSON_PROPERTY_HAS_NEXT, required=true) Boolean hasNext
+  ) {
+    this();
+    this.hasNext = hasNext;
+  }
 
   public OffsetBasedPaginationOutputObjectWithoutTotal hasNext(Boolean hasNext) {
     this.hasNext = hasNext;

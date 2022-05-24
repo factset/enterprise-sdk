@@ -24,8 +24,8 @@ from fds.sdk.IRNMeetings.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNMeetings.exceptions import ApiAttributeError
 
 
@@ -79,6 +79,7 @@ class CreateMeetingDto(ModelNormal):
             'min_length': 0,
         },
         ('related_symbols',): {
+            'max_items': 100,
         },
     }
 
@@ -99,10 +100,10 @@ class CreateMeetingDto(ModelNormal):
         lazy_import()
         return {
             'author': (UserSerialDto,),  # noqa: E501
+            'start': (str,),  # noqa: E501
+            'end': (str,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'identifier': (str, none_type,),  # noqa: E501
-            'start': (str, none_type,),  # noqa: E501
-            'end': (str, none_type,),  # noqa: E501
             'locations': ([str], none_type,),  # noqa: E501
             'organizer': (str, none_type,),  # noqa: E501
             'organizer_id': (str,),  # noqa: E501
@@ -123,10 +124,10 @@ class CreateMeetingDto(ModelNormal):
 
     attribute_map = {
         'author': 'author',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'identifier': 'identifier',  # noqa: E501
         'start': 'start',  # noqa: E501
         'end': 'end',  # noqa: E501
+        'title': 'title',  # noqa: E501
+        'identifier': 'identifier',  # noqa: E501
         'locations': 'locations',  # noqa: E501
         'organizer': 'organizer',  # noqa: E501
         'organizer_id': 'organizerId',  # noqa: E501
@@ -147,15 +148,13 @@ class CreateMeetingDto(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, author, title, identifier, start, end, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, author, start, end, *args, **kwargs):  # noqa: E501
         """CreateMeetingDto - a model defined in OpenAPI
 
         Args:
             author (UserSerialDto):
-            title (str, none_type):
-            identifier (str, none_type):
-            start (str, none_type):
-            end (str, none_type):
+            start (str):
+            end (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -188,6 +187,8 @@ class CreateMeetingDto(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            title (str, none_type): [optional]  # noqa: E501
+            identifier (str, none_type): [optional]  # noqa: E501
             locations ([str], none_type): [optional]  # noqa: E501
             organizer (str, none_type): [optional]  # noqa: E501
             organizer_id (str): [optional]  # noqa: E501
@@ -227,8 +228,6 @@ class CreateMeetingDto(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.author = author
-        self.title = title
-        self.identifier = identifier
         self.start = start
         self.end = end
         for var_name, var_value in kwargs.items():
@@ -251,15 +250,13 @@ class CreateMeetingDto(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, author, title, identifier, start, end, *args, **kwargs):  # noqa: E501
+    def __init__(self, author, start, end, *args, **kwargs):  # noqa: E501
         """CreateMeetingDto - a model defined in OpenAPI
 
         Args:
             author (UserSerialDto):
-            title (str, none_type):
-            identifier (str, none_type):
-            start (str, none_type):
-            end (str, none_type):
+            start (str):
+            end (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -292,6 +289,8 @@ class CreateMeetingDto(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            title (str, none_type): [optional]  # noqa: E501
+            identifier (str, none_type): [optional]  # noqa: E501
             locations ([str], none_type): [optional]  # noqa: E501
             organizer (str, none_type): [optional]  # noqa: E501
             organizer_id (str): [optional]  # noqa: E501
@@ -329,8 +328,6 @@ class CreateMeetingDto(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.author = author
-        self.title = title
-        self.identifier = identifier
         self.start = start
         self.end = end
         for var_name, var_value in kwargs.items():

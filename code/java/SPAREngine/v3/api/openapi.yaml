@@ -2426,6 +2426,7 @@ paths:
       summary: Create and Run SPAR calculation
       tags:
       - SPARCalculations
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/spar/v3/calculations/{id}:
@@ -3470,6 +3471,7 @@ paths:
       summary: Create or Update SPAR calculation and run it.
       tags:
       - SPARCalculations
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/spar/v3/calculations/{id}/status:

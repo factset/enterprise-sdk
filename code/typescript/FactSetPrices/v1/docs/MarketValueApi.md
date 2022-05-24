@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getMarketValue(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const marketValueRequest = new factsetprices.MarketValueRequest(); // MarketValu
 // Call api endpoint
 apiInstance.getMarketValueForList(marketValueRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

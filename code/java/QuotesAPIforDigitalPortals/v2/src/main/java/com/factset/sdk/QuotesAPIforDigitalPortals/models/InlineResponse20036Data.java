@@ -47,6 +47,8 @@ public class InlineResponse20036Data implements Serializable {
   public static final String JSON_PROPERTY_FSYM = "fsym";
   private InlineResponse20036Fsym fsym;
 
+  public InlineResponse20036Data() { 
+  }
 
   public InlineResponse20036Data id(String id) {
     this.id = id;

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2007DataDistributor model module.
  * @module model/InlineResponse2007DataDistributor
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataDistributor {
     /**

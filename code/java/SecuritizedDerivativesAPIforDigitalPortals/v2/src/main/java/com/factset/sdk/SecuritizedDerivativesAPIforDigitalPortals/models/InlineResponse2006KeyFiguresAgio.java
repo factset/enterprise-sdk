@@ -52,6 +52,8 @@ public class InlineResponse2006KeyFiguresAgio implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private BigDecimal annualized;
 
+  public InlineResponse2006KeyFiguresAgio() { 
+  }
 
   public InlineResponse2006KeyFiguresAgio absolute(BigDecimal absolute) {
     this.absolute = absolute;

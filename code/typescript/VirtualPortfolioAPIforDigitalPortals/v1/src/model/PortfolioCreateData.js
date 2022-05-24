@@ -17,7 +17,7 @@ import PortfolioCreateDataCurrency from './PortfolioCreateDataCurrency';
 /**
  * The PortfolioCreateData model module.
  * @module model/PortfolioCreateData
- * @version 0.9.1
+ * @version 0.9.2
  */
 class PortfolioCreateData {
     /**

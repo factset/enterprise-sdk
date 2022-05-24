@@ -5,7 +5,8 @@ All URIs are relative to *https://api.factset.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getBulkDocumentsNrtV1Calls**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1Calls) | **GET** /bulk-documents/nrt/v1/calls | Returns the active calls happening at the moment
-[**getBulkDocumentsNrtV1ListSnippets**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1ListSnippets) | **GET** /bulk-documents/nrt/v1/list-snippets | Returns the latest snippets from an active call
+[**getBulkDocumentsNrtV1IndexedNrt**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1IndexedNrt) | **GET** /bulk-documents/nrt/v1/indexed-nrt | Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+[**getBulkDocumentsNrtV1ListSnippets**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1ListSnippets) | **GET** /bulk-documents/nrt/v1/list-snippets | Returns the latest transcript snippets from an active call
 [**getBulkDocumentsNrtV1Speakerids**](NearRealTimeTranscriptsApi.md#getBulkDocumentsNrtV1Speakerids) | **GET** /bulk-documents/nrt/v1/speakerids | Returns the latest speakerIds with the confidence scores generated for an active call.
 
 
@@ -58,6 +59,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getBulkDocumentsNrtV1Calls(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -97,11 +99,91 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getBulkDocumentsNrtV1IndexedNrt
+
+> IndexedNRT getBulkDocumentsNrtV1IndexedNrt(audioSourceId, opts)
+
+Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+
+Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+
+### Example
+
+```javascript
+const { ApiClient, NearRealTimeTranscriptsApi } = require('@factset/sdk-documentsdistributorcallstreetevents');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new NearRealTimeTranscriptsApi();
+const audioSourceId = 56; // Number | Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.
+const opts = {
+  'reportId': 56, // Number | Unique identifier for an event
+  'paginationLimit': 56, // Number | Specifies the  number of results to return per page. [ Min=0; Max=50 ]
+  'paginationOffset': 56 // Number | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results
+};
+
+// Call api endpoint
+apiInstance.getBulkDocumentsNrtV1IndexedNrt(audioSourceId, opts).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audioSourceId** | **Number**| Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids. | 
+ **reportId** | **Number**| Unique identifier for an event | [optional] 
+ **paginationLimit** | **Number**| Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] | [optional] 
+ **paginationOffset** | **Number**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results | [optional] 
+
+### Return type
+
+[**IndexedNRT**](IndexedNRT.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getBulkDocumentsNrtV1ListSnippets
 
 > NRTSnippets getBulkDocumentsNrtV1ListSnippets(audioSourceId, opts)
 
-Returns the latest snippets from an active call
+Returns the latest transcript snippets from an active call
 
 Returns the latest snippets from an active call
 
@@ -141,6 +223,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getBulkDocumentsNrtV1ListSnippets(audioSourceId, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -220,6 +303,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getBulkDocumentsNrtV1Speakerids(audioSourceId, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

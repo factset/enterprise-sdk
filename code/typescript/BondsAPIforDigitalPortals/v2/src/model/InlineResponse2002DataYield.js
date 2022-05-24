@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2002DataYield model module.
  * @module model/InlineResponse2002DataYield
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2002DataYield {
     /**

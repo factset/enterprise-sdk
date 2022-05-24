@@ -57,6 +57,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_TRIGGER = "trigger";
   private InlineResponse200DataTrigger trigger;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data id(String id) {
     this.id = id;

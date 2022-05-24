@@ -57,6 +57,8 @@ public class LookupResponse implements Serializable {
   public static final String JSON_PROPERTY_RESULTS = "results";
   private java.util.List<ResponseDetails> results = null;
 
+  public LookupResponse() { 
+  }
 
   public LookupResponse typehead(LookupCount typehead) {
     this.typehead = typehead;

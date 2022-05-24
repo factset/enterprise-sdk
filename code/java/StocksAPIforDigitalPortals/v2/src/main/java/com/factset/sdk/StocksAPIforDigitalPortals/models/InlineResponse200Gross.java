@@ -44,6 +44,8 @@ public class InlineResponse200Gross implements Serializable {
   public static final String JSON_PROPERTY_UNADJUSTED_VALUE = "unadjustedValue";
   private BigDecimal unadjustedValue;
 
+  public InlineResponse200Gross() { 
+  }
 
   public InlineResponse200Gross unadjustedValue(BigDecimal unadjustedValue) {
     this.unadjustedValue = unadjustedValue;

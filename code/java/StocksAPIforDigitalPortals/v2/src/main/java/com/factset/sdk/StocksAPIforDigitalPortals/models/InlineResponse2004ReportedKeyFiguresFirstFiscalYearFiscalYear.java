@@ -48,6 +48,8 @@ public class InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear imple
   public static final String JSON_PROPERTY_YEAR = "year";
   private BigDecimal year;
 
+  public InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear() { 
+  }
 
   public InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear yearEnd(BigDecimal yearEnd) {
     this.yearEnd = yearEnd;

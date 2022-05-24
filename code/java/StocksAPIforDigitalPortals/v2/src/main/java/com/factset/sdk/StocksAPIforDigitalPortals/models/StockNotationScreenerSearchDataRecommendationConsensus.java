@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRecommendationConsensus implements S
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataRecommendationConsensus() { 
+  }
 
   public StockNotationScreenerSearchDataRecommendationConsensus minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

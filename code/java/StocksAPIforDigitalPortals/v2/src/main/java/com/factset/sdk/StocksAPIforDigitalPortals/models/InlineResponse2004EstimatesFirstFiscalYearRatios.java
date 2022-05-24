@@ -89,6 +89,8 @@ public class InlineResponse2004EstimatesFirstFiscalYearRatios implements Seriali
   public static final String JSON_PROPERTY_ENTERPRISE_VALUE_SALES = "enterpriseValueSales";
   private InlineResponse2004EstimatesFirstFiscalYearRatiosEnterpriseValueSales enterpriseValueSales;
 
+  public InlineResponse2004EstimatesFirstFiscalYearRatios() { 
+  }
 
   public InlineResponse2004EstimatesFirstFiscalYearRatios priceSales(InlineResponse2004EstimatesFirstFiscalYearRatiosPriceSales priceSales) {
     this.priceSales = priceSales;

@@ -52,6 +52,8 @@ public class InlineResponse20060Data implements Serializable {
   public static final String JSON_PROPERTY_LEGAL_ENTITIES = "legalEntities";
   private InlineResponse20060LegalEntities legalEntities;
 
+  public InlineResponse20060Data() { 
+  }
 
   public InlineResponse20060Data id(BigDecimal id) {
     this.id = id;

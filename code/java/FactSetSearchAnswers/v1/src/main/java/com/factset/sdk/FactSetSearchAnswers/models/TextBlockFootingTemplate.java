@@ -67,6 +67,16 @@ public class TextBlockFootingTemplate implements Serializable {
   public static final String JSON_PROPERTY_FOOTING = "footing";
   private TitledTextBlock footing;
 
+  public TextBlockFootingTemplate() { 
+  }
+
+  @JsonCreator
+  public TextBlockFootingTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public TextBlockFootingTemplate headline(String headline) {
     this.headline = headline;

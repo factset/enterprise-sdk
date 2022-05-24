@@ -18,7 +18,7 @@ import InlineResponse2009Data from './InlineResponse2009Data';
 /**
  * The InlineResponse2009 model module.
  * @module model/InlineResponse2009
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2009 {
     /**
@@ -50,7 +50,7 @@ class InlineResponse2009 {
             obj = obj || new InlineResponse2009();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse2009Data]);
+                obj['data'] = InlineResponse2009Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
@@ -63,8 +63,7 @@ class InlineResponse2009 {
 }
 
 /**
- * List of focus categories.
- * @member {Array.<module:model/InlineResponse2009Data>} data
+ * @member {module:model/InlineResponse2009Data} data
  */
 InlineResponse2009.prototype['data'] = undefined;
 

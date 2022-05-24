@@ -42,6 +42,16 @@ public class ErrorLink implements Serializable {
   public static final String JSON_PROPERTY_ABOUT = "about";
   private String about;
 
+  public ErrorLink() { 
+  }
+
+  @JsonCreator
+  public ErrorLink(
+    @JsonProperty(value=JSON_PROPERTY_ABOUT, required=true) String about
+  ) {
+    this();
+    this.about = about;
+  }
 
   public ErrorLink about(String about) {
     this.about = about;

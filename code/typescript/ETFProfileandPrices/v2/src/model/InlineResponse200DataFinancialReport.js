@@ -18,7 +18,7 @@ import InlineResponse200DataFinancialReportSemiAnnual from './InlineResponse200D
 /**
  * The InlineResponse200DataFinancialReport model module.
  * @module model/InlineResponse200DataFinancialReport
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataFinancialReport {
     /**

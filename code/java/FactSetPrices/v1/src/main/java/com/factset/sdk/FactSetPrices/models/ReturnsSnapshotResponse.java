@@ -43,6 +43,8 @@ public class ReturnsSnapshotResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ReturnsSnapshot> data = null;
 
+  public ReturnsSnapshotResponse() { 
+  }
 
   public ReturnsSnapshotResponse data(java.util.List<ReturnsSnapshot> data) {
     this.data = data;

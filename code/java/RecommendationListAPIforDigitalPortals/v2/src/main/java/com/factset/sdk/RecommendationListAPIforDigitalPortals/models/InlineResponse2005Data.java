@@ -66,6 +66,8 @@ public class InlineResponse2005Data implements Serializable {
   public static final String JSON_PROPERTY_RECOMMENDATION_CLASS = "recommendationClass";
   private InlineResponse2005RecommendationClass recommendationClass;
 
+  public InlineResponse2005Data() { 
+  }
 
   public InlineResponse2005Data hasNotationData(Boolean hasNotationData) {
     this.hasNotationData = hasNotationData;

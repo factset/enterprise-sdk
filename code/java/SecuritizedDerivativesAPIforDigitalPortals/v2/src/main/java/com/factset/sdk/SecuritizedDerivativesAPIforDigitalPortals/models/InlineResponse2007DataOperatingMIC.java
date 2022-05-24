@@ -52,6 +52,8 @@ public class InlineResponse2007DataOperatingMIC implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2007DataOperatingMIC() { 
+  }
 
   public InlineResponse2007DataOperatingMIC id(BigDecimal id) {
     this.id = id;

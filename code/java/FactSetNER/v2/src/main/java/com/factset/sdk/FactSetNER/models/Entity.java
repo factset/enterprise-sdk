@@ -118,6 +118,8 @@ public class Entity implements Serializable {
   public static final String JSON_PROPERTY_ASSOCIATED_ORGS = "associatedOrgs";
   private java.util.List<AssociatedOrganization> associatedOrgs = null;
 
+  public Entity() { 
+  }
 
   public Entity type(TypeEnum type) {
     this.type = type;

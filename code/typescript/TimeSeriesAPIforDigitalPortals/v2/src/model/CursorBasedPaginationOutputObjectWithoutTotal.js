@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CursorBasedPaginationOutputObjectWithoutTotal model module.
  * @module model/CursorBasedPaginationOutputObjectWithoutTotal
- * @version 0.9.1
+ * @version 0.9.2
  */
 class CursorBasedPaginationOutputObjectWithoutTotal {
     /**

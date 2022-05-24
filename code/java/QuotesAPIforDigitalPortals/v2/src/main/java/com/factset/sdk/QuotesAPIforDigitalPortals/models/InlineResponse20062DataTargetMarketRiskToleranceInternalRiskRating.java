@@ -52,6 +52,8 @@ public class InlineResponse20062DataTargetMarketRiskToleranceInternalRiskRating 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public InlineResponse20062DataTargetMarketRiskToleranceInternalRiskRating() { 
+  }
 
   public InlineResponse20062DataTargetMarketRiskToleranceInternalRiskRating id(BigDecimal id) {
     this.id = id;

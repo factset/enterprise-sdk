@@ -84,6 +84,8 @@ public class InlineResponse2001TriggerStatus implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private String details;
 
+  public InlineResponse2001TriggerStatus() { 
+  }
 
   public InlineResponse2001TriggerStatus code(CodeEnum code) {
     this.code = code;

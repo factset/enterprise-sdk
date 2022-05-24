@@ -50,6 +50,8 @@ public class Group implements Serializable {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
+  public Group() { 
+  }
 
   public Group name(String name) {
     this.name = name;

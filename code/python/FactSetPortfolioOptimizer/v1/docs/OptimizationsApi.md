@@ -38,24 +38,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Run Optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel FPO optimization by id
         api_instance.cancel_fpo_optimization_by_id(id)
@@ -127,24 +127,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Run Optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get FPO optimization by id
         api_instance.get_fpo_optimization_by_id(id)
@@ -218,21 +218,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPortfolioOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
+
     fpo_optimization_parameters = FPOOptimizationParameters(
         account=FPOAccount(
             padocument=PaDoc(
@@ -283,8 +284,6 @@ with fds.sdk.FactSetPortfolioOptimizer.ApiClient(configuration) as api_client:
         ),
     ) # FPOOptimizationParameters |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Run FPO optimization
         api_instance.run_fpo_optimization(fpo_optimization_parameters=fpo_optimization_parameters)

@@ -18,7 +18,7 @@ import NewsPublisherSearchByNameDataFilterDistributor from './NewsPublisherSearc
 /**
  * The NewsPublisherSearchByNameDataFilter model module.
  * @module model/NewsPublisherSearchByNameDataFilter
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsPublisherSearchByNameDataFilter {
     /**

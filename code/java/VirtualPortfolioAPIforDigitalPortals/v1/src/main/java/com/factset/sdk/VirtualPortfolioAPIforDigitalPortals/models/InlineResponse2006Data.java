@@ -44,6 +44,8 @@ public class InlineResponse2006Data implements Serializable {
   public static final String JSON_PROPERTY_POSITIONS = "positions";
   private java.util.List<InlineResponse2006DataPositions> positions = null;
 
+  public InlineResponse2006Data() { 
+  }
 
   public InlineResponse2006Data positions(java.util.List<InlineResponse2006DataPositions> positions) {
     this.positions = positions;

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataGrossIncomeMargin implements Seriali
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataEbitMarginMaximum maximum;
 
+  public StockNotationScreenerSearchDataGrossIncomeMargin() { 
+  }
 
   public StockNotationScreenerSearchDataGrossIncomeMargin minimum(StockNotationScreenerSearchDataEbitMarginMinimum minimum) {
     this.minimum = minimum;

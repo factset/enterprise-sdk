@@ -29,14 +29,13 @@ import com.factset.sdk.FactSetPortfolioOptimizer.ApiClient;
 import com.factset.sdk.FactSetPortfolioOptimizer.ApiException;
 import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.auth.*;
-import com.factset.sdk.FactSetPortfolioOptimizer.model.*;
+import com.factset.sdk.FactSetPortfolioOptimizer.models.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,19 +45,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FpoOptimizerApi apiInstance = new FpoOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FPO optimization endpoint
         try {
             apiInstance.cancelOptimizationById(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FpoOptimizerApi#cancelOptimizationById");
             System.err.println("Status code: " + e.getCode());
@@ -118,14 +118,13 @@ import com.factset.sdk.FactSetPortfolioOptimizer.ApiClient;
 import com.factset.sdk.FactSetPortfolioOptimizer.ApiException;
 import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.auth.*;
-import com.factset.sdk.FactSetPortfolioOptimizer.model.*;
+import com.factset.sdk.FactSetPortfolioOptimizer.models.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,20 +134,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FpoOptimizerApi apiInstance = new FpoOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FPO optimization endpoint
         try {
             FPOOptimizationParametersRoot result = apiInstance.getOptimizationParameters(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FpoOptimizerApi#getOptimizationParameters");
             System.err.println("Status code: " + e.getCode());
@@ -209,14 +209,13 @@ import com.factset.sdk.FactSetPortfolioOptimizer.ApiClient;
 import com.factset.sdk.FactSetPortfolioOptimizer.ApiException;
 import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.auth.*;
-import com.factset.sdk.FactSetPortfolioOptimizer.model.*;
+import com.factset.sdk.FactSetPortfolioOptimizer.models.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -226,14 +225,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FpoOptimizerApi apiInstance = new FpoOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Get FPO optimization status by id endpoint
@@ -241,6 +240,7 @@ public class Example {
         try {
             ObjectRoot result = apiInstance.getOptimizationResult(id, accept);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FpoOptimizerApi#getOptimizationResult");
             System.err.println("Status code: " + e.getCode());
@@ -303,14 +303,13 @@ import com.factset.sdk.FactSetPortfolioOptimizer.ApiClient;
 import com.factset.sdk.FactSetPortfolioOptimizer.ApiException;
 import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.auth.*;
-import com.factset.sdk.FactSetPortfolioOptimizer.model.*;
+import com.factset.sdk.FactSetPortfolioOptimizer.models.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -320,20 +319,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FpoOptimizerApi apiInstance = new FpoOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FPO optimization endpoint
         try {
             ObjectRoot result = apiInstance.getOptimizationStatusById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FpoOptimizerApi#getOptimizationStatusById");
             System.err.println("Status code: " + e.getCode());
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 ## postAndOptimize
 
-> ObjectRoot postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot)
+> PostAndOptimizeResponseWrapper postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot)
 
 Create and Run FPO optimization
 
@@ -398,14 +398,14 @@ import com.factset.sdk.FactSetPortfolioOptimizer.ApiClient;
 import com.factset.sdk.FactSetPortfolioOptimizer.ApiException;
 import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.auth.*;
-import com.factset.sdk.FactSetPortfolioOptimizer.model.*;
+import com.factset.sdk.FactSetPortfolioOptimizer.models.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi;
+import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi.PostAndOptimizeResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -415,22 +415,31 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FpoOptimizerApi apiInstance = new FpoOptimizerApi(defaultClient);
         Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.
         FPOOptimizationParametersRoot fpOOptimizationParametersRoot = new FPOOptimizationParametersRoot(); // FPOOptimizationParametersRoot | Calculation Parameters
         try {
-            ObjectRoot result = apiInstance.postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot);
-            System.out.println(result);
+            PostAndOptimizeResponseWrapper result = apiInstance.postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationInfoRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FpoOptimizerApi#postAndOptimize");
             System.err.println("Status code: " + e.getCode());
@@ -453,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+PostAndOptimizeResponseWrapper
 
 ### Authorization
 
@@ -481,7 +490,7 @@ Name | Type | Description  | Notes
 
 ## putAndOptimize
 
-> ObjectRoot putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot)
+> PutAndOptimizeResponseWrapper putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot)
 
 Create or Update FPO optimization and run it.
 
@@ -495,14 +504,14 @@ import com.factset.sdk.FactSetPortfolioOptimizer.ApiClient;
 import com.factset.sdk.FactSetPortfolioOptimizer.ApiException;
 import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.auth.*;
-import com.factset.sdk.FactSetPortfolioOptimizer.model.*;
+import com.factset.sdk.FactSetPortfolioOptimizer.models.*;
 import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi;
+import com.factset.sdk.FactSetPortfolioOptimizer.api.FpoOptimizerApi.PutAndOptimizeResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -512,14 +521,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FpoOptimizerApi apiInstance = new FpoOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run FPO optimization endpoint
@@ -527,8 +536,17 @@ public class Example {
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale.
         FPOOptimizationParametersRoot fpOOptimizationParametersRoot = new FPOOptimizationParametersRoot(); // FPOOptimizationParametersRoot | Calculation Parameters
         try {
-            ObjectRoot result = apiInstance.putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot);
-            System.out.println(result);
+            PutAndOptimizeResponseWrapper result = apiInstance.putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fpOOptimizationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationInfoRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FpoOptimizerApi#putAndOptimize");
             System.err.println("Status code: " + e.getCode());
@@ -552,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+PutAndOptimizeResponseWrapper
 
 ### Authorization
 

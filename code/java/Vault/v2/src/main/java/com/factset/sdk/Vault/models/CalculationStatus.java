@@ -102,6 +102,8 @@ public class CalculationStatus implements Serializable {
   public static final String JSON_PROPERTY_PUB = "pub";
   private java.util.Map<String, CalculationUnitStatus> pub = null;
 
+  public CalculationStatus() { 
+  }
 
   public CalculationStatus status(StatusEnum status) {
     this.status = status;

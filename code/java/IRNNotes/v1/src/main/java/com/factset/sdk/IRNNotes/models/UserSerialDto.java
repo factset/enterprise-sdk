@@ -40,12 +40,24 @@ import com.factset.sdk.IRNNotes.JSON;
 public class UserSerialDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_USERNAME = "username";
+  public static final String JSON_PROPERTY_USERNAME = "Username";
   private String username;
 
-  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
+  public static final String JSON_PROPERTY_SERIAL_NUMBER = "SerialNumber";
   private String serialNumber;
 
+  public UserSerialDto() { 
+  }
+
+  @JsonCreator
+  public UserSerialDto(
+    @JsonProperty(value=JSON_PROPERTY_USERNAME, required=true) String username, 
+    @JsonProperty(value=JSON_PROPERTY_SERIAL_NUMBER, required=true) String serialNumber
+  ) {
+    this();
+    this.username = username;
+    this.serialNumber = serialNumber;
+  }
 
   public UserSerialDto username(String username) {
     this.username = username;
@@ -56,7 +68,7 @@ public class UserSerialDto implements Serializable {
    * Get username
    * @return username
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -82,7 +94,7 @@ public class UserSerialDto implements Serializable {
    * Get serialNumber
    * @return serialNumber
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

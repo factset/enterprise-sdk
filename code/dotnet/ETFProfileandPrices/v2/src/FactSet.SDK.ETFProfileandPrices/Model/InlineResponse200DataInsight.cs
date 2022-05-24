@@ -62,7 +62,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataInsight {\n");
             sb.Append("  Overview: ").Append(Overview).Append("\n");
             sb.Append("  Quote: ").Append(Quote).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataInsight input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Overview == input.Overview ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Overview != null)
-                    hashCode = hashCode * 59 + this.Overview.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Overview.GetHashCode();
+                }
                 if (this.Quote != null)
-                    hashCode = hashCode * 59 + this.Quote.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Quote.GetHashCode();
+                }
                 return hashCode;
             }
         }

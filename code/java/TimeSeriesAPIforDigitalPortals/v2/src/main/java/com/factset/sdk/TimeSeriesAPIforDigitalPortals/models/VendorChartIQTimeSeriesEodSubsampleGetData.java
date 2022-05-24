@@ -139,6 +139,18 @@ public class VendorChartIQTimeSeriesEodSubsampleGetData implements Serializable 
   public static final String JSON_PROPERTY_ADJUSTMENTS = "adjustments";
   private VendorChartIQTimeSeriesEodListDataAdjustments adjustments;
 
+  public VendorChartIQTimeSeriesEodSubsampleGetData() { 
+  }
+
+  @JsonCreator
+  public VendorChartIQTimeSeriesEodSubsampleGetData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_INTERVAL, required=true) VendorChartIQTimeSeriesEodSubsampleGetDataInterval interval
+  ) {
+    this();
+    this.id = id;
+    this.interval = interval;
+  }
 
   public VendorChartIQTimeSeriesEodSubsampleGetData id(String id) {
     this.id = id;

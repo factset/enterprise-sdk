@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityMatch service.
 * @module api/EntityMatchApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class EntityMatchApi {
 
@@ -83,7 +83,10 @@ export default class EntityMatchApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json;charset=utf-8', 'application/json'];
+
+
       let returnType = EntityMatchesResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/entity-match', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -105,7 +108,7 @@ export default class EntityMatchApi {
      * @param {Array.<String>} opts.includeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas.   |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description|   |---|---|---|---|   |AR|Arbitrage|IC|Investment Company|   |BM|Bank Investment Division|IN|Insurance Company|   |BR|Broker|MF|Mutual Fund Manager|   |CP|Corporate|ML|Master Ltd Part|   |CU|Custodial|MM|Market Maker|   |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt|   |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager|   |FO|Foundation/Endowment Manager|PP|Real Estate Manager|   |FS|Fund Distributor|RE|Research Firm|   |FU|Fund|SB|Subsidiary Branch|   |FY|Family Office|ST|Stock Borrowing/Lending|   |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager|   |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity|   |IA|Investment Adviser|   |IB|Investment Banking| 
      * @param {Array.<String>} opts.excludeEntitySubType Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking| 
      * @param {Boolean} opts.includeParent Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (default to false)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityMatchesResponse}
+     * @return { Promise.< module:model/EntityMatchesResponse > } a Promise, with data of type {@link module:model/EntityMatchesResponse }
      */
     getEntityMatch(name, opts) {
       return this.getEntityMatchWithHttpInfo(name, opts)
@@ -140,7 +143,10 @@ export default class EntityMatchApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json;charset=utf-8'];
       let accepts = ['application/json;charset=utf-8', 'application/json'];
+
+
       let returnType = EntityMatchesResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v1/entity-match', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -152,7 +158,7 @@ export default class EntityMatchApi {
      * Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
      * Finds the best candidate entities matching the given entity name. Additional attributes can be supplied to narrow the search, such as State, URL, and Entity Types. <p>**Max of 25 Names inputted.** Use the \"Entity Match - Bulk\" workflow to submit larger universes of names to be concorded via a file.</p><p> Supported types of Entities in which the names can match to include -   * Corporations, Joint Ventures, and Holding Companies   * Fund Managers and various Fund Types (Open-end, Closed End, Hedge, Soverign Wealth, Pension, Exchange Traded, and more).</p> 
      * @param {module:model/EntityMatchRequest} entityMatchRequest A request to match a Entity.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityMatchesResponse}
+     * @return { Promise.< module:model/EntityMatchesResponse > } a Promise, with data of type {@link module:model/EntityMatchesResponse }
      */
     getEntityMatchForList(entityMatchRequest) {
       return this.getEntityMatchForListWithHttpInfo(entityMatchRequest)
@@ -163,3 +169,8 @@ export default class EntityMatchApi {
 
 
 }
+
+
+
+
+

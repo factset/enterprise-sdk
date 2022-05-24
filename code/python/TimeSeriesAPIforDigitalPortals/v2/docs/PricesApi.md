@@ -42,44 +42,36 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
     _from = "from_example" # str | Date and time of the start point of the subsample (inclusive). `from` must be aligned to `granularity`. That is, the numerical value is an integral multiple of the time span value represented by `granularity`. The data accessible in the past is limited to a few weeks at most. Dates in the future are not allowed.
-    type = "trade" # str | Type of the price as configured for the customer. (optional) if omitted the server will use the default value of "trade"
-    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
-    granularity = "1h" # str | Subsample granularities suitable for intraday data. (optional) if omitted the server will use the default value of "1h"
+    type = "trade" # str | Type of the price as configured for the customer. (optional) (default to "trade")
+    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
+    granularity = "1h" # str | Subsample granularities suitable for intraday data. (optional) (default to "1h")
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Single subsample intraday data for a notation.
-        api_response = api_instance.get_prices_time_series_intraday_subsample_get(id, _from)
-        pprint(api_response)
-    except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PricesApi->get_prices_time_series_intraday_subsample_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Single subsample intraday data for a notation.
         api_response = api_instance.get_prices_time_series_intraday_subsample_get(id, _from, type=type, quality=quality, granularity=granularity, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_time_series_intraday_subsample_get: %s\n" % e)
 ```
@@ -149,21 +141,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     body = InlineObject4(
         data=VendorChartIQTimeSeriesEodListData(
             id="id_example",
@@ -189,11 +182,11 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
         ),
     ) # InlineObject4 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # End-of-day time series data for a notation.
         api_response = api_instance.post_prices_time_series_eod_list(body)
         pprint(api_response)
+
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->post_prices_time_series_eod_list: %s\n" % e)
 ```
@@ -258,21 +251,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     body = InlineObject5(
         data=PricesTimeSeriesEodSubsampleGetData(
             id="id_example",
@@ -294,11 +288,11 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
         ),
     ) # InlineObject5 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Single subsample end-of-day data for a notation.
         api_response = api_instance.post_prices_time_series_eod_subsample_get(body)
         pprint(api_response)
+
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->post_prices_time_series_eod_subsample_get: %s\n" % e)
 ```
@@ -363,21 +357,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     body = InlineObject6(
         data=PricesTimeSeriesEodSubsampleListData(
             id="id_example",
@@ -402,11 +397,11 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
         ),
     ) # InlineObject6 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Subsampled end-of-day time series data for a notation.
         api_response = api_instance.post_prices_time_series_eod_subsample_list(body)
         pprint(api_response)
+
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->post_prices_time_series_eod_subsample_list: %s\n" % e)
 ```
@@ -471,21 +466,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     body = InlineObject7(
         data=PricesTimeSeriesIntradayListData(
             id="id_example",
@@ -508,11 +504,11 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
         ),
     ) # InlineObject7 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Intraday time series data for a notation.
         api_response = api_instance.post_prices_time_series_intraday_list(body)
         pprint(api_response)
+
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->post_prices_time_series_intraday_list: %s\n" % e)
 ```
@@ -577,21 +573,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.TimeSeriesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     body = InlineObject8(
         data=VendorChartIQTimeSeriesIntradaySubsampleListData(
             id="id_example",
@@ -614,11 +611,11 @@ with fds.sdk.TimeSeriesAPIforDigitalPortals.ApiClient(configuration) as api_clie
         ),
     ) # InlineObject8 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Subsampled intraday time series data for a notation.
         api_response = api_instance.post_prices_time_series_intraday_subsample_list(body)
         pprint(api_response)
+
     except fds.sdk.TimeSeriesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->post_prices_time_series_intraday_subsample_list: %s\n" % e)
 ```

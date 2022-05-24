@@ -49,6 +49,8 @@ public class InlineResponse2005DataPerformanceSinceIssue implements Serializable
   public static final String JSON_PROPERTY_BID = "bid";
   private InlineResponse2005DataPerformanceSinceIssueBid bid;
 
+  public InlineResponse2005DataPerformanceSinceIssue() { 
+  }
 
   public InlineResponse2005DataPerformanceSinceIssue ask(InlineResponse2005DataPerformanceSinceIssueAsk ask) {
     this.ask = ask;

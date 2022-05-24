@@ -107,7 +107,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20010DataSubsamples {\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
             sb.Append("  First: ").Append(First).Append("\n");
@@ -147,8 +147,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20010DataSubsamples input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Time == input.Time ||
@@ -191,13 +192,15 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
-                hashCode = hashCode * 59 + this.First.GetHashCode();
-                hashCode = hashCode * 59 + this.Last.GetHashCode();
-                hashCode = hashCode * 59 + this.Low.GetHashCode();
-                hashCode = hashCode * 59 + this.High.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingVolume.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Time.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.First.GetHashCode();
+                hashCode = (hashCode * 59) + this.Last.GetHashCode();
+                hashCode = (hashCode * 59) + this.Low.GetHashCode();
+                hashCode = (hashCode * 59) + this.High.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
                 return hashCode;
             }
         }

@@ -21,7 +21,7 @@ import TermsAndConditionsResponse from '../model/TermsAndConditionsResponse';
 /**
 * TermsConditions service.
 * @module api/TermsConditionsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class TermsConditionsApi {
 
@@ -70,7 +70,10 @@ export default class TermsConditionsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = TermsAndConditionsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/terms-and-conditions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -85,7 +88,7 @@ export default class TermsConditionsApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.fields List of data items for Terms and Conditions. For a full list of available fields, definitions, and category assignments, use the `/fields` endpoint.
      * @param {Array.<module:model/String>} opts.categories Selects the Fixed Income metrics by major category. Use the `/fields` endpoint to get a list of all fields associated with each category.   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TermsAndConditionsResponse}
+     * @return { Promise.< module:model/TermsAndConditionsResponse > } a Promise, with data of type {@link module:model/TermsAndConditionsResponse }
      */
     getTermsAndConditions(ids, opts) {
       return this.getTermsAndConditionsWithHttpInfo(ids, opts)
@@ -119,7 +122,10 @@ export default class TermsConditionsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FieldsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/fields', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -132,7 +138,7 @@ export default class TermsConditionsApi {
      * Returns a list of available fields that can be used in the `fields` parameter of the **_/terms-and-conditions** endpoint. Leave _category_ blank to request all available items. Make Note, this does not represent all available fields within the Terms and Conditions API and all other endpoints. 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.category Filters the list of Fixed Income metrics by major category -   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FieldsResponse}
+     * @return { Promise.< module:model/FieldsResponse > } a Promise, with data of type {@link module:model/FieldsResponse }
      */
     getTermsAndConditionsFields(opts) {
       return this.getTermsAndConditionsFieldsWithHttpInfo(opts)
@@ -167,7 +173,10 @@ export default class TermsConditionsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = TermsAndConditionsResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/terms-and-conditions', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -179,7 +188,7 @@ export default class TermsConditionsApi {
      * Return Terms and Conditions for a list of Fixed Income securities.
      * Returns Terms and Conditions data items for the Fixed Income security. Includes reference items for Conditional Redemptions, Redemption Options, Security Details, Convertible Features, and Coupon Details. Use the `fields` parameter to request specific items only or request an entire category of items to fetch all available fields matching that category(s). <p>*For T&C data related to Agency, Coupon History, Issue Size, Negative Covenants, or Redemption Prices, Lead Underwriters, and Use of Proceeds, please use respective endpoints optimized for that content.*</p> 
      * @param {module:model/TermsAndConditionsRequest} termsAndConditionsRequest Request object for Terms And Conditions
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TermsAndConditionsResponse}
+     * @return { Promise.< module:model/TermsAndConditionsResponse > } a Promise, with data of type {@link module:model/TermsAndConditionsResponse }
      */
     getTermsAndConditionsForList(termsAndConditionsRequest) {
       return this.getTermsAndConditionsForListWithHttpInfo(termsAndConditionsRequest)
@@ -190,3 +199,8 @@ export default class TermsConditionsApi {
 
 
 }
+
+
+
+
+

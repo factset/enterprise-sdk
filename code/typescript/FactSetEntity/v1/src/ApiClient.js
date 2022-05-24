@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.9.1
+* @version 0.20.0
 */
 
 /**
@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'fds-sdk/javascript/FactSetEntity/0.9.1'
+            'User-Agent': 'fds-sdk/javascript/FactSetEntity/0.20.0'
         };
 
         /**
@@ -343,7 +343,7 @@ class ApiClient {
                     if (this.factsetOauth2Client !== undefined) {
                         const token = await this.factsetOauth2Client.getAccessToken()
                         request.set({'Authorization': 'Bearer ' + token});
-                
+
                     } else if (auth.accessToken) {
                         request.set({'Authorization': 'Bearer ' + auth.accessToken});
                     }
@@ -375,6 +375,15 @@ class ApiClient {
         if (data == null || (typeof data === 'object' && typeof data.length === 'undefined' && !Object.keys(data).length)) {
             // SuperAgent does not always produce a body; use the unparsed response as a fallback
             data = response.text;
+        }
+
+        if (typeof returnType._createResponseWrapper === "function") {
+            let deserialized = null;
+            if (returnType[response.status]) {
+              deserialized = ApiClient.convertToType(data, returnType[response.status])
+            }
+
+            return returnType._createResponseWrapper(response.status, deserialized);
         }
 
         return ApiClient.convertToType(data, returnType);

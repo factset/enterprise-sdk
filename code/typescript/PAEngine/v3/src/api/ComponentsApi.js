@@ -20,7 +20,7 @@ import PAComponentRoot from '../model/PAComponentRoot';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ComponentsApi {
 
@@ -63,7 +63,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = PAComponentRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/components/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class ComponentsApi {
      * Get PA component by id
      * This endpoint returns the default settings of a PA component.
      * @param {String} id Unique identifier for a PA component
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PAComponentRoot}
+     * @return { Promise.< module:model/PAComponentRoot > } a Promise, with data of type {@link module:model/PAComponentRoot }
      */
     getPAComponentById(id) {
       return this.getPAComponentByIdWithHttpInfo(id)
@@ -111,7 +114,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ComponentSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/components', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class ComponentsApi {
      * Get PA components
      * This endpoint returns the list of PA components in a given PA document.
      * @param {String} document Document Name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ComponentSummaryRoot}
+     * @return { Promise.< module:model/ComponentSummaryRoot > } a Promise, with data of type {@link module:model/ComponentSummaryRoot }
      */
     getPAComponents(document) {
       return this.getPAComponentsWithHttpInfo(document)
@@ -134,3 +140,8 @@ export default class ComponentsApi {
 
 
 }
+
+
+
+
+

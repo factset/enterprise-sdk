@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEntity.models.EntitySecuritiesRequest;
 import com.factset.sdk.FactSetEntity.models.EntitySecuritiesResponse;
@@ -23,6 +26,28 @@ public class EntitySecuritiesApi {
   public EntitySecuritiesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntitySecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntitySecuritiesResponseTypeMap.put(200, new GenericType<EntitySecuritiesResponse>(){});
+    getEntitySecuritiesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntitySecuritiesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntitySecuritiesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntitySecuritiesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntitySecuritiesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postEntitySecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postEntitySecuritiesResponseTypeMap.put(200, new GenericType<EntitySecuritiesResponse>(){});
+    postEntitySecuritiesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postEntitySecuritiesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postEntitySecuritiesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postEntitySecuritiesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postEntitySecuritiesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -117,11 +142,17 @@ public class EntitySecuritiesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntitySecuritiesResponse> localVarReturnType = new GenericType<EntitySecuritiesResponse>() {};
 
-    return apiClient.invokeAPI("EntitySecuritiesApi.getEntitySecurities", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntitySecuritiesResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntitySecuritiesApi.getEntitySecurities", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntitySecuritiesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
@@ -194,10 +225,16 @@ public class EntitySecuritiesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntitySecuritiesResponse> localVarReturnType = new GenericType<EntitySecuritiesResponse>() {};
 
-    return apiClient.invokeAPI("EntitySecuritiesApi.postEntitySecurities", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntitySecuritiesResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntitySecuritiesApi.postEntitySecurities", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postEntitySecuritiesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

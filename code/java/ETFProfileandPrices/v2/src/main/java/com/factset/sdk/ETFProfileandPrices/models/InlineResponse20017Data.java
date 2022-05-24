@@ -24,200 +24,50 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * Returns.
+ * InlineResponse20017Data
  */
-@ApiModel(description = "Returns.")
 @JsonPropertyOrder({
-  InlineResponse20017Data.JSON_PROPERTY_RETURN1_M,
-  InlineResponse20017Data.JSON_PROPERTY_RETURN3_M,
-  InlineResponse20017Data.JSON_PROPERTY_RETURN_Y_T_D,
-  InlineResponse20017Data.JSON_PROPERTY_RETURN1_Y,
-  InlineResponse20017Data.JSON_PROPERTY_RETURN3_Y,
-  InlineResponse20017Data.JSON_PROPERTY_RETURN5_Y
+  InlineResponse20017Data.JSON_PROPERTY_FOCUS_CATEGORY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20017Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_RETURN1_M = "return1M";
-  private BigDecimal return1M;
+  public static final String JSON_PROPERTY_FOCUS_CATEGORY = "focusCategory";
+  private String focusCategory;
 
-  public static final String JSON_PROPERTY_RETURN3_M = "return3M";
-  private BigDecimal return3M;
+  public InlineResponse20017Data() { 
+  }
 
-  public static final String JSON_PROPERTY_RETURN_Y_T_D = "returnYTD";
-  private BigDecimal returnYTD;
-
-  public static final String JSON_PROPERTY_RETURN1_Y = "return1Y";
-  private BigDecimal return1Y;
-
-  public static final String JSON_PROPERTY_RETURN3_Y = "return3Y";
-  private BigDecimal return3Y;
-
-  public static final String JSON_PROPERTY_RETURN5_Y = "return5Y";
-  private BigDecimal return5Y;
-
-
-  public InlineResponse20017Data return1M(BigDecimal return1M) {
-    this.return1M = return1M;
+  public InlineResponse20017Data focusCategory(String focusCategory) {
+    this.focusCategory = focusCategory;
     return this;
   }
 
    /**
-   * 1 month performance. This data is available for the US regions.
-   * @return return1M
+   * ETP class focus category.
+   * @return focusCategory
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "1 month performance. This data is available for the US regions.")
-  @JsonProperty(JSON_PROPERTY_RETURN1_M)
+  @ApiModelProperty(value = "ETP class focus category.")
+  @JsonProperty(JSON_PROPERTY_FOCUS_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getReturn1M() {
-    return return1M;
+  public String getFocusCategory() {
+    return focusCategory;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETURN1_M)
+  @JsonProperty(JSON_PROPERTY_FOCUS_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReturn1M(BigDecimal return1M) {
-    this.return1M = return1M;
-  }
-
-
-  public InlineResponse20017Data return3M(BigDecimal return3M) {
-    this.return3M = return3M;
-    return this;
-  }
-
-   /**
-   * 3 month performance. This data is available for the US regions.
-   * @return return3M
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "3 month performance. This data is available for the US regions.")
-  @JsonProperty(JSON_PROPERTY_RETURN3_M)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getReturn3M() {
-    return return3M;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RETURN3_M)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReturn3M(BigDecimal return3M) {
-    this.return3M = return3M;
-  }
-
-
-  public InlineResponse20017Data returnYTD(BigDecimal returnYTD) {
-    this.returnYTD = returnYTD;
-    return this;
-  }
-
-   /**
-   * YTD performance. This data is available for the US regions.
-   * @return returnYTD
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "YTD performance. This data is available for the US regions.")
-  @JsonProperty(JSON_PROPERTY_RETURN_Y_T_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getReturnYTD() {
-    return returnYTD;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RETURN_Y_T_D)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReturnYTD(BigDecimal returnYTD) {
-    this.returnYTD = returnYTD;
-  }
-
-
-  public InlineResponse20017Data return1Y(BigDecimal return1Y) {
-    this.return1Y = return1Y;
-    return this;
-  }
-
-   /**
-   * 1 year performance. This data is available for the US regions.
-   * @return return1Y
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "1 year performance. This data is available for the US regions.")
-  @JsonProperty(JSON_PROPERTY_RETURN1_Y)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getReturn1Y() {
-    return return1Y;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RETURN1_Y)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReturn1Y(BigDecimal return1Y) {
-    this.return1Y = return1Y;
-  }
-
-
-  public InlineResponse20017Data return3Y(BigDecimal return3Y) {
-    this.return3Y = return3Y;
-    return this;
-  }
-
-   /**
-   * 3 year performance. This data is available for the US regions.
-   * @return return3Y
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "3 year performance. This data is available for the US regions.")
-  @JsonProperty(JSON_PROPERTY_RETURN3_Y)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getReturn3Y() {
-    return return3Y;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RETURN3_Y)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReturn3Y(BigDecimal return3Y) {
-    this.return3Y = return3Y;
-  }
-
-
-  public InlineResponse20017Data return5Y(BigDecimal return5Y) {
-    this.return5Y = return5Y;
-    return this;
-  }
-
-   /**
-   * 5 year performance. This data is available for the US regions.
-   * @return return5Y
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "5 year performance. This data is available for the US regions.")
-  @JsonProperty(JSON_PROPERTY_RETURN5_Y)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getReturn5Y() {
-    return return5Y;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RETURN5_Y)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReturn5Y(BigDecimal return5Y) {
-    this.return5Y = return5Y;
+  public void setFocusCategory(String focusCategory) {
+    this.focusCategory = focusCategory;
   }
 
 
@@ -233,29 +83,19 @@ public class InlineResponse20017Data implements Serializable {
       return false;
     }
     InlineResponse20017Data inlineResponse20017Data = (InlineResponse20017Data) o;
-    return Objects.equals(this.return1M, inlineResponse20017Data.return1M) &&
-        Objects.equals(this.return3M, inlineResponse20017Data.return3M) &&
-        Objects.equals(this.returnYTD, inlineResponse20017Data.returnYTD) &&
-        Objects.equals(this.return1Y, inlineResponse20017Data.return1Y) &&
-        Objects.equals(this.return3Y, inlineResponse20017Data.return3Y) &&
-        Objects.equals(this.return5Y, inlineResponse20017Data.return5Y);
+    return Objects.equals(this.focusCategory, inlineResponse20017Data.focusCategory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(return1M, return3M, returnYTD, return1Y, return3Y, return5Y);
+    return Objects.hash(focusCategory);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20017Data {\n");
-    sb.append("    return1M: ").append(toIndentedString(return1M)).append("\n");
-    sb.append("    return3M: ").append(toIndentedString(return3M)).append("\n");
-    sb.append("    returnYTD: ").append(toIndentedString(returnYTD)).append("\n");
-    sb.append("    return1Y: ").append(toIndentedString(return1Y)).append("\n");
-    sb.append("    return3Y: ").append(toIndentedString(return3Y)).append("\n");
-    sb.append("    return5Y: ").append(toIndentedString(return5Y)).append("\n");
+    sb.append("    focusCategory: ").append(toIndentedString(focusCategory)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -62,6 +62,16 @@ public class PercentChangeLabelTemplate implements Serializable {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
+  public PercentChangeLabelTemplate() { 
+  }
+
+  @JsonCreator
+  public PercentChangeLabelTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public PercentChangeLabelTemplate headline(String headline) {
     this.headline = headline;

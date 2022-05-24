@@ -20,7 +20,7 @@ import InlineResponse200DataTriggerStatus from './InlineResponse200DataTriggerSt
 /**
  * The InlineResponse200DataTrigger model module.
  * @module model/InlineResponse200DataTrigger
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataTrigger {
     /**

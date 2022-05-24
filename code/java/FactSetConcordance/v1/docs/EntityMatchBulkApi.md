@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetConcordance.ApiClient;
 import com.factset.sdk.FactSetConcordance.ApiException;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.auth.*;
-import com.factset.sdk.FactSetConcordance.model.*;
+import com.factset.sdk.FactSetConcordance.models.*;
 import com.factset.sdk.FactSetConcordance.api.EntityMatchBulkApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntityMatchBulkApi apiInstance = new EntityMatchBulkApi(defaultClient);
         String taskName = "taskName_example"; // String | User defined name for the task that will be used to name the output files.
@@ -69,6 +68,7 @@ public class Example {
         try {
             EntityTaskResponse result = apiInstance.createEntityTask(taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntityMatchBulkApi#createEntityTask");
             System.err.println("Status code: " + e.getCode());
@@ -138,14 +138,13 @@ import com.factset.sdk.FactSetConcordance.ApiClient;
 import com.factset.sdk.FactSetConcordance.ApiException;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.auth.*;
-import com.factset.sdk.FactSetConcordance.model.*;
+import com.factset.sdk.FactSetConcordance.models.*;
 import com.factset.sdk.FactSetConcordance.api.EntityMatchBulkApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -155,14 +154,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntityMatchBulkApi apiInstance = new EntityMatchBulkApi(defaultClient);
         Integer taskId = 31589; // Integer | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
@@ -171,6 +170,7 @@ public class Example {
         try {
             EntityDecisionsResponse result = apiInstance.getEntityDecisions(taskId, offset, limit);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntityMatchBulkApi#getEntityDecisions");
             System.err.println("Status code: " + e.getCode());
@@ -238,14 +238,13 @@ import com.factset.sdk.FactSetConcordance.ApiClient;
 import com.factset.sdk.FactSetConcordance.ApiException;
 import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.auth.*;
-import com.factset.sdk.FactSetConcordance.model.*;
+import com.factset.sdk.FactSetConcordance.models.*;
 import com.factset.sdk.FactSetConcordance.api.EntityMatchBulkApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -255,14 +254,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntityMatchBulkApi apiInstance = new EntityMatchBulkApi(defaultClient);
         Integer taskId = 31589; // Integer | Concordance Task Identifier. The taskId is created in response from the /entity-task endpoint.
@@ -272,6 +271,7 @@ public class Example {
         try {
             EntityTaskStatusResponse result = apiInstance.getEntityTaskStatus(taskId, offset, limit, status);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntityMatchBulkApi#getEntityTaskStatus");
             System.err.println("Status code: " + e.getCode());

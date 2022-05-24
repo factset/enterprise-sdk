@@ -47,6 +47,8 @@ public class OptimizerAccount implements Serializable {
   public static final String JSON_PROPERTY_OVERRIDES = "overrides";
   private OptimizerAccountOverrides overrides;
 
+  public OptimizerAccount() { 
+  }
 
   public OptimizerAccount id(String id) {
     this.id = id;

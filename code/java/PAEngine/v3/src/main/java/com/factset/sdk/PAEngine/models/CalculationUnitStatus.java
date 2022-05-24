@@ -100,6 +100,8 @@ public class CalculationUnitStatus implements Serializable {
   public static final String JSON_PROPERTY_POINTS = "points";
   private Integer points;
 
+  public CalculationUnitStatus() { 
+  }
 
   public CalculationUnitStatus status(StatusEnum status) {
     this.status = status;

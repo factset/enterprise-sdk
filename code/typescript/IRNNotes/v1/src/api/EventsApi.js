@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import EventSnippetDto from '../model/EventSnippetDto';
 import NoteEventDto from '../model/NoteEventDto';
 import ProblemDetails from '../model/ProblemDetails';
 import RecordEventSummaryDto from '../model/RecordEventSummaryDto';
@@ -20,7 +21,7 @@ import RecordEventSummaryDto from '../model/RecordEventSummaryDto';
 /**
 * Events service.
 * @module api/EventsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EventsApi {
 
@@ -35,6 +36,64 @@ export default class EventsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Get all the record events in the specified date range filtered on the given types
+     * @param {String} startDate StartDate
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.endDate EndDate
+     * @param {Array.<String>} opts.types Set of event types to filter on
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/EventSnippetDto>} and HTTP response
+     */
+    getAllEventsWithHttpInfo(startDate, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'startDate' is set
+      if (startDate === undefined || startDate === null) {
+        throw new Error("Missing the required parameter 'startDate' when calling getAllEvents");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'startDate': startDate,
+        'endDate': opts['endDate'],
+        'types': this.apiClient.buildCollectionParam(opts['types'], 'multi')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['text/plain', 'application/json', 'text/json'];
+
+
+      let returnType = [EventSnippetDto];
+
+      return this.apiClient.callApi(
+        '/v1/events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get all the record events in the specified date range filtered on the given types
+     * @param {String} startDate StartDate
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.endDate EndDate
+     * @param {Array.<String>} opts.types Set of event types to filter on
+     * @return { Promise.< Array.<module:model/EventSnippetDto> > } a Promise, with data of type {@link Array.<module:model/EventSnippetDto> }
+     */
+    getAllEvents(startDate, opts) {
+      return this.getAllEventsWithHttpInfo(startDate, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -62,7 +121,10 @@ export default class EventsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [RecordEventSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/notes/{noteId}/events', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -73,7 +135,7 @@ export default class EventsApi {
     /**
      * Get all the record events that belong to a note
      * @param {String} noteId Note Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RecordEventSummaryDto>}
+     * @return { Promise.< Array.<module:model/RecordEventSummaryDto> > } a Promise, with data of type {@link Array.<module:model/RecordEventSummaryDto> }
      */
     getEvents(noteId) {
       return this.getEventsWithHttpInfo(noteId)
@@ -114,7 +176,10 @@ export default class EventsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = NoteEventDto;
+
       return this.apiClient.callApi(
         '/v1/notes/{noteId}/events/{recordEventId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -126,7 +191,7 @@ export default class EventsApi {
      * Get details of a record event of a note
      * @param {String} noteId Note Id
      * @param {String} recordEventId Record Event Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NoteEventDto}
+     * @return { Promise.< module:model/NoteEventDto > } a Promise, with data of type {@link module:model/NoteEventDto }
      */
     getRecordEvent(noteId, recordEventId) {
       return this.getRecordEventWithHttpInfo(noteId, recordEventId)
@@ -137,3 +202,8 @@ export default class EventsApi {
 
 
 }
+
+
+
+
+

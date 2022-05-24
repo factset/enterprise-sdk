@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Category from './model/Category';
 import ErrorResponse from './model/ErrorResponse';
@@ -25,6 +24,7 @@ import MetricsResponse from './model/MetricsResponse';
 import Periodicity from './model/Periodicity';
 import Restated from './model/Restated';
 import Subcategory from './model/Subcategory';
+
 import DataItemsApi from './api/DataItemsApi';
 import FactSetFundamentalsApi from './api/FactSetFundamentalsApi';
 
@@ -58,7 +58,7 @@ import FactSetFundamentalsApi from './api/FactSetFundamentalsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -149,5 +149,6 @@ export {
     * The FactSetFundamentalsApi service constructor.
     * @property {module:api/FactSetFundamentalsApi}
     */
-    FactSetFundamentalsApi
+    FactSetFundamentalsApi,
+
 };

@@ -103,7 +103,7 @@ conf = fds.sdk.NewsAPIforDigitalPortals.Configuration(
                  access_token=None,
                  fds_oauth_client=None,
                  username=None, password=None,
-                 discard_unknown_keys=False,
+                 discard_unknown_keys=True,
                  disabled_client_side_validations="",
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
@@ -111,7 +111,7 @@ conf = fds.sdk.NewsAPIforDigitalPortals.Configuration(
                  ):
         """Constructor
         """
-        self._base_path = "http://api.factset.com/wealth/v1" if host is None else host
+        self._base_path = "https://api.factset.com/wealth/v1" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -198,6 +198,9 @@ conf = fds.sdk.NewsAPIforDigitalPortals.Configuration(
 
         self.proxy = None
         """Proxy URL
+        """
+        self.no_proxy = None
+        """bypass proxy for host in the no_proxy list.
         """
         self.proxy_headers = None
         """Proxy headers
@@ -418,7 +421,7 @@ conf = fds.sdk.NewsAPIforDigitalPortals.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v1\n"\
-               "SDK Package Version: 0.9.1".\
+               "SDK Package Version: 0.10.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
@@ -428,7 +431,7 @@ conf = fds.sdk.NewsAPIforDigitalPortals.Configuration(
         """
         return [
             {
-                'url': "//api.factset.com/wealth/v1",
+                'url': "https://api.factset.com/wealth/v1",
                 'description': "No description provided",
             }
         ]

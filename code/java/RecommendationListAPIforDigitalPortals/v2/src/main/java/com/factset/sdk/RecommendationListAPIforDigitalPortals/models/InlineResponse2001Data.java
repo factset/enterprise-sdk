@@ -62,6 +62,8 @@ public class InlineResponse2001Data implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE_REVISION = "activeRevision";
   private InlineResponse200DataActiveRevision activeRevision;
 
+  public InlineResponse2001Data() { 
+  }
 
   public InlineResponse2001Data id(BigDecimal id) {
     this.id = id;

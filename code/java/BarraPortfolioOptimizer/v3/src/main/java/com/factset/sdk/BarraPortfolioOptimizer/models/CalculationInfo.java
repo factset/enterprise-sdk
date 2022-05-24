@@ -42,6 +42,8 @@ public class CalculationInfo implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public CalculationInfo() { 
+  }
 
   public CalculationInfo id(String id) {
     this.id = id;

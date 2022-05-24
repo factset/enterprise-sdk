@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import PACalculationColumn from './PACalculationColumn';
+import PACalculationDataSources from './PACalculationDataSources';
 import PACalculationGroup from './PACalculationGroup';
 import PADateParameters from './PADateParameters';
 import PAIdentifier from './PAIdentifier';
@@ -21,7 +22,7 @@ import TemplateContentTypes from './TemplateContentTypes';
 /**
  * The UnlinkedPATemplateParameters model module.
  * @module model/UnlinkedPATemplateParameters
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UnlinkedPATemplateParameters {
     /**
@@ -79,6 +80,9 @@ class UnlinkedPATemplateParameters {
             }
             if (data.hasOwnProperty('groups')) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [PACalculationGroup]);
+            }
+            if (data.hasOwnProperty('datasources')) {
+                obj['datasources'] = PACalculationDataSources.constructFromObject(data['datasources']);
             }
             if (data.hasOwnProperty('currencyisocode')) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
@@ -142,6 +146,11 @@ UnlinkedPATemplateParameters.prototype['dates'] = undefined;
  * @member {Array.<module:model/PACalculationGroup>} groups
  */
 UnlinkedPATemplateParameters.prototype['groups'] = undefined;
+
+/**
+ * @member {module:model/PACalculationDataSources} datasources
+ */
+UnlinkedPATemplateParameters.prototype['datasources'] = undefined;
 
 /**
  * Currency ISO code for calculation.

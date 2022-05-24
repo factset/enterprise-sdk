@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetBenchmarks.models.BenchmarkIdListRequest;
 import com.factset.sdk.FactSetBenchmarks.models.BenchmarkIdListResponse;
@@ -23,6 +26,28 @@ public class HelperApi {
   public HelperApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getBenchmarkIdsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getBenchmarkIdsResponseTypeMap.put(200, new GenericType<BenchmarkIdListResponse>(){});
+    getBenchmarkIdsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getBenchmarkIdsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getBenchmarkIdsForListResponseTypeMap.put(200, new GenericType<BenchmarkIdListResponse>(){});
+    getBenchmarkIdsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getBenchmarkIdsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -109,11 +134,17 @@ public class HelperApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkIdListResponse> localVarReturnType = new GenericType<BenchmarkIdListResponse>() {};
 
-    return apiClient.invokeAPI("HelperApi.getBenchmarkIds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkIdListResponse
+      
+    > apiResponse = apiClient.invokeAPI("HelperApi.getBenchmarkIds", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getBenchmarkIdsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.
@@ -186,10 +217,16 @@ public class HelperApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkIdListResponse> localVarReturnType = new GenericType<BenchmarkIdListResponse>() {};
 
-    return apiClient.invokeAPI("HelperApi.getBenchmarkIdsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkIdListResponse
+      
+    > apiResponse = apiClient.invokeAPI("HelperApi.getBenchmarkIdsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getBenchmarkIdsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

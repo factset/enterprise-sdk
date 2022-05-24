@@ -57,6 +57,8 @@ public class InlineResponse2004SimpleMovingAverage implements Serializable {
   public static final String JSON_PROPERTY_TRADING_DAYS_SINCE_CROSSOVER = "tradingDaysSinceCrossover";
   private InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossover tradingDaysSinceCrossover;
 
+  public InlineResponse2004SimpleMovingAverage() { 
+  }
 
   public InlineResponse2004SimpleMovingAverage days20(BigDecimal days20) {
     this.days20 = days20;

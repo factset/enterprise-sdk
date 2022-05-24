@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CountryID model module.
  * @module model/CountryID
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CountryID {
     /**

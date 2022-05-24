@@ -49,6 +49,8 @@ public class InlineResponse2008Meta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private OffsetBasedPaginationOutputObjectWithoutTotal pagination;
 
+  public InlineResponse2008Meta() { 
+  }
 
   public InlineResponse2008Meta status(StatusObject status) {
     this.status = status;

@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2005DataSectors;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2005DataExchanges;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,19 +25,19 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * ETP sector allocation data.
+ * ETP exchange allocation data.
  */
-@ApiModel(description = "ETP sector allocation data.")
+@ApiModel(description = "ETP exchange allocation data.")
 @JsonPropertyOrder({
   InlineResponse2005Data.JSON_PROPERTY_REPORT_DATE,
-  InlineResponse2005Data.JSON_PROPERTY_SECTORS
+  InlineResponse2005Data.JSON_PROPERTY_EXCHANGES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2005Data implements Serializable {
@@ -46,9 +46,11 @@ public class InlineResponse2005Data implements Serializable {
   public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
   private LocalDate reportDate;
 
-  public static final String JSON_PROPERTY_SECTORS = "sectors";
-  private java.util.Set<InlineResponse2005DataSectors> sectors = null;
+  public static final String JSON_PROPERTY_EXCHANGES = "exchanges";
+  private java.util.Set<InlineResponse2005DataExchanges> exchanges = null;
 
+  public InlineResponse2005Data() { 
+  }
 
   public InlineResponse2005Data reportDate(LocalDate reportDate) {
     this.reportDate = reportDate;
@@ -76,37 +78,37 @@ public class InlineResponse2005Data implements Serializable {
   }
 
 
-  public InlineResponse2005Data sectors(java.util.Set<InlineResponse2005DataSectors> sectors) {
-    this.sectors = sectors;
+  public InlineResponse2005Data exchanges(java.util.Set<InlineResponse2005DataExchanges> exchanges) {
+    this.exchanges = exchanges;
     return this;
   }
 
-  public InlineResponse2005Data addSectorsItem(InlineResponse2005DataSectors sectorsItem) {
-    if (this.sectors == null) {
-      this.sectors = new java.util.LinkedHashSet<>();
+  public InlineResponse2005Data addExchangesItem(InlineResponse2005DataExchanges exchangesItem) {
+    if (this.exchanges == null) {
+      this.exchanges = new java.util.LinkedHashSet<>();
     }
-    this.sectors.add(sectorsItem);
+    this.exchanges.add(exchangesItem);
     return this;
   }
 
    /**
-   * List of allocations by sector.
-   * @return sectors
+   * List of allocations by exchange.
+   * @return exchanges
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of allocations by sector.")
-  @JsonProperty(JSON_PROPERTY_SECTORS)
+  @ApiModelProperty(value = "List of allocations by exchange.")
+  @JsonProperty(JSON_PROPERTY_EXCHANGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.Set<InlineResponse2005DataSectors> getSectors() {
-    return sectors;
+  public java.util.Set<InlineResponse2005DataExchanges> getExchanges() {
+    return exchanges;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SECTORS)
+  @JsonProperty(JSON_PROPERTY_EXCHANGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSectors(java.util.Set<InlineResponse2005DataSectors> sectors) {
-    this.sectors = sectors;
+  public void setExchanges(java.util.Set<InlineResponse2005DataExchanges> exchanges) {
+    this.exchanges = exchanges;
   }
 
 
@@ -123,12 +125,12 @@ public class InlineResponse2005Data implements Serializable {
     }
     InlineResponse2005Data inlineResponse2005Data = (InlineResponse2005Data) o;
     return Objects.equals(this.reportDate, inlineResponse2005Data.reportDate) &&
-        Objects.equals(this.sectors, inlineResponse2005Data.sectors);
+        Objects.equals(this.exchanges, inlineResponse2005Data.exchanges);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reportDate, sectors);
+    return Objects.hash(reportDate, exchanges);
   }
 
   @Override
@@ -136,7 +138,7 @@ public class InlineResponse2005Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2005Data {\n");
     sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
-    sb.append("    sectors: ").append(toIndentedString(sectors)).append("\n");
+    sb.append("    exchanges: ").append(toIndentedString(exchanges)).append("\n");
     sb.append("}");
     return sb.toString();
   }

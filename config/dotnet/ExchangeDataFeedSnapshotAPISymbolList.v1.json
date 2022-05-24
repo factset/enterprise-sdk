@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageGuid": "{4c452c4a-6731-5f64-b0e4-04addd42b216}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ExchangeDataFeedSnapshotAPISymbolList/0.9.1",
+  "httpUserAgent": "fds-sdk/dotnet/ExchangeDataFeedSnapshotAPISymbolList/0.20.0",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

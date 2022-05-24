@@ -60,7 +60,7 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GetFilesStatus {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         public bool Equals(GetFilesStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.FactSetTickHistory.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Details != null)
-                    hashCode = hashCode * 59 + this.Details.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
                 return hashCode;
             }
         }

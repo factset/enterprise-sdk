@@ -49,6 +49,8 @@ public class InlineResponse2005DataExercise implements Serializable {
   public static final String JSON_PROPERTY_STYLE = "style";
   private java.util.List<InlineResponse2005DataExerciseStyle> style = null;
 
+  public InlineResponse2005DataExercise() { 
+  }
 
   public InlineResponse2005DataExercise right(java.util.List<InlineResponse2005DataExerciseRight> right) {
     this.right = right;

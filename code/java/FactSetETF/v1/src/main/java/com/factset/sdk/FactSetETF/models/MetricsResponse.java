@@ -43,6 +43,8 @@ public class MetricsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Metric> data = null;
 
+  public MetricsResponse() { 
+  }
 
   public MetricsResponse data(java.util.List<Metric> data) {
     this.data = data;

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.BatchStatusResponse;
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
@@ -26,6 +29,212 @@ public class PricesApi {
   public PricesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFixedSecurityPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFixedSecurityPricesResponseTypeMap.put(200, new GenericType<PricesFixedIncomeResponse>(){});
+    getFixedSecurityPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFixedSecurityPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFixedSecurityPricesForListResponseTypeMap.put(200, new GenericType<PricesFixedIncomeResponse>(){});
+    getFixedSecurityPricesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedSecurityPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSecurityPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityPricesResponseTypeMap.put(200, new GenericType<PricesResponse>(){});
+    getSecurityPricesResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
+    getSecurityPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityPricesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityPricesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSecurityPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityPricesForListResponseTypeMap.put(200, new GenericType<PricesResponse>(){});
+    getSecurityPricesForListResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
+    getSecurityPricesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityPricesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityPricesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityPricesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+ /**
+   * Wrapper to support GET /factset-prices/v1/prices returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code PricesResponse }<br>Array of security prices open, high, low, close, and volume.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetSecurityPricesResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     PricesResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetSecurityPricesResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetSecurityPricesResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public PricesResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (PricesResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetSecurityPricesResponseWrapper other = (GetSecurityPricesResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetSecurityPricesResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support POST /factset-prices/v1/prices returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code PricesResponse }<br>Array of security prices</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetSecurityPricesForListResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     PricesResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetSecurityPricesForListResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetSecurityPricesForListResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public PricesResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (PricesResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetSecurityPricesForListResponseWrapper other = (GetSecurityPricesForListResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetSecurityPricesForListResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+
 
   /**
    * Get the API client
@@ -126,11 +335,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PricesFixedIncomeResponse> localVarReturnType = new GenericType<PricesFixedIncomeResponse>() {};
 
-    return apiClient.invokeAPI("PricesApi.getFixedSecurityPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PricesFixedIncomeResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getFixedSecurityPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFixedSecurityPricesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Requests pricing for a list of Fixed Income securities for date range requested
@@ -203,11 +418,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PricesFixedIncomeResponse> localVarReturnType = new GenericType<PricesFixedIncomeResponse>() {};
 
-    return apiClient.invokeAPI("PricesApi.getFixedSecurityPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PricesFixedIncomeResponse
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getFixedSecurityPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFixedSecurityPricesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets end-of-day Open, High, Low, Close for a list of securities.
@@ -220,7 +441,7 @@ public class PricesApi {
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @param adjust Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return PricesResponse
+   * @return GetSecurityPricesResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -234,7 +455,7 @@ public class PricesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public PricesResponse getSecurityPrices(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency, String adjust, String batch) throws ApiException {
+  public GetSecurityPricesResponseWrapper getSecurityPrices(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency, String adjust, String batch) throws ApiException {
     return getSecurityPricesWithHttpInfo(ids, startDate, endDate, frequency, calendar, currency, adjust, batch).getData();
   }
 
@@ -249,7 +470,7 @@ public class PricesApi {
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @param adjust Controls the split, spinoff, and dividend adjustments for the prices. &lt;p&gt;For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)&lt;/p&gt;   * **SPLIT** &#x3D; Split ONLY Adjusted. This is used by default.   * **SPINOFF** &#x3D; Splits &amp; Spinoff Adjusted.   * **DIVADJ** &#x3D; Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** &#x3D; No Adjustments.  (optional, default to SPLIT)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request up to **10 minutes**. Upon requesting batch&#x3D;Y, the service will respond back with an HTTP Status Code of 202.  **&#x60;batch&#x60; is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \&quot;Report Issue\&quot; above and our support teams can assist.**  Once a batch request is submitted, use &#x60;batch/v1/status&#x60; to see if the job has completed. Once completed, retrieve the results of the request via &#x60;batch/v1/result&#x60;. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, &#x60;ids&#x60; limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return ApiResponse&lt;PricesResponse&gt;
+   * @return ApiResponse&lt;GetSecurityPricesResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -263,7 +484,7 @@ public class PricesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PricesResponse> getSecurityPricesWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency, String adjust, String batch) throws ApiException {
+  public ApiResponse<GetSecurityPricesResponseWrapper> getSecurityPricesWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency, String adjust, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -304,17 +525,30 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PricesResponse> localVarReturnType = new GenericType<PricesResponse>() {};
 
-    return apiClient.invokeAPI("PricesApi.getSecurityPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getSecurityPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityPricesResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    GetSecurityPricesResponseWrapper responseWrapper = new GetSecurityPricesResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetSecurityPricesResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
   /**
    * Requests end-of-day Open, High, Low, Close for a large list of securities.
    *  Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via &#x60;batch&#x60; parameter. This feature is in **Beta**. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
    * @param pricesRequest Request object for &#x60;Security&#x60; prices. (required)
-   * @return PricesResponse
+   * @return GetSecurityPricesForListResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -328,7 +562,7 @@ public class PricesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public PricesResponse getSecurityPricesForList(PricesRequest pricesRequest) throws ApiException {
+  public GetSecurityPricesForListResponseWrapper getSecurityPricesForList(PricesRequest pricesRequest) throws ApiException {
     return getSecurityPricesForListWithHttpInfo(pricesRequest).getData();
   }
 
@@ -336,7 +570,7 @@ public class PricesApi {
    * Requests end-of-day Open, High, Low, Close for a large list of securities.
    *  Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via &#x60;batch&#x60; parameter. This feature is in **Beta**. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
    * @param pricesRequest Request object for &#x60;Security&#x60; prices. (required)
-   * @return ApiResponse&lt;PricesResponse&gt;
+   * @return ApiResponse&lt;GetSecurityPricesForListResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -350,7 +584,7 @@ public class PricesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PricesResponse> getSecurityPricesForListWithHttpInfo(PricesRequest pricesRequest) throws ApiException {
+  public ApiResponse<GetSecurityPricesForListResponseWrapper> getSecurityPricesForListWithHttpInfo(PricesRequest pricesRequest) throws ApiException {
     Object localVarPostBody = pricesRequest;
     
     // verify the required parameter 'pricesRequest' is set
@@ -383,10 +617,23 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PricesResponse> localVarReturnType = new GenericType<PricesResponse>() {};
 
-    return apiClient.invokeAPI("PricesApi.getSecurityPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getSecurityPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityPricesForListResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    GetSecurityPricesForListResponseWrapper responseWrapper = new GetSecurityPricesForListResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetSecurityPricesForListResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
 }

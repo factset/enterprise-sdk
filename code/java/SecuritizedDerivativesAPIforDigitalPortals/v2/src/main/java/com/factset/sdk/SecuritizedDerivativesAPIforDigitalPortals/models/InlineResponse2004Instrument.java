@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004InstrumentFsym;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse200DataNsin;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,7 +40,8 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
   InlineResponse2004Instrument.JSON_PROPERTY_NAME,
   InlineResponse2004Instrument.JSON_PROPERTY_SHORT_NAME,
   InlineResponse2004Instrument.JSON_PROPERTY_ISIN,
-  InlineResponse2004Instrument.JSON_PROPERTY_NSIN
+  InlineResponse2004Instrument.JSON_PROPERTY_NSIN,
+  InlineResponse2004Instrument.JSON_PROPERTY_FSYM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2004Instrument implements Serializable {
@@ -60,6 +62,11 @@ public class InlineResponse2004Instrument implements Serializable {
   public static final String JSON_PROPERTY_NSIN = "nsin";
   private InlineResponse200DataNsin nsin;
 
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2004InstrumentFsym fsym;
+
+  public InlineResponse2004Instrument() { 
+  }
 
   public InlineResponse2004Instrument id(String id) {
     this.id = id;
@@ -191,6 +198,32 @@ public class InlineResponse2004Instrument implements Serializable {
   }
 
 
+  public InlineResponse2004Instrument fsym(InlineResponse2004InstrumentFsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2004InstrumentFsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse2004InstrumentFsym fsym) {
+    this.fsym = fsym;
+  }
+
+
   /**
    * Return true if this inline_response_200_4_instrument object is equal to o.
    */
@@ -207,12 +240,13 @@ public class InlineResponse2004Instrument implements Serializable {
         Objects.equals(this.name, inlineResponse2004Instrument.name) &&
         Objects.equals(this.shortName, inlineResponse2004Instrument.shortName) &&
         Objects.equals(this.isin, inlineResponse2004Instrument.isin) &&
-        Objects.equals(this.nsin, inlineResponse2004Instrument.nsin);
+        Objects.equals(this.nsin, inlineResponse2004Instrument.nsin) &&
+        Objects.equals(this.fsym, inlineResponse2004Instrument.fsym);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, shortName, isin, nsin);
+    return Objects.hash(id, name, shortName, isin, nsin, fsym);
   }
 
   @Override
@@ -224,6 +258,7 @@ public class InlineResponse2004Instrument implements Serializable {
     sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
     sb.append("    isin: ").append(toIndentedString(isin)).append("\n");
     sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("}");
     return sb.toString();
   }

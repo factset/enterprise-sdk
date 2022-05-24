@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,7 +17,7 @@ import TeamSummaryDto from './TeamSummaryDto';
 /**
  * The UserConfigDto model module.
  * @module model/UserConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UserConfigDto {
     /**
@@ -48,26 +48,26 @@ class UserConfigDto {
         if (data) {
             obj = obj || new UserConfigDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('userName')) {
-                obj['userName'] = ApiClient.convertToType(data['userName'], 'String');
+            if (data.hasOwnProperty('UserName')) {
+                obj['UserName'] = ApiClient.convertToType(data['UserName'], 'String');
             }
-            if (data.hasOwnProperty('serialNumber')) {
-                obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
+            if (data.hasOwnProperty('SerialNumber')) {
+                obj['SerialNumber'] = ApiClient.convertToType(data['SerialNumber'], 'String');
             }
-            if (data.hasOwnProperty('firstName')) {
-                obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
+            if (data.hasOwnProperty('FirstName')) {
+                obj['FirstName'] = ApiClient.convertToType(data['FirstName'], 'String');
             }
-            if (data.hasOwnProperty('lastName')) {
-                obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
+            if (data.hasOwnProperty('LastName')) {
+                obj['LastName'] = ApiClient.convertToType(data['LastName'], 'String');
             }
-            if (data.hasOwnProperty('emailAddress')) {
-                obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
+            if (data.hasOwnProperty('EmailAddress')) {
+                obj['EmailAddress'] = ApiClient.convertToType(data['EmailAddress'], 'String');
             }
-            if (data.hasOwnProperty('team')) {
-                obj['team'] = TeamSummaryDto.constructFromObject(data['team']);
+            if (data.hasOwnProperty('Team')) {
+                obj['Team'] = TeamSummaryDto.constructFromObject(data['Team']);
             }
         }
         return obj;
@@ -77,39 +77,39 @@ class UserConfigDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-UserConfigDto.prototype['id'] = undefined;
+UserConfigDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} userName
+ * @member {String} UserName
  */
-UserConfigDto.prototype['userName'] = undefined;
+UserConfigDto.prototype['UserName'] = undefined;
 
 /**
- * @member {String} serialNumber
+ * @member {String} SerialNumber
  */
-UserConfigDto.prototype['serialNumber'] = undefined;
+UserConfigDto.prototype['SerialNumber'] = undefined;
 
 /**
- * @member {String} firstName
+ * @member {String} FirstName
  */
-UserConfigDto.prototype['firstName'] = undefined;
+UserConfigDto.prototype['FirstName'] = undefined;
 
 /**
- * @member {String} lastName
+ * @member {String} LastName
  */
-UserConfigDto.prototype['lastName'] = undefined;
+UserConfigDto.prototype['LastName'] = undefined;
 
 /**
- * @member {String} emailAddress
+ * @member {String} EmailAddress
  */
-UserConfigDto.prototype['emailAddress'] = undefined;
+UserConfigDto.prototype['EmailAddress'] = undefined;
 
 /**
- * @member {module:model/TeamSummaryDto} team
+ * @member {module:model/TeamSummaryDto} Team
  */
-UserConfigDto.prototype['team'] = undefined;
+UserConfigDto.prototype['Team'] = undefined;
 
 
 

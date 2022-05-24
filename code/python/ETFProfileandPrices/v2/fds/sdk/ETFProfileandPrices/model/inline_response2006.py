@@ -24,16 +24,16 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.ETFProfileandPrices.model.inline_response2001_meta import InlineResponse2001Meta
     from fds.sdk.ETFProfileandPrices.model.inline_response2006_data import InlineResponse2006Data
-    from fds.sdk.ETFProfileandPrices.model.inline_response200_meta import InlineResponse200Meta
+    globals()['InlineResponse2001Meta'] = InlineResponse2001Meta
     globals()['InlineResponse2006Data'] = InlineResponse2006Data
-    globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
 class InlineResponse2006(ModelNormal):
@@ -90,7 +90,7 @@ class InlineResponse2006(ModelNormal):
         lazy_import()
         return {
             'data': (InlineResponse2006Data,),  # noqa: E501
-            'meta': (InlineResponse200Meta,),  # noqa: E501
+            'meta': (InlineResponse2001Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -145,7 +145,7 @@ class InlineResponse2006(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (InlineResponse2006Data): [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            meta (InlineResponse2001Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class InlineResponse2006(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (InlineResponse2006Data): [optional]  # noqa: E501
-            meta (InlineResponse200Meta): [optional]  # noqa: E501
+            meta (InlineResponse2001Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

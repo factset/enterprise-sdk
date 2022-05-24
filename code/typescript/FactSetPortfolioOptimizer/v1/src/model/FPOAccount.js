@@ -18,7 +18,7 @@ import PaDoc from './PaDoc';
 /**
  * The FPOAccount model module.
  * @module model/FPOAccount
- * @version 0.8.1
+ * @version 0.8.2
  */
 class FPOAccount {
     /**

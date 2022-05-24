@@ -43,6 +43,8 @@ public class UseOfProceedsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<UseOfProceeds> data = null;
 
+  public UseOfProceedsResponse() { 
+  }
 
   public UseOfProceedsResponse data(java.util.List<UseOfProceeds> data) {
     this.data = data;

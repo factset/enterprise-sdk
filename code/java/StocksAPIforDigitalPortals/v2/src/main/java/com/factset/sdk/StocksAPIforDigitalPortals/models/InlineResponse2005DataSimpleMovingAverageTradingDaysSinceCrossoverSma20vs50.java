@@ -49,6 +49,8 @@ public class InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverS
   public static final String JSON_PROPERTY_DOWN = "down";
   private InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50Down down;
 
+  public InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50() { 
+  }
 
   public InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50 up(InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50Up up) {
     this.up = up;

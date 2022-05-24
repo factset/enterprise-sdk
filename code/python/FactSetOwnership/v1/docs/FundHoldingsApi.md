@@ -39,41 +39,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetOwnership.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetOwnership.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_holdings_api.FundHoldingsApi(api_client)
+
     ids = ["VTI-USA"] # [str] | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p>
     date = "2019-12-31" # str | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
-    topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) if omitted the server will use the default value of "ALL"
-    asset_type = "EQ" # str | Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL  (optional) if omitted the server will use the default value of "EQ"
+    topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) (default to "ALL")
+    asset_type = "EQ" # str | Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL  (optional) (default to "EQ")
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get underlying holdings information for a requested fund identifer.
-        api_response = api_instance.get_ownership_holdings(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetOwnership.ApiException as e:
-        print("Exception when calling FundHoldingsApi->get_ownership_holdings: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get underlying holdings information for a requested fund identifer.
         api_response = api_instance.get_ownership_holdings(ids, date=date, topn=topn, asset_type=asset_type, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetOwnership.ApiException as e:
         print("Exception when calling FundHoldingsApi->get_ownership_holdings: %s\n" % e)
 ```
@@ -148,21 +140,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetOwnership.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetOwnership.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_holdings_api.FundHoldingsApi(api_client)
+
     fund_holdings_request = FundHoldingsRequest(
         ids=IdFundHoldings(["FDIVX-US"]),
         date="2019-09-30",
@@ -171,11 +164,11 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
         currency="USD",
     ) # FundHoldingsRequest | Requesting Underlying Holdings for a list of Fund Identifiers.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get holdings for a list of funds.
         api_response = api_instance.post_ownership_holdings(fund_holdings_request)
         pprint(api_response)
+
     except fds.sdk.FactSetOwnership.ApiException as e:
         print("Exception when calling FundHoldingsApi->post_ownership_holdings: %s\n" % e)
 ```

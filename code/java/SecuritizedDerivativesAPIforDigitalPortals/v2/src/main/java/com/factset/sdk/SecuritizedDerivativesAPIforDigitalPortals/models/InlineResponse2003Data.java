@@ -138,6 +138,8 @@ public class InlineResponse2003Data implements Serializable {
   public static final String JSON_PROPERTY_PARITY = "parity";
   private BigDecimal parity;
 
+  public InlineResponse2003Data() { 
+  }
 
   public InlineResponse2003Data prices(InlineResponse2003DataPrices prices) {
     this.prices = prices;

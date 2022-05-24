@@ -21,7 +21,7 @@ import ObjectRoot from '../model/ObjectRoot';
 /**
 * AFIOptimizer service.
 * @module api/AFIOptimizerApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class AFIOptimizerApi {
 
@@ -64,7 +64,10 @@ export default class AFIOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/afi/v3/optimizations/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class AFIOptimizerApi {
      * Cancel AFI optimization by id
      * This is the endpoint to cancel a previously submitted optimization.
      * @param {String} id from url, provided from the location header in the Create and Run AFI optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     cancelOptimizationById(id) {
       return this.cancelOptimizationByIdWithHttpInfo(id)
@@ -112,7 +115,10 @@ export default class AFIOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = AFIOptimizationParametersRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/afi/v3/optimizations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -124,7 +130,7 @@ export default class AFIOptimizerApi {
      * Get AFI optimization parameters by id
      * This is the endpoint that returns the optimization parameters passed for an optimization.
      * @param {String} id from url, provided from the location header in the Create and Run AFI optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AFIOptimizationParametersRoot}
+     * @return { Promise.< module:model/AFIOptimizationParametersRoot > } a Promise, with data of type {@link module:model/AFIOptimizationParametersRoot }
      */
     getOptimizationParameters(id) {
       return this.getOptimizationParametersWithHttpInfo(id)
@@ -160,7 +166,10 @@ export default class AFIOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ObjectRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/afi/v3/optimizations/{id}/result', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -172,7 +181,7 @@ export default class AFIOptimizerApi {
      * Get AFI optimization result by id
      * This is the endpoint to get the result of a previously requested optimization.
      * @param {String} id from url, provided from the location header in the Get AFI optimization status by id endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< module:model/ObjectRoot > } a Promise, with data of type {@link module:model/ObjectRoot }
      */
     getOptimizationResult(id) {
       return this.getOptimizationResultWithHttpInfo(id)
@@ -208,7 +217,10 @@ export default class AFIOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ObjectRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/afi/v3/optimizations/{id}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -220,7 +232,7 @@ export default class AFIOptimizerApi {
      * Get AFI optimization status by id
      * This is the endpoint to check on the progress of a previously requested optimization.  If the optimization has finished computing, the body of the response will contain result in JSON.  Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.
      * @param {String} id from url, provided from the location header in the Create and Run AFI optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< module:model/ObjectRoot > } a Promise, with data of type {@link module:model/ObjectRoot }
      */
     getOptimizationStatusById(id) {
       return this.getOptimizationStatusByIdWithHttpInfo(id)
@@ -257,7 +269,9 @@ export default class AFIOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = ObjectRoot;
+
+      let returnType = PostAndOptimizeResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/analytics/engines/afi/v3/optimizations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -272,7 +286,7 @@ export default class AFIOptimizerApi {
      * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/AFIOptimizationParametersRoot} opts.aFIOptimizationParametersRoot Optimization Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< PostAndOptimizeResponseWrapper > } a Promise, with data of type {@link PostAndOptimizeResponseWrapper }
      */
     postAndOptimize(opts) {
       return this.postAndOptimizeWithHttpInfo(opts)
@@ -315,7 +329,9 @@ export default class AFIOptimizerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = ObjectRoot;
+
+      let returnType = PutAndOptimizeResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/analytics/engines/afi/v3/optimizations/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -331,7 +347,7 @@ export default class AFIOptimizerApi {
      * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/AFIOptimizationParametersRoot} opts.aFIOptimizationParametersRoot Optimization Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< PutAndOptimizeResponseWrapper > } a Promise, with data of type {@link PutAndOptimizeResponseWrapper }
      */
     putAndOptimize(id, opts) {
       return this.putAndOptimizeWithHttpInfo(id, opts)
@@ -342,3 +358,175 @@ export default class AFIOptimizerApi {
 
 
 }
+
+
+const PostAndOptimizeResponseWrapperTypeMap = {
+  201: ObjectRoot,
+  202: CalculationInfoRoot,
+  400: ClientErrorResponse,
+  404: ClientErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new PostAndOptimizeResponseWrapper(statusCode, response);
+  }
+};
+
+const PutAndOptimizeResponseWrapperTypeMap = {
+  201: ObjectRoot,
+  202: CalculationInfoRoot,
+  400: ClientErrorResponse,
+  404: ClientErrorResponse,
+  409: ClientErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new PutAndOptimizeResponseWrapper(statusCode, response);
+  }
+};
+
+
+
+/**
+ * Wrapper to support POST /analytics/engines/afi/v3/optimizations returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>201 : {@code ObjectRoot }<br>Expected response, returns json if optimization is completed in a short span.</li>
+ * 
+ *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 201:
+ *     ObjectRoot data201 = response.getResponse201();
+ *     break;
+ *   case 202:
+ *     CalculationInfoRoot data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:PostAndOptimizeResponseWrapper
+ * @class
+ */
+export class PostAndOptimizeResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { ObjectRoot }
+   */
+  getResponse201() {
+    if (this.statusCode !== 201) {
+      throw new Error("Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { CalculationInfoRoot }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+/**
+ * Wrapper to support PUT /analytics/engines/afi/v3/optimizations/{id} returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>201 : {@code ObjectRoot }<br>Expected response, returns json if optimization is completed in a short span.</li>
+ * 
+ *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 201:
+ *     ObjectRoot data201 = response.getResponse201();
+ *     break;
+ *   case 202:
+ *     CalculationInfoRoot data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:PutAndOptimizeResponseWrapper
+ * @class
+ */
+export class PutAndOptimizeResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { ObjectRoot }
+   */
+  getResponse201() {
+    if (this.statusCode !== 201) {
+      throw new Error("Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { CalculationInfoRoot }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+

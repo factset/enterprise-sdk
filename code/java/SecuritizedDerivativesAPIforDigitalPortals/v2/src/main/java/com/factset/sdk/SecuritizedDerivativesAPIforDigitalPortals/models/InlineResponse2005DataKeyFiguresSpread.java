@@ -49,6 +49,8 @@ public class InlineResponse2005DataKeyFiguresSpread implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private InlineResponse2005DataKeyFiguresSpreadRelative relative;
 
+  public InlineResponse2005DataKeyFiguresSpread() { 
+  }
 
   public InlineResponse2005DataKeyFiguresSpread harmonized(InlineResponse2005DataKeyFiguresSpreadHarmonized harmonized) {
     this.harmonized = harmonized;

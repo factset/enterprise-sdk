@@ -8,8 +8,8 @@ Value range for the time range one day.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**minimum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum.md) |  |  [optional]
-**maximum** | [**SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum**](SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum.md) |  |  [optional]
+**minimum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum.md) |  |  [optional]
+**maximum** | [**SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum**](SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum.md) |  |  [optional]
 
 
 ## Implemented Interfaces

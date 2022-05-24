@@ -122,7 +122,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <param name="factorCertificates">factorCertificates.</param>
         /// <param name="knockedOut">Specifies whether knocked-out securitized derivatives are included in the response. Particularly relevant for knock-out certificates. (default to KnockedOutEnum.Exclude).</param>
         /// <param name="knockedIn">Specifies whether knocked-in securitized derivatives are included in the response. Particularly relevant for bonus certificates but also for securitized derivatives that might have additional protection such as reverse convertible bonds, discount certificates, and capital-protection certificates. (default to KnockedInEnum.Exclude).</param>
-        public SecuritizedDerivativeNotationRankingIntradayListData(SecuritizedDerivativeNotationRankingIntradayListDataPrices prices = default(SecuritizedDerivativeNotationRankingIntradayListDataPrices), SecuritizedDerivativeNotationRankingIntradayListDataValueUnit valueUnit = default(SecuritizedDerivativeNotationRankingIntradayListDataValueUnit), SecuritizedDerivativeNotationRankingIntradayListDataCurrency currency = default(SecuritizedDerivativeNotationRankingIntradayListDataCurrency), SecuritizedDerivativeNotationRankingIntradayListDataMarket market = default(SecuritizedDerivativeNotationRankingIntradayListDataMarket), SecuritizedDerivativeNotationRankingIntradayListDataInstrumentRestrictionList instrumentRestrictionList = default(SecuritizedDerivativeNotationRankingIntradayListDataInstrumentRestrictionList), SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList notationRestrictionList = default(SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList), SecuritizedDerivativeNotationRankingIntradayListDataCategory category = default(SecuritizedDerivativeNotationRankingIntradayListDataCategory), SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry registrationCountry = default(SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry), SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle lifeCycle = default(SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle), SecuritizedDerivativeNotationRankingIntradayListDataIssuer issuer = default(SecuritizedDerivativeNotationRankingIntradayListDataIssuer), SecuritizedDerivativeNotationRankingIntradayListDataExercise exercise = default(SecuritizedDerivativeNotationRankingIntradayListDataExercise), SecuritizedDerivativeNotationRankingIntradayListDataUnderlying underlying = default(SecuritizedDerivativeNotationRankingIntradayListDataUnderlying), SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates factorCertificates = default(SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates), KnockedOutEnum? knockedOut = KnockedOutEnum.Exclude, KnockedInEnum? knockedIn = KnockedInEnum.Exclude)
+        /// <param name="performance">performance.</param>
+        public SecuritizedDerivativeNotationRankingIntradayListData(SecuritizedDerivativeNotationRankingIntradayListDataPrices prices = default(SecuritizedDerivativeNotationRankingIntradayListDataPrices), SecuritizedDerivativeNotationRankingIntradayListDataValueUnit valueUnit = default(SecuritizedDerivativeNotationRankingIntradayListDataValueUnit), SecuritizedDerivativeNotationRankingIntradayListDataCurrency currency = default(SecuritizedDerivativeNotationRankingIntradayListDataCurrency), SecuritizedDerivativeNotationRankingIntradayListDataMarket market = default(SecuritizedDerivativeNotationRankingIntradayListDataMarket), SecuritizedDerivativeNotationRankingIntradayListDataInstrumentRestrictionList instrumentRestrictionList = default(SecuritizedDerivativeNotationRankingIntradayListDataInstrumentRestrictionList), SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList notationRestrictionList = default(SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList), SecuritizedDerivativeNotationRankingIntradayListDataCategory category = default(SecuritizedDerivativeNotationRankingIntradayListDataCategory), SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry registrationCountry = default(SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry), SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle lifeCycle = default(SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle), SecuritizedDerivativeNotationRankingIntradayListDataIssuer issuer = default(SecuritizedDerivativeNotationRankingIntradayListDataIssuer), SecuritizedDerivativeNotationRankingIntradayListDataExercise exercise = default(SecuritizedDerivativeNotationRankingIntradayListDataExercise), SecuritizedDerivativeNotationRankingIntradayListDataUnderlying underlying = default(SecuritizedDerivativeNotationRankingIntradayListDataUnderlying), SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates factorCertificates = default(SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates), KnockedOutEnum? knockedOut = KnockedOutEnum.Exclude, KnockedInEnum? knockedIn = KnockedInEnum.Exclude, SecuritizedDerivativeNotationRankingIntradayListDataPerformance performance = default(SecuritizedDerivativeNotationRankingIntradayListDataPerformance))
         {
             // to ensure "market" is required (not null)
             if (market == null) {
@@ -143,6 +144,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             this.FactorCertificates = factorCertificates;
             this.KnockedOut = knockedOut;
             this.KnockedIn = knockedIn;
+            this.Performance = performance;
         }
 
         /// <summary>
@@ -224,12 +226,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates FactorCertificates { get; set; }
 
         /// <summary>
+        /// Gets or Sets Performance
+        /// </summary>
+        [DataMember(Name = "performance", EmitDefaultValue = false)]
+        public SecuritizedDerivativeNotationRankingIntradayListDataPerformance Performance { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationRankingIntradayListData {\n");
             sb.Append("  Prices: ").Append(Prices).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
@@ -246,6 +254,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             sb.Append("  FactorCertificates: ").Append(FactorCertificates).Append("\n");
             sb.Append("  KnockedOut: ").Append(KnockedOut).Append("\n");
             sb.Append("  KnockedIn: ").Append(KnockedIn).Append("\n");
+            sb.Append("  Performance: ").Append(Performance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -277,8 +286,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationRankingIntradayListData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Prices == input.Prices ||
@@ -352,6 +362,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
                 (
                     this.KnockedIn == input.KnockedIn ||
                     this.KnockedIn.Equals(input.KnockedIn)
+                ) && 
+                (
+                    this.Performance == input.Performance ||
+                    (this.Performance != null &&
+                    this.Performance.Equals(input.Performance))
                 );
         }
 
@@ -365,33 +380,63 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Prices != null)
-                    hashCode = hashCode * 59 + this.Prices.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Prices.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.InstrumentRestrictionList != null)
-                    hashCode = hashCode * 59 + this.InstrumentRestrictionList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InstrumentRestrictionList.GetHashCode();
+                }
                 if (this.NotationRestrictionList != null)
-                    hashCode = hashCode * 59 + this.NotationRestrictionList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NotationRestrictionList.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 if (this.RegistrationCountry != null)
-                    hashCode = hashCode * 59 + this.RegistrationCountry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RegistrationCountry.GetHashCode();
+                }
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Exercise != null)
-                    hashCode = hashCode * 59 + this.Exercise.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exercise.GetHashCode();
+                }
                 if (this.Underlying != null)
-                    hashCode = hashCode * 59 + this.Underlying.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
                 if (this.FactorCertificates != null)
-                    hashCode = hashCode * 59 + this.FactorCertificates.GetHashCode();
-                hashCode = hashCode * 59 + this.KnockedOut.GetHashCode();
-                hashCode = hashCode * 59 + this.KnockedIn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactorCertificates.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.KnockedOut.GetHashCode();
+                hashCode = (hashCode * 59) + this.KnockedIn.GetHashCode();
+                if (this.Performance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -22,7 +22,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Ratings service.
 * @module api/RatingsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class RatingsApi {
 
@@ -73,7 +73,10 @@ export default class RatingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ConsensusRatingsResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/consensus-ratings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -89,7 +92,7 @@ export default class RatingsApi {
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'D')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConsensusRatingsResponse}
+     * @return { Promise.< module:model/ConsensusRatingsResponse > } a Promise, with data of type {@link module:model/ConsensusRatingsResponse }
      */
     getConsensusRatings(ids, opts) {
       return this.getConsensusRatingsWithHttpInfo(ids, opts)
@@ -124,7 +127,10 @@ export default class RatingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ConsensusRatingsResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/consensus-ratings', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -136,7 +142,7 @@ export default class RatingsApi {
      * Ratings consensus estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
      * Returns ratings from the FactSet Estimates database for current and historical for an individual security using rolling fiscal dates as of a specific date. 
      * @param {module:model/ConsensusRatingsRequest} consensusRatingsRequest Request object for Estimate Data Items.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ConsensusRatingsResponse}
+     * @return { Promise.< module:model/ConsensusRatingsResponse > } a Promise, with data of type {@link module:model/ConsensusRatingsResponse }
      */
     getConsensusRatingsForList(consensusRatingsRequest) {
       return this.getConsensusRatingsForListWithHttpInfo(consensusRatingsRequest)
@@ -178,7 +184,10 @@ export default class RatingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DetailRatingsResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/detail-ratings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -193,7 +202,7 @@ export default class RatingsApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DetailRatingsResponse}
+     * @return { Promise.< module:model/DetailRatingsResponse > } a Promise, with data of type {@link module:model/DetailRatingsResponse }
      */
     getDetailRatings(ids, opts) {
       return this.getDetailRatingsWithHttpInfo(ids, opts)
@@ -228,7 +237,10 @@ export default class RatingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = DetailRatingsResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/detail-ratings', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -240,7 +252,7 @@ export default class RatingsApi {
      * Broker Detail estimates to fetch Buy, Overweight, Hold, Underweight, and Sell.
      * Retrieves the Broker Level ratings for the requested Id and date range. Ratings include Buy, Hold, Sell, Overweight, and Underweight. <p>The `startDate` and `endDate` parameters controls the range of perspective dates. By default, the service will return the range of estimateDates within the latest company's reporting period. As you expand the date range, additional full historical reporting periods and all ratings estimateDates per broker will be returned.</p> 
      * @param {module:model/DetailRatingsRequest} detailRatingsRequest Request object for Detail Reatings Data Items.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DetailRatingsResponse}
+     * @return { Promise.< module:model/DetailRatingsResponse > } a Promise, with data of type {@link module:model/DetailRatingsResponse }
      */
     getDetailRatingsForList(detailRatingsRequest) {
       return this.getDetailRatingsForListWithHttpInfo(detailRatingsRequest)
@@ -251,3 +263,8 @@ export default class RatingsApi {
 
 
 }
+
+
+
+
+

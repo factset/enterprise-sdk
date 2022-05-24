@@ -47,6 +47,8 @@ public class InlineResponse200DataDocumentation implements Serializable {
   public static final String JSON_PROPERTY_IS_SAI_POSTED = "isSaiPosted";
   private Boolean isSaiPosted;
 
+  public InlineResponse200DataDocumentation() { 
+  }
 
   public InlineResponse200DataDocumentation isProspectusPosted(Boolean isProspectusPosted) {
     this.isProspectusPosted = isProspectusPosted;

@@ -49,6 +49,8 @@ public class InlineResponse2005DataKeyFiguresDelta implements Serializable {
   public static final String JSON_PROPERTY_UNADJUSTED = "unadjusted";
   private InlineResponse2005DataKeyFiguresDeltaUnadjusted unadjusted;
 
+  public InlineResponse2005DataKeyFiguresDelta() { 
+  }
 
   public InlineResponse2005DataKeyFiguresDelta effective(InlineResponse2005DataKeyFiguresDeltaEffective effective) {
     this.effective = effective;

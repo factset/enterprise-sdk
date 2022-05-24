@@ -50,7 +50,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="fiscalPeriodStart">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) .</param>
         /// <param name="fiscalPeriodEnd">Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) .</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public FixedDetailRequest(List<string> ids = default(List<string>), List<string> metrics = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), bool includeAll = false, Periodicity periodicity = default(Periodicity), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string))
+        public FixedDetailRequest(List<string> ids = default(List<string>), List<string> metrics = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), bool includeAll = false, PeriodicityDetail periodicity = default(PeriodicityDetail), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -117,7 +117,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// Gets or Sets Periodicity
         /// </summary>
         [DataMember(Name = "periodicity", EmitDefaultValue = false)]
-        public Periodicity Periodicity { get; set; }
+        public PeriodicityDetail Periodicity { get; set; }
 
         /// <summary>
         /// Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
@@ -146,7 +146,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FixedDetailRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  Metrics: ").Append(Metrics).Append("\n");
@@ -189,8 +189,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(FixedDetailRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -255,24 +256,42 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.Metrics != null)
-                    hashCode = hashCode * 59 + this.Metrics.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Metrics.GetHashCode();
+                }
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
                 if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
-                hashCode = hashCode * 59 + this.IncludeAll.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IncludeAll.GetHashCode();
                 if (this.Periodicity != null)
-                    hashCode = hashCode * 59 + this.Periodicity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Periodicity.GetHashCode();
+                }
                 if (this.FiscalPeriodStart != null)
-                    hashCode = hashCode * 59 + this.FiscalPeriodStart.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FiscalPeriodStart.GetHashCode();
+                }
                 if (this.FiscalPeriodEnd != null)
-                    hashCode = hashCode * 59 + this.FiscalPeriodEnd.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FiscalPeriodEnd.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 return hashCode;
             }
         }

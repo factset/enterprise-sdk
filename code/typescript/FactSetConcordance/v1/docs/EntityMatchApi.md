@@ -59,6 +59,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntityMatch(name, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -139,6 +140,7 @@ const entityMatchRequest = new factsetconcordance.EntityMatchRequest(); // Entit
 // Call api endpoint
 apiInstance.getEntityMatchForList(entityMatchRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

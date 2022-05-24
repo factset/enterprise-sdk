@@ -419,6 +419,87 @@ namespace FactSet.SDK.FactSetPeople.Api
     {
         private FactSet.SDK.FactSetPeople.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyCompensationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyCompensationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyCompensationForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyCompensationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPeopleResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyPeopleResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPeopleForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyPeopleResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPositionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyPositionsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyPositionsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyPositionsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyStatsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyStatsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CompanyStatsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyApi"/> class.
         /// </summary>
@@ -529,7 +610,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyCompensationResponse</returns>
         public CompanyCompensationResponse GetCompanyCompensation(List<string> ids)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse> localVarResponse = GetCompanyCompensationWithHttpInfo(ids);
+            var localVarResponse = GetCompanyCompensationWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -539,11 +620,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <returns>ApiResponse of CompanyCompensationResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse> GetCompanyCompensationWithHttpInfo(List<string> ids)
+        public ApiResponse<CompanyCompensationResponse> GetCompanyCompensationWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyCompensation");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -556,22 +639,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -583,15 +672,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CompanyCompensationResponse>("/factset-people/v1/company-compensation", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyCompensationResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CompanyCompensationResponse>("/factset-people/v1/company-compensation", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyCompensation", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -602,9 +695,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="ids">The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyCompensationResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyCompensationResponse> GetCompanyCompensationAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyCompensationResponse>GetCompanyCompensationAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse> localVarResponse = await GetCompanyCompensationWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyCompensationWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -615,11 +708,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="ids">The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyCompensationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse>> GetCompanyCompensationWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyCompensationResponse>> GetCompanyCompensationWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyCompensation");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -632,24 +728,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -661,14 +762,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyCompensationResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CompanyCompensationResponse>("/factset-people/v1/company-compensation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyCompensation", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -682,7 +787,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyCompensationResponse</returns>
         public CompanyCompensationResponse GetCompanyCompensationForList(CompanyCompensationRequest companyCompensationRequest)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse> localVarResponse = GetCompanyCompensationForListWithHttpInfo(companyCompensationRequest);
+            var localVarResponse = GetCompanyCompensationForListWithHttpInfo(companyCompensationRequest);
             return localVarResponse.Data;
         }
 
@@ -692,11 +797,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="companyCompensationRequest"></param>
         /// <returns>ApiResponse of CompanyCompensationResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse> GetCompanyCompensationForListWithHttpInfo(CompanyCompensationRequest companyCompensationRequest)
+        public ApiResponse<CompanyCompensationResponse> GetCompanyCompensationForListWithHttpInfo(CompanyCompensationRequest companyCompensationRequest)
         {
             // verify the required parameter 'companyCompensationRequest' is set
             if (companyCompensationRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyCompensationRequest' when calling CompanyApi->GetCompanyCompensationForList");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -710,22 +817,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyCompensationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -737,15 +850,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CompanyCompensationResponse>("/factset-people/v1/company-compensation", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyCompensationForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CompanyCompensationResponse>("/factset-people/v1/company-compensation", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyCompensationForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -756,9 +873,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyCompensationRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyCompensationResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyCompensationResponse> GetCompanyCompensationForListAsync(CompanyCompensationRequest companyCompensationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyCompensationResponse>GetCompanyCompensationForListAsync(CompanyCompensationRequest companyCompensationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse> localVarResponse = await GetCompanyCompensationForListWithHttpInfoAsync(companyCompensationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyCompensationForListWithHttpInfoAsync(companyCompensationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -769,11 +886,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyCompensationRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyCompensationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyCompensationResponse>> GetCompanyCompensationForListWithHttpInfoAsync(CompanyCompensationRequest companyCompensationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyCompensationResponse>> GetCompanyCompensationForListWithHttpInfoAsync(CompanyCompensationRequest companyCompensationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'companyCompensationRequest' is set
             if (companyCompensationRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyCompensationRequest' when calling CompanyApi->GetCompanyCompensationForList");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -787,24 +907,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyCompensationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -816,14 +941,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyCompensationForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CompanyCompensationResponse>("/factset-people/v1/company-compensation", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyCompensationForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -838,7 +967,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyPeopleResponse</returns>
         public CompanyPeopleResponse GetCompanyPeople(List<string> ids, string function = default(string))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse> localVarResponse = GetCompanyPeopleWithHttpInfo(ids, function);
+            var localVarResponse = GetCompanyPeopleWithHttpInfo(ids, function);
             return localVarResponse.Data;
         }
 
@@ -849,11 +978,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="ids">The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="function">Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |- --|- --|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional, default to PEOPLE)</param>
         /// <returns>ApiResponse of CompanyPeopleResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse> GetCompanyPeopleWithHttpInfo(List<string> ids, string function = default(string))
+        public ApiResponse<CompanyPeopleResponse> GetCompanyPeopleWithHttpInfo(List<string> ids, string function = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyPeople");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -866,10 +997,16 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (function != null)
@@ -879,13 +1016,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -897,15 +1034,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CompanyPeopleResponse>("/factset-people/v1/company-people", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPeopleResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CompanyPeopleResponse>("/factset-people/v1/company-people", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPeople", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -917,9 +1058,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="function">Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |- --|- --|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional, default to PEOPLE)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyPeopleResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyPeopleResponse> GetCompanyPeopleAsync(List<string> ids, string function = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyPeopleResponse>GetCompanyPeopleAsync(List<string> ids, string function = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse> localVarResponse = await GetCompanyPeopleWithHttpInfoAsync(ids, function, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyPeopleWithHttpInfoAsync(ids, function, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -931,11 +1072,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="function">Controls the types of people returned based on high-level job functions. Filter by -    |function|description|   |- --|- --|   |PEOPLE|Retrieve **ALL** Executives of a requested company|   |OFFICER|Retrieve only the Officers of a requested company|   |DIRECTOR|Retrieve only the Directors of a requested company|  (optional, default to PEOPLE)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyPeopleResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse>> GetCompanyPeopleWithHttpInfoAsync(List<string> ids, string function = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyPeopleResponse>> GetCompanyPeopleWithHttpInfoAsync(List<string> ids, string function = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyPeople");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -948,12 +1092,17 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (function != null)
@@ -963,13 +1112,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -981,14 +1130,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPeopleResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CompanyPeopleResponse>("/factset-people/v1/company-people", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPeople", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1002,7 +1155,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyPeopleResponse</returns>
         public CompanyPeopleResponse GetCompanyPeopleForList(CompanyPeopleRequest companyPeopleRequest)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse> localVarResponse = GetCompanyPeopleForListWithHttpInfo(companyPeopleRequest);
+            var localVarResponse = GetCompanyPeopleForListWithHttpInfo(companyPeopleRequest);
             return localVarResponse.Data;
         }
 
@@ -1012,11 +1165,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="companyPeopleRequest"></param>
         /// <returns>ApiResponse of CompanyPeopleResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse> GetCompanyPeopleForListWithHttpInfo(CompanyPeopleRequest companyPeopleRequest)
+        public ApiResponse<CompanyPeopleResponse> GetCompanyPeopleForListWithHttpInfo(CompanyPeopleRequest companyPeopleRequest)
         {
             // verify the required parameter 'companyPeopleRequest' is set
             if (companyPeopleRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyPeopleRequest' when calling CompanyApi->GetCompanyPeopleForList");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -1030,22 +1185,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyPeopleRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1057,15 +1218,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CompanyPeopleResponse>("/factset-people/v1/company-people", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPeopleForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CompanyPeopleResponse>("/factset-people/v1/company-people", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPeopleForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1076,9 +1241,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyPeopleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyPeopleResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyPeopleResponse> GetCompanyPeopleForListAsync(CompanyPeopleRequest companyPeopleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyPeopleResponse>GetCompanyPeopleForListAsync(CompanyPeopleRequest companyPeopleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse> localVarResponse = await GetCompanyPeopleForListWithHttpInfoAsync(companyPeopleRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyPeopleForListWithHttpInfoAsync(companyPeopleRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1089,11 +1254,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyPeopleRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyPeopleResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPeopleResponse>> GetCompanyPeopleForListWithHttpInfoAsync(CompanyPeopleRequest companyPeopleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyPeopleResponse>> GetCompanyPeopleForListWithHttpInfoAsync(CompanyPeopleRequest companyPeopleRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'companyPeopleRequest' is set
             if (companyPeopleRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyPeopleRequest' when calling CompanyApi->GetCompanyPeopleForList");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -1107,24 +1275,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyPeopleRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1136,14 +1309,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPeopleForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CompanyPeopleResponse>("/factset-people/v1/company-people", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPeopleForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1158,7 +1335,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyPositionsResponse</returns>
         public CompanyPositionsResponse GetCompanyPositions(List<string> ids, string position = default(string))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse> localVarResponse = GetCompanyPositionsWithHttpInfo(ids, position);
+            var localVarResponse = GetCompanyPositionsWithHttpInfo(ids, position);
             return localVarResponse.Data;
         }
 
@@ -1169,11 +1346,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="ids">The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="position">Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |- --|- --|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional, default to CEO)</param>
         /// <returns>ApiResponse of CompanyPositionsResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse> GetCompanyPositionsWithHttpInfo(List<string> ids, string position = default(string))
+        public ApiResponse<CompanyPositionsResponse> GetCompanyPositionsWithHttpInfo(List<string> ids, string position = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyPositions");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -1186,10 +1365,16 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (position != null)
@@ -1199,13 +1384,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1217,15 +1402,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CompanyPositionsResponse>("/factset-people/v1/company-positions", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPositionsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CompanyPositionsResponse>("/factset-people/v1/company-positions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPositions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1237,9 +1426,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="position">Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |- --|- --|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional, default to CEO)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyPositionsResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyPositionsResponse> GetCompanyPositionsAsync(List<string> ids, string position = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyPositionsResponse>GetCompanyPositionsAsync(List<string> ids, string position = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse> localVarResponse = await GetCompanyPositionsWithHttpInfoAsync(ids, position, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyPositionsWithHttpInfoAsync(ids, position, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1251,11 +1440,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="position">Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.   |position|description|   |- --|- --|   |CHAIR|Chairman|   |CEO|Chief Executive Officer|   |PRES|President|   |COO|Chief Operating Officer|   |CFO|Chief Financial Officer|   |CTO|Chief Technology Officer|   |CIO|Chief Investment Officer|   |FOU|Founder(s)|   |CMP|Compliance Officer|   |ADM|Admin|   |IND|Independent Director|   |BRD|Directors/Board Members|   |IR|Investor Relations|   |LEG|Legal Counsel|   |TREAS|Treasurer|   |MKT|Sales and Marketing Managers|   |HR|Human Resources|  (optional, default to CEO)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyPositionsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse>> GetCompanyPositionsWithHttpInfoAsync(List<string> ids, string position = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyPositionsResponse>> GetCompanyPositionsWithHttpInfoAsync(List<string> ids, string position = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyPositions");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -1268,12 +1460,17 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (position != null)
@@ -1283,13 +1480,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1301,14 +1498,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPositionsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CompanyPositionsResponse>("/factset-people/v1/company-positions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPositions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1322,7 +1523,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyPositionsResponse</returns>
         public CompanyPositionsResponse GetCompanyPositionsForList(CompanyPositionsRequest companyPositionsRequest)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse> localVarResponse = GetCompanyPositionsForListWithHttpInfo(companyPositionsRequest);
+            var localVarResponse = GetCompanyPositionsForListWithHttpInfo(companyPositionsRequest);
             return localVarResponse.Data;
         }
 
@@ -1332,11 +1533,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="companyPositionsRequest"></param>
         /// <returns>ApiResponse of CompanyPositionsResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse> GetCompanyPositionsForListWithHttpInfo(CompanyPositionsRequest companyPositionsRequest)
+        public ApiResponse<CompanyPositionsResponse> GetCompanyPositionsForListWithHttpInfo(CompanyPositionsRequest companyPositionsRequest)
         {
             // verify the required parameter 'companyPositionsRequest' is set
             if (companyPositionsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyPositionsRequest' when calling CompanyApi->GetCompanyPositionsForList");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -1350,22 +1553,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyPositionsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1377,15 +1586,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CompanyPositionsResponse>("/factset-people/v1/company-positions", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPositionsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CompanyPositionsResponse>("/factset-people/v1/company-positions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPositionsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1396,9 +1609,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyPositionsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyPositionsResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyPositionsResponse> GetCompanyPositionsForListAsync(CompanyPositionsRequest companyPositionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyPositionsResponse>GetCompanyPositionsForListAsync(CompanyPositionsRequest companyPositionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse> localVarResponse = await GetCompanyPositionsForListWithHttpInfoAsync(companyPositionsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyPositionsForListWithHttpInfoAsync(companyPositionsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1409,11 +1622,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyPositionsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyPositionsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyPositionsResponse>> GetCompanyPositionsForListWithHttpInfoAsync(CompanyPositionsRequest companyPositionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyPositionsResponse>> GetCompanyPositionsForListWithHttpInfoAsync(CompanyPositionsRequest companyPositionsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'companyPositionsRequest' is set
             if (companyPositionsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyPositionsRequest' when calling CompanyApi->GetCompanyPositionsForList");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -1427,24 +1643,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyPositionsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1456,14 +1677,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyPositionsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CompanyPositionsResponse>("/factset-people/v1/company-positions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyPositionsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1478,7 +1703,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyStatsResponse</returns>
         public CompanyStatsResponse GetCompanyStats(List<string> ids, string mbType = default(string))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse> localVarResponse = GetCompanyStatsWithHttpInfo(ids, mbType);
+            var localVarResponse = GetCompanyStatsWithHttpInfo(ids, mbType);
             return localVarResponse.Data;
         }
 
@@ -1489,11 +1714,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="ids">The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="mbType">Search based on the management and board types. The types include -  |type|description| |- --|- --| |MB|Management &amp; Board| |MGMT|Management| |BRD|Board|  (optional, default to MB)</param>
         /// <returns>ApiResponse of CompanyStatsResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse> GetCompanyStatsWithHttpInfo(List<string> ids, string mbType = default(string))
+        public ApiResponse<CompanyStatsResponse> GetCompanyStatsWithHttpInfo(List<string> ids, string mbType = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyStats");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -1506,10 +1733,16 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (mbType != null)
@@ -1519,13 +1752,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1537,15 +1770,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CompanyStatsResponse>("/factset-people/v1/company-stats", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyStatsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CompanyStatsResponse>("/factset-people/v1/company-stats", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyStats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1557,9 +1794,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="mbType">Search based on the management and board types. The types include -  |type|description| |- --|- --| |MB|Management &amp; Board| |MGMT|Management| |BRD|Board|  (optional, default to MB)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyStatsResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyStatsResponse> GetCompanyStatsAsync(List<string> ids, string mbType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyStatsResponse>GetCompanyStatsAsync(List<string> ids, string mbType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse> localVarResponse = await GetCompanyStatsWithHttpInfoAsync(ids, mbType, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyStatsWithHttpInfoAsync(ids, mbType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1571,11 +1808,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="mbType">Search based on the management and board types. The types include -  |type|description| |- --|- --| |MB|Management &amp; Board| |MGMT|Management| |BRD|Board|  (optional, default to MB)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyStatsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse>> GetCompanyStatsWithHttpInfoAsync(List<string> ids, string mbType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyStatsResponse>> GetCompanyStatsWithHttpInfoAsync(List<string> ids, string mbType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling CompanyApi->GetCompanyStats");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -1588,12 +1828,17 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (mbType != null)
@@ -1603,13 +1848,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1621,14 +1866,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyStatsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CompanyStatsResponse>("/factset-people/v1/company-stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyStats", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1642,7 +1891,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>CompanyStatsResponse</returns>
         public CompanyStatsResponse GetCompanyStatsForList(CompanyStatsRequest companyStatsRequest)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse> localVarResponse = GetCompanyStatsForListWithHttpInfo(companyStatsRequest);
+            var localVarResponse = GetCompanyStatsForListWithHttpInfo(companyStatsRequest);
             return localVarResponse.Data;
         }
 
@@ -1652,11 +1901,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="companyStatsRequest"></param>
         /// <returns>ApiResponse of CompanyStatsResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse> GetCompanyStatsForListWithHttpInfo(CompanyStatsRequest companyStatsRequest)
+        public ApiResponse<CompanyStatsResponse> GetCompanyStatsForListWithHttpInfo(CompanyStatsRequest companyStatsRequest)
         {
             // verify the required parameter 'companyStatsRequest' is set
             if (companyStatsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyStatsRequest' when calling CompanyApi->GetCompanyStatsForList");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -1670,22 +1921,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyStatsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1697,15 +1954,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CompanyStatsResponse>("/factset-people/v1/company-stats", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyStatsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CompanyStatsResponse>("/factset-people/v1/company-stats", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyStatsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1716,9 +1977,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyStatsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CompanyStatsResponse</returns>
-        public async System.Threading.Tasks.Task<CompanyStatsResponse> GetCompanyStatsForListAsync(CompanyStatsRequest companyStatsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CompanyStatsResponse>GetCompanyStatsForListAsync(CompanyStatsRequest companyStatsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse> localVarResponse = await GetCompanyStatsForListWithHttpInfoAsync(companyStatsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCompanyStatsForListWithHttpInfoAsync(companyStatsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1729,11 +1990,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="companyStatsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CompanyStatsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<CompanyStatsResponse>> GetCompanyStatsForListWithHttpInfoAsync(CompanyStatsRequest companyStatsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CompanyStatsResponse>> GetCompanyStatsForListWithHttpInfoAsync(CompanyStatsRequest companyStatsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'companyStatsRequest' is set
             if (companyStatsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'companyStatsRequest' when calling CompanyApi->GetCompanyStatsForList");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -1747,24 +2011,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = companyStatsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1776,14 +2045,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCompanyStatsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CompanyStatsResponse>("/factset-people/v1/company-stats", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyStatsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

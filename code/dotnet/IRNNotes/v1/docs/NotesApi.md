@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createnote"></a>
 # **CreateNote**
-> NewItemDto CreateNote (string xIRNContributorUsername = null, string xIRNContributorSerial = null, CreateNoteDto createNoteDto = null)
+> NewItemDto CreateNote (CreateNoteDto createNoteDto, string xIRNContributorUsername = null, string xIRNContributorSerial = null)
 
 Create a note
 
@@ -52,14 +52,14 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
-            var xIRNContributorUsername = xIRNContributorUsername_example;  // string |  (optional) 
-            var xIRNContributorSerial = xIRNContributorSerial_example;  // string |  (optional) 
-            var createNoteDto = new CreateNoteDto(); // CreateNoteDto |  (optional) 
+            var createNoteDto = new CreateNoteDto(); // CreateNoteDto | 
+            var xIRNContributorUsername = "xIRNContributorUsername_example";  // string |  (optional) 
+            var xIRNContributorSerial = "xIRNContributorSerial_example";  // string |  (optional) 
 
             try
             {
                 // Create a note
-                NewItemDto result = apiInstance.CreateNote(xIRNContributorUsername, xIRNContributorSerial, createNoteDto);
+                NewItemDto result = apiInstance.CreateNote(createNoteDto, xIRNContributorUsername, xIRNContributorSerial);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -77,12 +77,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **createNoteDto** | [**CreateNoteDto**](CreateNoteDto.md)|  | 
  **xIRNContributorUsername** | **string**|  | [optional] 
  **xIRNContributorSerial** | **string**|  | [optional] 
- **createNoteDto** | [**CreateNoteDto**](CreateNoteDto.md)|  | [optional] 
 
 ### Return type
-
 [**NewItemDto**](NewItemDto.md)
 
 ### Authorization
@@ -144,7 +143,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var noteId = "noteId_example";  // Guid | 
 
             try
             {
@@ -169,7 +168,6 @@ Name | Type | Description  | Notes
  **noteId** | **Guid**|  | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -233,7 +231,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Note Id
+            var noteId = "noteId_example";  // Guid | Note Id
 
             try
             {
@@ -259,7 +257,6 @@ Name | Type | Description  | Notes
  **noteId** | **Guid**| Note Id | 
 
 ### Return type
-
 [**NoteDto**](NoteDto.md)
 
 ### Authorization
@@ -283,7 +280,7 @@ Name | Type | Description  | Notes
 
 <a name="getnotes"></a>
 # **GetNotes**
-> List&lt;NoteSummaryDto&gt; GetNotes (string start = null, string end = null, List<string> identifiers = null, List<Guid> authors = null, List<Guid> subjects = null, List<Guid> recommendations = null, List<Guid> sentiments = null, int? limit = null, int? offset = null, string modifiedSince = null, bool? filterOnRelatedSymbols = null, bool? xIRNIncludeDeleted = null)
+> List&lt;NoteSummaryDto&gt; GetNotes (string start = null, string end = null, List<string> identifiers = null, List<Guid> authors = null, List<Guid> subjects = null, List<Guid> recommendations = null, List<Guid> sentiments = null, int? limit = null, int? offset = null, string modifiedSince = null, List<string> states = null, bool? filterOnRelatedSymbols = null, bool? xIRNIncludeDeleted = null)
 
 Get all the notes in the specified date range filtered on the given identifiers
 
@@ -322,8 +319,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
-            var start = start_example;  // string | StartDate (optional) 
-            var end = end_example;  // string | EndDate (optional) 
+            var start = "start_example";  // string | StartDate (optional) 
+            var end = "end_example";  // string | EndDate (optional) 
             var identifiers = new List<string>(); // List<string> | Set of identifiers to filter on (optional) 
             var authors = new List<Guid>(); // List<Guid> | Set of authors to filter on (optional) 
             var subjects = new List<Guid>(); // List<Guid> | Set of subjects to filter on (optional) 
@@ -331,14 +328,15 @@ namespace Example
             var sentiments = new List<Guid>(); // List<Guid> | Set of sentiments to filter on (optional) 
             var limit = 56;  // int? | Limit on the number of notes retrieved (optional) 
             var offset = 56;  // int? | Fetch notes after the offset (optional) 
-            var modifiedSince = modifiedSince_example;  // string | Only return notes which have been modified or created since a particular time (optional) 
-            var filterOnRelatedSymbols = true;  // bool? | Include notes whose related symbols match the identifier filter (optional)  (default to false)
-            var xIRNIncludeDeleted = true;  // bool? |  (optional)  (default to false)
+            var modifiedSince = "modifiedSince_example";  // string | Only return notes which have been modified or created since a particular time (optional) 
+            var states = new List<string>(); // List<string> | Set of states to filter on (optional) 
+            var filterOnRelatedSymbols = false;  // bool? | Include notes whose related symbols match the identifier filter (optional)  (default to false)
+            var xIRNIncludeDeleted = false;  // bool? |  (optional)  (default to false)
 
             try
             {
                 // Get all the notes in the specified date range filtered on the given identifiers
-                List<NoteSummaryDto> result = apiInstance.GetNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, filterOnRelatedSymbols, xIRNIncludeDeleted);
+                List<NoteSummaryDto> result = apiInstance.GetNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -366,11 +364,11 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Limit on the number of notes retrieved | [optional] 
  **offset** | **int?**| Fetch notes after the offset | [optional] 
  **modifiedSince** | **string**| Only return notes which have been modified or created since a particular time | [optional] 
+ **states** | [**List&lt;string&gt;**](string.md)| Set of states to filter on | [optional] 
  **filterOnRelatedSymbols** | **bool?**| Include notes whose related symbols match the identifier filter | [optional] [default to false]
  **xIRNIncludeDeleted** | **bool?**|  | [optional] [default to false]
 
 ### Return type
-
 [**List&lt;NoteSummaryDto&gt;**](NoteSummaryDto.md)
 
 ### Authorization
@@ -432,7 +430,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NotesApi(config);
-            var noteId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Note Id
+            var noteId = "noteId_example";  // Guid | Note Id
             var updateNoteDto = new UpdateNoteDto(); // UpdateNoteDto | Note details to update (optional) 
 
             try
@@ -459,7 +457,6 @@ Name | Type | Description  | Notes
  **updateNoteDto** | [**UpdateNoteDto**](UpdateNoteDto.md)| Note details to update | [optional] 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization

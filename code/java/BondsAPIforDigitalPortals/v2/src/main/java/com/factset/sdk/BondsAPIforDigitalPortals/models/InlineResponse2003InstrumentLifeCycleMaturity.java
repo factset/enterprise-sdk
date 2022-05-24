@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.BondsAPIforDigitalPortals.JSON;
@@ -53,6 +53,8 @@ public class InlineResponse2003InstrumentLifeCycleMaturity implements Serializab
   public static final String JSON_PROPERTY_PERPETUAL = "perpetual";
   private Boolean perpetual;
 
+  public InlineResponse2003InstrumentLifeCycleMaturity() { 
+  }
 
   public InlineResponse2003InstrumentLifeCycleMaturity date(LocalDate date) {
     this.date = date;

@@ -80,6 +80,8 @@ public class AlertingPricesBasicTriggerListDataFilterStatus implements Serializa
   public static final String JSON_PROPERTY_CODE = "code";
   private CodeEnum code;
 
+  public AlertingPricesBasicTriggerListDataFilterStatus() { 
+  }
 
   public AlertingPricesBasicTriggerListDataFilterStatus code(CodeEnum code) {
     this.code = code;

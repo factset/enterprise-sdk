@@ -17,7 +17,7 @@ import AdaptiveCardWithThumbnail from './AdaptiveCardWithThumbnail';
 /**
  * The AdaptiveCardDataItem model module.
  * @module model/AdaptiveCardDataItem
- * @version 0.9.1
+ * @version 0.20.0
  */
 class AdaptiveCardDataItem {
     /**

@@ -234,6 +234,39 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
     {
         private FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFinancialsBalanceSheetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFinancialsCashFlowResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFinancialsIncomeStatementResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)404, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FinancialsApi"/> class.
         /// </summary>
@@ -348,7 +381,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetFinancialsBalanceSheet(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> localVarResponse = GetFinancialsBalanceSheetWithHttpInfo(id, periodicity, schema, reportStatus, currency);
+            var localVarResponse = GetFinancialsBalanceSheetWithHttpInfo(id, periodicity, schema, reportStatus, currency);
             return localVarResponse.Data;
         }
 
@@ -362,11 +395,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="reportStatus">Return historical periods as originally reported or retroactively restated (for M&amp;A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional, default to RESTATED)</param>
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> GetFinancialsBalanceSheetWithHttpInfo(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
+        public ApiResponse<Response> GetFinancialsBalanceSheetWithHttpInfo(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling FinancialsApi->GetFinancialsBalanceSheet");
+            }
 
             FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions();
 
@@ -379,10 +414,16 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -404,13 +445,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -422,15 +463,19 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/balance-sheet", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsBalanceSheetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/balance-sheet", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFinancialsBalanceSheet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -445,9 +490,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetFinancialsBalanceSheetAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetFinancialsBalanceSheetAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetFinancialsBalanceSheetWithHttpInfoAsync(id, periodicity, schema, reportStatus, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFinancialsBalanceSheetWithHttpInfoAsync(id, periodicity, schema, reportStatus, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -462,11 +507,14 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response>> GetFinancialsBalanceSheetWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetFinancialsBalanceSheetWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling FinancialsApi->GetFinancialsBalanceSheet");
+            }
 
 
             FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions();
@@ -479,12 +527,17 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -506,13 +559,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -524,14 +577,18 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsBalanceSheetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/balance-sheet", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFinancialsBalanceSheet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -549,7 +606,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetFinancialsCashFlow(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> localVarResponse = GetFinancialsCashFlowWithHttpInfo(id, periodicity, schema, reportStatus, currency);
+            var localVarResponse = GetFinancialsCashFlowWithHttpInfo(id, periodicity, schema, reportStatus, currency);
             return localVarResponse.Data;
         }
 
@@ -563,11 +620,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="reportStatus">Return historical periods as originally reported or retroactively restated (for M&amp;A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional, default to RESTATED)</param>
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> GetFinancialsCashFlowWithHttpInfo(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
+        public ApiResponse<Response> GetFinancialsCashFlowWithHttpInfo(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling FinancialsApi->GetFinancialsCashFlow");
+            }
 
             FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions();
 
@@ -580,10 +639,16 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -605,13 +670,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -623,15 +688,19 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/cash-flow", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsCashFlowResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/cash-flow", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFinancialsCashFlow", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -646,9 +715,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetFinancialsCashFlowAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetFinancialsCashFlowAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetFinancialsCashFlowWithHttpInfoAsync(id, periodicity, schema, reportStatus, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFinancialsCashFlowWithHttpInfoAsync(id, periodicity, schema, reportStatus, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -663,11 +732,14 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response>> GetFinancialsCashFlowWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetFinancialsCashFlowWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling FinancialsApi->GetFinancialsCashFlow");
+            }
 
 
             FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions();
@@ -680,12 +752,17 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -707,13 +784,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -725,14 +802,18 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsCashFlowResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/cash-flow", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFinancialsCashFlow", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -750,7 +831,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <returns>Response</returns>
         public Response GetFinancialsIncomeStatement(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> localVarResponse = GetFinancialsIncomeStatementWithHttpInfo(id, periodicity, schema, reportStatus, currency);
+            var localVarResponse = GetFinancialsIncomeStatementWithHttpInfo(id, periodicity, schema, reportStatus, currency);
             return localVarResponse.Data;
         }
 
@@ -764,11 +845,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="reportStatus">Return historical periods as originally reported or retroactively restated (for M&amp;A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional, default to RESTATED)</param>
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> GetFinancialsIncomeStatementWithHttpInfo(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
+        public ApiResponse<Response> GetFinancialsIncomeStatementWithHttpInfo(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling FinancialsApi->GetFinancialsIncomeStatement");
+            }
 
             FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions();
 
@@ -781,10 +864,16 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -806,13 +895,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -824,15 +913,19 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Response>("/income-statement", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsIncomeStatementResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Response>("/income-statement", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFinancialsIncomeStatement", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -847,9 +940,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> GetFinancialsIncomeStatementAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>GetFinancialsIncomeStatementAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response> localVarResponse = await GetFinancialsIncomeStatementWithHttpInfoAsync(id, periodicity, schema, reportStatus, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFinancialsIncomeStatementWithHttpInfoAsync(id, periodicity, schema, reportStatus, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -864,11 +957,14 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
         /// <param name="currency">Currency code for currency values. \&quot;LOCAL\&quot; will return the security&#39;s pricing currency. \&quot;RPT\&quot; will return the company&#39;s reporting currency (which may differ from \&quot;LOCAL\&quot; for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiResponse<Response>> GetFinancialsIncomeStatementWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> GetFinancialsIncomeStatementWithHttpInfoAsync(string id, string periodicity = default(string), string schema = default(string), string reportStatus = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ApiException(400, "Missing required parameter 'id' when calling FinancialsApi->GetFinancialsIncomeStatement");
+            }
 
 
             FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentalsReportBuilder.Client.RequestOptions();
@@ -881,12 +977,17 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (periodicity != null)
@@ -908,13 +1009,13 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentalsReportBuilder.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -926,14 +1027,18 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFinancialsIncomeStatementResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Response>("/income-statement", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFinancialsIncomeStatement", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

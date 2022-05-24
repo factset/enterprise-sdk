@@ -86,6 +86,8 @@ public class InterimStatusInterimStatus implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private ValueEnum value;
 
+  public InterimStatusInterimStatus() { 
+  }
 
   public InterimStatusInterimStatus value(ValueEnum value) {
     this.value = value;

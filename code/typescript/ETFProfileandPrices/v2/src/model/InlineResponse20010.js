@@ -13,12 +13,12 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20010Data from './InlineResponse20010Data';
-import InlineResponse2001Meta from './InlineResponse2001Meta';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse20010 model module.
  * @module model/InlineResponse20010
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20010 {
     /**
@@ -50,10 +50,10 @@ class InlineResponse20010 {
             obj = obj || new InlineResponse20010();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20010Data]);
+                obj['data'] = InlineResponse20010Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -63,13 +63,12 @@ class InlineResponse20010 {
 }
 
 /**
- * List of niche categories.
- * @member {Array.<module:model/InlineResponse20010Data>} data
+ * @member {module:model/InlineResponse20010Data} data
  */
 InlineResponse20010.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse20010.prototype['meta'] = undefined;
 

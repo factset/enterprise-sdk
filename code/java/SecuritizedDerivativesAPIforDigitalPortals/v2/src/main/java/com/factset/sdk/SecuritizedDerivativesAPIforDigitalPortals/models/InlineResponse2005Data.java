@@ -179,6 +179,8 @@ public class InlineResponse2005Data implements Serializable {
   public static final String JSON_PROPERTY_VOLATILITY = "volatility";
   private InlineResponse2005DataVolatility volatility;
 
+  public InlineResponse2005Data() { 
+  }
 
   public InlineResponse2005Data totalCount(BigDecimal totalCount) {
     this.totalCount = totalCount;

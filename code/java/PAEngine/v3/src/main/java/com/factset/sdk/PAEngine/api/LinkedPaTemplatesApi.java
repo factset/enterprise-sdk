@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.ClientErrorResponse;
 import com.factset.sdk.PAEngine.models.LinkedPATemplateParametersRoot;
@@ -26,6 +29,34 @@ public class LinkedPaTemplatesApi {
   public LinkedPaTemplatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createLinkedPATemplatesResponseTypeMap.put(201, new GenericType<LinkedPATemplatePostSummaryRoot>(){});
+    createLinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> deleteLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getLinkedPATemplatesResponseTypeMap.put(200, new GenericType<LinkedPATemplateSummaryRoot>(){});
+    getLinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getLinkedPATemplatesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getLinkedPATemplatesByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getLinkedPATemplatesByIdResponseTypeMap.put(200, new GenericType<LinkedPATemplateRoot>(){});
+    getLinkedPATemplatesByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getLinkedPATemplatesByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> updateLinkedPATemplatesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    updateLinkedPATemplatesResponseTypeMap.put(200, new GenericType<LinkedPATemplatePostSummaryRoot>(){});
+    updateLinkedPATemplatesResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    updateLinkedPATemplatesResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -47,7 +78,7 @@ public class LinkedPaTemplatesApi {
 
   /**
    * Create a linked PA template
-   * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+   * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
    * @param linkedPATemplateParametersRoot Request Parameters (required)
    * @return LinkedPATemplatePostSummaryRoot
    * @throws ApiException if fails to make API call
@@ -71,7 +102,7 @@ public class LinkedPaTemplatesApi {
 
   /**
    * Create a linked PA template
-   * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+   * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
    * @param linkedPATemplateParametersRoot Request Parameters (required)
    * @return ApiResponse&lt;LinkedPATemplatePostSummaryRoot&gt;
    * @throws ApiException if fails to make API call
@@ -122,11 +153,17 @@ public class LinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LinkedPATemplatePostSummaryRoot> localVarReturnType = new GenericType<LinkedPATemplatePostSummaryRoot>() {};
 
-    return apiClient.invokeAPI("LinkedPaTemplatesApi.createLinkedPATemplates", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LinkedPATemplatePostSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("LinkedPaTemplatesApi.createLinkedPATemplates", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createLinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a linked PA template.
@@ -205,9 +242,15 @@ public class LinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("LinkedPaTemplatesApi.deleteLinkedPATemplates", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("LinkedPaTemplatesApi.deleteLinkedPATemplates", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteLinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get linked PA templates
@@ -288,11 +331,17 @@ public class LinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LinkedPATemplateSummaryRoot> localVarReturnType = new GenericType<LinkedPATemplateSummaryRoot>() {};
 
-    return apiClient.invokeAPI("LinkedPaTemplatesApi.getLinkedPATemplates", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LinkedPATemplateSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("LinkedPaTemplatesApi.getLinkedPATemplates", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getLinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get linked PA template by id
@@ -372,15 +421,21 @@ public class LinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LinkedPATemplateRoot> localVarReturnType = new GenericType<LinkedPATemplateRoot>() {};
 
-    return apiClient.invokeAPI("LinkedPaTemplatesApi.getLinkedPATemplatesById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LinkedPATemplateRoot
+      
+    > apiResponse = apiClient.invokeAPI("LinkedPaTemplatesApi.getLinkedPATemplatesById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getLinkedPATemplatesByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Update a linked PA template
-   * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+   * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
    * @param id Unique identifier for a linked PA template (required)
    * @param linkedPATemplateUpdateParametersRoot Request Parameters (required)
    * @return LinkedPATemplatePostSummaryRoot
@@ -405,7 +460,7 @@ public class LinkedPaTemplatesApi {
 
   /**
    * Update a linked PA template
-   * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+   * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;datasources\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
    * @param id Unique identifier for a linked PA template (required)
    * @param linkedPATemplateUpdateParametersRoot Request Parameters (required)
    * @return ApiResponse&lt;LinkedPATemplatePostSummaryRoot&gt;
@@ -463,10 +518,16 @@ public class LinkedPaTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LinkedPATemplatePostSummaryRoot> localVarReturnType = new GenericType<LinkedPATemplatePostSummaryRoot>() {};
 
-    return apiClient.invokeAPI("LinkedPaTemplatesApi.updateLinkedPATemplates", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LinkedPATemplatePostSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("LinkedPaTemplatesApi.updateLinkedPATemplates", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, updateLinkedPATemplatesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

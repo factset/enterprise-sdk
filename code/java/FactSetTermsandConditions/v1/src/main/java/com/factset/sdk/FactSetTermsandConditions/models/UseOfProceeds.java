@@ -51,6 +51,8 @@ public class UseOfProceeds implements Serializable {
   public static final String JSON_PROPERTY_USE_OF_PROCEEDS = "useOfProceeds";
   private String useOfProceeds;
 
+  public UseOfProceeds() { 
+  }
 
   public UseOfProceeds requestId(String requestId) {
     this.requestId = requestId;

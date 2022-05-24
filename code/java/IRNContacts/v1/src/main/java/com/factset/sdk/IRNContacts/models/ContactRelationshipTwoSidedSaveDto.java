@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -24,8 +24,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.threeten.bp.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -53,36 +53,38 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactRelationshipTwoSidedSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_RELATIONSHIP_ID = "relationshipId";
+  public static final String JSON_PROPERTY_RELATIONSHIP_ID = "RelationshipId";
   private java.util.UUID relationshipId;
 
-  public static final String JSON_PROPERTY_LEFT_CONTACT_ID = "leftContactId";
+  public static final String JSON_PROPERTY_LEFT_CONTACT_ID = "LeftContactId";
   private java.util.UUID leftContactId;
 
-  public static final String JSON_PROPERTY_RIGHT_CONTACT_ID = "rightContactId";
+  public static final String JSON_PROPERTY_RIGHT_CONTACT_ID = "RightContactId";
   private JsonNullable<java.util.UUID> rightContactId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_START = "start";
+  public static final String JSON_PROPERTY_START = "Start";
   private JsonNullable<OffsetDateTime> start = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_END = "end";
+  public static final String JSON_PROPERTY_END = "End";
   private JsonNullable<OffsetDateTime> end = JsonNullable.<OffsetDateTime>undefined();
 
-  public static final String JSON_PROPERTY_COMMENT = "comment";
+  public static final String JSON_PROPERTY_COMMENT = "Comment";
   private JsonNullable<String> comment = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_CURRENT = "isCurrent";
+  public static final String JSON_PROPERTY_IS_CURRENT = "IsCurrent";
   private Boolean isCurrent;
 
-  public static final String JSON_PROPERTY_SYMBOL_ID = "symbolId";
+  public static final String JSON_PROPERTY_SYMBOL_ID = "SymbolId";
   private JsonNullable<java.util.UUID> symbolId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_SYMBOL = "symbol";
+  public static final String JSON_PROPERTY_SYMBOL = "Symbol";
   private JsonNullable<String> symbol = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_TITLE = "title";
+  public static final String JSON_PROPERTY_TITLE = "Title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
+  public ContactRelationshipTwoSidedSaveDto() { 
+  }
 
   public ContactRelationshipTwoSidedSaveDto relationshipId(java.util.UUID relationshipId) {
     this.relationshipId = relationshipId;

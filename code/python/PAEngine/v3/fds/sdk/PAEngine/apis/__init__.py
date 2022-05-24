@@ -25,5 +25,6 @@ from fds.sdk.PAEngine.api.frequencies_api import FrequenciesApi
 from fds.sdk.PAEngine.api.groups_api import GroupsApi
 from fds.sdk.PAEngine.api.linked_pa_templates_api import LinkedPATemplatesApi
 from fds.sdk.PAEngine.api.pa_calculations_api import PACalculationsApi
+from fds.sdk.PAEngine.api.pricing_sources_api import PricingSourcesApi
 from fds.sdk.PAEngine.api.templated_pa_components_api import TemplatedPAComponentsApi
 from fds.sdk.PAEngine.api.unlinked_pa_templates_api import UnlinkedPATemplatesApi

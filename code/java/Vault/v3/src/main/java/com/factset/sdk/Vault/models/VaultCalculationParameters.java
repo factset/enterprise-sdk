@@ -60,6 +60,20 @@ public class VaultCalculationParameters implements Serializable {
   public static final String JSON_PROPERTY_COMPONENTDETAIL = "componentdetail";
   private String componentdetail;
 
+  public VaultCalculationParameters() { 
+  }
+
+  @JsonCreator
+  public VaultCalculationParameters(
+    @JsonProperty(value=JSON_PROPERTY_COMPONENTID, required=true) String componentid, 
+    @JsonProperty(value=JSON_PROPERTY_ACCOUNT, required=true) VaultIdentifier account, 
+    @JsonProperty(value=JSON_PROPERTY_CONFIGID, required=true) String configid
+  ) {
+    this();
+    this.componentid = componentid;
+    this.account = account;
+    this.configid = configid;
+  }
 
   public VaultCalculationParameters componentid(String componentid) {
     this.componentid = componentid;

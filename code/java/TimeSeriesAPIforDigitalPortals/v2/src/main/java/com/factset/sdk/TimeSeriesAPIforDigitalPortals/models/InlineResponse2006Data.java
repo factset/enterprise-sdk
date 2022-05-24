@@ -83,6 +83,8 @@ public class InlineResponse2006Data implements Serializable {
   public static final String JSON_PROPERTY_SUBSAMPLE = "subsample";
   private InlineResponse2006DataSubsample subsample;
 
+  public InlineResponse2006Data() { 
+  }
 
   public InlineResponse2006Data quality(QualityEnum quality) {
     this.quality = quality;

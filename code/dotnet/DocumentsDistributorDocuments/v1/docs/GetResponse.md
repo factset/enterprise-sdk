@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **JobID** | **string** | Unique id to get the xml files for the requested date | [optional] 
 **Status** | **string** | Defines the status of the request | [optional] 
 **Url** | **string** | Link to download the zip file which contains xml files | [optional] 
+**Part** | **int** | Returns the part number of the jobID | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

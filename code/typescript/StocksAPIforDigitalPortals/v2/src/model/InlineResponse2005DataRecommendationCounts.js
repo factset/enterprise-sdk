@@ -17,7 +17,7 @@ import InlineResponse2005DataRecommendationCountsTotal from './InlineResponse200
 /**
  * The InlineResponse2005DataRecommendationCounts model module.
  * @module model/InlineResponse2005DataRecommendationCounts
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2005DataRecommendationCounts {
     /**

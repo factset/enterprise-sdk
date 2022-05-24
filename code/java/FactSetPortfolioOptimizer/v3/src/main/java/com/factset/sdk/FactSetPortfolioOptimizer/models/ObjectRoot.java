@@ -42,6 +42,8 @@ public class ObjectRoot implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private Object data;
 
+  public ObjectRoot() { 
+  }
 
   public ObjectRoot data(Object data) {
     this.data = data;

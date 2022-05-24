@@ -51,6 +51,8 @@ public class InlineResponse2003FsymListing implements Serializable {
   public static final String JSON_PROPERTY_IS_PRIMARY = "isPrimary";
   private Boolean isPrimary;
 
+  public InlineResponse2003FsymListing() { 
+  }
 
   public InlineResponse2003FsymListing permanentIdentifier(String permanentIdentifier) {
     this.permanentIdentifier = permanentIdentifier;

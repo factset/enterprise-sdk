@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataPerformanceEndOfDayMonth1 implements
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataEbitMarginMaximum maximum;
 
+  public StockNotationScreenerSearchDataPerformanceEndOfDayMonth1() { 
+  }
 
   public StockNotationScreenerSearchDataPerformanceEndOfDayMonth1 minimum(StockNotationScreenerSearchDataEbitMarginMinimum minimum) {
     this.minimum = minimum;

@@ -44,6 +44,8 @@ public class LookupCount implements Serializable {
   public static final String JSON_PROPERTY_RESULT_COUNT = "result_count";
   private LookupAssettype resultCount;
 
+  public LookupCount() { 
+  }
 
   public LookupCount resultCount(LookupAssettype resultCount) {
     this.resultCount = resultCount;

@@ -43,6 +43,8 @@ public class InlineResponse2003Data implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2003Data() { 
+  }
 
   public InlineResponse2003Data name(String name) {
     this.name = name;

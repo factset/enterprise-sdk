@@ -44,6 +44,8 @@ public class InlineResponse20089InstrumentName implements Serializable {
   public static final String JSON_PROPERTY_DEFAULT = "default";
   private InlineResponse20089InstrumentNameDefault _default;
 
+  public InlineResponse20089InstrumentName() { 
+  }
 
   public InlineResponse20089InstrumentName _default(InlineResponse20089InstrumentNameDefault _default) {
     this._default = _default;

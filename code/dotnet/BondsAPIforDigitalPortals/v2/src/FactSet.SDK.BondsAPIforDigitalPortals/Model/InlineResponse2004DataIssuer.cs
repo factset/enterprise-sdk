@@ -62,7 +62,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataIssuer {\n");
             sb.Append("  JuristicPerson: ").Append(JuristicPerson).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataIssuer input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.JuristicPerson == input.JuristicPerson ||
@@ -124,9 +125,13 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.JuristicPerson != null)
-                    hashCode = hashCode * 59 + this.JuristicPerson.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JuristicPerson.GetHashCode();
+                }
                 if (this.Country != null)
-                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                }
                 return hashCode;
             }
         }

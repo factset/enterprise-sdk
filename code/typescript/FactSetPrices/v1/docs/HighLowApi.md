@@ -56,6 +56,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getHighLow(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -133,6 +134,7 @@ const highLowRequest = new factsetprices.HighLowRequest(); // HighLowRequest | R
 // Call api endpoint
 apiInstance.getHighLowForList(highLowRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

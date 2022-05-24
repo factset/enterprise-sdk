@@ -1,0 +1,23 @@
+{
+  "packageName": "FactSet.SDK.Vermilion",
+  "packageVersion": "0.9.0",
+  "packageGuid": "{c67f8648-f428-50d6-9372-0abad51aa399}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Vermilion client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Vermilion",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/Vermilion/0.9.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

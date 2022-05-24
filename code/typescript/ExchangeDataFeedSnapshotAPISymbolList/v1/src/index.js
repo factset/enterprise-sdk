@@ -11,13 +11,13 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import DFSnapshotResponse from './model/DFSnapshotResponse';
 import ErrorResponse from './model/ErrorResponse';
 import ErrorResponseSubErrors from './model/ErrorResponseSubErrors';
 import Fields from './model/Fields';
 import Specialfield from './model/Specialfield';
+
 import SnapshotApi from './api/SnapshotApi';
 
 
@@ -50,7 +50,7 @@ import SnapshotApi from './api/SnapshotApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -93,5 +93,6 @@ export {
     * The SnapshotApi service constructor.
     * @property {module:api/SnapshotApi}
     */
-    SnapshotApi
+    SnapshotApi,
+
 };

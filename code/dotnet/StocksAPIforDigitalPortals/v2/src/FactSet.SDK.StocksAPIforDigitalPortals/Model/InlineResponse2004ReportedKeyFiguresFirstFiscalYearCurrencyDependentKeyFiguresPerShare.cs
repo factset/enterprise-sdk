@@ -89,7 +89,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare {\n");
             sb.Append("  Sales: ").Append(Sales).Append("\n");
             sb.Append("  RecurringDilutedEarnings: ").Append(RecurringDilutedEarnings).Append("\n");
@@ -127,8 +127,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sales == input.Sales ||
@@ -161,11 +162,11 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Sales.GetHashCode();
-                hashCode = hashCode * 59 + this.RecurringDilutedEarnings.GetHashCode();
-                hashCode = hashCode * 59 + this.Dividends.GetHashCode();
-                hashCode = hashCode * 59 + this.BookValue.GetHashCode();
-                hashCode = hashCode * 59 + this.CashFlow.GetHashCode();
+                hashCode = (hashCode * 59) + this.Sales.GetHashCode();
+                hashCode = (hashCode * 59) + this.RecurringDilutedEarnings.GetHashCode();
+                hashCode = (hashCode * 59) + this.Dividends.GetHashCode();
+                hashCode = (hashCode * 59) + this.BookValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.CashFlow.GetHashCode();
                 return hashCode;
             }
         }

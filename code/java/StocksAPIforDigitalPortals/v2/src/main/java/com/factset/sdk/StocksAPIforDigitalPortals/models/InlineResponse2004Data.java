@@ -116,6 +116,8 @@ public class InlineResponse2004Data implements Serializable {
   public static final String JSON_PROPERTY_ESTIMATES = "estimates";
   private InlineResponse2004Estimates estimates;
 
+  public InlineResponse2004Data() { 
+  }
 
   public InlineResponse2004Data id(String id) {
     this.id = id;

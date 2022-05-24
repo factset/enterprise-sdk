@@ -31,11 +31,11 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <returns>NewItemDto</returns>
-        NewItemDto CreateNote(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto));
+        NewItemDto CreateNote(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string));
 
         /// <summary>
         /// Create a note
@@ -44,17 +44,17 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <returns>ApiResponse of NewItemDto</returns>
-        ApiResponse<NewItemDto> CreateNoteWithHttpInfo(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto));
+        ApiResponse<NewItemDto> CreateNoteWithHttpInfo(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string));
         /// <summary>
         /// Delete a Note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId"></param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void DeleteNote(Guid noteId);
 
         /// <summary>
@@ -99,10 +99,11 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
-        /// <returns>List&lt;NoteSummaryDto&gt;</returns>
-        List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
+        /// <returns>List<NoteSummaryDto></returns>
+        List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
 
         /// <summary>
         /// Get all the notes in the specified date range filtered on the given identifiers
@@ -121,17 +122,18 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
-        /// <returns>ApiResponse of List&lt;NoteSummaryDto&gt;</returns>
-        ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
+        /// <returns>ApiResponse of List<NoteSummaryDto></returns>
+        ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?));
         /// <summary>
         /// Update a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId">Note Id</param>
         /// <param name="updateNoteDto">Note details to update (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void UpdateNote(Guid noteId, UpdateNoteDto updateNoteDto = default(UpdateNoteDto));
 
         /// <summary>
@@ -161,12 +163,12 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
-        System.Threading.Tasks.Task<NewItemDto> CreateNoteAsync(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NewItemDto> CreateNoteAsync(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a note
@@ -175,12 +177,12 @@ namespace FactSet.SDK.IRNNotes.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<NewItemDto>> CreateNoteWithHttpInfoAsync(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<NewItemDto>> CreateNoteWithHttpInfoAsync(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a Note
         /// </summary>
@@ -244,11 +246,12 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NoteSummaryDto&gt;</returns>
-        System.Threading.Tasks.Task<List<NoteSummaryDto>> GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<NoteSummaryDto>> GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all the notes in the specified date range filtered on the given identifiers
@@ -267,11 +270,12 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;NoteSummaryDto&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List<NoteSummaryDto>)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a note
         /// </summary>
@@ -314,6 +318,37 @@ namespace FactSet.SDK.IRNNotes.Api
     public partial class NotesApi : INotesApi
     {
         private FactSet.SDK.IRNNotes.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CreateNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(NewItemDto) },
+            { (HttpStatusCode)400, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(NoteDto) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
+            { (HttpStatusCode)0, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetNotesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<NoteSummaryDto>) },
+            { (HttpStatusCode)400, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> UpdateNoteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NotesApi"/> class.
@@ -421,13 +456,13 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <returns>NewItemDto</returns>
-        public NewItemDto CreateNote(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto))
+        public NewItemDto CreateNote(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<NewItemDto> localVarResponse = CreateNoteWithHttpInfo(xIRNContributorUsername, xIRNContributorSerial, createNoteDto);
+            var localVarResponse = CreateNoteWithHttpInfo(createNoteDto, xIRNContributorUsername, xIRNContributorSerial);
             return localVarResponse.Data;
         }
 
@@ -435,12 +470,18 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <returns>ApiResponse of NewItemDto</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<NewItemDto> CreateNoteWithHttpInfo(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto))
+        public ApiResponse<NewItemDto> CreateNoteWithHttpInfo(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string))
         {
+            // verify the required parameter 'createNoteDto' is set
+            if (createNoteDto == null)
+            {
+                throw new FactSet.SDK.IRNNotes.Client.ApiException(400, "Missing required parameter 'createNoteDto' when calling NotesApi->CreateNote");
+            }
+
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -456,10 +497,16 @@ namespace FactSet.SDK.IRNNotes.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xIRNContributorUsername != null)
             {
@@ -473,13 +520,13 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -491,15 +538,19 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<NewItemDto>("/v1/notes", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CreateNoteResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            NewItemDto>("/v1/notes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -507,14 +558,14 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
-        public async System.Threading.Tasks.Task<NewItemDto> CreateNoteAsync(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NewItemDto>CreateNoteAsync(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<NewItemDto> localVarResponse = await CreateNoteWithHttpInfoAsync(xIRNContributorUsername, xIRNContributorSerial, createNoteDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateNoteWithHttpInfoAsync(createNoteDto, xIRNContributorUsername, xIRNContributorSerial, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -522,13 +573,20 @@ namespace FactSet.SDK.IRNNotes.Api
         /// Create a note 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createNoteDto"></param>
         /// <param name="xIRNContributorUsername"> (optional)</param>
         /// <param name="xIRNContributorSerial"> (optional)</param>
-        /// <param name="createNoteDto"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<NewItemDto>> CreateNoteWithHttpInfoAsync(string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), CreateNoteDto createNoteDto = default(CreateNoteDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NewItemDto>> CreateNoteWithHttpInfoAsync(CreateNoteDto createNoteDto, string xIRNContributorUsername = default(string), string xIRNContributorSerial = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'createNoteDto' is set
+            if (createNoteDto == null)
+            {
+                throw new FactSet.SDK.IRNNotes.Client.ApiException(400, "Missing required parameter 'createNoteDto' when calling NotesApi->CreateNote");
+            }
+
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -544,12 +602,17 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xIRNContributorUsername != null)
             {
@@ -563,13 +626,13 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -581,14 +644,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CreateNoteResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<NewItemDto>("/v1/notes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -599,7 +666,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId"></param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void DeleteNote(Guid noteId)
         {
             DeleteNoteWithHttpInfo(noteId);
@@ -611,7 +678,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<Object> DeleteNoteWithHttpInfo(Guid noteId)
+        public ApiResponse<Object> DeleteNoteWithHttpInfo(Guid noteId)
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -624,22 +691,28 @@ namespace FactSet.SDK.IRNNotes.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -651,15 +724,19 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = DeleteNoteResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -682,7 +759,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="noteId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<Object>> DeleteNoteWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNoteWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -695,24 +773,29 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -724,14 +807,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = DeleteNoteResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -745,7 +832,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <returns>NoteDto</returns>
         public NoteDto GetNote(Guid noteId)
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<NoteDto> localVarResponse = GetNoteWithHttpInfo(noteId);
+            var localVarResponse = GetNoteWithHttpInfo(noteId);
             return localVarResponse.Data;
         }
 
@@ -755,7 +842,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId">Note Id</param>
         /// <returns>ApiResponse of NoteDto</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<NoteDto> GetNoteWithHttpInfo(Guid noteId)
+        public ApiResponse<NoteDto> GetNoteWithHttpInfo(Guid noteId)
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -768,22 +855,28 @@ namespace FactSet.SDK.IRNNotes.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -795,15 +888,19 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<NoteDto>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNoteResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            NoteDto>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -814,9 +911,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NoteDto</returns>
-        public async System.Threading.Tasks.Task<NoteDto> GetNoteAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NoteDto>GetNoteAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<NoteDto> localVarResponse = await GetNoteWithHttpInfoAsync(noteId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNoteWithHttpInfoAsync(noteId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -827,7 +924,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NoteDto)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<NoteDto>> GetNoteWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NoteDto>> GetNoteWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -840,24 +938,29 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -869,14 +972,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNoteResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<NoteDto>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -896,12 +1003,13 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
-        /// <returns>List&lt;NoteSummaryDto&gt;</returns>
-        public List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
+        /// <returns>List<NoteSummaryDto></returns>
+        public List<NoteSummaryDto> GetNotes(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<List<NoteSummaryDto>> localVarResponse = GetNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, filterOnRelatedSymbols, xIRNIncludeDeleted);
+            var localVarResponse = GetNotesWithHttpInfo(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted);
             return localVarResponse.Data;
         }
 
@@ -919,10 +1027,11 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;NoteSummaryDto&gt;</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
+        public ApiResponse<List<NoteSummaryDto>> GetNotesWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?))
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -935,10 +1044,16 @@ namespace FactSet.SDK.IRNNotes.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (start != null)
             {
@@ -980,6 +1095,10 @@ namespace FactSet.SDK.IRNNotes.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "modifiedSince", modifiedSince));
             }
+            if (states != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("multi", "states", states));
+            }
             if (filterOnRelatedSymbols != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "filterOnRelatedSymbols", filterOnRelatedSymbols));
@@ -991,13 +1110,13 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1009,15 +1128,19 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<NoteSummaryDto>>("/v1/notes", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetNotesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<NoteSummaryDto>>("/v1/notes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1035,13 +1158,14 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;NoteSummaryDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<NoteSummaryDto>> GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<NoteSummaryDto>>GetNotesAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<List<NoteSummaryDto>> localVarResponse = await GetNotesWithHttpInfoAsync(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, filterOnRelatedSymbols, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetNotesWithHttpInfoAsync(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1059,11 +1183,13 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="limit">Limit on the number of notes retrieved (optional)</param>
         /// <param name="offset">Fetch notes after the offset (optional)</param>
         /// <param name="modifiedSince">Only return notes which have been modified or created since a particular time (optional)</param>
+        /// <param name="states">Set of states to filter on (optional)</param>
         /// <param name="filterOnRelatedSymbols">Include notes whose related symbols match the identifier filter (optional, default to false)</param>
         /// <param name="xIRNIncludeDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;NoteSummaryDto&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<NoteSummaryDto>>> GetNotesWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), List<Guid> authors = default(List<Guid>), List<Guid> subjects = default(List<Guid>), List<Guid> recommendations = default(List<Guid>), List<Guid> sentiments = default(List<Guid>), int? limit = default(int?), int? offset = default(int?), string modifiedSince = default(string), List<string> states = default(List<string>), bool? filterOnRelatedSymbols = default(bool?), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -1076,12 +1202,17 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (start != null)
             {
@@ -1123,6 +1254,10 @@ namespace FactSet.SDK.IRNNotes.Api
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "modifiedSince", modifiedSince));
             }
+            if (states != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("multi", "states", states));
+            }
             if (filterOnRelatedSymbols != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "filterOnRelatedSymbols", filterOnRelatedSymbols));
@@ -1134,13 +1269,13 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1152,14 +1287,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetNotesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<NoteSummaryDto>>("/v1/notes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetNotes", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1171,7 +1310,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId">Note Id</param>
         /// <param name="updateNoteDto">Note details to update (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void UpdateNote(Guid noteId, UpdateNoteDto updateNoteDto = default(UpdateNoteDto))
         {
             UpdateNoteWithHttpInfo(noteId, updateNoteDto);
@@ -1184,7 +1323,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="noteId">Note Id</param>
         /// <param name="updateNoteDto">Note details to update (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<Object> UpdateNoteWithHttpInfo(Guid noteId, UpdateNoteDto updateNoteDto = default(UpdateNoteDto))
+        public ApiResponse<Object> UpdateNoteWithHttpInfo(Guid noteId, UpdateNoteDto updateNoteDto = default(UpdateNoteDto))
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -1201,23 +1340,29 @@ namespace FactSet.SDK.IRNNotes.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
             localVarRequestOptions.Data = updateNoteDto;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1229,15 +1374,19 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = UpdateNoteResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            Object>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1262,7 +1411,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="updateNoteDto">Note details to update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<Object>> UpdateNoteWithHttpInfoAsync(Guid noteId, UpdateNoteDto updateNoteDto = default(UpdateNoteDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateNoteWithHttpInfoAsync(Guid noteId, UpdateNoteDto updateNoteDto = default(UpdateNoteDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -1279,25 +1429,30 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
             localVarRequestOptions.Data = updateNoteDto;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1309,14 +1464,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = UpdateNoteResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/v1/notes/{noteId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateNote", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

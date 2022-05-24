@@ -216,7 +216,7 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Fields {\n");
             sb.Append("  BID1: ").Append(BID1).Append("\n");
             sb.Append("  BIDVOL1: ").Append(BIDVOL1).Append("\n");
@@ -268,8 +268,9 @@ namespace FactSet.SDK.IntradayTickHistory.Model
         public bool Equals(Fields input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BID1 == input.BID1 ||
@@ -365,32 +366,46 @@ namespace FactSet.SDK.IntradayTickHistory.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.BID1.GetHashCode();
-                hashCode = hashCode * 59 + this.BIDVOL1.GetHashCode();
+                hashCode = (hashCode * 59) + this.BID1.GetHashCode();
+                hashCode = (hashCode * 59) + this.BIDVOL1.GetHashCode();
                 if (this.BIDEXCH1 != null)
-                    hashCode = hashCode * 59 + this.BIDEXCH1.GetHashCode();
-                hashCode = hashCode * 59 + this.ASK1.GetHashCode();
-                hashCode = hashCode * 59 + this.ASKVOL1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BIDEXCH1.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ASK1.GetHashCode();
+                hashCode = (hashCode * 59) + this.ASKVOL1.GetHashCode();
                 if (this.ASKEXCH1 != null)
-                    hashCode = hashCode * 59 + this.ASKEXCH1.GetHashCode();
-                hashCode = hashCode * 59 + this.LAST1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ASKEXCH1.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LAST1.GetHashCode();
                 if (this.LASTDATE1 != null)
-                    hashCode = hashCode * 59 + this.LASTDATE1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LASTDATE1.GetHashCode();
+                }
                 if (this.LASTTIME1 != null)
-                    hashCode = hashCode * 59 + this.LASTTIME1.GetHashCode();
-                hashCode = hashCode * 59 + this.LASTVOL1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LASTTIME1.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LASTVOL1.GetHashCode();
                 if (this.LASTEXCH1 != null)
-                    hashCode = hashCode * 59 + this.LASTEXCH1.GetHashCode();
-                hashCode = hashCode * 59 + this.CUM_VOL.GetHashCode();
-                hashCode = hashCode * 59 + this.VWAP.GetHashCode();
-                hashCode = hashCode * 59 + this.OPEN1.GetHashCode();
-                hashCode = hashCode * 59 + this.HIGH1.GetHashCode();
-                hashCode = hashCode * 59 + this.LOW1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LASTEXCH1.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CUM_VOL.GetHashCode();
+                hashCode = (hashCode * 59) + this.VWAP.GetHashCode();
+                hashCode = (hashCode * 59) + this.OPEN1.GetHashCode();
+                hashCode = (hashCode * 59) + this.HIGH1.GetHashCode();
+                hashCode = (hashCode * 59) + this.LOW1.GetHashCode();
                 if (this.TRADE_CONDITION != null)
-                    hashCode = hashCode * 59 + this.TRADE_CONDITION.GetHashCode();
-                hashCode = hashCode * 59 + this.GMT_OFFSET.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TRADE_CONDITION.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.GMT_OFFSET.GetHashCode();
                 if (this.PRICE_CURRENCY != null)
-                    hashCode = hashCode * 59 + this.PRICE_CURRENCY.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PRICE_CURRENCY.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -26,14 +26,13 @@ import com.factset.sdk.FactSetOwnership.ApiClient;
 import com.factset.sdk.FactSetOwnership.ApiException;
 import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
-import com.factset.sdk.FactSetOwnership.model.*;
+import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.SecurityHoldersApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,14 +42,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecurityHoldersApi apiInstance = new SecurityHoldersApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p>.
@@ -61,6 +60,7 @@ public class Example {
         try {
             SecurityHoldersResponse result = apiInstance.getSecurityHolders(ids, holderType, topn, date, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityHoldersApi#getSecurityHolders");
             System.err.println("Status code: " + e.getCode());
@@ -124,14 +124,13 @@ import com.factset.sdk.FactSetOwnership.ApiClient;
 import com.factset.sdk.FactSetOwnership.ApiException;
 import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
-import com.factset.sdk.FactSetOwnership.model.*;
+import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.SecurityHoldersApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -141,20 +140,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         SecurityHoldersApi apiInstance = new SecurityHoldersApi(defaultClient);
         SecurityHoldersRequest securityHoldersRequest = new SecurityHoldersRequest(); // SecurityHoldersRequest | Requesting Security Holders for a list of Fund Identifiers.
         try {
             SecurityHoldersResponse result = apiInstance.postSecurityHolders(securityHoldersRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityHoldersApi#postSecurityHolders");
             System.err.println("Status code: " + e.getCode());

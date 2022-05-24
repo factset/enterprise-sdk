@@ -76,7 +76,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062Data {\n");
             sb.Append("  General: ").Append(General).Append("\n");
             sb.Append("  TargetMarket: ").Append(TargetMarket).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.General == input.General ||
@@ -148,13 +149,21 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.General != null)
-                    hashCode = hashCode * 59 + this.General.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.General.GetHashCode();
+                }
                 if (this.TargetMarket != null)
-                    hashCode = hashCode * 59 + this.TargetMarket.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TargetMarket.GetHashCode();
+                }
                 if (this.DistributionChannel != null)
-                    hashCode = hashCode * 59 + this.DistributionChannel.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DistributionChannel.GetHashCode();
+                }
                 if (this.CostsAndCharges != null)
-                    hashCode = hashCode * 59 + this.CostsAndCharges.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CostsAndCharges.GetHashCode();
+                }
                 return hashCode;
             }
         }

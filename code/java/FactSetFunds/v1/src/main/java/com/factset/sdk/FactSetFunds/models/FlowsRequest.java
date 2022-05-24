@@ -60,6 +60,16 @@ public class FlowsRequest implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency = "LOCAL";
 
+  public FlowsRequest() { 
+  }
+
+  @JsonCreator
+  public FlowsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public FlowsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

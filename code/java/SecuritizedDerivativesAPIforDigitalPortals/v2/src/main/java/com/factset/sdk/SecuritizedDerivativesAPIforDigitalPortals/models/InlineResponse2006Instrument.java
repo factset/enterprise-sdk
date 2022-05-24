@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2004InstrumentFsym;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2006InstrumentBonusLevel;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2006InstrumentCap;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.InlineResponse2006InstrumentCapitalGuarantee;
@@ -58,6 +59,7 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
   InlineResponse2006Instrument.JSON_PROPERTY_SHORT_NAME,
   InlineResponse2006Instrument.JSON_PROPERTY_ISIN,
   InlineResponse2006Instrument.JSON_PROPERTY_NSIN,
+  InlineResponse2006Instrument.JSON_PROPERTY_FSYM,
   InlineResponse2006Instrument.JSON_PROPERTY_CATEGORIZATION,
   InlineResponse2006Instrument.JSON_PROPERTY_LIFE_CYCLE,
   InlineResponse2006Instrument.JSON_PROPERTY_ISSUER,
@@ -100,6 +102,9 @@ public class InlineResponse2006Instrument implements Serializable {
 
   public static final String JSON_PROPERTY_NSIN = "nsin";
   private InlineResponse200DataNsin nsin;
+
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse2004InstrumentFsym fsym;
 
   public static final String JSON_PROPERTY_CATEGORIZATION = "categorization";
   private InlineResponse2006InstrumentCategorization categorization;
@@ -242,6 +247,8 @@ public class InlineResponse2006Instrument implements Serializable {
   public static final String JSON_PROPERTY_CURRENT_INTEREST_RATE = "currentInterestRate";
   private InlineResponse2006InstrumentCurrentInterestRate currentInterestRate;
 
+  public InlineResponse2006Instrument() { 
+  }
 
   public InlineResponse2006Instrument id(String id) {
     this.id = id;
@@ -370,6 +377,32 @@ public class InlineResponse2006Instrument implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNsin(InlineResponse200DataNsin nsin) {
     this.nsin = nsin;
+  }
+
+
+  public InlineResponse2006Instrument fsym(InlineResponse2004InstrumentFsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse2004InstrumentFsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse2004InstrumentFsym fsym) {
+    this.fsym = fsym;
   }
 
 
@@ -988,6 +1021,7 @@ public class InlineResponse2006Instrument implements Serializable {
         Objects.equals(this.shortName, inlineResponse2006Instrument.shortName) &&
         Objects.equals(this.isin, inlineResponse2006Instrument.isin) &&
         Objects.equals(this.nsin, inlineResponse2006Instrument.nsin) &&
+        Objects.equals(this.fsym, inlineResponse2006Instrument.fsym) &&
         Objects.equals(this.categorization, inlineResponse2006Instrument.categorization) &&
         Objects.equals(this.lifeCycle, inlineResponse2006Instrument.lifeCycle) &&
         Objects.equals(this.issuer, inlineResponse2006Instrument.issuer) &&
@@ -1015,7 +1049,7 @@ public class InlineResponse2006Instrument implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, shortName, isin, nsin, categorization, lifeCycle, issuer, exercise, settlement, collateralized, quanto, capitalProtection, underlying, strike, bonusLevel, cap, knockOut, knockIn, lockOut, lockIn, capitalGuarantee, couponTriggerLevel, rangeKnockOut, participation, constantLeverage, nominalCurrency, currentInterestRate);
+    return Objects.hash(id, name, shortName, isin, nsin, fsym, categorization, lifeCycle, issuer, exercise, settlement, collateralized, quanto, capitalProtection, underlying, strike, bonusLevel, cap, knockOut, knockIn, lockOut, lockIn, capitalGuarantee, couponTriggerLevel, rangeKnockOut, participation, constantLeverage, nominalCurrency, currentInterestRate);
   }
 
   @Override
@@ -1027,6 +1061,7 @@ public class InlineResponse2006Instrument implements Serializable {
     sb.append("    shortName: ").append(toIndentedString(shortName)).append("\n");
     sb.append("    isin: ").append(toIndentedString(isin)).append("\n");
     sb.append("    nsin: ").append(toIndentedString(nsin)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("    categorization: ").append(toIndentedString(categorization)).append("\n");
     sb.append("    lifeCycle: ").append(toIndentedString(lifeCycle)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");

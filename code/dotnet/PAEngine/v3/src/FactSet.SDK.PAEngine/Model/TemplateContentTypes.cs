@@ -72,7 +72,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TemplateContentTypes {\n");
             sb.Append("  Mandatory: ").Append(Mandatory).Append("\n");
             sb.Append("  Optional: ").Append(Optional).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(TemplateContentTypes input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Mandatory == input.Mandatory ||
@@ -141,11 +142,17 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Mandatory != null)
-                    hashCode = hashCode * 59 + this.Mandatory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Mandatory.GetHashCode();
+                }
                 if (this.Optional != null)
-                    hashCode = hashCode * 59 + this.Optional.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Optional.GetHashCode();
+                }
                 if (this.Locked != null)
-                    hashCode = hashCode * 59 + this.Locked.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Locked.GetHashCode();
+                }
                 return hashCode;
             }
         }

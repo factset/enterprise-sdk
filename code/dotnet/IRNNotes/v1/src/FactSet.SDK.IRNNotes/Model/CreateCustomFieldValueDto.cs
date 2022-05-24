@@ -70,61 +70,61 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "Code", IsRequired = true, EmitDefaultValue = false)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets IntegerValue
         /// </summary>
-        [DataMember(Name = "integerValue", EmitDefaultValue = true)]
+        [DataMember(Name = "IntegerValue", EmitDefaultValue = true)]
         public int? IntegerValue { get; set; }
 
         /// <summary>
         /// Gets or Sets TextValue
         /// </summary>
-        [DataMember(Name = "textValue", EmitDefaultValue = true)]
+        [DataMember(Name = "TextValue", EmitDefaultValue = true)]
         public string TextValue { get; set; }
 
         /// <summary>
         /// Gets or Sets FilePathValue
         /// </summary>
-        [DataMember(Name = "filePathValue", EmitDefaultValue = true)]
+        [DataMember(Name = "FilePathValue", EmitDefaultValue = true)]
         public string FilePathValue { get; set; }
 
         /// <summary>
         /// Gets or Sets NumericValue
         /// </summary>
-        [DataMember(Name = "numericValue", EmitDefaultValue = true)]
+        [DataMember(Name = "NumericValue", EmitDefaultValue = true)]
         public double? NumericValue { get; set; }
 
         /// <summary>
         /// Gets or Sets DateValue
         /// </summary>
-        [DataMember(Name = "dateValue", EmitDefaultValue = true)]
+        [DataMember(Name = "DateValue", EmitDefaultValue = true)]
         public string DateValue { get; set; }
 
         /// <summary>
         /// Gets or Sets ExtendedTextValue
         /// </summary>
-        [DataMember(Name = "extendedTextValue", EmitDefaultValue = true)]
+        [DataMember(Name = "ExtendedTextValue", EmitDefaultValue = true)]
         public string ExtendedTextValue { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactLookupValues
         /// </summary>
-        [DataMember(Name = "contactLookupValues", EmitDefaultValue = true)]
+        [DataMember(Name = "ContactLookupValues", EmitDefaultValue = true)]
         public List<Guid> ContactLookupValues { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionValue
         /// </summary>
-        [DataMember(Name = "optionValue", EmitDefaultValue = true)]
+        [DataMember(Name = "OptionValue", EmitDefaultValue = true)]
         public string OptionValue { get; set; }
 
         /// <summary>
         /// Gets or Sets OptionValues
         /// </summary>
-        [DataMember(Name = "optionValues", EmitDefaultValue = true)]
+        [DataMember(Name = "OptionValues", EmitDefaultValue = true)]
         public List<string> OptionValues { get; set; }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CreateCustomFieldValueDto {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  IntegerValue: ").Append(IntegerValue).Append("\n");
@@ -176,8 +176,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(CreateCustomFieldValueDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Code == input.Code ||
@@ -243,25 +244,45 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.IntegerValue != null)
-                    hashCode = hashCode * 59 + this.IntegerValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IntegerValue.GetHashCode();
+                }
                 if (this.TextValue != null)
-                    hashCode = hashCode * 59 + this.TextValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TextValue.GetHashCode();
+                }
                 if (this.FilePathValue != null)
-                    hashCode = hashCode * 59 + this.FilePathValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FilePathValue.GetHashCode();
+                }
                 if (this.NumericValue != null)
-                    hashCode = hashCode * 59 + this.NumericValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NumericValue.GetHashCode();
+                }
                 if (this.DateValue != null)
-                    hashCode = hashCode * 59 + this.DateValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DateValue.GetHashCode();
+                }
                 if (this.ExtendedTextValue != null)
-                    hashCode = hashCode * 59 + this.ExtendedTextValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExtendedTextValue.GetHashCode();
+                }
                 if (this.ContactLookupValues != null)
-                    hashCode = hashCode * 59 + this.ContactLookupValues.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ContactLookupValues.GetHashCode();
+                }
                 if (this.OptionValue != null)
-                    hashCode = hashCode * 59 + this.OptionValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OptionValue.GetHashCode();
+                }
                 if (this.OptionValues != null)
-                    hashCode = hashCode * 59 + this.OptionValues.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OptionValues.GetHashCode();
+                }
                 return hashCode;
             }
         }

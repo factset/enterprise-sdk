@@ -52,6 +52,8 @@ public class InlineResponse2006KeyFiguresBonusYield implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private BigDecimal annualized;
 
+  public InlineResponse2006KeyFiguresBonusYield() { 
+  }
 
   public InlineResponse2006KeyFiguresBonusYield absolute(BigDecimal absolute) {
     this.absolute = absolute;

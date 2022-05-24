@@ -12,18 +12,18 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse20021DataExpenseRatio from './InlineResponse20021DataExpenseRatio';
-import InlineResponse20021DataMaxCapitalGainsRate from './InlineResponse20021DataMaxCapitalGainsRate';
+import InlineResponse20021DataCapitalGains from './InlineResponse20021DataCapitalGains';
+import InlineResponse20021DataDividend from './InlineResponse20021DataDividend';
 
 /**
  * The InlineResponse20021Data model module.
  * @module model/InlineResponse20021Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20021Data {
     /**
      * Constructs a new <code>InlineResponse20021Data</code>.
-     * Taxes and fees.
+     * Distribution.
      * @alias module:model/InlineResponse20021Data
      */
     constructor() { 
@@ -50,47 +50,17 @@ class InlineResponse20021Data {
         if (data) {
             obj = obj || new InlineResponse20021Data();
 
-            if (data.hasOwnProperty('maxCapitalGainsRate')) {
-                obj['maxCapitalGainsRate'] = InlineResponse20021DataMaxCapitalGainsRate.constructFromObject(data['maxCapitalGainsRate']);
-            }
-            if (data.hasOwnProperty('dividendTreatment')) {
-                obj['dividendTreatment'] = ApiClient.convertToType(data['dividendTreatment'], 'String');
-            }
-            if (data.hasOwnProperty('distributeK1')) {
-                obj['distributeK1'] = ApiClient.convertToType(data['distributeK1'], 'String');
-            }
-            if (data.hasOwnProperty('taxType')) {
-                obj['taxType'] = ApiClient.convertToType(data['taxType'], 'String');
-            }
-            if (data.hasOwnProperty('taxOnDistributions')) {
-                obj['taxOnDistributions'] = ApiClient.convertToType(data['taxOnDistributions'], 'String');
-            }
-            if (data.hasOwnProperty('expenseRatio')) {
-                obj['expenseRatio'] = InlineResponse20021DataExpenseRatio.constructFromObject(data['expenseRatio']);
-            }
-            if (data.hasOwnProperty('potentialCostIncreaseDate')) {
-                obj['potentialCostIncreaseDate'] = ApiClient.convertToType(data['potentialCostIncreaseDate'], 'Date');
-            }
-            if (data.hasOwnProperty('contractAdvisoryFee')) {
-                obj['contractAdvisoryFee'] = ApiClient.convertToType(data['contractAdvisoryFee'], 'Number');
+            if (data.hasOwnProperty('dividend')) {
+                obj['dividend'] = InlineResponse20021DataDividend.constructFromObject(data['dividend']);
             }
             if (data.hasOwnProperty('capitalGains')) {
-                obj['capitalGains'] = ApiClient.convertToType(data['capitalGains'], 'Number');
+                obj['capitalGains'] = InlineResponse20021DataCapitalGains.constructFromObject(data['capitalGains']);
             }
-            if (data.hasOwnProperty('capitalGainsDistirbutions3Y')) {
-                obj['capitalGainsDistirbutions3Y'] = ApiClient.convertToType(data['capitalGainsDistirbutions3Y'], 'Number');
+            if (data.hasOwnProperty('totalDistribution')) {
+                obj['totalDistribution'] = ApiClient.convertToType(data['totalDistribution'], 'Number');
             }
-            if (data.hasOwnProperty('managementExpenseRatio')) {
-                obj['managementExpenseRatio'] = ApiClient.convertToType(data['managementExpenseRatio'], 'Number');
-            }
-            if (data.hasOwnProperty('managementFee')) {
-                obj['managementFee'] = ApiClient.convertToType(data['managementFee'], 'Number');
-            }
-            if (data.hasOwnProperty('tradingExpenseRatio')) {
-                obj['tradingExpenseRatio'] = ApiClient.convertToType(data['tradingExpenseRatio'], 'Number');
-            }
-            if (data.hasOwnProperty('feeWaiver')) {
-                obj['feeWaiver'] = ApiClient.convertToType(data['feeWaiver'], 'String');
+            if (data.hasOwnProperty('distributionYield')) {
+                obj['distributionYield'] = ApiClient.convertToType(data['distributionYield'], 'Number');
             }
         }
         return obj;
@@ -100,86 +70,26 @@ class InlineResponse20021Data {
 }
 
 /**
- * @member {module:model/InlineResponse20021DataMaxCapitalGainsRate} maxCapitalGainsRate
+ * @member {module:model/InlineResponse20021DataDividend} dividend
  */
-InlineResponse20021Data.prototype['maxCapitalGainsRate'] = undefined;
+InlineResponse20021Data.prototype['dividend'] = undefined;
 
 /**
- * Describes whether dividend income received by the ETP is distributed to ETP shareholders or capitalised (reinvested) into the ETP, text and standardized value available. This data is available for all the Canada and Europe regions.
- * @member {String} dividendTreatment
- */
-InlineResponse20021Data.prototype['dividendTreatment'] = undefined;
-
-/**
- * Flags ETPs that distribute K-1 tax forms. This data is available for the US regions.
- * @member {String} distributeK1
- */
-InlineResponse20021Data.prototype['distributeK1'] = undefined;
-
-/**
- * Type of the tax applicable on the distribution. This data is available for the US regions.
- * @member {String} taxType
- */
-InlineResponse20021Data.prototype['taxType'] = undefined;
-
-/**
- * Tax treatment of the ETP's regular distributions. This data is available for the US regions.
- * @member {String} taxOnDistributions
- */
-InlineResponse20021Data.prototype['taxOnDistributions'] = undefined;
-
-/**
- * @member {module:model/InlineResponse20021DataExpenseRatio} expenseRatio
- */
-InlineResponse20021Data.prototype['expenseRatio'] = undefined;
-
-/**
- * Expiration date of any fee waivers. This data is available for the US and Canada regions.
- * @member {Date} potentialCostIncreaseDate
- */
-InlineResponse20021Data.prototype['potentialCostIncreaseDate'] = undefined;
-
-/**
- * The advisors fee excluding any additional costs or fees; A subset of the total expense ratio. This data is available for the Canada regions.
- * @member {Number} contractAdvisoryFee
- */
-InlineResponse20021Data.prototype['contractAdvisoryFee'] = undefined;
-
-/**
- * Realized capital gains or losses reported on the ETP's most recent annual or semi-annual report. Gains must generally be paid out as a distribution at year-end, while losses can be banked to offset future gains. This data is available only for the US regions.
- * @member {Number} capitalGains
+ * @member {module:model/InlineResponse20021DataCapitalGains} capitalGains
  */
 InlineResponse20021Data.prototype['capitalGains'] = undefined;
 
 /**
- * The average annual capital gains paid out to shareholders over the past 3 calendar years, measured as a percent of net asset value (NAV) on the final trading day of each previous year. This data is available for the US region only.
- * @member {Number} capitalGainsDistirbutions3Y
+ * Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.
+ * @member {Number} totalDistribution
  */
-InlineResponse20021Data.prototype['capitalGainsDistirbutions3Y'] = undefined;
+InlineResponse20021Data.prototype['totalDistribution'] = undefined;
 
 /**
- * Total net annual cost associated with holding the ETP, expressed as a percentage.  This data is available for the Canada regions.
- * @member {Number} managementExpenseRatio
+ * Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.
+ * @member {Number} distributionYield
  */
-InlineResponse20021Data.prototype['managementExpenseRatio'] = undefined;
-
-/**
- * Annual fee collected by fund manager, expressed as a percentage. This data is available for the Canada region.
- * @member {Number} managementFee
- */
-InlineResponse20021Data.prototype['managementFee'] = undefined;
-
-/**
- * Estimated annual costs associated with trading the underlying holdings. This data is available for the Canada region.
- * @member {Number} tradingExpenseRatio
- */
-InlineResponse20021Data.prototype['tradingExpenseRatio'] = undefined;
-
-/**
- * A reduction in annual ETP expenses, expressed as a percentage. This data is available for the Canada region.
- * @member {String} feeWaiver
- */
-InlineResponse20021Data.prototype['feeWaiver'] = undefined;
+InlineResponse20021Data.prototype['distributionYield'] = undefined;
 
 
 

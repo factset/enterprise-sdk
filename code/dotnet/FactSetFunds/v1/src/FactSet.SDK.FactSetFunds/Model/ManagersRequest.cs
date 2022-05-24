@@ -63,7 +63,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ManagersRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("}\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(ManagersRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -118,7 +119,9 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 return hashCode;
             }
         }

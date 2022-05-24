@@ -363,6 +363,68 @@ namespace FactSet.SDK.OFDB.Api
     {
         private FactSet.SDK.OFDB.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathDatesDateDeleteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathDatesDatePutResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(SuccessPostResponse) },
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)413, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathDatesDateSymbolsSymbolPutResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(SuccessPostResponse) },
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathSymbolsSymbolDeleteResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathSymbolsSymbolPutResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(SuccessPostResponse) },
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)413, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ModifyApi"/> class.
         /// </summary>
@@ -474,7 +536,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <returns>Object</returns>
         public Object V1DatabasePathDatesDateDelete(string path, int date)
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<Object> localVarResponse = V1DatabasePathDatesDateDeleteWithHttpInfo(path, date);
+            var localVarResponse = V1DatabasePathDatesDateDeleteWithHttpInfo(path, date);
             return localVarResponse.Data;
         }
 
@@ -485,11 +547,13 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <returns>ApiResponse of Object</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<Object> V1DatabasePathDatesDateDeleteWithHttpInfo(string path, int date)
+        public ApiResponse<Object> V1DatabasePathDatesDateDeleteWithHttpInfo(string path, int date)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDateDelete");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -502,23 +566,29 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -530,15 +600,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/v1/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDateDeleteResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/v1/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDateDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -550,9 +624,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> V1DatabasePathDatesDateDeleteAsync(string path, int date, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object>V1DatabasePathDatesDateDeleteAsync(string path, int date, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<Object> localVarResponse = await V1DatabasePathDatesDateDeleteWithHttpInfoAsync(path, date, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathDatesDateDeleteWithHttpInfoAsync(path, date, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -564,11 +638,14 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<Object>> V1DatabasePathDatesDateDeleteWithHttpInfoAsync(string path, int date, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> V1DatabasePathDatesDateDeleteWithHttpInfoAsync(string path, int date, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDateDelete");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -581,25 +658,30 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -611,14 +693,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDateDeleteResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDateDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -634,7 +720,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <returns>SuccessPostResponse</returns>
         public SuccessPostResponse V1DatabasePathDatesDatePut(string path, int date, InlineObject3 inlineObject3)
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> localVarResponse = V1DatabasePathDatesDatePutWithHttpInfo(path, date, inlineObject3);
+            var localVarResponse = V1DatabasePathDatesDatePutWithHttpInfo(path, date, inlineObject3);
             return localVarResponse.Data;
         }
 
@@ -646,15 +732,19 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="inlineObject3"></param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> V1DatabasePathDatesDatePutWithHttpInfo(string path, int date, InlineObject3 inlineObject3)
+        public ApiResponse<SuccessPostResponse> V1DatabasePathDatesDatePutWithHttpInfo(string path, int date, InlineObject3 inlineObject3)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDatePut");
+            }
 
             // verify the required parameter 'inlineObject3' is set
             if (inlineObject3 == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject3' when calling ModifyApi->V1DatabasePathDatesDatePut");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -668,10 +758,16 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -679,13 +775,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -697,15 +793,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<SuccessPostResponse>("/v1/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDatePutResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            SuccessPostResponse>("/v1/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDatePut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -718,9 +818,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="inlineObject3"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathDatesDatePutAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathDatesDatePutAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> localVarResponse = await V1DatabasePathDatesDatePutWithHttpInfoAsync(path, date, inlineObject3, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathDatesDatePutWithHttpInfoAsync(path, date, inlineObject3, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -733,15 +833,20 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="inlineObject3"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDatePutWithHttpInfoAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDatePutWithHttpInfoAsync(string path, int date, InlineObject3 inlineObject3, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDatePut");
+            }
 
             // verify the required parameter 'inlineObject3' is set
             if (inlineObject3 == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject3' when calling ModifyApi->V1DatabasePathDatesDatePut");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -755,12 +860,17 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -768,13 +878,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -786,14 +896,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDatePutResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PutAsync<SuccessPostResponse>("/v1/database/{path}/dates/{date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDatePut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -809,7 +923,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <returns>Object</returns>
         public Object V1DatabasePathDatesDateSymbolsSymbolDelete(string path, int date, string symbol)
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<Object> localVarResponse = V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfo(path, date, symbol);
+            var localVarResponse = V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfo(path, date, symbol);
             return localVarResponse.Data;
         }
 
@@ -821,15 +935,19 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="date">Date in YYYYMMDD format</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <returns>ApiResponse of Object</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<Object> V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfo(string path, int date, string symbol)
+        public ApiResponse<Object> V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfo(string path, int date, string symbol)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolDelete");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolDelete");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -842,10 +960,16 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -853,13 +977,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -871,15 +995,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/v1/database/{path}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/v1/database/{path}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDateSymbolsSymbolDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -892,9 +1020,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> V1DatabasePathDatesDateSymbolsSymbolDeleteAsync(string path, int date, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object>V1DatabasePathDatesDateSymbolsSymbolDeleteAsync(string path, int date, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<Object> localVarResponse = await V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfoAsync(path, date, symbol, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfoAsync(path, date, symbol, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -907,15 +1035,20 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<Object>> V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfoAsync(string path, int date, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> V1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfoAsync(string path, int date, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolDelete");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolDelete");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -928,12 +1061,17 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -941,13 +1079,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -959,14 +1097,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/database/{path}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDateSymbolsSymbolDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -983,7 +1125,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <returns>SuccessPostResponse</returns>
         public SuccessPostResponse V1DatabasePathDatesDateSymbolsSymbolPut(string path, int date, string symbol, InlineObject5 inlineObject5)
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> localVarResponse = V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, inlineObject5);
+            var localVarResponse = V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, inlineObject5);
             return localVarResponse.Data;
         }
 
@@ -996,19 +1138,25 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="inlineObject5"></param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(string path, int date, string symbol, InlineObject5 inlineObject5)
+        public ApiResponse<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(string path, int date, string symbol, InlineObject5 inlineObject5)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'inlineObject5' is set
             if (inlineObject5 == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject5' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -1022,10 +1170,16 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -1034,13 +1188,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1052,15 +1206,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<SuccessPostResponse>("/v1/database/{path}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDateSymbolsSymbolPutResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            SuccessPostResponse>("/v1/database/{path}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDateSymbolsSymbolPut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1074,9 +1232,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="inlineObject5"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathDatesDateSymbolsSymbolPutAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathDatesDateSymbolsSymbolPutAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> localVarResponse = await V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(path, date, symbol, inlineObject5, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(path, date, symbol, inlineObject5, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1090,19 +1248,26 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="inlineObject5"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfoAsync(string path, int date, string symbol, InlineObject5 inlineObject5, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'inlineObject5' is set
             if (inlineObject5 == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject5' when calling ModifyApi->V1DatabasePathDatesDateSymbolsSymbolPut");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -1116,12 +1281,17 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -1130,13 +1300,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1148,14 +1318,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesDateSymbolsSymbolPutResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PutAsync<SuccessPostResponse>("/v1/database/{path}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesDateSymbolsSymbolPut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1170,7 +1344,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <returns>Object</returns>
         public Object V1DatabasePathSymbolsSymbolDelete(string path, string symbol)
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<Object> localVarResponse = V1DatabasePathSymbolsSymbolDeleteWithHttpInfo(path, symbol);
+            var localVarResponse = V1DatabasePathSymbolsSymbolDeleteWithHttpInfo(path, symbol);
             return localVarResponse.Data;
         }
 
@@ -1181,15 +1355,19 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <returns>ApiResponse of Object</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<Object> V1DatabasePathSymbolsSymbolDeleteWithHttpInfo(string path, string symbol)
+        public ApiResponse<Object> V1DatabasePathSymbolsSymbolDeleteWithHttpInfo(string path, string symbol)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathSymbolsSymbolDelete");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathSymbolsSymbolDelete");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -1202,23 +1380,29 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1230,15 +1414,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/v1/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathSymbolsSymbolDeleteResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/v1/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathSymbolsSymbolDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1250,9 +1438,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> V1DatabasePathSymbolsSymbolDeleteAsync(string path, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object>V1DatabasePathSymbolsSymbolDeleteAsync(string path, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<Object> localVarResponse = await V1DatabasePathSymbolsSymbolDeleteWithHttpInfoAsync(path, symbol, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathSymbolsSymbolDeleteWithHttpInfoAsync(path, symbol, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1264,15 +1452,20 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<Object>> V1DatabasePathSymbolsSymbolDeleteWithHttpInfoAsync(string path, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> V1DatabasePathSymbolsSymbolDeleteWithHttpInfoAsync(string path, string symbol, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathSymbolsSymbolDelete");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathSymbolsSymbolDelete");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -1285,25 +1478,30 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1315,14 +1513,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathSymbolsSymbolDeleteResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathSymbolsSymbolDelete", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1338,7 +1540,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <returns>SuccessPostResponse</returns>
         public SuccessPostResponse V1DatabasePathSymbolsSymbolPut(string path, string symbol, InlineObject1 inlineObject1)
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> localVarResponse = V1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, inlineObject1);
+            var localVarResponse = V1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, inlineObject1);
             return localVarResponse.Data;
         }
 
@@ -1350,19 +1552,25 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="symbol">Symbol with in the ofdb</param>
         /// <param name="inlineObject1"></param>
         /// <returns>ApiResponse of SuccessPostResponse</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutWithHttpInfo(string path, string symbol, InlineObject1 inlineObject1)
+        public ApiResponse<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutWithHttpInfo(string path, string symbol, InlineObject1 inlineObject1)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'inlineObject1' is set
             if (inlineObject1 == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject1' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -1376,10 +1584,16 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
@@ -1387,13 +1601,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1405,15 +1619,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<SuccessPostResponse>("/v1/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathSymbolsSymbolPutResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            SuccessPostResponse>("/v1/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathSymbolsSymbolPut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1426,9 +1644,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="inlineObject1"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuccessPostResponse</returns>
-        public async System.Threading.Tasks.Task<SuccessPostResponse> V1DatabasePathSymbolsSymbolPutAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SuccessPostResponse>V1DatabasePathSymbolsSymbolPutAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse> localVarResponse = await V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(path, symbol, inlineObject1, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(path, symbol, inlineObject1, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1441,19 +1659,26 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="inlineObject1"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuccessPostResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<SuccessPostResponse>> V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SuccessPostResponse>> V1DatabasePathSymbolsSymbolPutWithHttpInfoAsync(string path, string symbol, InlineObject1 inlineObject1, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+            }
 
             // verify the required parameter 'inlineObject1' is set
             if (inlineObject1 == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'inlineObject1' when calling ModifyApi->V1DatabasePathSymbolsSymbolPut");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -1467,12 +1692,17 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(symbol)); // path parameter
@@ -1480,13 +1710,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1498,14 +1728,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathSymbolsSymbolPutResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PutAsync<SuccessPostResponse>("/v1/database/{path}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathSymbolsSymbolPut", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -88,6 +88,8 @@ public class InlineResponse20073Status implements Serializable {
   public static final String JSON_PROPERTY_ENCRYPTED_DETAILS = "encryptedDetails";
   private String encryptedDetails;
 
+  public InlineResponse20073Status() { 
+  }
 
   public InlineResponse20073Status code(CodeEnum code) {
     this.code = code;

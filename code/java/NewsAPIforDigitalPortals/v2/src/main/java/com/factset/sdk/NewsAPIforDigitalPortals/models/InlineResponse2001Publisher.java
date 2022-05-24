@@ -44,6 +44,8 @@ public class InlineResponse2001Publisher implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public InlineResponse2001Publisher() { 
+  }
 
   public InlineResponse2001Publisher id(BigDecimal id) {
     this.id = id;

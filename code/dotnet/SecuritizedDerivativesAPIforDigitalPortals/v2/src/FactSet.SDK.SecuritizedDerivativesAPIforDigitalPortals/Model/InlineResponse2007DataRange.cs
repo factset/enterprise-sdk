@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataRange {\n");
             sb.Append("  Upper: ").Append(Upper).Append("\n");
             sb.Append("  Lower: ").Append(Lower).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataRange input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Upper == input.Upper ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Upper != null)
-                    hashCode = hashCode * 59 + this.Upper.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Upper.GetHashCode();
+                }
                 if (this.Lower != null)
-                    hashCode = hashCode * 59 + this.Lower.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Lower.GetHashCode();
+                }
                 return hashCode;
             }
         }

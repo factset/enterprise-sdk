@@ -173,6 +173,8 @@ public class SecuritizedDerivativeNotationScreenerSearchData implements Serializ
   public static final String JSON_PROPERTY_VOLATILITY = "volatility";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility volatility;
 
+  public SecuritizedDerivativeNotationScreenerSearchData() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerSearchData validation(SecuritizedDerivativeNotationScreenerSearchDataValidation validation) {
     this.validation = validation;

@@ -48,6 +48,8 @@ public class InlineResponse2006KeyFiguresDiscount implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006KeyFiguresDiscount() { 
+  }
 
   public InlineResponse2006KeyFiguresDiscount absolute(BigDecimal absolute) {
     this.absolute = absolute;

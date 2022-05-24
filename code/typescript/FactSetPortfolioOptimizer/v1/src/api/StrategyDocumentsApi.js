@@ -18,7 +18,7 @@ import DocumentDirectories from '../model/DocumentDirectories';
 /**
 * StrategyDocuments service.
 * @module api/StrategyDocumentsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class StrategyDocumentsApi {
 
@@ -61,7 +61,10 @@ export default class StrategyDocumentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DocumentDirectories;
+
       return this.apiClient.callApi(
         '/analytics/engines/fpo/v1/strategies/{path}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -73,7 +76,7 @@ export default class StrategyDocumentsApi {
      * Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
      * This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
      * @param {String} path The directory to get the strategy documents and sub-directories in
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DocumentDirectories}
+     * @return { Promise.< module:model/DocumentDirectories > } a Promise, with data of type {@link module:model/DocumentDirectories }
      */
     getFPOStrategyDocuments(path) {
       return this.getFPOStrategyDocumentsWithHttpInfo(path)
@@ -84,3 +87,8 @@ export default class StrategyDocumentsApi {
 
 
 }
+
+
+
+
+

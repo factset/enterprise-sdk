@@ -39,38 +39,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_securities_api.EntitySecuritiesApi(api_client)
+
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-    security_type = "EQ" # str | Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (optional) if omitted the server will use the default value of "EQ"
+    security_type = "EQ" # str | Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (optional) (default to "EQ")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
-        api_response = api_instance.get_entity_securities(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetEntity.ApiException as e:
-        print("Exception when calling EntitySecuritiesApi->get_entity_securities: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
         api_response = api_instance.get_entity_securities(ids, security_type=security_type)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntitySecuritiesApi->get_entity_securities: %s\n" % e)
 ```
@@ -142,31 +134,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_securities_api.EntitySecuritiesApi(api_client)
+
     entity_securities_request = EntitySecuritiesRequest(
         ids=Ids(["FDS-US","0FPWZZ-E","TSLA-US"]),
         security_type=SecurityType("EQ"),
     ) # EntitySecuritiesRequest | Request Body to request a list of Entity Security objects.
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
         api_response = api_instance.post_entity_securities(entity_securities_request)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntitySecuritiesApi->post_entity_securities: %s\n" % e)
 ```

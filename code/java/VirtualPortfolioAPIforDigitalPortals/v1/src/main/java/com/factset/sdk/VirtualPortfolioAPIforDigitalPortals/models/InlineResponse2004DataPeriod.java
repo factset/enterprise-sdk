@@ -57,6 +57,8 @@ public class InlineResponse2004DataPeriod implements Serializable {
   public static final String JSON_PROPERTY_PURCHASE_VALUE = "purchaseValue";
   private BigDecimal purchaseValue;
 
+  public InlineResponse2004DataPeriod() { 
+  }
 
   public InlineResponse2004DataPeriod profitLoss(InlineResponse2004DataPeriodProfitLoss profitLoss) {
     this.profitLoss = profitLoss;

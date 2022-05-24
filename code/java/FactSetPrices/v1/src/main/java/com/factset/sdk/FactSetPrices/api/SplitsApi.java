@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.SplitsRequest;
@@ -23,6 +26,28 @@ public class SplitsApi {
   public SplitsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSecuritySplitsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecuritySplitsResponseTypeMap.put(200, new GenericType<SplitsResponse>(){});
+    getSecuritySplitsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSecuritySplitsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecuritySplitsForListResponseTypeMap.put(200, new GenericType<SplitsResponse>(){});
+    getSecuritySplitsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecuritySplitsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class SplitsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SplitsResponse> localVarReturnType = new GenericType<SplitsResponse>() {};
 
-    return apiClient.invokeAPI("SplitsApi.getSecuritySplits", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SplitsResponse
+      
+    > apiResponse = apiClient.invokeAPI("SplitsApi.getSecuritySplits", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecuritySplitsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Requests splits for a list of &#x60;ids&#x60;
@@ -191,10 +222,16 @@ public class SplitsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SplitsResponse> localVarReturnType = new GenericType<SplitsResponse>() {};
 
-    return apiClient.invokeAPI("SplitsApi.getSecuritySplitsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SplitsResponse
+      
+    > apiResponse = apiClient.invokeAPI("SplitsApi.getSecuritySplitsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecuritySplitsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

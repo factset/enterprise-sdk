@@ -44,42 +44,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
-    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
+    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are send. (optional) if omitted the server will use the default value of 5000.0
+    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are send. (optional) (default to 5000.0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Current bid and ask prices (best bid / offer) for a notation.
-        api_response = api_instance.get_prices_bid_ask_get(id)
-        pprint(api_response)
-    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PricesApi->get_prices_bid_ask_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Current bid and ask prices (best bid / offer) for a notation.
         api_response = api_instance.get_prices_bid_ask_get(id, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_bid_ask_get: %s\n" % e)
 ```
@@ -146,44 +138,36 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     ids = [
         "ids_example",
     ] # [str] | List of notations.
-    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
-    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) if omitted the server will use the default value of True
+    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
+    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) (default to True)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Current bid and ask prices (best bid / offer) for a list of notations.
-        api_response = api_instance.get_prices_bid_ask_list(ids)
-        pprint(api_response)
-    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PricesApi->get_prices_bid_ask_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Current bid and ask prices (best bid / offer) for a list of notations.
         api_response = api_instance.get_prices_bid_ask_list(ids, quality=quality, same_quality=same_quality, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_bid_ask_list: %s\n" % e)
 ```
@@ -250,42 +234,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
-    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
+    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
-    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are send. (optional) if omitted the server will use the default value of 5000.0
+    subscription_minimum_interval = 5000.0 # float | Minimum number of milliseconds at which updates are send. (optional) (default to 5000.0)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Overview of trading on the current trading day, including the latest price, for a notation.
-        api_response = api_instance.get_prices_get(id)
-        pprint(api_response)
-    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PricesApi->get_prices_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Overview of trading on the current trading day, including the latest price, for a notation.
         api_response = api_instance.get_prices_get(id, quality=quality, attributes=attributes, subscription_minimum_interval=subscription_minimum_interval)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_get: %s\n" % e)
 ```
@@ -352,44 +328,36 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     ids = [
         "ids_example",
     ] # [str] | List of notations.
-    quality = "DLY" # str | Quality of the price. (optional) if omitted the server will use the default value of "DLY"
-    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) if omitted the server will use the default value of True
+    quality = "DLY" # str | Quality of the price. (optional) (default to "DLY")
+    same_quality = True # bool | Assure that the prices for all notations are of the same quality. (optional) (default to True)
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Overview of trading on the current trading day, including the latest price, for a list of notations.
-        api_response = api_instance.get_prices_list(ids)
-        pprint(api_response)
-    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PricesApi->get_prices_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Overview of trading on the current trading day, including the latest price, for a list of notations.
         api_response = api_instance.get_prices_list(ids, quality=quality, same_quality=same_quality, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_list: %s\n" % e)
 ```
@@ -456,41 +424,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
-    quality = "RLT" # str | Quality of the price. (optional) if omitted the server will use the default value of "RLT"
+    quality = "RLT" # str | Quality of the price. (optional) (default to "RLT")
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Orderbook aggregated by price.
-        api_response = api_instance.get_prices_orderbook_aggregated_get(id)
-        pprint(api_response)
-    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PricesApi->get_prices_orderbook_aggregated_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Orderbook aggregated by price.
         api_response = api_instance.get_prices_orderbook_aggregated_get(id, quality=quality, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_orderbook_aggregated_get: %s\n" % e)
 ```
@@ -556,41 +516,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     id = "id_example" # str | Identifier of the notation.
-    quality = "RLT" # str | Quality of the price. (optional) if omitted the server will use the default value of "RLT"
+    quality = "RLT" # str | Quality of the price. (optional) (default to "RLT")
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Full orderbook
-        api_response = api_instance.get_prices_orderbook_full_get(id)
-        pprint(api_response)
-    except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling PricesApi->get_prices_orderbook_full_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Full orderbook
         api_response = api_instance.get_prices_orderbook_full_get(id, quality=quality, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_orderbook_full_get: %s\n" % e)
 ```
@@ -656,31 +608,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Trading schedule event types.
         api_response = api_instance.get_prices_trading_schedule_event_type_list(attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->get_prices_trading_schedule_event_type_list: %s\n" % e)
 ```
@@ -745,21 +697,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuotesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = prices_api.PricesApi(api_client)
+
     body = InlineObject21(
         data=PricesTradingScheduleEventListData(
             id="id_example",
@@ -784,11 +737,11 @@ with fds.sdk.QuotesAPIforDigitalPortals.ApiClient(configuration) as api_client:
         ),
     ) # InlineObject21 | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Sequence of market-related events.
         api_response = api_instance.post_prices_trading_schedule_event_list(body)
         pprint(api_response)
+
     except fds.sdk.QuotesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling PricesApi->post_prices_trading_schedule_event_list: %s\n" % e)
 ```

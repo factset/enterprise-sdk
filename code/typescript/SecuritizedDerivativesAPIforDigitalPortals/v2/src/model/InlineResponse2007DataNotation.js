@@ -12,12 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2004Fsym from './InlineResponse2004Fsym';
 import InlineResponse2007DataNotationInstrument from './InlineResponse2007DataNotationInstrument';
 
 /**
  * The InlineResponse2007DataNotation model module.
  * @module model/InlineResponse2007DataNotation
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataNotation {
     /**
@@ -52,6 +53,9 @@ class InlineResponse2007DataNotation {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2004Fsym.constructFromObject(data['fsym']);
+            }
             if (data.hasOwnProperty('instrument')) {
                 obj['instrument'] = InlineResponse2007DataNotationInstrument.constructFromObject(data['instrument']);
             }
@@ -67,6 +71,11 @@ class InlineResponse2007DataNotation {
  * @member {String} id
  */
 InlineResponse2007DataNotation.prototype['id'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2004Fsym} fsym
+ */
+InlineResponse2007DataNotation.prototype['fsym'] = undefined;
 
 /**
  * @member {module:model/InlineResponse2007DataNotationInstrument} instrument

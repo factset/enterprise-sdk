@@ -247,6 +247,51 @@ namespace FactSet.SDK.FactSetEntity.Api
     {
         private FactSet.SDK.FactSetEntity.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityStructureResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetUltimateEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(UltimateEntityStructureResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityStructureResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostUltimateEntityStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(UltimateEntityStructureResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityStructureApi"/> class.
         /// </summary>
@@ -359,7 +404,7 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <returns>EntityStructureResponse</returns>
         public EntityStructureResponse GetEntityStructure(List<string> ids, int? level = default(int?), int? active = default(int?))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse> localVarResponse = GetEntityStructureWithHttpInfo(ids, level, active);
+            var localVarResponse = GetEntityStructureWithHttpInfo(ids, level, active);
             return localVarResponse.Data;
         }
 
@@ -371,11 +416,13 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="level">Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional, default to -1)</param>
         /// <param name="active">Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional, default to -1)</param>
         /// <returns>ApiResponse of EntityStructureResponse</returns>
-        public FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse> GetEntityStructureWithHttpInfo(List<string> ids, int? level = default(int?), int? active = default(int?))
+        public ApiResponse<EntityStructureResponse> GetEntityStructureWithHttpInfo(List<string> ids, int? level = default(int?), int? active = default(int?))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityStructureApi->GetEntityStructure");
+            }
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
 
@@ -388,10 +435,16 @@ namespace FactSet.SDK.FactSetEntity.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEntity.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (level != null)
@@ -405,13 +458,13 @@ namespace FactSet.SDK.FactSetEntity.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -423,15 +476,19 @@ namespace FactSet.SDK.FactSetEntity.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EntityStructureResponse>("/factset-entity/v1/entity-structures", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EntityStructureResponse>("/factset-entity/v1/entity-structures", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -444,9 +501,9 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="active">Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityStructureResponse</returns>
-        public async System.Threading.Tasks.Task<EntityStructureResponse> GetEntityStructureAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityStructureResponse>GetEntityStructureAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse> localVarResponse = await GetEntityStructureWithHttpInfoAsync(ids, level, active, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityStructureWithHttpInfoAsync(ids, level, active, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -459,11 +516,14 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="active">Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityStructureResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse>> GetEntityStructureWithHttpInfoAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityStructureResponse>> GetEntityStructureWithHttpInfoAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityStructureApi->GetEntityStructure");
+            }
 
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
@@ -476,12 +536,17 @@ namespace FactSet.SDK.FactSetEntity.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEntity.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (level != null)
@@ -495,13 +560,13 @@ namespace FactSet.SDK.FactSetEntity.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -513,14 +578,18 @@ namespace FactSet.SDK.FactSetEntity.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EntityStructureResponse>("/factset-entity/v1/entity-structures", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -536,7 +605,7 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <returns>UltimateEntityStructureResponse</returns>
         public UltimateEntityStructureResponse GetUltimateEntityStructure(List<string> ids, int? level = default(int?), int? active = default(int?))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse> localVarResponse = GetUltimateEntityStructureWithHttpInfo(ids, level, active);
+            var localVarResponse = GetUltimateEntityStructureWithHttpInfo(ids, level, active);
             return localVarResponse.Data;
         }
 
@@ -548,11 +617,13 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="level">Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level. (optional, default to -1)</param>
         /// <param name="active">Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional, default to -1)</param>
         /// <returns>ApiResponse of UltimateEntityStructureResponse</returns>
-        public FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse> GetUltimateEntityStructureWithHttpInfo(List<string> ids, int? level = default(int?), int? active = default(int?))
+        public ApiResponse<UltimateEntityStructureResponse> GetUltimateEntityStructureWithHttpInfo(List<string> ids, int? level = default(int?), int? active = default(int?))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityStructureApi->GetUltimateEntityStructure");
+            }
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
 
@@ -565,10 +636,16 @@ namespace FactSet.SDK.FactSetEntity.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEntity.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (level != null)
@@ -582,13 +659,13 @@ namespace FactSet.SDK.FactSetEntity.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -600,15 +677,19 @@ namespace FactSet.SDK.FactSetEntity.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<UltimateEntityStructureResponse>("/factset-entity/v1/ultimate-entity-structures", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetUltimateEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            UltimateEntityStructureResponse>("/factset-entity/v1/ultimate-entity-structures", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUltimateEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -621,9 +702,9 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="active">Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UltimateEntityStructureResponse</returns>
-        public async System.Threading.Tasks.Task<UltimateEntityStructureResponse> GetUltimateEntityStructureAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UltimateEntityStructureResponse>GetUltimateEntityStructureAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse> localVarResponse = await GetUltimateEntityStructureWithHttpInfoAsync(ids, level, active, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUltimateEntityStructureWithHttpInfoAsync(ids, level, active, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -636,11 +717,14 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="active">Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UltimateEntityStructureResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse>> GetUltimateEntityStructureWithHttpInfoAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<UltimateEntityStructureResponse>> GetUltimateEntityStructureWithHttpInfoAsync(List<string> ids, int? level = default(int?), int? active = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityStructureApi->GetUltimateEntityStructure");
+            }
 
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
@@ -653,12 +737,17 @@ namespace FactSet.SDK.FactSetEntity.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEntity.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (level != null)
@@ -672,13 +761,13 @@ namespace FactSet.SDK.FactSetEntity.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -690,14 +779,18 @@ namespace FactSet.SDK.FactSetEntity.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetUltimateEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<UltimateEntityStructureResponse>("/factset-entity/v1/ultimate-entity-structures", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUltimateEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -711,7 +804,7 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <returns>EntityStructureResponse</returns>
         public EntityStructureResponse PostEntityStructure(EntityStructureRequest entityStructureRequest)
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse> localVarResponse = PostEntityStructureWithHttpInfo(entityStructureRequest);
+            var localVarResponse = PostEntityStructureWithHttpInfo(entityStructureRequest);
             return localVarResponse.Data;
         }
 
@@ -721,11 +814,13 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <exception cref="FactSet.SDK.FactSetEntity.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityStructureRequest">Request Body to request a list of Entity Structure objects.</param>
         /// <returns>ApiResponse of EntityStructureResponse</returns>
-        public FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse> PostEntityStructureWithHttpInfo(EntityStructureRequest entityStructureRequest)
+        public ApiResponse<EntityStructureResponse> PostEntityStructureWithHttpInfo(EntityStructureRequest entityStructureRequest)
         {
             // verify the required parameter 'entityStructureRequest' is set
             if (entityStructureRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'entityStructureRequest' when calling EntityStructureApi->PostEntityStructure");
+            }
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
 
@@ -739,22 +834,28 @@ namespace FactSet.SDK.FactSetEntity.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityStructureRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -766,15 +867,19 @@ namespace FactSet.SDK.FactSetEntity.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EntityStructureResponse>("/factset-entity/v1/entity-structures", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EntityStructureResponse>("/factset-entity/v1/entity-structures", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -785,9 +890,9 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="entityStructureRequest">Request Body to request a list of Entity Structure objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityStructureResponse</returns>
-        public async System.Threading.Tasks.Task<EntityStructureResponse> PostEntityStructureAsync(EntityStructureRequest entityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityStructureResponse>PostEntityStructureAsync(EntityStructureRequest entityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse> localVarResponse = await PostEntityStructureWithHttpInfoAsync(entityStructureRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostEntityStructureWithHttpInfoAsync(entityStructureRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -798,11 +903,14 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="entityStructureRequest">Request Body to request a list of Entity Structure objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityStructureResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityStructureResponse>> PostEntityStructureWithHttpInfoAsync(EntityStructureRequest entityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityStructureResponse>> PostEntityStructureWithHttpInfoAsync(EntityStructureRequest entityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityStructureRequest' is set
             if (entityStructureRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'entityStructureRequest' when calling EntityStructureApi->PostEntityStructure");
+            }
 
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
@@ -816,24 +924,29 @@ namespace FactSet.SDK.FactSetEntity.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityStructureRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -845,14 +958,18 @@ namespace FactSet.SDK.FactSetEntity.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EntityStructureResponse>("/factset-entity/v1/entity-structures", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -866,7 +983,7 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <returns>UltimateEntityStructureResponse</returns>
         public UltimateEntityStructureResponse PostUltimateEntityStructure(UltimateEntityStructureRequest ultimateEntityStructureRequest)
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse> localVarResponse = PostUltimateEntityStructureWithHttpInfo(ultimateEntityStructureRequest);
+            var localVarResponse = PostUltimateEntityStructureWithHttpInfo(ultimateEntityStructureRequest);
             return localVarResponse.Data;
         }
 
@@ -876,11 +993,13 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <exception cref="FactSet.SDK.FactSetEntity.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ultimateEntityStructureRequest">Request Body to request a list of Ultimate Entity Structure objects.</param>
         /// <returns>ApiResponse of UltimateEntityStructureResponse</returns>
-        public FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse> PostUltimateEntityStructureWithHttpInfo(UltimateEntityStructureRequest ultimateEntityStructureRequest)
+        public ApiResponse<UltimateEntityStructureResponse> PostUltimateEntityStructureWithHttpInfo(UltimateEntityStructureRequest ultimateEntityStructureRequest)
         {
             // verify the required parameter 'ultimateEntityStructureRequest' is set
             if (ultimateEntityStructureRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ultimateEntityStructureRequest' when calling EntityStructureApi->PostUltimateEntityStructure");
+            }
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
 
@@ -894,22 +1013,28 @@ namespace FactSet.SDK.FactSetEntity.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = ultimateEntityStructureRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -921,15 +1046,19 @@ namespace FactSet.SDK.FactSetEntity.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<UltimateEntityStructureResponse>("/factset-entity/v1/ultimate-entity-structures", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostUltimateEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            UltimateEntityStructureResponse>("/factset-entity/v1/ultimate-entity-structures", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostUltimateEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -940,9 +1069,9 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="ultimateEntityStructureRequest">Request Body to request a list of Ultimate Entity Structure objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UltimateEntityStructureResponse</returns>
-        public async System.Threading.Tasks.Task<UltimateEntityStructureResponse> PostUltimateEntityStructureAsync(UltimateEntityStructureRequest ultimateEntityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UltimateEntityStructureResponse>PostUltimateEntityStructureAsync(UltimateEntityStructureRequest ultimateEntityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse> localVarResponse = await PostUltimateEntityStructureWithHttpInfoAsync(ultimateEntityStructureRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostUltimateEntityStructureWithHttpInfoAsync(ultimateEntityStructureRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -953,11 +1082,14 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="ultimateEntityStructureRequest">Request Body to request a list of Ultimate Entity Structure objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (UltimateEntityStructureResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEntity.Client.ApiResponse<UltimateEntityStructureResponse>> PostUltimateEntityStructureWithHttpInfoAsync(UltimateEntityStructureRequest ultimateEntityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<UltimateEntityStructureResponse>> PostUltimateEntityStructureWithHttpInfoAsync(UltimateEntityStructureRequest ultimateEntityStructureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ultimateEntityStructureRequest' is set
             if (ultimateEntityStructureRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ultimateEntityStructureRequest' when calling EntityStructureApi->PostUltimateEntityStructure");
+            }
 
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
@@ -971,24 +1103,29 @@ namespace FactSet.SDK.FactSetEntity.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = ultimateEntityStructureRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1000,14 +1137,18 @@ namespace FactSet.SDK.FactSetEntity.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostUltimateEntityStructureResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<UltimateEntityStructureResponse>("/factset-entity/v1/ultimate-entity-structures", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostUltimateEntityStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

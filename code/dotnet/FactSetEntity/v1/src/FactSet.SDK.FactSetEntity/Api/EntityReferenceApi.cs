@@ -143,6 +143,33 @@ namespace FactSet.SDK.FactSetEntity.Api
     {
         private FactSet.SDK.FactSetEntity.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityReferencesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityReferenceResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostEntityReferencesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityReferenceResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityReferenceApi"/> class.
         /// </summary>
@@ -253,7 +280,7 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <returns>EntityReferenceResponse</returns>
         public EntityReferenceResponse GetEntityReferences(List<string> ids)
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse> localVarResponse = GetEntityReferencesWithHttpInfo(ids);
+            var localVarResponse = GetEntityReferencesWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -263,11 +290,13 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <exception cref="FactSet.SDK.FactSetEntity.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;* </param>
         /// <returns>ApiResponse of EntityReferenceResponse</returns>
-        public FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse> GetEntityReferencesWithHttpInfo(List<string> ids)
+        public ApiResponse<EntityReferenceResponse> GetEntityReferencesWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityReferenceApi->GetEntityReferences");
+            }
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
 
@@ -280,22 +309,28 @@ namespace FactSet.SDK.FactSetEntity.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEntity.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -307,15 +342,19 @@ namespace FactSet.SDK.FactSetEntity.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EntityReferenceResponse>("/factset-entity/v1/entity-references", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityReferencesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EntityReferenceResponse>("/factset-entity/v1/entity-references", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityReferences", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -326,9 +365,9 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="ids">The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityReferenceResponse</returns>
-        public async System.Threading.Tasks.Task<EntityReferenceResponse> GetEntityReferencesAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityReferenceResponse>GetEntityReferencesAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse> localVarResponse = await GetEntityReferencesWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityReferencesWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -339,11 +378,14 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="ids">The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**Max Ids Limit set to 3000 in a single request**&lt;/p&gt;   *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\&quot;POST\\\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityReferenceResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse>> GetEntityReferencesWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityReferenceResponse>> GetEntityReferencesWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityReferenceApi->GetEntityReferences");
+            }
 
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
@@ -356,24 +398,29 @@ namespace FactSet.SDK.FactSetEntity.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEntity.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -385,14 +432,18 @@ namespace FactSet.SDK.FactSetEntity.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityReferencesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EntityReferenceResponse>("/factset-entity/v1/entity-references", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityReferences", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -406,7 +457,7 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <returns>EntityReferenceResponse</returns>
         public EntityReferenceResponse PostEntityReferences(EntityReferenceRequest entityReferenceRequest)
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse> localVarResponse = PostEntityReferencesWithHttpInfo(entityReferenceRequest);
+            var localVarResponse = PostEntityReferencesWithHttpInfo(entityReferenceRequest);
             return localVarResponse.Data;
         }
 
@@ -416,11 +467,13 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <exception cref="FactSet.SDK.FactSetEntity.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityReferenceRequest">Request Body to request a list of Entity Reference objects.</param>
         /// <returns>ApiResponse of EntityReferenceResponse</returns>
-        public FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse> PostEntityReferencesWithHttpInfo(EntityReferenceRequest entityReferenceRequest)
+        public ApiResponse<EntityReferenceResponse> PostEntityReferencesWithHttpInfo(EntityReferenceRequest entityReferenceRequest)
         {
             // verify the required parameter 'entityReferenceRequest' is set
             if (entityReferenceRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'entityReferenceRequest' when calling EntityReferenceApi->PostEntityReferences");
+            }
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
 
@@ -434,22 +487,28 @@ namespace FactSet.SDK.FactSetEntity.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityReferenceRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -461,15 +520,19 @@ namespace FactSet.SDK.FactSetEntity.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EntityReferenceResponse>("/factset-entity/v1/entity-references", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostEntityReferencesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EntityReferenceResponse>("/factset-entity/v1/entity-references", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostEntityReferences", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -480,9 +543,9 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="entityReferenceRequest">Request Body to request a list of Entity Reference objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityReferenceResponse</returns>
-        public async System.Threading.Tasks.Task<EntityReferenceResponse> PostEntityReferencesAsync(EntityReferenceRequest entityReferenceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityReferenceResponse>PostEntityReferencesAsync(EntityReferenceRequest entityReferenceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse> localVarResponse = await PostEntityReferencesWithHttpInfoAsync(entityReferenceRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostEntityReferencesWithHttpInfoAsync(entityReferenceRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -493,11 +556,14 @@ namespace FactSet.SDK.FactSetEntity.Api
         /// <param name="entityReferenceRequest">Request Body to request a list of Entity Reference objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityReferenceResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEntity.Client.ApiResponse<EntityReferenceResponse>> PostEntityReferencesWithHttpInfoAsync(EntityReferenceRequest entityReferenceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityReferenceResponse>> PostEntityReferencesWithHttpInfoAsync(EntityReferenceRequest entityReferenceRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityReferenceRequest' is set
             if (entityReferenceRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEntity.Client.ApiException(400, "Missing required parameter 'entityReferenceRequest' when calling EntityReferenceApi->PostEntityReferences");
+            }
 
 
             FactSet.SDK.FactSetEntity.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEntity.Client.RequestOptions();
@@ -511,24 +577,29 @@ namespace FactSet.SDK.FactSetEntity.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEntity.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityReferenceRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEntity.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -540,14 +611,18 @@ namespace FactSet.SDK.FactSetEntity.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostEntityReferencesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EntityReferenceResponse>("/factset-entity/v1/entity-references", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostEntityReferences", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

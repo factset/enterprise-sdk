@@ -4,23 +4,23 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1ContactsContactIdAboutGet**](ContactsApi.md#v1ContactsContactIdAboutGet) | **GET** /v1/contacts/{contactId}/about | Get the About field content for a specific contact
-[**v1ContactsContactIdDelete**](ContactsApi.md#v1ContactsContactIdDelete) | **DELETE** /v1/contacts/{contactId} | Delete a contact
-[**v1ContactsContactIdEventsGet**](ContactsApi.md#v1ContactsContactIdEventsGet) | **GET** /v1/contacts/{contactId}/events | Get a contact’s audit history
-[**v1ContactsContactIdGet**](ContactsApi.md#v1ContactsContactIdGet) | **GET** /v1/contacts/{contactId} | Get all custom field and standard field details on a specific contact
-[**v1ContactsContactIdPatch**](ContactsApi.md#v1ContactsContactIdPatch) | **PATCH** /v1/contacts/{contactId} | Edit a contact’s standard field and custom field data
-[**v1ContactsContactIdRecordsGet**](ContactsApi.md#v1ContactsContactIdRecordsGet) | **GET** /v1/contacts/{contactId}/records | Get all notes and meetings where a specific contact was tagged
-[**v1ContactsContactIdRelationshipsGet**](ContactsApi.md#v1ContactsContactIdRelationshipsGet) | **GET** /v1/contacts/{contactId}/relationships | Returns a list of a contact’s relationships
-[**v1ContactsGet**](ContactsApi.md#v1ContactsGet) | **GET** /v1/contacts | Get list of all contacts in your group along with some of their standard field data
-[**v1ContactsPost**](ContactsApi.md#v1ContactsPost) | **POST** /v1/contacts | Create a contact
+[**createContact**](ContactsApi.md#createContact) | **POST** /v1/contacts | Create a contact
+[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /v1/contacts/{contactId} | Delete a contact
+[**getContact**](ContactsApi.md#getContact) | **GET** /v1/contacts/{contactId} | Get all custom field and standard field details on a specific contact
+[**getContactEvents**](ContactsApi.md#getContactEvents) | **GET** /v1/contacts/{contactId}/events | Get a contact’s audit history
+[**getContactNotes**](ContactsApi.md#getContactNotes) | **GET** /v1/contacts/{contactId}/about | Get the About field content for a specific contact
+[**getContactRecords**](ContactsApi.md#getContactRecords) | **GET** /v1/contacts/{contactId}/records | Get all notes and meetings where a specific contact was tagged
+[**getContactRelationships**](ContactsApi.md#getContactRelationships) | **GET** /v1/contacts/{contactId}/relationships | Returns a list of a contact’s relationships
+[**getContacts**](ContactsApi.md#getContacts) | **GET** /v1/contacts | Get list of all contacts in your group along with some of their standard field data
+[**patchContact**](ContactsApi.md#patchContact) | **PATCH** /v1/contacts/{contactId} | Edit a contact’s standard field and custom field data
 
 
 
-## v1ContactsContactIdAboutGet
+## createContact
 
-> String v1ContactsContactIdAboutGet(contactId)
+> NewItemDto createContact(contactSaveDto)
 
-Get the About field content for a specific contact
+Create a contact
 
 ### Example
 
@@ -30,14 +30,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -47,22 +46,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
-        java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId of associated record
+        ContactSaveDto contactSaveDto = new ContactSaveDto(); // ContactSaveDto | contactSaveDto object to save
         try {
-            String result = apiInstance.v1ContactsContactIdAboutGet(contactId);
+            NewItemDto result = apiInstance.createContact(contactSaveDto);
             System.out.println(result);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsContactIdAboutGet");
+            System.err.println("Exception when calling ContactsApi#createContact");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -77,11 +77,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactId** | **java.util.UUID**| contactId of associated record |
+ **contactSaveDto** | [**ContactSaveDto**](ContactSaveDto.md)| contactSaveDto object to save | [optional]
 
 ### Return type
 
-**String**
+[**NewItemDto**](NewItemDto.md)
 
 ### Authorization
 
@@ -89,20 +89,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
 - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Not Found |  -  |
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
 | **0** | Error |  -  |
 
 
-## v1ContactsContactIdDelete
+## deleteContact
 
-> v1ContactsContactIdDelete(contactId)
+> deleteContact(contactId)
 
 Delete a contact
 
@@ -114,14 +114,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -131,21 +130,22 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
         java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to delete associated record
         try {
-            apiInstance.v1ContactsContactIdDelete(contactId);
+            apiInstance.deleteContact(contactId);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsContactIdDelete");
+            System.err.println("Exception when calling ContactsApi#deleteContact");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -184,93 +184,9 @@ null (empty response body)
 | **0** | Error |  -  |
 
 
-## v1ContactsContactIdEventsGet
+## getContact
 
-> java.util.List&lt;ContactEventDto&gt; v1ContactsContactIdEventsGet(contactId)
-
-Get a contact’s audit history
-
-### Example
-
-```java
-// Import classes:
-import com.factset.sdk.IRNContacts.ApiClient;
-import com.factset.sdk.IRNContacts.ApiException;
-import com.factset.sdk.IRNContacts.Configuration;
-import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
-import com.factset.sdk.IRNContacts.api.ContactsApi;
-
-import com.factset.sdk.utils.authentication.ConfidentialClient;
-
-
-public class Example {
-    public static void main(String[] args) {
-        // Examples for each supported authentication method are below,
-        // choose one that satisfies your use case.
-
-        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
-        // See https://github.com/FactSet/enterprise-sdk#oauth-20
-        // for information on how to create the app-config.json file
-        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
-        // for more information on using the ConfidentialClient class
-        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
-
-        /* Basic authentication: FactSetApiKey */
-        // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
-
-        ContactsApi apiInstance = new ContactsApi(defaultClient);
-        java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to get associated records
-        try {
-            java.util.List<ContactEventDto> result = apiInstance.v1ContactsContactIdEventsGet(contactId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsContactIdEventsGet");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contactId** | **java.util.UUID**| contactId to get associated records |
-
-### Return type
-
-[**java.util.List&lt;ContactEventDto&gt;**](ContactEventDto.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **404** | Not Found |  -  |
-| **0** | Error |  -  |
-
-
-## v1ContactsContactIdGet
-
-> ContactDto v1ContactsContactIdGet(contactId)
+> ContactDto getContact(contactId)
 
 Get all custom field and standard field details on a specific contact
 
@@ -282,14 +198,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -299,22 +214,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
         java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to get associated record
         try {
-            ContactDto result = apiInstance.v1ContactsContactIdGet(contactId);
+            ContactDto result = apiInstance.getContact(contactId);
             System.out.println(result);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsContactIdGet");
+            System.err.println("Exception when calling ContactsApi#getContact");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -352,11 +268,11 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 
-## v1ContactsContactIdPatch
+## getContactEvents
 
-> v1ContactsContactIdPatch(contactId, operation)
+> java.util.List<ContactEventDto> getContactEvents(contactId)
 
-Edit a contact’s standard field and custom field data
+Get a contact’s audit history
 
 ### Example
 
@@ -366,14 +282,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -383,22 +298,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
-        java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to update associated record
-        java.util.List<Operation> operation = Arrays.asList(); // java.util.List<Operation> | contactSaveDtoPatch object to update
+        java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to get associated records
         try {
-            apiInstance.v1ContactsContactIdPatch(contactId, operation);
+            java.util.List<ContactEventDto> result = apiInstance.getContactEvents(contactId);
+            System.out.println(result);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsContactIdPatch");
+            System.err.println("Exception when calling ContactsApi#getContactEvents");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -413,12 +329,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactId** | **java.util.UUID**| contactId to update associated record |
- **operation** | [**List&lt;Operation&gt;**](Operation.md)| contactSaveDtoPatch object to update | [optional]
+ **contactId** | **java.util.UUID**| contactId to get associated records |
 
 ### Return type
 
-null (empty response body)
+[**java.util.List&lt;ContactEventDto&gt;**](ContactEventDto.md)
 
 ### Authorization
 
@@ -426,21 +341,104 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **0** | Error |  -  |
 
 
-## v1ContactsContactIdRecordsGet
+## getContactNotes
 
-> java.util.List&lt;RecordPreviewDto&gt; v1ContactsContactIdRecordsGet(contactId)
+> String getContactNotes(contactId)
+
+Get the About field content for a specific contact
+
+### Example
+
+```java
+// Import classes:
+import com.factset.sdk.IRNContacts.ApiClient;
+import com.factset.sdk.IRNContacts.ApiException;
+import com.factset.sdk.IRNContacts.Configuration;
+import com.factset.sdk.IRNContacts.auth.*;
+import com.factset.sdk.IRNContacts.models.*;
+import com.factset.sdk.IRNContacts.api.ContactsApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        ContactsApi apiInstance = new ContactsApi(defaultClient);
+        java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId of associated record
+        try {
+            String result = apiInstance.getContactNotes(contactId);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ContactsApi#getContactNotes");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contactId** | **java.util.UUID**| contactId of associated record |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **404** | Not Found |  -  |
+| **0** | Error |  -  |
+
+
+## getContactRecords
+
+> java.util.List<RecordPreviewDto> getContactRecords(contactId)
 
 Get all notes and meetings where a specific contact was tagged
 
@@ -452,14 +450,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -469,22 +466,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
         java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to get associated records
         try {
-            java.util.List<RecordPreviewDto> result = apiInstance.v1ContactsContactIdRecordsGet(contactId);
+            java.util.List<RecordPreviewDto> result = apiInstance.getContactRecords(contactId);
             System.out.println(result);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsContactIdRecordsGet");
+            System.err.println("Exception when calling ContactsApi#getContactRecords");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -522,9 +520,9 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 
-## v1ContactsContactIdRelationshipsGet
+## getContactRelationships
 
-> java.util.List&lt;ContactRelationshipDto&gt; v1ContactsContactIdRelationshipsGet(contactId)
+> java.util.List<ContactRelationshipDto> getContactRelationships(contactId)
 
 Returns a list of a contact’s relationships
 
@@ -536,14 +534,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -553,22 +550,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
         java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to get associated records
         try {
-            java.util.List<ContactRelationshipDto> result = apiInstance.v1ContactsContactIdRelationshipsGet(contactId);
+            java.util.List<ContactRelationshipDto> result = apiInstance.getContactRelationships(contactId);
             System.out.println(result);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsContactIdRelationshipsGet");
+            System.err.println("Exception when calling ContactsApi#getContactRelationships");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -606,9 +604,9 @@ Name | Type | Description  | Notes
 | **0** | Error |  -  |
 
 
-## v1ContactsGet
+## getContacts
 
-> java.util.List&lt;ContactSummaryDto&gt; v1ContactsGet(fullName, emailAddress, identifier, employerName, customFieldValues, search, sort, includeLastMeetingDate, limit)
+> java.util.List<ContactSummaryDto> getContacts(fullName, emailAddress, identifier, employerName, customFieldValues, search, sort, includeLastMeetingDate, limit)
 
 Get list of all contacts in your group along with some of their standard field data
 
@@ -620,14 +618,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -637,14 +634,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
         String fullName = "fullName_example"; // String | Filter results on fullName
@@ -657,10 +654,11 @@ public class Example {
         Boolean includeLastMeetingDate = false; // Boolean | If true, returns when they were last tagged as an attendee in an IRN meeting
         Integer limit = 0; // Integer | Restrict number of records returned
         try {
-            java.util.List<ContactSummaryDto> result = apiInstance.v1ContactsGet(fullName, emailAddress, identifier, employerName, customFieldValues, search, sort, includeLastMeetingDate, limit);
+            java.util.List<ContactSummaryDto> result = apiInstance.getContacts(fullName, emailAddress, identifier, employerName, customFieldValues, search, sort, includeLastMeetingDate, limit);
             System.out.println(result);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsGet");
+            System.err.println("Exception when calling ContactsApi#getContacts");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -704,11 +702,11 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 
-## v1ContactsPost
+## patchContact
 
-> java.util.UUID v1ContactsPost(contactSaveDto)
+> patchContact(contactId, operation)
 
-Create a contact
+Edit a contact’s standard field and custom field data
 
 ### Example
 
@@ -718,14 +716,13 @@ import com.factset.sdk.IRNContacts.ApiClient;
 import com.factset.sdk.IRNContacts.ApiException;
 import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.auth.*;
-import com.factset.sdk.IRNContacts.model.*;
+import com.factset.sdk.IRNContacts.models.*;
 import com.factset.sdk.IRNContacts.api.ContactsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -735,22 +732,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ContactsApi apiInstance = new ContactsApi(defaultClient);
-        ContactSaveDto contactSaveDto = new ContactSaveDto(); // ContactSaveDto | contactSaveDto object to save
+        java.util.UUID contactId = new java.util.UUID(); // java.util.UUID | contactId to update associated record
+        java.util.List<Operation> operation = Arrays.asList(); // java.util.List<Operation> | contactSaveDtoPatch object to update
         try {
-            java.util.UUID result = apiInstance.v1ContactsPost(contactSaveDto);
-            System.out.println(result);
+            apiInstance.patchContact(contactId, operation);
+
         } catch (ApiException e) {
-            System.err.println("Exception when calling ContactsApi#v1ContactsPost");
+            System.err.println("Exception when calling ContactsApi#patchContact");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -765,11 +763,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactSaveDto** | [**ContactSaveDto**](ContactSaveDto.md)| contactSaveDto object to save | [optional]
+ **contactId** | **java.util.UUID**| contactId to update associated record |
+ **operation** | [**List&lt;Operation&gt;**](Operation.md)| contactSaveDtoPatch object to update | [optional]
 
 ### Return type
 
-[**java.util.UUID**](java.util.UUID.md)
+null (empty response body)
 
 ### Authorization
 
@@ -783,7 +782,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **0** | Error |  -  |
 

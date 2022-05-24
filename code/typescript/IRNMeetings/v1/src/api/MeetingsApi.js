@@ -23,7 +23,7 @@ import UpdateMeetingDto from '../model/UpdateMeetingDto';
 /**
 * Meetings service.
 * @module api/MeetingsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class MeetingsApi {
 
@@ -62,7 +62,10 @@ export default class MeetingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
+
+
       let returnType = NewItemDto;
+
       return this.apiClient.callApi(
         '/v1/meetings', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class MeetingsApi {
      * Create a meeting
      * @param {Object} opts Optional parameters
      * @param {module:model/CreateMeetingDto} opts.createMeetingDto Note: The organizer property is deprecated in favor of organizerId
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NewItemDto}
+     * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
     createMeeting(opts) {
       return this.createMeetingWithHttpInfo(opts)
@@ -109,7 +112,10 @@ export default class MeetingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -120,7 +126,7 @@ export default class MeetingsApi {
     /**
      * Delete a Meeting
      * @param {String} meetingId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     deleteMeeting(meetingId) {
       return this.deleteMeetingWithHttpInfo(meetingId)
@@ -155,7 +161,10 @@ export default class MeetingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = MeetingDto;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -166,7 +175,7 @@ export default class MeetingsApi {
     /**
      * Get details of a meeting
      * @param {String} meetingId Meeting Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MeetingDto}
+     * @return { Promise.< module:model/MeetingDto > } a Promise, with data of type {@link module:model/MeetingDto }
      */
     getMeeting(meetingId) {
       return this.getMeetingWithHttpInfo(meetingId)
@@ -209,7 +218,10 @@ export default class MeetingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [MeetingSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/meetings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -226,7 +238,7 @@ export default class MeetingsApi {
      * @param {Number} opts.limit Limit on the number of meetings retrieved
      * @param {String} opts.modifiedSince Only return meetings which have been modified or created since a particular time
      * @param {Boolean} opts.xIRNIncludeDeleted Includes deleted meetings in results when set to true (default to false)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/MeetingSummaryDto>}
+     * @return { Promise.< Array.<module:model/MeetingSummaryDto> > } a Promise, with data of type {@link Array.<module:model/MeetingSummaryDto> }
      */
     getMeetings(opts) {
       return this.getMeetingsWithHttpInfo(opts)
@@ -264,7 +276,10 @@ export default class MeetingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -277,7 +292,7 @@ export default class MeetingsApi {
      * @param {String} meetingId Meeting Id
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateMeetingDto} opts.updateMeetingDto Meeting details to update. Note: The organizer property is deprecated in favor of organizerId
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     updateMeeting(meetingId, opts) {
       return this.updateMeetingWithHttpInfo(meetingId, opts)
@@ -288,3 +303,8 @@ export default class MeetingsApi {
 
 
 }
+
+
+
+
+

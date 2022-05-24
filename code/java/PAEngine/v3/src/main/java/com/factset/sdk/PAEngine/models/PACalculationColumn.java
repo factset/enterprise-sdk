@@ -46,6 +46,8 @@ public class PACalculationColumn implements Serializable {
   public static final String JSON_PROPERTY_STATISTICS = "statistics";
   private java.util.List<String> statistics = null;
 
+  public PACalculationColumn() { 
+  }
 
   public PACalculationColumn id(String id) {
     this.id = id;

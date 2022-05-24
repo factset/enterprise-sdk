@@ -103,6 +103,8 @@ public class EventsAudioData implements Serializable {
   public static final String JSON_PROPERTY_BITRATE = "bitrate";
   private BigDecimal bitrate;
 
+  public EventsAudioData() { 
+  }
 
   public EventsAudioData url(String url) {
     this.url = url;

@@ -54,7 +54,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SPARAccounts {\n");
             sb.Append("  ReturnsType: ").Append(ReturnsType).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.SDK.SPAREngine.Model
         public bool Equals(SPARAccounts input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReturnsType == input.ReturnsType ||
@@ -109,7 +110,9 @@ namespace FactSet.SDK.SPAREngine.Model
             {
                 int hashCode = 41;
                 if (this.ReturnsType != null)
-                    hashCode = hashCode * 59 + this.ReturnsType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReturnsType.GetHashCode();
+                }
                 return hashCode;
             }
         }

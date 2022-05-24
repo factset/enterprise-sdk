@@ -48,6 +48,8 @@ public class InlineObject implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private AlertingPricesBasicTriggerListMeta meta;
 
+  public InlineObject() { 
+  }
 
   public InlineObject data(AlertingPricesBasicTriggerListData data) {
     this.data = data;

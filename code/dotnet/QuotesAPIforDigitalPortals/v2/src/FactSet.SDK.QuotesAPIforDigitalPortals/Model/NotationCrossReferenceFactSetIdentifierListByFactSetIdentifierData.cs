@@ -62,7 +62,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData {\n");
             sb.Append("  SymbologyIdentifier: ").Append(SymbologyIdentifier).Append("\n");
             sb.Append("}\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationCrossReferenceFactSetIdentifierListByFactSetIdentifierData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SymbologyIdentifier == input.SymbologyIdentifier ||
@@ -116,7 +117,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.SymbologyIdentifier != null)
-                    hashCode = hashCode * 59 + this.SymbologyIdentifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SymbologyIdentifier.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -129,13 +132,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // SymbologyIdentifier (string) maxLength
-            if(this.SymbologyIdentifier != null && this.SymbologyIdentifier.Length > 50)
+            if (this.SymbologyIdentifier != null && this.SymbologyIdentifier.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SymbologyIdentifier, length must be less than 50.", new [] { "SymbologyIdentifier" });
             }
 
             // SymbologyIdentifier (string) minLength
-            if(this.SymbologyIdentifier != null && this.SymbologyIdentifier.Length < 4)
+            if (this.SymbologyIdentifier != null && this.SymbologyIdentifier.Length < 4)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SymbologyIdentifier, length must be greater than 4.", new [] { "SymbologyIdentifier" });
             }

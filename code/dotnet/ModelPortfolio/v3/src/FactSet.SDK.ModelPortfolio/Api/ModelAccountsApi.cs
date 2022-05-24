@@ -34,7 +34,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <exception cref="FactSet.SDK.ModelPortfolio.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The path and filename of the model account to create or update</param>
         /// <param name="modelAccountFieldsRoot">The object containing the input values (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void CreateOrUpdateModelAccount(string name, ModelAccountFieldsRoot modelAccountFieldsRoot = default(ModelAccountFieldsRoot));
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.ModelPortfolio.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The path and filename of model account to delete</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void DeleteAModelAccount(string name);
 
         /// <summary>
@@ -333,6 +333,37 @@ namespace FactSet.SDK.ModelPortfolio.Api
     {
         private FactSet.SDK.ModelPortfolio.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CreateOrUpdateModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteAModelAccountResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForDateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(string) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForDateAndSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(string) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountForSymbolResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(string) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountSchemaResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(string) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelAccountsApi"/> class.
         /// </summary>
@@ -441,7 +472,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <exception cref="FactSet.SDK.ModelPortfolio.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The path and filename of the model account to create or update</param>
         /// <param name="modelAccountFieldsRoot">The object containing the input values (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void CreateOrUpdateModelAccount(string name, ModelAccountFieldsRoot modelAccountFieldsRoot = default(ModelAccountFieldsRoot))
         {
             CreateOrUpdateModelAccountWithHttpInfo(name, modelAccountFieldsRoot);
@@ -454,11 +485,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="name">The path and filename of the model account to create or update</param>
         /// <param name="modelAccountFieldsRoot">The object containing the input values (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.ModelPortfolio.Client.ApiResponse<Object> CreateOrUpdateModelAccountWithHttpInfo(string name, ModelAccountFieldsRoot modelAccountFieldsRoot = default(ModelAccountFieldsRoot))
+        public ApiResponse<Object> CreateOrUpdateModelAccountWithHttpInfo(string name, ModelAccountFieldsRoot modelAccountFieldsRoot = default(ModelAccountFieldsRoot))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->CreateOrUpdateModelAccount");
+            }
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
 
@@ -471,23 +504,29 @@ namespace FactSet.SDK.ModelPortfolio.Api
             };
 
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = modelAccountFieldsRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -499,15 +538,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/analytics/accounts/v3/models/{name}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CreateOrUpdateModelAccountResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            Object>("/analytics/accounts/v3/models/{name}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateOrUpdateModelAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -532,11 +575,14 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="modelAccountFieldsRoot">The object containing the input values (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ModelPortfolio.Client.ApiResponse<Object>> CreateOrUpdateModelAccountWithHttpInfoAsync(string name, ModelAccountFieldsRoot modelAccountFieldsRoot = default(ModelAccountFieldsRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateOrUpdateModelAccountWithHttpInfoAsync(string name, ModelAccountFieldsRoot modelAccountFieldsRoot = default(ModelAccountFieldsRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->CreateOrUpdateModelAccount");
+            }
 
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
@@ -549,25 +595,30 @@ namespace FactSet.SDK.ModelPortfolio.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = modelAccountFieldsRoot;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -579,14 +630,18 @@ namespace FactSet.SDK.ModelPortfolio.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CreateOrUpdateModelAccountResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/analytics/accounts/v3/models/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateOrUpdateModelAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -597,7 +652,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.ModelPortfolio.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The path and filename of model account to delete</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void DeleteAModelAccount(string name)
         {
             DeleteAModelAccountWithHttpInfo(name);
@@ -609,11 +664,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <exception cref="FactSet.SDK.ModelPortfolio.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The path and filename of model account to delete</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.ModelPortfolio.Client.ApiResponse<Object> DeleteAModelAccountWithHttpInfo(string name)
+        public ApiResponse<Object> DeleteAModelAccountWithHttpInfo(string name)
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->DeleteAModelAccount");
+            }
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
 
@@ -625,22 +682,28 @@ namespace FactSet.SDK.ModelPortfolio.Api
             };
 
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -652,15 +715,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/accounts/v3/models/{name}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = DeleteAModelAccountResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/analytics/accounts/v3/models/{name}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteAModelAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -683,11 +750,14 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="name">The path and filename of model account to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ModelPortfolio.Client.ApiResponse<Object>> DeleteAModelAccountWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAModelAccountWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->DeleteAModelAccount");
+            }
 
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
@@ -699,24 +769,29 @@ namespace FactSet.SDK.ModelPortfolio.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -728,14 +803,18 @@ namespace FactSet.SDK.ModelPortfolio.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = DeleteAModelAccountResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/accounts/v3/models/{name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteAModelAccount", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -751,7 +830,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <returns>string</returns>
         public string GetAccountForDate(string name, string date, string format = default(string))
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = GetAccountForDateWithHttpInfo(name, date, format);
+            var localVarResponse = GetAccountForDateWithHttpInfo(name, date, format);
             return localVarResponse.Data;
         }
 
@@ -763,15 +842,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="date">The date for which data needs to be updated</param>
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <returns>ApiResponse of string</returns>
-        public FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> GetAccountForDateWithHttpInfo(string name, string date, string format = default(string))
+        public ApiResponse<string> GetAccountForDateWithHttpInfo(string name, string date, string format = default(string))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountForDate");
+            }
 
             // verify the required parameter 'date' is set
             if (date == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'date' when calling ModelAccountsApi->GetAccountForDate");
+            }
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
 
@@ -784,10 +867,16 @@ namespace FactSet.SDK.ModelPortfolio.Api
             };
 
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -798,13 +887,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -816,15 +905,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/analytics/accounts/v3/models/{name}/dates/{date}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountForDateResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            string>("/analytics/accounts/v3/models/{name}/dates/{date}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountForDate", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -837,9 +930,9 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetAccountForDateAsync(string name, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string>GetAccountForDateAsync(string name, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = await GetAccountForDateWithHttpInfoAsync(name, date, format, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAccountForDateWithHttpInfoAsync(name, date, format, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -852,15 +945,20 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ModelPortfolio.Client.ApiResponse<string>> GetAccountForDateWithHttpInfoAsync(string name, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GetAccountForDateWithHttpInfoAsync(string name, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountForDate");
+            }
 
             // verify the required parameter 'date' is set
             if (date == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'date' when calling ModelAccountsApi->GetAccountForDate");
+            }
 
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
@@ -873,12 +971,17 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.PathParameters.Add("date", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(date)); // path parameter
@@ -889,13 +992,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -907,14 +1010,18 @@ namespace FactSet.SDK.ModelPortfolio.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountForDateResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/analytics/accounts/v3/models/{name}/dates/{date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountForDate", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -931,7 +1038,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <returns>string</returns>
         public string GetAccountForDateAndSymbol(string name, string symbol, string date, string format = default(string))
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = GetAccountForDateAndSymbolWithHttpInfo(name, symbol, date, format);
+            var localVarResponse = GetAccountForDateAndSymbolWithHttpInfo(name, symbol, date, format);
             return localVarResponse.Data;
         }
 
@@ -944,19 +1051,25 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="date">The date for which data needs to be updated</param>
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <returns>ApiResponse of string</returns>
-        public FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> GetAccountForDateAndSymbolWithHttpInfo(string name, string symbol, string date, string format = default(string))
+        public ApiResponse<string> GetAccountForDateAndSymbolWithHttpInfo(string name, string symbol, string date, string format = default(string))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountForDateAndSymbol");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModelAccountsApi->GetAccountForDateAndSymbol");
+            }
 
             // verify the required parameter 'date' is set
             if (date == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'date' when calling ModelAccountsApi->GetAccountForDateAndSymbol");
+            }
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
 
@@ -969,10 +1082,16 @@ namespace FactSet.SDK.ModelPortfolio.Api
             };
 
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(symbol)); // path parameter
@@ -984,13 +1103,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1002,15 +1121,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountForDateAndSymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            string>("/analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountForDateAndSymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1024,9 +1147,9 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetAccountForDateAndSymbolAsync(string name, string symbol, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string>GetAccountForDateAndSymbolAsync(string name, string symbol, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = await GetAccountForDateAndSymbolWithHttpInfoAsync(name, symbol, date, format, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAccountForDateAndSymbolWithHttpInfoAsync(name, symbol, date, format, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1040,19 +1163,26 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ModelPortfolio.Client.ApiResponse<string>> GetAccountForDateAndSymbolWithHttpInfoAsync(string name, string symbol, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GetAccountForDateAndSymbolWithHttpInfoAsync(string name, string symbol, string date, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountForDateAndSymbol");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModelAccountsApi->GetAccountForDateAndSymbol");
+            }
 
             // verify the required parameter 'date' is set
             if (date == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'date' when calling ModelAccountsApi->GetAccountForDateAndSymbol");
+            }
 
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
@@ -1065,12 +1195,17 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(symbol)); // path parameter
@@ -1082,13 +1217,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1100,14 +1235,18 @@ namespace FactSet.SDK.ModelPortfolio.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountForDateAndSymbolResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/analytics/accounts/v3/models/{name}/dates/{date}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountForDateAndSymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1123,7 +1262,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <returns>string</returns>
         public string GetAccountForSymbol(string name, string symbol, string format = default(string))
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = GetAccountForSymbolWithHttpInfo(name, symbol, format);
+            var localVarResponse = GetAccountForSymbolWithHttpInfo(name, symbol, format);
             return localVarResponse.Data;
         }
 
@@ -1135,15 +1274,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="symbol">The symbol for which data needs to be updated</param>
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <returns>ApiResponse of string</returns>
-        public FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> GetAccountForSymbolWithHttpInfo(string name, string symbol, string format = default(string))
+        public ApiResponse<string> GetAccountForSymbolWithHttpInfo(string name, string symbol, string format = default(string))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountForSymbol");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModelAccountsApi->GetAccountForSymbol");
+            }
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
 
@@ -1156,10 +1299,16 @@ namespace FactSet.SDK.ModelPortfolio.Api
             };
 
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(symbol)); // path parameter
@@ -1170,13 +1319,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1188,15 +1337,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/analytics/accounts/v3/models/{name}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountForSymbolResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            string>("/analytics/accounts/v3/models/{name}/symbols/{symbol}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountForSymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1209,9 +1362,9 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetAccountForSymbolAsync(string name, string symbol, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string>GetAccountForSymbolAsync(string name, string symbol, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = await GetAccountForSymbolWithHttpInfoAsync(name, symbol, format, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAccountForSymbolWithHttpInfoAsync(name, symbol, format, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1224,15 +1377,20 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="format">Optional format for the response, supported formats are JsonStach and AccountModel (optional, default to &quot;JsonStach&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ModelPortfolio.Client.ApiResponse<string>> GetAccountForSymbolWithHttpInfoAsync(string name, string symbol, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GetAccountForSymbolWithHttpInfoAsync(string name, string symbol, string format = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountForSymbol");
+            }
 
             // verify the required parameter 'symbol' is set
             if (symbol == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'symbol' when calling ModelAccountsApi->GetAccountForSymbol");
+            }
 
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
@@ -1245,12 +1403,17 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.PathParameters.Add("symbol", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(symbol)); // path parameter
@@ -1261,13 +1424,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1279,14 +1442,18 @@ namespace FactSet.SDK.ModelPortfolio.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountForSymbolResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/analytics/accounts/v3/models/{name}/symbols/{symbol}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountForSymbol", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1300,7 +1467,7 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <returns>string</returns>
         public string GetAccountSchema(string name)
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = GetAccountSchemaWithHttpInfo(name);
+            var localVarResponse = GetAccountSchemaWithHttpInfo(name);
             return localVarResponse.Data;
         }
 
@@ -1310,11 +1477,13 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <exception cref="FactSet.SDK.ModelPortfolio.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The path and filename of the account to get its schema</param>
         /// <returns>ApiResponse of string</returns>
-        public FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> GetAccountSchemaWithHttpInfo(string name)
+        public ApiResponse<string> GetAccountSchemaWithHttpInfo(string name)
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountSchema");
+            }
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
 
@@ -1327,22 +1496,28 @@ namespace FactSet.SDK.ModelPortfolio.Api
             };
 
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1354,15 +1529,19 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/analytics/accounts/v3/models/{name}/schema", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountSchemaResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            string>("/analytics/accounts/v3/models/{name}/schema", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountSchema", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1373,9 +1552,9 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="name">The path and filename of the account to get its schema</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetAccountSchemaAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string>GetAccountSchemaAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ModelPortfolio.Client.ApiResponse<string> localVarResponse = await GetAccountSchemaWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAccountSchemaWithHttpInfoAsync(name, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1386,11 +1565,14 @@ namespace FactSet.SDK.ModelPortfolio.Api
         /// <param name="name">The path and filename of the account to get its schema</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ModelPortfolio.Client.ApiResponse<string>> GetAccountSchemaWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GetAccountSchemaWithHttpInfoAsync(string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'name' is set
             if (name == null)
+            {
                 throw new FactSet.SDK.ModelPortfolio.Client.ApiException(400, "Missing required parameter 'name' when calling ModelAccountsApi->GetAccountSchema");
+            }
 
 
             FactSet.SDK.ModelPortfolio.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ModelPortfolio.Client.RequestOptions();
@@ -1403,24 +1585,29 @@ namespace FactSet.SDK.ModelPortfolio.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ModelPortfolio.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("name", FactSet.SDK.ModelPortfolio.Client.ClientUtils.ParameterToString(name)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ModelPortfolio.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1432,14 +1619,18 @@ namespace FactSet.SDK.ModelPortfolio.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountSchemaResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/analytics/accounts/v3/models/{name}/schema", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccountSchema", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

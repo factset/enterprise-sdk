@@ -45,39 +45,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Balance Sheet
-        api_response = api_instance.get_estimates_balance_sheet(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_balance_sheet: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Balance Sheet
         api_response = api_instance.get_estimates_balance_sheet(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_balance_sheet: %s\n" % e)
 ```
@@ -151,39 +143,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Cash Flow
-        api_response = api_instance.get_estimates_cash_flow(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_cash_flow: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Cash Flow
         api_response = api_instance.get_estimates_cash_flow(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_cash_flow: %s\n" % e)
 ```
@@ -257,39 +241,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Geographic Segments
-        api_response = api_instance.get_estimates_geographic_segments(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_geographic_segments: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Geographic Segments
         api_response = api_instance.get_estimates_geographic_segments(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_geographic_segments: %s\n" % e)
 ```
@@ -363,39 +339,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Income Statement
-        api_response = api_instance.get_estimates_income_statement(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_income_statement: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Income Statement
         api_response = api_instance.get_estimates_income_statement(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_income_statement: %s\n" % e)
 ```
@@ -469,39 +437,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Industry Metrics
-        api_response = api_instance.get_estimates_industry_metrics(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_industry_metrics: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Industry Metrics
         api_response = api_instance.get_estimates_industry_metrics(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_industry_metrics: %s\n" % e)
 ```
@@ -575,39 +535,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Per Share
-        api_response = api_instance.get_estimates_per_share(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_per_share: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Per Share
         api_response = api_instance.get_estimates_per_share(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_per_share: %s\n" % e)
 ```
@@ -681,39 +633,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Product Segments
-        api_response = api_instance.get_estimates_product_segments(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_product_segments: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Product Segments
         api_response = api_instance.get_estimates_product_segments(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_product_segments: %s\n" % e)
 ```
@@ -787,39 +731,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = all_estimates_api.AllEstimatesApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "ANN"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    periodicity = "ANN" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "ANN")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Valuation
-        api_response = api_instance.get_estimates_valuation(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling AllEstimatesApi->get_estimates_valuation: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Valuation
         api_response = api_instance.get_estimates_valuation(id, periodicity=periodicity, schema=schema)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling AllEstimatesApi->get_estimates_valuation: %s\n" % e)
 ```

@@ -31,14 +31,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -48,20 +47,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject body = new InlineObject(); // InlineObject | 
         try {
             InlineResponse200 result = apiInstance.watchlistCreatePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistCreatePost");
             System.err.println("Status code: " + e.getCode());
@@ -115,14 +115,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -132,20 +131,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject1 body = new InlineObject1(); // InlineObject1 | 
         try {
             InlineResponse2001 result = apiInstance.watchlistDeletePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistDeletePost");
             System.err.println("Status code: " + e.getCode());
@@ -200,14 +200,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -217,14 +216,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -234,6 +233,7 @@ public class Example {
         try {
             InlineResponse2002 result = apiInstance.watchlistListGet(attributes, sort, paginationOffset, paginationLimit);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistListGet");
             System.err.println("Status code: " + e.getCode());
@@ -290,14 +290,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -307,20 +306,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject2 body = new InlineObject2(); // InlineObject2 | 
         try {
             InlineResponse200 result = apiInstance.watchlistModifyPost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistModifyPost");
             System.err.println("Status code: " + e.getCode());
@@ -374,14 +374,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -391,20 +390,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject3 body = new InlineObject3(); // InlineObject3 | 
         try {
             InlineResponse2003 result = apiInstance.watchlistPositionCreatePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionCreatePost");
             System.err.println("Status code: " + e.getCode());
@@ -458,14 +458,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -475,20 +474,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject4 body = new InlineObject4(); // InlineObject4 | 
         try {
             InlineResponse200 result = apiInstance.watchlistPositionDeletePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionDeletePost");
             System.err.println("Status code: " + e.getCode());
@@ -543,14 +543,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -560,14 +559,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         String name = "name_example"; // String | Name of watchlist
@@ -578,6 +577,7 @@ public class Example {
         try {
             InlineResponse2004 result = apiInstance.watchlistPositionListGet(name, attributes, sort, paginationOffset, paginationLimit);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionListGet");
             System.err.println("Status code: " + e.getCode());
@@ -635,14 +635,13 @@ import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.ApiException;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.Configuration;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.auth.*;
-import com.factset.sdk.WatchlistAPIforDigitalPortals.model.*;
+import com.factset.sdk.WatchlistAPIforDigitalPortals.models.*;
 import com.factset.sdk.WatchlistAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -652,20 +651,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject5 body = new InlineObject5(); // InlineObject5 | 
         try {
             InlineResponse200 result = apiInstance.watchlistPositionModifyPost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionModifyPost");
             System.err.println("Status code: " + e.getCode());

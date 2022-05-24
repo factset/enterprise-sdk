@@ -51,6 +51,8 @@ public class InlineResponse20059DataInstrument implements Serializable {
   public static final String JSON_PROPERTY_SHORT_NAME = "shortName";
   private String shortName;
 
+  public InlineResponse20059DataInstrument() { 
+  }
 
   public InlineResponse20059DataInstrument id(String id) {
     this.id = id;

@@ -55,7 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
 
             try
             {
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run PA calculation endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -149,7 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
 
             try
             {
@@ -175,7 +174,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run PA calculation endpoint | 
 
 ### Return type
-
 [**PACalculationParametersRoot**](PACalculationParametersRoot.md)
 
 ### Authorization
@@ -244,7 +242,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
 
             try
             {
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run PA calculation endpoint | 
 
 ### Return type
-
 [**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 ### Authorization
@@ -340,8 +337,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Get PA calculation status by id endpoint
-            var unitId = unitId_example;  // string | from url, provided from the location header in the Get PA calculation status by id endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Get PA calculation status by id endpoint
+            var unitId = "unitId_example";  // string | from url, provided from the location header in the Get PA calculation status by id endpoint
 
             try
             {
@@ -368,7 +365,6 @@ Name | Type | Description  | Notes
  **unitId** | **string**| from url, provided from the location header in the Get PA calculation status by id endpoint | 
 
 ### Return type
-
 [**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
@@ -400,7 +396,7 @@ Name | Type | Description  | Notes
 
 Create and Run PA calculation
 
-This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 ```csharp
@@ -438,14 +434,30 @@ namespace Example
 
             var apiInstance = new PACalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var pACalculationParametersRoot = new PACalculationParametersRoot(); // PACalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create and Run PA calculation
-                CalculationStatusRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                PACalculationsApi.PostAndCalculateResponseWrapper result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -467,8 +479,7 @@ Name | Type | Description  | Notes
  **pACalculationParametersRoot** | [**PACalculationParametersRoot**](PACalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PostAndCalculateResponseWrapper
 
 ### Authorization
 
@@ -503,7 +514,7 @@ Name | Type | Description  | Notes
 
 Create or Update PA calculation and run it.
 
-This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 ```csharp
@@ -540,16 +551,32 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new PACalculationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var pACalculationParametersRoot = new PACalculationParametersRoot(); // PACalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create or Update PA calculation and run it.
-                CalculationStatusRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                PACalculationsApi.PutAndCalculateResponseWrapper result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -572,8 +599,7 @@ Name | Type | Description  | Notes
  **pACalculationParametersRoot** | [**PACalculationParametersRoot**](PACalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+PutAndCalculateResponseWrapper
 
 ### Authorization
 

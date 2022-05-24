@@ -48,6 +48,8 @@ public class InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEsti
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private String isoCode;
 
+  public InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency() { 
+  }
 
   public InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency id(BigDecimal id) {
     this.id = id;

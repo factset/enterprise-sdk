@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentBenchmarkListDataFilter model module.
  * @module model/InstrumentBenchmarkListDataFilter
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InstrumentBenchmarkListDataFilter {
     /**

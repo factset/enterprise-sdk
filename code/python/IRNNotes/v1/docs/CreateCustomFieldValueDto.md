@@ -5,7 +5,7 @@ Set a value or values for a custom field identified by the field 'Code'. Only on
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str, none_type** |  | 
+**code** | **str** |  | 
 **integer_value** | **int, none_type** |  | [optional] 
 **text_value** | **str, none_type** |  | [optional] 
 **file_path_value** | **str, none_type** |  | [optional] 

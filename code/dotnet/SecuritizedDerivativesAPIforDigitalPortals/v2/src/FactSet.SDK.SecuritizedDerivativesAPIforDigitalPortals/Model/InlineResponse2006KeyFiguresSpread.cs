@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006KeyFiguresSpread {\n");
             sb.Append("  Harmonized: ").Append(Harmonized).Append("\n");
             sb.Append("  Relative: ").Append(Relative).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006KeyFiguresSpread input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Harmonized == input.Harmonized ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Harmonized.GetHashCode();
-                hashCode = hashCode * 59 + this.Relative.GetHashCode();
+                hashCode = (hashCode * 59) + this.Harmonized.GetHashCode();
+                hashCode = (hashCode * 59) + this.Relative.GetHashCode();
                 return hashCode;
             }
         }

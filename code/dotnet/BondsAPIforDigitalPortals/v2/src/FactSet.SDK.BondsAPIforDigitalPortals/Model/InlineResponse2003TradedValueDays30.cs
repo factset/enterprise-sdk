@@ -62,7 +62,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003TradedValueDays30 {\n");
             sb.Append("  Sum: ").Append(Sum).Append("\n");
             sb.Append("  Average: ").Append(Average).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003TradedValueDays30 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sum == input.Sum ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Sum.GetHashCode();
-                hashCode = hashCode * 59 + this.Average.GetHashCode();
+                hashCode = (hashCode * 59) + this.Sum.GetHashCode();
+                hashCode = (hashCode * 59) + this.Average.GetHashCode();
                 return hashCode;
             }
         }

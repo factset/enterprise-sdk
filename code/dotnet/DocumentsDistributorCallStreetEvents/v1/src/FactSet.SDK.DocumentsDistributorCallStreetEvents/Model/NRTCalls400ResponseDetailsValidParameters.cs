@@ -108,7 +108,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NRTCalls400ResponseDetailsValidParameters {\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  PaginationLimit: ").Append(PaginationLimit).Append("\n");
@@ -149,8 +149,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(NRTCalls400ResponseDetailsValidParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sort == input.Sort ||
@@ -212,21 +213,37 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             {
                 int hashCode = 41;
                 if (this.Sort != null)
-                    hashCode = hashCode * 59 + this.Sort.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sort.GetHashCode();
+                }
                 if (this.PaginationLimit != null)
-                    hashCode = hashCode * 59 + this.PaginationLimit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationLimit.GetHashCode();
+                }
                 if (this.PaginationOffset != null)
-                    hashCode = hashCode * 59 + this.PaginationOffset.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationOffset.GetHashCode();
+                }
                 if (this.AudioSourceId != null)
-                    hashCode = hashCode * 59 + this.AudioSourceId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AudioSourceId.GetHashCode();
+                }
                 if (this.ReportId != null)
-                    hashCode = hashCode * 59 + this.ReportId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportId.GetHashCode();
+                }
                 if (this.CallStatus != null)
-                    hashCode = hashCode * 59 + this.CallStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CallStatus.GetHashCode();
+                }
                 if (this.Ticker != null)
-                    hashCode = hashCode * 59 + this.Ticker.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ticker.GetHashCode();
+                }
                 if (this.EntityId != null)
-                    hashCode = hashCode * 59 + this.EntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityId.GetHashCode();
+                }
                 return hashCode;
             }
         }

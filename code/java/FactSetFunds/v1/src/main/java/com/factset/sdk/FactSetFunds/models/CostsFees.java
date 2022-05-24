@@ -114,6 +114,8 @@ public class CostsFees implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public CostsFees() { 
+  }
 
   public CostsFees fsymId(String fsymId) {
     this.fsymId = fsymId;

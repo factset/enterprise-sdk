@@ -8,6 +8,10 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **code** | **String** |  | [optional] 
 **identifierType** | **String** |  | [optional] 
+**identifierTypes** | **[String]** |  | [optional] 
+**type** | **String** |  | [optional] 
 **isHidden** | **Boolean** |  | [optional] 
+**customFieldIds** | **[String]** |  | [optional] 
+**noteLengthLimit** | **Number** |  | [optional] 
 
 

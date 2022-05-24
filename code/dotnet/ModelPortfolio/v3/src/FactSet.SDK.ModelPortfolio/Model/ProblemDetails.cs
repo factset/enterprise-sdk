@@ -85,7 +85,7 @@ namespace FactSet.SDK.ModelPortfolio.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ProblemDetails {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -124,8 +124,9 @@ namespace FactSet.SDK.ModelPortfolio.Model
         public bool Equals(ProblemDetails input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return base.Equals(input) && 
                 (
                     this.Type == input.Type ||
@@ -163,14 +164,22 @@ namespace FactSet.SDK.ModelPortfolio.Model
             {
                 int hashCode = base.GetHashCode();
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Detail != null)
-                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Detail.GetHashCode();
+                }
                 if (this.Instance != null)
-                    hashCode = hashCode * 59 + this.Instance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instance.GetHashCode();
+                }
                 return hashCode;
             }
         }

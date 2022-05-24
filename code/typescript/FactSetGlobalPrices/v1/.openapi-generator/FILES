@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/Adjust.md
 docs/Calendar.md
+docs/CancelledDividend.md
 docs/CashDividendsResponse.md
 docs/CorporateActionsApi.md
 docs/CorporateActionsRequest.md
@@ -20,6 +21,10 @@ docs/GlobalPricesRequest.md
 docs/GlobalPricesResponse.md
 docs/Price.md
 docs/PricesApi.md
+docs/Returns.md
+docs/ReturnsApi.md
+docs/ReturnsRequest.md
+docs/ReturnsResponse.md
 docs/RightsIssueResponse.md
 docs/SpinoffsResponse.md
 docs/Split.md
@@ -31,9 +36,11 @@ package.json
 src/ApiClient.js
 src/api/CorporateActionsApi.js
 src/api/PricesApi.js
+src/api/ReturnsApi.js
 src/index.js
 src/model/Adjust.js
 src/model/Calendar.js
+src/model/CancelledDividend.js
 src/model/CashDividendsResponse.js
 src/model/CorporateActionsRequest.js
 src/model/CorporateActionsResponse.js
@@ -46,6 +53,9 @@ src/model/Frequency.js
 src/model/GlobalPricesRequest.js
 src/model/GlobalPricesResponse.js
 src/model/Price.js
+src/model/Returns.js
+src/model/ReturnsRequest.js
+src/model/ReturnsResponse.js
 src/model/RightsIssueResponse.js
 src/model/SpinoffsResponse.js
 src/model/Split.js

@@ -48,6 +48,16 @@ public class NotationCrossReferenceListBySymbolData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private NotationCrossReferenceListByInstrumentDataFilter filter;
 
+  public NotationCrossReferenceListBySymbolData() { 
+  }
+
+  @JsonCreator
+  public NotationCrossReferenceListBySymbolData(
+    @JsonProperty(value=JSON_PROPERTY_SYMBOL, required=true) String symbol
+  ) {
+    this();
+    this.symbol = symbol;
+  }
 
   public NotationCrossReferenceListBySymbolData symbol(String symbol) {
     this.symbol = symbol;

@@ -43,6 +43,8 @@ public class InlineResponse2004LifeCycleMaturity implements Serializable {
   public static final String JSON_PROPERTY_PERPETUAL = "perpetual";
   private Boolean perpetual;
 
+  public InlineResponse2004LifeCycleMaturity() { 
+  }
 
   public InlineResponse2004LifeCycleMaturity perpetual(Boolean perpetual) {
     this.perpetual = perpetual;

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.IssueSizeResponse;
@@ -23,6 +26,28 @@ public class IssueSizeApi {
   public IssueSizeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getIssueSizeResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIssueSizeResponseTypeMap.put(200, new GenericType<IssueSizeResponse>(){});
+    getIssueSizeResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIssueSizeResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIssueSizeResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIssueSizeResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIssueSizeResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getIssueSizeForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIssueSizeForListResponseTypeMap.put(200, new GenericType<IssueSizeResponse>(){});
+    getIssueSizeForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIssueSizeForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIssueSizeForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIssueSizeForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIssueSizeForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class IssueSizeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IssueSizeResponse> localVarReturnType = new GenericType<IssueSizeResponse>() {};
 
-    return apiClient.invokeAPI("IssueSizeApi.getIssueSize", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IssueSizeResponse
+      
+    > apiResponse = apiClient.invokeAPI("IssueSizeApi.getIssueSize", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getIssueSizeResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Issue Size data for a large list of Fixed Income securities.
@@ -191,10 +222,16 @@ public class IssueSizeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IssueSizeResponse> localVarReturnType = new GenericType<IssueSizeResponse>() {};
 
-    return apiClient.invokeAPI("IssueSizeApi.getIssueSizeForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IssueSizeResponse
+      
+    > apiResponse = apiClient.invokeAPI("IssueSizeApi.getIssueSizeForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getIssueSizeForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

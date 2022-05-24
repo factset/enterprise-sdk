@@ -47,6 +47,8 @@ public class InstrumentBackgroundTextTypeListMeta implements Serializable {
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private String language;
 
+  public InstrumentBackgroundTextTypeListMeta() { 
+  }
 
   public InstrumentBackgroundTextTypeListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

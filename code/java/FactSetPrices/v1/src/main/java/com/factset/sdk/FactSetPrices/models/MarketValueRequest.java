@@ -65,6 +65,16 @@ public class MarketValueRequest implements Serializable {
   public static final String JSON_PROPERTY_CALENDAR = "calendar";
   private Calendar calendar = Calendar.FIVEDAY;
 
+  public MarketValueRequest() { 
+  }
+
+  @JsonCreator
+  public MarketValueRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public MarketValueRequest ids(java.util.List<String> ids) {
     this.ids = ids;

@@ -44,6 +44,8 @@ public class SedolHistoryTranslationResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<SedolHistoryTranslation> data = null;
 
+  public SedolHistoryTranslationResponse() { 
+  }
 
   public SedolHistoryTranslationResponse data(java.util.List<SedolHistoryTranslation> data) {
     this.data = data;

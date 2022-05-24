@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentCapitalGuaranteeDistance implements Ser
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006InstrumentCapitalGuaranteeDistance() { 
+  }
 
   public InlineResponse2006InstrumentCapitalGuaranteeDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

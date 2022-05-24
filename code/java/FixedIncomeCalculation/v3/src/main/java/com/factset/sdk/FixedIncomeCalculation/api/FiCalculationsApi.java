@@ -7,6 +7,9 @@ import com.factset.sdk.FixedIncomeCalculation.Configuration;
 import com.factset.sdk.FixedIncomeCalculation.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FixedIncomeCalculation.models.CalculationInfoRoot;
 import com.factset.sdk.FixedIncomeCalculation.models.ClientErrorResponse;
@@ -24,6 +27,208 @@ public class FiCalculationsApi {
   public FiCalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> cancelCalculationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getCalculationParametersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationParametersResponseTypeMap.put(200, new GenericType<FICalculationParametersRoot>(){});
+    getCalculationParametersResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getCalculationParametersResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCalculationResultResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationResultResponseTypeMap.put(200, new GenericType<ObjectRoot>(){});
+    getCalculationResultResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getCalculationResultResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCalculationStatusByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCalculationStatusByIdResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    getCalculationStatusByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getCalculationStatusByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postAndCalculateResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    postAndCalculateResponseTypeMap.put(202, new GenericType<CalculationInfoRoot>(){});
+    postAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    postAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> putAndCalculateResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    putAndCalculateResponseTypeMap.put(201, new GenericType<ObjectRoot>(){});
+    putAndCalculateResponseTypeMap.put(202, new GenericType<CalculationInfoRoot>(){});
+    putAndCalculateResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    putAndCalculateResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+    putAndCalculateResponseTypeMap.put(409, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+ /**
+   * Wrapper to support POST /analytics/engines/fi/v3/calculations returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>201 : {@code ObjectRoot }<br>Expected response if calculation is completed in a short span, returns JSON in the format specified in the Calculation parameters.</li>
+   * 
+   *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PostAndCalculateResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 201:
+   *     ObjectRoot data201 = response.getResponse201();
+   *     break;
+   *   case 202:
+   *     CalculationInfoRoot data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PostAndCalculateResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PostAndCalculateResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public ObjectRoot getResponse201() throws ApiException {
+      if (this.statusCode != 201) {
+        throw new ApiException(500, "Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+      }
+      return (ObjectRoot) this.response;
+    }
+    
+    public CalculationInfoRoot getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationInfoRoot) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PostAndCalculateResponseWrapper other = (PostAndCalculateResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PostAndCalculateResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support PUT /analytics/engines/fi/v3/calculations/{id} returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>201 : {@code ObjectRoot }<br>Expected response if calculation is completed in a short span, returns JSON in the format specified in the Calculation parameters.</li>
+   * 
+   *   <li>202 : {@code CalculationInfoRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PutAndCalculateResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 201:
+   *     ObjectRoot data201 = response.getResponse201();
+   *     break;
+   *   case 202:
+   *     CalculationInfoRoot data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PutAndCalculateResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PutAndCalculateResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public ObjectRoot getResponse201() throws ApiException {
+      if (this.statusCode != 201) {
+        throw new ApiException(500, "Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+      }
+      return (ObjectRoot) this.response;
+    }
+    
+    public CalculationInfoRoot getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (CalculationInfoRoot) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PutAndCalculateResponseWrapper other = (PutAndCalculateResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PutAndCalculateResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+
 
   /**
    * Get the API client
@@ -116,9 +321,15 @@ public class FiCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("FiCalculationsApi.cancelCalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.cancelCalculationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, cancelCalculationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get FI calculation parameters by id
@@ -194,11 +405,17 @@ public class FiCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FICalculationParametersRoot> localVarReturnType = new GenericType<FICalculationParametersRoot>() {};
 
-    return apiClient.invokeAPI("FiCalculationsApi.getCalculationParameters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FICalculationParametersRoot
+      
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.getCalculationParameters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationParametersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get FI calculation result by id
@@ -274,11 +491,17 @@ public class FiCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("FiCalculationsApi.getCalculationResult", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ObjectRoot
+      
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.getCalculationResult", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationResultResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get FI calculation status by id
@@ -356,11 +579,17 @@ public class FiCalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("FiCalculationsApi.getCalculationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ObjectRoot
+      
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.getCalculationStatusById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCalculationStatusByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Create and Run FI calculation
@@ -368,7 +597,7 @@ public class FiCalculationsApi {
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
-   * @return ObjectRoot
+   * @return PostAndCalculateResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -385,7 +614,7 @@ public class FiCalculationsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  </td></tr>
      </table>
    */
-  public ObjectRoot postAndCalculate(Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
+  public PostAndCalculateResponseWrapper postAndCalculate(Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
     return postAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot).getData();
   }
 
@@ -395,7 +624,7 @@ public class FiCalculationsApi {
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
-   * @return ApiResponse&lt;ObjectRoot&gt;
+   * @return ApiResponse&lt;PostAndCalculateResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -412,7 +641,7 @@ public class FiCalculationsApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-Calculations-Limit - Maximum FI request limit. <br>  * X-FactSet-Api-Calculations-Remaining - Number of FI requests remaining till request limit reached. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<ObjectRoot> postAndCalculateWithHttpInfo(Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
+  public ApiResponse<PostAndCalculateResponseWrapper> postAndCalculateWithHttpInfo(Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
     Object localVarPostBody = fiCalculationParametersRoot;
     
     // create path and map variables
@@ -444,11 +673,24 @@ if (cacheControl != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("FiCalculationsApi.postAndCalculate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.postAndCalculate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postAndCalculateResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    PostAndCalculateResponseWrapper responseWrapper = new PostAndCalculateResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PostAndCalculateResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
   /**
    * Create or Update FI calculation and run it.
@@ -457,7 +699,7 @@ if (cacheControl != null)
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
-   * @return ObjectRoot
+   * @return PutAndCalculateResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -475,7 +717,7 @@ if (cacheControl != null)
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ObjectRoot putAndCalculate(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
+  public PutAndCalculateResponseWrapper putAndCalculate(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
     return putAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, fiCalculationParametersRoot).getData();
   }
 
@@ -486,7 +728,7 @@ if (cacheControl != null)
    * @param xFactSetApiLongRunningDeadline Long running deadline in seconds. (optional)
    * @param cacheControl Standard HTTP header.  Accepts max-stale. (optional)
    * @param fiCalculationParametersRoot Calculation Parameters (optional)
-   * @return ApiResponse&lt;ObjectRoot&gt;
+   * @return ApiResponse&lt;PutAndCalculateResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -504,7 +746,7 @@ if (cacheControl != null)
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<ObjectRoot> putAndCalculateWithHttpInfo(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
+  public ApiResponse<PutAndCalculateResponseWrapper> putAndCalculateWithHttpInfo(String id, Integer xFactSetApiLongRunningDeadline, String cacheControl, FICalculationParametersRoot fiCalculationParametersRoot) throws ApiException {
     Object localVarPostBody = fiCalculationParametersRoot;
     
     // verify the required parameter 'id' is set
@@ -542,10 +784,23 @@ if (cacheControl != null)
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ObjectRoot> localVarReturnType = new GenericType<ObjectRoot>() {};
 
-    return apiClient.invokeAPI("FiCalculationsApi.putAndCalculate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        Object
+        
+      
+    > apiResponse = apiClient.invokeAPI("FiCalculationsApi.putAndCalculate", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, putAndCalculateResponseTypeMap, false);
+
+    int statusCode = apiResponse.getStatusCode();
+    PutAndCalculateResponseWrapper responseWrapper = new PutAndCalculateResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PutAndCalculateResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
+
   }
 }

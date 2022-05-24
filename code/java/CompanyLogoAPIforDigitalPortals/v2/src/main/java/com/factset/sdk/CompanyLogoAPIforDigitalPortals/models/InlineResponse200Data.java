@@ -59,6 +59,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_VECTOR = "vector";
   private InlineResponse200DataVector vector;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data small(InlineResponse200DataSmall small) {
     this.small = small;

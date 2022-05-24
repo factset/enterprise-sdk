@@ -57,6 +57,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFundsAum(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -133,6 +134,7 @@ const aumRequest = new factsetfunds.AumRequest(); // AumRequest | The AUM reques
 // Call api endpoint
 apiInstance.getFundsAumForList(aumRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -210,6 +212,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFundsFlows(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -285,6 +288,7 @@ const flowsRequest = new factsetfunds.FlowsRequest(); // FlowsRequest | The Fund
 // Call api endpoint
 apiInstance.getFundsFlowsForList(flowsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

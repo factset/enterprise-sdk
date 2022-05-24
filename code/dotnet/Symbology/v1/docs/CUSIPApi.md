@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **cusipHistoryTranslationRequest** | [**CusipHistoryTranslationRequest**](CusipHistoryTranslationRequest.md)| Request Body for CUSIP History | 
 
 ### Return type
-
 [**CusipHistoryTranslationResponse**](CusipHistoryTranslationResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **cusipTranslationRequest** | [**CusipTranslationRequest**](CusipTranslationRequest.md)| Request Body for CUSIP Symbology Translation | 
 
 ### Return type
-
 [**CusipTranslationResponse**](CusipTranslationResponse.md)
 
 ### Authorization
@@ -267,7 +265,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;. | 
 
 ### Return type
-
 [**CusipHistoryTranslationResponse**](CusipHistoryTranslationResponse.md)
 
 ### Authorization
@@ -363,7 +360,6 @@ Name | Type | Description  | Notes
  **asOfDate** | **string**| As-Of date for historical symbol request in YYYY-MM-DD format. | [optional] 
 
 ### Return type
-
 [**CusipTranslationResponse**](CusipTranslationResponse.md)
 
 ### Authorization

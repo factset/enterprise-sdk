@@ -54,6 +54,8 @@ public class Column implements Serializable {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
+  public Column() { 
+  }
 
   public Column defaultstatisticsids(java.util.List<String> defaultstatisticsids) {
     this.defaultstatisticsids = defaultstatisticsids;

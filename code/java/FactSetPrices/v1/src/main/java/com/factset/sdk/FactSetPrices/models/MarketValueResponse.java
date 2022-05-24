@@ -43,6 +43,8 @@ public class MarketValueResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<MarketValue> data = null;
 
+  public MarketValueResponse() { 
+  }
 
   public MarketValueResponse data(java.util.List<MarketValue> data) {
     this.data = data;

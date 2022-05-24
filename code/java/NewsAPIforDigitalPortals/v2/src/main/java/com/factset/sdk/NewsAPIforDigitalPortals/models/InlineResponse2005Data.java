@@ -48,6 +48,8 @@ public class InlineResponse2005Data implements Serializable {
   public static final String JSON_PROPERTY_DELIVERY = "delivery";
   private InlineResponse2005DataDelivery delivery;
 
+  public InlineResponse2005Data() { 
+  }
 
   public InlineResponse2005Data name(String name) {
     this.name = name;

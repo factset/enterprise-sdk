@@ -55,6 +55,18 @@ public class LinkedPATemplateParameters implements Serializable {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private TemplateContentTypes content;
 
+  public LinkedPATemplateParameters() { 
+  }
+
+  @JsonCreator
+  public LinkedPATemplateParameters(
+    @JsonProperty(value=JSON_PROPERTY_DIRECTORY, required=true) String directory, 
+    @JsonProperty(value=JSON_PROPERTY_PARENT_COMPONENT_ID, required=true) String parentComponentId
+  ) {
+    this();
+    this.directory = directory;
+    this.parentComponentId = parentComponentId;
+  }
 
   public LinkedPATemplateParameters directory(String directory) {
     this.directory = directory;

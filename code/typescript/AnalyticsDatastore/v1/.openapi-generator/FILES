@@ -1,0 +1,15 @@
+.babelrc
+.gitignore
+.openapi-generator-ignore
+.travis.yml
+LICENSE
+README.md
+docs/CargoApi.md
+docs/SwivelApi.md
+git_push.sh
+mocha.opts
+package.json
+src/ApiClient.js
+src/api/CargoApi.js
+src/api/SwivelApi.js
+src/index.js

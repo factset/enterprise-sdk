@@ -43,6 +43,16 @@ public class RelatedFundsRequest implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<String> ids = new java.util.ArrayList<>();
 
+  public RelatedFundsRequest() { 
+  }
+
+  @JsonCreator
+  public RelatedFundsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public RelatedFundsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

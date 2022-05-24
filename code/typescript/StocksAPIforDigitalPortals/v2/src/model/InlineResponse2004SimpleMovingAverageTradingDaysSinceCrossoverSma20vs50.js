@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma20vs50 model module.
  * @module model/InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma20vs50
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma20vs50 {
     /**

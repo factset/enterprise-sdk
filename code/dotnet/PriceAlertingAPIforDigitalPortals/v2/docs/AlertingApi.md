@@ -1,6 +1,6 @@
 # FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api.AlertingApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -53,7 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AlertingApi(config);
-            var id = id_example;  // string | Identifier of the alert.
+            var id = "id_example";  // string | Identifier of the alert.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -81,7 +81,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -145,9 +144,9 @@ namespace Example
 
             var apiInstance = new AlertingApi(config);
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var subscriptionMinimumInterval = 8.14;  // decimal? | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional)  (default to 0.0M)
-            var paginationCursor = paginationCursor_example;  // string | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional) 
-            var paginationLimit = 8.14;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var subscriptionMinimumInterval = 0.0MD;  // decimal? | Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately. (optional)  (default to 0.0M)
+            var paginationCursor = "paginationCursor_example";  // string | Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default). (optional) 
+            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
 
             try
             {
@@ -176,7 +175,6 @@ Name | Type | Description  | Notes
  **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -239,7 +237,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AlertingApi(config);
-            var id = id_example;  // string | Identifier of the trigger.
+            var id = "id_example";  // string | Identifier of the trigger.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -267,7 +265,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -356,7 +353,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization

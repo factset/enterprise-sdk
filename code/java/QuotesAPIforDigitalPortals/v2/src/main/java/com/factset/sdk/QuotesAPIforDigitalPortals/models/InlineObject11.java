@@ -48,6 +48,8 @@ public class InlineObject11 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private InstrumentCategoryListMeta meta;
 
+  public InlineObject11() { 
+  }
 
   public InlineObject11 data(InstrumentCategoryListData data) {
     this.data = data;

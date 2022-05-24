@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMa
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketPriority priority;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarket() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarket selection(SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationMarketSelection selection) {
     this.selection = selection;

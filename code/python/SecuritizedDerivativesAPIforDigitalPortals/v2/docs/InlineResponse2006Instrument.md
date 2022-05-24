@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **short_name** | **str** | Short name of the instrument. | [optional] 
 **isin** | **str** | The International Securities Identification Number (ISIN) of the instrument.The ISIN is a 12-character code of digits and upper-case letters that uniquely identifiesan instrument. | [optional] 
 **nsin** | [**InlineResponse200DataNsin**](InlineResponse200DataNsin.md) |  | [optional] 
+**fsym** | [**InlineResponse2004InstrumentFsym**](InlineResponse2004InstrumentFsym.md) |  | [optional] 
 **categorization** | [**InlineResponse2006InstrumentCategorization**](InlineResponse2006InstrumentCategorization.md) |  | [optional] 
 **life_cycle** | [**InlineResponse2006InstrumentLifeCycle**](InlineResponse2006InstrumentLifeCycle.md) |  | [optional] 
 **issuer** | [**InlineResponse2006InstrumentIssuer**](InlineResponse2006InstrumentIssuer.md) |  | [optional] 

@@ -78,7 +78,6 @@ Name | Type | Description  | Notes
  **metric** | **string**| Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). | [optional] 
 
 ### Return type
-
 [**Response**](Response.md)
 
 ### Authorization

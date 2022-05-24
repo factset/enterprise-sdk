@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.Frequency;
 
@@ -21,6 +24,14 @@ public class FrequenciesApi {
   public FrequenciesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPAFrequenciesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAFrequenciesResponseTypeMap.put(200, new GenericType<java.util.Map<String, Frequency>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -43,7 +54,7 @@ public class FrequenciesApi {
   /**
    * Get PA frequencies
    * This endpoint lists all the frequencies that can be applied to a PA calculation.
-   * @return java.util.Map&lt;String, Frequency&gt;
+   * @return java.util.Map<String, Frequency>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,7 +75,7 @@ public class FrequenciesApi {
   /**
    * Get PA frequencies
    * This endpoint lists all the frequencies that can be applied to a PA calculation.
-   * @return ApiResponse&lt;java.util.Map&lt;String, Frequency&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, Frequency>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -106,10 +117,16 @@ public class FrequenciesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, Frequency>> localVarReturnType = new GenericType<java.util.Map<String, Frequency>>() {};
 
-    return apiClient.invokeAPI("FrequenciesApi.getPAFrequencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, Frequency>
+      
+    > apiResponse = apiClient.invokeAPI("FrequenciesApi.getPAFrequencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAFrequenciesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

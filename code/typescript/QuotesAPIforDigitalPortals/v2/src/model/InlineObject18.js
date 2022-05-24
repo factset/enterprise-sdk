@@ -18,7 +18,7 @@ import NotationCrossReferenceListBySymbolData from './NotationCrossReferenceList
 /**
  * The InlineObject18 model module.
  * @module model/InlineObject18
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject18 {
     /**

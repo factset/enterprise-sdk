@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SentimentSettingsDto model module.
  * @module model/SentimentSettingsDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SentimentSettingsDto {
     /**
@@ -47,8 +47,17 @@ class SentimentSettingsDto {
         if (data) {
             obj = obj || new SentimentSettingsDto();
 
-            if (data.hasOwnProperty('defaultId')) {
-                obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
+            if (data.hasOwnProperty('IsHidden')) {
+                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            }
+            if (data.hasOwnProperty('IsMandatory')) {
+                obj['IsMandatory'] = ApiClient.convertToType(data['IsMandatory'], 'Boolean');
+            }
+            if (data.hasOwnProperty('UsePrevious')) {
+                obj['UsePrevious'] = ApiClient.convertToType(data['UsePrevious'], 'Boolean');
+            }
+            if (data.hasOwnProperty('DefaultId')) {
+                obj['DefaultId'] = ApiClient.convertToType(data['DefaultId'], 'String');
             }
         }
         return obj;
@@ -58,9 +67,24 @@ class SentimentSettingsDto {
 }
 
 /**
- * @member {String} defaultId
+ * @member {Boolean} IsHidden
  */
-SentimentSettingsDto.prototype['defaultId'] = undefined;
+SentimentSettingsDto.prototype['IsHidden'] = undefined;
+
+/**
+ * @member {Boolean} IsMandatory
+ */
+SentimentSettingsDto.prototype['IsMandatory'] = undefined;
+
+/**
+ * @member {Boolean} UsePrevious
+ */
+SentimentSettingsDto.prototype['UsePrevious'] = undefined;
+
+/**
+ * @member {String} DefaultId
+ */
+SentimentSettingsDto.prototype['DefaultId'] = undefined;
 
 
 

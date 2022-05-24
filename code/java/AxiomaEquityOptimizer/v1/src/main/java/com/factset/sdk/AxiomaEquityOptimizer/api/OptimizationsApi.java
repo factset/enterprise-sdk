@@ -7,6 +7,9 @@ import com.factset.sdk.AxiomaEquityOptimizer.Configuration;
 import com.factset.sdk.AxiomaEquityOptimizer.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.AxiomaEquityOptimizer.models.AxiomaEquityOptimizationParameters;
 
@@ -21,6 +24,13 @@ public class OptimizationsApi {
   public OptimizationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> cancelAxiomaOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getAxiomaOptimizationByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> runAxiomaOptimizationResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -113,9 +123,15 @@ public class OptimizationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("OptimizationsApi.cancelAxiomaOptimizationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("OptimizationsApi.cancelAxiomaOptimizationById", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, cancelAxiomaOptimizationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Axioma optimization by id
@@ -192,9 +208,15 @@ public class OptimizationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("OptimizationsApi.getAxiomaOptimizationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("OptimizationsApi.getAxiomaOptimizationById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, getAxiomaOptimizationByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Run Axioma optimization
@@ -269,8 +291,14 @@ public class OptimizationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("OptimizationsApi.runAxiomaOptimization", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("OptimizationsApi.runAxiomaOptimization", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, runAxiomaOptimizationResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

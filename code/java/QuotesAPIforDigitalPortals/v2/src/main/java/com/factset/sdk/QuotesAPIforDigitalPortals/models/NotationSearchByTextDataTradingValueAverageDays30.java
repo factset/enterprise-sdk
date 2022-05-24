@@ -49,6 +49,8 @@ public class NotationSearchByTextDataTradingValueAverageDays30 implements Serial
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private NotationSearchByTextDataTradingValueAverageDays30Maximum maximum;
 
+  public NotationSearchByTextDataTradingValueAverageDays30() { 
+  }
 
   public NotationSearchByTextDataTradingValueAverageDays30 minimum(NotationSearchByTextDataTradingValueAverageDays30Minimum minimum) {
     this.minimum = minimum;

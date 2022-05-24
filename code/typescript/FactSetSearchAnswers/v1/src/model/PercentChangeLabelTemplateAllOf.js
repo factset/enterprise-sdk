@@ -17,7 +17,7 @@ import PercentChange from './PercentChange';
 /**
  * The PercentChangeLabelTemplateAllOf model module.
  * @module model/PercentChangeLabelTemplateAllOf
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PercentChangeLabelTemplateAllOf {
     /**

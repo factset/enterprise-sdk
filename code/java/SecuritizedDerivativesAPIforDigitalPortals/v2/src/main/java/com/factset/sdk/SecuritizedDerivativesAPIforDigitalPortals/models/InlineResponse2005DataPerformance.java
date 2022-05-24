@@ -54,6 +54,8 @@ public class InlineResponse2005DataPerformance implements Serializable {
   public static final String JSON_PROPERTY_END_OF_DAY = "endOfDay";
   private InlineResponse2005DataPerformanceEndOfDay endOfDay;
 
+  public InlineResponse2005DataPerformance() { 
+  }
 
   public InlineResponse2005DataPerformance intraday(InlineResponse2005DataPerformanceIntraday intraday) {
     this.intraday = intraday;

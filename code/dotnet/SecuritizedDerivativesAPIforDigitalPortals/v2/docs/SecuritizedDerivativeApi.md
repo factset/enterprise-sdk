@@ -1,6 +1,6 @@
 # FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Api.SecuritizedDerivativeApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -146,9 +145,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var id = id_example;  // string | Identifier of the instrument.
+            var id = "id_example";  // string | Identifier of the instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -176,7 +175,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -239,9 +237,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var id = id_example;  // string | Identifier of a notation.
+            var id = "id_example";  // string | Identifier of a notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -269,7 +267,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -332,9 +329,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SecuritizedDerivativeApi(config);
-            var id = id_example;  // string | Identifier of an instrument.
+            var id = "id_example";  // string | Identifier of an instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -362,7 +359,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
@@ -451,7 +447,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -540,7 +535,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
@@ -629,7 +623,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject3**](InlineObject3.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
@@ -655,7 +648,7 @@ Name | Type | Description  | Notes
 
 Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
 
-The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter `market.priority`) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
 
 ### Example
 ```csharp
@@ -718,7 +711,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization

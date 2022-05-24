@@ -28,6 +28,7 @@ from fds.sdk.FactSetBenchmarks.model.fixed_income_benchmark_constituent import F
 from fds.sdk.FactSetBenchmarks.model.fixed_income_benchmark_constituents_request import FixedIncomeBenchmarkConstituentsRequest
 from fds.sdk.FactSetBenchmarks.model.fixed_income_benchmark_constituents_response import FixedIncomeBenchmarkConstituentsResponse
 from fds.sdk.FactSetBenchmarks.model.frequency import Frequency
+from fds.sdk.FactSetBenchmarks.model.hedge_type import HedgeType
 from fds.sdk.FactSetBenchmarks.model.index_history import IndexHistory
 from fds.sdk.FactSetBenchmarks.model.index_history_request import IndexHistoryRequest
 from fds.sdk.FactSetBenchmarks.model.index_history_response import IndexHistoryResponse

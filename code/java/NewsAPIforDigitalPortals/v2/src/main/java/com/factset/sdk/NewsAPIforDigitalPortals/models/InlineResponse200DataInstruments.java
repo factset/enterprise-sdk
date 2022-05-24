@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineResponse200DataFsym;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -33,7 +34,8 @@ import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
  * InlineResponse200DataInstruments
  */
 @JsonPropertyOrder({
-  InlineResponse200DataInstruments.JSON_PROPERTY_ID
+  InlineResponse200DataInstruments.JSON_PROPERTY_ID,
+  InlineResponse200DataInstruments.JSON_PROPERTY_FSYM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse200DataInstruments implements Serializable {
@@ -42,6 +44,11 @@ public class InlineResponse200DataInstruments implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_FSYM = "fsym";
+  private InlineResponse200DataFsym fsym;
+
+  public InlineResponse200DataInstruments() { 
+  }
 
   public InlineResponse200DataInstruments id(String id) {
     this.id = id;
@@ -69,6 +76,32 @@ public class InlineResponse200DataInstruments implements Serializable {
   }
 
 
+  public InlineResponse200DataInstruments fsym(InlineResponse200DataFsym fsym) {
+    this.fsym = fsym;
+    return this;
+  }
+
+   /**
+   * Get fsym
+   * @return fsym
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InlineResponse200DataFsym getFsym() {
+    return fsym;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FSYM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFsym(InlineResponse200DataFsym fsym) {
+    this.fsym = fsym;
+  }
+
+
   /**
    * Return true if this inline_response_200_data_instruments object is equal to o.
    */
@@ -81,12 +114,13 @@ public class InlineResponse200DataInstruments implements Serializable {
       return false;
     }
     InlineResponse200DataInstruments inlineResponse200DataInstruments = (InlineResponse200DataInstruments) o;
-    return Objects.equals(this.id, inlineResponse200DataInstruments.id);
+    return Objects.equals(this.id, inlineResponse200DataInstruments.id) &&
+        Objects.equals(this.fsym, inlineResponse200DataInstruments.fsym);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(id, fsym);
   }
 
   @Override
@@ -94,6 +128,7 @@ public class InlineResponse200DataInstruments implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200DataInstruments {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fsym: ").append(toIndentedString(fsym)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -20,7 +20,7 @@ import TemplateWithLinksAllOf from './TemplateWithLinksAllOf';
 /**
  * The TemplateWithLinks model module.
  * @module model/TemplateWithLinks
- * @version 0.9.1
+ * @version 0.20.0
  */
 class TemplateWithLinks {
     /**

@@ -60,7 +60,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataPerformance {\n");
             sb.Append("  Intraday: ").Append(Intraday).Append("\n");
             sb.Append("  EndOfDay: ").Append(EndOfDay).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataPerformance input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Intraday == input.Intraday ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Intraday != null)
-                    hashCode = hashCode * 59 + this.Intraday.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Intraday.GetHashCode();
+                }
                 if (this.EndOfDay != null)
-                    hashCode = hashCode * 59 + this.EndOfDay.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndOfDay.GetHashCode();
+                }
                 return hashCode;
             }
         }

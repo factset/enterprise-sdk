@@ -80,7 +80,7 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Pagination {\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  IsEstimatedTotal: ").Append(IsEstimatedTotal).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         public bool Equals(Pagination input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Total == input.Total ||
@@ -147,10 +148,10 @@ namespace FactSet.SDK.FactSetTickHistory.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Total.GetHashCode();
-                hashCode = hashCode * 59 + this.IsEstimatedTotal.GetHashCode();
-                hashCode = hashCode * 59 + this.Limit.GetHashCode();
-                hashCode = hashCode * 59 + this.Offset.GetHashCode();
+                hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsEstimatedTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.Limit.GetHashCode();
+                hashCode = (hashCode * 59) + this.Offset.GetHashCode();
                 return hashCode;
             }
         }

@@ -24,8 +24,8 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -33,6 +33,7 @@ def lazy_import():
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_accumulated import InlineResponse2004Accumulated
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_categorization import InlineResponse2004Categorization
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_exercise import InlineResponse2004Exercise
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_fsym import InlineResponse2004Fsym
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_instrument import InlineResponse2004Instrument
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_issuer import InlineResponse2004Issuer
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_life_cycle import InlineResponse2004LifeCycle
@@ -43,6 +44,7 @@ def lazy_import():
     globals()['InlineResponse2004Accumulated'] = InlineResponse2004Accumulated
     globals()['InlineResponse2004Categorization'] = InlineResponse2004Categorization
     globals()['InlineResponse2004Exercise'] = InlineResponse2004Exercise
+    globals()['InlineResponse2004Fsym'] = InlineResponse2004Fsym
     globals()['InlineResponse2004Instrument'] = InlineResponse2004Instrument
     globals()['InlineResponse2004Issuer'] = InlineResponse2004Issuer
     globals()['InlineResponse2004LifeCycle'] = InlineResponse2004LifeCycle
@@ -115,6 +117,7 @@ class InlineResponse2004Data(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'symbol': (str,),  # noqa: E501
+            'fsym': (InlineResponse2004Fsym,),  # noqa: E501
             'market': (InlineResponse2004Market,),  # noqa: E501
             'value_unit': (InlineResponse2004ValueUnit,),  # noqa: E501
             'trade': (InlineResponse2004Trade,),  # noqa: E501
@@ -139,6 +142,7 @@ class InlineResponse2004Data(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'symbol': 'symbol',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
         'market': 'market',  # noqa: E501
         'value_unit': 'valueUnit',  # noqa: E501
         'trade': 'trade',  # noqa: E501
@@ -198,6 +202,7 @@ class InlineResponse2004Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of a notation.. [optional]  # noqa: E501
             symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            fsym (InlineResponse2004Fsym): [optional]  # noqa: E501
             market (InlineResponse2004Market): [optional]  # noqa: E501
             value_unit (InlineResponse2004ValueUnit): [optional]  # noqa: E501
             trade (InlineResponse2004Trade): [optional]  # noqa: E501
@@ -295,6 +300,7 @@ class InlineResponse2004Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): Identifier of a notation.. [optional]  # noqa: E501
             symbol (str): The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.. [optional]  # noqa: E501
+            fsym (InlineResponse2004Fsym): [optional]  # noqa: E501
             market (InlineResponse2004Market): [optional]  # noqa: E501
             value_unit (InlineResponse2004ValueUnit): [optional]  # noqa: E501
             trade (InlineResponse2004Trade): [optional]  # noqa: E501

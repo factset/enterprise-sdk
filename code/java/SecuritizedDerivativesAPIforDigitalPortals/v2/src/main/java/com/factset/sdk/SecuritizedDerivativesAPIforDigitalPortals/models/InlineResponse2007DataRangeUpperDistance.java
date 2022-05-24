@@ -48,6 +48,8 @@ public class InlineResponse2007DataRangeUpperDistance implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2007DataRangeUpperDistance() { 
+  }
 
   public InlineResponse2007DataRangeUpperDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

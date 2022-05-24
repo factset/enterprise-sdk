@@ -43,6 +43,8 @@ public class ValueType implements Serializable {
   public static final String JSON_PROPERTY_VALUE_TYPE = "valueType";
   private ValueTypeValueType valueType;
 
+  public ValueType() { 
+  }
 
   public ValueType valueType(ValueTypeValueType valueType) {
     this.valueType = valueType;

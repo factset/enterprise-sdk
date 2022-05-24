@@ -93,7 +93,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TemplatedPAComponentParameters {\n");
             sb.Append("  Directory: ").Append(Directory).Append("\n");
             sb.Append("  ParentTemplateId: ").Append(ParentTemplateId).Append("\n");
@@ -130,8 +130,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(TemplatedPAComponentParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Directory == input.Directory ||
@@ -165,13 +166,21 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Directory != null)
-                    hashCode = hashCode * 59 + this.Directory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Directory.GetHashCode();
+                }
                 if (this.ParentTemplateId != null)
-                    hashCode = hashCode * 59 + this.ParentTemplateId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentTemplateId.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.ComponentData != null)
-                    hashCode = hashCode * 59 + this.ComponentData.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ComponentData.GetHashCode();
+                }
                 return hashCode;
             }
         }

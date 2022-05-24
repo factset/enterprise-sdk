@@ -20,7 +20,7 @@ import RelatedRecordsDto from './RelatedRecordsDto';
 /**
  * The MeetingDto model module.
  * @module model/MeetingDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class MeetingDto {
     /**
@@ -83,6 +83,12 @@ class MeetingDto {
             }
             if (data.hasOwnProperty('averageRating')) {
                 obj['averageRating'] = ApiClient.convertToType(data['averageRating'], 'Number');
+            }
+            if (data.hasOwnProperty('alertAttendees')) {
+                obj['alertAttendees'] = ApiClient.convertToType(data['alertAttendees'], 'Boolean');
+            }
+            if (data.hasOwnProperty('alertAuthor')) {
+                obj['alertAuthor'] = ApiClient.convertToType(data['alertAuthor'], 'Boolean');
             }
             if (data.hasOwnProperty('locations')) {
                 obj['locations'] = ApiClient.convertToType(data['locations'], [LocationDto]);
@@ -163,6 +169,16 @@ MeetingDto.prototype['body'] = undefined;
  * @member {Number} averageRating
  */
 MeetingDto.prototype['averageRating'] = undefined;
+
+/**
+ * @member {Boolean} alertAttendees
+ */
+MeetingDto.prototype['alertAttendees'] = undefined;
+
+/**
+ * @member {Boolean} alertAuthor
+ */
+MeetingDto.prototype['alertAuthor'] = undefined;
 
 /**
  * @member {Array.<module:model/LocationDto>} locations

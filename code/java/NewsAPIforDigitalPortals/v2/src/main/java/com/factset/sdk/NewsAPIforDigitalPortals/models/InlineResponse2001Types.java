@@ -43,6 +43,8 @@ public class InlineResponse2001Types implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public InlineResponse2001Types() { 
+  }
 
   public InlineResponse2001Types id(BigDecimal id) {
     this.id = id;

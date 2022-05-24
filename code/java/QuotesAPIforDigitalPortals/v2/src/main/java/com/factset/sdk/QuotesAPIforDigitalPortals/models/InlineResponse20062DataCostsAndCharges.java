@@ -88,6 +88,8 @@ public class InlineResponse20062DataCostsAndCharges implements Serializable {
   public static final String JSON_PROPERTY_EX_POST = "exPost";
   private InlineResponse20062DataCostsAndChargesExPost exPost;
 
+  public InlineResponse20062DataCostsAndCharges() { 
+  }
 
   public InlineResponse20062DataCostsAndCharges quotation(QuotationEnum quotation) {
     this.quotation = quotation;

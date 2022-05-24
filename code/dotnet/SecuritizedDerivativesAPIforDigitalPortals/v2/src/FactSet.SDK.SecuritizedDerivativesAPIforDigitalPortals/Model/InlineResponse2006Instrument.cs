@@ -101,6 +101,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <param name="shortName">Short name of the instrument..</param>
         /// <param name="isin">The International Securities Identification Number (ISIN) of the instrument.The ISIN is a 12-character code of digits and upper-case letters that uniquely identifiesan instrument..</param>
         /// <param name="nsin">nsin.</param>
+        /// <param name="fsym">fsym.</param>
         /// <param name="categorization">categorization.</param>
         /// <param name="lifeCycle">lifeCycle.</param>
         /// <param name="issuer">issuer.</param>
@@ -124,13 +125,14 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <param name="constantLeverage">Constant leverage of a factor certificate..</param>
         /// <param name="nominalCurrency">nominalCurrency.</param>
         /// <param name="currentInterestRate">currentInterestRate.</param>
-        public InlineResponse2006Instrument(string id = default(string), string name = default(string), string shortName = default(string), string isin = default(string), InlineResponse200DataNsin nsin = default(InlineResponse200DataNsin), InlineResponse2006InstrumentCategorization categorization = default(InlineResponse2006InstrumentCategorization), InlineResponse2006InstrumentLifeCycle lifeCycle = default(InlineResponse2006InstrumentLifeCycle), InlineResponse2006InstrumentIssuer issuer = default(InlineResponse2006InstrumentIssuer), InlineResponse2006InstrumentExercise exercise = default(InlineResponse2006InstrumentExercise), SettlementEnum? settlement = default(SettlementEnum?), bool collateralized = default(bool), bool quanto = default(bool), decimal capitalProtection = default(decimal), InlineResponse2006InstrumentUnderlying underlying = default(InlineResponse2006InstrumentUnderlying), InlineResponse2006InstrumentStrike strike = default(InlineResponse2006InstrumentStrike), InlineResponse2006InstrumentBonusLevel bonusLevel = default(InlineResponse2006InstrumentBonusLevel), InlineResponse2006InstrumentCap cap = default(InlineResponse2006InstrumentCap), InlineResponse2006InstrumentKnockOut knockOut = default(InlineResponse2006InstrumentKnockOut), InlineResponse2006InstrumentKnockIn knockIn = default(InlineResponse2006InstrumentKnockIn), InlineResponse2006InstrumentLockOut lockOut = default(InlineResponse2006InstrumentLockOut), InlineResponse2006InstrumentLockIn lockIn = default(InlineResponse2006InstrumentLockIn), InlineResponse2006InstrumentCapitalGuarantee capitalGuarantee = default(InlineResponse2006InstrumentCapitalGuarantee), InlineResponse2006InstrumentCouponTriggerLevel couponTriggerLevel = default(InlineResponse2006InstrumentCouponTriggerLevel), InlineResponse2006InstrumentRangeKnockOut rangeKnockOut = default(InlineResponse2006InstrumentRangeKnockOut), ParticipationEnum? participation = default(ParticipationEnum?), decimal constantLeverage = default(decimal), InlineResponse2006InstrumentNominalCurrency nominalCurrency = default(InlineResponse2006InstrumentNominalCurrency), InlineResponse2006InstrumentCurrentInterestRate currentInterestRate = default(InlineResponse2006InstrumentCurrentInterestRate))
+        public InlineResponse2006Instrument(string id = default(string), string name = default(string), string shortName = default(string), string isin = default(string), InlineResponse200DataNsin nsin = default(InlineResponse200DataNsin), InlineResponse2004InstrumentFsym fsym = default(InlineResponse2004InstrumentFsym), InlineResponse2006InstrumentCategorization categorization = default(InlineResponse2006InstrumentCategorization), InlineResponse2006InstrumentLifeCycle lifeCycle = default(InlineResponse2006InstrumentLifeCycle), InlineResponse2006InstrumentIssuer issuer = default(InlineResponse2006InstrumentIssuer), InlineResponse2006InstrumentExercise exercise = default(InlineResponse2006InstrumentExercise), SettlementEnum? settlement = default(SettlementEnum?), bool collateralized = default(bool), bool quanto = default(bool), decimal capitalProtection = default(decimal), InlineResponse2006InstrumentUnderlying underlying = default(InlineResponse2006InstrumentUnderlying), InlineResponse2006InstrumentStrike strike = default(InlineResponse2006InstrumentStrike), InlineResponse2006InstrumentBonusLevel bonusLevel = default(InlineResponse2006InstrumentBonusLevel), InlineResponse2006InstrumentCap cap = default(InlineResponse2006InstrumentCap), InlineResponse2006InstrumentKnockOut knockOut = default(InlineResponse2006InstrumentKnockOut), InlineResponse2006InstrumentKnockIn knockIn = default(InlineResponse2006InstrumentKnockIn), InlineResponse2006InstrumentLockOut lockOut = default(InlineResponse2006InstrumentLockOut), InlineResponse2006InstrumentLockIn lockIn = default(InlineResponse2006InstrumentLockIn), InlineResponse2006InstrumentCapitalGuarantee capitalGuarantee = default(InlineResponse2006InstrumentCapitalGuarantee), InlineResponse2006InstrumentCouponTriggerLevel couponTriggerLevel = default(InlineResponse2006InstrumentCouponTriggerLevel), InlineResponse2006InstrumentRangeKnockOut rangeKnockOut = default(InlineResponse2006InstrumentRangeKnockOut), ParticipationEnum? participation = default(ParticipationEnum?), decimal constantLeverage = default(decimal), InlineResponse2006InstrumentNominalCurrency nominalCurrency = default(InlineResponse2006InstrumentNominalCurrency), InlineResponse2006InstrumentCurrentInterestRate currentInterestRate = default(InlineResponse2006InstrumentCurrentInterestRate))
         {
             this.Id = id;
             this.Name = name;
             this.ShortName = shortName;
             this.Isin = isin;
             this.Nsin = nsin;
+            this.Fsym = fsym;
             this.Categorization = categorization;
             this.LifeCycle = lifeCycle;
             this.Issuer = issuer;
@@ -189,6 +191,12 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// </summary>
         [DataMember(Name = "nsin", EmitDefaultValue = false)]
         public InlineResponse200DataNsin Nsin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse2004InstrumentFsym Fsym { get; set; }
 
         /// <summary>
         /// Gets or Sets Categorization
@@ -326,13 +334,14 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006Instrument {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ShortName: ").Append(ShortName).Append("\n");
             sb.Append("  Isin: ").Append(Isin).Append("\n");
             sb.Append("  Nsin: ").Append(Nsin).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("  Categorization: ").Append(Categorization).Append("\n");
             sb.Append("  LifeCycle: ").Append(LifeCycle).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
@@ -387,8 +396,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006Instrument input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -414,6 +424,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
                     this.Nsin == input.Nsin ||
                     (this.Nsin != null &&
                     this.Nsin.Equals(input.Nsin))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
                 ) && 
                 (
                     this.Categorization == input.Categorization ||
@@ -536,55 +551,103 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ShortName != null)
-                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
                 if (this.Isin != null)
-                    hashCode = hashCode * 59 + this.Isin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                }
                 if (this.Nsin != null)
-                    hashCode = hashCode * 59 + this.Nsin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
                 if (this.Categorization != null)
-                    hashCode = hashCode * 59 + this.Categorization.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Categorization.GetHashCode();
+                }
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Exercise != null)
-                    hashCode = hashCode * 59 + this.Exercise.GetHashCode();
-                hashCode = hashCode * 59 + this.Settlement.GetHashCode();
-                hashCode = hashCode * 59 + this.Collateralized.GetHashCode();
-                hashCode = hashCode * 59 + this.Quanto.GetHashCode();
-                hashCode = hashCode * 59 + this.CapitalProtection.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exercise.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Settlement.GetHashCode();
+                hashCode = (hashCode * 59) + this.Collateralized.GetHashCode();
+                hashCode = (hashCode * 59) + this.Quanto.GetHashCode();
+                hashCode = (hashCode * 59) + this.CapitalProtection.GetHashCode();
                 if (this.Underlying != null)
-                    hashCode = hashCode * 59 + this.Underlying.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Underlying.GetHashCode();
+                }
                 if (this.Strike != null)
-                    hashCode = hashCode * 59 + this.Strike.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Strike.GetHashCode();
+                }
                 if (this.BonusLevel != null)
-                    hashCode = hashCode * 59 + this.BonusLevel.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BonusLevel.GetHashCode();
+                }
                 if (this.Cap != null)
-                    hashCode = hashCode * 59 + this.Cap.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cap.GetHashCode();
+                }
                 if (this.KnockOut != null)
-                    hashCode = hashCode * 59 + this.KnockOut.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KnockOut.GetHashCode();
+                }
                 if (this.KnockIn != null)
-                    hashCode = hashCode * 59 + this.KnockIn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KnockIn.GetHashCode();
+                }
                 if (this.LockOut != null)
-                    hashCode = hashCode * 59 + this.LockOut.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LockOut.GetHashCode();
+                }
                 if (this.LockIn != null)
-                    hashCode = hashCode * 59 + this.LockIn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LockIn.GetHashCode();
+                }
                 if (this.CapitalGuarantee != null)
-                    hashCode = hashCode * 59 + this.CapitalGuarantee.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CapitalGuarantee.GetHashCode();
+                }
                 if (this.CouponTriggerLevel != null)
-                    hashCode = hashCode * 59 + this.CouponTriggerLevel.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CouponTriggerLevel.GetHashCode();
+                }
                 if (this.RangeKnockOut != null)
-                    hashCode = hashCode * 59 + this.RangeKnockOut.GetHashCode();
-                hashCode = hashCode * 59 + this.Participation.GetHashCode();
-                hashCode = hashCode * 59 + this.ConstantLeverage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RangeKnockOut.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Participation.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConstantLeverage.GetHashCode();
                 if (this.NominalCurrency != null)
-                    hashCode = hashCode * 59 + this.NominalCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NominalCurrency.GetHashCode();
+                }
                 if (this.CurrentInterestRate != null)
-                    hashCode = hashCode * 59 + this.CurrentInterestRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentInterestRate.GetHashCode();
+                }
                 return hashCode;
             }
         }

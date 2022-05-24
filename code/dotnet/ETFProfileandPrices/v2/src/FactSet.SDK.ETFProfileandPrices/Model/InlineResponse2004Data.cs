@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// ETP region allocation data.
+    /// List of allocations.
     /// </summary>
     [DataContract(Name = "inline_response_200_4_data")]
     public partial class InlineResponse2004Data : IEquatable<InlineResponse2004Data>, IValidatableObject
@@ -35,11 +35,11 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// Initializes a new instance of the <see cref="InlineResponse2004Data" /> class.
         /// </summary>
         /// <param name="reportDate">Reporting date for the allocations..</param>
-        /// <param name="regions">List of allocations by region..</param>
-        public InlineResponse2004Data(DateTime reportDate = default(DateTime), List<InlineResponse2004DataRegions> regions = default(List<InlineResponse2004DataRegions>))
+        /// <param name="classifications">List of allocations classified by a holding&#39;s economic development status, sorted by weight in descending order..</param>
+        public InlineResponse2004Data(DateTime reportDate = default(DateTime), List<InlineResponse2004DataClassifications> classifications = default(List<InlineResponse2004DataClassifications>))
         {
             this.ReportDate = reportDate;
-            this.Regions = regions;
+            this.Classifications = classifications;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public DateTime ReportDate { get; set; }
 
         /// <summary>
-        /// List of allocations by region.
+        /// List of allocations classified by a holding&#39;s economic development status, sorted by weight in descending order.
         /// </summary>
-        /// <value>List of allocations by region.</value>
-        [DataMember(Name = "regions", EmitDefaultValue = false)]
-        public List<InlineResponse2004DataRegions> Regions { get; set; }
+        /// <value>List of allocations classified by a holding&#39;s economic development status, sorted by weight in descending order.</value>
+        [DataMember(Name = "classifications", EmitDefaultValue = false)]
+        public List<InlineResponse2004DataClassifications> Classifications { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,10 +63,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004Data {\n");
             sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
-            sb.Append("  Regions: ").Append(Regions).Append("\n");
+            sb.Append("  Classifications: ").Append(Classifications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,8 +98,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse2004Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReportDate == input.ReportDate ||
@@ -107,10 +108,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
                     this.ReportDate.Equals(input.ReportDate))
                 ) && 
                 (
-                    this.Regions == input.Regions ||
-                    this.Regions != null &&
-                    input.Regions != null &&
-                    this.Regions.SequenceEqual(input.Regions)
+                    this.Classifications == input.Classifications ||
+                    this.Classifications != null &&
+                    input.Classifications != null &&
+                    this.Classifications.SequenceEqual(input.Classifications)
                 );
         }
 
@@ -124,9 +125,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.ReportDate != null)
-                    hashCode = hashCode * 59 + this.ReportDate.GetHashCode();
-                if (this.Regions != null)
-                    hashCode = hashCode * 59 + this.Regions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
+                }
+                if (this.Classifications != null)
+                {
+                    hashCode = (hashCode * 59) + this.Classifications.GetHashCode();
+                }
                 return hashCode;
             }
         }

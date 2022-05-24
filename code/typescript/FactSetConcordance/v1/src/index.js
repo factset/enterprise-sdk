@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import EntityDecisionsResponse from './model/EntityDecisionsResponse';
 import EntityMapping from './model/EntityMapping';
@@ -30,6 +29,7 @@ import ErrorResponse from './model/ErrorResponse';
 import ErrorResponseSubErrors from './model/ErrorResponseSubErrors';
 import SnowflakeEntityMatchRequest from './model/SnowflakeEntityMatchRequest';
 import SnowflakeEntityMatchResponse from './model/SnowflakeEntityMatchResponse';
+
 import EntityMatchApi from './api/EntityMatchApi';
 import EntityMatchBulkApi from './api/EntityMatchBulkApi';
 import ManageMappingsApi from './api/ManageMappingsApi';
@@ -65,7 +65,7 @@ import SnowflakeApi from './api/SnowflakeApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -198,5 +198,6 @@ export {
     * The SnowflakeApi service constructor.
     * @property {module:api/SnowflakeApi}
     */
-    SnowflakeApi
+    SnowflakeApi,
+
 };

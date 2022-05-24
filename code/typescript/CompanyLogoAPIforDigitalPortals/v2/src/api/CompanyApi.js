@@ -18,7 +18,7 @@ import InlineResponse200 from '../model/InlineResponse200';
 /**
 * Company service.
 * @module api/CompanyApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class CompanyApi {
 
@@ -65,7 +65,10 @@ export default class CompanyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/company/logo/getByInstrument', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -79,7 +82,7 @@ export default class CompanyApi {
      * @param {String} id Identifier of an instrument.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getCompanyLogoGetByInstrument(id, opts) {
       return this.getCompanyLogoGetByInstrumentWithHttpInfo(id, opts)
@@ -90,3 +93,8 @@ export default class CompanyApi {
 
 
 }
+
+
+
+
+

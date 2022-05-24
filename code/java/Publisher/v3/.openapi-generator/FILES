@@ -40,7 +40,6 @@ src/main/java/com/factset/sdk/Publisher/ApiClient.java
 src/main/java/com/factset/sdk/Publisher/ApiException.java
 src/main/java/com/factset/sdk/Publisher/ApiResponse.java
 src/main/java/com/factset/sdk/Publisher/Configuration.java
-src/main/java/com/factset/sdk/Publisher/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/Publisher/JSON.java
 src/main/java/com/factset/sdk/Publisher/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/Publisher/Pair.java

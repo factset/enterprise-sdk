@@ -62,7 +62,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InstrumentCrossReferenceListByWKNData {\n");
             sb.Append("  Wkns: ").Append(Wkns).Append("\n");
             sb.Append("}\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InstrumentCrossReferenceListByWKNData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Wkns == input.Wkns ||
@@ -117,7 +118,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Wkns != null)
-                    hashCode = hashCode * 59 + this.Wkns.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Wkns.GetHashCode();
+                }
                 return hashCode;
             }
         }

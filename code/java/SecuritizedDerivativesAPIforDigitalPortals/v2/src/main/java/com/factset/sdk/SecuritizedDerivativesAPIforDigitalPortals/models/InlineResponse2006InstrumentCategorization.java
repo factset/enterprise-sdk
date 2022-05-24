@@ -49,6 +49,8 @@ public class InlineResponse2006InstrumentCategorization implements Serializable 
   public static final String JSON_PROPERTY_EUSIPA = "eusipa";
   private InlineResponse2006InstrumentCategorizationEusipa eusipa;
 
+  public InlineResponse2006InstrumentCategorization() { 
+  }
 
   public InlineResponse2006InstrumentCategorization ddv(InlineResponse2006InstrumentCategorizationDdv ddv) {
     this.ddv = ddv;

@@ -93,6 +93,8 @@ public class AFIOptimizerStrategyOverrides implements Serializable {
   public static final String JSON_PROPERTY_TRANSACTION_COST = "transactionCost";
   private String transactionCost;
 
+  public AFIOptimizerStrategyOverrides() { 
+  }
 
   public AFIOptimizerStrategyOverrides objective(String objective) {
     this.objective = objective;

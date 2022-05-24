@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareS
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareSales() { 
+  }
 
   public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShareSales minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

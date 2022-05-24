@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionListRe
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionList model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionList
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataValidationNotationSelectionList {
     /**

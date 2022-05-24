@@ -58,7 +58,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OffsetBasedPaginationOutputObjectWithoutTotal {\n");
             sb.Append("  HasNext: ").Append(HasNext).Append("\n");
             sb.Append("}\n");
@@ -92,8 +92,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(OffsetBasedPaginationOutputObjectWithoutTotal input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.HasNext == input.HasNext ||
@@ -110,7 +111,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.HasNext.GetHashCode();
+                hashCode = (hashCode * 59) + this.HasNext.GetHashCode();
                 return hashCode;
             }
         }

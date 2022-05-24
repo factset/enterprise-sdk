@@ -43,6 +43,8 @@ public class HighLowResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<HighLow> data = null;
 
+  public HighLowResponse() { 
+  }
 
   public HighLowResponse data(java.util.List<HighLow> data) {
     this.data = data;

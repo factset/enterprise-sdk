@@ -42,6 +42,8 @@ public class InlineResponse201 implements Serializable {
   public static final String JSON_PROPERTY_PATH = "path";
   private String path;
 
+  public InlineResponse201() { 
+  }
 
   public InlineResponse201 path(String path) {
     this.path = path;

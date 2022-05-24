@@ -71,7 +71,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataProfitLoss {\n");
             sb.Append("  Absolute: ").Append(Absolute).Append("\n");
             sb.Append("  Performance: ").Append(Performance).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataProfitLoss input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Absolute == input.Absolute ||
@@ -133,9 +134,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Absolute.GetHashCode();
-                hashCode = hashCode * 59 + this.Performance.GetHashCode();
-                hashCode = hashCode * 59 + this.ModifiedDietzPerformance.GetHashCode();
+                hashCode = (hashCode * 59) + this.Absolute.GetHashCode();
+                hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedDietzPerformance.GetHashCode();
                 return hashCode;
             }
         }

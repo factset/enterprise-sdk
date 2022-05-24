@@ -351,7 +351,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntitySecurities {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  FsymSecurityId: ").Append(FsymSecurityId).Append("\n");
@@ -395,8 +395,9 @@ namespace FactSet.SDK.FactSetEntity.Model
         public bool Equals(EntitySecurities input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -463,25 +464,43 @@ namespace FactSet.SDK.FactSetEntity.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.FsymSecurityId != null)
-                    hashCode = hashCode * 59 + this.FsymSecurityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymSecurityId.GetHashCode();
+                }
                 if (this.FsymListingId != null)
-                    hashCode = hashCode * 59 + this.FsymListingId.GetHashCode();
-                hashCode = hashCode * 59 + this.SecurityType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymListingId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SecurityType.GetHashCode();
                 if (this.ListingExchange != null)
-                    hashCode = hashCode * 59 + this.ListingExchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ListingExchange.GetHashCode();
+                }
                 if (this.SecurityName != null)
-                    hashCode = hashCode * 59 + this.SecurityName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecurityName.GetHashCode();
+                }
                 if (this.FsymEntityId != null)
-                    hashCode = hashCode * 59 + this.FsymEntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymEntityId.GetHashCode();
+                }
                 if (this.FsymTickerExchange != null)
-                    hashCode = hashCode * 59 + this.FsymTickerExchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymTickerExchange.GetHashCode();
+                }
                 if (this.FsymTickerRegion != null)
-                    hashCode = hashCode * 59 + this.FsymTickerRegion.GetHashCode();
-                hashCode = hashCode * 59 + this.ActiveFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymTickerRegion.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ActiveFlag.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

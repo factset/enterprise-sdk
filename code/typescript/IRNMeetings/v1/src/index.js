@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AttachmentSummaryDto from './model/AttachmentSummaryDto';
 import AttendeeDto from './model/AttendeeDto';
@@ -22,26 +21,25 @@ import CreateCommentDto from './model/CreateCommentDto';
 import CreateCustomFieldValueDto from './model/CreateCustomFieldValueDto';
 import CreateMeetingDto from './model/CreateMeetingDto';
 import CustomFieldValueDto from './model/CustomFieldValueDto';
-import IdentifierResolutionDto from './model/IdentifierResolutionDto';
 import LocationDto from './model/LocationDto';
 import MeetingDto from './model/MeetingDto';
 import MeetingEventDto from './model/MeetingEventDto';
 import MeetingSummaryDto from './model/MeetingSummaryDto';
 import NewItemDto from './model/NewItemDto';
 import Operation from './model/Operation';
+import OperationType from './model/OperationType';
 import ProblemDetails from './model/ProblemDetails';
 import RecordChangeDto from './model/RecordChangeDto';
 import RecordEventSummaryDto from './model/RecordEventSummaryDto';
 import ReferenceAttendeeDto from './model/ReferenceAttendeeDto';
 import RelatedRecordsDto from './model/RelatedRecordsDto';
-import ResolvedInstrumentDto from './model/ResolvedInstrumentDto';
 import SubcommentSummaryDto from './model/SubcommentSummaryDto';
 import UpdateMeetingDto from './model/UpdateMeetingDto';
 import UserSerialDto from './model/UserSerialDto';
+
 import AttachmentsApi from './api/AttachmentsApi';
 import CommentsApi from './api/CommentsApi';
 import EventsApi from './api/EventsApi';
-import IdentifiersApi from './api/IdentifiersApi';
 import MeetingsApi from './api/MeetingsApi';
 
 
@@ -74,7 +72,7 @@ import MeetingsApi from './api/MeetingsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -138,12 +136,6 @@ export {
     CustomFieldValueDto,
 
     /**
-     * The IdentifierResolutionDto model constructor.
-     * @property {module:model/IdentifierResolutionDto}
-     */
-    IdentifierResolutionDto,
-
-    /**
      * The LocationDto model constructor.
      * @property {module:model/LocationDto}
      */
@@ -180,6 +172,12 @@ export {
     Operation,
 
     /**
+     * The OperationType model constructor.
+     * @property {module:model/OperationType}
+     */
+    OperationType,
+
+    /**
      * The ProblemDetails model constructor.
      * @property {module:model/ProblemDetails}
      */
@@ -208,12 +206,6 @@ export {
      * @property {module:model/RelatedRecordsDto}
      */
     RelatedRecordsDto,
-
-    /**
-     * The ResolvedInstrumentDto model constructor.
-     * @property {module:model/ResolvedInstrumentDto}
-     */
-    ResolvedInstrumentDto,
 
     /**
      * The SubcommentSummaryDto model constructor.
@@ -252,14 +244,9 @@ export {
     EventsApi,
 
     /**
-    * The IdentifiersApi service constructor.
-    * @property {module:api/IdentifiersApi}
-    */
-    IdentifiersApi,
-
-    /**
     * The MeetingsApi service constructor.
     * @property {module:api/MeetingsApi}
     */
-    MeetingsApi
+    MeetingsApi,
+
 };

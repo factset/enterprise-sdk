@@ -59,6 +59,8 @@ public class InlineResponse2001DataProfitLoss implements Serializable {
   public static final String JSON_PROPERTY_TODAY = "today";
   private InlineResponse2001DataProfitLossToday today;
 
+  public InlineResponse2001DataProfitLoss() { 
+  }
 
   public InlineResponse2001DataProfitLoss realized(InlineResponse2001DataProfitLossRealized realized) {
     this.realized = realized;

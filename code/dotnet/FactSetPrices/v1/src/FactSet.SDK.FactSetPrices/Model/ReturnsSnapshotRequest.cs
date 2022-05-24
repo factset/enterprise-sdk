@@ -97,7 +97,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ReturnsSnapshotRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
@@ -135,8 +135,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(ReturnsSnapshotRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -176,15 +177,25 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Calendar != null)
-                    hashCode = hashCode * 59 + this.Calendar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Calendar.GetHashCode();
+                }
                 if (this.DividendAdjust != null)
-                    hashCode = hashCode * 59 + this.DividendAdjust.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DividendAdjust.GetHashCode();
+                }
                 return hashCode;
             }
         }

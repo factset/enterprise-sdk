@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -44,12 +44,14 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class NumericConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DECIMALS = "decimals";
+  public static final String JSON_PROPERTY_DECIMALS = "Decimals";
   private Integer decimals;
 
-  public static final String JSON_PROPERTY_SPLIT_TYPE = "splitType";
+  public static final String JSON_PROPERTY_SPLIT_TYPE = "SplitType";
   private JsonNullable<String> splitType = JsonNullable.<String>undefined();
 
+  public NumericConfigDto() { 
+  }
 
   public NumericConfigDto decimals(Integer decimals) {
     this.decimals = decimals;

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getidentifiers"></a>
 # **GetIdentifiers**
-> List&lt;IdentifierResolutionDto&gt; GetIdentifiers (string identifiers = null)
+> List&lt;Object&gt; GetIdentifiers (string identifiers = null)
 
 Get all the identifier details for given identifiers
 
@@ -48,12 +48,12 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new IdentifiersApi(config);
-            var identifiers = identifiers_example;  // string | Identifiers (optional) 
+            var identifiers = "identifiers_example";  // string | Identifiers (optional) 
 
             try
             {
                 // Get all the identifier details for given identifiers
-                List<IdentifierResolutionDto> result = apiInstance.GetIdentifiers(identifiers);
+                List<Object> result = apiInstance.GetIdentifiers(identifiers);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -74,8 +74,7 @@ Name | Type | Description  | Notes
  **identifiers** | **string**| Identifiers | [optional] 
 
 ### Return type
-
-[**List&lt;IdentifierResolutionDto&gt;**](IdentifierResolutionDto.md)
+**List<Object>**
 
 ### Authorization
 

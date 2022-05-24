@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.RedemptionPricesRequest;
@@ -23,6 +26,28 @@ public class RedemptionsApi {
   public RedemptionsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFixedIncomeRedemptionPricesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFixedIncomeRedemptionPricesResponseTypeMap.put(200, new GenericType<RedemptionPricesResponse>(){});
+    getFixedIncomeRedemptionPricesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFixedIncomeRedemptionPricesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFixedIncomeRedemptionPricesForListResponseTypeMap.put(200, new GenericType<RedemptionPricesResponse>(){});
+    getFixedIncomeRedemptionPricesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedIncomeRedemptionPricesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -122,11 +147,17 @@ public class RedemptionsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RedemptionPricesResponse> localVarReturnType = new GenericType<RedemptionPricesResponse>() {};
 
-    return apiClient.invokeAPI("RedemptionsApi.getFixedIncomeRedemptionPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RedemptionPricesResponse
+      
+    > apiResponse = apiClient.invokeAPI("RedemptionsApi.getFixedIncomeRedemptionPrices", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFixedIncomeRedemptionPricesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Redemption Prices for a list of Fixed Income securities.
@@ -199,10 +230,16 @@ public class RedemptionsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RedemptionPricesResponse> localVarReturnType = new GenericType<RedemptionPricesResponse>() {};
 
-    return apiClient.invokeAPI("RedemptionsApi.getFixedIncomeRedemptionPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RedemptionPricesResponse
+      
+    > apiResponse = apiClient.invokeAPI("RedemptionsApi.getFixedIncomeRedemptionPricesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFixedIncomeRedemptionPricesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

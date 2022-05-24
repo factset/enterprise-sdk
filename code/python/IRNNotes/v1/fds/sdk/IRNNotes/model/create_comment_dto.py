@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -86,9 +86,9 @@ class CreateCommentDto(ModelNormal):
 
 
     attribute_map = {
-        'author_id': 'authorId',  # noqa: E501
-        'parent_comment_id': 'parentCommentId',  # noqa: E501
-        'body': 'body',  # noqa: E501
+        'author_id': 'AuthorId',  # noqa: E501
+        'parent_comment_id': 'ParentCommentId',  # noqa: E501
+        'body': 'Body',  # noqa: E501
     }
 
     read_only_vars = {

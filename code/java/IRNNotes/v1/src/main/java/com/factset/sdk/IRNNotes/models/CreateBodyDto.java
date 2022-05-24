@@ -43,9 +43,11 @@ import com.factset.sdk.IRNNotes.JSON;
 public class CreateBodyDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CONTENT = "content";
+  public static final String JSON_PROPERTY_CONTENT = "Content";
   private JsonNullable<String> content = JsonNullable.<String>undefined();
 
+  public CreateBodyDto() { 
+  }
 
   public CreateBodyDto content(String content) {
     this.content = JsonNullable.<String>of(content);

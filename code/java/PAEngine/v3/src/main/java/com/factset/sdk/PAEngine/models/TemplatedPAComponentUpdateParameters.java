@@ -51,6 +51,8 @@ public class TemplatedPAComponentUpdateParameters implements Serializable {
   public static final String JSON_PROPERTY_COMPONENT_DATA = "componentData";
   private PAComponentData componentData;
 
+  public TemplatedPAComponentUpdateParameters() { 
+  }
 
   public TemplatedPAComponentUpdateParameters parentTemplateId(String parentTemplateId) {
     this.parentTemplateId = parentTemplateId;

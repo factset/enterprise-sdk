@@ -44,6 +44,16 @@ public class StatusObject implements Serializable {
   public static final String JSON_PROPERTY_CODE = "code";
   private BigDecimal code;
 
+  public StatusObject() { 
+  }
+
+  @JsonCreator
+  public StatusObject(
+    @JsonProperty(value=JSON_PROPERTY_CODE, required=true) BigDecimal code
+  ) {
+    this();
+    this.code = code;
+  }
 
   public StatusObject code(BigDecimal code) {
     this.code = code;

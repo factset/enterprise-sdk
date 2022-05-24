@@ -19,7 +19,7 @@ import InlineResponse20031DataSystem from './InlineResponse20031DataSystem';
 /**
  * The InlineResponse20031Data model module.
  * @module model/InlineResponse20031Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20031Data {
     /**

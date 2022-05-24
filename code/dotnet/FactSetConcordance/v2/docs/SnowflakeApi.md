@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
  **snowflakeEntityMatchRequest** | [**SnowflakeEntityMatchRequest**](SnowflakeEntityMatchRequest.md)| A request to match an entity name and its attributes within Snowflake. | 
 
 ### Return type
-
 [**SnowflakeEntityMatchResponse**](SnowflakeEntityMatchResponse.md)
 
 ### Authorization

@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetTickHistory.JSON;
@@ -65,6 +65,8 @@ public class GetFilesResponse implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private java.util.List<Meta> meta = null;
 
+  public GetFilesResponse() { 
+  }
 
   public GetFilesResponse status(String status) {
     this.status = status;

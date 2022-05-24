@@ -51,6 +51,8 @@ public class NRTCalls400Response implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private NRTCalls400ResponseDetails details;
 
+  public NRTCalls400Response() { 
+  }
 
   public NRTCalls400Response id(String id) {
     this.id = id;

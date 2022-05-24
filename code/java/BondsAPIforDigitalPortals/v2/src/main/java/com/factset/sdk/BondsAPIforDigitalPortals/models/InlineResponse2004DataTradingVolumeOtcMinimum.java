@@ -48,6 +48,8 @@ public class InlineResponse2004DataTradingVolumeOtcMinimum implements Serializab
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataTradingVolumeOtcMinimum() { 
+  }
 
   public InlineResponse2004DataTradingVolumeOtcMinimum minimum(BigDecimal minimum) {
     this.minimum = minimum;

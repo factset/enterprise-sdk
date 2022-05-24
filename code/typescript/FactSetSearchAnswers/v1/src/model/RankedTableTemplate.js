@@ -20,7 +20,7 @@ import Template from './Template';
 /**
  * The RankedTableTemplate model module.
  * @module model/RankedTableTemplate
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RankedTableTemplate {
     /**

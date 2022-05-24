@@ -89,6 +89,8 @@ public class StockNotationScreenerSearchDataRatios1 implements Serializable {
   public static final String JSON_PROPERTY_ENTERPRISE_VALUE_SALES = "enterpriseValueSales";
   private StockNotationScreenerSearchDataRatios1EnterpriseValueSales enterpriseValueSales;
 
+  public StockNotationScreenerSearchDataRatios1() { 
+  }
 
   public StockNotationScreenerSearchDataRatios1 priceSales(StockNotationScreenerSearchDataRatios1PriceSales priceSales) {
     this.priceSales = priceSales;

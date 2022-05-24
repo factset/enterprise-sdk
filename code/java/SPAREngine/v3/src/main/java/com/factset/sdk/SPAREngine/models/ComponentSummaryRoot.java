@@ -47,6 +47,16 @@ public class ComponentSummaryRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public ComponentSummaryRoot() { 
+  }
+
+  @JsonCreator
+  public ComponentSummaryRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, ComponentSummary> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public ComponentSummaryRoot data(java.util.Map<String, ComponentSummary> data) {
     this.data = data;

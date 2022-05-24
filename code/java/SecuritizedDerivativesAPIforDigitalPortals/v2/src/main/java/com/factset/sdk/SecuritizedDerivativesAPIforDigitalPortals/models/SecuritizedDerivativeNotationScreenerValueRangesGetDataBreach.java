@@ -80,6 +80,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataBreach imple
   public static final String JSON_PROPERTY_BREACHED = "breached";
   private BreachedEnum breached = BreachedEnum.EXCLUDE;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataBreach() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataBreach breached(BreachedEnum breached) {
     this.breached = breached;

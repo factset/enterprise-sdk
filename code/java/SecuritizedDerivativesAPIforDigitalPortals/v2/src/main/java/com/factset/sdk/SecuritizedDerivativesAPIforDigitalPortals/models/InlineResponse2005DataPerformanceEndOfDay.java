@@ -84,6 +84,8 @@ public class InlineResponse2005DataPerformanceEndOfDay implements Serializable {
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
   private InlineResponse2005DataPerformanceEndOfDayYearToDate yearToDate;
 
+  public InlineResponse2005DataPerformanceEndOfDay() { 
+  }
 
   public InlineResponse2005DataPerformanceEndOfDay day1(InlineResponse2005DataPerformanceEndOfDayDay1 day1) {
     this.day1 = day1;

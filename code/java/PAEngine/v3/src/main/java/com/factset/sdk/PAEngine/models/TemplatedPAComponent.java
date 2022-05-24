@@ -71,6 +71,8 @@ public class TemplatedPAComponent implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  public TemplatedPAComponent() { 
+  }
 
   public TemplatedPAComponent id(String id) {
     this.id = id;

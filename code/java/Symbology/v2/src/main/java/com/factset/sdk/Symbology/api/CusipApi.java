@@ -7,6 +7,9 @@ import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Symbology.models.CusipHistoryResponse;
 import com.factset.sdk.Symbology.models.CusipHistoryTranslationRequest;
@@ -25,6 +28,46 @@ public class CusipApi {
   public CusipApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> batchCusipHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchCusipHistoryResponseTypeMap.put(200, new GenericType<CusipHistoryResponse>(){});
+    batchCusipHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchCusipHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchCusipHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchCusipHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchCusipHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> batchTranslateCusipsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchTranslateCusipsResponseTypeMap.put(200, new GenericType<CusipTranslationResponse>(){});
+    batchTranslateCusipsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchTranslateCusipsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchTranslateCusipsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchTranslateCusipsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchTranslateCusipsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> cusipHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    cusipHistoryResponseTypeMap.put(200, new GenericType<CusipHistoryResponse>(){});
+    cusipHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    cusipHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    cusipHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    cusipHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    cusipHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> translateCusipResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    translateCusipResponseTypeMap.put(200, new GenericType<CusipTranslationResponse>(){});
+    translateCusipResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    translateCusipResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    translateCusipResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    translateCusipResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    translateCusipResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +158,17 @@ public class CusipApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CusipHistoryResponse> localVarReturnType = new GenericType<CusipHistoryResponse>() {};
 
-    return apiClient.invokeAPI("CusipApi.batchCusipHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CusipHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("CusipApi.batchCusipHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchCusipHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate market security symbols into CUSIP - Current Only
@@ -192,11 +241,17 @@ public class CusipApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CusipTranslationResponse> localVarReturnType = new GenericType<CusipTranslationResponse>() {};
 
-    return apiClient.invokeAPI("CusipApi.batchTranslateCusips", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CusipTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("CusipApi.batchTranslateCusips", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchTranslateCusipsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieve the full history or as of a requested date of CUSIP changes for the requested ID(s).
@@ -273,11 +328,17 @@ public class CusipApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CusipHistoryResponse> localVarReturnType = new GenericType<CusipHistoryResponse>() {};
 
-    return apiClient.invokeAPI("CusipApi.cusipHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CusipHistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("CusipApi.cusipHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, cusipHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate market security symbols into CUSIPs - Current Only
@@ -351,10 +412,16 @@ public class CusipApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CusipTranslationResponse> localVarReturnType = new GenericType<CusipTranslationResponse>() {};
 
-    return apiClient.invokeAPI("CusipApi.translateCusip", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CusipTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("CusipApi.translateCusip", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, translateCusipResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

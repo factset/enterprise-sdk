@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -11,41 +11,86 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import ApprovalLevelConfigDto from './model/ApprovalLevelConfigDto';
 import ApprovalProcessConfigDto from './model/ApprovalProcessConfigDto';
+import AuthorConfigDto from './model/AuthorConfigDto';
 import ClientSalesRepresentativeDto from './model/ClientSalesRepresentativeDto';
 import CommentaryConfigDto from './model/CommentaryConfigDto';
+import ContactCustomFieldDto from './model/ContactCustomFieldDto';
+import ContactCustomFieldFormulaDto from './model/ContactCustomFieldFormulaDto';
+import ContactCustomFieldOptionDto from './model/ContactCustomFieldOptionDto';
+import ContactCustomFieldOptionSaveDto from './model/ContactCustomFieldOptionSaveDto';
+import ContactCustomFieldSaveDto from './model/ContactCustomFieldSaveDto';
+import ContactCustomFieldType from './model/ContactCustomFieldType';
+import ContactRoleDto from './model/ContactRoleDto';
+import ContactTypeDto from './model/ContactTypeDto';
+import CreateCustomSymbolCustomFieldDto from './model/CreateCustomSymbolCustomFieldDto';
 import CustomFieldConfigDto from './model/CustomFieldConfigDto';
+import CustomSymbolCustomFieldConfigDto from './model/CustomSymbolCustomFieldConfigDto';
+import CustomSymbolCustomFieldFormulaConfigDto from './model/CustomSymbolCustomFieldFormulaConfigDto';
+import CustomSymbolSubTypeDto from './model/CustomSymbolSubTypeDto';
+import CustomSymbolTypeDetailDto from './model/CustomSymbolTypeDetailDto';
+import CustomSymbolTypeDto from './model/CustomSymbolTypeDto';
+import CustomSymbolTypeSummaryDto from './model/CustomSymbolTypeSummaryDto';
+import DateSettingsDto from './model/DateSettingsDto';
+import EntityType from './model/EntityType';
 import ExtendedTextConfigDto from './model/ExtendedTextConfigDto';
 import FormulaConfigDto from './model/FormulaConfigDto';
 import GroupConfigDto from './model/GroupConfigDto';
 import GroupFieldsDto from './model/GroupFieldsDto';
 import HeadlineFormatConfigDto from './model/HeadlineFormatConfigDto';
+import IdentifierSettingsDto from './model/IdentifierSettingsDto';
 import IntegerConfigDto from './model/IntegerConfigDto';
+import LinkSettingsDto from './model/LinkSettingsDto';
+import NewItemDto from './model/NewItemDto';
+import NoteSettingsDto from './model/NoteSettingsDto';
 import NumericConfigDto from './model/NumericConfigDto';
+import Operation from './model/Operation';
+import OperationType from './model/OperationType';
 import OptionsConfigDto from './model/OptionsConfigDto';
+import OrganizerSettingsDto from './model/OrganizerSettingsDto';
+import PhoneNumberTypeDto from './model/PhoneNumberTypeDto';
 import ProblemDetails from './model/ProblemDetails';
 import RatingConfigDto from './model/RatingConfigDto';
 import RecommendationConfigDto from './model/RecommendationConfigDto';
 import RecommendationSettingsDto from './model/RecommendationSettingsDto';
+import RelatedContactsSettingsDto from './model/RelatedContactsSettingsDto';
+import RelatedResearchSettingsDto from './model/RelatedResearchSettingsDto';
+import RelatedSymbolsSettingsDto from './model/RelatedSymbolsSettingsDto';
+import RelationshipCategoryDto from './model/RelationshipCategoryDto';
+import RelationshipCategoryListDto from './model/RelationshipCategoryListDto';
+import RelationshipCategorySaveDto from './model/RelationshipCategorySaveDto';
+import RelationshipDto from './model/RelationshipDto';
+import RelationshipSaveDto from './model/RelationshipSaveDto';
+import RelationshipType from './model/RelationshipType';
+import ReorderCustomSymbolTypeDto from './model/ReorderCustomSymbolTypeDto';
+import SaveCustomSymbolTypeDto from './model/SaveCustomSymbolTypeDto';
 import SentimentConfigDto from './model/SentimentConfigDto';
 import SentimentSettingsDto from './model/SentimentSettingsDto';
+import SourceSettingsDto from './model/SourceSettingsDto';
 import SubjectConfigDto from './model/SubjectConfigDto';
 import SubjectSettingsDto from './model/SubjectSettingsDto';
 import SubjectSummaryDto from './model/SubjectSummaryDto';
+import SymbolsRelationShipSaveDto from './model/SymbolsRelationShipSaveDto';
+import SymbolsRelationshipDto from './model/SymbolsRelationshipDto';
 import TeamConfigDto from './model/TeamConfigDto';
+import TeamSettingsDto from './model/TeamSettingsDto';
 import TeamSummaryDto from './model/TeamSummaryDto';
+import TitleSettingsDto from './model/TitleSettingsDto';
+import UpdateCustomSymbolTypeDto from './model/UpdateCustomSymbolTypeDto';
 import UserConfigDto from './model/UserConfigDto';
-import AuthorsApi from './api/AuthorsApi';
-import CustomFieldsApi from './api/CustomFieldsApi';
-import GroupApi from './api/GroupApi';
-import RecommendationsApi from './api/RecommendationsApi';
-import SentimentsApi from './api/SentimentsApi';
-import SubjectsApi from './api/SubjectsApi';
-import TeamsApi from './api/TeamsApi';
-import UsersApi from './api/UsersApi';
+
+import ContactsCustomFieldsApi from './api/ContactsCustomFieldsApi';
+import ContactsPhoneNumberTypesApi from './api/ContactsPhoneNumberTypesApi';
+import ContactsRelationshipCategoryApi from './api/ContactsRelationshipCategoryApi';
+import ContactsRelationshipsApi from './api/ContactsRelationshipsApi';
+import ContactsRolesApi from './api/ContactsRolesApi';
+import ContactsTypesApi from './api/ContactsTypesApi';
+import CustomSymbolsCustomFieldsApi from './api/CustomSymbolsCustomFieldsApi';
+import CustomSymbolsRelationshipsApi from './api/CustomSymbolsRelationshipsApi';
+import CustomSymbolsTypesApi from './api/CustomSymbolsTypesApi';
+import NotesConfigurationApi from './api/NotesConfigurationApi';
 
 
 /**
@@ -77,7 +122,7 @@ import UsersApi from './api/UsersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -99,6 +144,12 @@ export {
     ApprovalProcessConfigDto,
 
     /**
+     * The AuthorConfigDto model constructor.
+     * @property {module:model/AuthorConfigDto}
+     */
+    AuthorConfigDto,
+
+    /**
      * The ClientSalesRepresentativeDto model constructor.
      * @property {module:model/ClientSalesRepresentativeDto}
      */
@@ -111,10 +162,112 @@ export {
     CommentaryConfigDto,
 
     /**
+     * The ContactCustomFieldDto model constructor.
+     * @property {module:model/ContactCustomFieldDto}
+     */
+    ContactCustomFieldDto,
+
+    /**
+     * The ContactCustomFieldFormulaDto model constructor.
+     * @property {module:model/ContactCustomFieldFormulaDto}
+     */
+    ContactCustomFieldFormulaDto,
+
+    /**
+     * The ContactCustomFieldOptionDto model constructor.
+     * @property {module:model/ContactCustomFieldOptionDto}
+     */
+    ContactCustomFieldOptionDto,
+
+    /**
+     * The ContactCustomFieldOptionSaveDto model constructor.
+     * @property {module:model/ContactCustomFieldOptionSaveDto}
+     */
+    ContactCustomFieldOptionSaveDto,
+
+    /**
+     * The ContactCustomFieldSaveDto model constructor.
+     * @property {module:model/ContactCustomFieldSaveDto}
+     */
+    ContactCustomFieldSaveDto,
+
+    /**
+     * The ContactCustomFieldType model constructor.
+     * @property {module:model/ContactCustomFieldType}
+     */
+    ContactCustomFieldType,
+
+    /**
+     * The ContactRoleDto model constructor.
+     * @property {module:model/ContactRoleDto}
+     */
+    ContactRoleDto,
+
+    /**
+     * The ContactTypeDto model constructor.
+     * @property {module:model/ContactTypeDto}
+     */
+    ContactTypeDto,
+
+    /**
+     * The CreateCustomSymbolCustomFieldDto model constructor.
+     * @property {module:model/CreateCustomSymbolCustomFieldDto}
+     */
+    CreateCustomSymbolCustomFieldDto,
+
+    /**
      * The CustomFieldConfigDto model constructor.
      * @property {module:model/CustomFieldConfigDto}
      */
     CustomFieldConfigDto,
+
+    /**
+     * The CustomSymbolCustomFieldConfigDto model constructor.
+     * @property {module:model/CustomSymbolCustomFieldConfigDto}
+     */
+    CustomSymbolCustomFieldConfigDto,
+
+    /**
+     * The CustomSymbolCustomFieldFormulaConfigDto model constructor.
+     * @property {module:model/CustomSymbolCustomFieldFormulaConfigDto}
+     */
+    CustomSymbolCustomFieldFormulaConfigDto,
+
+    /**
+     * The CustomSymbolSubTypeDto model constructor.
+     * @property {module:model/CustomSymbolSubTypeDto}
+     */
+    CustomSymbolSubTypeDto,
+
+    /**
+     * The CustomSymbolTypeDetailDto model constructor.
+     * @property {module:model/CustomSymbolTypeDetailDto}
+     */
+    CustomSymbolTypeDetailDto,
+
+    /**
+     * The CustomSymbolTypeDto model constructor.
+     * @property {module:model/CustomSymbolTypeDto}
+     */
+    CustomSymbolTypeDto,
+
+    /**
+     * The CustomSymbolTypeSummaryDto model constructor.
+     * @property {module:model/CustomSymbolTypeSummaryDto}
+     */
+    CustomSymbolTypeSummaryDto,
+
+    /**
+     * The DateSettingsDto model constructor.
+     * @property {module:model/DateSettingsDto}
+     */
+    DateSettingsDto,
+
+    /**
+     * The EntityType model constructor.
+     * @property {module:model/EntityType}
+     */
+    EntityType,
 
     /**
      * The ExtendedTextConfigDto model constructor.
@@ -147,10 +300,34 @@ export {
     HeadlineFormatConfigDto,
 
     /**
+     * The IdentifierSettingsDto model constructor.
+     * @property {module:model/IdentifierSettingsDto}
+     */
+    IdentifierSettingsDto,
+
+    /**
      * The IntegerConfigDto model constructor.
      * @property {module:model/IntegerConfigDto}
      */
     IntegerConfigDto,
+
+    /**
+     * The LinkSettingsDto model constructor.
+     * @property {module:model/LinkSettingsDto}
+     */
+    LinkSettingsDto,
+
+    /**
+     * The NewItemDto model constructor.
+     * @property {module:model/NewItemDto}
+     */
+    NewItemDto,
+
+    /**
+     * The NoteSettingsDto model constructor.
+     * @property {module:model/NoteSettingsDto}
+     */
+    NoteSettingsDto,
 
     /**
      * The NumericConfigDto model constructor.
@@ -159,10 +336,34 @@ export {
     NumericConfigDto,
 
     /**
+     * The Operation model constructor.
+     * @property {module:model/Operation}
+     */
+    Operation,
+
+    /**
+     * The OperationType model constructor.
+     * @property {module:model/OperationType}
+     */
+    OperationType,
+
+    /**
      * The OptionsConfigDto model constructor.
      * @property {module:model/OptionsConfigDto}
      */
     OptionsConfigDto,
+
+    /**
+     * The OrganizerSettingsDto model constructor.
+     * @property {module:model/OrganizerSettingsDto}
+     */
+    OrganizerSettingsDto,
+
+    /**
+     * The PhoneNumberTypeDto model constructor.
+     * @property {module:model/PhoneNumberTypeDto}
+     */
+    PhoneNumberTypeDto,
 
     /**
      * The ProblemDetails model constructor.
@@ -189,6 +390,72 @@ export {
     RecommendationSettingsDto,
 
     /**
+     * The RelatedContactsSettingsDto model constructor.
+     * @property {module:model/RelatedContactsSettingsDto}
+     */
+    RelatedContactsSettingsDto,
+
+    /**
+     * The RelatedResearchSettingsDto model constructor.
+     * @property {module:model/RelatedResearchSettingsDto}
+     */
+    RelatedResearchSettingsDto,
+
+    /**
+     * The RelatedSymbolsSettingsDto model constructor.
+     * @property {module:model/RelatedSymbolsSettingsDto}
+     */
+    RelatedSymbolsSettingsDto,
+
+    /**
+     * The RelationshipCategoryDto model constructor.
+     * @property {module:model/RelationshipCategoryDto}
+     */
+    RelationshipCategoryDto,
+
+    /**
+     * The RelationshipCategoryListDto model constructor.
+     * @property {module:model/RelationshipCategoryListDto}
+     */
+    RelationshipCategoryListDto,
+
+    /**
+     * The RelationshipCategorySaveDto model constructor.
+     * @property {module:model/RelationshipCategorySaveDto}
+     */
+    RelationshipCategorySaveDto,
+
+    /**
+     * The RelationshipDto model constructor.
+     * @property {module:model/RelationshipDto}
+     */
+    RelationshipDto,
+
+    /**
+     * The RelationshipSaveDto model constructor.
+     * @property {module:model/RelationshipSaveDto}
+     */
+    RelationshipSaveDto,
+
+    /**
+     * The RelationshipType model constructor.
+     * @property {module:model/RelationshipType}
+     */
+    RelationshipType,
+
+    /**
+     * The ReorderCustomSymbolTypeDto model constructor.
+     * @property {module:model/ReorderCustomSymbolTypeDto}
+     */
+    ReorderCustomSymbolTypeDto,
+
+    /**
+     * The SaveCustomSymbolTypeDto model constructor.
+     * @property {module:model/SaveCustomSymbolTypeDto}
+     */
+    SaveCustomSymbolTypeDto,
+
+    /**
      * The SentimentConfigDto model constructor.
      * @property {module:model/SentimentConfigDto}
      */
@@ -199,6 +466,12 @@ export {
      * @property {module:model/SentimentSettingsDto}
      */
     SentimentSettingsDto,
+
+    /**
+     * The SourceSettingsDto model constructor.
+     * @property {module:model/SourceSettingsDto}
+     */
+    SourceSettingsDto,
 
     /**
      * The SubjectConfigDto model constructor.
@@ -219,10 +492,28 @@ export {
     SubjectSummaryDto,
 
     /**
+     * The SymbolsRelationShipSaveDto model constructor.
+     * @property {module:model/SymbolsRelationShipSaveDto}
+     */
+    SymbolsRelationShipSaveDto,
+
+    /**
+     * The SymbolsRelationshipDto model constructor.
+     * @property {module:model/SymbolsRelationshipDto}
+     */
+    SymbolsRelationshipDto,
+
+    /**
      * The TeamConfigDto model constructor.
      * @property {module:model/TeamConfigDto}
      */
     TeamConfigDto,
+
+    /**
+     * The TeamSettingsDto model constructor.
+     * @property {module:model/TeamSettingsDto}
+     */
+    TeamSettingsDto,
 
     /**
      * The TeamSummaryDto model constructor.
@@ -231,56 +522,81 @@ export {
     TeamSummaryDto,
 
     /**
+     * The TitleSettingsDto model constructor.
+     * @property {module:model/TitleSettingsDto}
+     */
+    TitleSettingsDto,
+
+    /**
+     * The UpdateCustomSymbolTypeDto model constructor.
+     * @property {module:model/UpdateCustomSymbolTypeDto}
+     */
+    UpdateCustomSymbolTypeDto,
+
+    /**
      * The UserConfigDto model constructor.
      * @property {module:model/UserConfigDto}
      */
     UserConfigDto,
 
     /**
-    * The AuthorsApi service constructor.
-    * @property {module:api/AuthorsApi}
+    * The ContactsCustomFieldsApi service constructor.
+    * @property {module:api/ContactsCustomFieldsApi}
     */
-    AuthorsApi,
+    ContactsCustomFieldsApi,
 
     /**
-    * The CustomFieldsApi service constructor.
-    * @property {module:api/CustomFieldsApi}
+    * The ContactsPhoneNumberTypesApi service constructor.
+    * @property {module:api/ContactsPhoneNumberTypesApi}
     */
-    CustomFieldsApi,
+    ContactsPhoneNumberTypesApi,
 
     /**
-    * The GroupApi service constructor.
-    * @property {module:api/GroupApi}
+    * The ContactsRelationshipCategoryApi service constructor.
+    * @property {module:api/ContactsRelationshipCategoryApi}
     */
-    GroupApi,
+    ContactsRelationshipCategoryApi,
 
     /**
-    * The RecommendationsApi service constructor.
-    * @property {module:api/RecommendationsApi}
+    * The ContactsRelationshipsApi service constructor.
+    * @property {module:api/ContactsRelationshipsApi}
     */
-    RecommendationsApi,
+    ContactsRelationshipsApi,
 
     /**
-    * The SentimentsApi service constructor.
-    * @property {module:api/SentimentsApi}
+    * The ContactsRolesApi service constructor.
+    * @property {module:api/ContactsRolesApi}
     */
-    SentimentsApi,
+    ContactsRolesApi,
 
     /**
-    * The SubjectsApi service constructor.
-    * @property {module:api/SubjectsApi}
+    * The ContactsTypesApi service constructor.
+    * @property {module:api/ContactsTypesApi}
     */
-    SubjectsApi,
+    ContactsTypesApi,
 
     /**
-    * The TeamsApi service constructor.
-    * @property {module:api/TeamsApi}
+    * The CustomSymbolsCustomFieldsApi service constructor.
+    * @property {module:api/CustomSymbolsCustomFieldsApi}
     */
-    TeamsApi,
+    CustomSymbolsCustomFieldsApi,
 
     /**
-    * The UsersApi service constructor.
-    * @property {module:api/UsersApi}
+    * The CustomSymbolsRelationshipsApi service constructor.
+    * @property {module:api/CustomSymbolsRelationshipsApi}
     */
-    UsersApi
+    CustomSymbolsRelationshipsApi,
+
+    /**
+    * The CustomSymbolsTypesApi service constructor.
+    * @property {module:api/CustomSymbolsTypesApi}
+    */
+    CustomSymbolsTypesApi,
+
+    /**
+    * The NotesConfigurationApi service constructor.
+    * @property {module:api/NotesConfigurationApi}
+    */
+    NotesConfigurationApi,
+
 };

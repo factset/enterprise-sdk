@@ -48,6 +48,8 @@ public class InlineObject15 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private BasicBackgroundTextTypeListMeta meta;
 
+  public InlineObject15() { 
+  }
 
   public InlineObject15 data(InstrumentRatingGradeListData data) {
     this.data = data;

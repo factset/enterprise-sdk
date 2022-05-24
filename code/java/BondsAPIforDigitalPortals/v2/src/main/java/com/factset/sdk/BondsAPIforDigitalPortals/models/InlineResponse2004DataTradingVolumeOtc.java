@@ -44,6 +44,8 @@ public class InlineResponse2004DataTradingVolumeOtc implements Serializable {
   public static final String JSON_PROPERTY_MINIMUM = "minimum";
   private InlineResponse2004DataTradingVolumeOtcMinimum minimum;
 
+  public InlineResponse2004DataTradingVolumeOtc() { 
+  }
 
   public InlineResponse2004DataTradingVolumeOtc minimum(InlineResponse2004DataTradingVolumeOtcMinimum minimum) {
     this.minimum = minimum;

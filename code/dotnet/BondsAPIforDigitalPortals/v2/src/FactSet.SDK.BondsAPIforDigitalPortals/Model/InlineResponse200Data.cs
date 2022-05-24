@@ -153,7 +153,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200Data {\n");
             sb.Append("  Isin: ").Append(Isin).Append("\n");
             sb.Append("  Nsin: ").Append(Nsin).Append("\n");
@@ -199,8 +199,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Isin == input.Isin ||
@@ -279,30 +280,54 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Isin != null)
-                    hashCode = hashCode * 59 + this.Isin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                }
                 if (this.Nsin != null)
-                    hashCode = hashCode * 59 + this.Nsin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Nsin.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ShortName != null)
-                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Issue != null)
-                    hashCode = hashCode * 59 + this.Issue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issue.GetHashCode();
+                }
                 if (this.TradingVolume != null)
-                    hashCode = hashCode * 59 + this.TradingVolume.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
+                }
                 if (this.Redemption != null)
-                    hashCode = hashCode * 59 + this.Redemption.GetHashCode();
-                hashCode = hashCode * 59 + this.NominalValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Redemption.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.NominalValue.GetHashCode();
                 if (this.DebtRanking != null)
-                    hashCode = hashCode * 59 + this.DebtRanking.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DebtRanking.GetHashCode();
+                }
                 if (this.Germany != null)
-                    hashCode = hashCode * 59 + this.Germany.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Germany.GetHashCode();
+                }
                 return hashCode;
             }
         }

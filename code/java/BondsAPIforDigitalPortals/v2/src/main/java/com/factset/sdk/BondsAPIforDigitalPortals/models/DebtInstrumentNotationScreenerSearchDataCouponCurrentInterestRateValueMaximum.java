@@ -48,6 +48,8 @@ public class DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateVa
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMaximum() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMaximum value(BigDecimal value) {
     this.value = value;

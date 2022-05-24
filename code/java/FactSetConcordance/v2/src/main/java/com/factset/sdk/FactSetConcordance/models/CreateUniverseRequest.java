@@ -46,6 +46,16 @@ public class CreateUniverseRequest implements Serializable {
   public static final String JSON_PROPERTY_UNIVERSE_DESCRIPTION = "universeDescription";
   private String universeDescription;
 
+  public CreateUniverseRequest() { 
+  }
+
+  @JsonCreator
+  public CreateUniverseRequest(
+    @JsonProperty(value=JSON_PROPERTY_UNIVERSE_NAME, required=true) String universeName
+  ) {
+    this();
+    this.universeName = universeName;
+  }
 
   public CreateUniverseRequest universeName(String universeName) {
     this.universeName = universeName;

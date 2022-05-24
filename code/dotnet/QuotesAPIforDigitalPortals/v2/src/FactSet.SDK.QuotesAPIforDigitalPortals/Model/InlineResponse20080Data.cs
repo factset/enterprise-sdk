@@ -169,7 +169,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20080Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
@@ -214,8 +214,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20080Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -288,28 +289,50 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Latest != null)
-                    hashCode = hashCode * 59 + this.Latest.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Latest.GetHashCode();
+                }
                 if (this.First != null)
-                    hashCode = hashCode * 59 + this.First.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.First.GetHashCode();
+                }
                 if (this.Low != null)
-                    hashCode = hashCode * 59 + this.Low.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Low.GetHashCode();
+                }
                 if (this.High != null)
-                    hashCode = hashCode * 59 + this.High.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.High.GetHashCode();
+                }
                 if (this.PreviousClose != null)
-                    hashCode = hashCode * 59 + this.PreviousClose.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PreviousClose.GetHashCode();
+                }
                 if (this.Accumulated != null)
-                    hashCode = hashCode * 59 + this.Accumulated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accumulated.GetHashCode();
+                }
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 return hashCode;
             }
         }

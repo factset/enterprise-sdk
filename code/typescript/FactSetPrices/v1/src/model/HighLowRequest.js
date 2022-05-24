@@ -20,7 +20,7 @@ import PriceType from './PriceType';
 /**
  * The HighLowRequest model module.
  * @module model/HighLowRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class HighLowRequest {
     /**

@@ -58,6 +58,18 @@ public class NPOOptimizationParameters implements Serializable {
   public static final String JSON_PROPERTY_OUTPUT_TYPES = "outputTypes";
   private OptimizerOutputTypes outputTypes;
 
+  public NPOOptimizationParameters() { 
+  }
+
+  @JsonCreator
+  public NPOOptimizationParameters(
+    @JsonProperty(value=JSON_PROPERTY_STRATEGY, required=true) NPOOptimizerStrategy strategy, 
+    @JsonProperty(value=JSON_PROPERTY_OUTPUT_TYPES, required=true) OptimizerOutputTypes outputTypes
+  ) {
+    this();
+    this.strategy = strategy;
+    this.outputTypes = outputTypes;
+  }
 
   public NPOOptimizationParameters strategy(NPOOptimizerStrategy strategy) {
     this.strategy = strategy;

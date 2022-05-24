@@ -144,7 +144,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimalPortfolio {\n");
             sb.Append("  AcctName: ").Append(AcctName).Append("\n");
             sb.Append("  ExcludeZero: ").Append(ExcludeZero).Append("\n");
@@ -182,8 +182,9 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         public bool Equals(OptimalPortfolio input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AcctName == input.AcctName ||
@@ -219,12 +220,16 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.AcctName != null)
-                    hashCode = hashCode * 59 + this.AcctName.GetHashCode();
-                hashCode = hashCode * 59 + this.ExcludeZero.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AcctName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ExcludeZero.GetHashCode();
                 if (this.ArchiveDate != null)
-                    hashCode = hashCode * 59 + this.ArchiveDate.GetHashCode();
-                hashCode = hashCode * 59 + this.IfAcctExists.GetHashCode();
-                hashCode = hashCode * 59 + this.IfOfdbDateExists.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ArchiveDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IfAcctExists.GetHashCode();
+                hashCode = (hashCode * 59) + this.IfOfdbDateExists.GetHashCode();
                 return hashCode;
             }
         }

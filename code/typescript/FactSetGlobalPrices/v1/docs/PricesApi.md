@@ -57,6 +57,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getGPDPrices(ids, startDate, endDate, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -135,6 +136,7 @@ const globalPricesRequest = new factsetglobalprices.GlobalPricesRequest(); // Gl
 // Call api endpoint
 apiInstance.getSecurityPricesForList(globalPricesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

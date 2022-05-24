@@ -103,6 +103,20 @@ namespace FactSet.SDK.FactSetTickHistory.Api
     {
         private FactSet.SDK.FactSetTickHistory.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> V1GetFilesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(GetFilesResponse) },
+            { (HttpStatusCode)400, typeof(GetFilesStatus) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GetFilesApi"/> class.
         /// </summary>
@@ -215,7 +229,7 @@ namespace FactSet.SDK.FactSetTickHistory.Api
         /// <returns>GetFilesResponse</returns>
         public GetFilesResponse V1GetFilesGet(string requestId, int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
-            FactSet.SDK.FactSetTickHistory.Client.ApiResponse<GetFilesResponse> localVarResponse = V1GetFilesGetWithHttpInfo(requestId, paginationLimit, paginationOffset);
+            var localVarResponse = V1GetFilesGetWithHttpInfo(requestId, paginationLimit, paginationOffset);
             return localVarResponse.Data;
         }
 
@@ -227,11 +241,13 @@ namespace FactSet.SDK.FactSetTickHistory.Api
         /// <param name="paginationLimit">Specifies the maximum number of results to return per response page (optional, default to 20)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional, default to 0)</param>
         /// <returns>ApiResponse of GetFilesResponse</returns>
-        public FactSet.SDK.FactSetTickHistory.Client.ApiResponse<GetFilesResponse> V1GetFilesGetWithHttpInfo(string requestId, int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        public ApiResponse<GetFilesResponse> V1GetFilesGetWithHttpInfo(string requestId, int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
             // verify the required parameter 'requestId' is set
             if (requestId == null)
+            {
                 throw new FactSet.SDK.FactSetTickHistory.Client.ApiException(400, "Missing required parameter 'requestId' when calling GetFilesApi->V1GetFilesGet");
+            }
 
             FactSet.SDK.FactSetTickHistory.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTickHistory.Client.RequestOptions();
 
@@ -244,10 +260,16 @@ namespace FactSet.SDK.FactSetTickHistory.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetTickHistory.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTickHistory.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "requestId", requestId));
             if (paginationLimit != null)
@@ -261,13 +283,13 @@ namespace FactSet.SDK.FactSetTickHistory.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTickHistory.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -279,15 +301,19 @@ namespace FactSet.SDK.FactSetTickHistory.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GetFilesResponse>("/v1/get-files", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1GetFilesGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            GetFilesResponse>("/v1/get-files", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1GetFilesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -300,9 +326,9 @@ namespace FactSet.SDK.FactSetTickHistory.Api
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetFilesResponse</returns>
-        public async System.Threading.Tasks.Task<GetFilesResponse> V1GetFilesGetAsync(string requestId, int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetFilesResponse>V1GetFilesGetAsync(string requestId, int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetTickHistory.Client.ApiResponse<GetFilesResponse> localVarResponse = await V1GetFilesGetWithHttpInfoAsync(requestId, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1GetFilesGetWithHttpInfoAsync(requestId, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -315,11 +341,14 @@ namespace FactSet.SDK.FactSetTickHistory.Api
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetFilesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetTickHistory.Client.ApiResponse<GetFilesResponse>> V1GetFilesGetWithHttpInfoAsync(string requestId, int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<GetFilesResponse>> V1GetFilesGetWithHttpInfoAsync(string requestId, int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'requestId' is set
             if (requestId == null)
+            {
                 throw new FactSet.SDK.FactSetTickHistory.Client.ApiException(400, "Missing required parameter 'requestId' when calling GetFilesApi->V1GetFilesGet");
+            }
 
 
             FactSet.SDK.FactSetTickHistory.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetTickHistory.Client.RequestOptions();
@@ -332,12 +361,17 @@ namespace FactSet.SDK.FactSetTickHistory.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetTickHistory.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetTickHistory.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetTickHistory.Client.ClientUtils.ParameterToMultiMap("", "requestId", requestId));
             if (paginationLimit != null)
@@ -351,13 +385,13 @@ namespace FactSet.SDK.FactSetTickHistory.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetTickHistory.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -369,14 +403,18 @@ namespace FactSet.SDK.FactSetTickHistory.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1GetFilesGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<GetFilesResponse>("/v1/get-files", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1GetFilesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

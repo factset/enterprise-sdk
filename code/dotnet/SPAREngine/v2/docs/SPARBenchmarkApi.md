@@ -50,7 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new SPARBenchmarkApi(config);
-            var id = id_example;  // string | Benchmark Identifier (default to "R.1000")
+            var id = "\"R.1000\"";  // string | Benchmark Identifier (default to "R.1000")
 
             try
             {
@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Benchmark Identifier | [default to &quot;R.1000&quot;]
 
 ### Return type
-
 [**SPARBenchmark**](SPARBenchmark.md)
 
 ### Authorization

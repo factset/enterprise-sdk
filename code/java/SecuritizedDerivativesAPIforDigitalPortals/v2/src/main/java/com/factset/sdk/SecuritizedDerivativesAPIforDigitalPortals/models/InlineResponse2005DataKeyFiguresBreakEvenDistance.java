@@ -49,6 +49,8 @@ public class InlineResponse2005DataKeyFiguresBreakEvenDistance implements Serial
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private InlineResponse2005DataKeyFiguresBreakEvenDistanceRelative relative;
 
+  public InlineResponse2005DataKeyFiguresBreakEvenDistance() { 
+  }
 
   public InlineResponse2005DataKeyFiguresBreakEvenDistance absolute(InlineResponse2005DataKeyFiguresBreakEvenDistanceAbsolute absolute) {
     this.absolute = absolute;

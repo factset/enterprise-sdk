@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -45,15 +45,17 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactEventUpdateDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FIELD_NAME = "fieldName";
+  public static final String JSON_PROPERTY_FIELD_NAME = "FieldName";
   private JsonNullable<String> fieldName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  public static final String JSON_PROPERTY_OLD_VALUE = "OldValue";
   private JsonNullable<String> oldValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  public static final String JSON_PROPERTY_NEW_VALUE = "NewValue";
   private JsonNullable<String> newValue = JsonNullable.<String>undefined();
 
+  public ContactEventUpdateDto() { 
+  }
 
   public ContactEventUpdateDto fieldName(String fieldName) {
     this.fieldName = JsonNullable.<String>of(fieldName);

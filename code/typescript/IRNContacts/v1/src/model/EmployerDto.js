@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EmployerDto model module.
  * @module model/EmployerDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EmployerDto {
     /**
@@ -35,7 +35,7 @@ class EmployerDto {
      * Only for internal use.
      */
     static initialize(obj, id) { 
-        obj['id'] = id;
+        obj['Id'] = id;
     }
 
     /**
@@ -49,14 +49,14 @@ class EmployerDto {
         if (data) {
             obj = obj || new EmployerDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('factsetIdentifier')) {
-                obj['factsetIdentifier'] = ApiClient.convertToType(data['factsetIdentifier'], 'String');
+            if (data.hasOwnProperty('FactsetIdentifier')) {
+                obj['FactsetIdentifier'] = ApiClient.convertToType(data['FactsetIdentifier'], 'String');
             }
         }
         return obj;
@@ -66,19 +66,19 @@ class EmployerDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-EmployerDto.prototype['id'] = undefined;
+EmployerDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-EmployerDto.prototype['name'] = undefined;
+EmployerDto.prototype['Name'] = undefined;
 
 /**
- * @member {String} factsetIdentifier
+ * @member {String} FactsetIdentifier
  */
-EmployerDto.prototype['factsetIdentifier'] = undefined;
+EmployerDto.prototype['FactsetIdentifier'] = undefined;
 
 
 

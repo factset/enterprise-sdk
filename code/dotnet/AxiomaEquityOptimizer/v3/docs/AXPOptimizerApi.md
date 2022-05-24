@@ -55,7 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
             try
             {
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Axioma optimization endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -149,7 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
             try
             {
@@ -175,7 +174,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Axioma optimization endpoint | 
 
 ### Return type
-
 [**AxiomaEquityOptimizationParametersRoot**](AxiomaEquityOptimizationParametersRoot.md)
 
 ### Authorization
@@ -244,8 +242,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Get Axioma optimization status by id endpoint
-            var accept = accept_example;  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
+            var id = "id_example";  // string | from url, provided from the location header in the Get Axioma optimization status by id endpoint
+            var accept = "accept_example";  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
 
             try
             {
@@ -272,7 +270,6 @@ Name | Type | Description  | Notes
  **accept** | **string**| Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * | [optional] 
 
 ### Return type
-
 [**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
@@ -341,7 +338,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
 
             try
             {
@@ -367,7 +364,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Axioma optimization endpoint | 
 
 ### Return type
-
 [**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
@@ -438,14 +434,26 @@ namespace Example
 
             var apiInstance = new AXPOptimizerApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
             var axiomaEquityOptimizationParametersRoot = new AxiomaEquityOptimizationParametersRoot(); // AxiomaEquityOptimizationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create and Run Axioma optimization
-                ObjectRoot result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, axiomaEquityOptimizationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                AXPOptimizerApi.PostAndOptimizeResponseWrapper result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, axiomaEquityOptimizationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -467,8 +475,7 @@ Name | Type | Description  | Notes
  **axiomaEquityOptimizationParametersRoot** | [**AxiomaEquityOptimizationParametersRoot**](AxiomaEquityOptimizationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**ObjectRoot**](ObjectRoot.md)
+PostAndOptimizeResponseWrapper
 
 ### Authorization
 
@@ -539,16 +546,28 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AXPOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run Axioma optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
             var axiomaEquityOptimizationParametersRoot = new AxiomaEquityOptimizationParametersRoot(); // AxiomaEquityOptimizationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create or Update Axioma optimization and run it.
-                ObjectRoot result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, axiomaEquityOptimizationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                AXPOptimizerApi.PutAndOptimizeResponseWrapper result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, axiomaEquityOptimizationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -571,8 +590,7 @@ Name | Type | Description  | Notes
  **axiomaEquityOptimizationParametersRoot** | [**AxiomaEquityOptimizationParametersRoot**](AxiomaEquityOptimizationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
-
-[**ObjectRoot**](ObjectRoot.md)
+PutAndOptimizeResponseWrapper
 
 ### Authorization
 

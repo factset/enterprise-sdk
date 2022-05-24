@@ -43,6 +43,16 @@ public class InstrumentCrossReferenceListByISINData implements Serializable {
   public static final String JSON_PROPERTY_ISINS = "isins";
   private java.util.Set<String> isins = new java.util.LinkedHashSet<>();
 
+  public InstrumentCrossReferenceListByISINData() { 
+  }
+
+  @JsonCreator
+  public InstrumentCrossReferenceListByISINData(
+    @JsonProperty(value=JSON_PROPERTY_ISINS, required=true) java.util.Set<String> isins
+  ) {
+    this();
+    this.isins = isins;
+  }
 
   public InstrumentCrossReferenceListByISINData isins(java.util.Set<String> isins) {
     this.isins = isins;

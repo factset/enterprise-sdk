@@ -137,7 +137,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Job {\n");
             sb.Append("  CompanyCity: ").Append(CompanyCity).Append("\n");
             sb.Append("  CompanyId: ").Append(CompanyId).Append("\n");
@@ -180,8 +180,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(Job input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CompanyCity == input.CompanyCity ||
@@ -245,25 +246,45 @@ namespace FactSet.SDK.FactSetPeople.Model
             {
                 int hashCode = 41;
                 if (this.CompanyCity != null)
-                    hashCode = hashCode * 59 + this.CompanyCity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CompanyCity.GetHashCode();
+                }
                 if (this.CompanyId != null)
-                    hashCode = hashCode * 59 + this.CompanyId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CompanyId.GetHashCode();
+                }
                 if (this.CompanyName != null)
-                    hashCode = hashCode * 59 + this.CompanyName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CompanyName.GetHashCode();
+                }
                 if (this.JobEndDate != null)
-                    hashCode = hashCode * 59 + this.JobEndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobEndDate.GetHashCode();
+                }
                 if (this.JobFunctionCode != null)
-                    hashCode = hashCode * 59 + this.JobFunctionCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobFunctionCode.GetHashCode();
+                }
                 if (this.JobFunctionName != null)
-                    hashCode = hashCode * 59 + this.JobFunctionName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobFunctionName.GetHashCode();
+                }
                 if (this.JobStartDate != null)
-                    hashCode = hashCode * 59 + this.JobStartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobStartDate.GetHashCode();
+                }
                 if (this.JobTitle != null)
-                    hashCode = hashCode * 59 + this.JobTitle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobTitle.GetHashCode();
+                }
                 if (this.PersonId != null)
-                    hashCode = hashCode * 59 + this.PersonId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PersonId.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

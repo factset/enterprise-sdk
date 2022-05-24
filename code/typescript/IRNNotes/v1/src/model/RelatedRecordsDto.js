@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RelatedRecordsDto model module.
  * @module model/RelatedRecordsDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RelatedRecordsDto {
     /**
@@ -47,11 +47,11 @@ class RelatedRecordsDto {
         if (data) {
             obj = obj || new RelatedRecordsDto();
 
-            if (data.hasOwnProperty('noteIds')) {
-                obj['noteIds'] = ApiClient.convertToType(data['noteIds'], ['String']);
+            if (data.hasOwnProperty('NoteIds')) {
+                obj['NoteIds'] = ApiClient.convertToType(data['NoteIds'], ['String']);
             }
-            if (data.hasOwnProperty('meetingIds')) {
-                obj['meetingIds'] = ApiClient.convertToType(data['meetingIds'], ['String']);
+            if (data.hasOwnProperty('MeetingIds')) {
+                obj['MeetingIds'] = ApiClient.convertToType(data['MeetingIds'], ['String']);
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class RelatedRecordsDto {
 }
 
 /**
- * @member {Array.<String>} noteIds
+ * @member {Array.<String>} NoteIds
  */
-RelatedRecordsDto.prototype['noteIds'] = undefined;
+RelatedRecordsDto.prototype['NoteIds'] = undefined;
 
 /**
- * @member {Array.<String>} meetingIds
+ * @member {Array.<String>} MeetingIds
  */
-RelatedRecordsDto.prototype['meetingIds'] = undefined;
+RelatedRecordsDto.prototype['MeetingIds'] = undefined;
 
 
 

@@ -528,6 +528,8 @@ public class Fields implements Serializable {
   public static final String JSON_PROPERTY_TOTAL_RETURN52_W = "Total_Return_52W";
   private BigDecimal totalReturn52W;
 
+  public Fields() { 
+  }
 
   public Fields exchange(String exchange) {
     this.exchange = exchange;

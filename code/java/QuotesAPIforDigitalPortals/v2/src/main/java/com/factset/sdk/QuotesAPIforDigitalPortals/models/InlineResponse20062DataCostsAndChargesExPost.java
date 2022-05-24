@@ -79,6 +79,8 @@ public class InlineResponse20062DataCostsAndChargesExPost implements Serializabl
   public static final String JSON_PROPERTY_INCIDENTAL_COSTS = "incidentalCosts";
   private InlineResponse20062DataCostsAndChargesExPostIncidentalCosts incidentalCosts;
 
+  public InlineResponse20062DataCostsAndChargesExPost() { 
+  }
 
   public InlineResponse20062DataCostsAndChargesExPost oneOffEntryCost(InlineResponse20062DataCostsAndChargesExPostOneOffEntryCost oneOffEntryCost) {
     this.oneOffEntryCost = oneOffEntryCost;

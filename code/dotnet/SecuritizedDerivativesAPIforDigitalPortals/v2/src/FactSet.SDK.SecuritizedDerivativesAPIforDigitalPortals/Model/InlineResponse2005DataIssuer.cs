@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataIssuer {\n");
             sb.Append("  JuristicPerson: ").Append(JuristicPerson).Append("\n");
             sb.Append("  Group: ").Append(Group).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataIssuer input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.JuristicPerson == input.JuristicPerson ||
@@ -124,9 +125,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.JuristicPerson != null)
-                    hashCode = hashCode * 59 + this.JuristicPerson.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JuristicPerson.GetHashCode();
+                }
                 if (this.Group != null)
-                    hashCode = hashCode * 59 + this.Group.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
+                }
                 return hashCode;
             }
         }

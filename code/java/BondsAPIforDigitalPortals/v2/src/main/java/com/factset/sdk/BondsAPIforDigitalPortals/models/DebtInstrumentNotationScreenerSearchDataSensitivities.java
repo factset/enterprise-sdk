@@ -59,6 +59,8 @@ public class DebtInstrumentNotationScreenerSearchDataSensitivities implements Se
   public static final String JSON_PROPERTY_CONVEXITY = "convexity";
   private DebtInstrumentNotationScreenerSearchDataSensitivitiesConvexity convexity;
 
+  public DebtInstrumentNotationScreenerSearchDataSensitivities() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataSensitivities basePointValue(DebtInstrumentNotationScreenerSearchDataSensitivitiesBasePointValue basePointValue) {
     this.basePointValue = basePointValue;

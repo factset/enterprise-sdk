@@ -143,6 +143,27 @@ namespace FactSet.SDK.SPAREngine.Api
     {
         private FactSet.SDK.SPAREngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetAccountsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(AccountDirectoriesRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSPARReturnsTypeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SPARAccountsRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountsApi"/> class.
         /// </summary>
@@ -253,7 +274,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <returns>AccountDirectoriesRoot</returns>
         public AccountDirectoriesRoot GetAccounts(string path)
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<AccountDirectoriesRoot> localVarResponse = GetAccountsWithHttpInfo(path);
+            var localVarResponse = GetAccountsWithHttpInfo(path);
             return localVarResponse.Data;
         }
 
@@ -263,11 +284,13 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the accounts and sub-directories in</param>
         /// <returns>ApiResponse of AccountDirectoriesRoot</returns>
-        public FactSet.SDK.SPAREngine.Client.ApiResponse<AccountDirectoriesRoot> GetAccountsWithHttpInfo(string path)
+        public ApiResponse<AccountDirectoriesRoot> GetAccountsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.SPAREngine.Client.ApiException(400, "Missing required parameter 'path' when calling AccountsApi->GetAccounts");
+            }
 
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
 
@@ -280,22 +303,28 @@ namespace FactSet.SDK.SPAREngine.Api
             };
 
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.SPAREngine.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -307,15 +336,19 @@ namespace FactSet.SDK.SPAREngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<AccountDirectoriesRoot>("/analytics/lookups/v3/accounts/{path}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            AccountDirectoriesRoot>("/analytics/lookups/v3/accounts/{path}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccounts", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -326,9 +359,9 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <param name="path">The directory to get the accounts and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountDirectoriesRoot</returns>
-        public async System.Threading.Tasks.Task<AccountDirectoriesRoot> GetAccountsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AccountDirectoriesRoot>GetAccountsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<AccountDirectoriesRoot> localVarResponse = await GetAccountsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAccountsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -339,11 +372,14 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <param name="path">The directory to get the accounts and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (AccountDirectoriesRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SPAREngine.Client.ApiResponse<AccountDirectoriesRoot>> GetAccountsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<AccountDirectoriesRoot>> GetAccountsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.SPAREngine.Client.ApiException(400, "Missing required parameter 'path' when calling AccountsApi->GetAccounts");
+            }
 
 
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
@@ -356,24 +392,29 @@ namespace FactSet.SDK.SPAREngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.SPAREngine.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -385,14 +426,18 @@ namespace FactSet.SDK.SPAREngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAccountsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<AccountDirectoriesRoot>("/analytics/lookups/v3/accounts/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccounts", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -406,7 +451,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <returns>SPARAccountsRoot</returns>
         public SPARAccountsRoot GetSPARReturnsType(string accountPath)
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<SPARAccountsRoot> localVarResponse = GetSPARReturnsTypeWithHttpInfo(accountPath);
+            var localVarResponse = GetSPARReturnsTypeWithHttpInfo(accountPath);
             return localVarResponse.Data;
         }
 
@@ -416,11 +461,13 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountPath">URL encoded account path</param>
         /// <returns>ApiResponse of SPARAccountsRoot</returns>
-        public FactSet.SDK.SPAREngine.Client.ApiResponse<SPARAccountsRoot> GetSPARReturnsTypeWithHttpInfo(string accountPath)
+        public ApiResponse<SPARAccountsRoot> GetSPARReturnsTypeWithHttpInfo(string accountPath)
         {
             // verify the required parameter 'accountPath' is set
             if (accountPath == null)
+            {
                 throw new FactSet.SDK.SPAREngine.Client.ApiException(400, "Missing required parameter 'accountPath' when calling AccountsApi->GetSPARReturnsType");
+            }
 
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
 
@@ -433,22 +480,28 @@ namespace FactSet.SDK.SPAREngine.Api
             };
 
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("accountPath", FactSet.SDK.SPAREngine.Client.ClientUtils.ParameterToString(accountPath)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -460,15 +513,19 @@ namespace FactSet.SDK.SPAREngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<SPARAccountsRoot>("/analytics/engines/spar/v3/accounts/{accountPath}/returns-type", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSPARReturnsTypeResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            SPARAccountsRoot>("/analytics/engines/spar/v3/accounts/{accountPath}/returns-type", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSPARReturnsType", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -479,9 +536,9 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <param name="accountPath">URL encoded account path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SPARAccountsRoot</returns>
-        public async System.Threading.Tasks.Task<SPARAccountsRoot> GetSPARReturnsTypeAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SPARAccountsRoot>GetSPARReturnsTypeAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<SPARAccountsRoot> localVarResponse = await GetSPARReturnsTypeWithHttpInfoAsync(accountPath, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSPARReturnsTypeWithHttpInfoAsync(accountPath, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -492,11 +549,14 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <param name="accountPath">URL encoded account path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SPARAccountsRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SPAREngine.Client.ApiResponse<SPARAccountsRoot>> GetSPARReturnsTypeWithHttpInfoAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SPARAccountsRoot>> GetSPARReturnsTypeWithHttpInfoAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountPath' is set
             if (accountPath == null)
+            {
                 throw new FactSet.SDK.SPAREngine.Client.ApiException(400, "Missing required parameter 'accountPath' when calling AccountsApi->GetSPARReturnsType");
+            }
 
 
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
@@ -509,24 +569,29 @@ namespace FactSet.SDK.SPAREngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("accountPath", FactSet.SDK.SPAREngine.Client.ClientUtils.ParameterToString(accountPath)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -538,14 +603,18 @@ namespace FactSet.SDK.SPAREngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSPARReturnsTypeResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<SPARAccountsRoot>("/analytics/engines/spar/v3/accounts/{accountPath}/returns-type", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSPARReturnsType", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

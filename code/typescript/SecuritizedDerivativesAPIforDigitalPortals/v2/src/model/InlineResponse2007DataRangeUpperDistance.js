@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2007DataRangeUpperDistance model module.
  * @module model/InlineResponse2007DataRangeUpperDistance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataRangeUpperDistance {
     /**

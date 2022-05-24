@@ -49,6 +49,8 @@ public class NRTSpeakerids implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private NRTSpeakeridsMeta meta;
 
+  public NRTSpeakerids() { 
+  }
 
   public NRTSpeakerids data(java.util.List<NRTSpeakeridsData> data) {
     this.data = data;

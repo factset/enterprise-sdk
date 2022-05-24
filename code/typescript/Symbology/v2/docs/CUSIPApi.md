@@ -50,6 +50,7 @@ const cusipHistoryTranslationRequest = new symbology.CusipHistoryTranslationRequ
 // Call api endpoint
 apiInstance.batchCusipHistory(cusipHistoryTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const cusipTranslationRequest = new symbology.CusipTranslationRequest(); // Cusi
 // Call api endpoint
 apiInstance.batchTranslateCusips(cusipTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -195,6 +197,7 @@ const opts = {
 // Call api endpoint
 apiInstance.cusipHistory(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -267,6 +270,7 @@ const ids = ["GOOGL-US"]; // [String] | Requested market securities or entities.
 // Call api endpoint
 apiInstance.translateCusip(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

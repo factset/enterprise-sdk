@@ -52,6 +52,8 @@ public class EventsAudioMeta implements Serializable {
   public static final String JSON_PROPERTY_PARTIAL = "partial";
   private NRTSnippetsMetaPartial partial;
 
+  public EventsAudioMeta() { 
+  }
 
   public EventsAudioMeta sort(java.util.List<String> sort) {
     this.sort = sort;

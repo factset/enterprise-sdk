@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataTradingVolumeOtc from './DebtInst
 /**
  * The DebtInstrumentNotationScreenerSearchDataTradingVolume model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataTradingVolume
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataTradingVolume {
     /**

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **relatedSymbols** | **java.util.List&lt;String&gt;** |  |  [optional]
 **locations** | [**java.util.List&lt;LocationDto&gt;**](LocationDto.md) |  |  [optional]
 **attendees** | [**java.util.List&lt;AttendeeDto&gt;**](AttendeeDto.md) |  |  [optional]
+**customFieldValues** | [**java.util.List&lt;CustomFieldValueDto&gt;**](CustomFieldValueDto.md) |  |  [optional]
 
 
 ## Implemented Interfaces

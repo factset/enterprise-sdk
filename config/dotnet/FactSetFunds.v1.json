@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.FactSetFunds",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageGuid": "{35e47b80-50fa-5805-803f-e722cd5cae49}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/FactSetFunds/0.9.1",
+  "httpUserAgent": "fds-sdk/dotnet/FactSetFunds/0.20.0",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

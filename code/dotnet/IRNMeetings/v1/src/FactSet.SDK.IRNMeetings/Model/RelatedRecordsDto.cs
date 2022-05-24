@@ -60,7 +60,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RelatedRecordsDto {\n");
             sb.Append("  NoteIds: ").Append(NoteIds).Append("\n");
             sb.Append("  MeetingIds: ").Append(MeetingIds).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(RelatedRecordsDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NoteIds == input.NoteIds ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.NoteIds != null)
-                    hashCode = hashCode * 59 + this.NoteIds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NoteIds.GetHashCode();
+                }
                 if (this.MeetingIds != null)
-                    hashCode = hashCode * 59 + this.MeetingIds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MeetingIds.GetHashCode();
+                }
                 return hashCode;
             }
         }

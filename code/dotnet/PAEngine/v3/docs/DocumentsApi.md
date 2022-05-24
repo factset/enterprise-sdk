@@ -50,7 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DocumentsApi(config);
-            var path = path_example;  // string | The directory to get the documents and sub-directories in (default to "Client:folder1/folder2")
+            var path = "\"Client:folder1/folder2\"";  // string | The directory to get the documents and sub-directories in (default to "Client:folder1/folder2")
 
             try
             {
@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
  **path** | **string**| The directory to get the documents and sub-directories in | [default to &quot;Client:folder1/folder2&quot;]
 
 ### Return type
-
 [**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization

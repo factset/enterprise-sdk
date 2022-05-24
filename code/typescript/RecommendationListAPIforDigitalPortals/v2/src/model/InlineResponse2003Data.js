@@ -19,7 +19,7 @@ import InlineResponse200DataActiveRevisionActiveRange from './InlineResponse200D
 /**
  * The InlineResponse2003Data model module.
  * @module model/InlineResponse2003Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003Data {
     /**

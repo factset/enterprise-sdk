@@ -54,6 +54,8 @@ public class InlineResponse20054Data implements Serializable {
   public static final String JSON_PROPERTY_DAY_COUNT_CONVENTION = "dayCountConvention";
   private InlineResponse20054DataDayCountConvention dayCountConvention;
 
+  public InlineResponse20054Data() { 
+  }
 
   public InlineResponse20054Data occurrence(InlineResponse20054DataOccurrence occurrence) {
     this.occurrence = occurrence;

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BenchmarkDetails model module.
  * @module model/BenchmarkDetails
- * @version 0.9.1
+ * @version 0.20.0
  */
 class BenchmarkDetails {
     /**

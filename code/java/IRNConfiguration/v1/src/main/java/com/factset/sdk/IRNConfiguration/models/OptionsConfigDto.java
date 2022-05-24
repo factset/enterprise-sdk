@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -45,15 +45,17 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class OptionsConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_MULTI_SELECT_ENABLED = "multiSelectEnabled";
+  public static final String JSON_PROPERTY_MULTI_SELECT_ENABLED = "MultiSelectEnabled";
   private Boolean multiSelectEnabled;
 
-  public static final String JSON_PROPERTY_ON_THE_FLY_ENABLED = "onTheFlyEnabled";
+  public static final String JSON_PROPERTY_ON_THE_FLY_ENABLED = "OnTheFlyEnabled";
   private Boolean onTheFlyEnabled;
 
-  public static final String JSON_PROPERTY_OPTIONS = "options";
+  public static final String JSON_PROPERTY_OPTIONS = "Options";
   private JsonNullable<java.util.List<String>> options = JsonNullable.<java.util.List<String>>undefined();
 
+  public OptionsConfigDto() { 
+  }
 
   public OptionsConfigDto multiSelectEnabled(Boolean multiSelectEnabled) {
     this.multiSelectEnabled = multiSelectEnabled;

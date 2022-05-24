@@ -76,7 +76,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MeetingEventDto {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(MeetingEventDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -149,13 +150,21 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.User != null)
-                    hashCode = hashCode * 59 + this.User.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.User.GetHashCode();
+                }
                 if (this.ChangeList != null)
-                    hashCode = hashCode * 59 + this.ChangeList.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ChangeList.GetHashCode();
+                }
                 return hashCode;
             }
         }

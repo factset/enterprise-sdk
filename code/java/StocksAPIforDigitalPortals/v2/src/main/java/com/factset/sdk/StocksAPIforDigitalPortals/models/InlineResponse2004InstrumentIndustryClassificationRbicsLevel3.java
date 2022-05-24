@@ -48,6 +48,8 @@ public class InlineResponse2004InstrumentIndustryClassificationRbicsLevel3 imple
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2004InstrumentIndustryClassificationRbicsLevel3() { 
+  }
 
   public InlineResponse2004InstrumentIndustryClassificationRbicsLevel3 id(BigDecimal id) {
     this.id = id;

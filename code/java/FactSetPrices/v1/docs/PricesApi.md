@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetPrices.ApiClient;
 import com.factset.sdk.FactSetPrices.ApiException;
 import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.auth.*;
-import com.factset.sdk.FactSetPrices.model.*;
+import com.factset.sdk.FactSetPrices.models.*;
 import com.factset.sdk.FactSetPrices.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested list of Fixed Income security identifiers. <p>***ids limit** =  2000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
@@ -62,6 +61,7 @@ public class Example {
         try {
             PricesFixedIncomeResponse result = apiInstance.getFixedSecurityPrices(ids, startDate, endDate, frequency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getFixedSecurityPrices");
             System.err.println("Status code: " + e.getCode());
@@ -124,14 +124,13 @@ import com.factset.sdk.FactSetPrices.ApiClient;
 import com.factset.sdk.FactSetPrices.ApiException;
 import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.auth.*;
-import com.factset.sdk.FactSetPrices.model.*;
+import com.factset.sdk.FactSetPrices.models.*;
 import com.factset.sdk.FactSetPrices.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -141,20 +140,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         PricesFixedIncomeRequest pricesFixedIncomeRequest = new PricesFixedIncomeRequest(); // PricesFixedIncomeRequest | Request object for Fixed Income `Security` prices.
         try {
             PricesFixedIncomeResponse result = apiInstance.getFixedSecurityPricesForList(pricesFixedIncomeRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getFixedSecurityPricesForList");
             System.err.println("Status code: " + e.getCode());
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ## getSecurityPrices
 
-> PricesResponse getSecurityPrices(ids, startDate, endDate, frequency, calendar, currency, adjust, batch)
+> GetSecurityPricesResponseWrapper getSecurityPrices(ids, startDate, endDate, frequency, calendar, currency, adjust, batch)
 
 Gets end-of-day Open, High, Low, Close for a list of securities.
 
@@ -216,14 +216,14 @@ import com.factset.sdk.FactSetPrices.ApiClient;
 import com.factset.sdk.FactSetPrices.ApiException;
 import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.auth.*;
-import com.factset.sdk.FactSetPrices.model.*;
+import com.factset.sdk.FactSetPrices.models.*;
 import com.factset.sdk.FactSetPrices.api.PricesApi;
+import com.factset.sdk.FactSetPrices.api.PricesApi.GetSecurityPricesResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -233,14 +233,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit** =  2000 per non-batch request / 5000 per batch request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
@@ -252,8 +252,17 @@ public class Example {
         String adjust = "SPLIT"; // String | Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments. 
         String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  **`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \"Report Issue\" above and our support teams can assist.**  Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method. 
         try {
-            PricesResponse result = apiInstance.getSecurityPrices(ids, startDate, endDate, frequency, calendar, currency, adjust, batch);
-            System.out.println(result);
+            GetSecurityPricesResponseWrapper result = apiInstance.getSecurityPrices(ids, startDate, endDate, frequency, calendar, currency, adjust, batch);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // PricesResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getSecurityPrices");
             System.err.println("Status code: " + e.getCode());
@@ -281,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PricesResponse**](PricesResponse.md)
+GetSecurityPricesResponseWrapper
 
 ### Authorization
 
@@ -306,7 +315,7 @@ Name | Type | Description  | Notes
 
 ## getSecurityPricesForList
 
-> PricesResponse getSecurityPricesForList(pricesRequest)
+> GetSecurityPricesForListResponseWrapper getSecurityPricesForList(pricesRequest)
 
 Requests end-of-day Open, High, Low, Close for a large list of securities.
 
@@ -324,14 +333,14 @@ import com.factset.sdk.FactSetPrices.ApiClient;
 import com.factset.sdk.FactSetPrices.ApiException;
 import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.auth.*;
-import com.factset.sdk.FactSetPrices.model.*;
+import com.factset.sdk.FactSetPrices.models.*;
 import com.factset.sdk.FactSetPrices.api.PricesApi;
+import com.factset.sdk.FactSetPrices.api.PricesApi.GetSecurityPricesForListResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -341,20 +350,29 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         PricesRequest pricesRequest = new PricesRequest(); // PricesRequest | Request object for `Security` prices.
         try {
-            PricesResponse result = apiInstance.getSecurityPricesForList(pricesRequest);
-            System.out.println(result);
+            GetSecurityPricesForListResponseWrapper result = apiInstance.getSecurityPricesForList(pricesRequest);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // PricesResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getSecurityPricesForList");
             System.err.println("Status code: " + e.getCode());
@@ -375,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PricesResponse**](PricesResponse.md)
+GetSecurityPricesForListResponseWrapper
 
 ### Authorization
 

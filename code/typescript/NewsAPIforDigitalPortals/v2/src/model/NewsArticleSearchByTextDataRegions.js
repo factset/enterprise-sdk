@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewsArticleSearchByTextDataRegions model module.
  * @module model/NewsArticleSearchByTextDataRegions
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleSearchByTextDataRegions {
     /**

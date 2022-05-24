@@ -31,7 +31,6 @@ src/main/java/com/factset/sdk/FactSetTickHistory/ApiClient.java
 src/main/java/com/factset/sdk/FactSetTickHistory/ApiException.java
 src/main/java/com/factset/sdk/FactSetTickHistory/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetTickHistory/Configuration.java
-src/main/java/com/factset/sdk/FactSetTickHistory/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetTickHistory/JSON.java
 src/main/java/com/factset/sdk/FactSetTickHistory/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetTickHistory/Pair.java

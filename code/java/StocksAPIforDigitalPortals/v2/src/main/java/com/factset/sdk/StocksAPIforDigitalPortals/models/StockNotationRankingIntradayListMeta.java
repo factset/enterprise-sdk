@@ -107,6 +107,8 @@ public class StockNotationRankingIntradayListMeta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private StockNotationRankingIntradayListMetaPagination pagination;
 
+  public StockNotationRankingIntradayListMeta() { 
+  }
 
   public StockNotationRankingIntradayListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

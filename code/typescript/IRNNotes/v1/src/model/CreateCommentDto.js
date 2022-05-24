@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateCommentDto model module.
  * @module model/CreateCommentDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CreateCommentDto {
     /**
@@ -47,14 +47,14 @@ class CreateCommentDto {
         if (data) {
             obj = obj || new CreateCommentDto();
 
-            if (data.hasOwnProperty('authorId')) {
-                obj['authorId'] = ApiClient.convertToType(data['authorId'], 'String');
+            if (data.hasOwnProperty('AuthorId')) {
+                obj['AuthorId'] = ApiClient.convertToType(data['AuthorId'], 'String');
             }
-            if (data.hasOwnProperty('parentCommentId')) {
-                obj['parentCommentId'] = ApiClient.convertToType(data['parentCommentId'], 'String');
+            if (data.hasOwnProperty('ParentCommentId')) {
+                obj['ParentCommentId'] = ApiClient.convertToType(data['ParentCommentId'], 'String');
             }
-            if (data.hasOwnProperty('body')) {
-                obj['body'] = ApiClient.convertToType(data['body'], 'String');
+            if (data.hasOwnProperty('Body')) {
+                obj['Body'] = ApiClient.convertToType(data['Body'], 'String');
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class CreateCommentDto {
 }
 
 /**
- * @member {String} authorId
+ * @member {String} AuthorId
  */
-CreateCommentDto.prototype['authorId'] = undefined;
+CreateCommentDto.prototype['AuthorId'] = undefined;
 
 /**
- * @member {String} parentCommentId
+ * @member {String} ParentCommentId
  */
-CreateCommentDto.prototype['parentCommentId'] = undefined;
+CreateCommentDto.prototype['ParentCommentId'] = undefined;
 
 /**
- * @member {String} body
+ * @member {String} Body
  */
-CreateCommentDto.prototype['body'] = undefined;
+CreateCommentDto.prototype['Body'] = undefined;
 
 
 

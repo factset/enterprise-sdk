@@ -57,6 +57,16 @@ public class PeopleJobsRequest implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private Type type = Type.ALL;
 
+  public PeopleJobsRequest() { 
+  }
+
+  @JsonCreator
+  public PeopleJobsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public PeopleJobsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

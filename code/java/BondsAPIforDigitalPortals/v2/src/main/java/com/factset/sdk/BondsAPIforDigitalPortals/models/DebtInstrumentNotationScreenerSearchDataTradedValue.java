@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataTradedValue implements Seri
   public static final String JSON_PROPERTY_DAYS30 = "days30";
   private DebtInstrumentNotationScreenerSearchDataTradedValueDays30 days30;
 
+  public DebtInstrumentNotationScreenerSearchDataTradedValue() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataTradedValue days30(DebtInstrumentNotationScreenerSearchDataTradedValueDays30 days30) {
     this.days30 = days30;

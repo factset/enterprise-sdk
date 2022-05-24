@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import ErrorMetaObject from './model/ErrorMetaObject';
@@ -41,6 +40,7 @@ import WatchlistModifyData from './model/WatchlistModifyData';
 import WatchlistPositionCreateData from './model/WatchlistPositionCreateData';
 import WatchlistPositionDeleteData from './model/WatchlistPositionDeleteData';
 import WatchlistPositionModifyData from './model/WatchlistPositionModifyData';
+
 import WatchlistApi from './api/WatchlistApi';
 
 
@@ -73,7 +73,7 @@ import WatchlistApi from './api/WatchlistApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.9.2
 */
 export {
     /**
@@ -254,5 +254,6 @@ export {
     * The WatchlistApi service constructor.
     * @property {module:api/WatchlistApi}
     */
-    WatchlistApi
+    WatchlistApi,
+
 };

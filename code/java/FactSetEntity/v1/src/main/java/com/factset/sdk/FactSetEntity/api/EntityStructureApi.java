@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEntity.models.EntityStructureRequest;
 import com.factset.sdk.FactSetEntity.models.EntityStructureResponse;
@@ -25,6 +28,46 @@ public class EntityStructureApi {
   public EntityStructureApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityStructureResponseTypeMap.put(200, new GenericType<EntityStructureResponse>(){});
+    getEntityStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityStructureResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityStructureResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getUltimateEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getUltimateEntityStructureResponseTypeMap.put(200, new GenericType<UltimateEntityStructureResponse>(){});
+    getUltimateEntityStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getUltimateEntityStructureResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getUltimateEntityStructureResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getUltimateEntityStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getUltimateEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postEntityStructureResponseTypeMap.put(200, new GenericType<EntityStructureResponse>(){});
+    postEntityStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postEntityStructureResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postEntityStructureResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postEntityStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postUltimateEntityStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postUltimateEntityStructureResponseTypeMap.put(200, new GenericType<UltimateEntityStructureResponse>(){});
+    postUltimateEntityStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postUltimateEntityStructureResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postUltimateEntityStructureResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postUltimateEntityStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postUltimateEntityStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -122,11 +165,17 @@ public class EntityStructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityStructureResponse> localVarReturnType = new GenericType<EntityStructureResponse>() {};
 
-    return apiClient.invokeAPI("EntityStructureApi.getEntityStructure", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityStructureResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityStructureApi.getEntityStructure", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityStructureResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the full ultimate parent entity hiearachy. Control levels and active status of underlying entities.
@@ -206,11 +255,17 @@ public class EntityStructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UltimateEntityStructureResponse> localVarReturnType = new GenericType<UltimateEntityStructureResponse>() {};
 
-    return apiClient.invokeAPI("EntityStructureApi.getUltimateEntityStructure", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UltimateEntityStructureResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityStructureApi.getUltimateEntityStructure", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getUltimateEntityStructureResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns all active or inactive entities below the requested entity id.
@@ -283,11 +338,17 @@ public class EntityStructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityStructureResponse> localVarReturnType = new GenericType<EntityStructureResponse>() {};
 
-    return apiClient.invokeAPI("EntityStructureApi.postEntityStructure", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityStructureResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityStructureApi.postEntityStructure", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postEntityStructureResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns all active or inactive entities and respective levels below the requested entity id.
@@ -360,10 +421,16 @@ public class EntityStructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UltimateEntityStructureResponse> localVarReturnType = new GenericType<UltimateEntityStructureResponse>() {};
 
-    return apiClient.invokeAPI("EntityStructureApi.postUltimateEntityStructure", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UltimateEntityStructureResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityStructureApi.postUltimateEntityStructure", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postUltimateEntityStructureResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

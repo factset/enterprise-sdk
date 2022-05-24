@@ -44,6 +44,8 @@ public class SedolTranslationResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<SedolTranslation> data = null;
 
+  public SedolTranslationResponse() { 
+  }
 
   public SedolTranslationResponse data(java.util.List<SedolTranslation> data) {
     this.data = data;

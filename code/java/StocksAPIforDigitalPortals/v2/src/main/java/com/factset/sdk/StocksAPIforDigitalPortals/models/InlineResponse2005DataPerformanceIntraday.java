@@ -48,6 +48,8 @@ public class InlineResponse2005DataPerformanceIntraday implements Serializable {
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataPerformanceIntraday() { 
+  }
 
   public InlineResponse2005DataPerformanceIntraday minimum(BigDecimal minimum) {
     this.minimum = minimum;

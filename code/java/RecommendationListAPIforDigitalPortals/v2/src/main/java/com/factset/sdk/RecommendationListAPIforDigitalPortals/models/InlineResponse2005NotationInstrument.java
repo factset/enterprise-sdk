@@ -60,6 +60,8 @@ public class InlineResponse2005NotationInstrument implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private java.util.List<InlineResponse2005NotationInstrumentType> type = null;
 
+  public InlineResponse2005NotationInstrument() { 
+  }
 
   public InlineResponse2005NotationInstrument id(String id) {
     this.id = id;

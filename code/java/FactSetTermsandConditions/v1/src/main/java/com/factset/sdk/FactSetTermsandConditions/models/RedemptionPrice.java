@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetTermsandConditions.JSON;
@@ -101,6 +101,22 @@ public class RedemptionPrice implements Serializable {
   public static final String JSON_PROPERTY_PRICE = "price";
   private Double price;
 
+  public RedemptionPrice() { 
+  }
+
+  @JsonCreator
+  public RedemptionPrice(
+    @JsonProperty(value=JSON_PROPERTY_REQUEST_ID, required=true) String requestId, 
+    @JsonProperty(value=JSON_PROPERTY_FSYM_ID, required=true) String fsymId, 
+    @JsonProperty(value=JSON_PROPERTY_DATE, required=true) LocalDate date, 
+    @JsonProperty(value=JSON_PROPERTY_CATEGORY, required=true) CategoryEnum category
+  ) {
+    this();
+    this.requestId = requestId;
+    this.fsymId = fsymId;
+    this.date = date;
+    this.category = category;
+  }
 
   public RedemptionPrice requestId(String requestId) {
     this.requestId = requestId;

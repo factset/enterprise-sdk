@@ -50,6 +50,8 @@ public class UnlinkedPATemplateSummary implements Serializable {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
+  public UnlinkedPATemplateSummary() { 
+  }
 
   public UnlinkedPATemplateSummary description(String description) {
     this.description = description;

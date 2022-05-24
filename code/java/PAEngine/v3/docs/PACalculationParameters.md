@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **groups** | [**java.util.List&lt;PACalculationGroup&gt;**](PACalculationGroup.md) | List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document. |  [optional]
 **currencyisocode** | **String** | Currency ISO code for calculation. |  [optional]
 **columns** | [**java.util.List&lt;PACalculationColumn&gt;**](PACalculationColumn.md) | List of columns for the PA calculation. This will take precedence over the columns saved in the PA document. |  [optional]
+**datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  |  [optional]
 **componentdetail** | **String** | Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES. |  [optional]
 
 

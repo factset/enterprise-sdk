@@ -24,12 +24,13 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_instrument_fsym import InlineResponse2004InstrumentFsym
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_instrument_bonus_level import InlineResponse2006InstrumentBonusLevel
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_instrument_cap import InlineResponse2006InstrumentCap
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_instrument_capital_guarantee import InlineResponse2006InstrumentCapitalGuarantee
@@ -48,6 +49,7 @@ def lazy_import():
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_instrument_strike import InlineResponse2006InstrumentStrike
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2006_instrument_underlying import InlineResponse2006InstrumentUnderlying
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response200_data_nsin import InlineResponse200DataNsin
+    globals()['InlineResponse2004InstrumentFsym'] = InlineResponse2004InstrumentFsym
     globals()['InlineResponse2006InstrumentBonusLevel'] = InlineResponse2006InstrumentBonusLevel
     globals()['InlineResponse2006InstrumentCap'] = InlineResponse2006InstrumentCap
     globals()['InlineResponse2006InstrumentCapitalGuarantee'] = InlineResponse2006InstrumentCapitalGuarantee
@@ -135,6 +137,7 @@ class InlineResponse2006Instrument(ModelNormal):
             'short_name': (str,),  # noqa: E501
             'isin': (str,),  # noqa: E501
             'nsin': (InlineResponse200DataNsin,),  # noqa: E501
+            'fsym': (InlineResponse2004InstrumentFsym,),  # noqa: E501
             'categorization': (InlineResponse2006InstrumentCategorization,),  # noqa: E501
             'life_cycle': (InlineResponse2006InstrumentLifeCycle,),  # noqa: E501
             'issuer': (InlineResponse2006InstrumentIssuer,),  # noqa: E501
@@ -171,6 +174,7 @@ class InlineResponse2006Instrument(ModelNormal):
         'short_name': 'shortName',  # noqa: E501
         'isin': 'isin',  # noqa: E501
         'nsin': 'nsin',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
         'categorization': 'categorization',  # noqa: E501
         'life_cycle': 'lifeCycle',  # noqa: E501
         'issuer': 'issuer',  # noqa: E501
@@ -242,6 +246,7 @@ class InlineResponse2006Instrument(ModelNormal):
             short_name (str): Short name of the instrument.. [optional]  # noqa: E501
             isin (str): The International Securities Identification Number (ISIN) of the instrument.The ISIN is a 12-character code of digits and upper-case letters that uniquely identifiesan instrument.. [optional]  # noqa: E501
             nsin (InlineResponse200DataNsin): [optional]  # noqa: E501
+            fsym (InlineResponse2004InstrumentFsym): [optional]  # noqa: E501
             categorization (InlineResponse2006InstrumentCategorization): [optional]  # noqa: E501
             life_cycle (InlineResponse2006InstrumentLifeCycle): [optional]  # noqa: E501
             issuer (InlineResponse2006InstrumentIssuer): [optional]  # noqa: E501
@@ -351,6 +356,7 @@ class InlineResponse2006Instrument(ModelNormal):
             short_name (str): Short name of the instrument.. [optional]  # noqa: E501
             isin (str): The International Securities Identification Number (ISIN) of the instrument.The ISIN is a 12-character code of digits and upper-case letters that uniquely identifiesan instrument.. [optional]  # noqa: E501
             nsin (InlineResponse200DataNsin): [optional]  # noqa: E501
+            fsym (InlineResponse2004InstrumentFsym): [optional]  # noqa: E501
             categorization (InlineResponse2006InstrumentCategorization): [optional]  # noqa: E501
             life_cycle (InlineResponse2006InstrumentLifeCycle): [optional]  # noqa: E501
             issuer (InlineResponse2006InstrumentIssuer): [optional]  # noqa: E501

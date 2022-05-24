@@ -47,6 +47,18 @@ public class PortfolioModifyData implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public PortfolioModifyData() { 
+  }
+
+  @JsonCreator
+  public PortfolioModifyData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.id = id;
+    this.name = name;
+  }
 
   public PortfolioModifyData id(String id) {
     this.id = id;

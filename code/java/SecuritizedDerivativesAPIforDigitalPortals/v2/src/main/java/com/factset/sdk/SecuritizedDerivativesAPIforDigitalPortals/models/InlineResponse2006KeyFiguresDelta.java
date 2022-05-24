@@ -48,6 +48,8 @@ public class InlineResponse2006KeyFiguresDelta implements Serializable {
   public static final String JSON_PROPERTY_UNADJUSTED = "unadjusted";
   private BigDecimal unadjusted;
 
+  public InlineResponse2006KeyFiguresDelta() { 
+  }
 
   public InlineResponse2006KeyFiguresDelta effective(BigDecimal effective) {
     this.effective = effective;

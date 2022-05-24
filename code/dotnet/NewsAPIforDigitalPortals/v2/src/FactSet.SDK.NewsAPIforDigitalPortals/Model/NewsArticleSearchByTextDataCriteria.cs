@@ -146,7 +146,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsArticleSearchByTextDataCriteria {\n");
             sb.Append("  SelectionType: ").Append(SelectionType).Append("\n");
             sb.Append("  Range: ").Append(Range).Append("\n");
@@ -189,8 +189,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsArticleSearchByTextDataCriteria input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SelectionType == input.SelectionType ||
@@ -252,25 +253,43 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.SelectionType.GetHashCode();
+                hashCode = (hashCode * 59) + this.SelectionType.GetHashCode();
                 if (this.Range != null)
-                    hashCode = hashCode * 59 + this.Range.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
                 if (this.Indices != null)
-                    hashCode = hashCode * 59 + this.Indices.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Indices.GetHashCode();
+                }
                 if (this.Instruments != null)
-                    hashCode = hashCode * 59 + this.Instruments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instruments.GetHashCode();
+                }
                 if (this.Types != null)
-                    hashCode = hashCode * 59 + this.Types.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                }
                 if (this.Categories != null)
-                    hashCode = hashCode * 59 + this.Categories.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Categories.GetHashCode();
+                }
                 if (this.Regions != null)
-                    hashCode = hashCode * 59 + this.Regions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Regions.GetHashCode();
+                }
                 if (this.Distributor != null)
-                    hashCode = hashCode * 59 + this.Distributor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Distributor.GetHashCode();
+                }
                 if (this.Publisher != null)
-                    hashCode = hashCode * 59 + this.Publisher.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Publisher.GetHashCode();
+                }
                 if (this.Language != null)
-                    hashCode = hashCode * 59 + this.Language.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Language.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -107,7 +107,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20084DataAsks {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Time: ").Append(Time).Append("\n");
@@ -147,8 +147,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20084DataAsks input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -194,16 +195,24 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.Price.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Time.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Price.GetHashCode();
                 if (this.QuoteCondition != null)
-                    hashCode = hashCode * 59 + this.QuoteCondition.GetHashCode();
-                hashCode = hashCode * 59 + this.Volume.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.QuoteCondition.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Volume.GetHashCode();
                 if (this.MarketMaker != null)
-                    hashCode = hashCode * 59 + this.MarketMaker.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MarketMaker.GetHashCode();
+                }
                 return hashCode;
             }
         }

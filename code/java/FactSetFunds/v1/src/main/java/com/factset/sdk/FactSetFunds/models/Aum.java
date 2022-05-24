@@ -66,6 +66,8 @@ public class Aum implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public Aum() { 
+  }
 
   public Aum fsymId(String fsymId) {
     this.fsymId = fsymId;

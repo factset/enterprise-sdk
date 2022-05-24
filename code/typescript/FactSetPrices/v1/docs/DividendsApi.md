@@ -54,6 +54,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSecurityDividends(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const dividendsRequest = new factsetprices.DividendsRequest(); // DividendsReque
 // Call api endpoint
 apiInstance.getSecurityDividendsForList(dividendsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

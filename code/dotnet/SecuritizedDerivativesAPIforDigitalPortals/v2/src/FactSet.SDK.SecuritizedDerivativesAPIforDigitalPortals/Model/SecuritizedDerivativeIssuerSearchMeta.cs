@@ -53,7 +53,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeIssuerSearchMeta {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeIssuerSearchMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Attributes == input.Attributes ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Attributes != null)
-                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
+                }
                 return hashCode;
             }
         }

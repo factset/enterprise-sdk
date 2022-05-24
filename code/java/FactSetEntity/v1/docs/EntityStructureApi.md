@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetEntity.ApiClient;
 import com.factset.sdk.FactSetEntity.ApiException;
 import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.auth.*;
-import com.factset.sdk.FactSetEntity.model.*;
+import com.factset.sdk.FactSetEntity.models.*;
 import com.factset.sdk.FactSetEntity.api.EntityStructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntityStructureApi apiInstance = new EntityStructureApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
@@ -61,6 +60,7 @@ public class Example {
         try {
             EntityStructureResponse result = apiInstance.getEntityStructure(ids, level, active);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntityStructureApi#getEntityStructure");
             System.err.println("Status code: " + e.getCode());
@@ -122,14 +122,13 @@ import com.factset.sdk.FactSetEntity.ApiClient;
 import com.factset.sdk.FactSetEntity.ApiException;
 import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.auth.*;
-import com.factset.sdk.FactSetEntity.model.*;
+import com.factset.sdk.FactSetEntity.models.*;
 import com.factset.sdk.FactSetEntity.api.EntityStructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -139,14 +138,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntityStructureApi apiInstance = new EntityStructureApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
@@ -155,6 +154,7 @@ public class Example {
         try {
             UltimateEntityStructureResponse result = apiInstance.getUltimateEntityStructure(ids, level, active);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntityStructureApi#getUltimateEntityStructure");
             System.err.println("Status code: " + e.getCode());
@@ -216,14 +216,13 @@ import com.factset.sdk.FactSetEntity.ApiClient;
 import com.factset.sdk.FactSetEntity.ApiException;
 import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.auth.*;
-import com.factset.sdk.FactSetEntity.model.*;
+import com.factset.sdk.FactSetEntity.models.*;
 import com.factset.sdk.FactSetEntity.api.EntityStructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -233,20 +232,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntityStructureApi apiInstance = new EntityStructureApi(defaultClient);
         EntityStructureRequest entityStructureRequest = new EntityStructureRequest(); // EntityStructureRequest | Request Body to request a list of Entity Structure objects.
         try {
             EntityStructureResponse result = apiInstance.postEntityStructure(entityStructureRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntityStructureApi#postEntityStructure");
             System.err.println("Status code: " + e.getCode());
@@ -306,14 +306,13 @@ import com.factset.sdk.FactSetEntity.ApiClient;
 import com.factset.sdk.FactSetEntity.ApiException;
 import com.factset.sdk.FactSetEntity.Configuration;
 import com.factset.sdk.FactSetEntity.auth.*;
-import com.factset.sdk.FactSetEntity.model.*;
+import com.factset.sdk.FactSetEntity.models.*;
 import com.factset.sdk.FactSetEntity.api.EntityStructureApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -323,20 +322,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntityStructureApi apiInstance = new EntityStructureApi(defaultClient);
         UltimateEntityStructureRequest ultimateEntityStructureRequest = new UltimateEntityStructureRequest(); // UltimateEntityStructureRequest | Request Body to request a list of Ultimate Entity Structure objects.
         try {
             UltimateEntityStructureResponse result = apiInstance.postUltimateEntityStructure(ultimateEntityStructureRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntityStructureApi#postUltimateEntityStructure");
             System.err.println("Status code: " + e.getCode());

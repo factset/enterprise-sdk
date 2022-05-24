@@ -97,6 +97,8 @@ public class ErrorResponse implements Serializable {
   public static final String JSON_PROPERTY_ERROR = "error";
   private ErrorEnum error;
 
+  public ErrorResponse() { 
+  }
 
   public ErrorResponse error(ErrorEnum error) {
     this.error = error;

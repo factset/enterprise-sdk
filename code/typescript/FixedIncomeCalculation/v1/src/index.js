@@ -11,11 +11,11 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import FICalculationParameters from './model/FICalculationParameters';
 import FIJobSettings from './model/FIJobSettings';
 import FISecurity from './model/FISecurity';
+
 import FICalculationsApi from './api/FICalculationsApi';
 
 
@@ -48,7 +48,7 @@ import FICalculationsApi from './api/FICalculationsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -79,5 +79,6 @@ export {
     * The FICalculationsApi service constructor.
     * @property {module:api/FICalculationsApi}
     */
-    FICalculationsApi
+    FICalculationsApi,
+
 };

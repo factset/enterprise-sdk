@@ -44,6 +44,8 @@ public class InlineResponse20062DataTargetMarketRiskToleranceSpain implements Se
   public static final String JSON_PROPERTY_SRI = "sri";
   private InlineResponse20062DataTargetMarketRiskToleranceSri sri;
 
+  public InlineResponse20062DataTargetMarketRiskToleranceSpain() { 
+  }
 
   public InlineResponse20062DataTargetMarketRiskToleranceSpain sri(InlineResponse20062DataTargetMarketRiskToleranceSri sri) {
     this.sri = sri;

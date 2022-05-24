@@ -70,6 +70,8 @@ public class EntityStructure implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public EntityStructure() { 
+  }
 
   public EntityStructure fsymId(String fsymId) {
     this.fsymId = fsymId;

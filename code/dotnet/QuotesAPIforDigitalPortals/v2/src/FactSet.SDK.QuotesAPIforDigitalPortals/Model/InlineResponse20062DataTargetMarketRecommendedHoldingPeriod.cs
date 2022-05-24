@@ -101,7 +101,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketRecommendedHoldingPeriod {\n");
             sb.Append("  HoldingPeriod: ").Append(HoldingPeriod).Append("\n");
             sb.Append("  HoldingPeriodYears: ").Append(HoldingPeriodYears).Append("\n");
@@ -136,8 +136,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketRecommendedHoldingPeriod input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.HoldingPeriod == input.HoldingPeriod ||
@@ -158,8 +159,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.HoldingPeriod.GetHashCode();
-                hashCode = hashCode * 59 + this.HoldingPeriodYears.GetHashCode();
+                hashCode = (hashCode * 59) + this.HoldingPeriod.GetHashCode();
+                hashCode = (hashCode * 59) + this.HoldingPeriodYears.GetHashCode();
                 return hashCode;
             }
         }

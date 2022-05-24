@@ -43,7 +43,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
-        [DataMember(Name = "content", EmitDefaultValue = true)]
+        [DataMember(Name = "Content", EmitDefaultValue = true)]
         public string Content { get; set; }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CreateBodyDto {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(CreateBodyDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Content == input.Content ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 return hashCode;
             }
         }

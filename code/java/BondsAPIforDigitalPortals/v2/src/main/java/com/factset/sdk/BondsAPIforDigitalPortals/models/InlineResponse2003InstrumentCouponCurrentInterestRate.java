@@ -49,6 +49,8 @@ public class InlineResponse2003InstrumentCouponCurrentInterestRate implements Se
   public static final String JSON_PROPERTY_VALUE = "value";
   private BigDecimal value;
 
+  public InlineResponse2003InstrumentCouponCurrentInterestRate() { 
+  }
 
   public InlineResponse2003InstrumentCouponCurrentInterestRate type(InlineResponse2003InstrumentCouponCurrentInterestRateType type) {
     this.type = type;

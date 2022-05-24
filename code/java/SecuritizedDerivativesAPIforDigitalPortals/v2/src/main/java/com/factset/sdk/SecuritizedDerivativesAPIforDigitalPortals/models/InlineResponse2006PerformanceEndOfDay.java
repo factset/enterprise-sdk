@@ -76,6 +76,8 @@ public class InlineResponse2006PerformanceEndOfDay implements Serializable {
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
   private BigDecimal yearToDate;
 
+  public InlineResponse2006PerformanceEndOfDay() { 
+  }
 
   public InlineResponse2006PerformanceEndOfDay day1(BigDecimal day1) {
     this.day1 = day1;

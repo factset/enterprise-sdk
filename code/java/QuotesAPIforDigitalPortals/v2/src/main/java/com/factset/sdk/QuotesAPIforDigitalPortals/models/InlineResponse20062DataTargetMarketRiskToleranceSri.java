@@ -52,6 +52,8 @@ public class InlineResponse20062DataTargetMarketRiskToleranceSri implements Seri
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public InlineResponse20062DataTargetMarketRiskToleranceSri() { 
+  }
 
   public InlineResponse20062DataTargetMarketRiskToleranceSri id(BigDecimal id) {
     this.id = id;

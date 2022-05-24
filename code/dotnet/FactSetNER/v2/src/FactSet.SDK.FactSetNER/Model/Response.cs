@@ -52,7 +52,7 @@ namespace FactSet.SDK.FactSetNER.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Response {\n");
             sb.Append("  Entities: ").Append(Entities).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.FactSetNER.Model
         public bool Equals(Response input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Entities == input.Entities ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.FactSetNER.Model
             {
                 int hashCode = 41;
                 if (this.Entities != null)
-                    hashCode = hashCode * 59 + this.Entities.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Entities.GetHashCode();
+                }
                 return hashCode;
             }
         }

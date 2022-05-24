@@ -52,6 +52,7 @@ const opts = {
 // Call api endpoint
 apiInstance.createDatabase(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -125,6 +126,7 @@ const inlineObject4 = new ofdb.InlineObject4(); // InlineObject4 |
 // Call api endpoint
 apiInstance.v1DatabasePathDatesDateSymbolsPost(path, date, inlineObject4).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -199,6 +201,7 @@ const inlineObject2 = new ofdb.InlineObject2(); // InlineObject2 |
 // Call api endpoint
 apiInstance.v1DatabasePathDatesPost(path, inlineObject2).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -272,6 +275,7 @@ const inlineObject = new ofdb.InlineObject(); // InlineObject |
 // Call api endpoint
 apiInstance.v1DatabasePathSymbolsPost(path, inlineObject).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

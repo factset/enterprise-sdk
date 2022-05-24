@@ -48,6 +48,16 @@ public class PortfolioCreateData implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private PortfolioCreateDataCurrency currency;
 
+  public PortfolioCreateData() { 
+  }
+
+  @JsonCreator
+  public PortfolioCreateData(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.name = name;
+  }
 
   public PortfolioCreateData name(String name) {
     this.name = name;

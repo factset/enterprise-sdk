@@ -85,6 +85,8 @@ public class DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity implement
   public static final String JSON_PROPERTY_PERPETUAL = "perpetual";
   private PerpetualEnum perpetual;
 
+  public DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataLifeCycleMaturity restriction(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestriction restriction) {
     this.restriction = restriction;

@@ -37,15 +37,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Publisher.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Publisher.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -53,11 +53,13 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = documents_api.DocumentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    path = "Client:folder1/folder2" # str | The directory to get the documents in (default to "Client:folder1/folder2")
+
     try:
         # Gets Publisher documents and sub-directories in a directory
-        api_response = api_instance.get_pub_documents()
+        api_response = api_instance.get_pub_documents(path)
         pprint(api_response)
+
     except fds.sdk.Publisher.ApiException as e:
         print("Exception when calling DocumentsApi->get_pub_documents: %s\n" % e)
 ```

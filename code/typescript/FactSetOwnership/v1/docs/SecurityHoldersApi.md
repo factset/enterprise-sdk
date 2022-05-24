@@ -54,6 +54,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSecurityHolders(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const securityHoldersRequest = new factsetownership.SecurityHoldersRequest(); //
 // Call api endpoint
 apiInstance.postSecurityHolders(securityHoldersRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataMedium model module.
  * @module model/InlineResponse200DataMedium
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse200DataMedium {
     /**

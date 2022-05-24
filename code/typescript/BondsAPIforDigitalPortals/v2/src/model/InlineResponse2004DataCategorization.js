@@ -18,7 +18,7 @@ import InlineResponse2004DataLevel from './InlineResponse2004DataLevel';
 /**
  * The InlineResponse2004DataCategorization model module.
  * @module model/InlineResponse2004DataCategorization
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataCategorization {
     /**

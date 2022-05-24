@@ -89,6 +89,8 @@ public class InlineResponse2005DataReportedKeyFiguresSecondFiscalYear implements
   public static final String JSON_PROPERTY_RATIOS = "ratios";
   private InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatios ratios;
 
+  public InlineResponse2005DataReportedKeyFiguresSecondFiscalYear() { 
+  }
 
   public InlineResponse2005DataReportedKeyFiguresSecondFiscalYear fiscalYear(InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear fiscalYear) {
     this.fiscalYear = fiscalYear;

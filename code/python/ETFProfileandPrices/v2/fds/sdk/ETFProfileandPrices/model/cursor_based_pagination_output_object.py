@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -111,9 +111,9 @@ class CursorBasedPaginationOutputObject(ModelNormal):
 
         Args:
             total (float): Total number of entries in the result set.
-            is_estimated_total (bool): Flag indicating that the value of \"total\" is estimated.
-            next (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
-            previous (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+            is_estimated_total (bool): Flag indicating that the value of `total` is estimated.
+            next (str): The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
+            previous (str): The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -202,9 +202,9 @@ class CursorBasedPaginationOutputObject(ModelNormal):
 
         Args:
             total (float): Total number of entries in the result set.
-            is_estimated_total (bool): Flag indicating that the value of \"total\" is estimated.
-            next (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the next page of results, if any, otherwise null.
-            previous (str): Cursor position to use in the attribute `pagination.cursor` to retrieve the previous page of results, if any, otherwise null.
+            is_estimated_total (bool): Flag indicating that the value of `total` is estimated.
+            next (str): The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.
+            previous (str): The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

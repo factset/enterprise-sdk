@@ -48,6 +48,8 @@ public class InlineObject implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private DebtInstrumentIssuerSearchMeta meta;
 
+  public InlineObject() { 
+  }
 
   public InlineObject data(DebtInstrumentIssuerSearchData data) {
     this.data = data;

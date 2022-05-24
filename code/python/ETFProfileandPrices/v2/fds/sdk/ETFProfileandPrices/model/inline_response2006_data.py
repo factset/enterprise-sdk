@@ -24,20 +24,14 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response2006_data_counter_party import InlineResponse2006DataCounterParty
-    from fds.sdk.ETFProfileandPrices.model.inline_response2006_data_gearing import InlineResponse2006DataGearing
-    from fds.sdk.ETFProfileandPrices.model.inline_response2006_data_hedge import InlineResponse2006DataHedge
-    from fds.sdk.ETFProfileandPrices.model.inline_response2006_data_service_provider import InlineResponse2006DataServiceProvider
-    globals()['InlineResponse2006DataCounterParty'] = InlineResponse2006DataCounterParty
-    globals()['InlineResponse2006DataGearing'] = InlineResponse2006DataGearing
-    globals()['InlineResponse2006DataHedge'] = InlineResponse2006DataHedge
-    globals()['InlineResponse2006DataServiceProvider'] = InlineResponse2006DataServiceProvider
+    from fds.sdk.ETFProfileandPrices.model.inline_response2006_data_industries import InlineResponse2006DataIndustries
+    globals()['InlineResponse2006DataIndustries'] = InlineResponse2006DataIndustries
 
 
 class InlineResponse2006Data(ModelNormal):
@@ -68,6 +62,8 @@ class InlineResponse2006Data(ModelNormal):
     }
 
     validations = {
+        ('industries',): {
+        },
     }
 
     @cached_property
@@ -93,10 +89,8 @@ class InlineResponse2006Data(ModelNormal):
         """
         lazy_import()
         return {
-            'gearing': (InlineResponse2006DataGearing,),  # noqa: E501
-            'hedge': (InlineResponse2006DataHedge,),  # noqa: E501
-            'counter_party': (InlineResponse2006DataCounterParty,),  # noqa: E501
-            'service_provider': (InlineResponse2006DataServiceProvider,),  # noqa: E501
+            'report_date': (date,),  # noqa: E501
+            'industries': ([InlineResponse2006DataIndustries],),  # noqa: E501
         }
 
     @cached_property
@@ -105,10 +99,8 @@ class InlineResponse2006Data(ModelNormal):
 
 
     attribute_map = {
-        'gearing': 'gearing',  # noqa: E501
-        'hedge': 'hedge',  # noqa: E501
-        'counter_party': 'counterParty',  # noqa: E501
-        'service_provider': 'serviceProvider',  # noqa: E501
+        'report_date': 'reportDate',  # noqa: E501
+        'industries': 'industries',  # noqa: E501
     }
 
     read_only_vars = {
@@ -152,10 +144,8 @@ class InlineResponse2006Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            gearing (InlineResponse2006DataGearing): [optional]  # noqa: E501
-            hedge (InlineResponse2006DataHedge): [optional]  # noqa: E501
-            counter_party (InlineResponse2006DataCounterParty): [optional]  # noqa: E501
-            service_provider (InlineResponse2006DataServiceProvider): [optional]  # noqa: E501
+            report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
+            industries ([InlineResponse2006DataIndustries]): List of allocations by industry.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,10 +227,8 @@ class InlineResponse2006Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            gearing (InlineResponse2006DataGearing): [optional]  # noqa: E501
-            hedge (InlineResponse2006DataHedge): [optional]  # noqa: E501
-            counter_party (InlineResponse2006DataCounterParty): [optional]  # noqa: E501
-            service_provider (InlineResponse2006DataServiceProvider): [optional]  # noqa: E501
+            report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
+            industries ([InlineResponse2006DataIndustries]): List of allocations by industry.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

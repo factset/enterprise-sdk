@@ -51,6 +51,16 @@ public class GroupRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public GroupRoot() { 
+  }
+
+  @JsonCreator
+  public GroupRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, Group> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public GroupRoot data(java.util.Map<String, Group> data) {
     this.data = data;

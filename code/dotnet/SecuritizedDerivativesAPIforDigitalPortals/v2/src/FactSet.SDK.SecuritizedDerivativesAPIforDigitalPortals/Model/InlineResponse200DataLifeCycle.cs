@@ -146,7 +146,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataLifeCycle {\n");
             sb.Append("  SubscriptionPeriod: ").Append(SubscriptionPeriod).Append("\n");
             sb.Append("  ValutaIssue: ").Append(ValutaIssue).Append("\n");
@@ -190,8 +190,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataLifeCycle input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.SubscriptionPeriod == input.SubscriptionPeriod ||
@@ -260,27 +261,49 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.SubscriptionPeriod != null)
-                    hashCode = hashCode * 59 + this.SubscriptionPeriod.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SubscriptionPeriod.GetHashCode();
+                }
                 if (this.ValutaIssue != null)
-                    hashCode = hashCode * 59 + this.ValutaIssue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValutaIssue.GetHashCode();
+                }
                 if (this.InitialFixing != null)
-                    hashCode = hashCode * 59 + this.InitialFixing.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InitialFixing.GetHashCode();
+                }
                 if (this.Issue != null)
-                    hashCode = hashCode * 59 + this.Issue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issue.GetHashCode();
+                }
                 if (this.IntradayActivation != null)
-                    hashCode = hashCode * 59 + this.IntradayActivation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IntradayActivation.GetHashCode();
+                }
                 if (this.TradingPeriod != null)
-                    hashCode = hashCode * 59 + this.TradingPeriod.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingPeriod.GetHashCode();
+                }
                 if (this.StartExercisePeriod != null)
-                    hashCode = hashCode * 59 + this.StartExercisePeriod.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartExercisePeriod.GetHashCode();
+                }
                 if (this.Valuation != null)
-                    hashCode = hashCode * 59 + this.Valuation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Valuation.GetHashCode();
+                }
                 if (this.Maturity != null)
-                    hashCode = hashCode * 59 + this.Maturity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Maturity.GetHashCode();
+                }
                 if (this.Repayment != null)
-                    hashCode = hashCode * 59 + this.Repayment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Repayment.GetHashCode();
+                }
                 if (this.Cancellation != null)
-                    hashCode = hashCode * 59 + this.Cancellation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cancellation.GetHashCode();
+                }
                 return hashCode;
             }
         }

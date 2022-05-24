@@ -20,7 +20,7 @@ import OptimizerStrategy from './OptimizerStrategy';
 /**
  * The FPOOptimizationParameters model module.
  * @module model/FPOOptimizationParameters
- * @version 0.8.1
+ * @version 0.8.2
  */
 class FPOOptimizationParameters {
     /**

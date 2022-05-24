@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -46,18 +46,28 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactCustomFieldValueSaveDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private String code;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
+  public static final String JSON_PROPERTY_VALUE = "Value";
   private JsonNullable<String> value = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OPTION_VALUES = "optionValues";
+  public static final String JSON_PROPERTY_OPTION_VALUES = "OptionValues";
   private JsonNullable<java.util.List<java.util.UUID>> optionValues = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_EVALUATE_FORMULA = "evaluateFormula";
+  public static final String JSON_PROPERTY_EVALUATE_FORMULA = "EvaluateFormula";
   private Boolean evaluateFormula = false;
 
+  public ContactCustomFieldValueSaveDto() { 
+  }
+
+  @JsonCreator
+  public ContactCustomFieldValueSaveDto(
+    @JsonProperty(value=JSON_PROPERTY_CODE, required=true) String code
+  ) {
+    this();
+    this.code = code;
+  }
 
   public ContactCustomFieldValueSaveDto code(String code) {
     this.code = code;
@@ -68,7 +78,7 @@ public class ContactCustomFieldValueSaveDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

@@ -17,7 +17,7 @@ import CovenantDetail from './CovenantDetail';
 /**
  * The CovenantDetailsResponse model module.
  * @module model/CovenantDetailsResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CovenantDetailsResponse {
     /**

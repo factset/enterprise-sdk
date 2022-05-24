@@ -47,6 +47,16 @@ public class AccountDirectoriesRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public AccountDirectoriesRoot() { 
+  }
+
+  @JsonCreator
+  public AccountDirectoriesRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) AccountDirectories data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public AccountDirectoriesRoot data(AccountDirectories data) {
     this.data = data;

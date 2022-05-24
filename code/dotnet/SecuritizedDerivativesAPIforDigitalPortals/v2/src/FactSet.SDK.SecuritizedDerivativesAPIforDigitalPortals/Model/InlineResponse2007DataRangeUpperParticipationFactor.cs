@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataRangeUpperParticipationFactor {\n");
             sb.Append("  Positive: ").Append(Positive).Append("\n");
             sb.Append("  Negative: ").Append(Negative).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataRangeUpperParticipationFactor input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Positive == input.Positive ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Positive.GetHashCode();
-                hashCode = hashCode * 59 + this.Negative.GetHashCode();
+                hashCode = (hashCode * 59) + this.Positive.GetHashCode();
+                hashCode = (hashCode * 59) + this.Negative.GetHashCode();
                 return hashCode;
             }
         }

@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CategoriesErrorResponse from './model/CategoriesErrorResponse';
 import ChartInput from './model/ChartInput';
@@ -19,6 +18,7 @@ import ChartList from './model/ChartList';
 import ChartListErrorResponse from './model/ChartListErrorResponse';
 import ErrorResponse from './model/ErrorResponse';
 import UnauthorizedResponse from './model/UnauthorizedResponse';
+
 import ChartTemplatesApi from './api/ChartTemplatesApi';
 
 
@@ -51,7 +51,7 @@ import ChartTemplatesApi from './api/ChartTemplatesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -100,5 +100,6 @@ export {
     * The ChartTemplatesApi service constructor.
     * @property {module:api/ChartTemplatesApi}
     */
-    ChartTemplatesApi
+    ChartTemplatesApi,
+
 };

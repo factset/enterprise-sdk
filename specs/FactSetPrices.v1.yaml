@@ -93,6 +93,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Prices
@@ -165,6 +166,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /factset-prices/v1/fixed-income:
     get:
       tags:

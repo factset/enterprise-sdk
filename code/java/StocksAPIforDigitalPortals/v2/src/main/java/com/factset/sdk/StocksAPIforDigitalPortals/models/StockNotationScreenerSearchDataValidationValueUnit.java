@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataValidationValueUnit implements Seria
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private StockNotationScreenerSearchDataValidationValueUnitExclude exclude;
 
+  public StockNotationScreenerSearchDataValidationValueUnit() { 
+  }
 
   public StockNotationScreenerSearchDataValidationValueUnit restrict(StockNotationScreenerSearchDataValidationValueUnitRestrict restrict) {
     this.restrict = restrict;

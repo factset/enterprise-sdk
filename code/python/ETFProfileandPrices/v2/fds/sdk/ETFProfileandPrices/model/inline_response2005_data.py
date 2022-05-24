@@ -24,14 +24,14 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response2005_data_sectors import InlineResponse2005DataSectors
-    globals()['InlineResponse2005DataSectors'] = InlineResponse2005DataSectors
+    from fds.sdk.ETFProfileandPrices.model.inline_response2005_data_exchanges import InlineResponse2005DataExchanges
+    globals()['InlineResponse2005DataExchanges'] = InlineResponse2005DataExchanges
 
 
 class InlineResponse2005Data(ModelNormal):
@@ -62,7 +62,7 @@ class InlineResponse2005Data(ModelNormal):
     }
 
     validations = {
-        ('sectors',): {
+        ('exchanges',): {
         },
     }
 
@@ -90,7 +90,7 @@ class InlineResponse2005Data(ModelNormal):
         lazy_import()
         return {
             'report_date': (date,),  # noqa: E501
-            'sectors': ([InlineResponse2005DataSectors],),  # noqa: E501
+            'exchanges': ([InlineResponse2005DataExchanges],),  # noqa: E501
         }
 
     @cached_property
@@ -100,7 +100,7 @@ class InlineResponse2005Data(ModelNormal):
 
     attribute_map = {
         'report_date': 'reportDate',  # noqa: E501
-        'sectors': 'sectors',  # noqa: E501
+        'exchanges': 'exchanges',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,7 +145,7 @@ class InlineResponse2005Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
-            sectors ([InlineResponse2005DataSectors]): List of allocations by sector.. [optional]  # noqa: E501
+            exchanges ([InlineResponse2005DataExchanges]): List of allocations by exchange.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class InlineResponse2005Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
-            sectors ([InlineResponse2005DataSectors]): List of allocations by sector.. [optional]  # noqa: E501
+            exchanges ([InlineResponse2005DataExchanges]): List of allocations by exchange.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

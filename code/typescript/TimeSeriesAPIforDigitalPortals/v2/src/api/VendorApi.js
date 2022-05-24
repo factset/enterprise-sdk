@@ -26,7 +26,7 @@ import InlineResponse2004 from '../model/InlineResponse2004';
 /**
 * Vendor service.
 * @module api/VendorApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class VendorApi {
 
@@ -85,7 +85,10 @@ export default class VendorApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/vendor/chartIQ/timeSeries/intraday/subsample/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -103,7 +106,7 @@ export default class VendorApi {
      * @param {module:model/String} opts.quality Quality of the price. (default to 'DLY')
      * @param {module:model/String} opts.granularity Subsample granularities suitable for intraday data. (default to '1h')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     getVendorChartIQTimeSeriesIntradaySubsampleGet(id, from, opts) {
       return this.getVendorChartIQTimeSeriesIntradaySubsampleGetWithHttpInfo(id, from, opts)
@@ -138,7 +141,10 @@ export default class VendorApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/vendor/chartIQ/timeSeries/eod/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -150,7 +156,7 @@ export default class VendorApi {
      * End-of-day time series data for a notation.
      * End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.
      * @param {module:model/InlineObject} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     postVendorChartIQTimeSeriesEodList(body) {
       return this.postVendorChartIQTimeSeriesEodListWithHttpInfo(body)
@@ -185,7 +191,10 @@ export default class VendorApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/vendor/chartIQ/timeSeries/eod/subsample/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -197,7 +206,7 @@ export default class VendorApi {
      * Single subsample end-of-day data for a notation.
      * Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
      * @param {module:model/InlineObject1} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     postVendorChartIQTimeSeriesEodSubsampleGet(body) {
       return this.postVendorChartIQTimeSeriesEodSubsampleGetWithHttpInfo(body)
@@ -232,7 +241,10 @@ export default class VendorApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/vendor/chartIQ/timeSeries/eod/subsample/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -244,7 +256,7 @@ export default class VendorApi {
      * Subsampled end-of-day time series data for a notation.
      * Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample's date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.
      * @param {module:model/InlineObject2} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     postVendorChartIQTimeSeriesEodSubsampleList(body) {
       return this.postVendorChartIQTimeSeriesEodSubsampleListWithHttpInfo(body)
@@ -279,7 +291,10 @@ export default class VendorApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2004;
+
       return this.apiClient.callApi(
         '/vendor/chartIQ/timeSeries/intraday/subsample/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -291,7 +306,7 @@ export default class VendorApi {
      * Subsampled intraday time series data for a notation.
      * Subsampled intraday time series data for a notation. If a subsample's time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.
      * @param {module:model/InlineObject3} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     postVendorChartIQTimeSeriesIntradaySubsampleList(body) {
       return this.postVendorChartIQTimeSeriesIntradaySubsampleListWithHttpInfo(body)
@@ -302,3 +317,8 @@ export default class VendorApi {
 
 
 }
+
+
+
+
+

@@ -44,6 +44,8 @@ public class FundamentalsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Fundamental> data = null;
 
+  public FundamentalsResponse() { 
+  }
 
   public FundamentalsResponse data(java.util.List<Fundamental> data) {
     this.data = data;

@@ -55,6 +55,8 @@ public class EntityFocusRequest implements Serializable {
   public static final String JSON_PROPERTY_INCLUDE_NAMES = "includeNames";
   private Boolean includeNames = true;
 
+  public EntityFocusRequest() { 
+  }
 
   public EntityFocusRequest ids(java.util.List<String> ids) {
     this.ids = ids;

@@ -35,7 +35,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// This endpoint lists all the frequencies that can be applied to a SPAR calculation.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Dictionary&lt;string, Frequency&gt;</returns>
+        /// <returns>Dictionary<string, Frequency></returns>
         Dictionary<string, Frequency> GetSPARFrequencies();
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// This endpoint lists all the frequencies that can be applied to a SPAR calculation.
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Dictionary&lt;string, Frequency&gt;</returns>
+        /// <returns>ApiResponse of Dictionary<string, Frequency></returns>
         ApiResponse<Dictionary<string, Frequency>> GetSPARFrequenciesWithHttpInfo();
         #endregion Synchronous Operations
     }
@@ -75,7 +75,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Dictionary&lt;string, Frequency&gt;)</returns>
+        /// <returns>Task of ApiResponse (Dictionary<string, Frequency>)</returns>
         System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Frequency>>> GetSPARFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -94,6 +94,19 @@ namespace FactSet.SDK.SPAREngine.Api
     public partial class FrequenciesApi : IFrequenciesApi
     {
         private FactSet.SDK.SPAREngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetSPARFrequenciesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Dictionary<string, Frequency>) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequenciesApi"/> class.
@@ -201,10 +214,10 @@ namespace FactSet.SDK.SPAREngine.Api
         /// Get SPAR frequencies This endpoint lists all the frequencies that can be applied to a SPAR calculation.
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Dictionary&lt;string, Frequency&gt;</returns>
+        /// <returns>Dictionary<string, Frequency></returns>
         public Dictionary<string, Frequency> GetSPARFrequencies()
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<Dictionary<string, Frequency>> localVarResponse = GetSPARFrequenciesWithHttpInfo();
+            var localVarResponse = GetSPARFrequenciesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -213,7 +226,7 @@ namespace FactSet.SDK.SPAREngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Dictionary&lt;string, Frequency&gt;</returns>
-        public FactSet.SDK.SPAREngine.Client.ApiResponse<Dictionary<string, Frequency>> GetSPARFrequenciesWithHttpInfo()
+        public ApiResponse<Dictionary<string, Frequency>> GetSPARFrequenciesWithHttpInfo()
         {
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
 
@@ -226,21 +239,27 @@ namespace FactSet.SDK.SPAREngine.Api
             };
 
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -252,15 +271,19 @@ namespace FactSet.SDK.SPAREngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Dictionary<string, Frequency>>("/analytics/lookups/v2/engines/spar/frequencies", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSPARFrequenciesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Dictionary<string, Frequency>>("/analytics/lookups/v2/engines/spar/frequencies", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSPARFrequencies", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -270,9 +293,9 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, Frequency&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, Frequency>> GetSPARFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Dictionary<string, Frequency>>GetSPARFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.SPAREngine.Client.ApiResponse<Dictionary<string, Frequency>> localVarResponse = await GetSPARFrequenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSPARFrequenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -282,7 +305,8 @@ namespace FactSet.SDK.SPAREngine.Api
         /// <exception cref="FactSet.SDK.SPAREngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Frequency&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.SPAREngine.Client.ApiResponse<Dictionary<string, Frequency>>> GetSPARFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Frequency>>> GetSPARFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.SPAREngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.SPAREngine.Client.RequestOptions();
@@ -295,23 +319,28 @@ namespace FactSet.SDK.SPAREngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.SPAREngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.SPAREngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -323,14 +352,18 @@ namespace FactSet.SDK.SPAREngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSPARFrequenciesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, Frequency>>("/analytics/lookups/v2/engines/spar/frequencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSPARFrequencies", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

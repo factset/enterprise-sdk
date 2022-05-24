@@ -17,7 +17,7 @@ import SPARBenchmark from './SPARBenchmark';
 /**
  * The SPARBenchmarkRoot model module.
  * @module model/SPARBenchmarkRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SPARBenchmarkRoot {
     /**

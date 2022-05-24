@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -46,6 +46,7 @@ import com.factset.sdk.IRNContacts.JSON;
   ContactSummaryDto.JSON_PROPERTY_IDENTIFIER,
   ContactSummaryDto.JSON_PROPERTY_FULL_NAME,
   ContactSummaryDto.JSON_PROPERTY_EMPLOYER_NAME,
+  ContactSummaryDto.JSON_PROPERTY_EMPLOYER_IDENTIFIER,
   ContactSummaryDto.JSON_PROPERTY_CITY,
   ContactSummaryDto.JSON_PROPERTY_STATE_PROVINCE,
   ContactSummaryDto.JSON_PROPERTY_POSTAL_CODE,
@@ -61,51 +62,56 @@ import com.factset.sdk.IRNContacts.JSON;
 public class ContactSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "primaryEmailAddress";
+  public static final String JSON_PROPERTY_PRIMARY_EMAIL_ADDRESS = "PrimaryEmailAddress";
   private JsonNullable<String> primaryEmailAddress = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
+  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
   private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_FULL_NAME = "fullName";
+  public static final String JSON_PROPERTY_FULL_NAME = "FullName";
   private JsonNullable<String> fullName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_EMPLOYER_NAME = "employerName";
+  public static final String JSON_PROPERTY_EMPLOYER_NAME = "EmployerName";
   private JsonNullable<String> employerName = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CITY = "city";
+  public static final String JSON_PROPERTY_EMPLOYER_IDENTIFIER = "EmployerIdentifier";
+  private JsonNullable<String> employerIdentifier = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CITY = "City";
   private JsonNullable<String> city = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_STATE_PROVINCE = "stateProvince";
+  public static final String JSON_PROPERTY_STATE_PROVINCE = "StateProvince";
   private JsonNullable<String> stateProvince = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
+  public static final String JSON_PROPERTY_POSTAL_CODE = "PostalCode";
   private JsonNullable<String> postalCode = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_COUNTRY = "country";
+  public static final String JSON_PROPERTY_COUNTRY = "Country";
   private JsonNullable<String> country = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ROLE = "role";
+  public static final String JSON_PROPERTY_ROLE = "Role";
   private ContactRoleDto role;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
+  public static final String JSON_PROPERTY_TYPE = "Type";
   private ContactTypeDto type;
 
-  public static final String JSON_PROPERTY_IS_DELETED = "isDeleted";
+  public static final String JSON_PROPERTY_IS_DELETED = "IsDeleted";
   private Boolean isDeleted;
 
-  public static final String JSON_PROPERTY_LAST_MEETING = "lastMeeting";
+  public static final String JSON_PROPERTY_LAST_MEETING = "LastMeeting";
   private JsonNullable<String> lastMeeting = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "alternativeEmailAddresses";
+  public static final String JSON_PROPERTY_ALTERNATIVE_EMAIL_ADDRESSES = "AlternativeEmailAddresses";
   private JsonNullable<java.util.List<AlternativeEmailAddressDto>> alternativeEmailAddresses = JsonNullable.<java.util.List<AlternativeEmailAddressDto>>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "CustomFieldValues";
   private JsonNullable<java.util.List<ContactCustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<ContactCustomFieldValueDto>>undefined();
 
+  public ContactSummaryDto() { 
+  }
 
   public ContactSummaryDto id(java.util.UUID id) {
     this.id = id;
@@ -266,6 +272,40 @@ public class ContactSummaryDto implements Serializable {
 
   public void setEmployerName(String employerName) {
     this.employerName = JsonNullable.<String>of(employerName);
+  }
+
+
+  public ContactSummaryDto employerIdentifier(String employerIdentifier) {
+    this.employerIdentifier = JsonNullable.<String>of(employerIdentifier);
+    return this;
+  }
+
+   /**
+   * Get employerIdentifier
+   * @return employerIdentifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getEmployerIdentifier() {
+        return employerIdentifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EMPLOYER_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getEmployerIdentifier_JsonNullable() {
+    return employerIdentifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_EMPLOYER_IDENTIFIER)
+  public void setEmployerIdentifier_JsonNullable(JsonNullable<String> employerIdentifier) {
+    this.employerIdentifier = employerIdentifier;
+  }
+
+  public void setEmployerIdentifier(String employerIdentifier) {
+    this.employerIdentifier = JsonNullable.<String>of(employerIdentifier);
   }
 
 
@@ -626,6 +666,7 @@ public class ContactSummaryDto implements Serializable {
         equalsNullable(this.identifier, contactSummaryDto.identifier) &&
         equalsNullable(this.fullName, contactSummaryDto.fullName) &&
         equalsNullable(this.employerName, contactSummaryDto.employerName) &&
+        equalsNullable(this.employerIdentifier, contactSummaryDto.employerIdentifier) &&
         equalsNullable(this.city, contactSummaryDto.city) &&
         equalsNullable(this.stateProvince, contactSummaryDto.stateProvince) &&
         equalsNullable(this.postalCode, contactSummaryDto.postalCode) &&
@@ -644,7 +685,7 @@ public class ContactSummaryDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(primaryEmailAddress), hashCodeNullable(identifier), hashCodeNullable(fullName), hashCodeNullable(employerName), hashCodeNullable(city), hashCodeNullable(stateProvince), hashCodeNullable(postalCode), hashCodeNullable(country), role, type, isDeleted, hashCodeNullable(lastMeeting), hashCodeNullable(alternativeEmailAddresses), hashCodeNullable(customFieldValues));
+    return Objects.hash(id, hashCodeNullable(primaryEmailAddress), hashCodeNullable(identifier), hashCodeNullable(fullName), hashCodeNullable(employerName), hashCodeNullable(employerIdentifier), hashCodeNullable(city), hashCodeNullable(stateProvince), hashCodeNullable(postalCode), hashCodeNullable(country), role, type, isDeleted, hashCodeNullable(lastMeeting), hashCodeNullable(alternativeEmailAddresses), hashCodeNullable(customFieldValues));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -663,6 +704,7 @@ public class ContactSummaryDto implements Serializable {
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
     sb.append("    employerName: ").append(toIndentedString(employerName)).append("\n");
+    sb.append("    employerIdentifier: ").append(toIndentedString(employerIdentifier)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    stateProvince: ").append(toIndentedString(stateProvince)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");

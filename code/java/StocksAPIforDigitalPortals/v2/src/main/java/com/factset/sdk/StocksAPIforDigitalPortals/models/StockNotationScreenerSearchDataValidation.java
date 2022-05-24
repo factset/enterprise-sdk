@@ -72,6 +72,8 @@ public class StockNotationScreenerSearchDataValidation implements Serializable {
   public static final String JSON_PROPERTY_NOTATION_SELECTION_LIST = "notationSelectionList";
   private StockNotationScreenerSearchDataValidationNotationSelectionList notationSelectionList;
 
+  public StockNotationScreenerSearchDataValidation() { 
+  }
 
   public StockNotationScreenerSearchDataValidation onlyActive(Boolean onlyActive) {
     this.onlyActive = onlyActive;

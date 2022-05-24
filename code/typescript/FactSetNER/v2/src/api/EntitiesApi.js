@@ -19,7 +19,7 @@ import Response from '../model/Response';
 /**
 * Entities service.
 * @module api/EntitiesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EntitiesApi {
 
@@ -60,7 +60,10 @@ export default class EntitiesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/cognitive/ner/v2/entities', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -71,7 +74,7 @@ export default class EntitiesApi {
     /**
      * Extract named entities from document text.
      * @param {module:model/Input} payload 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     postEntitiesEntities(payload) {
       return this.postEntitiesEntitiesWithHttpInfo(payload)
@@ -82,3 +85,8 @@ export default class EntitiesApi {
 
 
 }
+
+
+
+
+

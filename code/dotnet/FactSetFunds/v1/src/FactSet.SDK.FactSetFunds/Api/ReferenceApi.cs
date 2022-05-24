@@ -591,6 +591,123 @@ namespace FactSet.SDK.FactSetFunds.Api
     {
         private FactSet.SDK.FactSetFunds.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsBenchmarkDetailsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(BenchmarkDetailsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsBenchmarkDetailsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(BenchmarkDetailsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsClassificationsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ClassificationsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsClassificationsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ClassificationsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsCostsFeesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CostsFeesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsCostsFeesForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CostsFeesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsManagersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ManagersResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsManagersForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ManagersResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsSummaryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SummariesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFundsSummaryForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SummariesResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRelatedFundsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(RelatedFundsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRelatedFundsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(RelatedFundsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceApi"/> class.
         /// </summary>
@@ -701,7 +818,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>BenchmarkDetailsResponse</returns>
         public BenchmarkDetailsResponse GetFundsBenchmarkDetails(List<string> ids)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse> localVarResponse = GetFundsBenchmarkDetailsWithHttpInfo(ids);
+            var localVarResponse = GetFundsBenchmarkDetailsWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -711,11 +828,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <returns>ApiResponse of BenchmarkDetailsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse> GetFundsBenchmarkDetailsWithHttpInfo(List<string> ids)
+        public ApiResponse<BenchmarkDetailsResponse> GetFundsBenchmarkDetailsWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsBenchmarkDetails");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -728,22 +847,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -755,15 +880,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<BenchmarkDetailsResponse>("/factset-funds/v1/benchmark-details", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsBenchmarkDetailsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            BenchmarkDetailsResponse>("/factset-funds/v1/benchmark-details", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsBenchmarkDetails", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -774,9 +903,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BenchmarkDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<BenchmarkDetailsResponse> GetFundsBenchmarkDetailsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BenchmarkDetailsResponse>GetFundsBenchmarkDetailsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse> localVarResponse = await GetFundsBenchmarkDetailsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsBenchmarkDetailsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -787,11 +916,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BenchmarkDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse>> GetFundsBenchmarkDetailsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<BenchmarkDetailsResponse>> GetFundsBenchmarkDetailsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsBenchmarkDetails");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -804,24 +936,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -833,14 +970,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsBenchmarkDetailsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<BenchmarkDetailsResponse>("/factset-funds/v1/benchmark-details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsBenchmarkDetails", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -854,7 +995,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>BenchmarkDetailsResponse</returns>
         public BenchmarkDetailsResponse GetFundsBenchmarkDetailsForList(BenchmarkDetailsRequest benchmarkDetailsRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse> localVarResponse = GetFundsBenchmarkDetailsForListWithHttpInfo(benchmarkDetailsRequest);
+            var localVarResponse = GetFundsBenchmarkDetailsForListWithHttpInfo(benchmarkDetailsRequest);
             return localVarResponse.Data;
         }
 
@@ -864,11 +1005,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="benchmarkDetailsRequest">The Benchmark Details request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of BenchmarkDetailsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse> GetFundsBenchmarkDetailsForListWithHttpInfo(BenchmarkDetailsRequest benchmarkDetailsRequest)
+        public ApiResponse<BenchmarkDetailsResponse> GetFundsBenchmarkDetailsForListWithHttpInfo(BenchmarkDetailsRequest benchmarkDetailsRequest)
         {
             // verify the required parameter 'benchmarkDetailsRequest' is set
             if (benchmarkDetailsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'benchmarkDetailsRequest' when calling ReferenceApi->GetFundsBenchmarkDetailsForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -882,22 +1025,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = benchmarkDetailsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -909,15 +1058,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<BenchmarkDetailsResponse>("/factset-funds/v1/benchmark-details", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsBenchmarkDetailsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            BenchmarkDetailsResponse>("/factset-funds/v1/benchmark-details", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsBenchmarkDetailsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -928,9 +1081,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="benchmarkDetailsRequest">The Benchmark Details request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of BenchmarkDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<BenchmarkDetailsResponse> GetFundsBenchmarkDetailsForListAsync(BenchmarkDetailsRequest benchmarkDetailsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BenchmarkDetailsResponse>GetFundsBenchmarkDetailsForListAsync(BenchmarkDetailsRequest benchmarkDetailsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse> localVarResponse = await GetFundsBenchmarkDetailsForListWithHttpInfoAsync(benchmarkDetailsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsBenchmarkDetailsForListWithHttpInfoAsync(benchmarkDetailsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -941,11 +1094,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="benchmarkDetailsRequest">The Benchmark Details request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (BenchmarkDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<BenchmarkDetailsResponse>> GetFundsBenchmarkDetailsForListWithHttpInfoAsync(BenchmarkDetailsRequest benchmarkDetailsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<BenchmarkDetailsResponse>> GetFundsBenchmarkDetailsForListWithHttpInfoAsync(BenchmarkDetailsRequest benchmarkDetailsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'benchmarkDetailsRequest' is set
             if (benchmarkDetailsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'benchmarkDetailsRequest' when calling ReferenceApi->GetFundsBenchmarkDetailsForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -959,24 +1115,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = benchmarkDetailsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -988,14 +1149,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsBenchmarkDetailsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<BenchmarkDetailsResponse>("/factset-funds/v1/benchmark-details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsBenchmarkDetailsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1009,7 +1174,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>ClassificationsResponse</returns>
         public ClassificationsResponse GetFundsClassifications(List<string> ids)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse> localVarResponse = GetFundsClassificationsWithHttpInfo(ids);
+            var localVarResponse = GetFundsClassificationsWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -1019,11 +1184,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <returns>ApiResponse of ClassificationsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse> GetFundsClassificationsWithHttpInfo(List<string> ids)
+        public ApiResponse<ClassificationsResponse> GetFundsClassificationsWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsClassifications");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1036,22 +1203,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1063,15 +1236,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ClassificationsResponse>("/factset-funds/v1/classifications", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsClassificationsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ClassificationsResponse>("/factset-funds/v1/classifications", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsClassifications", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1082,9 +1259,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClassificationsResponse</returns>
-        public async System.Threading.Tasks.Task<ClassificationsResponse> GetFundsClassificationsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ClassificationsResponse>GetFundsClassificationsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse> localVarResponse = await GetFundsClassificationsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsClassificationsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1095,11 +1272,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClassificationsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse>> GetFundsClassificationsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ClassificationsResponse>> GetFundsClassificationsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsClassifications");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1112,24 +1292,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1141,14 +1326,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsClassificationsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ClassificationsResponse>("/factset-funds/v1/classifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsClassifications", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1162,7 +1351,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>ClassificationsResponse</returns>
         public ClassificationsResponse GetFundsClassificationsForList(ClassificationsRequest classificationsRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse> localVarResponse = GetFundsClassificationsForListWithHttpInfo(classificationsRequest);
+            var localVarResponse = GetFundsClassificationsForListWithHttpInfo(classificationsRequest);
             return localVarResponse.Data;
         }
 
@@ -1172,11 +1361,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="classificationsRequest">The Classifications request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of ClassificationsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse> GetFundsClassificationsForListWithHttpInfo(ClassificationsRequest classificationsRequest)
+        public ApiResponse<ClassificationsResponse> GetFundsClassificationsForListWithHttpInfo(ClassificationsRequest classificationsRequest)
         {
             // verify the required parameter 'classificationsRequest' is set
             if (classificationsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'classificationsRequest' when calling ReferenceApi->GetFundsClassificationsForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1190,22 +1381,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = classificationsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1217,15 +1414,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ClassificationsResponse>("/factset-funds/v1/classifications", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsClassificationsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            ClassificationsResponse>("/factset-funds/v1/classifications", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsClassificationsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1236,9 +1437,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="classificationsRequest">The Classifications request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClassificationsResponse</returns>
-        public async System.Threading.Tasks.Task<ClassificationsResponse> GetFundsClassificationsForListAsync(ClassificationsRequest classificationsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ClassificationsResponse>GetFundsClassificationsForListAsync(ClassificationsRequest classificationsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse> localVarResponse = await GetFundsClassificationsForListWithHttpInfoAsync(classificationsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsClassificationsForListWithHttpInfoAsync(classificationsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1249,11 +1450,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="classificationsRequest">The Classifications request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClassificationsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<ClassificationsResponse>> GetFundsClassificationsForListWithHttpInfoAsync(ClassificationsRequest classificationsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ClassificationsResponse>> GetFundsClassificationsForListWithHttpInfoAsync(ClassificationsRequest classificationsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'classificationsRequest' is set
             if (classificationsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'classificationsRequest' when calling ReferenceApi->GetFundsClassificationsForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1267,24 +1471,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = classificationsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1296,14 +1505,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsClassificationsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<ClassificationsResponse>("/factset-funds/v1/classifications", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsClassificationsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1319,7 +1532,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>CostsFeesResponse</returns>
         public CostsFeesResponse GetFundsCostsFees(List<string> ids, string date = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse> localVarResponse = GetFundsCostsFeesWithHttpInfo(ids, date, currency);
+            var localVarResponse = GetFundsCostsFeesWithHttpInfo(ids, date, currency);
             return localVarResponse.Data;
         }
 
@@ -1331,11 +1544,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="date">The date requested in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)</param>
         /// <param name="currency">Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional, default to &quot;LOCAL&quot;)</param>
         /// <returns>ApiResponse of CostsFeesResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse> GetFundsCostsFeesWithHttpInfo(List<string> ids, string date = default(string), string currency = default(string))
+        public ApiResponse<CostsFeesResponse> GetFundsCostsFeesWithHttpInfo(List<string> ids, string date = default(string), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsCostsFees");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1348,10 +1563,16 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -1365,13 +1586,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1383,15 +1604,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CostsFeesResponse>("/factset-funds/v1/costs-fees", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsCostsFeesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CostsFeesResponse>("/factset-funds/v1/costs-fees", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsCostsFees", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1404,9 +1629,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="currency">Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CostsFeesResponse</returns>
-        public async System.Threading.Tasks.Task<CostsFeesResponse> GetFundsCostsFeesAsync(List<string> ids, string date = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CostsFeesResponse>GetFundsCostsFeesAsync(List<string> ids, string date = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse> localVarResponse = await GetFundsCostsFeesWithHttpInfoAsync(ids, date, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsCostsFeesWithHttpInfoAsync(ids, date, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1419,11 +1644,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="currency">Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CostsFeesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse>> GetFundsCostsFeesWithHttpInfoAsync(List<string> ids, string date = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CostsFeesResponse>> GetFundsCostsFeesWithHttpInfoAsync(List<string> ids, string date = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsCostsFees");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1436,12 +1664,17 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -1455,13 +1688,13 @@ namespace FactSet.SDK.FactSetFunds.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1473,14 +1706,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsCostsFeesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CostsFeesResponse>("/factset-funds/v1/costs-fees", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsCostsFees", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1494,7 +1731,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>CostsFeesResponse</returns>
         public CostsFeesResponse GetFundsCostsFeesForList(CostsFeesRequest costsFeesRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse> localVarResponse = GetFundsCostsFeesForListWithHttpInfo(costsFeesRequest);
+            var localVarResponse = GetFundsCostsFeesForListWithHttpInfo(costsFeesRequest);
             return localVarResponse.Data;
         }
 
@@ -1504,11 +1741,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="costsFeesRequest">The Costs and Fees request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of CostsFeesResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse> GetFundsCostsFeesForListWithHttpInfo(CostsFeesRequest costsFeesRequest)
+        public ApiResponse<CostsFeesResponse> GetFundsCostsFeesForListWithHttpInfo(CostsFeesRequest costsFeesRequest)
         {
             // verify the required parameter 'costsFeesRequest' is set
             if (costsFeesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'costsFeesRequest' when calling ReferenceApi->GetFundsCostsFeesForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1522,22 +1761,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = costsFeesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1549,15 +1794,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CostsFeesResponse>("/factset-funds/v1/costs-fees", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsCostsFeesForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CostsFeesResponse>("/factset-funds/v1/costs-fees", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsCostsFeesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1568,9 +1817,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="costsFeesRequest">The Costs and Fees request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CostsFeesResponse</returns>
-        public async System.Threading.Tasks.Task<CostsFeesResponse> GetFundsCostsFeesForListAsync(CostsFeesRequest costsFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CostsFeesResponse>GetFundsCostsFeesForListAsync(CostsFeesRequest costsFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse> localVarResponse = await GetFundsCostsFeesForListWithHttpInfoAsync(costsFeesRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsCostsFeesForListWithHttpInfoAsync(costsFeesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1581,11 +1830,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="costsFeesRequest">The Costs and Fees request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CostsFeesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<CostsFeesResponse>> GetFundsCostsFeesForListWithHttpInfoAsync(CostsFeesRequest costsFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CostsFeesResponse>> GetFundsCostsFeesForListWithHttpInfoAsync(CostsFeesRequest costsFeesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'costsFeesRequest' is set
             if (costsFeesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'costsFeesRequest' when calling ReferenceApi->GetFundsCostsFeesForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1599,24 +1851,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = costsFeesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1628,14 +1885,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsCostsFeesForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CostsFeesResponse>("/factset-funds/v1/costs-fees", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsCostsFeesForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1649,7 +1910,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>ManagersResponse</returns>
         public ManagersResponse GetFundsManagers(List<string> ids)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse> localVarResponse = GetFundsManagersWithHttpInfo(ids);
+            var localVarResponse = GetFundsManagersWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -1659,11 +1920,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <returns>ApiResponse of ManagersResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse> GetFundsManagersWithHttpInfo(List<string> ids)
+        public ApiResponse<ManagersResponse> GetFundsManagersWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsManagers");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1676,22 +1939,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1703,15 +1972,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ManagersResponse>("/factset-funds/v1/managers", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsManagersResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ManagersResponse>("/factset-funds/v1/managers", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsManagers", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1722,9 +1995,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagersResponse</returns>
-        public async System.Threading.Tasks.Task<ManagersResponse> GetFundsManagersAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagersResponse>GetFundsManagersAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse> localVarResponse = await GetFundsManagersWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsManagersWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1735,11 +2008,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagersResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse>> GetFundsManagersWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ManagersResponse>> GetFundsManagersWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsManagers");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1752,24 +2028,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1781,14 +2062,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsManagersResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ManagersResponse>("/factset-funds/v1/managers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsManagers", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1802,7 +2087,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>ManagersResponse</returns>
         public ManagersResponse GetFundsManagersForList(ManagersRequest managersRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse> localVarResponse = GetFundsManagersForListWithHttpInfo(managersRequest);
+            var localVarResponse = GetFundsManagersForListWithHttpInfo(managersRequest);
             return localVarResponse.Data;
         }
 
@@ -1812,11 +2097,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="managersRequest">The Funds Managers request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of ManagersResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse> GetFundsManagersForListWithHttpInfo(ManagersRequest managersRequest)
+        public ApiResponse<ManagersResponse> GetFundsManagersForListWithHttpInfo(ManagersRequest managersRequest)
         {
             // verify the required parameter 'managersRequest' is set
             if (managersRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'managersRequest' when calling ReferenceApi->GetFundsManagersForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1830,22 +2117,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = managersRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1857,15 +2150,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ManagersResponse>("/factset-funds/v1/managers", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsManagersForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            ManagersResponse>("/factset-funds/v1/managers", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsManagersForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1876,9 +2173,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="managersRequest">The Funds Managers request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagersResponse</returns>
-        public async System.Threading.Tasks.Task<ManagersResponse> GetFundsManagersForListAsync(ManagersRequest managersRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagersResponse>GetFundsManagersForListAsync(ManagersRequest managersRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse> localVarResponse = await GetFundsManagersForListWithHttpInfoAsync(managersRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsManagersForListWithHttpInfoAsync(managersRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1889,11 +2186,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="managersRequest">The Funds Managers request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagersResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<ManagersResponse>> GetFundsManagersForListWithHttpInfoAsync(ManagersRequest managersRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ManagersResponse>> GetFundsManagersForListWithHttpInfoAsync(ManagersRequest managersRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'managersRequest' is set
             if (managersRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'managersRequest' when calling ReferenceApi->GetFundsManagersForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -1907,24 +2207,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = managersRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1936,14 +2241,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsManagersForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<ManagersResponse>("/factset-funds/v1/managers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsManagersForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1957,7 +2266,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>SummariesResponse</returns>
         public SummariesResponse GetFundsSummary(List<string> ids)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse> localVarResponse = GetFundsSummaryWithHttpInfo(ids);
+            var localVarResponse = GetFundsSummaryWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -1967,11 +2276,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <returns>ApiResponse of SummariesResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse> GetFundsSummaryWithHttpInfo(List<string> ids)
+        public ApiResponse<SummariesResponse> GetFundsSummaryWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsSummary");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -1984,22 +2295,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2011,15 +2328,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<SummariesResponse>("/factset-funds/v1/summary", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsSummaryResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            SummariesResponse>("/factset-funds/v1/summary", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsSummary", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2030,9 +2351,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SummariesResponse</returns>
-        public async System.Threading.Tasks.Task<SummariesResponse> GetFundsSummaryAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SummariesResponse>GetFundsSummaryAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse> localVarResponse = await GetFundsSummaryWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsSummaryWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2043,11 +2364,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummariesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse>> GetFundsSummaryWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SummariesResponse>> GetFundsSummaryWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetFundsSummary");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -2060,24 +2384,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2089,14 +2418,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsSummaryResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<SummariesResponse>("/factset-funds/v1/summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsSummary", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2110,7 +2443,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>SummariesResponse</returns>
         public SummariesResponse GetFundsSummaryForList(SummariesRequest summariesRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse> localVarResponse = GetFundsSummaryForListWithHttpInfo(summariesRequest);
+            var localVarResponse = GetFundsSummaryForListWithHttpInfo(summariesRequest);
             return localVarResponse.Data;
         }
 
@@ -2120,11 +2453,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="summariesRequest">The Funds Summary request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of SummariesResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse> GetFundsSummaryForListWithHttpInfo(SummariesRequest summariesRequest)
+        public ApiResponse<SummariesResponse> GetFundsSummaryForListWithHttpInfo(SummariesRequest summariesRequest)
         {
             // verify the required parameter 'summariesRequest' is set
             if (summariesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'summariesRequest' when calling ReferenceApi->GetFundsSummaryForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -2138,22 +2473,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = summariesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2165,15 +2506,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<SummariesResponse>("/factset-funds/v1/summary", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsSummaryForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            SummariesResponse>("/factset-funds/v1/summary", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsSummaryForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2184,9 +2529,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="summariesRequest">The Funds Summary request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SummariesResponse</returns>
-        public async System.Threading.Tasks.Task<SummariesResponse> GetFundsSummaryForListAsync(SummariesRequest summariesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SummariesResponse>GetFundsSummaryForListAsync(SummariesRequest summariesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse> localVarResponse = await GetFundsSummaryForListWithHttpInfoAsync(summariesRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFundsSummaryForListWithHttpInfoAsync(summariesRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2197,11 +2542,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="summariesRequest">The Funds Summary request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummariesResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<SummariesResponse>> GetFundsSummaryForListWithHttpInfoAsync(SummariesRequest summariesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SummariesResponse>> GetFundsSummaryForListWithHttpInfoAsync(SummariesRequest summariesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'summariesRequest' is set
             if (summariesRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'summariesRequest' when calling ReferenceApi->GetFundsSummaryForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -2215,24 +2563,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = summariesRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2244,14 +2597,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFundsSummaryForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<SummariesResponse>("/factset-funds/v1/summary", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFundsSummaryForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2265,7 +2622,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>RelatedFundsResponse</returns>
         public RelatedFundsResponse GetRelatedFunds(List<string> ids)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse> localVarResponse = GetRelatedFundsWithHttpInfo(ids);
+            var localVarResponse = GetRelatedFundsWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -2275,11 +2632,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <returns>ApiResponse of RelatedFundsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse> GetRelatedFundsWithHttpInfo(List<string> ids)
+        public ApiResponse<RelatedFundsResponse> GetRelatedFundsWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetRelatedFunds");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -2292,22 +2651,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2319,15 +2684,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<RelatedFundsResponse>("/factset-funds/v1/related-funds", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRelatedFundsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            RelatedFundsResponse>("/factset-funds/v1/related-funds", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRelatedFunds", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2338,9 +2707,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RelatedFundsResponse</returns>
-        public async System.Threading.Tasks.Task<RelatedFundsResponse> GetRelatedFundsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RelatedFundsResponse>GetRelatedFundsAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse> localVarResponse = await GetRelatedFundsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRelatedFundsWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2351,11 +2720,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="ids">The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* </param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RelatedFundsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse>> GetRelatedFundsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<RelatedFundsResponse>> GetRelatedFundsWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'ids' when calling ReferenceApi->GetRelatedFunds");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -2368,24 +2740,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFunds.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2397,14 +2774,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRelatedFundsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<RelatedFundsResponse>("/factset-funds/v1/related-funds", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRelatedFunds", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2418,7 +2799,7 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <returns>RelatedFundsResponse</returns>
         public RelatedFundsResponse GetRelatedFundsForList(RelatedFundsRequest relatedFundsRequest)
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse> localVarResponse = GetRelatedFundsForListWithHttpInfo(relatedFundsRequest);
+            var localVarResponse = GetRelatedFundsForListWithHttpInfo(relatedFundsRequest);
             return localVarResponse.Data;
         }
 
@@ -2428,11 +2809,13 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <exception cref="FactSet.SDK.FactSetFunds.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedFundsRequest">The Related Funds request body, allowing the user to specify a list of ids.</param>
         /// <returns>ApiResponse of RelatedFundsResponse</returns>
-        public FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse> GetRelatedFundsForListWithHttpInfo(RelatedFundsRequest relatedFundsRequest)
+        public ApiResponse<RelatedFundsResponse> GetRelatedFundsForListWithHttpInfo(RelatedFundsRequest relatedFundsRequest)
         {
             // verify the required parameter 'relatedFundsRequest' is set
             if (relatedFundsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'relatedFundsRequest' when calling ReferenceApi->GetRelatedFundsForList");
+            }
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
 
@@ -2446,22 +2829,28 @@ namespace FactSet.SDK.FactSetFunds.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = relatedFundsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2473,15 +2862,19 @@ namespace FactSet.SDK.FactSetFunds.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<RelatedFundsResponse>("/factset-funds/v1/related-funds", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRelatedFundsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            RelatedFundsResponse>("/factset-funds/v1/related-funds", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRelatedFundsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2492,9 +2885,9 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="relatedFundsRequest">The Related Funds request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RelatedFundsResponse</returns>
-        public async System.Threading.Tasks.Task<RelatedFundsResponse> GetRelatedFundsForListAsync(RelatedFundsRequest relatedFundsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RelatedFundsResponse>GetRelatedFundsForListAsync(RelatedFundsRequest relatedFundsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse> localVarResponse = await GetRelatedFundsForListWithHttpInfoAsync(relatedFundsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRelatedFundsForListWithHttpInfoAsync(relatedFundsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2505,11 +2898,14 @@ namespace FactSet.SDK.FactSetFunds.Api
         /// <param name="relatedFundsRequest">The Related Funds request body, allowing the user to specify a list of ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RelatedFundsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFunds.Client.ApiResponse<RelatedFundsResponse>> GetRelatedFundsForListWithHttpInfoAsync(RelatedFundsRequest relatedFundsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<RelatedFundsResponse>> GetRelatedFundsForListWithHttpInfoAsync(RelatedFundsRequest relatedFundsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'relatedFundsRequest' is set
             if (relatedFundsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFunds.Client.ApiException(400, "Missing required parameter 'relatedFundsRequest' when calling ReferenceApi->GetRelatedFundsForList");
+            }
 
 
             FactSet.SDK.FactSetFunds.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFunds.Client.RequestOptions();
@@ -2523,24 +2919,29 @@ namespace FactSet.SDK.FactSetFunds.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFunds.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = relatedFundsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFunds.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2552,14 +2953,18 @@ namespace FactSet.SDK.FactSetFunds.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRelatedFundsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<RelatedFundsResponse>("/factset-funds/v1/related-funds", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRelatedFundsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

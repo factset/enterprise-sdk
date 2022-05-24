@@ -48,6 +48,8 @@ public class PricesTimeSeriesIntradayListMeta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private PricesTimeSeriesIntradayListMetaPagination pagination;
 
+  public PricesTimeSeriesIntradayListMeta() { 
+  }
 
   public PricesTimeSeriesIntradayListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

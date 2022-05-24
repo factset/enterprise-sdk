@@ -81,7 +81,6 @@ Name | Type | Description  | Notes
  **categories** | [**List&lt;Category&gt;**](Category.md)| Groupings of &#x60;metrics&#x60; data items. Supply a list of categories below to return collections of data items in response. |category|description| |- --|- --| |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark| |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.| |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.| |COUNTERPARTY|Credit and Swap Counterparty details| |CREATE_REDEEM|Creation and Redemption Sizes| |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.| |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains| |DOCUMENTATION|Details surrounding reporting information.| |GEARING|Leverage factors, inverse flags, and more.| |HEDGE|Hedging Information| |RISK|CIFSC Risk Ratings| |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details| |STATUS|Actively Managed Flags| |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.| |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.| |TAX|Tax Types, distribution takes, K1 Flags, and more.|  | [optional] 
 
 ### Return type
-
 [**EtfReferenceDataResponse**](EtfReferenceDataResponse.md)
 
 ### Authorization
@@ -175,7 +174,6 @@ Name | Type | Description  | Notes
  **etfReferenceDataRequest** | [**EtfReferenceDataRequest**](EtfReferenceDataRequest.md)| Request object for Exchange Traded Funds | 
 
 ### Return type
-
 [**EtfReferenceDataResponse**](EtfReferenceDataResponse.md)
 
 ### Authorization

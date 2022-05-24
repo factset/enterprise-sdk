@@ -172,7 +172,7 @@ namespace FactSet.SDK.FactSetOwnership.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecurityHolders {\n");
             sb.Append("  HolderId: ").Append(HolderId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -219,8 +219,9 @@ namespace FactSet.SDK.FactSetOwnership.Model
         public bool Equals(SecurityHolders input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.HolderId == input.HolderId ||
@@ -300,29 +301,49 @@ namespace FactSet.SDK.FactSetOwnership.Model
             {
                 int hashCode = 41;
                 if (this.HolderId != null)
-                    hashCode = hashCode * 59 + this.HolderId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HolderId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.HolderEntityId != null)
-                    hashCode = hashCode * 59 + this.HolderEntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HolderEntityId.GetHashCode();
+                }
                 if (this.HolderName != null)
-                    hashCode = hashCode * 59 + this.HolderName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HolderName.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.InvestorType != null)
-                    hashCode = hashCode * 59 + this.InvestorType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InvestorType.GetHashCode();
+                }
                 if (this.HolderType != null)
-                    hashCode = hashCode * 59 + this.HolderType.GetHashCode();
-                hashCode = hashCode * 59 + this.AdjHolding.GetHashCode();
-                hashCode = hashCode * 59 + this.AdjMarketValue.GetHashCode();
-                hashCode = hashCode * 59 + this.WeightClose.GetHashCode();
-                hashCode = hashCode * 59 + this.PercentOutstanding.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HolderType.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AdjHolding.GetHashCode();
+                hashCode = (hashCode * 59) + this.AdjMarketValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.WeightClose.GetHashCode();
+                hashCode = (hashCode * 59) + this.PercentOutstanding.GetHashCode();
                 if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

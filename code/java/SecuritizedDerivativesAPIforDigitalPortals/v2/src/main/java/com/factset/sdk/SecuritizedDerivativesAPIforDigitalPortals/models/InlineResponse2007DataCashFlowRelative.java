@@ -52,6 +52,8 @@ public class InlineResponse2007DataCashFlowRelative implements Serializable {
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2007DataCashFlowRelative() { 
+  }
 
   public InlineResponse2007DataCashFlowRelative value(BigDecimal value) {
     this.value = value;

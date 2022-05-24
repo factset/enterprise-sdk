@@ -43,6 +43,8 @@ public class CountryResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Country> data = null;
 
+  public CountryResponse() { 
+  }
 
   public CountryResponse data(java.util.List<Country> data) {
     this.data = data;

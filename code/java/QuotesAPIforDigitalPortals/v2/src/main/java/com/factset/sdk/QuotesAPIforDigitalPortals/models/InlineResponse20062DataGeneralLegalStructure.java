@@ -48,6 +48,8 @@ public class InlineResponse20062DataGeneralLegalStructure implements Serializabl
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20062DataGeneralLegalStructure() { 
+  }
 
   public InlineResponse20062DataGeneralLegalStructure id(BigDecimal id) {
     this.id = id;

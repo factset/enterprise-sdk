@@ -41,28 +41,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
+
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_dates_date_delete(path, date)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ModifyApi->v1_database_path_dates_date_delete: %s\n" % e)
 ```
@@ -135,31 +136,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
+
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
     inline_object3 = InlineObject3(
         data=[{"symbol":"FACTSET","field1":"VALUE"}],
     ) # InlineObject3 | 
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_dates_date_put(path, date, inline_object3)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ModifyApi->v1_database_path_dates_date_put: %s\n" % e)
 ```
@@ -232,29 +234,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
+
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
     symbol = "symbol_example" # str | Symbol with in the ofdb
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_dates_date_symbols_symbol_delete(path, date, symbol)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ModifyApi->v1_database_path_dates_date_symbols_symbol_delete: %s\n" % e)
 ```
@@ -328,21 +331,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
+
     path = "path_example" # str | Encode database path
     date = 1 # int | Date in YYYYMMDD format
     symbol = "symbol_example" # str | Symbol with in the ofdb
@@ -350,10 +354,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         data={},
     ) # InlineObject5 | 
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_dates_date_symbols_symbol_put(path, date, symbol, inline_object5)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ModifyApi->v1_database_path_dates_date_symbols_symbol_put: %s\n" % e)
 ```
@@ -426,28 +430,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
+
     path = "path_example" # str | Encode database path
     symbol = "symbol_example" # str | Symbol with in the ofdb
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_symbols_symbol_delete(path, symbol)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ModifyApi->v1_database_path_symbols_symbol_delete: %s\n" % e)
 ```
@@ -520,21 +525,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = modify_api.ModifyApi(api_client)
+
     path = "path_example" # str | Encode database path
     symbol = "symbol_example" # str | Symbol with in the ofdb
     inline_object1 = InlineObject1(
@@ -543,10 +549,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
         ],
     ) # InlineObject1 | 
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_symbols_symbol_put(path, symbol, inline_object1)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ModifyApi->v1_database_path_symbols_symbol_put: %s\n" % e)
 ```

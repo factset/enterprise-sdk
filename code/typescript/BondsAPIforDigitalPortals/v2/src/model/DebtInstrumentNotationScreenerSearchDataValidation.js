@@ -22,7 +22,7 @@ import DebtInstrumentNotationScreenerSearchDataValidationValueUnit from './DebtI
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidation model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidation
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataValidation {
     /**

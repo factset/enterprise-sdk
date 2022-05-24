@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **tickerHistoryTranslationRequest** | [**TickerHistoryTranslationRequest**](TickerHistoryTranslationRequest.md)| Request Body for Ticker History | 
 
 ### Return type
-
 [**TickerHistoryTranslationResponse**](TickerHistoryTranslationResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **tickerTranslationRequest** | [**TickerTranslationRequest**](TickerTranslationRequest.md)| Request Body for Ticker History | 
 
 ### Return type
-
 [**TickerTranslationResponse**](TickerTranslationResponse.md)
 
 ### Authorization
@@ -269,7 +267,6 @@ Name | Type | Description  | Notes
  **tickerType** | **string**| Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** &#x3D; Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** &#x3D; TIcker-Exchange (e.g. GOOGL-NAS)  | [optional] [default to REGION]
 
 ### Return type
-
 [**TickerHistoryTranslationResponse**](TickerHistoryTranslationResponse.md)
 
 ### Authorization
@@ -367,7 +364,6 @@ Name | Type | Description  | Notes
  **asOfDate** | **string**| As-Of date for historical symbol request in YYYY-MM-DD format. | [optional] 
 
 ### Return type
-
 [**TickerTranslationResponse**](TickerTranslationResponse.md)
 
 ### Authorization

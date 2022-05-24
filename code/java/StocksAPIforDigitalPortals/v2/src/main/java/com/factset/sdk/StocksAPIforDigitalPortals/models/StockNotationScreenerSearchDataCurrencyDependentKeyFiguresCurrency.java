@@ -82,6 +82,16 @@ public class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency 
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private IsoCodeEnum isoCode;
 
+  public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency() { 
+  }
+
+  @JsonCreator
+  public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency(
+    @JsonProperty(value=JSON_PROPERTY_ISO_CODE, required=true) IsoCodeEnum isoCode
+  ) {
+    this();
+    this.isoCode = isoCode;
+  }
 
   public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency isoCode(IsoCodeEnum isoCode) {
     this.isoCode = isoCode;

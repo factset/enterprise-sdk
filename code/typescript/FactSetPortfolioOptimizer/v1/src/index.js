@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import DocumentDirectories from './model/DocumentDirectories';
 import FPOAccount from './model/FPOAccount';
@@ -26,6 +25,7 @@ import OptimizerStrategy from './model/OptimizerStrategy';
 import OptimizerStrategyOverrides from './model/OptimizerStrategyOverrides';
 import OptimizerTradesList from './model/OptimizerTradesList';
 import PaDoc from './model/PaDoc';
+
 import OptimizationsApi from './api/OptimizationsApi';
 import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 
@@ -59,7 +59,7 @@ import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -156,5 +156,6 @@ export {
     * The StrategyDocumentsApi service constructor.
     * @property {module:api/StrategyDocumentsApi}
     */
-    StrategyDocumentsApi
+    StrategyDocumentsApi,
+
 };

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ComponentAccount model module.
  * @module model/ComponentAccount
- * @version 0.8.1
+ * @version 0.8.2
  */
 class ComponentAccount {
     /**

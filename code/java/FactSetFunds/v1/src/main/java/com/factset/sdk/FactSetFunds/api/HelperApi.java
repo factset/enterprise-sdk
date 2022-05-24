@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetFunds.models.ErrorResponse;
 import com.factset.sdk.FactSetFunds.models.StatusesRequest;
@@ -23,6 +26,28 @@ public class HelperApi {
   public HelperApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getStatusesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStatusesResponseTypeMap.put(200, new GenericType<StatusesResponse>(){});
+    getStatusesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getStatusesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getStatusesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getStatusesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getStatusesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getStatusesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStatusesForListResponseTypeMap.put(200, new GenericType<StatusesResponse>(){});
+    getStatusesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getStatusesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getStatusesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getStatusesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getStatusesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class HelperApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<StatusesResponse> localVarReturnType = new GenericType<StatusesResponse>() {};
 
-    return apiClient.invokeAPI("HelperApi.getStatuses", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        StatusesResponse
+      
+    > apiResponse = apiClient.invokeAPI("HelperApi.getStatuses", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStatusesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund&#39;s current status and database availability for large list of ids.
@@ -191,10 +222,16 @@ public class HelperApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<StatusesResponse> localVarReturnType = new GenericType<StatusesResponse>() {};
 
-    return apiClient.invokeAPI("HelperApi.getStatusesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        StatusesResponse
+      
+    > apiResponse = apiClient.invokeAPI("HelperApi.getStatusesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStatusesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

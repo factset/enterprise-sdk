@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reportDate** | **Date** | Reporting date for the allocations. | [optional] 
-**regions** | [**[InlineResponse2004DataRegions]**](InlineResponse2004DataRegions.md) | List of allocations by region. | [optional] 
+**classifications** | [**[InlineResponse2004DataClassifications]**](InlineResponse2004DataClassifications.md) | List of allocations classified by a holding&#39;s economic development status, sorted by weight in descending order. | [optional] 
 
 

@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ClientSalesRepresentativeDto model module.
  * @module model/ClientSalesRepresentativeDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ClientSalesRepresentativeDto {
     /**
@@ -47,11 +47,11 @@ class ClientSalesRepresentativeDto {
         if (data) {
             obj = obj || new ClientSalesRepresentativeDto();
 
-            if (data.hasOwnProperty('fullname')) {
-                obj['fullname'] = ApiClient.convertToType(data['fullname'], 'String');
+            if (data.hasOwnProperty('Fullname')) {
+                obj['Fullname'] = ApiClient.convertToType(data['Fullname'], 'String');
             }
-            if (data.hasOwnProperty('emailAddress')) {
-                obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
+            if (data.hasOwnProperty('EmailAddress')) {
+                obj['EmailAddress'] = ApiClient.convertToType(data['EmailAddress'], 'String');
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class ClientSalesRepresentativeDto {
 }
 
 /**
- * @member {String} fullname
+ * @member {String} Fullname
  */
-ClientSalesRepresentativeDto.prototype['fullname'] = undefined;
+ClientSalesRepresentativeDto.prototype['Fullname'] = undefined;
 
 /**
- * @member {String} emailAddress
+ * @member {String} EmailAddress
  */
-ClientSalesRepresentativeDto.prototype['emailAddress'] = undefined;
+ClientSalesRepresentativeDto.prototype['EmailAddress'] = undefined;
 
 
 

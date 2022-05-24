@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSnippets400ResponseDetailsValidParameters model module.
  * @module model/NRTSnippets400ResponseDetailsValidParameters
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSnippets400ResponseDetailsValidParameters {
     /**

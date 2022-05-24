@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import OperationType from './OperationType';
 
 /**
  * The Operation model module.
  * @module model/Operation
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Operation {
     /**
@@ -47,8 +48,8 @@ class Operation {
         if (data) {
             obj = obj || new Operation();
 
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], Object);
+            if (data.hasOwnProperty('operationType')) {
+                obj['operationType'] = OperationType.constructFromObject(data['operationType']);
             }
             if (data.hasOwnProperty('path')) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
@@ -59,6 +60,9 @@ class Operation {
             if (data.hasOwnProperty('from')) {
                 obj['from'] = ApiClient.convertToType(data['from'], 'String');
             }
+            if (data.hasOwnProperty('value')) {
+                obj['value'] = ApiClient.convertToType(data['value'], Object);
+            }
         }
         return obj;
     }
@@ -67,9 +71,9 @@ class Operation {
 }
 
 /**
- * @member {Object} value
+ * @member {module:model/OperationType} operationType
  */
-Operation.prototype['value'] = undefined;
+Operation.prototype['operationType'] = undefined;
 
 /**
  * @member {String} path
@@ -85,6 +89,11 @@ Operation.prototype['op'] = undefined;
  * @member {String} from
  */
 Operation.prototype['from'] = undefined;
+
+/**
+ * @member {Object} value
+ */
+Operation.prototype['value'] = undefined;
 
 
 

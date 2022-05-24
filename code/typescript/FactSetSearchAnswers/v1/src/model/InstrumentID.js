@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentID model module.
  * @module model/InstrumentID
- * @version 0.9.1
+ * @version 0.20.0
  */
 class InstrumentID {
     /**

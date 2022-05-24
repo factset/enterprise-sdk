@@ -42,24 +42,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel PA calculation by id
         api_instance.cancel_calculation_by_id(id)
@@ -133,28 +133,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get PA calculation parameters by id
         api_response = api_instance.get_calculation_parameters(id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling PACalculationsApi->get_calculation_parameters: %s\n" % e)
 ```
@@ -225,28 +226,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get PA calculation status by id
         api_response = api_instance.get_calculation_status_by_id(id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling PACalculationsApi->get_calculation_status_by_id: %s\n" % e)
 ```
@@ -318,29 +320,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Get PA calculation status by id endpoint
     unit_id = "unitId_example" # str | from url, provided from the location header in the Get PA calculation status by id endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get PA calculation result by id
         api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling PACalculationsApi->get_calculation_unit_result_by_id: %s\n" % e)
 ```
@@ -386,7 +389,7 @@ Name | Type | Description  | Notes
 
 Create and Run PA calculation
 
-This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -414,21 +417,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
+
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the POST body. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
     pa_calculation_parameters_root = PACalculationParametersRoot(
@@ -455,6 +459,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                 groups=[
                     PACalculationGroup(
                         id="id_example",
+                        frequency="frequency_example",
                     ),
                 ],
                 currencyisocode="currencyisocode_example",
@@ -466,6 +471,19 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                         ],
                     ),
                 ],
+                datasources=PACalculationDataSources(
+                    portfoliopricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    benchmarkpricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    useportfoliopricingsourcesforbenchmark=True,
+                ),
                 componentdetail="componentdetail_example",
             ),
         },
@@ -477,12 +495,16 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         ),
     ) # PACalculationParametersRoot | Calculation Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create and Run PA calculation
         api_response = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, pa_calculation_parameters_root=pa_calculation_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            200: api_response.get_response_200,
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling PACalculationsApi->post_and_calculate: %s\n" % e)
 ```
@@ -533,7 +555,7 @@ Name | Type | Description  | Notes
 
 Create or Update PA calculation and run it.
 
-This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -561,21 +583,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pa_calculations_api.PACalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run PA calculation endpoint
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts max-stale. (optional)
@@ -603,6 +626,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                 groups=[
                     PACalculationGroup(
                         id="id_example",
+                        frequency="frequency_example",
                     ),
                 ],
                 currencyisocode="currencyisocode_example",
@@ -614,6 +638,19 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                         ],
                     ),
                 ],
+                datasources=PACalculationDataSources(
+                    portfoliopricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    benchmarkpricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    useportfoliopricingsourcesforbenchmark=True,
+                ),
                 componentdetail="componentdetail_example",
             ),
         },
@@ -625,20 +662,16 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         ),
     ) # PACalculationParametersRoot | Calculation Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create or Update PA calculation and run it.
-        api_response = api_instance.put_and_calculate(id)
-        pprint(api_response)
-    except fds.sdk.PAEngine.ApiException as e:
-        print("Exception when calling PACalculationsApi->put_and_calculate: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create or Update PA calculation and run it.
         api_response = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, pa_calculation_parameters_root=pa_calculation_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            200: api_response.get_response_200,
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling PACalculationsApi->put_and_calculate: %s\n" % e)
 ```

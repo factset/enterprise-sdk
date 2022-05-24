@@ -87,7 +87,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 
 ### Return type
-
 [**MarketValueResponse**](MarketValueResponse.md)
 
 ### Authorization
@@ -181,7 +180,6 @@ Name | Type | Description  | Notes
  **marketValueRequest** | [**MarketValueRequest**](MarketValueRequest.md)| Request object for &#x60;Security&#x60; market values. | 
 
 ### Return type
-
 [**MarketValueResponse**](MarketValueResponse.md)
 
 ### Authorization

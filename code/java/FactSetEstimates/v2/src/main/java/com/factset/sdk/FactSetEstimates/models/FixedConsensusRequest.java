@@ -77,6 +77,18 @@ public class FixedConsensusRequest implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public FixedConsensusRequest() { 
+  }
+
+  @JsonCreator
+  public FixedConsensusRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids, 
+    @JsonProperty(value=JSON_PROPERTY_METRICS, required=true) java.util.List<String> metrics
+  ) {
+    this();
+    this.ids = ids;
+    this.metrics = metrics;
+  }
 
   public FixedConsensusRequest ids(java.util.List<String> ids) {
     this.ids = ids;

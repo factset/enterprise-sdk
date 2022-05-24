@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.DocumentsDistributorCallStreetEvents.models.NRTSnippetsMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
@@ -34,39 +34,101 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
  * NRTSnippetsSnippetData
  */
 @JsonPropertyOrder({
-  NRTSnippetsSnippetData.JSON_PROPERTY_METADATA
+  NRTSnippetsSnippetData.JSON_PROPERTY_TRANSCRIPT,
+  NRTSnippetsSnippetData.JSON_PROPERTY_END_TIME,
+  NRTSnippetsSnippetData.JSON_PROPERTY_START_TIME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NRTSnippetsSnippetData implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_METADATA = "metadata";
-  private NRTSnippetsMetadata metadata;
+  public static final String JSON_PROPERTY_TRANSCRIPT = "transcript";
+  private String transcript;
 
+  public static final String JSON_PROPERTY_END_TIME = "endTime";
+  private BigDecimal endTime;
 
-  public NRTSnippetsSnippetData metadata(NRTSnippetsMetadata metadata) {
-    this.metadata = metadata;
+  public static final String JSON_PROPERTY_START_TIME = "startTime";
+  private BigDecimal startTime;
+
+  public NRTSnippetsSnippetData() { 
+  }
+
+  public NRTSnippetsSnippetData transcript(String transcript) {
+    this.transcript = transcript;
     return this;
   }
 
    /**
-   * Get metadata
-   * @return metadata
+   * The actual transcript snippet
+   * @return transcript
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @ApiModelProperty(value = "The actual transcript snippet")
+  @JsonProperty(JSON_PROPERTY_TRANSCRIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public NRTSnippetsMetadata getMetadata() {
-    return metadata;
+  public String getTranscript() {
+    return transcript;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(JSON_PROPERTY_TRANSCRIPT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadata(NRTSnippetsMetadata metadata) {
-    this.metadata = metadata;
+  public void setTranscript(String transcript) {
+    this.transcript = transcript;
+  }
+
+
+  public NRTSnippetsSnippetData endTime(BigDecimal endTime) {
+    this.endTime = endTime;
+    return this;
+  }
+
+   /**
+   * The number of seconds into the call, when the transcript snippet ended
+   * @return endTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of seconds into the call, when the transcript snippet ended")
+  @JsonProperty(JSON_PROPERTY_END_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getEndTime() {
+    return endTime;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_END_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEndTime(BigDecimal endTime) {
+    this.endTime = endTime;
+  }
+
+
+  public NRTSnippetsSnippetData startTime(BigDecimal startTime) {
+    this.startTime = startTime;
+    return this;
+  }
+
+   /**
+   * The number of seconds into the call,when the transcript snippet started
+   * @return startTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of seconds into the call,when the transcript snippet started")
+  @JsonProperty(JSON_PROPERTY_START_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getStartTime() {
+    return startTime;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_START_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStartTime(BigDecimal startTime) {
+    this.startTime = startTime;
   }
 
 
@@ -82,19 +144,23 @@ public class NRTSnippetsSnippetData implements Serializable {
       return false;
     }
     NRTSnippetsSnippetData nrTSnippetsSnippetData = (NRTSnippetsSnippetData) o;
-    return Objects.equals(this.metadata, nrTSnippetsSnippetData.metadata);
+    return Objects.equals(this.transcript, nrTSnippetsSnippetData.transcript) &&
+        Objects.equals(this.endTime, nrTSnippetsSnippetData.endTime) &&
+        Objects.equals(this.startTime, nrTSnippetsSnippetData.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata);
+    return Objects.hash(transcript, endTime, startTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NRTSnippetsSnippetData {\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    transcript: ").append(toIndentedString(transcript)).append("\n");
+    sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

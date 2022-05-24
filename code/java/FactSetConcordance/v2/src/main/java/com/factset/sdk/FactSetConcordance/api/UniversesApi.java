@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetConcordance.models.CreateUniverseRequest;
 import com.factset.sdk.FactSetConcordance.models.EntityUniverseStatisticsResponse;
@@ -26,6 +29,40 @@ public class UniversesApi {
   public UniversesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntityUniverseStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityUniverseStatisticsResponseTypeMap.put(200, new GenericType<EntityUniverseStatisticsResponse>(){});
+    getEntityUniverseStatisticsResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getUniverseForListResponseTypeMap.put(200, new GenericType<UniverseMetaResponse>(){});
+    getUniverseForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getUniverseForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getUniverseForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getUniverseForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+    getUniverseForListResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getUniversesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getUniversesResponseTypeMap.put(200, new GenericType<UniversesResponse>(){});
+    getUniversesResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getUpdateUniverseForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getUpdateUniverseForListResponseTypeMap.put(200, new GenericType<UniverseMetaResponse>(){});
+    getUpdateUniverseForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getUpdateUniverseForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getUpdateUniverseForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getUpdateUniverseForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getUpdateUniverseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+    getUpdateUniverseForListResponseTypeMap.put(0, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -109,11 +146,17 @@ public class UniversesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityUniverseStatisticsResponse> localVarReturnType = new GenericType<EntityUniverseStatisticsResponse>() {};
 
-    return apiClient.invokeAPI("UniversesApi.getEntityUniverseStatistics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityUniverseStatisticsResponse
+      
+    > apiResponse = apiClient.invokeAPI("UniversesApi.getEntityUniverseStatistics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityUniverseStatisticsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Create a new universe
@@ -188,11 +231,17 @@ public class UniversesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UniverseMetaResponse> localVarReturnType = new GenericType<UniverseMetaResponse>() {};
 
-    return apiClient.invokeAPI("UniversesApi.getUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UniverseMetaResponse
+      
+    > apiResponse = apiClient.invokeAPI("UniversesApi.getUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getUniverseForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Fetch metadata for universes
@@ -253,11 +302,17 @@ public class UniversesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UniversesResponse> localVarReturnType = new GenericType<UniversesResponse>() {};
 
-    return apiClient.invokeAPI("UniversesApi.getUniverses", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UniversesResponse
+      
+    > apiResponse = apiClient.invokeAPI("UniversesApi.getUniverses", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getUniversesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Update metadata for an existing universe
@@ -332,10 +387,16 @@ public class UniversesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<UniverseMetaResponse> localVarReturnType = new GenericType<UniverseMetaResponse>() {};
 
-    return apiClient.invokeAPI("UniversesApi.getUpdateUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        UniverseMetaResponse
+      
+    > apiResponse = apiClient.invokeAPI("UniversesApi.getUpdateUniverseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getUpdateUniverseForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

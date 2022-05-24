@@ -55,6 +55,8 @@ public class NRTSpeakeridsData implements Serializable {
   public static final String JSON_PROPERTY_COSINE_SCORE = "cosineScore";
   private BigDecimal cosineScore;
 
+  public NRTSpeakeridsData() { 
+  }
 
   public NRTSpeakeridsData audioSourceId(Integer audioSourceId) {
     this.audioSourceId = audioSourceId;
@@ -140,11 +142,11 @@ public class NRTSpeakeridsData implements Serializable {
   }
 
    /**
-   * The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set
+   * The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set
    * @return cosineScore
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set")
+  @ApiModelProperty(value = "The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set")
   @JsonProperty(JSON_PROPERTY_COSINE_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

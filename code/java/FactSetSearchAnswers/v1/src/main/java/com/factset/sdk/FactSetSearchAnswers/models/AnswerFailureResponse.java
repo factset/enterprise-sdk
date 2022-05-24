@@ -43,6 +43,16 @@ public class AnswerFailureResponse implements Serializable {
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private java.util.List<Error> errors = new java.util.ArrayList<>();
 
+  public AnswerFailureResponse() { 
+  }
+
+  @JsonCreator
+  public AnswerFailureResponse(
+    @JsonProperty(value=JSON_PROPERTY_ERRORS, required=true) java.util.List<Error> errors
+  ) {
+    this();
+    this.errors = errors;
+  }
 
   public AnswerFailureResponse errors(java.util.List<Error> errors) {
     this.errors = errors;

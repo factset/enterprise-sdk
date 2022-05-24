@@ -17,7 +17,7 @@ import InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesE
 /**
  * The InlineResponse2005DataEstimatesFirstFiscalYearRatiosEnterpriseValueEbit model module.
  * @module model/InlineResponse2005DataEstimatesFirstFiscalYearRatiosEnterpriseValueEbit
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2005DataEstimatesFirstFiscalYearRatiosEnterpriseValueEbit {
     /**

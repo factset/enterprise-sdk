@@ -53,6 +53,8 @@ public class InlineResponse2006InstrumentIssuer implements Serializable {
   public static final String JSON_PROPERTY_GROUP = "group";
   private InlineResponse2006InstrumentIssuerGroup group;
 
+  public InlineResponse2006InstrumentIssuer() { 
+  }
 
   public InlineResponse2006InstrumentIssuer id(BigDecimal id) {
     this.id = id;

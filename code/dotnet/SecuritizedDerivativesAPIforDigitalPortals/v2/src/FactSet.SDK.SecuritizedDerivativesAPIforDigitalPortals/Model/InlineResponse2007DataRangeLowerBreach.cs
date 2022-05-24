@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataRangeLowerBreach {\n");
             sb.Append("  IsBreached: ").Append(IsBreached).Append("\n");
             sb.Append("  DatetimeBreach: ").Append(DatetimeBreach).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataRangeLowerBreach input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IsBreached == input.IsBreached ||
@@ -120,9 +121,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IsBreached.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsBreached.GetHashCode();
                 if (this.DatetimeBreach != null)
-                    hashCode = hashCode * 59 + this.DatetimeBreach.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DatetimeBreach.GetHashCode();
+                }
                 return hashCode;
             }
         }

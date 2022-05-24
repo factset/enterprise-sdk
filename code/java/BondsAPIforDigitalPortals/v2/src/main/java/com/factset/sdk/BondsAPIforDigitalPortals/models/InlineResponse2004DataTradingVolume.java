@@ -44,6 +44,8 @@ public class InlineResponse2004DataTradingVolume implements Serializable {
   public static final String JSON_PROPERTY_OTC = "otc";
   private InlineResponse2004DataTradingVolumeOtc otc;
 
+  public InlineResponse2004DataTradingVolume() { 
+  }
 
   public InlineResponse2004DataTradingVolume otc(InlineResponse2004DataTradingVolumeOtc otc) {
     this.otc = otc;

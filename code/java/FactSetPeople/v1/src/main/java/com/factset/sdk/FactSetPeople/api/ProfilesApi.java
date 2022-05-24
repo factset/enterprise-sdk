@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPeople.Configuration;
 import com.factset.sdk.FactSetPeople.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPeople.models.ErrorResponse;
 import com.factset.sdk.FactSetPeople.models.PeopleProfilesRequest;
@@ -23,6 +26,28 @@ public class ProfilesApi {
   public ProfilesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPeopleProfilesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPeopleProfilesResponseTypeMap.put(200, new GenericType<PeopleProfilesResponse>(){});
+    getPeopleProfilesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getPeopleProfilesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPeopleProfilesForListResponseTypeMap.put(200, new GenericType<PeopleProfilesResponse>(){});
+    getPeopleProfilesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getPeopleProfilesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class ProfilesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PeopleProfilesResponse> localVarReturnType = new GenericType<PeopleProfilesResponse>() {};
 
-    return apiClient.invokeAPI("ProfilesApi.getPeopleProfiles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PeopleProfilesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ProfilesApi.getPeopleProfiles", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPeopleProfilesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns profile information for a large list of people.
@@ -191,10 +222,16 @@ public class ProfilesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PeopleProfilesResponse> localVarReturnType = new GenericType<PeopleProfilesResponse>() {};
 
-    return apiClient.invokeAPI("ProfilesApi.getPeopleProfilesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PeopleProfilesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ProfilesApi.getPeopleProfilesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPeopleProfilesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

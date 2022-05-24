@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataCompanyCountryExclude implements Ser
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<BigDecimal> ids = null;
 
+  public StockNotationScreenerSearchDataCompanyCountryExclude() { 
+  }
 
   public StockNotationScreenerSearchDataCompanyCountryExclude ids(java.util.List<BigDecimal> ids) {
     this.ids = ids;

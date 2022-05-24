@@ -19,7 +19,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYie
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYield model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYield
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYield {
     /**

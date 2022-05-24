@@ -109,7 +109,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Managers {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  ManagerName: ").Append(ManagerName).Append("\n");
@@ -149,8 +149,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(Managers input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -198,18 +199,30 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.ManagerName != null)
-                    hashCode = hashCode * 59 + this.ManagerName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagerName.GetHashCode();
+                }
                 if (this.ManagerTitle != null)
-                    hashCode = hashCode * 59 + this.ManagerTitle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagerTitle.GetHashCode();
+                }
                 if (this.ManagerPhone != null)
-                    hashCode = hashCode * 59 + this.ManagerPhone.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagerPhone.GetHashCode();
+                }
                 if (this.ManagerInceptionDate != null)
-                    hashCode = hashCode * 59 + this.ManagerInceptionDate.GetHashCode();
-                hashCode = hashCode * 59 + this.ManagerJobId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagerInceptionDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ManagerJobId.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

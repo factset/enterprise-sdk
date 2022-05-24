@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetTermsandConditions.JSON;
@@ -64,6 +64,8 @@ public class ConvertibleHistory implements Serializable {
   public static final String JSON_PROPERTY_CONV_ULY_FSYM_ID = "convUlyFsymId";
   private String convUlyFsymId;
 
+  public ConvertibleHistory() { 
+  }
 
   public ConvertibleHistory requestId(String requestId) {
     this.requestId = requestId;

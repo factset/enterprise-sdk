@@ -12,17 +12,17 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2004DataRegions from './InlineResponse2004DataRegions';
+import InlineResponse2004DataClassifications from './InlineResponse2004DataClassifications';
 
 /**
  * The InlineResponse2004Data model module.
  * @module model/InlineResponse2004Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004Data {
     /**
      * Constructs a new <code>InlineResponse2004Data</code>.
-     * ETP region allocation data.
+     * List of allocations.
      * @alias module:model/InlineResponse2004Data
      */
     constructor() { 
@@ -52,8 +52,8 @@ class InlineResponse2004Data {
             if (data.hasOwnProperty('reportDate')) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('regions')) {
-                obj['regions'] = ApiClient.convertToType(data['regions'], [InlineResponse2004DataRegions]);
+            if (data.hasOwnProperty('classifications')) {
+                obj['classifications'] = ApiClient.convertToType(data['classifications'], [InlineResponse2004DataClassifications]);
             }
         }
         return obj;
@@ -69,10 +69,10 @@ class InlineResponse2004Data {
 InlineResponse2004Data.prototype['reportDate'] = undefined;
 
 /**
- * List of allocations by region.
- * @member {Array.<module:model/InlineResponse2004DataRegions>} regions
+ * List of allocations classified by a holding's economic development status, sorted by weight in descending order.
+ * @member {Array.<module:model/InlineResponse2004DataClassifications>} classifications
  */
-InlineResponse2004Data.prototype['regions'] = undefined;
+InlineResponse2004Data.prototype['classifications'] = undefined;
 
 
 

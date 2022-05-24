@@ -17,7 +17,7 @@ import ReturnsSnapshot from './ReturnsSnapshot';
 /**
  * The ReturnsSnapshotResponse model module.
  * @module model/ReturnsSnapshotResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ReturnsSnapshotResponse {
     /**

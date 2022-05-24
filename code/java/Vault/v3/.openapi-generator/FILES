@@ -54,7 +54,6 @@ src/main/java/com/factset/sdk/Vault/ApiClient.java
 src/main/java/com/factset/sdk/Vault/ApiException.java
 src/main/java/com/factset/sdk/Vault/ApiResponse.java
 src/main/java/com/factset/sdk/Vault/Configuration.java
-src/main/java/com/factset/sdk/Vault/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/Vault/JSON.java
 src/main/java/com/factset/sdk/Vault/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/Vault/Pair.java

@@ -48,6 +48,16 @@ public class StockDividendListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private StockDividendListDataFilter filter;
 
+  public StockDividendListData() { 
+  }
+
+  @JsonCreator
+  public StockDividendListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public StockDividendListData id(String id) {
     this.id = id;

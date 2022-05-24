@@ -48,6 +48,16 @@ public class FactsetTranslationAdvancedRequest implements Serializable {
   public static final String JSON_PROPERTY_SYMBOL_TYPE = "symbolType";
   private GetSymbolType symbolType = GetSymbolType.EMPTY;
 
+  public FactsetTranslationAdvancedRequest() { 
+  }
+
+  @JsonCreator
+  public FactsetTranslationAdvancedRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public FactsetTranslationAdvancedRequest ids(java.util.List<String> ids) {
     this.ids = ids;
@@ -60,11 +70,11 @@ public class FactsetTranslationAdvancedRequest implements Serializable {
   }
 
    /**
-   * Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;.
+   * Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.
    * @return ids
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "[\"GOOGL-US\"]", required = true, value = "Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.")
+  @ApiModelProperty(example = "[\"GOOGL-US\"]", required = true, value = "Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.")
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

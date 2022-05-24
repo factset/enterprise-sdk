@@ -59,6 +59,8 @@ public class InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimate
   public static final String JSON_PROPERTY_PER_SHARE = "perShare";
   private InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare perShare;
 
+  public InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimates() { 
+  }
 
   public InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimates currency(InlineResponse2004EstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency currency) {
     this.currency = currency;

@@ -39,28 +39,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
+
     id = "id_example" # str | Vault configuration id to get the details of
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Vault configuration by id
         api_response = api_instance.get_vault_configuration_by_id(id)
         pprint(api_response)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling ConfigurationsApi->get_vault_configuration_by_id: %s\n" % e)
 ```
@@ -133,28 +134,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
+
     account = "account_example" # str | Required account query parameter to filter configurations for a specific account
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Vault configurations
         api_response = api_instance.get_vault_configurations(account)
         pprint(api_response)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling ConfigurationsApi->get_vault_configurations: %s\n" % e)
 ```

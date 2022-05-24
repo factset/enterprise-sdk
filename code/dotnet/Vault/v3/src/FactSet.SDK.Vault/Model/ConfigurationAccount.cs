@@ -99,7 +99,7 @@ namespace FactSet.SDK.Vault.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConfigurationAccount {\n");
             sb.Append("  BenchmarkCode: ").Append(BenchmarkCode).Append("\n");
             sb.Append("  BenchmarkName: ").Append(BenchmarkName).Append("\n");
@@ -138,8 +138,9 @@ namespace FactSet.SDK.Vault.Model
         public bool Equals(ConfigurationAccount input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BenchmarkCode == input.BenchmarkCode ||
@@ -183,17 +184,29 @@ namespace FactSet.SDK.Vault.Model
             {
                 int hashCode = 41;
                 if (this.BenchmarkCode != null)
-                    hashCode = hashCode * 59 + this.BenchmarkCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BenchmarkCode.GetHashCode();
+                }
                 if (this.BenchmarkName != null)
-                    hashCode = hashCode * 59 + this.BenchmarkName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BenchmarkName.GetHashCode();
+                }
                 if (this.MaxEndDate != null)
-                    hashCode = hashCode * 59 + this.MaxEndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MaxEndDate.GetHashCode();
+                }
                 if (this.MinStartDate != null)
-                    hashCode = hashCode * 59 + this.MinStartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MinStartDate.GetHashCode();
+                }
                 if (this.LockingDate != null)
-                    hashCode = hashCode * 59 + this.LockingDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LockingDate.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 return hashCode;
             }
         }

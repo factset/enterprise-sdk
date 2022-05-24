@@ -241,11 +241,11 @@ paths:
       x-accepts: application/json
   /symbology/v2/factset-advanced:
     get:
-      description: "FactSet Advanced Symbology gives your enhanced resolution capabilities\
-        \ to translate a wider variety of input ids \nUsing the `symbolType` parameter,\
-        \ you are able to resolve from the below list of advanced identifier types\
+      description: "FactSet Advanced Symbology gives you enhanced resolution capabilities\
+        \ to translate a wider variety of input ids. Using the symbolType parameter,\
+        \ you are able to resolve from the below list of third-party identifier types\
         \ into FactSet Permanent Identifiers. Any symbol types within this category\
-        \ MUST be declared by themseleves to appropriately resolve. \n* BIC - Bank\
+        \ MUST be declared by themselves to appropriately resolve. \n* BIC - Bank\
         \ Identification Code (e.g. ABXXHKH1)\n* CIK - Edgar Central Index Keys (e.g.\
         \ 0000100331)\n* CRD - Central Registration Depository (e.g. 149722)\n* DUNS\
         \ - Dun & Bradstreet Data Universal Numbering System (e.g. 621513451)\n* EIN\
@@ -253,24 +253,25 @@ paths:
         \ Identifier (e.g. 47504)\n* LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n\
         * MD - Moody's Ratings Identifier (e.g. 0823736553)\n* SPR - S&P Ratings Identifier\
         \ (e.g. 301939)\n* VALOREN - Valoren (\"Valor\") Identification (e.g. 685558)\n\
-        * WKN - German Securities Identification (\"Wert\") (e.g. A0MU9T)\nNot providing\
-        \ a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve\
-        \ a mix of ids across various input id types and asset classes (Equities,\
-        \ Debt Instruments, Companies, Portfolios, Market Listings, and more). Input\
-        \ Id Types include - \n* FactSet Ticker, Ticker-Region, Ticker-Exchange\n\
-        * FactSet Permanent Identifiers (-R, -S, -L, -E)\n* CUSIP\n* SEDOL\n* ISIN\n\
-        * Bloomberg FIGI - Regional/Security/Listing Level\n* Bloomberg Ticker - Regional/Listing\
-        \ Level\n  \n"
+        * WKN - German Securities Identification (\"Wert\") (e.g. A0MU9T)\n* UKCH\
+        \ - UK Company House Identifier(e.g.CE012494)\n* RSSD -   Federal Reserve\
+        \ RSSD Identifier(1139297)\n\nNot providing a symbolType will use FactSet\
+        \ Advanced Unknown logic, allowing you to resolve a mix of ids across various\
+        \ input id types and asset classes (Equities, Debt Instruments, Companies,\
+        \ Portfolios, Market Listings, and more). Input Id Types include - \n* FactSet\
+        \ Ticker, Ticker-Region, Ticker-Exchange\n* FactSet Permanent Identifiers\
+        \ (-R, -S, -L, -E)\n* CUSIP\n* SEDOL\n* ISIN\n* Bloomberg FIGI - Regional/Security/Listing\
+        \ Level\n* Bloomberg Ticker - Regional/Listing Level\n"
       operationId: translateFactsetAdvanced
       parameters:
       - description: Requested market securities or entities. Accepted identifiers
-          include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
-          Tickers. This request value is sent back in the response as, `requestId'.
-          <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL
-          request lines are also limited to a total length of 8192 bytes (8KB). In
-          cases where the service allows for thousands of ids, which may lead to exceeding
-          this request line limit of 8KB, its advised for any requests with large
-          request lines to be requested through the respective "POST" method.</p>*
+          include all identifiers in the list above. This request value is sent back
+          in the response as ‘requestId’. <p>***ids limit** =  3000 per request*</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total
+          length of 8192 bytes (8KB). In cases where the service allows for thousands
+          of ids, which may lead to exceeding this request line limit of 8KB, its
+          advised for any requests with large request lines to be requested through
+          the respective "POST" method.</p>*
         examples:
           singleMarketId:
             summary: One Market Identifier
@@ -294,7 +295,7 @@ paths:
           type: array
         style: form
       - description: |
-          Specifies the type of symbol being requested in the `ids` parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.
+          Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.
             |symbolType|Description|fsymId Default Perm Type|
             |---|---|---|
             |BIC|Bank Identification Codes|Entity (-E)|
@@ -308,7 +309,7 @@ paths:
             |SPR|S&P Ratings Identifier|Entity (-E)|
             |VALOREN|Valoren ("Valor") Identification|Security (-S)|
             |WKN|German Securities Identification ("Wert")|Security (-S)|
-            |CRN|UK Company House Identifier|Entity(-E)|
+            |UKCH|UK Company House Identifier|Entity(-E)|
             |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|
         explode: true
         in: query
@@ -328,7 +329,8 @@ paths:
           - SPR
           - VALOREN
           - WKN
-          - CRN
+          - JCN
+          - UKCH
           - RSSD
           - ""
           example: ""
@@ -422,11 +424,11 @@ paths:
       - FactSet
       x-accepts: application/json
     post:
-      description: "FactSet Advanced Symbology gives your enhanced resolution capabilities\
-        \ to translate a wider variety of input ids.\nUsing the `symbolType` parameter,\
-        \ you are able to resolve from the below list of advanced identifier types\
+      description: "FactSet Advanced Symbology gives you enhanced resolution capabilities\
+        \ to translate a wider variety of input ids. Using the symbolType parameter,\
+        \ you are able to resolve from the below list of third-party identifier types\
         \ into FactSet Permanent Identifiers. Any symbol types within this category\
-        \ MUST be declared by themseleves to appropriately resolve. \n* BIC - Bank\
+        \ MUST be declared by themselves to appropriately resolve. \n* BIC - Bank\
         \ Identification Code (e.g. ABXXHKH1)\n* CIK - Edgar Central Index Keys (e.g.\
         \ 0000100331)\n* CRD - Central Registration Depository (e.g. 149722)\n* DUNS\
         \ - Dun & Bradstreet Data Universal Numbering System (e.g. 621513451)\n* EIN\
@@ -434,14 +436,15 @@ paths:
         \ Identifier (e.g. 47504)\n* LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33)\n\
         * MD - Moody's Ratings Identifier (e.g. 0823736553)\n* SPR - S&P Ratings Identifier\
         \ (e.g. 301939)\n* VALOREN - Valoren (\"Valor\") Identification (e.g. 685558)\n\
-        * WKN - German Securities Identification (\"Wert\") (e.g. A0MU9T)\nNot providing\
-        \ a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve\
-        \ a mix of ids across various input id types and asset classes (Equities,\
-        \ Debt Instruments, Companies, Portfolios, Market Listings, and more). Input\
-        \ Id Types include - \n* FactSet Ticker, Ticker-Region, Ticker-Exchange\n\
-        * FactSet Permanent Identifiers (-R, -S, -L, -E)\n* CUSIP\n* SEDOL\n* ISIN\n\
-        * Bloomberg FIGI - Regional/Security/Listing Level\n* Bloomberg Ticker - Regional/Listing\
-        \ Level\n"
+        * WKN - German Securities Identification (\"Wert\") (e.g. A0MU9T)\n* UKCH\
+        \ - UK Company House Identifier(e.g.CE012494)\n* RSSD -   Federal Reserve\
+        \ RSSD Identifier(1139297)  \n\nNot providing a symbolType will use FactSet\
+        \ Advanced Unknown logic, allowing you to resolve a mix of ids across various\
+        \ input id types and asset classes (Equities, Debt Instruments, Companies,\
+        \ Portfolios, Market Listings, and more). Input Id Types include - \n* FactSet\
+        \ Ticker, Ticker-Region, Ticker-Exchange\n* FactSet Permanent Identifiers\
+        \ (-R, -S, -L, -E)\n* CUSIP\n* SEDOL\n* ISIN\n* Bloomberg FIGI - Regional/Security/Listing\
+        \ Level\n* Bloomberg Ticker - Regional/Listing Level\n"
       operationId: batchTranslateFactSetAdvanced
       requestBody:
         content:
@@ -3559,6 +3562,37 @@ components:
         minItems: 1
         type: array
       style: form
+    getAdvancedIds:
+      description: Requested market securities or entities. Accepted identifiers include
+        all identifiers in the list above. This request value is sent back in the
+        response as ‘requestId’. <p>***ids limit** =  3000 per request*</p> *<p>Make
+        note, GET Method URL request lines are also limited to a total length of 8192
+        bytes (8KB). In cases where the service allows for thousands of ids, which
+        may lead to exceeding this request line limit of 8KB, its advised for any
+        requests with large request lines to be requested through the respective "POST"
+        method.</p>*
+      examples:
+        singleMarketId:
+          summary: One Market Identifier
+          value:
+          - GOOGL-US
+        multipleMarketIds:
+          summary: Multiple Market Identifiers
+          value:
+          - GOOGL-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 3000
+        minItems: 1
+        type: array
+      style: form
     getAsOfDate:
       description: As-Of date for historical symbol request in YYYY-MM-DD format.
         This is the date requested in the service. If no asOfDate was requested, the
@@ -3596,7 +3630,7 @@ components:
       style: form
     getSymbolType:
       description: |
-        Specifies the type of symbol being requested in the `ids` parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.
+        Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.
           |symbolType|Description|fsymId Default Perm Type|
           |---|---|---|
           |BIC|Bank Identification Codes|Entity (-E)|
@@ -3610,7 +3644,7 @@ components:
           |SPR|S&P Ratings Identifier|Entity (-E)|
           |VALOREN|Valoren ("Valor") Identification|Security (-S)|
           |WKN|German Securities Identification ("Wert")|Security (-S)|
-          |CRN|UK Company House Identifier|Entity(-E)|
+          |UKCH|UK Company House Identifier|Entity(-E)|
           |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|
       explode: true
       in: query
@@ -3630,7 +3664,8 @@ components:
         - SPR
         - VALOREN
         - WKN
-        - CRN
+        - JCN
+        - UKCH
         - RSSD
         - ""
         example: ""
@@ -3935,8 +3970,8 @@ components:
       properties:
         ids:
           description: Requested market securities or entities. Accepted identifiers
-            include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and
-            Tickers. This request value is sent back in the response as, `requestId'.
+            include all identifiers in the list above. This request value is sent
+            back in the response as ‘requestId’.
           example:
           - GOOGL-US
           items:
@@ -4858,6 +4893,18 @@ components:
       minItems: 1
       title: Identifier List
       type: array
+    getAdvancedIds:
+      description: Requested market securities or entities. Accepted identifiers include
+        all identifiers in the list above. This request value is sent back in the
+        response as ‘requestId’.
+      example:
+      - GOOGL-US
+      items:
+        type: string
+      maxItems: 3000
+      minItems: 1
+      title: Identifier List
+      type: array
     getAsOfDate:
       description: As-Of date for historical symbol request in YYYY-MM-DD format.
       example: 2010-01-01
@@ -4874,7 +4921,7 @@ components:
     getSymbolType:
       default: ""
       description: |
-        Specifies the type of symbol being requested in the `ids` parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.**
+        Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.**
           |symbolType|Description|
           |---|---|
           |BIC|Bank Identification Codes|
@@ -4888,7 +4935,7 @@ components:
           |SPR|S&P Ratings Identifier|
           |VALOREN|Valoren ("Valor") Identification|
           |WKN|German Securities Identification ("Wert")|
-          |CRN|UK Company House Identifier|Entity(-E)|
+          |UKCH|UK Company House Identifier|Entity(-E)|
           |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|
       enum:
       - BIC
@@ -4902,7 +4949,8 @@ components:
       - SPR
       - VALOREN
       - WKN
-      - CRN
+      - JCN
+      - UKCH
       - RSSD
       - ""
       example: BIC

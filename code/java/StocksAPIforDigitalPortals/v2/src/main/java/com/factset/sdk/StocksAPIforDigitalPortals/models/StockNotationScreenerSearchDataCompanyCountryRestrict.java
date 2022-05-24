@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataCompanyCountryRestrict implements Se
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<BigDecimal> ids = null;
 
+  public StockNotationScreenerSearchDataCompanyCountryRestrict() { 
+  }
 
   public StockNotationScreenerSearchDataCompanyCountryRestrict ids(java.util.List<BigDecimal> ids) {
     this.ids = ids;

@@ -16,6 +16,7 @@ import io
 import os
 import re
 import typing
+from typing import Tuple, Dict, Any, Callable, Optional
 from urllib.parse import quote
 from urllib3.fields import RequestField
 
@@ -37,6 +38,34 @@ from fds.sdk.CapitalStructureReportBuilder.model_utils import (
     none_type,
     validate_and_convert_types
 )
+
+ResponseType = Tuple[Any]
+"""
+Types to serialize the API response into.
+A tuple containing:
+* valid classes
+* a list containing valid classes (for list schemas)
+* a dict containing a tuple of valid classes as the value
+
+Example values:
+- (str,)
+- (Pet,)
+- (float, none_type)
+- ([int, none_type],)
+- ({str: (bool, str, int, float, date, datetime, str, none_type)},)
+"""
+
+HttpStatusCode = int
+ResponseTypeByStatusCode = Dict[HttpStatusCode, Optional[ResponseType]]
+"""
+Map specifying return types per HTTP status code.
+
+Examples value:
+- { 200: (ModelA,), 201: (None,) }
+"""
+
+ResponseWrapper = Callable[[HttpStatusCode, Any], Any]
+ResponseTypeWithWrapper = Tuple[ResponseTypeByStatusCode, Optional[ResponseWrapper]]
 
 
 class ApiClient(object):
@@ -76,7 +105,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'fds-sdk/python/CapitalStructureReportBuilder/0.9.1'
+        self.user_agent = 'fds-sdk/python/CapitalStructureReportBuilder/0.20.0'
 
     def __enter__(self):
         return self
@@ -124,14 +153,15 @@ class ApiClient(object):
         body: typing.Optional[typing.Any] = None,
         post_params: typing.Optional[typing.List[typing.Tuple[str, typing.Any]]] = None,
         files: typing.Optional[typing.Dict[str, typing.List[io.IOBase]]] = None,
-        response_type: typing.Optional[typing.Tuple[typing.Any]] = None,
+        response_type: typing.Optional[ResponseTypeWithWrapper] = None,
         auth_settings: typing.Optional[typing.List[str]] = None,
         _return_http_data_only: typing.Optional[bool] = None,
         collection_formats: typing.Optional[typing.Dict[str, str]] = None,
         _preload_content: bool = True,
         _request_timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         _host: typing.Optional[str] = None,
-        _check_type: typing.Optional[bool] = None
+        _check_type: typing.Optional[bool] = None,
+        _content_type: typing.Optional[str] = None
     ):
 
         config = self.configuration
@@ -172,8 +202,7 @@ class ApiClient(object):
                                                     collection_formats)
             post_params.extend(self.files_parameters(files))
             if header_params['Content-Type'].startswith("multipart"):
-                post_params = self.parameters_to_multipart(post_params,
-                                                          (dict) )
+                post_params = self.parameters_to_multipart(post_params, dict)
 
         # body
         if body:
@@ -207,15 +236,22 @@ class ApiClient(object):
 
         if not _preload_content:
             return (return_data)
-            return return_data
 
-        # deserialize response data
-        if response_type:
+        # deserialize response data with response code to type serialization mapping
+        if response_type is not None:
+            (status_code_map, response_wrapper) = response_type
+        else:
+            status_code_map = {}
+            response_wrapper = None
+
+        if response_data.status in status_code_map:
+            response_type = status_code_map[response_data.status]
+
             if response_type != (file_type,):
                 encoding = "utf-8"
                 content_type = response_data.getheader('content-type')
                 if content_type is not None:
-                    match = re.search(r"charset=([a-zA-Z\-\d]+)[\s\;]?", content_type)
+                    match = re.search(r"charset=([a-zA-Z\-\d]+)[\s;]?", content_type)
                     if match:
                         encoding = match.group(1)
                 response_data.data = response_data.data.decode(encoding)
@@ -225,25 +261,30 @@ class ApiClient(object):
                 response_type,
                 _check_type
             )
+
         else:
             return_data = None
 
+        if response_wrapper is not None:
+            return_data = response_wrapper(response_data.status, return_data)
+
         if _return_http_data_only:
-            return (return_data)
+            return return_data
         else:
-            return (return_data, response_data.status,
-                    response_data.getheaders())
+            return return_data, response_data.status, response_data.getheaders()
 
     def parameters_to_multipart(self, params, collection_types):
         """Get parameters as list of tuples, formatting as json if value is collection_types
 
         :param params: Parameters as list of two-tuples
-        :param dict collection_types: Parameter collection types
+        :type params: list
+        :param collection_types: Parameter collection types
+        :type collection_types: Type(typing.Any)
         :return: Parameters as list of tuple or urllib3.fields.RequestField
         """
         new_params = []
         if collection_types is None:
-            collection_types = (dict)
+            collection_types = dict
         for k, v in params.items() if isinstance(params, dict) else params:  # noqa: E501
             if isinstance(v, collection_types): # v is instance of collection_type, formatting as application/json
                  v = json.dumps(v, ensure_ascii=False).encode("utf-8")
@@ -266,6 +307,8 @@ class ApiClient(object):
         If obj is OpenAPI model, return the properties dict.
         If obj is io.IOBase, return the bytes
         :param obj: The data to serialize.
+        :type obj: Any
+        :raises ApiValueError: Unable to prepare type {} for serialization.
         :return: The serialized form of data.
         """
         if isinstance(obj, (ModelNormal, ModelComposed)):
@@ -290,6 +333,7 @@ class ApiClient(object):
         """Deserializes response into an object.
 
         :param response: RESTResponse object to be deserialized.
+        :type response: Any
         :param response_type: For the response, a tuple containing:
             valid classes
             a list containing valid classes (for list schemas)
@@ -300,6 +344,8 @@ class ApiClient(object):
             (float, none_type)
             ([int, none_type],)
             ({str: (bool, str, int, float, date, datetime, str, none_type)},)
+        :type response_type: Any
+        :raises ValueError: Unable to prepare type {} for serialization
         :param _check_type: boolean, whether to check the types of the data
             received from the server
         :type _check_type: bool
@@ -341,7 +387,7 @@ class ApiClient(object):
         body: typing.Optional[typing.Any] = None,
         post_params: typing.Optional[typing.List[typing.Tuple[str, typing.Any]]] = None,
         files: typing.Optional[typing.Dict[str, typing.List[io.IOBase]]] = None,
-        response_type: typing.Optional[typing.Tuple[typing.Any]] = None,
+        response_type: typing.Optional[ResponseTypeWithWrapper] = None,
         auth_settings: typing.Optional[typing.List[str]] = None,
         async_req: typing.Optional[bool] = None,
         _return_http_data_only: typing.Optional[bool] = None,
@@ -356,29 +402,30 @@ class ApiClient(object):
         To make an async_req request, set the async_req parameter.
 
         :param resource_path: Path to method endpoint.
+        :type resource_path: str
         :param method: Method to call.
+        :type method: str
         :param path_params: Path parameters in the url.
         :param query_params: Query parameters in the url.
         :param header_params: Header parameters to be
             placed in the request header.
         :param body: Request body.
-        :param post_params dict: Request post form parameters,
+        :param post_params: Request post form parameters,
             for `application/x-www-form-urlencoded`, `multipart/form-data`.
-        :param auth_settings list: Auth Settings names for the request.
-        :param response_type: For the response, a tuple containing:
-            valid classes
-            a list containing valid classes (for list schemas)
-            a dict containing a tuple of valid classes as the value
+        :type post_params: dict
+        :param auth_settings: Auth Settings names for the request.
+        :type auth_settings: list
+        :param response_type: Determines the type of the deserialized response.
+            A tuple containing a map of response types per status code and an optional wrapper function.
             Example values:
-            (str,)
-            (Pet,)
-            (float, none_type)
-            ([int, none_type],)
-            ({str: (bool, str, int, float, date, datetime, str, none_type)},)
+            ({200: ModelA, 201: None, 202: ModelB}, None)
+            ({200: ModelA, 201: None, 202: ModelB}, MyWrapper)
+        :type response_type: ResponseTypeWithWrapper, optional
+        :raises ApiValueError: Unable to prepare type.
         :param files: key -> field name, value -> a list of open file
             objects for `multipart/form-data`.
         :type files: dict
-        :param async_req bool: execute request asynchronously
+        :param async_req: execute request asynchronously
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -394,6 +441,8 @@ class ApiClient(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
+        :param _host: host
+        :type _host: str, optional
         :param _check_type: boolean describing if the data back from the server
             should have its type checked.
         :type _check_type: bool, optional
@@ -491,7 +540,9 @@ class ApiClient(object):
         """Get parameters as list of tuples, formatting collections.
 
         :param params: Parameters as dict or list of two-tuples
-        :param dict collection_formats: Parameter collection formats
+        :type params: dict, list
+        :param collection_formats: Parameter collection formats
+        :type collection_formats: dict
         :return: Parameters as list of tuples, collections formatted
         """
         new_params = []
@@ -528,6 +579,8 @@ class ApiClient(object):
 
         :param files: None or a dict with key=param_name and
             value is a list of open file objects
+        :type files: dict, None
+        :raises ApiValueError: Cannot read a closed file. The passed in file_type.
         :return: List of tuples of form parameters with file data
         """
         if files is None:
@@ -560,6 +613,7 @@ class ApiClient(object):
         """Returns `Accept` based on an array of accepts provided.
 
         :param accepts: List of headers.
+        :type accepts: list
         :return: Accept (e.g. application/json).
         """
         if not accepts:
@@ -572,16 +626,25 @@ class ApiClient(object):
         else:
             return ', '.join(accepts)
 
-    def select_header_content_type(self, content_types):
+    def select_header_content_type(self, content_types, method=None, body=None):
         """Returns `Content-Type` based on an array of content_types provided.
 
         :param content_types: List of content-types.
+        :type content_types: list
+        :param method: http method (e.g. POST, PATCH).
+        :type method: str
+        :param body: http body to send.
         :return: Content-Type (e.g. application/json).
         """
         if not content_types:
             return 'application/json'
 
         content_types = [x.lower() for x in content_types]
+
+        if (method == 'PATCH' and
+                'application/json-patch+json' in content_types and
+                isinstance(body, list)):
+            return 'application/json-patch+json'
 
         if 'application/json' in content_types or '*/*' in content_types:
             return 'application/json'
@@ -593,10 +656,15 @@ class ApiClient(object):
         """Updates header and query params based on authentication setting.
 
         :param headers: Header parameters dict to be updated.
+        :type headers: dict
         :param queries: Query parameters tuple list to be updated.
+        :type queries: list
         :param auth_settings: Authentication setting identifiers list.
+        type auth_settings: list
         :param resource_path: A string representation of the HTTP request resource path.
+        :type resource_path: str
         :param method: A string representation of the HTTP request method.
+        :type method: str
         :param body: A object representing the body of the HTTP request.
             The object type is the return value of _encoder.default().
         """
@@ -628,7 +696,7 @@ class Endpoint(object):
 
         Args:
             settings (dict): see below key value pairs
-                'response_type' (tuple/None): response type
+                'response_type' (ResponseTypeWithWrapper/None): response type map and wrapper function
                 'auth' (list): a list of auth type keys
                 'endpoint_path' (str): the endpoint path
                 'operation_id' (str): endpoint string identifier
@@ -649,7 +717,7 @@ class Endpoint(object):
                 'attribute_map' (dict): param_name to camelCase name
                 'location_map' (dict): param_name to  'body', 'file', 'form',
                     'header', 'path', 'query'
-                collection_format_map (dict): param_name to `csv` etc.
+                'collection_format_map' (dict): param_name to `csv` etc.
             headers_map (dict): see below key value pairs
                 'accept' (list): list of Accept header strings
                 'content_type' (list): list of Content-Type header strings
@@ -666,7 +734,9 @@ class Endpoint(object):
             '_request_timeout',
             '_return_http_data_only',
             '_check_input_type',
-            '_check_return_type'
+            '_check_return_type',
+            '_content_type',
+            '_spec_property_naming'
         ])
         self.params_map['nullable'].extend(['_request_timeout'])
         self.validations = root_map['validations']
@@ -679,7 +749,9 @@ class Endpoint(object):
             '_request_timeout': (none_type, float, (float,), [float], int, (int,), [int]),
             '_return_http_data_only': (bool,),
             '_check_input_type': (bool,),
-            '_check_return_type': (bool,)
+            '_check_return_type': (bool,),
+            '_spec_property_naming': (bool,),
+            '_content_type': (none_type, str)
         }
         self.openapi_types.update(extra_types)
         self.attribute_map = root_map['attribute_map']
@@ -715,7 +787,7 @@ class Endpoint(object):
                 value,
                 self.openapi_types[key],
                 [key],
-                False,
+                kwargs['_spec_property_naming'],
                 kwargs['_check_input_type'],
                 configuration=self.api_client.configuration
             )
@@ -743,11 +815,11 @@ class Endpoint(object):
                 base_name = self.attribute_map[param_name]
                 if (param_location == 'form' and
                         self.openapi_types[param_name] == (file_type,)):
-                    params['file'][param_name] = [param_value]
+                    params['file'][base_name] = [param_value]
                 elif (param_location == 'form' and
                         self.openapi_types[param_name] == ([file_type],)):
                     # param_value is already a list
-                    params['file'][param_name] = param_value
+                    params['file'][base_name] = param_value
                 elif param_location in {'form', 'query'}:
                     param_value_full = (base_name, param_value)
                     params[param_location].append(param_value_full)
@@ -826,12 +898,16 @@ class Endpoint(object):
             params['header']['Accept'] = self.api_client.select_header_accept(
                 accept_headers_list)
 
-        content_type_headers_list = self.headers_map['content_type']
-        if content_type_headers_list:
-            if params['body'] != "":
-                header_list = self.api_client.select_header_content_type(
-                    content_type_headers_list)
-                params['header']['Content-Type'] = header_list
+        if kwargs.get('_content_type'):
+            params['header']['Content-Type'] = kwargs['_content_type']
+        else:
+            content_type_headers_list = self.headers_map['content_type']
+            if content_type_headers_list:
+                if params['body'] != "":
+                    header_list = self.api_client.select_header_content_type(
+                        content_type_headers_list, self.settings['http_method'],
+                        params['body'])
+                    params['header']['Content-Type'] = header_list
 
         return self.api_client.call_api(
             self.settings['endpoint_path'], self.settings['http_method'],

@@ -163,6 +163,33 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
     {
         private FactSet.SDK.FactSetQuantFactorLibrary.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFactorsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactorsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFactorsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactorsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FactorsApi"/> class.
         /// </summary>
@@ -278,7 +305,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <returns>FactorsResponse</returns>
         public FactorsResponse GetFactors(List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = default(List<string>), string frequency = default(string))
         {
-            FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse> localVarResponse = GetFactorsWithHttpInfo(ids, factors, startDate, endDate, factorGroups, frequency);
+            var localVarResponse = GetFactorsWithHttpInfo(ids, factors, startDate, endDate, factorGroups, frequency);
             return localVarResponse.Data;
         }
 
@@ -293,23 +320,31 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <param name="factorGroups">Fetch a collection of Factors that fall within one of the below \&quot;groups\&quot;. For example, resting factorGroup&#x3D;Momentum will return all factors under the momentum group. To know which items are available in each group use the /library endpoint.***&lt;p&gt;factor groups limit** &#x3D; 5 factor groups per request* ### Classification and Reference |Group|Descriptions| |- --|- --| |Asset_Data|Easily input security-level metadata into your quantitative research process. Common metrics used include Days Since Report, Days to Report, ADR Flag, and Minimum Lot Size. Integrate variables from FactSet Reference, FactSet Fundamentals, and FactSet Estimates databases to impose portfolio constraints and access general reference data.| |Country|Evaluate securities based on the countries in which they have the highest exposure. Analyze company-level exposures across various countries and measure how concentrated a firm’s business is within their countries of operation. Metrics are derived from FactSet Reference and FactSet Geographic Revenue Exposure (GeoRev) databases and include Country Exposure, Country of Incorporation, and Country of Risk.| |Industry|Classify securities based on the industries in which they generate the majority of their revenues. Incorporate variables from the FactSet Revere Business and Industry Classification System (RBICS) database to measure how concentrated a firm’s business is within the industries they operate and across various sub-sectors. Common metrics include Industry Classifications, Industry Exposures, and Industry Concentration.| |Size|Assess how large or small a company is relative to industry peers. Create size buckets and clarify the systematic portion of company returns using variables from FactSet Prices, FactSet RBICS, FactSet Fundamentals, and FactSet Estimates. Common metrics include Size Classification, Enterprise Value, and Market Share.| ### Market Factors |Group|Descriptions| |- --|- --| |Liquidity|Assess how investible a security is, as well as the potential market impact of a trade using signals built off pricing and volume data from FactSet Prices. Integrate factors as components into your alpha models to evaluate systematic risk or input them into your portfolio construction models to dictate how much of an asset can be bought or sold based on liquidity levels. Common metrics include Average Dollars Traded, Share Turnover, and Bid Ask Spread.| |Market Sensitivity|Clarify the common variations in stock returns attributable to the performance of their local market indices. Leverage regressions performed between security-level and market-index returns across different return horizons and methodologies. Metrics are derived from FactSet Prices and include Beta R-Squared, Up Market Beta, and Down Market Beta.| |Momentum|Analyze the historical momentum of a security and uncover how each underlying data item, calculation, and horizon can be meaningful in different situations. Metrics are derived from FactSet Prices and include 52W Position, Return Momentum, and Velocity.| |Technical|Forecast the direction of future price movements based on historical market data and leverage heuristic or pattern-based signals from FactSet Prices. Common metrics include Average True Range, Ulcer Performance Index, and Money Flow Volume.| |Volatility|Measure the uncertainty in asset price movements with indicators from the FactSet Prices database. Capture various forms of uncertainty by employing statistical calculations on security performance data. Common metrics include Return Volatility, Semivariance, and Turbulence.| ### Core Fundamentals |Group|Descriptions| |- --|- --| |Efficiency|Leverage core financial data to determine how effectively a company uses its assets, collects payments, and operates its business. Most variables are measured as turnover ratios and include changes over time to provide transparency into the efficiency of each business process. Metrics are derived from FactSet Fundamentals and FactSet Estimates and include Asset Turnover, Receivables Turnover, and Cash Conversion Cycle| |Growth|Measure a company’s ability to grow faster than its peers. Compare the future expected growth of a company with its historical growth and view growth rates adjusted for stability. Integrate variables from FactSet RBICS, FactSet Fundamentals, and FactSet Estimates to analyze growth rates over multiple horizons including Market Share, Sales, and EPS Growth| |Management|Gain insight into how management finances their business and the decisions they make that impact the core financial statements. These choices are reflected in changes to total debt or equity, the overall size of the balance sheet, and decisions around the accounting methods used. Metrics are derived from FactSet Fundamentals and FactSet Estimates and include Capital Expenditures (CAPEX) Growth, Equity Buyback Ratio, and Depreciation &amp; Amortization Variability| |Profitability|Evaluate a company’s ability to generate income relative to its revenue or balance sheet metrics. Identify lucrative businesses relative to their industry, region, and size profile. Metrics are derived from FactSet Fundamentals and FactSet Estimates and include Return on Assets, Return on Invested Capital Change, and Return on Total Equity |Quality|Understand the overall financial health and quality of a company’s business. Use historical data from FactSet Fundamentals to analyze balance sheet health, stability of earnings and profit margins, variability in cash flows, and trends that look beyond headline financial metrics. Common metrics include Cash Earnings Ratio Variability, Revenue Stability, and Accruals Ratios. Composite quality scores (i.e., the Piotroski F-Score, Beneish M-Score, and Altman Z-Score) and their underlying components are also available as individual metrics.| |Solvency|Measure a company’s ability to meet their short- and long-term financial obligations and determine the degree of leverage employed to run their business. Incorporate financial ratios from FactSet Fundamentals and FactSet Estimates to quantify liability or debt obligation relative to earnings, cash flows, equities, or items from the asset side of the balance sheet. Common metrics include Current Ratio, Current Asset Liquidity, and Debt to Equity Change.| |Value|Quickly determine how cheap or expensive a company is based on common security-level characteristics from FactSet Prices, FactSet Fundamentals, and FactSet Estimates. Apply factors as an intersection between other factors for a more customized analysis, such as finding the cheapest stocks among the highest quality companies. Common metrics include Earnings Yield, Book to Price, and Revenue to Enterprise Value.| ### Macro and Cross-Asset |Group|Descriptions| |- --|- --| |Commodity|Quantify the impact movements in the commodity markets have on equity prices. Metrics are derived from FactSet Prices and allow you to measure company-level exposure to commodities such as Gold, Crude Oil, Coffee, and Live Cattle.| |FX_Sensitivity| Analyze security-level sensitivity to fluctuations in the currency markets. Metrics are derived from FactSet Prices and allow you to identify company exposures to currencies such as USD, EUR, JPY, and CNY. |Debt|Uncover details related to company debt through issuer-level factor exposures. Use the FactSet Fixed Income Prices &amp; Derived Analytics database to aggregate metrics at the company level. Common metrics include Effective Duration, Option Adjusted Spread, and Yield to Worst.| |Economic|Capture daily security exposures to leading economic indicator forecasts. Leverage the Quant Factor Library’s detailed country exposure model to attribute economic measures to individual companies. Metrics are derived from FactSet Economic Estimates and include Real GPD Growth, Industrial Production Growth, Core CPI Inflation, and Policy Rates. ### Alternative |Group|Descriptions| |- --|- --| |Analyst_Sentiment|Analyze a security’s outlook from the perspective of a sell-side research analyst. Leverage consensus estimates data from the FactSet Estimates database to analyze the directional change in estimate revisions for various financial statement items and time periods. Common metrics include Sales Estimate Revisions, Free Cash Flow Estimate Revisions, and Robust Estimate Revisions.| |Corporate_Governance|Identify companies with strong corporate governance. Analyze the profile of a company’s management and board based on tenure, diversity, compensation incentives, and more factors from the FactSet People database. Common metrics include Management - Average Age, Board - Activist Member, and Executives - Average Bonus.| |Crowding|Understand the degree to which investors own, purchase, or sell a security. View characteristics of each investor’s profile and characterize crowding from passive, active, institutional, ETF, and hedge fund investors. Use metrics from FactSet Ownership, FactSet Prices, and FactSet Fundamentals to help identify potential effects of crowding such as whether certain investor types are acquiring or divesting from a given security. Common metrics include Active Buyer Percent of Portfolio Change, ETF Days to Liquidate, and Hedge Fund Percent Outstanding.| |Insider_Activity|Measure the degree to which insiders own, purchase, or sell their company’s stock. Analyze the sentiment of those with access to material non-public information or determine how the amount of insider ownership may impact management’s key business decisions. Metrics are derived from FactSet Ownership and include Insider Percent Outstanding, Insider Number of Buys, and Insider Seller Position Change. |ESG|Analyze Environmental, Social and Governance (ESG) behavior, which are aggregated and categorized into continuously updated, material ESG scores to uncover risks and opportunities from companies. Truvalue Labs focuses on company ESG behavior from external sources and includes both positive and negative events that go beyond traditional sources of ESG risk data.  (optional)</param>
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to M)</param>
         /// <returns>ApiResponse of FactorsResponse</returns>
-        public FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse> GetFactorsWithHttpInfo(List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = default(List<string>), string frequency = default(string))
+        public ApiResponse<FactorsResponse> GetFactorsWithHttpInfo(List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = default(List<string>), string frequency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'ids' when calling FactorsApi->GetFactors");
+            }
 
             // verify the required parameter 'factors' is set
             if (factors == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'factors' when calling FactorsApi->GetFactors");
+            }
 
             // verify the required parameter 'startDate' is set
             if (startDate == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'startDate' when calling FactorsApi->GetFactors");
+            }
 
             // verify the required parameter 'endDate' is set
             if (endDate == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'endDate' when calling FactorsApi->GetFactors");
+            }
 
             FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions();
 
@@ -322,10 +357,16 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.ParameterToMultiMap("csv", "factors", factors));
@@ -342,13 +383,13 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -360,15 +401,19 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FactorsResponse>("/factset-quant-factor-library/v1/factors", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactorsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FactorsResponse>("/factset-quant-factor-library/v1/factors", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFactors", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -384,9 +429,9 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactorsResponse</returns>
-        public async System.Threading.Tasks.Task<FactorsResponse> GetFactorsAsync(List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = default(List<string>), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactorsResponse>GetFactorsAsync(List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = default(List<string>), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse> localVarResponse = await GetFactorsWithHttpInfoAsync(ids, factors, startDate, endDate, factorGroups, frequency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactorsWithHttpInfoAsync(ids, factors, startDate, endDate, factorGroups, frequency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -402,23 +447,32 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactorsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse>> GetFactorsWithHttpInfoAsync(List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = default(List<string>), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactorsResponse>> GetFactorsWithHttpInfoAsync(List<string> ids, List<string> factors, string startDate, string endDate, List<string> factorGroups = default(List<string>), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'ids' when calling FactorsApi->GetFactors");
+            }
 
             // verify the required parameter 'factors' is set
             if (factors == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'factors' when calling FactorsApi->GetFactors");
+            }
 
             // verify the required parameter 'startDate' is set
             if (startDate == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'startDate' when calling FactorsApi->GetFactors");
+            }
 
             // verify the required parameter 'endDate' is set
             if (endDate == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'endDate' when calling FactorsApi->GetFactors");
+            }
 
 
             FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions();
@@ -431,12 +485,17 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.ParameterToMultiMap("csv", "factors", factors));
@@ -453,13 +512,13 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -471,14 +530,18 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactorsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FactorsResponse>("/factset-quant-factor-library/v1/factors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFactors", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -492,7 +555,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <returns>FactorsResponse</returns>
         public FactorsResponse GetFactorsForList(FactorsRequest factorsRequest)
         {
-            FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse> localVarResponse = GetFactorsForListWithHttpInfo(factorsRequest);
+            var localVarResponse = GetFactorsForListWithHttpInfo(factorsRequest);
             return localVarResponse.Data;
         }
 
@@ -502,11 +565,13 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <exception cref="FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factorsRequest">Request Body for requesting a list or group of Factors and ids.</param>
         /// <returns>ApiResponse of FactorsResponse</returns>
-        public FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse> GetFactorsForListWithHttpInfo(FactorsRequest factorsRequest)
+        public ApiResponse<FactorsResponse> GetFactorsForListWithHttpInfo(FactorsRequest factorsRequest)
         {
             // verify the required parameter 'factorsRequest' is set
             if (factorsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'factorsRequest' when calling FactorsApi->GetFactorsForList");
+            }
 
             FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions();
 
@@ -520,22 +585,28 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factorsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -547,15 +618,19 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FactorsResponse>("/factset-quant-factor-library/v1/factors", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFactorsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FactorsResponse>("/factset-quant-factor-library/v1/factors", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFactorsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -566,9 +641,9 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <param name="factorsRequest">Request Body for requesting a list or group of Factors and ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactorsResponse</returns>
-        public async System.Threading.Tasks.Task<FactorsResponse> GetFactorsForListAsync(FactorsRequest factorsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactorsResponse>GetFactorsForListAsync(FactorsRequest factorsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse> localVarResponse = await GetFactorsForListWithHttpInfoAsync(factorsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFactorsForListWithHttpInfoAsync(factorsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -579,11 +654,14 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
         /// <param name="factorsRequest">Request Body for requesting a list or group of Factors and ids.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactorsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiResponse<FactorsResponse>> GetFactorsForListWithHttpInfoAsync(FactorsRequest factorsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactorsResponse>> GetFactorsForListWithHttpInfoAsync(FactorsRequest factorsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'factorsRequest' is set
             if (factorsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetQuantFactorLibrary.Client.ApiException(400, "Missing required parameter 'factorsRequest' when calling FactorsApi->GetFactorsForList");
+            }
 
 
             FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetQuantFactorLibrary.Client.RequestOptions();
@@ -597,24 +675,29 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factorsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetQuantFactorLibrary.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -626,14 +709,18 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFactorsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FactorsResponse>("/factset-quant-factor-library/v1/factors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFactorsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

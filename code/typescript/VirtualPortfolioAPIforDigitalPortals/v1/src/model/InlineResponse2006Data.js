@@ -17,7 +17,7 @@ import InlineResponse2006DataPositions from './InlineResponse2006DataPositions';
 /**
  * The InlineResponse2006Data model module.
  * @module model/InlineResponse2006Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2006Data {
     /**

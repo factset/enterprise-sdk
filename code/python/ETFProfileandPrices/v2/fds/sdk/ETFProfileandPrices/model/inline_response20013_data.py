@@ -24,10 +24,22 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from fds.sdk.ETFProfileandPrices.model.inline_response20013_data_block_trade import InlineResponse20013DataBlockTrade
+    from fds.sdk.ETFProfileandPrices.model.inline_response20013_data_impediments_to_creation import InlineResponse20013DataImpedimentsToCreation
+    from fds.sdk.ETFProfileandPrices.model.inline_response20013_data_premium_discount import InlineResponse20013DataPremiumDiscount
+    from fds.sdk.ETFProfileandPrices.model.inline_response20013_data_spread import InlineResponse20013DataSpread
+    from fds.sdk.ETFProfileandPrices.model.inline_response20013_data_tracking_difference import InlineResponse20013DataTrackingDifference
+    globals()['InlineResponse20013DataBlockTrade'] = InlineResponse20013DataBlockTrade
+    globals()['InlineResponse20013DataImpedimentsToCreation'] = InlineResponse20013DataImpedimentsToCreation
+    globals()['InlineResponse20013DataPremiumDiscount'] = InlineResponse20013DataPremiumDiscount
+    globals()['InlineResponse20013DataSpread'] = InlineResponse20013DataSpread
+    globals()['InlineResponse20013DataTrackingDifference'] = InlineResponse20013DataTrackingDifference
 
 
 class InlineResponse20013Data(ModelNormal):
@@ -66,6 +78,7 @@ class InlineResponse20013Data(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
+        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -80,12 +93,13 @@ class InlineResponse20013Data(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'flows1_d': (float,),  # noqa: E501
-            'flows1_w': (float,),  # noqa: E501
-            'flows1_m': (float,),  # noqa: E501
-            'flows_ytd': (float,),  # noqa: E501
-            'flows1_y': (float,),  # noqa: E501
+            'impediments_to_creation': (InlineResponse20013DataImpedimentsToCreation,),  # noqa: E501
+            'premium_discount': (InlineResponse20013DataPremiumDiscount,),  # noqa: E501
+            'block_trade': (InlineResponse20013DataBlockTrade,),  # noqa: E501
+            'spread': (InlineResponse20013DataSpread,),  # noqa: E501
+            'tracking_difference': (InlineResponse20013DataTrackingDifference,),  # noqa: E501
         }
 
     @cached_property
@@ -94,11 +108,11 @@ class InlineResponse20013Data(ModelNormal):
 
 
     attribute_map = {
-        'flows1_d': 'flows1D',  # noqa: E501
-        'flows1_w': 'flows1W',  # noqa: E501
-        'flows1_m': 'flows1M',  # noqa: E501
-        'flows_ytd': 'flowsYTD',  # noqa: E501
-        'flows1_y': 'flows1Y',  # noqa: E501
+        'impediments_to_creation': 'impedimentsToCreation',  # noqa: E501
+        'premium_discount': 'premiumDiscount',  # noqa: E501
+        'block_trade': 'blockTrade',  # noqa: E501
+        'spread': 'spread',  # noqa: E501
+        'tracking_difference': 'trackingDifference',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,11 +156,11 @@ class InlineResponse20013Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            flows1_d (float): One-day fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows1_w (float): One-week fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows1_m (float): One-month fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows_ytd (float): Year-to-date fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows1_y (float): One-year fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            impediments_to_creation (InlineResponse20013DataImpedimentsToCreation): [optional]  # noqa: E501
+            premium_discount (InlineResponse20013DataPremiumDiscount): [optional]  # noqa: E501
+            block_trade (InlineResponse20013DataBlockTrade): [optional]  # noqa: E501
+            spread (InlineResponse20013DataSpread): [optional]  # noqa: E501
+            tracking_difference (InlineResponse20013DataTrackingDifference): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,11 +242,11 @@ class InlineResponse20013Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            flows1_d (float): One-day fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows1_w (float): One-week fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows1_m (float): One-month fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows_ytd (float): Year-to-date fund flows. This data is available for all the regions.. [optional]  # noqa: E501
-            flows1_y (float): One-year fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            impediments_to_creation (InlineResponse20013DataImpedimentsToCreation): [optional]  # noqa: E501
+            premium_discount (InlineResponse20013DataPremiumDiscount): [optional]  # noqa: E501
+            block_trade (InlineResponse20013DataBlockTrade): [optional]  # noqa: E501
+            spread (InlineResponse20013DataSpread): [optional]  # noqa: E501
+            tracking_difference (InlineResponse20013DataTrackingDifference): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

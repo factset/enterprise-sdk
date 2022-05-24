@@ -17,7 +17,7 @@ import VendorChartIQTimeSeriesEodListMetaPagination from './VendorChartIQTimeSer
 /**
  * The VendorChartIQTimeSeriesEodListMeta model module.
  * @module model/VendorChartIQTimeSeriesEodListMeta
- * @version 0.9.1
+ * @version 0.9.2
  */
 class VendorChartIQTimeSeriesEodListMeta {
     /**

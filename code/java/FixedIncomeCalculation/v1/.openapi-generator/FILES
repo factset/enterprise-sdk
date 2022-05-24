@@ -23,7 +23,6 @@ src/main/java/com/factset/sdk/FixedIncomeCalculation/ApiClient.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/ApiException.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/ApiResponse.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/Configuration.java
-src/main/java/com/factset/sdk/FixedIncomeCalculation/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/JSON.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FixedIncomeCalculation/Pair.java

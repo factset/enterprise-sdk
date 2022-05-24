@@ -17,7 +17,7 @@ import InlineResponse2004DataTradingVolumeOtcMinimum from './InlineResponse2004D
 /**
  * The InlineResponse2004DataTradingVolumeOtc model module.
  * @module model/InlineResponse2004DataTradingVolumeOtc
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataTradingVolumeOtc {
     /**

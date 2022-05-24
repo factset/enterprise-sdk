@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresMaximumYieldAnnualized implements S
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresMaximumYieldAnnualized() { 
+  }
 
   public InlineResponse2005DataKeyFiguresMaximumYieldAnnualized minimum(BigDecimal minimum) {
     this.minimum = minimum;

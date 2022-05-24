@@ -43,6 +43,8 @@ public class InterimAmtOutChg implements Serializable {
   public static final String JSON_PROPERTY_INTERIM_AMT_OUT_CHG = "interimAmtOutChg";
   private InterimAmtOutChgInterimAmtOutChg interimAmtOutChg;
 
+  public InterimAmtOutChg() { 
+  }
 
   public InterimAmtOutChg interimAmtOutChg(InterimAmtOutChgInterimAmtOutChg interimAmtOutChg) {
     this.interimAmtOutChg = interimAmtOutChg;

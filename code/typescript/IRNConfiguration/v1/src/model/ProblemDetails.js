@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,12 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The ProblemDetails model module.
  * @module model/ProblemDetails
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ProblemDetails {
     /**
      * Constructs a new <code>ProblemDetails</code>.
      * @alias module:model/ProblemDetails
+     * @extends Object
      */
     constructor() { 
         
@@ -47,6 +48,9 @@ class ProblemDetails {
         if (data) {
             obj = obj || new ProblemDetails();
 
+            ApiClient.constructFromObject(data, obj, 'Object');
+            
+
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
@@ -61,9 +65,6 @@ class ProblemDetails {
             }
             if (data.hasOwnProperty('instance')) {
                 obj['instance'] = ApiClient.convertToType(data['instance'], 'String');
-            }
-            if (data.hasOwnProperty('extensions')) {
-                obj['extensions'] = ApiClient.convertToType(data['extensions'], {'String': Object});
             }
         }
         return obj;
@@ -96,11 +97,6 @@ ProblemDetails.prototype['detail'] = undefined;
  * @member {String} instance
  */
 ProblemDetails.prototype['instance'] = undefined;
-
-/**
- * @member {Object.<String, Object>} extensions
- */
-ProblemDetails.prototype['extensions'] = undefined;
 
 
 

@@ -54,6 +54,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntityStructure(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getUltimateEntityStructure(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -204,6 +206,7 @@ const entityStructureRequest = new factsetentity.EntityStructureRequest(); // En
 // Call api endpoint
 apiInstance.postEntityStructure(entityStructureRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -275,6 +278,7 @@ const ultimateEntityStructureRequest = new factsetentity.UltimateEntityStructure
 // Call api endpoint
 apiInstance.postUltimateEntityStructure(ultimateEntityStructureRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

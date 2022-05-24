@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AttendeeDto model module.
  * @module model/AttendeeDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class AttendeeDto {
     /**

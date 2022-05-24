@@ -122,6 +122,8 @@ public class NewsArticleSearchByTextDataCriteria implements Serializable {
   public static final String JSON_PROPERTY_LANGUAGE = "language";
   private NewsArticleSearchByTextDataLanguage language;
 
+  public NewsArticleSearchByTextDataCriteria() { 
+  }
 
   public NewsArticleSearchByTextDataCriteria selectionType(SelectionTypeEnum selectionType) {
     this.selectionType = selectionType;

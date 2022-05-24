@@ -614,6 +614,59 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
     {
         private FactSet.SDK.StocksAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetStockDividendTypeListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear1GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear3GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetStockNotationKeyFiguresBenchmarkYear5GetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostStockDividendListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationRankingIntradayListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationScreenerSearchResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2004) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostStockNotationScreenerValueRangesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2005) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="StockApi"/> class.
         /// </summary>
@@ -725,7 +778,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 GetStockDividendTypeList(List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = GetStockDividendTypeListWithHttpInfo(attributes, language);
+            var localVarResponse = GetStockDividendTypeListWithHttpInfo(attributes, language);
             return localVarResponse.Data;
         }
 
@@ -736,7 +789,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> GetStockDividendTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2001> GetStockDividendTypeListWithHttpInfo(List<string> attributes = default(List<string>), string language = default(string))
         {
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -749,10 +802,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -765,13 +824,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -783,15 +842,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2001>("/stock/dividend/type/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetStockDividendTypeListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2001>("/stock/dividend/type/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockDividendTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -803,9 +866,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetStockDividendTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetStockDividendTypeListAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetStockDividendTypeListWithHttpInfoAsync(attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetStockDividendTypeListWithHttpInfoAsync(attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -817,7 +880,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> GetStockDividendTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetStockDividendTypeListWithHttpInfoAsync(List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -830,12 +894,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -848,13 +917,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -866,14 +935,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetStockDividendTypeListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/stock/dividend/type/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockDividendTypeList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -890,7 +963,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetStockNotationKeyFiguresBenchmarkMonth1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
+            var localVarResponse = GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -903,15 +976,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth1Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth1Get");
+            }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -924,10 +1001,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -942,13 +1025,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -960,15 +1043,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/stock/notation/keyFigures/benchmark/month/1/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/stock/notation/keyFigures/benchmark/month/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkMonth1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -982,9 +1069,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkMonth1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockNotationKeyFiguresBenchmarkMonth1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -998,15 +1085,20 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkMonth1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth1Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth1Get");
+            }
 
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -1019,12 +1111,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1039,13 +1136,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1057,14 +1154,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/notation/keyFigures/benchmark/month/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkMonth1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1081,7 +1182,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetStockNotationKeyFiguresBenchmarkMonth3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
+            var localVarResponse = GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1094,15 +1195,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth3Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth3Get");
+            }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1115,10 +1220,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1133,13 +1244,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1151,15 +1262,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/stock/notation/keyFigures/benchmark/month/3/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/stock/notation/keyFigures/benchmark/month/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkMonth3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1173,9 +1288,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkMonth3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockNotationKeyFiguresBenchmarkMonth3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1189,15 +1304,20 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkMonth3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth3Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkMonth3Get");
+            }
 
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -1210,12 +1330,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1230,13 +1355,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1248,14 +1373,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/notation/keyFigures/benchmark/month/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkMonth3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1272,7 +1401,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetStockNotationKeyFiguresBenchmarkWeek1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
+            var localVarResponse = GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1285,15 +1414,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkWeek1Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkWeek1Get");
+            }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1306,10 +1439,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1324,13 +1463,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1342,15 +1481,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/stock/notation/keyFigures/benchmark/week/1/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/stock/notation/keyFigures/benchmark/week/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkWeek1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1364,9 +1507,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkWeek1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockNotationKeyFiguresBenchmarkWeek1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1380,15 +1523,20 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkWeek1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkWeek1Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkWeek1Get");
+            }
 
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -1401,12 +1549,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1421,13 +1574,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1439,14 +1592,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/notation/keyFigures/benchmark/week/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkWeek1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1463,7 +1620,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetStockNotationKeyFiguresBenchmarkYear1Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
+            var localVarResponse = GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1476,15 +1633,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear1Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear1Get");
+            }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1497,10 +1658,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1515,13 +1682,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1533,15 +1700,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/1/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear1GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/1/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1555,9 +1726,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockNotationKeyFiguresBenchmarkYear1GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1571,15 +1742,20 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkYear1GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear1Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear1Get");
+            }
 
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -1592,12 +1768,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1612,13 +1793,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1630,14 +1811,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear1GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/1/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear1Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1654,7 +1839,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetStockNotationKeyFiguresBenchmarkYear3Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
+            var localVarResponse = GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1667,15 +1852,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear3Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear3Get");
+            }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1688,10 +1877,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1706,13 +1901,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1724,15 +1919,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/3/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear3GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/3/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1746,9 +1945,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockNotationKeyFiguresBenchmarkYear3GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1762,15 +1961,20 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkYear3GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear3Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear3Get");
+            }
 
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -1783,12 +1987,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1803,13 +2012,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1821,14 +2030,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear3GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/3/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear3Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1845,7 +2058,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetStockNotationKeyFiguresBenchmarkYear5Get(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
+            var localVarResponse = GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(id, idNotationBenchmark, attributes, language);
             return localVarResponse.Data;
         }
 
@@ -1858,15 +2071,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
+        public ApiResponse<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfo(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear5Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear5Get");
+            }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -1879,10 +2096,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1897,13 +2120,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1915,15 +2138,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/5/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear5GetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/5/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear5Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1937,9 +2164,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetStockNotationKeyFiguresBenchmarkYear5GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetStockNotationKeyFiguresBenchmarkYear5GetAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(id, idNotationBenchmark, attributes, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1953,15 +2180,20 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="language">ISO 639-1 code of the language. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetStockNotationKeyFiguresBenchmarkYear5GetWithHttpInfoAsync(string id, List<string> idNotationBenchmark, List<string> attributes = default(List<string>), string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear5Get");
+            }
 
             // verify the required parameter 'idNotationBenchmark' is set
             if (idNotationBenchmark == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'idNotationBenchmark' when calling StockApi->GetStockNotationKeyFiguresBenchmarkYear5Get");
+            }
 
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -1974,12 +2206,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("csv", "idNotationBenchmark", idNotationBenchmark));
@@ -1994,13 +2231,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2012,14 +2249,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetStockNotationKeyFiguresBenchmarkYear5GetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/stock/notation/keyFigures/benchmark/year/5/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetStockNotationKeyFiguresBenchmarkYear5Get", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2033,7 +2274,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 PostStockDividendList(InlineObject body)
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = PostStockDividendListWithHttpInfo(body);
+            var localVarResponse = PostStockDividendListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2043,11 +2284,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> PostStockDividendListWithHttpInfo(InlineObject body)
+        public ApiResponse<InlineResponse200> PostStockDividendListWithHttpInfo(InlineObject body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling StockApi->PostStockDividendList");
+            }
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2061,22 +2304,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2088,15 +2337,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse200>("/stock/dividend/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostStockDividendListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse200>("/stock/dividend/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockDividendList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2107,9 +2360,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> PostStockDividendListAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>PostStockDividendListAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await PostStockDividendListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostStockDividendListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2120,11 +2373,14 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> PostStockDividendListWithHttpInfoAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> PostStockDividendListWithHttpInfoAsync(InlineObject body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'body' is set
             if (body == null)
+            {
                 throw new FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'body' when calling StockApi->PostStockDividendList");
+            }
 
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -2138,24 +2394,29 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2167,14 +2428,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostStockDividendListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse200>("/stock/dividend/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockDividendList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2188,7 +2453,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 PostStockNotationRankingIntradayList(InlineObject1 body = default(InlineObject1))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = PostStockNotationRankingIntradayListWithHttpInfo(body);
+            var localVarResponse = PostStockNotationRankingIntradayListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2198,7 +2463,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> PostStockNotationRankingIntradayListWithHttpInfo(InlineObject1 body = default(InlineObject1))
+        public ApiResponse<InlineResponse2003> PostStockNotationRankingIntradayListWithHttpInfo(InlineObject1 body = default(InlineObject1))
         {
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2212,22 +2477,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2239,15 +2510,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2003>("/stock/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationRankingIntradayListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/stock/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockNotationRankingIntradayList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2258,9 +2533,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> PostStockNotationRankingIntradayListAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>PostStockNotationRankingIntradayListAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await PostStockNotationRankingIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostStockNotationRankingIntradayListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2271,7 +2546,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> PostStockNotationRankingIntradayListWithHttpInfoAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PostStockNotationRankingIntradayListWithHttpInfoAsync(InlineObject1 body = default(InlineObject1), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -2285,24 +2561,29 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2314,14 +2595,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationRankingIntradayListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/stock/notation/ranking/intraday/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockNotationRankingIntradayList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2335,7 +2620,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2004</returns>
         public InlineResponse2004 PostStockNotationScreenerSearch(InlineObject2 body = default(InlineObject2))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = PostStockNotationScreenerSearchWithHttpInfo(body);
+            var localVarResponse = PostStockNotationScreenerSearchWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2345,7 +2630,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> PostStockNotationScreenerSearchWithHttpInfo(InlineObject2 body = default(InlineObject2))
+        public ApiResponse<InlineResponse2004> PostStockNotationScreenerSearchWithHttpInfo(InlineObject2 body = default(InlineObject2))
         {
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2359,22 +2644,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2386,15 +2677,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2004>("/stock/notation/screener/search", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerSearchResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2004>("/stock/notation/screener/search", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockNotationScreenerSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2405,9 +2700,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> PostStockNotationScreenerSearchAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2004>PostStockNotationScreenerSearchAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004> localVarResponse = await PostStockNotationScreenerSearchWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostStockNotationScreenerSearchWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2418,7 +2713,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2004>> PostStockNotationScreenerSearchWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> PostStockNotationScreenerSearchWithHttpInfoAsync(InlineObject2 body = default(InlineObject2), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -2432,24 +2728,29 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2461,14 +2762,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerSearchResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2004>("/stock/notation/screener/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockNotationScreenerSearch", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -2482,7 +2787,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 PostStockNotationScreenerValueRangesGet(InlineObject3 body = default(InlineObject3))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = PostStockNotationScreenerValueRangesGetWithHttpInfo(body);
+            var localVarResponse = PostStockNotationScreenerValueRangesGetWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -2492,7 +2797,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> PostStockNotationScreenerValueRangesGetWithHttpInfo(InlineObject3 body = default(InlineObject3))
+        public ApiResponse<InlineResponse2005> PostStockNotationScreenerValueRangesGetWithHttpInfo(InlineObject3 body = default(InlineObject3))
         {
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
 
@@ -2506,22 +2811,28 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2533,15 +2844,19 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2005>("/stock/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerValueRangesGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2005>("/stock/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockNotationScreenerValueRangesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -2552,9 +2867,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> PostStockNotationScreenerValueRangesGetAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2005>PostStockNotationScreenerValueRangesGetAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005> localVarResponse = await PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2565,7 +2880,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.StocksAPIforDigitalPortals.Client.ApiResponse<InlineResponse2005>> PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> PostStockNotationScreenerValueRangesGetWithHttpInfoAsync(InlineObject3 body = default(InlineObject3), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.StocksAPIforDigitalPortals.Client.RequestOptions();
@@ -2579,24 +2895,29 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.StocksAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -2608,14 +2929,18 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostStockNotationScreenerValueRangesGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2005>("/stock/notation/screener/valueRanges/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostStockNotationScreenerValueRangesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

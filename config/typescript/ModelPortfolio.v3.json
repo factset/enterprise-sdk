@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-modelportfolio",
-  "projectVersion": "0.9.1",
+  "projectVersion": "0.20.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Model Portfolio client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "modelportfolio",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/ModelPortfolio/0.9.1",
+  "httpUserAgent": "fds-sdk/javascript/ModelPortfolio/0.20.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

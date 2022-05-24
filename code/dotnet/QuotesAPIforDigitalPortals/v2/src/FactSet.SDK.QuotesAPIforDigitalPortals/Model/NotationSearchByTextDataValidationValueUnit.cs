@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationSearchByTextDataValidationValueUnit {\n");
             sb.Append("  Selection: ").Append(Selection).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationSearchByTextDataValidationValueUnit input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Selection == input.Selection ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Selection != null)
-                    hashCode = hashCode * 59 + this.Selection.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Selection.GetHashCode();
+                }
                 return hashCode;
             }
         }

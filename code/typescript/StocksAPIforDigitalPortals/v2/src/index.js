@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -388,6 +387,7 @@ import StockNotationScreenerSearchDataVolatility from './model/StockNotationScre
 import StockNotationScreenerSearchMeta from './model/StockNotationScreenerSearchMeta';
 import StockNotationScreenerSearchMetaPagination from './model/StockNotationScreenerSearchMetaPagination';
 import StockNotationScreenerValueRangesGetMeta from './model/StockNotationScreenerValueRangesGetMeta';
+
 import StockApi from './api/StockApi';
 
 
@@ -420,7 +420,7 @@ import StockApi from './api/StockApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.9.2
 */
 export {
     /**
@@ -2683,5 +2683,6 @@ export {
     * The StockApi service constructor.
     * @property {module:api/StockApi}
     */
-    StockApi
+    StockApi,
+
 };

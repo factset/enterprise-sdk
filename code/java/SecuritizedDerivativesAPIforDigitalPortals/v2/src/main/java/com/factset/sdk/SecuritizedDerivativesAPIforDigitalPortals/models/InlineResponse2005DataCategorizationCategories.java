@@ -56,6 +56,8 @@ public class InlineResponse2005DataCategorizationCategories implements Serializa
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataCategorizationCategories() { 
+  }
 
   public InlineResponse2005DataCategorizationCategories id(BigDecimal id) {
     this.id = id;

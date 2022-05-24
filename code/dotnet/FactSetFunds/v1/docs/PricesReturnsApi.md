@@ -60,10 +60,10 @@ namespace Example
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
-            var frequency = frequency_example;  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional)  (default to M)
+            var frequency = "D";  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional)  (default to M)
             var currency = USD;  // string | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional)  (default to "LOCAL")
-            var dataType = dataType_example;  // string | The Data Type of the NAV expressed as Raw or Rolled values. (optional)  (default to ROLL)
-            var splitAdjust = splitAdjust_example;  // string | The price adjustment split or unsplit. (optional)  (default to SPLIT)
+            var dataType = "ROLL";  // string | The Data Type of the NAV expressed as Raw or Rolled values. (optional)  (default to ROLL)
+            var splitAdjust = "SPLIT";  // string | The price adjustment split or unsplit. (optional)  (default to SPLIT)
 
             try
             {
@@ -95,7 +95,6 @@ Name | Type | Description  | Notes
  **splitAdjust** | **string**| The price adjustment split or unsplit. | [optional] [default to SPLIT]
 
 ### Return type
-
 [**FundsPricesResponse**](FundsPricesResponse.md)
 
 ### Authorization
@@ -189,7 +188,6 @@ Name | Type | Description  | Notes
  **fundsPricesRequest** | [**FundsPricesRequest**](FundsPricesRequest.md)| The Prices request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**FundsPricesResponse**](FundsPricesResponse.md)
 
 ### Authorization
@@ -260,9 +258,9 @@ namespace Example
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
-            var frequency = frequency_example;  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional)  (default to M)
+            var frequency = "D";  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional)  (default to M)
             var currency = USD;  // string | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional)  (default to "LOCAL")
-            var dividendAdjust = dividendAdjust_example;  // string | Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (optional)  (default to DIV)
+            var dividendAdjust = "DIV";  // string | Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (optional)  (default to DIV)
 
             try
             {
@@ -293,7 +291,6 @@ Name | Type | Description  | Notes
  **dividendAdjust** | **string**| Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  | [optional] [default to DIV]
 
 ### Return type
-
 [**FundsReturnsResponse**](FundsReturnsResponse.md)
 
 ### Authorization
@@ -387,7 +384,6 @@ Name | Type | Description  | Notes
  **fundsReturnsRequest** | [**FundsReturnsRequest**](FundsReturnsRequest.md)| The Returns request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**FundsReturnsResponse**](FundsReturnsResponse.md)
 
 ### Authorization
@@ -458,7 +454,7 @@ namespace Example
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var startDate = 2018-12-31;  // string | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to the day prior to today's previous close. The startDate cannot be equal to the endDate as no return can be computed. Additionally, the startDate MUST be equal to or greater than the `priceFirstDate` found within the /summary endpoint.  (optional) 
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional) 
-            var dividendAdjust = dividendAdjust_example;  // string | Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (optional)  (default to DIV)
+            var dividendAdjust = "DIV";  // string | Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (optional)  (default to DIV)
 
             try
             {
@@ -487,7 +483,6 @@ Name | Type | Description  | Notes
  **dividendAdjust** | **string**| Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  | [optional] [default to DIV]
 
 ### Return type
-
 [**ReturnsRangeResponse**](ReturnsRangeResponse.md)
 
 ### Authorization
@@ -581,7 +576,6 @@ Name | Type | Description  | Notes
  **returnsRangeRequest** | [**ReturnsRangeRequest**](ReturnsRangeRequest.md)| The Returns Range request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**ReturnsRangeResponse**](ReturnsRangeResponse.md)
 
 ### Authorization
@@ -651,7 +645,7 @@ namespace Example
             var apiInstance = new PricesReturnsApi(config);
             var ids = new List<string>(); // List<string> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
             var date = 2018-12-31;  // string | The date requested for a given date range in YYYY-MM-DD format. The date MUST be equal to or less than the `priceRecentDate` found within the /summary endpoint.  (optional) 
-            var dividendAdjust = dividendAdjust_example;  // string | Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (optional)  (default to DIV)
+            var dividendAdjust = "DIV";  // string | Controls the dividend inclusion for the NAV returns calculations, where -  * DIV = Include Dividends, Total Return * NO_DIV = Exclude Dividends, Simple Return  (optional)  (default to DIV)
 
             try
             {
@@ -679,7 +673,6 @@ Name | Type | Description  | Notes
  **dividendAdjust** | **string**| Controls the dividend inclusion for the NAV returns calculations, where -  * DIV &#x3D; Include Dividends, Total Return * NO_DIV &#x3D; Exclude Dividends, Simple Return  | [optional] [default to DIV]
 
 ### Return type
-
 [**FundsReturnsSnapshotResponse**](FundsReturnsSnapshotResponse.md)
 
 ### Authorization
@@ -773,7 +766,6 @@ Name | Type | Description  | Notes
  **fundsReturnsSnapshotRequest** | [**FundsReturnsSnapshotRequest**](FundsReturnsSnapshotRequest.md)| The Returns Snapshot request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**FundsReturnsSnapshotResponse**](FundsReturnsSnapshotResponse.md)
 
 ### Authorization

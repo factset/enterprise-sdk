@@ -23,7 +23,7 @@ import PricesResponse from '../model/PricesResponse';
 /**
 * Prices service.
 * @module api/PricesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class PricesApi {
 
@@ -74,7 +74,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = PricesFixedIncomeResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/fixed-income', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -90,7 +93,7 @@ export default class PricesApi {
      * @param {String} opts.startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
      * @param {String} opts.endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **MTD** = Month-to-date   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **CQTD** =  Calendar quarter-to-date   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **CYTD** = Calendar Year-to-date.  (default to 'D')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PricesFixedIncomeResponse}
+     * @return { Promise.< module:model/PricesFixedIncomeResponse > } a Promise, with data of type {@link module:model/PricesFixedIncomeResponse }
      */
     getFixedSecurityPrices(ids, opts) {
       return this.getFixedSecurityPricesWithHttpInfo(ids, opts)
@@ -125,7 +128,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = PricesFixedIncomeResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/fixed-income', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -137,7 +143,7 @@ export default class PricesApi {
      * Requests pricing for a list of Fixed Income securities for date range requested
      * Get BID, MID, ASK, and Issuer Entity ID for a list of Fixed Income Securities as of a requested date range. Available for U.S. Corporate, Treasury and Agency bonds, Municipals, and non-U.S. Corporate and Government bonds. To learn more about Fixed Income Prices database, please review [OA:15995](https://my.apps.factset.com/oa/pages/15995) 
      * @param {module:model/PricesFixedIncomeRequest} pricesFixedIncomeRequest Request object for Fixed Income `Security` prices.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PricesFixedIncomeResponse}
+     * @return { Promise.< module:model/PricesFixedIncomeResponse > } a Promise, with data of type {@link module:model/PricesFixedIncomeResponse }
      */
     getFixedSecurityPricesForList(pricesFixedIncomeRequest) {
       return this.getFixedSecurityPricesForListWithHttpInfo(pricesFixedIncomeRequest)
@@ -189,7 +195,9 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = PricesResponse;
+
+      let returnType = GetSecurityPricesResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/factset-prices/v1/prices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -209,7 +217,7 @@ export default class PricesApi {
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
      * @param {module:model/String} opts.adjust Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (default to 'SPLIT')
      * @param {module:model/String} opts.batch Enables the ability to asynchronously \"batch\" the request, supporting a long-running request up to **10 minutes**. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202.  **`batch` is currently in **BETA**. Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or \"Report Issue\" above and our support teams can assist.**  Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`. See [Batching API](https://developer.factset.com/api-catalog/factset-content-api-batch) for more details.  When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.  (default to 'N')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PricesResponse}
+     * @return { Promise.< GetSecurityPricesResponseWrapper > } a Promise, with data of type {@link GetSecurityPricesResponseWrapper }
      */
     getSecurityPrices(ids, opts) {
       return this.getSecurityPricesWithHttpInfo(ids, opts)
@@ -244,7 +252,9 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = PricesResponse;
+
+      let returnType = GetSecurityPricesForListResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/factset-prices/v1/prices', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -256,7 +266,7 @@ export default class PricesApi {
      * Requests end-of-day Open, High, Low, Close for a large list of securities.
      *  Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.  *_/prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. This feature is in **Beta**. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter. 
      * @param {module:model/PricesRequest} pricesRequest Request object for `Security` prices.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PricesResponse}
+     * @return { Promise.< GetSecurityPricesForListResponseWrapper > } a Promise, with data of type {@link GetSecurityPricesForListResponseWrapper }
      */
     getSecurityPricesForList(pricesRequest) {
       return this.getSecurityPricesForListWithHttpInfo(pricesRequest)
@@ -267,3 +277,180 @@ export default class PricesApi {
 
 
 }
+
+
+const GetSecurityPricesResponseWrapperTypeMap = {
+  200: PricesResponse,
+  202: BatchStatusResponse,
+  400: ErrorResponse,
+  401: ErrorResponse,
+  403: ErrorResponse,
+  415: ErrorResponse,
+  500: ErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new GetSecurityPricesResponseWrapper(statusCode, response);
+  }
+};
+
+const GetSecurityPricesForListResponseWrapperTypeMap = {
+  200: PricesResponse,
+  202: BatchStatusResponse,
+  400: ErrorResponse,
+  401: ErrorResponse,
+  403: ErrorResponse,
+  415: ErrorResponse,
+  500: ErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new GetSecurityPricesForListResponseWrapper(statusCode, response);
+  }
+};
+
+
+
+/**
+ * Wrapper to support GET /factset-prices/v1/prices returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>200 : {@code PricesResponse }<br>Array of security prices open, high, low, close, and volume.</li>
+ * 
+ *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 200:
+ *     PricesResponse data200 = response.getResponse200();
+ *     break;
+ *   case 202:
+ *     BatchStatusResponse data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:GetSecurityPricesResponseWrapper
+ * @class
+ */
+export class GetSecurityPricesResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { PricesResponse }
+   */
+  getResponse200() {
+    if (this.statusCode !== 200) {
+      throw new Error("Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { BatchStatusResponse }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+/**
+ * Wrapper to support POST /factset-prices/v1/prices returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>200 : {@code PricesResponse }<br>Array of security prices</li>
+ * 
+ *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 200:
+ *     PricesResponse data200 = response.getResponse200();
+ *     break;
+ *   case 202:
+ *     BatchStatusResponse data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:GetSecurityPricesForListResponseWrapper
+ * @class
+ */
+export class GetSecurityPricesForListResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { PricesResponse }
+   */
+  getResponse200() {
+    if (this.statusCode !== 200) {
+      throw new Error("Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { BatchStatusResponse }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+

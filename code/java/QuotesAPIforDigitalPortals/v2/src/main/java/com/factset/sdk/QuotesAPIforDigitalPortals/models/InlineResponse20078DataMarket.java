@@ -52,6 +52,8 @@ public class InlineResponse20078DataMarket implements Serializable {
   public static final String JSON_PROPERTY_PHASE = "phase";
   private String phase;
 
+  public InlineResponse20078DataMarket() { 
+  }
 
   public InlineResponse20078DataMarket id(BigDecimal id) {
     this.id = id;

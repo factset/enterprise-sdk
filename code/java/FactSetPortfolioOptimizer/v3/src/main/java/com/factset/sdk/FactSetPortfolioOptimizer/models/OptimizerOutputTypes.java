@@ -53,6 +53,8 @@ public class OptimizerOutputTypes implements Serializable {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private OptimalPortfolio account;
 
+  public OptimizerOutputTypes() { 
+  }
 
   public OptimizerOutputTypes trades(OptimizerTradesList trades) {
     this.trades = trades;

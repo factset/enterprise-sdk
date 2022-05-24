@@ -17,7 +17,7 @@ import RecommendationListRevisionListDataActiveRange from './RecommendationListR
 /**
  * The RecommendationListRevisionListData model module.
  * @module model/RecommendationListRevisionListData
- * @version 0.9.1
+ * @version 0.10.0
  */
 class RecommendationListRevisionListData {
     /**

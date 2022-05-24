@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataTradingVolume implements Se
   public static final String JSON_PROPERTY_OTC = "otc";
   private DebtInstrumentNotationScreenerSearchDataTradingVolumeOtc otc;
 
+  public DebtInstrumentNotationScreenerSearchDataTradingVolume() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataTradingVolume otc(DebtInstrumentNotationScreenerSearchDataTradingVolumeOtc otc) {
     this.otc = otc;

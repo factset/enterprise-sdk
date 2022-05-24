@@ -51,6 +51,16 @@ public class LinkedPATemplateRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public LinkedPATemplateRoot() { 
+  }
+
+  @JsonCreator
+  public LinkedPATemplateRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) LinkedPATemplate data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public LinkedPATemplateRoot data(LinkedPATemplate data) {
     this.data = data;

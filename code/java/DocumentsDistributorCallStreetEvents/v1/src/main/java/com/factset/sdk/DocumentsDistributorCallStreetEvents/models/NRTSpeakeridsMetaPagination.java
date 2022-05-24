@@ -54,6 +54,8 @@ public class NRTSpeakeridsMetaPagination implements Serializable {
   public static final String JSON_PROPERTY_OFFSET = "offset";
   private Integer offset;
 
+  public NRTSpeakeridsMetaPagination() { 
+  }
 
   public NRTSpeakeridsMetaPagination total(Integer total) {
     this.total = total;

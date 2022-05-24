@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## analyticsQuantQreV1FilesServerFilePost
 
-> FileUploadStatus analyticsQuantQreV1FilesServerFilePost(server, file, body)
+> FileUploadStatus analyticsQuantQreV1FilesServerFilePost(server, _file, body)
 
 Starts a file upload
 
@@ -26,14 +26,13 @@ import com.factset.sdk.QuantitativeResearchEnvironment.ApiClient;
 import com.factset.sdk.QuantitativeResearchEnvironment.ApiException;
 import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.auth.*;
-import com.factset.sdk.QuantitativeResearchEnvironment.model.*;
+import com.factset.sdk.QuantitativeResearchEnvironment.models.*;
 import com.factset.sdk.QuantitativeResearchEnvironment.api.FilesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,22 +42,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String server = "server_example"; // String | The server to upload the file to. Either `interactive` or `batch`.
-        String file = "file_example"; // String | The file name to upload the file to. Existing directory can be specified.
+        String _file = "_file_example"; // String | The file name to upload the file to. Existing directory can be specified.
         File body = new File("/path/to/file"); // File | 
         try {
-            FileUploadStatus result = apiInstance.analyticsQuantQreV1FilesServerFilePost(server, file, body);
+            FileUploadStatus result = apiInstance.analyticsQuantQreV1FilesServerFilePost(server, _file, body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FilesApi#analyticsQuantQreV1FilesServerFilePost");
             System.err.println("Status code: " + e.getCode());
@@ -76,7 +76,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **server** | **String**| The server to upload the file to. Either &#x60;interactive&#x60; or &#x60;batch&#x60;. |
- **file** | **String**| The file name to upload the file to. Existing directory can be specified. |
+ **_file** | **String**| The file name to upload the file to. Existing directory can be specified. |
  **body** | **File**|  | [optional]
 
 ### Return type
@@ -116,14 +116,13 @@ import com.factset.sdk.QuantitativeResearchEnvironment.ApiClient;
 import com.factset.sdk.QuantitativeResearchEnvironment.ApiException;
 import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.auth.*;
-import com.factset.sdk.QuantitativeResearchEnvironment.model.*;
+import com.factset.sdk.QuantitativeResearchEnvironment.models.*;
 import com.factset.sdk.QuantitativeResearchEnvironment.api.FilesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -133,20 +132,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FilesApi apiInstance = new FilesApi(defaultClient);
         String id = "id_example"; // String | From url, provided by location header or response body in the upload start endpoint
         try {
             FileUploadStatus result = apiInstance.analyticsQuantQreV1FilesUploadsIdGet(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FilesApi#analyticsQuantQreV1FilesUploadsIdGet");
             System.err.println("Status code: " + e.getCode());

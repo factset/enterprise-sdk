@@ -38,7 +38,7 @@ import InlineResponse2011 from '../model/InlineResponse2011';
 /**
 * Portfolio service.
 * @module api/PortfolioApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class PortfolioApi {
 
@@ -80,7 +80,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse201;
+
       return this.apiClient.callApi(
         '/portfolio/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -92,7 +95,7 @@ export default class PortfolioApi {
      * Create a portfolio.
      * Create a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of portfolios would exceed 100.|400 Bad Request|
      * @param {module:model/InlineObject} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse201}
+     * @return { Promise.< module:model/InlineResponse201 > } a Promise, with data of type {@link module:model/InlineResponse201 }
      */
     portfolioCreatePost(body) {
       return this.portfolioCreatePostWithHttpInfo(body)
@@ -125,7 +128,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/portfolio/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -138,7 +144,7 @@ export default class PortfolioApi {
      * Delete a portfolio.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject1} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     portfolioDeletePost(opts) {
       return this.portfolioDeletePostWithHttpInfo(opts)
@@ -171,7 +177,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2004;
+
       return this.apiClient.callApi(
         '/portfolio/evaluation/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -184,7 +193,7 @@ export default class PortfolioApi {
      * Performs an evaluation over a period of time and returns portfolio key figures for each day, week, or month.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject3} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     portfolioEvaluationListPost(opts) {
       return this.portfolioEvaluationListPostWithHttpInfo(opts)
@@ -224,7 +233,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/portfolio/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -238,7 +250,7 @@ export default class PortfolioApi {
      * @param {String} id Identifier of the portfolio.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     portfolioGetGet(id, opts) {
       return this.portfolioGetGetWithHttpInfo(id, opts)
@@ -274,7 +286,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/portfolio/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -288,7 +303,7 @@ export default class PortfolioApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     portfolioListGet(opts) {
       return this.portfolioListGetWithHttpInfo(opts)
@@ -321,7 +336,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/portfolio/modify', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -334,7 +352,7 @@ export default class PortfolioApi {
      * Modify a portfolio.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject2} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     portfolioModifyPost(opts) {
       return this.portfolioModifyPostWithHttpInfo(opts)
@@ -370,7 +388,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2005;
+
       return this.apiClient.callApi(
         '/portfolio/name/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -384,7 +405,7 @@ export default class PortfolioApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2005}
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     portfolioNameListGet(opts) {
       return this.portfolioNameListGetWithHttpInfo(opts)
@@ -424,7 +445,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2006;
+
       return this.apiClient.callApi(
         '/portfolio/position/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -438,7 +462,7 @@ export default class PortfolioApi {
      * @param {String} id Identifier of the portfolio.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2006}
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
     portfolioPositionListGet(id, opts) {
       return this.portfolioPositionListGetWithHttpInfo(id, opts)
@@ -471,7 +495,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2011;
+
       return this.apiClient.callApi(
         '/portfolio/transaction/cash/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -484,7 +511,7 @@ export default class PortfolioApi {
      * Add a cash transaction to a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of transactions would exceed 1000.|400 Bad Request|
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject7} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2011}
+     * @return { Promise.< module:model/InlineResponse2011 > } a Promise, with data of type {@link module:model/InlineResponse2011 }
      */
     portfolioTransactionCashCreatePost(opts) {
       return this.portfolioTransactionCashCreatePostWithHttpInfo(opts)
@@ -517,7 +544,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2007;
+
       return this.apiClient.callApi(
         '/portfolio/transaction/cash/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -530,7 +560,7 @@ export default class PortfolioApi {
      * Delete a cash transaction.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject8} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2007}
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
     portfolioTransactionCashDeletePost(opts) {
       return this.portfolioTransactionCashDeletePostWithHttpInfo(opts)
@@ -563,7 +593,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2011;
+
       return this.apiClient.callApi(
         '/portfolio/transaction/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -576,7 +609,7 @@ export default class PortfolioApi {
      * Add a transaction to a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |The number of transactions would exceed 1000.|400 Bad Request|
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject4} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2011}
+     * @return { Promise.< module:model/InlineResponse2011 > } a Promise, with data of type {@link module:model/InlineResponse2011 }
      */
     portfolioTransactionCreatePost(opts) {
       return this.portfolioTransactionCreatePostWithHttpInfo(opts)
@@ -609,7 +642,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2007;
+
       return this.apiClient.callApi(
         '/portfolio/transaction/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -622,7 +658,7 @@ export default class PortfolioApi {
      * Delete a transaction of a portfolio.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject5} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2007}
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
     portfolioTransactionDeletePost(opts) {
       return this.portfolioTransactionDeletePostWithHttpInfo(opts)
@@ -662,7 +698,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2008;
+
       return this.apiClient.callApi(
         '/portfolio/transaction/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -676,7 +715,7 @@ export default class PortfolioApi {
      * @param {String} id Identifier of the portfolio.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2008}
+     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
      */
     portfolioTransactionListGet(id, opts) {
       return this.portfolioTransactionListGetWithHttpInfo(id, opts)
@@ -709,7 +748,10 @@ export default class PortfolioApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2009;
+
       return this.apiClient.callApi(
         '/portfolio/transaction/modify', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -722,7 +764,7 @@ export default class PortfolioApi {
      * Modify a transaction in a portfolio.  Certain error conditions yield errors as follows:   |Error Condition|HTTP Error| |-------|--------| |At least one of the parameters `numberShares`, `price`, `charges`, `exchangeRate` or `time` must be set.|400 Bad Request|
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject6} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2009}
+     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
      */
     portfolioTransactionModifyPost(opts) {
       return this.portfolioTransactionModifyPostWithHttpInfo(opts)
@@ -733,3 +775,8 @@ export default class PortfolioApi {
 
 
 }
+
+
+
+
+

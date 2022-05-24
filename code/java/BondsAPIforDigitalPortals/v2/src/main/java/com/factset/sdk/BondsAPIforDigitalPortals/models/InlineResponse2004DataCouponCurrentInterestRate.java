@@ -49,6 +49,8 @@ public class InlineResponse2004DataCouponCurrentInterestRate implements Serializ
   public static final String JSON_PROPERTY_VALUE = "value";
   private InlineResponse2004DataCouponCurrentInterestRateValue value;
 
+  public InlineResponse2004DataCouponCurrentInterestRate() { 
+  }
 
   public InlineResponse2004DataCouponCurrentInterestRate type(java.util.List<InlineResponse2004DataCouponCurrentInterestRateType> type) {
     this.type = type;

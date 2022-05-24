@@ -17,7 +17,7 @@ import TemplatedPAComponentParameters from './TemplatedPAComponentParameters';
 /**
  * The TemplatedPAComponentParametersRoot model module.
  * @module model/TemplatedPAComponentParametersRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class TemplatedPAComponentParametersRoot {
     /**

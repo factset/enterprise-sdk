@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataEbitMargin implements Serializable {
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataEbitMarginMaximum maximum;
 
+  public StockNotationScreenerSearchDataEbitMargin() { 
+  }
 
   public StockNotationScreenerSearchDataEbitMargin minimum(StockNotationScreenerSearchDataEbitMarginMinimum minimum) {
     this.minimum = minimum;

@@ -175,6 +175,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_SETTLEMENT = "settlement";
   private SettlementEnum settlement;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data isin(String isin) {
     this.isin = isin;

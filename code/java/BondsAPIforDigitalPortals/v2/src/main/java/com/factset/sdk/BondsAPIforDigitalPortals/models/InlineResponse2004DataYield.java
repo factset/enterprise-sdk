@@ -54,6 +54,8 @@ public class InlineResponse2004DataYield implements Serializable {
   public static final String JSON_PROPERTY_SPREAD = "spread";
   private InlineResponse2004DataYieldSpread spread;
 
+  public InlineResponse2004DataYield() { 
+  }
 
   public InlineResponse2004DataYield current(InlineResponse2004DataYieldCurrent current) {
     this.current = current;

@@ -103,7 +103,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2008Data {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ShortName: ").Append(ShortName).Append("\n");
@@ -143,8 +143,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2008Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -192,18 +193,30 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ShortName != null)
-                    hashCode = hashCode * 59 + this.ShortName.GetHashCode();
-                hashCode = hashCode * 59 + this.Active.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Active.GetHashCode();
                 if (this.Country != null)
-                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Group != null)
-                    hashCode = hashCode * 59 + this.Group.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Group.GetHashCode();
+                }
                 if (this.Timezone != null)
-                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Timezone.GetHashCode();
+                }
                 return hashCode;
             }
         }

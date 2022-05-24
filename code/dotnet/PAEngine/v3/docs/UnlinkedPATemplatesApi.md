@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Create unlinked PA template
 
-This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also       overriding the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 ```csharp
@@ -82,7 +82,6 @@ Name | Type | Description  | Notes
  **unlinkedPATemplateParametersRoot** | [**UnlinkedPATemplateParametersRoot**](UnlinkedPATemplateParametersRoot.md)| Request Parameters | 
 
 ### Return type
-
 [**UnlinkedPATemplatePostSummaryRoot**](UnlinkedPATemplatePostSummaryRoot.md)
 
 ### Authorization
@@ -152,7 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
 
             try
             {
@@ -177,7 +176,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for an unlinked PA template | [default to &quot;01234567890123456789012345678901&quot;]
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -270,7 +268,6 @@ namespace Example
 This endpoint does not need any parameter.
 
 ### Return type
-
 [**UnlinkedPATemplateCategoryAndTypeRoot**](UnlinkedPATemplateCategoryAndTypeRoot.md)
 
 ### Authorization
@@ -339,7 +336,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for an unlinked PA template type
+            var id = "id_example";  // string | Unique identifier for an unlinked PA template type
 
             try
             {
@@ -365,7 +362,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for an unlinked PA template type | 
 
 ### Return type
-
 [**UnlinkedPATemplateCategoryAndTypeDetailsRoot**](UnlinkedPATemplateCategoryAndTypeDetailsRoot.md)
 
 ### Authorization
@@ -436,8 +432,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var directory = directory_example;  // string | Get unlinked PA templates in path. (optional)  (default to "Personal:UninkedPATemplates/")
-            var category = category_example;  // string | Get unlinked PA templates by category. (optional)  (default to "Weights")
+            var directory = "\"Personal:UninkedPATemplates/\"";  // string | Get unlinked PA templates in path. (optional)  (default to "Personal:UninkedPATemplates/")
+            var category = "\"Weights\"";  // string | Get unlinked PA templates by category. (optional)  (default to "Weights")
 
             try
             {
@@ -464,7 +460,6 @@ Name | Type | Description  | Notes
  **category** | **string**| Get unlinked PA templates by category. | [optional] [default to &quot;Weights&quot;]
 
 ### Return type
-
 [**UnlinkedPATemplateSummaryRoot**](UnlinkedPATemplateSummaryRoot.md)
 
 ### Authorization
@@ -534,7 +529,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
 
             try
             {
@@ -560,7 +555,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for an unlinked PA template | [default to &quot;01234567890123456789012345678901&quot;]
 
 ### Return type
-
 [**UnlinkedPATemplateRoot**](UnlinkedPATemplateRoot.md)
 
 ### Authorization
@@ -594,7 +588,7 @@ Name | Type | Description  | Notes
 
 Update unlinked PA template
 
-This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 ```csharp
@@ -631,7 +625,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+            var id = "\"01234567890123456789012345678901\"";  // string | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
             var unlinkedPATemplateUpdateParametersRoot = new UnlinkedPATemplateUpdateParametersRoot(); // UnlinkedPATemplateUpdateParametersRoot | Request Parameters
 
             try
@@ -659,7 +653,6 @@ Name | Type | Description  | Notes
  **unlinkedPATemplateUpdateParametersRoot** | [**UnlinkedPATemplateUpdateParametersRoot**](UnlinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
 
 ### Return type
-
 [**UnlinkedPATemplatePostSummaryRoot**](UnlinkedPATemplatePostSummaryRoot.md)
 
 ### Authorization

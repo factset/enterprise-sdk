@@ -101,7 +101,7 @@ namespace FactSet.SDK.ModelPortfolio.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ModelAccountAdditionalField {\n");
             sb.Append("  Iteration: ").Append(Iteration).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -141,8 +141,9 @@ namespace FactSet.SDK.ModelPortfolio.Model
         public bool Equals(ModelAccountAdditionalField input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Iteration == input.Iteration ||
@@ -188,18 +189,28 @@ namespace FactSet.SDK.ModelPortfolio.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Iteration.GetHashCode();
+                hashCode = (hashCode * 59) + this.Iteration.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.SplitDirection != null)
-                    hashCode = hashCode * 59 + this.SplitDirection.GetHashCode();
-                hashCode = hashCode * 59 + this.Size.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SplitDirection.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Size.GetHashCode();
                 if (this.CodePageFlag != null)
-                    hashCode = hashCode * 59 + this.CodePageFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CodePageFlag.GetHashCode();
+                }
                 return hashCode;
             }
         }

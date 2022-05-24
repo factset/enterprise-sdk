@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.Set&lt;InlineResponse20019Data&gt;**](InlineResponse20019Data.md) | List of strategy segments. |  [optional]
-**meta** | [**InlineResponse2001Meta**](InlineResponse2001Meta.md) |  |  [optional]
+**data** | [**java.util.Set&lt;InlineResponse20019Data&gt;**](InlineResponse20019Data.md) | List of class geographies. |  [optional]
+**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 
 ## Implemented Interfaces

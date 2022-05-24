@@ -17,7 +17,7 @@ import PricesTimeSeriesIntradayListMetaPagination from './PricesTimeSeriesIntrad
 /**
  * The PricesTimeSeriesIntradayListMeta model module.
  * @module model/PricesTimeSeriesIntradayListMeta
- * @version 0.9.1
+ * @version 0.9.2
  */
 class PricesTimeSeriesIntradayListMeta {
     /**

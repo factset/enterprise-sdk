@@ -51,6 +51,7 @@ const opts = {
 // Call api endpoint
 apiInstance.createMeeting(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -188,6 +189,7 @@ const meetingId = "meetingId_example"; // String | Meeting Id
 // Call api endpoint
 apiInstance.getMeeting(meetingId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -264,6 +266,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getMeetings(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

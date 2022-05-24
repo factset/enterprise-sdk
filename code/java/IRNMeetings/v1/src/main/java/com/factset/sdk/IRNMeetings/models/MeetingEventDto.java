@@ -59,6 +59,8 @@ public class MeetingEventDto implements Serializable {
   public static final String JSON_PROPERTY_CHANGE_LIST = "changeList";
   private JsonNullable<java.util.List<RecordChangeDto>> changeList = JsonNullable.<java.util.List<RecordChangeDto>>undefined();
 
+  public MeetingEventDto() { 
+  }
 
   public MeetingEventDto createdAt(String createdAt) {
     this.createdAt = JsonNullable.<String>of(createdAt);

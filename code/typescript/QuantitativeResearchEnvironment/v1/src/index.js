@@ -11,11 +11,11 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Calculation from './model/Calculation';
 import CalculationStatus from './model/CalculationStatus';
 import FileUploadStatus from './model/FileUploadStatus';
+
 import CalculationsApi from './api/CalculationsApi';
 import FilesApi from './api/FilesApi';
 
@@ -49,7 +49,7 @@ import FilesApi from './api/FilesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -86,5 +86,6 @@ export {
     * The FilesApi service constructor.
     * @property {module:api/FilesApi}
     */
-    FilesApi
+    FilesApi,
+
 };

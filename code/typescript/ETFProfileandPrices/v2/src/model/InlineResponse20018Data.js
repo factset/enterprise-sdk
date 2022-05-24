@@ -16,12 +16,11 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20018Data model module.
  * @module model/InlineResponse20018Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20018Data {
     /**
      * Constructs a new <code>InlineResponse20018Data</code>.
-     * Strategy.
      * @alias module:model/InlineResponse20018Data
      */
     constructor() { 
@@ -48,29 +47,8 @@ class InlineResponse20018Data {
         if (data) {
             obj = obj || new InlineResponse20018Data();
 
-            if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], 'String');
-            }
-            if (data.hasOwnProperty('group')) {
-                obj['group'] = ApiClient.convertToType(data['group'], 'String');
-            }
-            if (data.hasOwnProperty('cluster')) {
-                obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
-            }
-            if (data.hasOwnProperty('selectCriteria')) {
-                obj['selectCriteria'] = ApiClient.convertToType(data['selectCriteria'], 'String');
-            }
-            if (data.hasOwnProperty('weighting')) {
-                obj['weighting'] = ApiClient.convertToType(data['weighting'], 'String');
-            }
-            if (data.hasOwnProperty('segment')) {
-                obj['segment'] = ApiClient.convertToType(data['segment'], 'String');
-            }
-            if (data.hasOwnProperty('isTransparent')) {
-                obj['isTransparent'] = ApiClient.convertToType(data['isTransparent'], 'Boolean');
-            }
-            if (data.hasOwnProperty('fundOfFunds')) {
-                obj['fundOfFunds'] = ApiClient.convertToType(data['fundOfFunds'], 'String');
+            if (data.hasOwnProperty('nicheCategory')) {
+                obj['nicheCategory'] = ApiClient.convertToType(data['nicheCategory'], 'String');
             }
         }
         return obj;
@@ -80,52 +58,10 @@ class InlineResponse20018Data {
 }
 
 /**
- * Descriptive Summary of the methods used by a ETP or its index in selection and weighting of its holdings, text and standardized value available.  This data is available for the US and Canada regions.
- * @member {String} description
+ * ETP class niche category.
+ * @member {String} nicheCategory
  */
-InlineResponse20018Data.prototype['description'] = undefined;
-
-/**
- * Factset's Universal Screening tool code allows screening the greatest number of ETP's to surface based on a similar ETP strategy. This data is available for the US and Canada regions.
- * @member {String} group
- */
-InlineResponse20018Data.prototype['group'] = undefined;
-
-/**
- * Factset's Universal Screening tool code allows us to screen a greater number of ETP's to surface; all must have similar ETP strategy characteristics. This data item is more granular and narrow than the strategy group. This data is available for the US and Canada regions.
- * @member {String} cluster
- */
-InlineResponse20018Data.prototype['cluster'] = undefined;
-
-/**
- * Description of the security selection criteria used by the ETP or its index (e.g., Market Cap, Earnings, Dividends), text and standardized value available. This data is available for all the regions.
- * @member {String} selectCriteria
- */
-InlineResponse20018Data.prototype['selectCriteria'] = undefined;
-
-/**
- * Text that specifies the weighting selection criteria used by the ETP or its index (e.g., Market Cap, Equal, Momentum, Fundamental) , text and standardized value available. This data is available for all the regions.
- * @member {String} weighting
- */
-InlineResponse20018Data.prototype['weighting'] = undefined;
-
-/**
- * Determines the unique segment the ETP falls into, based on FactSet ETP Analytics rules-based classification system determined by geography, category, focus, and niche. Text and standardized value available for this data item. This data is available for the US regions. See endpoint /factset/etf/strategy/segment/list for possible values.
- * @member {String} segment
- */
-InlineResponse20018Data.prototype['segment'] = undefined;
-
-/**
- * Description that States whether or not the methodology behind the underlying index can be clearly understood from offering documents. This data is available for the US and Canada regions.
- * @member {Boolean} isTransparent
- */
-InlineResponse20018Data.prototype['isTransparent'] = undefined;
-
-/**
- * Description of the ETP that holds a portfolio of other ETPs. This data is available for the Canada regions.
- * @member {String} fundOfFunds
- */
-InlineResponse20018Data.prototype['fundOfFunds'] = undefined;
+InlineResponse20018Data.prototype['nicheCategory'] = undefined;
 
 
 

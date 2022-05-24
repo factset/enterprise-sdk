@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReportStatusReportStaus model module.
  * @module model/ReportStatusReportStaus
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ReportStatusReportStaus {
     /**

@@ -79,7 +79,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20070DataListing {\n");
             sb.Append("  Notation: ").Append(Notation).Append("\n");
             sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
@@ -116,8 +116,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20070DataListing input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Notation == input.Notation ||
@@ -150,12 +151,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
-                hashCode = hashCode * 59 + this.IsPrimary.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsPrimary.GetHashCode();
                 if (this.PermanentIdentifier != null)
-                    hashCode = hashCode * 59 + this.PermanentIdentifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PermanentIdentifier.GetHashCode();
+                }
                 if (this.TickerExchange != null)
-                    hashCode = hashCode * 59 + this.TickerExchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TickerExchange.GetHashCode();
+                }
                 return hashCode;
             }
         }

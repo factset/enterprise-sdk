@@ -54,6 +54,8 @@ public class CreateCommentDto implements Serializable {
   public static final String JSON_PROPERTY_BODY = "body";
   private JsonNullable<String> body = JsonNullable.<String>undefined();
 
+  public CreateCommentDto() { 
+  }
 
   public CreateCommentDto authorId(java.util.UUID authorId) {
     this.authorId = authorId;

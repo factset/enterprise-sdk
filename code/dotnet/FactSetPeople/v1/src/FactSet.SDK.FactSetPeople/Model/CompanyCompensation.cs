@@ -162,7 +162,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CompanyCompensation {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PersonId: ").Append(PersonId).Append("\n");
@@ -208,8 +208,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(CompanyCompensation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -280,23 +281,33 @@ namespace FactSet.SDK.FactSetPeople.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.PersonId != null)
-                    hashCode = hashCode * 59 + this.PersonId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PersonId.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                hashCode = hashCode * 59 + this.Salary.GetHashCode();
-                hashCode = hashCode * 59 + this.Bonus.GetHashCode();
-                hashCode = hashCode * 59 + this.StockAwards.GetHashCode();
-                hashCode = hashCode * 59 + this.OptionsAwards.GetHashCode();
-                hashCode = hashCode * 59 + this.OtherCompensation.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalCompensation.GetHashCode();
-                hashCode = hashCode * 59 + this.NonEquityIncentivePlanComp.GetHashCode();
-                hashCode = hashCode * 59 + this.NonQualifiedCompEarnings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Salary.GetHashCode();
+                hashCode = (hashCode * 59) + this.Bonus.GetHashCode();
+                hashCode = (hashCode * 59) + this.StockAwards.GetHashCode();
+                hashCode = (hashCode * 59) + this.OptionsAwards.GetHashCode();
+                hashCode = (hashCode * 59) + this.OtherCompensation.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalCompensation.GetHashCode();
+                hashCode = (hashCode * 59) + this.NonEquityIncentivePlanComp.GetHashCode();
+                hashCode = (hashCode * 59) + this.NonQualifiedCompEarnings.GetHashCode();
                 if (this.CompensationYear != null)
-                    hashCode = hashCode * 59 + this.CompensationYear.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CompensationYear.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -68,7 +68,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYield {\n");
             sb.Append("  Absolute: ").Append(Absolute).Append("\n");
             sb.Append("  Relative: ").Append(Relative).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYield input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Absolute == input.Absolute ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Absolute != null)
-                    hashCode = hashCode * 59 + this.Absolute.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Absolute.GetHashCode();
+                }
                 if (this.Relative != null)
-                    hashCode = hashCode * 59 + this.Relative.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Relative.GetHashCode();
+                }
                 if (this.Annualized != null)
-                    hashCode = hashCode * 59 + this.Annualized.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Annualized.GetHashCode();
+                }
                 return hashCode;
             }
         }

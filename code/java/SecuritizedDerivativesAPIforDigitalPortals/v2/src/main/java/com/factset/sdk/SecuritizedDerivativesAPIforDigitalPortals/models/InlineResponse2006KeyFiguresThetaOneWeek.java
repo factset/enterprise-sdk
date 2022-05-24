@@ -48,6 +48,8 @@ public class InlineResponse2006KeyFiguresThetaOneWeek implements Serializable {
   public static final String JSON_PROPERTY_UNADJUSTED = "unadjusted";
   private BigDecimal unadjusted;
 
+  public InlineResponse2006KeyFiguresThetaOneWeek() { 
+  }
 
   public InlineResponse2006KeyFiguresThetaOneWeek effective(BigDecimal effective) {
     this.effective = effective;

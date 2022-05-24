@@ -44,6 +44,8 @@ public class DebtInstrumentIssuerSearchDataMinimumRatingGrade implements Seriali
   public static final String JSON_PROPERTY_DEBT_INSTRUMENT = "debtInstrument";
   private DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument debtInstrument;
 
+  public DebtInstrumentIssuerSearchDataMinimumRatingGrade() { 
+  }
 
   public DebtInstrumentIssuerSearchDataMinimumRatingGrade debtInstrument(DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument debtInstrument) {
     this.debtInstrument = debtInstrument;

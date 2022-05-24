@@ -56,6 +56,16 @@ public class PricesFixedIncomeRequest implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private FrequencyFi frequency = FrequencyFi.D;
 
+  public PricesFixedIncomeRequest() { 
+  }
+
+  @JsonCreator
+  public PricesFixedIncomeRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public PricesFixedIncomeRequest ids(java.util.List<String> ids) {
     this.ids = ids;

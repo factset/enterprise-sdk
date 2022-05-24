@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -50,6 +49,7 @@ import RecommendationListRevisionListData from './model/RecommendationListRevisi
 import RecommendationListRevisionListDataActiveRange from './model/RecommendationListRevisionListDataActiveRange';
 import RecommendationListRevisionListMeta from './model/RecommendationListRevisionListMeta';
 import StatusObject from './model/StatusObject';
+
 import RecommendationListApi from './api/RecommendationListApi';
 
 
@@ -82,7 +82,7 @@ import RecommendationListApi from './api/RecommendationListApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.10.0
 */
 export {
     /**
@@ -317,5 +317,6 @@ export {
     * The RecommendationListApi service constructor.
     * @property {module:api/RecommendationListApi}
     */
-    RecommendationListApi
+    RecommendationListApi,
+
 };

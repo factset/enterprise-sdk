@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -141,6 +141,8 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeeds impleme
   public static final String JSON_PROPERTY_SPECIFIC_INVESTMENT_NEED = "specificInvestmentNeed";
   private java.util.List<SpecificInvestmentNeedEnum> specificInvestmentNeed = null;
 
+  public InlineResponse20062DataTargetMarketClientObjectivesAndNeeds() { 
+  }
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeeds returnProfile(InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile returnProfile) {
     this.returnProfile = returnProfile;

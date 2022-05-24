@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003DataPricesValueUnit model module.
  * @module model/InlineResponse2003DataPricesValueUnit
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003DataPricesValueUnit {
     /**

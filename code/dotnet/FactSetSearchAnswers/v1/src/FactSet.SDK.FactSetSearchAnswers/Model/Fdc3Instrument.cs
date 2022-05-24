@@ -98,7 +98,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Fdc3Instrument {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -136,8 +136,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(Fdc3Instrument input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Type == input.Type ||
@@ -176,15 +177,25 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ExchangeMic != null)
-                    hashCode = hashCode * 59 + this.ExchangeMic.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExchangeMic.GetHashCode();
+                }
                 if (this.ExchangeMicFds != null)
-                    hashCode = hashCode * 59 + this.ExchangeMicFds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExchangeMicFds.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 return hashCode;
             }
         }

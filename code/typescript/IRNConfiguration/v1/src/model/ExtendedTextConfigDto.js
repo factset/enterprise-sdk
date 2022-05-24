@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExtendedTextConfigDto model module.
  * @module model/ExtendedTextConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ExtendedTextConfigDto {
     /**
@@ -47,8 +47,8 @@ class ExtendedTextConfigDto {
         if (data) {
             obj = obj || new ExtendedTextConfigDto();
 
-            if (data.hasOwnProperty('maxChars')) {
-                obj['maxChars'] = ApiClient.convertToType(data['maxChars'], 'Number');
+            if (data.hasOwnProperty('MaxChars')) {
+                obj['MaxChars'] = ApiClient.convertToType(data['MaxChars'], 'Number');
             }
         }
         return obj;
@@ -58,9 +58,9 @@ class ExtendedTextConfigDto {
 }
 
 /**
- * @member {Number} maxChars
+ * @member {Number} MaxChars
  */
-ExtendedTextConfigDto.prototype['maxChars'] = undefined;
+ExtendedTextConfigDto.prototype['MaxChars'] = undefined;
 
 
 

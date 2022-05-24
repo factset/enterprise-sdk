@@ -43,6 +43,8 @@ public class InterimCpnChgInterimCpnChg implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private Boolean value;
 
+  public InterimCpnChgInterimCpnChg() { 
+  }
 
   public InterimCpnChgInterimCpnChg value(Boolean value) {
     this.value = value;

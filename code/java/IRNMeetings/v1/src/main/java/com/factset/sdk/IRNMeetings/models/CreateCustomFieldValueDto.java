@@ -83,6 +83,16 @@ public class CreateCustomFieldValueDto implements Serializable {
   public static final String JSON_PROPERTY_OPTION_VALUES = "optionValues";
   private JsonNullable<java.util.List<String>> optionValues = JsonNullable.<java.util.List<String>>undefined();
 
+  public CreateCustomFieldValueDto() { 
+  }
+
+  @JsonCreator
+  public CreateCustomFieldValueDto(
+    @JsonProperty(value=JSON_PROPERTY_CODE, required=true) String code
+  ) {
+    this();
+    this.code = code;
+  }
 
   public CreateCustomFieldValueDto code(String code) {
     this.code = code;
@@ -93,7 +103,7 @@ public class CreateCustomFieldValueDto implements Serializable {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)

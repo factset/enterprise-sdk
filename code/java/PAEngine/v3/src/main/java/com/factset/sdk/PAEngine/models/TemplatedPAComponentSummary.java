@@ -54,6 +54,8 @@ public class TemplatedPAComponentSummary implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  public TemplatedPAComponentSummary() { 
+  }
 
   public TemplatedPAComponentSummary description(String description) {
     this.description = description;

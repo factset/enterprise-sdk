@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UnlinkedPATemplateGroupDetails model module.
  * @module model/UnlinkedPATemplateGroupDetails
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UnlinkedPATemplateGroupDetails {
     /**
@@ -53,6 +53,9 @@ class UnlinkedPATemplateGroupDetails {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('frequency')) {
+                obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
+            }
         }
         return obj;
     }
@@ -71,6 +74,12 @@ UnlinkedPATemplateGroupDetails.prototype['name'] = undefined;
  * @member {String} id
  */
 UnlinkedPATemplateGroupDetails.prototype['id'] = undefined;
+
+/**
+ * Grouping frequency
+ * @member {String} frequency
+ */
+UnlinkedPATemplateGroupDetails.prototype['frequency'] = undefined;
 
 
 

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean imple
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean() { 
+  }
 
   public StockNotationScreenerSearchDataRatios1PriceEarningsGrowthMean minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

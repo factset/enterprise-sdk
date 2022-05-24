@@ -18,7 +18,7 @@ import WatchlistPositionModifyData from './WatchlistPositionModifyData';
 /**
  * The InlineObject14 model module.
  * @module model/InlineObject14
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject14 {
     /**

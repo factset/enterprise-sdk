@@ -120,6 +120,8 @@ public class Profile implements Serializable {
   public static final String JSON_PROPERTY_BIOGRAPHY = "biography";
   private String biography;
 
+  public Profile() { 
+  }
 
   public Profile requestId(String requestId) {
     this.requestId = requestId;

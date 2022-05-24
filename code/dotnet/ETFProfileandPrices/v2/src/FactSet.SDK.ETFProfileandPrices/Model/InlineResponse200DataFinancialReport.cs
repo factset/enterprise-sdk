@@ -60,7 +60,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataFinancialReport {\n");
             sb.Append("  Annual: ").Append(Annual).Append("\n");
             sb.Append("  SemiAnnual: ").Append(SemiAnnual).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataFinancialReport input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Annual == input.Annual ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Annual != null)
-                    hashCode = hashCode * 59 + this.Annual.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Annual.GetHashCode();
+                }
                 if (this.SemiAnnual != null)
-                    hashCode = hashCode * 59 + this.SemiAnnual.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SemiAnnual.GetHashCode();
+                }
                 return hashCode;
             }
         }

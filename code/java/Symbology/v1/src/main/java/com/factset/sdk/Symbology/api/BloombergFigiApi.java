@@ -7,6 +7,9 @@ import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Symbology.models.BloombergTranslationRequest;
 import com.factset.sdk.Symbology.models.BloombergTranslationResponse;
@@ -23,6 +26,28 @@ public class BloombergFigiApi {
   public BloombergFigiApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> batchTranslateBloombergResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchTranslateBloombergResponseTypeMap.put(200, new GenericType<BloombergTranslationResponse>(){});
+    batchTranslateBloombergResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchTranslateBloombergResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchTranslateBloombergResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchTranslateBloombergResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchTranslateBloombergResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> translateBloombergResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    translateBloombergResponseTypeMap.put(200, new GenericType<BloombergTranslationResponse>(){});
+    translateBloombergResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    translateBloombergResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    translateBloombergResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    translateBloombergResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    translateBloombergResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -113,11 +138,17 @@ public class BloombergFigiApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BloombergTranslationResponse> localVarReturnType = new GenericType<BloombergTranslationResponse>() {};
 
-    return apiClient.invokeAPI("BloombergFigiApi.batchTranslateBloomberg", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BloombergTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("BloombergFigiApi.batchTranslateBloomberg", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchTranslateBloombergResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate FactSet symbols into Bloomberg Identifiers.
@@ -191,10 +222,16 @@ public class BloombergFigiApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BloombergTranslationResponse> localVarReturnType = new GenericType<BloombergTranslationResponse>() {};
 
-    return apiClient.invokeAPI("BloombergFigiApi.translateBloomberg", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BloombergTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("BloombergFigiApi.translateBloomberg", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, translateBloombergResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

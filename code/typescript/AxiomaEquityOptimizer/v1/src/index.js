@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AxiomaEquityOptimizationParameters from './model/AxiomaEquityOptimizationParameters';
 import DocumentDirectories from './model/DocumentDirectories';
@@ -24,6 +23,7 @@ import OptimizerOutputTypes from './model/OptimizerOutputTypes';
 import OptimizerStrategy from './model/OptimizerStrategy';
 import OptimizerStrategyOverrides from './model/OptimizerStrategyOverrides';
 import OptimizerTradesList from './model/OptimizerTradesList';
+
 import OptimizationsApi from './api/OptimizationsApi';
 import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 
@@ -57,7 +57,7 @@ import StrategyDocumentsApi from './api/StrategyDocumentsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.8.1
+* @version 0.8.2
 */
 export {
     /**
@@ -142,5 +142,6 @@ export {
     * The StrategyDocumentsApi service constructor.
     * @property {module:api/StrategyDocumentsApi}
     */
-    StrategyDocumentsApi
+    StrategyDocumentsApi,
+
 };

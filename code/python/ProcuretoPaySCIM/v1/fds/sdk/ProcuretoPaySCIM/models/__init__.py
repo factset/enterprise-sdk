@@ -1,0 +1,61 @@
+# flake8: noqa
+
+# import all models into this package
+# if you have many models here with many references from one model to another this may
+# raise a RecursionError
+# to avoid this, import only the models that you directly need like:
+# from from fds.sdk.ProcuretoPaySCIM.model.pet import Pet
+# or import this package, but before doing it, use:
+# import sys
+# sys.setrecursionlimit(n)
+
+from fds.sdk.ProcuretoPaySCIM.model.error import Error
+from fds.sdk.ProcuretoPaySCIM.model.group_resource import GroupResource
+from fds.sdk.ProcuretoPaySCIM.model.group_resource_list import GroupResourceList
+from fds.sdk.ProcuretoPaySCIM.model.group_resource_members import GroupResourceMembers
+from fds.sdk.ProcuretoPaySCIM.model.group_resource_meta import GroupResourceMeta
+from fds.sdk.ProcuretoPaySCIM.model.group_resource_urn_scim_schemas_extension_fact_set_enterprise_hosting10_group import GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group
+from fds.sdk.ProcuretoPaySCIM.model.location_resource import LocationResource
+from fds.sdk.ProcuretoPaySCIM.model.location_resource_list import LocationResourceList
+from fds.sdk.ProcuretoPaySCIM.model.location_resource_meta import LocationResourceMeta
+from fds.sdk.ProcuretoPaySCIM.model.location_resource_reference import LocationResourceReference
+from fds.sdk.ProcuretoPaySCIM.model.patch import Patch
+from fds.sdk.ProcuretoPaySCIM.model.patch_operations import PatchOperations
+from fds.sdk.ProcuretoPaySCIM.model.pending_product_order import PendingProductOrder
+from fds.sdk.ProcuretoPaySCIM.model.product_resource import ProductResource
+from fds.sdk.ProcuretoPaySCIM.model.product_resource_list import ProductResourceList
+from fds.sdk.ProcuretoPaySCIM.model.product_resource_meta import ProductResourceMeta
+from fds.sdk.ProcuretoPaySCIM.model.product_resource_reference import ProductResourceReference
+from fds.sdk.ProcuretoPaySCIM.model.schema import Schema
+from fds.sdk.ProcuretoPaySCIM.model.schema_attributes import SchemaAttributes
+from fds.sdk.ProcuretoPaySCIM.model.schema_list import SchemaList
+from fds.sdk.ProcuretoPaySCIM.model.schema_sub_attributes import SchemaSubAttributes
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config import ServiceProviderConfig
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config_authentication_schemes import ServiceProviderConfigAuthenticationSchemes
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config_bulk import ServiceProviderConfigBulk
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config_change_password import ServiceProviderConfigChangePassword
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config_etag import ServiceProviderConfigEtag
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config_filter import ServiceProviderConfigFilter
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config_patch import ServiceProviderConfigPatch
+from fds.sdk.ProcuretoPaySCIM.model.service_provider_config_sort import ServiceProviderConfigSort
+from fds.sdk.ProcuretoPaySCIM.model.user_resource import UserResource
+from fds.sdk.ProcuretoPaySCIM.model.user_resource_groups import UserResourceGroups
+from fds.sdk.ProcuretoPaySCIM.model.user_resource_list import UserResourceList
+from fds.sdk.ProcuretoPaySCIM.model.user_resource_meta import UserResourceMeta
+from fds.sdk.ProcuretoPaySCIM.model.user_resource_name import UserResourceName
+from fds.sdk.ProcuretoPaySCIM.model.user_resource_phone_numbers import UserResourcePhoneNumbers
+from fds.sdk.ProcuretoPaySCIM.model.user_resource_urn_scim_schemas_extension_core_factset10 import UserResourceUrnScimSchemasExtensionCoreFactset10
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_group_resource import VermilionGroupResource
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_group_resource_list import VermilionGroupResourceList
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_group_resource_members import VermilionGroupResourceMembers
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_group_resource_meta import VermilionGroupResourceMeta
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource import VermilionUserResource
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_emails import VermilionUserResourceEmails
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_entitlements import VermilionUserResourceEntitlements
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_groups import VermilionUserResourceGroups
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_list import VermilionUserResourceList
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_meta import VermilionUserResourceMeta
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_name import VermilionUserResourceName
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_phone_numbers import VermilionUserResourcePhoneNumbers
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_photos import VermilionUserResourcePhotos
+from fds.sdk.ProcuretoPaySCIM.model.vermilion_user_resource_roles import VermilionUserResourceRoles

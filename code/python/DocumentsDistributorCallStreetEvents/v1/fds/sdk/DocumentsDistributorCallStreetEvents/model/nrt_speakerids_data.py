@@ -24,8 +24,8 @@ from fds.sdk.DocumentsDistributorCallStreetEvents.model_utils import (  # noqa: 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.DocumentsDistributorCallStreetEvents.exceptions import ApiAttributeError
 
 
@@ -143,7 +143,7 @@ class NRTSpeakeridsData(ModelNormal):
             audio_source_id (int): The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids.. [optional]  # noqa: E501
             speaker_start_offset (float): The number of seconds into the call when a speaker starts / is speaking. [optional]  # noqa: E501
             speaker_id (str): A unique identifier for a speaker. [optional]  # noqa: E501
-            cosine_score (float): The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set. [optional]  # noqa: E501
+            cosine_score (float): The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class NRTSpeakeridsData(ModelNormal):
             audio_source_id (int): The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids.. [optional]  # noqa: E501
             speaker_start_offset (float): The number of seconds into the call when a speaker starts / is speaking. [optional]  # noqa: E501
             speaker_id (str): A unique identifier for a speaker. [optional]  # noqa: E501
-            cosine_score (float): The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set. [optional]  # noqa: E501
+            cosine_score (float): The cosine similarity score (Confidence score)  for a particular speaker.  A score > 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

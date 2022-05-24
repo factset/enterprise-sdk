@@ -71,6 +71,8 @@ public class InlineResponse200DataTrigger implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private InlineResponse200DataTriggerStatus status;
 
+  public InlineResponse200DataTrigger() { 
+  }
 
   public InlineResponse200DataTrigger id(String id) {
     this.id = id;

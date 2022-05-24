@@ -53,7 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
-            var id = id_example;  // string | From url, provided by location header or response body in the calculation start endpoint
+            var id = "id_example";  // string | From url, provided by location header or response body in the calculation start endpoint
 
             try
             {
@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **id** | **string**| From url, provided by location header or response body in the calculation start endpoint | 
 
 ### Return type
-
 [**CalculationStatus**](CalculationStatus.md)
 
 ### Authorization
@@ -145,7 +144,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
-            var id = id_example;  // string | From url, provided by location header or response body in the calculation start endpoint
+            var id = "id_example";  // string | From url, provided by location header or response body in the calculation start endpoint
 
             try
             {
@@ -171,7 +170,6 @@ Name | Type | Description  | Notes
  **id** | **string**| From url, provided by location header or response body in the calculation start endpoint | 
 
 ### Return type
-
 **System.IO.Stream**
 
 ### Authorization
@@ -237,7 +235,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
-            var id = id_example;  // string | From url, provided by location header or response body in the calculation start endpoint
+            var id = "id_example";  // string | From url, provided by location header or response body in the calculation start endpoint
 
             try
             {
@@ -263,7 +261,6 @@ Name | Type | Description  | Notes
  **id** | **string**| From url, provided by location header or response body in the calculation start endpoint | 
 
 ### Return type
-
 **System.IO.Stream**
 
 ### Authorization
@@ -355,7 +352,6 @@ Name | Type | Description  | Notes
  **calculation** | [**Calculation**](Calculation.md)|  | [optional] 
 
 ### Return type
-
 [**CalculationStatus**](CalculationStatus.md)
 
 ### Authorization

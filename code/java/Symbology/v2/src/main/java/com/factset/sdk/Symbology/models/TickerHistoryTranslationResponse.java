@@ -44,6 +44,8 @@ public class TickerHistoryTranslationResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<TickerHistoryTranslation> data = null;
 
+  public TickerHistoryTranslationResponse() { 
+  }
 
   public TickerHistoryTranslationResponse data(java.util.List<TickerHistoryTranslation> data) {
     this.data = data;

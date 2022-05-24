@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataKeyFiguresLeverage model module.
  * @module model/InlineResponse2005DataKeyFiguresLeverage
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKeyFiguresLeverage {
     /**

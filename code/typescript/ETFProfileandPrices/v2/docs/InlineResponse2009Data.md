@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**focusCategory** | **String** | ETP class focus category. | [optional] 
+**reportDate** | **Date** | Reporting date for the allocations. | [optional] 
+**sectors** | [**[InlineResponse2009DataSectors]**](InlineResponse2009DataSectors.md) | List of allocations by sector. | [optional] 
 
 

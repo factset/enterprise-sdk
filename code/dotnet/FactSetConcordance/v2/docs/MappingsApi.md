@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **entityMappingDeleteRequest** | [**EntityMappingDeleteRequest**](EntityMappingDeleteRequest.md)| A request to delete entity mappings specified by the client | 
 
 ### Return type
-
 [**EntityMappingDeleteResponse**](EntityMappingDeleteResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **entityMappingRequest** | [**EntityMappingRequest**](EntityMappingRequest.md)| A request to create a single mapping. | 
 
 ### Return type
-
 [**EntityResponse**](EntityResponse.md)
 
 ### Authorization
@@ -244,7 +242,7 @@ namespace Example
             var universeId = 1;  // int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
             var clientId = new List<string>(); // List<string> | Filter by the clientId(s) created by the user in a previous mapping.  (optional) 
             var mapStatus = new List<string>(); // List<string> | Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping.  (optional) 
-            var offset = 56;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
+            var offset = 0;  // int? | Starting row for records to return or rows to skip. (optional)  (default to 0)
             var limit = 10;  // int? | Limits the number of records in the response. (optional) 
 
             try
@@ -275,7 +273,6 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Limits the number of records in the response. | [optional] 
 
 ### Return type
-
 [**EntityUniverseResponse**](EntityUniverseResponse.md)
 
 ### Authorization
@@ -369,7 +366,6 @@ Name | Type | Description  | Notes
  **entityUniverseRequest** | [**EntityUniverseRequest**](EntityUniverseRequest.md)| A request to fetch all entities of a given universe | 
 
 ### Return type
-
 [**EntityUniverseResponse**](EntityUniverseResponse.md)
 
 ### Authorization

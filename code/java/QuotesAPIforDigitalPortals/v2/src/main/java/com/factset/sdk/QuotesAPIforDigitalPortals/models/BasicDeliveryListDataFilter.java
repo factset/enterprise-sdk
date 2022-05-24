@@ -44,6 +44,8 @@ public class BasicDeliveryListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public BasicDeliveryListDataFilter() { 
+  }
 
   public BasicDeliveryListDataFilter ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

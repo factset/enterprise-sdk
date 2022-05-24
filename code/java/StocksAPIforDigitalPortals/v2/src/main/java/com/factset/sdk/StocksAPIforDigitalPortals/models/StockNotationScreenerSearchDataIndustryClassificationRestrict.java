@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataIndustryClassificationRestrict imple
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<BigDecimal> ids = null;
 
+  public StockNotationScreenerSearchDataIndustryClassificationRestrict() { 
+  }
 
   public StockNotationScreenerSearchDataIndustryClassificationRestrict ids(java.util.List<BigDecimal> ids) {
     this.ids = ids;

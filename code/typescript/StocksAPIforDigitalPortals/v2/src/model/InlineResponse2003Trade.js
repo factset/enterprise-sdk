@@ -17,7 +17,7 @@ import InlineResponse2003TradePerformance from './InlineResponse2003TradePerform
 /**
  * The InlineResponse2003Trade model module.
  * @module model/InlineResponse2003Trade
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2003Trade {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2001DataSummaryTransactionsSell model module.
  * @module model/InlineResponse2001DataSummaryTransactionsSell
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2001DataSummaryTransactionsSell {
     /**

@@ -163,6 +163,33 @@ namespace FactSet.SDK.FactSetPrices.Api
     {
         private FactSet.SDK.FactSetPrices.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetMarketValueResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(MarketValueResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetMarketValueForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(MarketValueResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketValueApi"/> class.
         /// </summary>
@@ -278,7 +305,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <returns>MarketValueResponse</returns>
         public MarketValueResponse GetMarketValue(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse> localVarResponse = GetMarketValueWithHttpInfo(ids, startDate, endDate, frequency, calendar, currency);
+            var localVarResponse = GetMarketValueWithHttpInfo(ids, startDate, endDate, frequency, calendar, currency);
             return localVarResponse.Data;
         }
 
@@ -293,11 +320,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="calendar">Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities&#39; trading calendar which excludes date records for respective holiday periods. (optional, default to FIVEDAY)</param>
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of MarketValueResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse> GetMarketValueWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string))
+        public ApiResponse<MarketValueResponse> GetMarketValueWithHttpInfo(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling MarketValueApi->GetMarketValue");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -310,10 +339,16 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -339,13 +374,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -357,15 +392,19 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MarketValueResponse>("/factset-prices/v1/market-value", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetMarketValueResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            MarketValueResponse>("/factset-prices/v1/market-value", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketValue", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -381,9 +420,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketValueResponse</returns>
-        public async System.Threading.Tasks.Task<MarketValueResponse> GetMarketValueAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MarketValueResponse>GetMarketValueAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse> localVarResponse = await GetMarketValueWithHttpInfoAsync(ids, startDate, endDate, frequency, calendar, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetMarketValueWithHttpInfoAsync(ids, startDate, endDate, frequency, calendar, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -399,11 +438,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketValueResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse>> GetMarketValueWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<MarketValueResponse>> GetMarketValueWithHttpInfoAsync(List<string> ids, string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'ids' when calling MarketValueApi->GetMarketValue");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -416,12 +458,17 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPrices.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (startDate != null)
@@ -447,13 +494,13 @@ namespace FactSet.SDK.FactSetPrices.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -465,14 +512,18 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetMarketValueResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<MarketValueResponse>("/factset-prices/v1/market-value", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketValue", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -486,7 +537,7 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <returns>MarketValueResponse</returns>
         public MarketValueResponse GetMarketValueForList(MarketValueRequest marketValueRequest)
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse> localVarResponse = GetMarketValueForListWithHttpInfo(marketValueRequest);
+            var localVarResponse = GetMarketValueForListWithHttpInfo(marketValueRequest);
             return localVarResponse.Data;
         }
 
@@ -496,11 +547,13 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <exception cref="FactSet.SDK.FactSetPrices.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketValueRequest">Request object for &#x60;Security&#x60; market values.</param>
         /// <returns>ApiResponse of MarketValueResponse</returns>
-        public FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse> GetMarketValueForListWithHttpInfo(MarketValueRequest marketValueRequest)
+        public ApiResponse<MarketValueResponse> GetMarketValueForListWithHttpInfo(MarketValueRequest marketValueRequest)
         {
             // verify the required parameter 'marketValueRequest' is set
             if (marketValueRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'marketValueRequest' when calling MarketValueApi->GetMarketValueForList");
+            }
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
 
@@ -514,22 +567,28 @@ namespace FactSet.SDK.FactSetPrices.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = marketValueRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -541,15 +600,19 @@ namespace FactSet.SDK.FactSetPrices.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<MarketValueResponse>("/factset-prices/v1/market-value", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetMarketValueForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            MarketValueResponse>("/factset-prices/v1/market-value", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketValueForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -560,9 +623,9 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="marketValueRequest">Request object for &#x60;Security&#x60; market values.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MarketValueResponse</returns>
-        public async System.Threading.Tasks.Task<MarketValueResponse> GetMarketValueForListAsync(MarketValueRequest marketValueRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MarketValueResponse>GetMarketValueForListAsync(MarketValueRequest marketValueRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse> localVarResponse = await GetMarketValueForListWithHttpInfoAsync(marketValueRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetMarketValueForListWithHttpInfoAsync(marketValueRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -573,11 +636,14 @@ namespace FactSet.SDK.FactSetPrices.Api
         /// <param name="marketValueRequest">Request object for &#x60;Security&#x60; market values.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MarketValueResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPrices.Client.ApiResponse<MarketValueResponse>> GetMarketValueForListWithHttpInfoAsync(MarketValueRequest marketValueRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<MarketValueResponse>> GetMarketValueForListWithHttpInfoAsync(MarketValueRequest marketValueRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'marketValueRequest' is set
             if (marketValueRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPrices.Client.ApiException(400, "Missing required parameter 'marketValueRequest' when calling MarketValueApi->GetMarketValueForList");
+            }
 
 
             FactSet.SDK.FactSetPrices.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPrices.Client.RequestOptions();
@@ -591,24 +657,29 @@ namespace FactSet.SDK.FactSetPrices.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPrices.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = marketValueRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPrices.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -620,14 +691,18 @@ namespace FactSet.SDK.FactSetPrices.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetMarketValueForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<MarketValueResponse>("/factset-prices/v1/market-value", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMarketValueForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -71,7 +71,7 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GetFilesErrorDetail {\n");
             sb.Append("  NotAuthorizedTickers: ").Append(NotAuthorizedTickers).Append("\n");
             sb.Append("  PaginationLimit: ").Append(PaginationLimit).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         public bool Equals(GetFilesErrorDetail input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NotAuthorizedTickers == input.NotAuthorizedTickers ||
@@ -140,11 +141,17 @@ namespace FactSet.SDK.FactSetTickHistory.Model
             {
                 int hashCode = 41;
                 if (this.NotAuthorizedTickers != null)
-                    hashCode = hashCode * 59 + this.NotAuthorizedTickers.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NotAuthorizedTickers.GetHashCode();
+                }
                 if (this.PaginationLimit != null)
-                    hashCode = hashCode * 59 + this.PaginationLimit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationLimit.GetHashCode();
+                }
                 if (this.PaginationOffset != null)
-                    hashCode = hashCode * 59 + this.PaginationOffset.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationOffset.GetHashCode();
+                }
                 return hashCode;
             }
         }

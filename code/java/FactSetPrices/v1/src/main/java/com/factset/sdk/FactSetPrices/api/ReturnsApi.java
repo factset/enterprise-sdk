@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.ReturnsRequest;
@@ -25,6 +28,46 @@ public class ReturnsApi {
   public ReturnsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getReturnsSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getReturnsSnapshotResponseTypeMap.put(200, new GenericType<ReturnsSnapshotResponse>(){});
+    getReturnsSnapshotResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getReturnsSnapshotForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getReturnsSnapshotForListResponseTypeMap.put(200, new GenericType<ReturnsSnapshotResponse>(){});
+    getReturnsSnapshotForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getReturnsSnapshotForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSecurityReturnsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityReturnsResponseTypeMap.put(200, new GenericType<ReturnsResponse>(){});
+    getSecurityReturnsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSecurityReturnsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityReturnsForListResponseTypeMap.put(200, new GenericType<ReturnsResponse>(){});
+    getSecurityReturnsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityReturnsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -128,11 +171,17 @@ public class ReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReturnsSnapshotResponse> localVarReturnType = new GenericType<ReturnsSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("ReturnsApi.getReturnsSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReturnsSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReturnsApi.getReturnsSnapshot", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getReturnsSnapshotResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the price performance of the security and annualized compound total returns.
@@ -205,11 +254,17 @@ public class ReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReturnsSnapshotResponse> localVarReturnType = new GenericType<ReturnsSnapshotResponse>() {};
 
-    return apiClient.invokeAPI("ReturnsApi.getReturnsSnapshotForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReturnsSnapshotResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReturnsApi.getReturnsSnapshotForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getReturnsSnapshotForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets Returns for a list of &#x60;ids&#x60; as of given date range and rolling Period
@@ -304,11 +359,17 @@ public class ReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReturnsResponse> localVarReturnType = new GenericType<ReturnsResponse>() {};
 
-    return apiClient.invokeAPI("ReturnsApi.getSecurityReturns", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReturnsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReturnsApi.getSecurityReturns", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityReturnsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Requests security returns for the given date range and rollingPeriod.
@@ -381,10 +442,16 @@ public class ReturnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReturnsResponse> localVarReturnType = new GenericType<ReturnsResponse>() {};
 
-    return apiClient.invokeAPI("ReturnsApi.getSecurityReturnsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReturnsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReturnsApi.getSecurityReturnsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityReturnsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

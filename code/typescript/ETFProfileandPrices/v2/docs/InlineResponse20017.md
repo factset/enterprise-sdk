@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**InlineResponse20017Data**](InlineResponse20017Data.md) |  | [optional] 
-**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
+**data** | [**[InlineResponse20017Data]**](InlineResponse20017Data.md) | List of focus categories. | [optional] 
+**meta** | [**InlineResponse2001Meta**](InlineResponse2001Meta.md) |  | [optional] 
 
 

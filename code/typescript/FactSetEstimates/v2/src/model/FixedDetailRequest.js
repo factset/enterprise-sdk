@@ -13,12 +13,12 @@
 
 import ApiClient from '../ApiClient';
 import Frequency from './Frequency';
-import Periodicity from './Periodicity';
+import PeriodicityDetail from './PeriodicityDetail';
 
 /**
  * The FixedDetailRequest model module.
  * @module model/FixedDetailRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FixedDetailRequest {
     /**
@@ -73,7 +73,7 @@ class FixedDetailRequest {
                 obj['includeAll'] = ApiClient.convertToType(data['includeAll'], 'Boolean');
             }
             if (data.hasOwnProperty('periodicity')) {
-                obj['periodicity'] = Periodicity.constructFromObject(data['periodicity']);
+                obj['periodicity'] = PeriodicityDetail.constructFromObject(data['periodicity']);
             }
             if (data.hasOwnProperty('fiscalPeriodStart')) {
                 obj['fiscalPeriodStart'] = ApiClient.convertToType(data['fiscalPeriodStart'], 'String');
@@ -128,7 +128,7 @@ FixedDetailRequest.prototype['frequency'] = undefined;
 FixedDetailRequest.prototype['includeAll'] = false;
 
 /**
- * @member {module:model/Periodicity} periodicity
+ * @member {module:model/PeriodicityDetail} periodicity
  */
 FixedDetailRequest.prototype['periodicity'] = undefined;
 

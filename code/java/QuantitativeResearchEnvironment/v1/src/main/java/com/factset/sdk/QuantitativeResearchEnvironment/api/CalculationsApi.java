@@ -7,6 +7,9 @@ import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.QuantitativeResearchEnvironment.models.Calculation;
 import com.factset.sdk.QuantitativeResearchEnvironment.models.CalculationStatus;
@@ -23,6 +26,27 @@ public class CalculationsApi {
   public CalculationsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    analyticsQuantQreV1CalculationsIdGetResponseTypeMap.put(200, new GenericType<CalculationStatus>(){});
+    analyticsQuantQreV1CalculationsIdGetResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
+  }
+  private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsIdLogGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    analyticsQuantQreV1CalculationsIdLogGetResponseTypeMap.put(200, new GenericType<File>(){});
+  }
+  private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsIdOutputGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    analyticsQuantQreV1CalculationsIdOutputGetResponseTypeMap.put(200, new GenericType<File>(){});
+  }
+  private static final Map<Integer, GenericType> analyticsQuantQreV1CalculationsPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    analyticsQuantQreV1CalculationsPostResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -110,11 +134,17 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CalculationStatus> localVarReturnType = new GenericType<CalculationStatus>() {};
 
-    return apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CalculationStatus
+      
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, analyticsQuantQreV1CalculationsIdGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get calculation log for a specific calculation
@@ -184,11 +214,17 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<File> localVarReturnType = new GenericType<File>() {};
 
-    return apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsIdLogGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        File
+      
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsIdLogGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, analyticsQuantQreV1CalculationsIdLogGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get calculation output for a specific calculation
@@ -258,11 +294,17 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<File> localVarReturnType = new GenericType<File>() {};
 
-    return apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsIdOutputGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        File
+      
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsIdOutputGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, analyticsQuantQreV1CalculationsIdOutputGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Starts a new script calculation
@@ -326,10 +368,16 @@ public class CalculationsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CalculationStatus> localVarReturnType = new GenericType<CalculationStatus>() {};
 
-    return apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CalculationStatus
+      
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.analyticsQuantQreV1CalculationsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, analyticsQuantQreV1CalculationsPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

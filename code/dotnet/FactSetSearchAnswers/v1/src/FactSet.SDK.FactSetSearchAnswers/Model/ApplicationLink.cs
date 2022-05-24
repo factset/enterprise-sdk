@@ -86,7 +86,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ApplicationLink {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  WorkstationLink: ").Append(WorkstationLink).Append("\n");
@@ -122,8 +122,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(ApplicationLink input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -152,11 +153,17 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.WorkstationLink != null)
-                    hashCode = hashCode * 59 + this.WorkstationLink.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.WorkstationLink.GetHashCode();
+                }
                 if (this.WebLink != null)
-                    hashCode = hashCode * 59 + this.WebLink.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.WebLink.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTickHistory.Configuration;
 import com.factset.sdk.FactSetTickHistory.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTickHistory.models.GetFilesResponse;
 import com.factset.sdk.FactSetTickHistory.models.GetFilesStatus;
@@ -22,6 +25,15 @@ public class GetFilesApi {
   public GetFilesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> v1GetFilesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1GetFilesGetResponseTypeMap.put(200, new GenericType<GetFilesResponse>(){});
+    v1GetFilesGetResponseTypeMap.put(400, new GenericType<GetFilesStatus>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -111,10 +123,16 @@ public class GetFilesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<GetFilesResponse> localVarReturnType = new GenericType<GetFilesResponse>() {};
 
-    return apiClient.invokeAPI("GetFilesApi.v1GetFilesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        GetFilesResponse
+      
+    > apiResponse = apiClient.invokeAPI("GetFilesApi.v1GetFilesGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1GetFilesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

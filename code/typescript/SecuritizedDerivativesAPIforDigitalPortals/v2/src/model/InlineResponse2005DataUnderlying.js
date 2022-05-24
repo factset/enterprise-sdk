@@ -19,7 +19,7 @@ import InlineResponse2005DataUnderlyingNotation from './InlineResponse2005DataUn
 /**
  * The InlineResponse2005DataUnderlying model module.
  * @module model/InlineResponse2005DataUnderlying
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataUnderlying {
     /**

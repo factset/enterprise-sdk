@@ -48,6 +48,8 @@ public class InlineResponse2007DataSingleLevel implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2007DataSingleLevel() { 
+  }
 
   public InlineResponse2007DataSingleLevel absolute(BigDecimal absolute) {
     this.absolute = absolute;

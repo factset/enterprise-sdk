@@ -49,6 +49,8 @@ public class NotationSearchByTextDataValidationMarketSelection implements Serial
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private NotationSearchByTextDataValidationMarketSelectionExclude exclude;
 
+  public NotationSearchByTextDataValidationMarketSelection() { 
+  }
 
   public NotationSearchByTextDataValidationMarketSelection restrict(NotationSearchByTextDataValidationMarketSelectionRestrict restrict) {
     this.restrict = restrict;

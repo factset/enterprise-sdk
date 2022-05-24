@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.Currency;
 
@@ -21,6 +24,14 @@ public class CurrenciesApi {
   public CurrenciesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPACurrenciesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPACurrenciesResponseTypeMap.put(200, new GenericType<java.util.Map<String, Currency>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -43,7 +54,7 @@ public class CurrenciesApi {
   /**
    * Get PA currencies
    * This endpoint lists all the PA currencies that can be applied to a calculation.
-   * @return java.util.Map&lt;String, Currency&gt;
+   * @return java.util.Map<String, Currency>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,7 +75,7 @@ public class CurrenciesApi {
   /**
    * Get PA currencies
    * This endpoint lists all the PA currencies that can be applied to a calculation.
-   * @return ApiResponse&lt;java.util.Map&lt;String, Currency&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, Currency>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -106,10 +117,16 @@ public class CurrenciesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, Currency>> localVarReturnType = new GenericType<java.util.Map<String, Currency>>() {};
 
-    return apiClient.invokeAPI("CurrenciesApi.getPACurrencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, Currency>
+      
+    > apiResponse = apiClient.invokeAPI("CurrenciesApi.getPACurrencies", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPACurrenciesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

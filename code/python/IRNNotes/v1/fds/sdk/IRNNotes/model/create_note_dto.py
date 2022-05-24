@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -72,7 +72,12 @@ class CreateNoteDto(ModelNormal):
             'max_length': 255,
             'min_length': 0,
         },
+        ('link',): {
+            'max_length': 255,
+            'min_length': 0,
+        },
         ('related_symbols',): {
+            'max_items': 100,
         },
     }
 
@@ -93,9 +98,9 @@ class CreateNoteDto(ModelNormal):
         lazy_import()
         return {
             'author': (UserSerialDto,),  # noqa: E501
-            'identifier': (str, none_type,),  # noqa: E501
-            'date': (str, none_type,),  # noqa: E501
+            'date': (str,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
+            'identifier': (str, none_type,),  # noqa: E501
             'subject_id': (str, none_type,),  # noqa: E501
             'recommendation_id': (str, none_type,),  # noqa: E501
             'sentiment_id': (str, none_type,),  # noqa: E501
@@ -106,7 +111,7 @@ class CreateNoteDto(ModelNormal):
             'related_contacts': ([str], none_type,),  # noqa: E501
             'related_records': (RelatedRecordsDto,),  # noqa: E501
             'custom_field_values': ([CreateCustomFieldValueDto], none_type,),  # noqa: E501
-            'is_personal': (bool, none_type,),  # noqa: E501
+            'is_personal': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -115,21 +120,21 @@ class CreateNoteDto(ModelNormal):
 
 
     attribute_map = {
-        'author': 'author',  # noqa: E501
-        'identifier': 'identifier',  # noqa: E501
-        'date': 'date',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'subject_id': 'subjectId',  # noqa: E501
-        'recommendation_id': 'recommendationId',  # noqa: E501
-        'sentiment_id': 'sentimentId',  # noqa: E501
-        'body': 'body',  # noqa: E501
-        'source': 'source',  # noqa: E501
-        'link': 'link',  # noqa: E501
-        'related_symbols': 'relatedSymbols',  # noqa: E501
-        'related_contacts': 'relatedContacts',  # noqa: E501
-        'related_records': 'relatedRecords',  # noqa: E501
-        'custom_field_values': 'customFieldValues',  # noqa: E501
-        'is_personal': 'isPersonal',  # noqa: E501
+        'author': 'Author',  # noqa: E501
+        'date': 'Date',  # noqa: E501
+        'title': 'Title',  # noqa: E501
+        'identifier': 'Identifier',  # noqa: E501
+        'subject_id': 'SubjectId',  # noqa: E501
+        'recommendation_id': 'RecommendationId',  # noqa: E501
+        'sentiment_id': 'SentimentId',  # noqa: E501
+        'body': 'Body',  # noqa: E501
+        'source': 'Source',  # noqa: E501
+        'link': 'Link',  # noqa: E501
+        'related_symbols': 'RelatedSymbols',  # noqa: E501
+        'related_contacts': 'RelatedContacts',  # noqa: E501
+        'related_records': 'RelatedRecords',  # noqa: E501
+        'custom_field_values': 'CustomFieldValues',  # noqa: E501
+        'is_personal': 'IsPersonal',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,13 +144,12 @@ class CreateNoteDto(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, author, identifier, date, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, author, date, *args, **kwargs):  # noqa: E501
         """CreateNoteDto - a model defined in OpenAPI
 
         Args:
             author (UserSerialDto):
-            identifier (str, none_type):
-            date (str, none_type):
+            date (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -179,6 +183,7 @@ class CreateNoteDto(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             title (str, none_type): [optional]  # noqa: E501
+            identifier (str, none_type): [optional]  # noqa: E501
             subject_id (str, none_type): [optional]  # noqa: E501
             recommendation_id (str, none_type): [optional]  # noqa: E501
             sentiment_id (str, none_type): [optional]  # noqa: E501
@@ -189,7 +194,7 @@ class CreateNoteDto(ModelNormal):
             related_contacts ([str], none_type): [optional]  # noqa: E501
             related_records (RelatedRecordsDto): [optional]  # noqa: E501
             custom_field_values ([CreateCustomFieldValueDto], none_type): [optional]  # noqa: E501
-            is_personal (bool, none_type): [optional]  # noqa: E501
+            is_personal (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -218,7 +223,6 @@ class CreateNoteDto(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.author = author
-        self.identifier = identifier
         self.date = date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -240,13 +244,12 @@ class CreateNoteDto(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, author, identifier, date, *args, **kwargs):  # noqa: E501
+    def __init__(self, author, date, *args, **kwargs):  # noqa: E501
         """CreateNoteDto - a model defined in OpenAPI
 
         Args:
             author (UserSerialDto):
-            identifier (str, none_type):
-            date (str, none_type):
+            date (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -280,6 +283,7 @@ class CreateNoteDto(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             title (str, none_type): [optional]  # noqa: E501
+            identifier (str, none_type): [optional]  # noqa: E501
             subject_id (str, none_type): [optional]  # noqa: E501
             recommendation_id (str, none_type): [optional]  # noqa: E501
             sentiment_id (str, none_type): [optional]  # noqa: E501
@@ -290,7 +294,7 @@ class CreateNoteDto(ModelNormal):
             related_contacts ([str], none_type): [optional]  # noqa: E501
             related_records (RelatedRecordsDto): [optional]  # noqa: E501
             custom_field_values ([CreateCustomFieldValueDto], none_type): [optional]  # noqa: E501
-            is_personal (bool, none_type): [optional]  # noqa: E501
+            is_personal (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -317,7 +321,6 @@ class CreateNoteDto(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.author = author
-        self.identifier = identifier
         self.date = date
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

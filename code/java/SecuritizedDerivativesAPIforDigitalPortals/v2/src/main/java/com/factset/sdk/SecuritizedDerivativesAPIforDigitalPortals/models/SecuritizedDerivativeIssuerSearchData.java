@@ -108,6 +108,8 @@ public class SecuritizedDerivativeIssuerSearchData implements Serializable {
   public static final String JSON_PROPERTY_MARKET = "market";
   private SecuritizedDerivativeIssuerSearchDataMarket market;
 
+  public SecuritizedDerivativeIssuerSearchData() { 
+  }
 
   public SecuritizedDerivativeIssuerSearchData role(RoleEnum role) {
     this.role = role;

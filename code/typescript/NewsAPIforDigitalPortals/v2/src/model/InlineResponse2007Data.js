@@ -17,7 +17,7 @@ import InlineResponse2007DataDistributor from './InlineResponse2007DataDistribut
 /**
  * The InlineResponse2007Data model module.
  * @module model/InlineResponse2007Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007Data {
     /**

@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -20,23 +19,37 @@ import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse2001 from './model/InlineResponse2001';
 import InlineResponse20010 from './model/InlineResponse20010';
 import InlineResponse20010Data from './model/InlineResponse20010Data';
+import InlineResponse20010DataIndexChange from './model/InlineResponse20010DataIndexChange';
+import InlineResponse20010DataRisk from './model/InlineResponse20010DataRisk';
+import InlineResponse20010DataSecurityLending from './model/InlineResponse20010DataSecurityLending';
 import InlineResponse20011 from './model/InlineResponse20011';
 import InlineResponse20011Data from './model/InlineResponse20011Data';
 import InlineResponse20012 from './model/InlineResponse20012';
 import InlineResponse20012Data from './model/InlineResponse20012Data';
-import InlineResponse20012DataCapitalGains from './model/InlineResponse20012DataCapitalGains';
-import InlineResponse20012DataDividend from './model/InlineResponse20012DataDividend';
+import InlineResponse20012DataBeta from './model/InlineResponse20012DataBeta';
+import InlineResponse20012DataEfficiency from './model/InlineResponse20012DataEfficiency';
+import InlineResponse20012DataFit from './model/InlineResponse20012DataFit';
+import InlineResponse20012DataTradability from './model/InlineResponse20012DataTradability';
 import InlineResponse20013 from './model/InlineResponse20013';
 import InlineResponse20013Data from './model/InlineResponse20013Data';
+import InlineResponse20013DataBlockTrade from './model/InlineResponse20013DataBlockTrade';
+import InlineResponse20013DataImpedimentsToCreation from './model/InlineResponse20013DataImpedimentsToCreation';
+import InlineResponse20013DataPremiumDiscount from './model/InlineResponse20013DataPremiumDiscount';
+import InlineResponse20013DataSpread from './model/InlineResponse20013DataSpread';
+import InlineResponse20013DataTrackingDifference from './model/InlineResponse20013DataTrackingDifference';
 import InlineResponse20014 from './model/InlineResponse20014';
 import InlineResponse20014Data from './model/InlineResponse20014Data';
+import InlineResponse20014DataCounterParty from './model/InlineResponse20014DataCounterParty';
+import InlineResponse20014DataGearing from './model/InlineResponse20014DataGearing';
+import InlineResponse20014DataGearingLeverage from './model/InlineResponse20014DataGearingLeverage';
+import InlineResponse20014DataHedge from './model/InlineResponse20014DataHedge';
+import InlineResponse20014DataServiceProvider from './model/InlineResponse20014DataServiceProvider';
 import InlineResponse20015 from './model/InlineResponse20015';
 import InlineResponse20015Data from './model/InlineResponse20015Data';
+import InlineResponse20015DataCategory from './model/InlineResponse20015DataCategory';
+import InlineResponse20015DataGeography from './model/InlineResponse20015DataGeography';
 import InlineResponse20016 from './model/InlineResponse20016';
 import InlineResponse20016Data from './model/InlineResponse20016Data';
-import InlineResponse20016DataNav from './model/InlineResponse20016DataNav';
-import InlineResponse20016DataNavLast from './model/InlineResponse20016DataNavLast';
-import InlineResponse20016DataSharesOutstanding from './model/InlineResponse20016DataSharesOutstanding';
 import InlineResponse20017 from './model/InlineResponse20017';
 import InlineResponse20017Data from './model/InlineResponse20017Data';
 import InlineResponse20018 from './model/InlineResponse20018';
@@ -51,36 +64,65 @@ import InlineResponse20020 from './model/InlineResponse20020';
 import InlineResponse20020Data from './model/InlineResponse20020Data';
 import InlineResponse20021 from './model/InlineResponse20021';
 import InlineResponse20021Data from './model/InlineResponse20021Data';
-import InlineResponse20021DataExpenseRatio from './model/InlineResponse20021DataExpenseRatio';
-import InlineResponse20021DataMaxCapitalGainsRate from './model/InlineResponse20021DataMaxCapitalGainsRate';
+import InlineResponse20021DataCapitalGains from './model/InlineResponse20021DataCapitalGains';
+import InlineResponse20021DataDividend from './model/InlineResponse20021DataDividend';
 import InlineResponse20022 from './model/InlineResponse20022';
 import InlineResponse20022Data from './model/InlineResponse20022Data';
+import InlineResponse20023 from './model/InlineResponse20023';
+import InlineResponse20023Data from './model/InlineResponse20023Data';
+import InlineResponse20024 from './model/InlineResponse20024';
+import InlineResponse20024Data from './model/InlineResponse20024Data';
+import InlineResponse20024Exchange from './model/InlineResponse20024Exchange';
+import InlineResponse20025 from './model/InlineResponse20025';
+import InlineResponse20025Data from './model/InlineResponse20025Data';
+import InlineResponse20025DataAverageLife from './model/InlineResponse20025DataAverageLife';
+import InlineResponse20025DataOptionAdjustedSpread from './model/InlineResponse20025DataOptionAdjustedSpread';
+import InlineResponse20026 from './model/InlineResponse20026';
+import InlineResponse20026Data from './model/InlineResponse20026Data';
+import InlineResponse20026DataCount from './model/InlineResponse20026DataCount';
+import InlineResponse20026DataSummary from './model/InlineResponse20026DataSummary';
+import InlineResponse20027 from './model/InlineResponse20027';
+import InlineResponse20027Data from './model/InlineResponse20027Data';
+import InlineResponse20027DataNav from './model/InlineResponse20027DataNav';
+import InlineResponse20027DataNavLast from './model/InlineResponse20027DataNavLast';
+import InlineResponse20027DataSharesOutstanding from './model/InlineResponse20027DataSharesOutstanding';
+import InlineResponse20028 from './model/InlineResponse20028';
+import InlineResponse20028Data from './model/InlineResponse20028Data';
+import InlineResponse20029 from './model/InlineResponse20029';
+import InlineResponse20029Data from './model/InlineResponse20029Data';
 import InlineResponse2002Data from './model/InlineResponse2002Data';
 import InlineResponse2002DataCountries from './model/InlineResponse2002DataCountries';
 import InlineResponse2003 from './model/InlineResponse2003';
+import InlineResponse20030 from './model/InlineResponse20030';
+import InlineResponse20030Data from './model/InlineResponse20030Data';
+import InlineResponse20031 from './model/InlineResponse20031';
+import InlineResponse20031Data from './model/InlineResponse20031Data';
+import InlineResponse20032 from './model/InlineResponse20032';
+import InlineResponse20032Data from './model/InlineResponse20032Data';
+import InlineResponse20032DataExpenseRatio from './model/InlineResponse20032DataExpenseRatio';
+import InlineResponse20032DataMaxCapitalGainsRate from './model/InlineResponse20032DataMaxCapitalGainsRate';
+import InlineResponse20033 from './model/InlineResponse20033';
+import InlineResponse20033Data from './model/InlineResponse20033Data';
 import InlineResponse2003Data from './model/InlineResponse2003Data';
-import InlineResponse2003DataExchanges from './model/InlineResponse2003DataExchanges';
+import InlineResponse2003DataCurrencies from './model/InlineResponse2003DataCurrencies';
 import InlineResponse2004 from './model/InlineResponse2004';
 import InlineResponse2004Data from './model/InlineResponse2004Data';
-import InlineResponse2004DataRegions from './model/InlineResponse2004DataRegions';
+import InlineResponse2004DataClassifications from './model/InlineResponse2004DataClassifications';
 import InlineResponse2005 from './model/InlineResponse2005';
 import InlineResponse2005Data from './model/InlineResponse2005Data';
-import InlineResponse2005DataSectors from './model/InlineResponse2005DataSectors';
+import InlineResponse2005DataExchanges from './model/InlineResponse2005DataExchanges';
 import InlineResponse2006 from './model/InlineResponse2006';
 import InlineResponse2006Data from './model/InlineResponse2006Data';
-import InlineResponse2006DataCounterParty from './model/InlineResponse2006DataCounterParty';
-import InlineResponse2006DataGearing from './model/InlineResponse2006DataGearing';
-import InlineResponse2006DataGearingLeverage from './model/InlineResponse2006DataGearingLeverage';
-import InlineResponse2006DataHedge from './model/InlineResponse2006DataHedge';
-import InlineResponse2006DataServiceProvider from './model/InlineResponse2006DataServiceProvider';
+import InlineResponse2006DataIndustries from './model/InlineResponse2006DataIndustries';
 import InlineResponse2007 from './model/InlineResponse2007';
 import InlineResponse2007Data from './model/InlineResponse2007Data';
-import InlineResponse2007DataCategory from './model/InlineResponse2007DataCategory';
-import InlineResponse2007DataGeography from './model/InlineResponse2007DataGeography';
+import InlineResponse2007DataClassifications from './model/InlineResponse2007DataClassifications';
 import InlineResponse2008 from './model/InlineResponse2008';
 import InlineResponse2008Data from './model/InlineResponse2008Data';
+import InlineResponse2008DataRegions from './model/InlineResponse2008DataRegions';
 import InlineResponse2009 from './model/InlineResponse2009';
 import InlineResponse2009Data from './model/InlineResponse2009Data';
+import InlineResponse2009DataSectors from './model/InlineResponse2009DataSectors';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse200DataBrand from './model/InlineResponse200DataBrand';
 import InlineResponse200DataCreateRedeem from './model/InlineResponse200DataCreateRedeem';
@@ -101,7 +143,7 @@ import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutp
 import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
 import PartialOutputObject from './model/PartialOutputObject';
 import StatusObject from './model/StatusObject';
-import SubscriptionMember from './model/SubscriptionMember';
+
 import FactsetApi from './api/FactsetApi';
 
 
@@ -134,7 +176,7 @@ import FactsetApi from './api/FactsetApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.10.0
 */
 export {
     /**
@@ -186,6 +228,24 @@ export {
     InlineResponse20010Data,
 
     /**
+     * The InlineResponse20010DataIndexChange model constructor.
+     * @property {module:model/InlineResponse20010DataIndexChange}
+     */
+    InlineResponse20010DataIndexChange,
+
+    /**
+     * The InlineResponse20010DataRisk model constructor.
+     * @property {module:model/InlineResponse20010DataRisk}
+     */
+    InlineResponse20010DataRisk,
+
+    /**
+     * The InlineResponse20010DataSecurityLending model constructor.
+     * @property {module:model/InlineResponse20010DataSecurityLending}
+     */
+    InlineResponse20010DataSecurityLending,
+
+    /**
      * The InlineResponse20011 model constructor.
      * @property {module:model/InlineResponse20011}
      */
@@ -210,16 +270,28 @@ export {
     InlineResponse20012Data,
 
     /**
-     * The InlineResponse20012DataCapitalGains model constructor.
-     * @property {module:model/InlineResponse20012DataCapitalGains}
+     * The InlineResponse20012DataBeta model constructor.
+     * @property {module:model/InlineResponse20012DataBeta}
      */
-    InlineResponse20012DataCapitalGains,
+    InlineResponse20012DataBeta,
 
     /**
-     * The InlineResponse20012DataDividend model constructor.
-     * @property {module:model/InlineResponse20012DataDividend}
+     * The InlineResponse20012DataEfficiency model constructor.
+     * @property {module:model/InlineResponse20012DataEfficiency}
      */
-    InlineResponse20012DataDividend,
+    InlineResponse20012DataEfficiency,
+
+    /**
+     * The InlineResponse20012DataFit model constructor.
+     * @property {module:model/InlineResponse20012DataFit}
+     */
+    InlineResponse20012DataFit,
+
+    /**
+     * The InlineResponse20012DataTradability model constructor.
+     * @property {module:model/InlineResponse20012DataTradability}
+     */
+    InlineResponse20012DataTradability,
 
     /**
      * The InlineResponse20013 model constructor.
@@ -234,6 +306,36 @@ export {
     InlineResponse20013Data,
 
     /**
+     * The InlineResponse20013DataBlockTrade model constructor.
+     * @property {module:model/InlineResponse20013DataBlockTrade}
+     */
+    InlineResponse20013DataBlockTrade,
+
+    /**
+     * The InlineResponse20013DataImpedimentsToCreation model constructor.
+     * @property {module:model/InlineResponse20013DataImpedimentsToCreation}
+     */
+    InlineResponse20013DataImpedimentsToCreation,
+
+    /**
+     * The InlineResponse20013DataPremiumDiscount model constructor.
+     * @property {module:model/InlineResponse20013DataPremiumDiscount}
+     */
+    InlineResponse20013DataPremiumDiscount,
+
+    /**
+     * The InlineResponse20013DataSpread model constructor.
+     * @property {module:model/InlineResponse20013DataSpread}
+     */
+    InlineResponse20013DataSpread,
+
+    /**
+     * The InlineResponse20013DataTrackingDifference model constructor.
+     * @property {module:model/InlineResponse20013DataTrackingDifference}
+     */
+    InlineResponse20013DataTrackingDifference,
+
+    /**
      * The InlineResponse20014 model constructor.
      * @property {module:model/InlineResponse20014}
      */
@@ -244,6 +346,36 @@ export {
      * @property {module:model/InlineResponse20014Data}
      */
     InlineResponse20014Data,
+
+    /**
+     * The InlineResponse20014DataCounterParty model constructor.
+     * @property {module:model/InlineResponse20014DataCounterParty}
+     */
+    InlineResponse20014DataCounterParty,
+
+    /**
+     * The InlineResponse20014DataGearing model constructor.
+     * @property {module:model/InlineResponse20014DataGearing}
+     */
+    InlineResponse20014DataGearing,
+
+    /**
+     * The InlineResponse20014DataGearingLeverage model constructor.
+     * @property {module:model/InlineResponse20014DataGearingLeverage}
+     */
+    InlineResponse20014DataGearingLeverage,
+
+    /**
+     * The InlineResponse20014DataHedge model constructor.
+     * @property {module:model/InlineResponse20014DataHedge}
+     */
+    InlineResponse20014DataHedge,
+
+    /**
+     * The InlineResponse20014DataServiceProvider model constructor.
+     * @property {module:model/InlineResponse20014DataServiceProvider}
+     */
+    InlineResponse20014DataServiceProvider,
 
     /**
      * The InlineResponse20015 model constructor.
@@ -258,6 +390,18 @@ export {
     InlineResponse20015Data,
 
     /**
+     * The InlineResponse20015DataCategory model constructor.
+     * @property {module:model/InlineResponse20015DataCategory}
+     */
+    InlineResponse20015DataCategory,
+
+    /**
+     * The InlineResponse20015DataGeography model constructor.
+     * @property {module:model/InlineResponse20015DataGeography}
+     */
+    InlineResponse20015DataGeography,
+
+    /**
      * The InlineResponse20016 model constructor.
      * @property {module:model/InlineResponse20016}
      */
@@ -268,24 +412,6 @@ export {
      * @property {module:model/InlineResponse20016Data}
      */
     InlineResponse20016Data,
-
-    /**
-     * The InlineResponse20016DataNav model constructor.
-     * @property {module:model/InlineResponse20016DataNav}
-     */
-    InlineResponse20016DataNav,
-
-    /**
-     * The InlineResponse20016DataNavLast model constructor.
-     * @property {module:model/InlineResponse20016DataNavLast}
-     */
-    InlineResponse20016DataNavLast,
-
-    /**
-     * The InlineResponse20016DataSharesOutstanding model constructor.
-     * @property {module:model/InlineResponse20016DataSharesOutstanding}
-     */
-    InlineResponse20016DataSharesOutstanding,
 
     /**
      * The InlineResponse20017 model constructor.
@@ -372,16 +498,16 @@ export {
     InlineResponse20021Data,
 
     /**
-     * The InlineResponse20021DataExpenseRatio model constructor.
-     * @property {module:model/InlineResponse20021DataExpenseRatio}
+     * The InlineResponse20021DataCapitalGains model constructor.
+     * @property {module:model/InlineResponse20021DataCapitalGains}
      */
-    InlineResponse20021DataExpenseRatio,
+    InlineResponse20021DataCapitalGains,
 
     /**
-     * The InlineResponse20021DataMaxCapitalGainsRate model constructor.
-     * @property {module:model/InlineResponse20021DataMaxCapitalGainsRate}
+     * The InlineResponse20021DataDividend model constructor.
+     * @property {module:model/InlineResponse20021DataDividend}
      */
-    InlineResponse20021DataMaxCapitalGainsRate,
+    InlineResponse20021DataDividend,
 
     /**
      * The InlineResponse20022 model constructor.
@@ -394,6 +520,138 @@ export {
      * @property {module:model/InlineResponse20022Data}
      */
     InlineResponse20022Data,
+
+    /**
+     * The InlineResponse20023 model constructor.
+     * @property {module:model/InlineResponse20023}
+     */
+    InlineResponse20023,
+
+    /**
+     * The InlineResponse20023Data model constructor.
+     * @property {module:model/InlineResponse20023Data}
+     */
+    InlineResponse20023Data,
+
+    /**
+     * The InlineResponse20024 model constructor.
+     * @property {module:model/InlineResponse20024}
+     */
+    InlineResponse20024,
+
+    /**
+     * The InlineResponse20024Data model constructor.
+     * @property {module:model/InlineResponse20024Data}
+     */
+    InlineResponse20024Data,
+
+    /**
+     * The InlineResponse20024Exchange model constructor.
+     * @property {module:model/InlineResponse20024Exchange}
+     */
+    InlineResponse20024Exchange,
+
+    /**
+     * The InlineResponse20025 model constructor.
+     * @property {module:model/InlineResponse20025}
+     */
+    InlineResponse20025,
+
+    /**
+     * The InlineResponse20025Data model constructor.
+     * @property {module:model/InlineResponse20025Data}
+     */
+    InlineResponse20025Data,
+
+    /**
+     * The InlineResponse20025DataAverageLife model constructor.
+     * @property {module:model/InlineResponse20025DataAverageLife}
+     */
+    InlineResponse20025DataAverageLife,
+
+    /**
+     * The InlineResponse20025DataOptionAdjustedSpread model constructor.
+     * @property {module:model/InlineResponse20025DataOptionAdjustedSpread}
+     */
+    InlineResponse20025DataOptionAdjustedSpread,
+
+    /**
+     * The InlineResponse20026 model constructor.
+     * @property {module:model/InlineResponse20026}
+     */
+    InlineResponse20026,
+
+    /**
+     * The InlineResponse20026Data model constructor.
+     * @property {module:model/InlineResponse20026Data}
+     */
+    InlineResponse20026Data,
+
+    /**
+     * The InlineResponse20026DataCount model constructor.
+     * @property {module:model/InlineResponse20026DataCount}
+     */
+    InlineResponse20026DataCount,
+
+    /**
+     * The InlineResponse20026DataSummary model constructor.
+     * @property {module:model/InlineResponse20026DataSummary}
+     */
+    InlineResponse20026DataSummary,
+
+    /**
+     * The InlineResponse20027 model constructor.
+     * @property {module:model/InlineResponse20027}
+     */
+    InlineResponse20027,
+
+    /**
+     * The InlineResponse20027Data model constructor.
+     * @property {module:model/InlineResponse20027Data}
+     */
+    InlineResponse20027Data,
+
+    /**
+     * The InlineResponse20027DataNav model constructor.
+     * @property {module:model/InlineResponse20027DataNav}
+     */
+    InlineResponse20027DataNav,
+
+    /**
+     * The InlineResponse20027DataNavLast model constructor.
+     * @property {module:model/InlineResponse20027DataNavLast}
+     */
+    InlineResponse20027DataNavLast,
+
+    /**
+     * The InlineResponse20027DataSharesOutstanding model constructor.
+     * @property {module:model/InlineResponse20027DataSharesOutstanding}
+     */
+    InlineResponse20027DataSharesOutstanding,
+
+    /**
+     * The InlineResponse20028 model constructor.
+     * @property {module:model/InlineResponse20028}
+     */
+    InlineResponse20028,
+
+    /**
+     * The InlineResponse20028Data model constructor.
+     * @property {module:model/InlineResponse20028Data}
+     */
+    InlineResponse20028Data,
+
+    /**
+     * The InlineResponse20029 model constructor.
+     * @property {module:model/InlineResponse20029}
+     */
+    InlineResponse20029,
+
+    /**
+     * The InlineResponse20029Data model constructor.
+     * @property {module:model/InlineResponse20029Data}
+     */
+    InlineResponse20029Data,
 
     /**
      * The InlineResponse2002Data model constructor.
@@ -414,16 +672,76 @@ export {
     InlineResponse2003,
 
     /**
+     * The InlineResponse20030 model constructor.
+     * @property {module:model/InlineResponse20030}
+     */
+    InlineResponse20030,
+
+    /**
+     * The InlineResponse20030Data model constructor.
+     * @property {module:model/InlineResponse20030Data}
+     */
+    InlineResponse20030Data,
+
+    /**
+     * The InlineResponse20031 model constructor.
+     * @property {module:model/InlineResponse20031}
+     */
+    InlineResponse20031,
+
+    /**
+     * The InlineResponse20031Data model constructor.
+     * @property {module:model/InlineResponse20031Data}
+     */
+    InlineResponse20031Data,
+
+    /**
+     * The InlineResponse20032 model constructor.
+     * @property {module:model/InlineResponse20032}
+     */
+    InlineResponse20032,
+
+    /**
+     * The InlineResponse20032Data model constructor.
+     * @property {module:model/InlineResponse20032Data}
+     */
+    InlineResponse20032Data,
+
+    /**
+     * The InlineResponse20032DataExpenseRatio model constructor.
+     * @property {module:model/InlineResponse20032DataExpenseRatio}
+     */
+    InlineResponse20032DataExpenseRatio,
+
+    /**
+     * The InlineResponse20032DataMaxCapitalGainsRate model constructor.
+     * @property {module:model/InlineResponse20032DataMaxCapitalGainsRate}
+     */
+    InlineResponse20032DataMaxCapitalGainsRate,
+
+    /**
+     * The InlineResponse20033 model constructor.
+     * @property {module:model/InlineResponse20033}
+     */
+    InlineResponse20033,
+
+    /**
+     * The InlineResponse20033Data model constructor.
+     * @property {module:model/InlineResponse20033Data}
+     */
+    InlineResponse20033Data,
+
+    /**
      * The InlineResponse2003Data model constructor.
      * @property {module:model/InlineResponse2003Data}
      */
     InlineResponse2003Data,
 
     /**
-     * The InlineResponse2003DataExchanges model constructor.
-     * @property {module:model/InlineResponse2003DataExchanges}
+     * The InlineResponse2003DataCurrencies model constructor.
+     * @property {module:model/InlineResponse2003DataCurrencies}
      */
-    InlineResponse2003DataExchanges,
+    InlineResponse2003DataCurrencies,
 
     /**
      * The InlineResponse2004 model constructor.
@@ -438,10 +756,10 @@ export {
     InlineResponse2004Data,
 
     /**
-     * The InlineResponse2004DataRegions model constructor.
-     * @property {module:model/InlineResponse2004DataRegions}
+     * The InlineResponse2004DataClassifications model constructor.
+     * @property {module:model/InlineResponse2004DataClassifications}
      */
-    InlineResponse2004DataRegions,
+    InlineResponse2004DataClassifications,
 
     /**
      * The InlineResponse2005 model constructor.
@@ -456,10 +774,10 @@ export {
     InlineResponse2005Data,
 
     /**
-     * The InlineResponse2005DataSectors model constructor.
-     * @property {module:model/InlineResponse2005DataSectors}
+     * The InlineResponse2005DataExchanges model constructor.
+     * @property {module:model/InlineResponse2005DataExchanges}
      */
-    InlineResponse2005DataSectors,
+    InlineResponse2005DataExchanges,
 
     /**
      * The InlineResponse2006 model constructor.
@@ -474,34 +792,10 @@ export {
     InlineResponse2006Data,
 
     /**
-     * The InlineResponse2006DataCounterParty model constructor.
-     * @property {module:model/InlineResponse2006DataCounterParty}
+     * The InlineResponse2006DataIndustries model constructor.
+     * @property {module:model/InlineResponse2006DataIndustries}
      */
-    InlineResponse2006DataCounterParty,
-
-    /**
-     * The InlineResponse2006DataGearing model constructor.
-     * @property {module:model/InlineResponse2006DataGearing}
-     */
-    InlineResponse2006DataGearing,
-
-    /**
-     * The InlineResponse2006DataGearingLeverage model constructor.
-     * @property {module:model/InlineResponse2006DataGearingLeverage}
-     */
-    InlineResponse2006DataGearingLeverage,
-
-    /**
-     * The InlineResponse2006DataHedge model constructor.
-     * @property {module:model/InlineResponse2006DataHedge}
-     */
-    InlineResponse2006DataHedge,
-
-    /**
-     * The InlineResponse2006DataServiceProvider model constructor.
-     * @property {module:model/InlineResponse2006DataServiceProvider}
-     */
-    InlineResponse2006DataServiceProvider,
+    InlineResponse2006DataIndustries,
 
     /**
      * The InlineResponse2007 model constructor.
@@ -516,16 +810,10 @@ export {
     InlineResponse2007Data,
 
     /**
-     * The InlineResponse2007DataCategory model constructor.
-     * @property {module:model/InlineResponse2007DataCategory}
+     * The InlineResponse2007DataClassifications model constructor.
+     * @property {module:model/InlineResponse2007DataClassifications}
      */
-    InlineResponse2007DataCategory,
-
-    /**
-     * The InlineResponse2007DataGeography model constructor.
-     * @property {module:model/InlineResponse2007DataGeography}
-     */
-    InlineResponse2007DataGeography,
+    InlineResponse2007DataClassifications,
 
     /**
      * The InlineResponse2008 model constructor.
@@ -540,6 +828,12 @@ export {
     InlineResponse2008Data,
 
     /**
+     * The InlineResponse2008DataRegions model constructor.
+     * @property {module:model/InlineResponse2008DataRegions}
+     */
+    InlineResponse2008DataRegions,
+
+    /**
      * The InlineResponse2009 model constructor.
      * @property {module:model/InlineResponse2009}
      */
@@ -550,6 +844,12 @@ export {
      * @property {module:model/InlineResponse2009Data}
      */
     InlineResponse2009Data,
+
+    /**
+     * The InlineResponse2009DataSectors model constructor.
+     * @property {module:model/InlineResponse2009DataSectors}
+     */
+    InlineResponse2009DataSectors,
 
     /**
      * The InlineResponse200Data model constructor.
@@ -672,14 +972,9 @@ export {
     StatusObject,
 
     /**
-     * The SubscriptionMember model constructor.
-     * @property {module:model/SubscriptionMember}
-     */
-    SubscriptionMember,
-
-    /**
     * The FactsetApi service constructor.
     * @property {module:api/FactsetApi}
     */
-    FactsetApi
+    FactsetApi,
+
 };

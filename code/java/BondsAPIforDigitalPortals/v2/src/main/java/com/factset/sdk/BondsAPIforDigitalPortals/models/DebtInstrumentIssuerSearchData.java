@@ -59,6 +59,8 @@ public class DebtInstrumentIssuerSearchData implements Serializable {
   public static final String JSON_PROPERTY_MARKET = "market";
   private DebtInstrumentIssuerSearchDataMarket market;
 
+  public DebtInstrumentIssuerSearchData() { 
+  }
 
   public DebtInstrumentIssuerSearchData name(DebtInstrumentIssuerSearchDataName name) {
     this.name = name;

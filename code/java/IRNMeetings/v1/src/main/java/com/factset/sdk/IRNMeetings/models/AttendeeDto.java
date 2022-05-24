@@ -54,6 +54,8 @@ public class AttendeeDto implements Serializable {
   public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private JsonNullable<String> fullName = JsonNullable.<String>undefined();
 
+  public AttendeeDto() { 
+  }
 
   public AttendeeDto id(java.util.UUID id) {
     this.id = id;

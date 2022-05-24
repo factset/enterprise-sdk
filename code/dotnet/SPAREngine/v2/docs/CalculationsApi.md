@@ -53,7 +53,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
-            var id = id_example;  // string | From url, provided from the location header in the Run Multiple Calculations endpoint.
+            var id = "id_example";  // string | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
             try
             {
@@ -78,7 +78,6 @@ Name | Type | Description  | Notes
  **id** | **string**| From url, provided from the location header in the Run Multiple Calculations endpoint. | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -148,7 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CalculationsApi(config);
-            var id = id_example;  // string | From url, provided from the location header in the Run Multiple Calculations endpoint.
+            var id = "id_example";  // string | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
             try
             {
@@ -174,7 +173,6 @@ Name | Type | Description  | Notes
  **id** | **string**| From url, provided from the location header in the Run Multiple Calculations endpoint. | 
 
 ### Return type
-
 [**CalculationStatus**](CalculationStatus.md)
 
 ### Authorization
@@ -267,7 +265,6 @@ namespace Example
 This endpoint does not need any parameter.
 
 ### Return type
-
 [**Dictionary&lt;string, CalculationStatusSummary&gt;**](CalculationStatusSummary.md)
 
 ### Authorization
@@ -361,7 +358,6 @@ Name | Type | Description  | Notes
  **calculation** | [**Calculation**](Calculation.md)|  | [optional] 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization

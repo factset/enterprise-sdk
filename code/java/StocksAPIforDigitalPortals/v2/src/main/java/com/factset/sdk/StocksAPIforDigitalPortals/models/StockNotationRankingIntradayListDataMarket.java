@@ -49,6 +49,8 @@ public class StockNotationRankingIntradayListDataMarket implements Serializable 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private StockNotationRankingIntradayListDataMarketPriority priority;
 
+  public StockNotationRankingIntradayListDataMarket() { 
+  }
 
   public StockNotationRankingIntradayListDataMarket ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

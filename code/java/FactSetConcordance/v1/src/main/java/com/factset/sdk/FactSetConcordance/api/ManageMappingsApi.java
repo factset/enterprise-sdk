@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetConcordance.models.EntityMappingRequest;
 import com.factset.sdk.FactSetConcordance.models.EntityResponse;
@@ -24,6 +27,28 @@ public class ManageMappingsApi {
   public ManageMappingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntityUniverseResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityUniverseResponseTypeMap.put(200, new GenericType<EntityUniverseResponse>(){});
+    getEntityUniverseResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityUniverseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> saveEntityMappingResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    saveEntityMappingResponseTypeMap.put(200, new GenericType<EntityResponse>(){});
+    saveEntityMappingResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    saveEntityMappingResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    saveEntityMappingResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    saveEntityMappingResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    saveEntityMappingResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,11 +144,17 @@ public class ManageMappingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityUniverseResponse> localVarReturnType = new GenericType<EntityUniverseResponse>() {};
 
-    return apiClient.invokeAPI("ManageMappingsApi.getEntityUniverse", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityUniverseResponse
+      
+    > apiResponse = apiClient.invokeAPI("ManageMappingsApi.getEntityUniverse", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityUniverseResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Saves a single-mapping specified by the client.
@@ -196,10 +227,16 @@ public class ManageMappingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityResponse> localVarReturnType = new GenericType<EntityResponse>() {};
 
-    return apiClient.invokeAPI("ManageMappingsApi.saveEntityMapping", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityResponse
+      
+    > apiResponse = apiClient.invokeAPI("ManageMappingsApi.saveEntityMapping", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, saveEntityMappingResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

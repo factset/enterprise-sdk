@@ -42,6 +42,8 @@ public class Calculation implements Serializable {
   public static final String JSON_PROPERTY_SCRIPT = "script";
   private String script;
 
+  public Calculation() { 
+  }
 
   public Calculation script(String script) {
     this.script = script;

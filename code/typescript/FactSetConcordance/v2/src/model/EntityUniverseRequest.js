@@ -17,7 +17,7 @@ import MapStatus from './MapStatus';
 /**
  * The EntityUniverseRequest model module.
  * @module model/EntityUniverseRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EntityUniverseRequest {
     /**

@@ -13,12 +13,13 @@
 
 
 import ApiClient from "../ApiClient";
+import FrequencyRoot from '../model/FrequencyRoot';
 import GroupRoot from '../model/GroupRoot';
 
 /**
 * Groups service.
 * @module api/GroupsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class GroupsApi {
 
@@ -33,6 +34,50 @@ export default class GroupsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Get PA grouping frequencies
+     * This endpoint lists all the PA grouping frequencies that can be applied to a PA calculation.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/FrequencyRoot} and HTTP response
+     */
+    getPAGroupingFrequenciesWithHttpInfo() {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = FrequencyRoot;
+
+      return this.apiClient.callApi(
+        '/analytics/engines/pa/v3/grouping-frequencies', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get PA grouping frequencies
+     * This endpoint lists all the PA grouping frequencies that can be applied to a PA calculation.
+     * @return { Promise.< module:model/FrequencyRoot > } a Promise, with data of type {@link module:model/FrequencyRoot }
+     */
+    getPAGroupingFrequencies() {
+      return this.getPAGroupingFrequenciesWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -55,7 +100,10 @@ export default class GroupsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = GroupRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/groups', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -66,7 +114,7 @@ export default class GroupsApi {
     /**
      * Get PA groups
      * This endpoint lists all the PA groups that can be applied to a PA calculation.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GroupRoot}
+     * @return { Promise.< module:model/GroupRoot > } a Promise, with data of type {@link module:model/GroupRoot }
      */
     getPAGroups() {
       return this.getPAGroupsWithHttpInfo()
@@ -77,3 +125,8 @@ export default class GroupsApi {
 
 
 }
+
+
+
+
+

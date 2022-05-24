@@ -63,6 +63,8 @@ public class InlineResponse2006InstrumentKnockIn implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private BigDecimal cashFlow;
 
+  public InlineResponse2006InstrumentKnockIn() { 
+  }
 
   public InlineResponse2006InstrumentKnockIn observation(InlineResponse2006InstrumentKnockOutObservation observation) {
     this.observation = observation;

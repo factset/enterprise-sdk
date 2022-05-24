@@ -11,6 +11,7 @@
 
 from fds.sdk.FactSetGlobalPrices.model.adjust import Adjust
 from fds.sdk.FactSetGlobalPrices.model.calendar import Calendar
+from fds.sdk.FactSetGlobalPrices.model.cancelled_dividend import CancelledDividend
 from fds.sdk.FactSetGlobalPrices.model.cash_dividends_response import CashDividendsResponse
 from fds.sdk.FactSetGlobalPrices.model.corporate_actions_request import CorporateActionsRequest
 from fds.sdk.FactSetGlobalPrices.model.corporate_actions_response import CorporateActionsResponse
@@ -27,6 +28,9 @@ from fds.sdk.FactSetGlobalPrices.model.ids_max100 import IdsMax100
 from fds.sdk.FactSetGlobalPrices.model.ids_max50 import IdsMax50
 from fds.sdk.FactSetGlobalPrices.model.price import Price
 from fds.sdk.FactSetGlobalPrices.model.prices_fields import PricesFields
+from fds.sdk.FactSetGlobalPrices.model.returns import Returns
+from fds.sdk.FactSetGlobalPrices.model.returns_request import ReturnsRequest
+from fds.sdk.FactSetGlobalPrices.model.returns_response import ReturnsResponse
 from fds.sdk.FactSetGlobalPrices.model.rights_issue_response import RightsIssueResponse
 from fds.sdk.FactSetGlobalPrices.model.spinoffs_response import SpinoffsResponse
 from fds.sdk.FactSetGlobalPrices.model.split import Split

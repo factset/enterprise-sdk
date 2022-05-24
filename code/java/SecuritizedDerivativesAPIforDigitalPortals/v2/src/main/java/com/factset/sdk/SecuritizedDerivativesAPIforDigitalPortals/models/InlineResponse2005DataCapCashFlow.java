@@ -48,6 +48,8 @@ public class InlineResponse2005DataCapCashFlow implements Serializable {
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataCapCashFlow() { 
+  }
 
   public InlineResponse2005DataCapCashFlow minimum(BigDecimal minimum) {
     this.minimum = minimum;

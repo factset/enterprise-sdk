@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFinancialsBalanceSheet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -136,6 +137,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFinancialsCashFlow(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -217,6 +219,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFinancialsIncomeStatement(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

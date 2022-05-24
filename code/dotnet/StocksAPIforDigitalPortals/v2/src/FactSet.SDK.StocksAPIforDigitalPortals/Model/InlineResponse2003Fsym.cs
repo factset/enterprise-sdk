@@ -60,7 +60,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003Fsym {\n");
             sb.Append("  Listing: ").Append(Listing).Append("\n");
             sb.Append("  Regional: ").Append(Regional).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003Fsym input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Listing == input.Listing ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Listing != null)
-                    hashCode = hashCode * 59 + this.Listing.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Listing.GetHashCode();
+                }
                 if (this.Regional != null)
-                    hashCode = hashCode * 59 + this.Regional.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Regional.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -17,7 +17,7 @@ import EtfReferenceData from './EtfReferenceData';
 /**
  * The EtfReferenceDataResponse model module.
  * @module model/EtfReferenceDataResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EtfReferenceDataResponse {
     /**

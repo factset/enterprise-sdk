@@ -17,7 +17,7 @@ import DividendAdjust from './DividendAdjust';
 /**
  * The FundsReturnsSnapshotRequest model module.
  * @module model/FundsReturnsSnapshotRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FundsReturnsSnapshotRequest {
     /**

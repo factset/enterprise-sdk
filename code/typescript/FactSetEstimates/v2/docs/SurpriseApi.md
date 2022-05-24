@@ -57,6 +57,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSurprise(ids, metrics, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -135,6 +136,7 @@ const surpriseRequest = new factsetestimates.SurpriseRequest(); // SurpriseReque
 // Call api endpoint
 apiInstance.getSurpriseForList(surpriseRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

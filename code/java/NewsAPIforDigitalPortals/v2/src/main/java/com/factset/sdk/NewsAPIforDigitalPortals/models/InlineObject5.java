@@ -48,6 +48,8 @@ public class InlineObject5 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private NewsArticleListMeta meta;
 
+  public InlineObject5() { 
+  }
 
   public InlineObject5 data(NewsArticleSearchByTextData data) {
     this.data = data;

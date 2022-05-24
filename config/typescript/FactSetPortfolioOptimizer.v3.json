@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-factsetportfoliooptimizer",
-  "projectVersion": "0.9.1",
+  "projectVersion": "0.20.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet Portfolio Optimizer client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsetportfoliooptimizer",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetPortfolioOptimizer/0.9.1",
+  "httpUserAgent": "fds-sdk/javascript/FactSetPortfolioOptimizer/0.20.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

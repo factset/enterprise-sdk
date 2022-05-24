@@ -37,14 +37,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -54,20 +53,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject9 body = new InlineObject9(); // InlineObject9 | 
         try {
             InlineResponse2012 result = apiInstance.watchlistCreatePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistCreatePost");
             System.err.println("Status code: " + e.getCode());
@@ -121,14 +121,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -138,20 +137,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject10 body = new InlineObject10(); // InlineObject10 | 
         try {
             InlineResponse200 result = apiInstance.watchlistDeletePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistDeletePost");
             System.err.println("Status code: " + e.getCode());
@@ -205,14 +205,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -222,14 +221,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
@@ -237,6 +236,7 @@ public class Example {
         try {
             InlineResponse20010 result = apiInstance.watchlistListGet(attributes, sort);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistListGet");
             System.err.println("Status code: " + e.getCode());
@@ -291,14 +291,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -308,20 +307,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject11 body = new InlineObject11(); // InlineObject11 | 
         try {
             InlineResponse2003 result = apiInstance.watchlistModifyPost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistModifyPost");
             System.err.println("Status code: " + e.getCode());
@@ -383,14 +383,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -400,20 +399,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject12 body = new InlineObject12(); // InlineObject12 | 
         try {
             InlineResponse2013 result = apiInstance.watchlistPositionCreatePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionCreatePost");
             System.err.println("Status code: " + e.getCode());
@@ -467,14 +467,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -484,20 +483,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject13 body = new InlineObject13(); // InlineObject13 | 
         try {
             InlineResponse2003 result = apiInstance.watchlistPositionDeletePost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionDeletePost");
             System.err.println("Status code: " + e.getCode());
@@ -551,14 +551,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -568,14 +567,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         String id = "id_example"; // String | Identifier of the watchlist.
@@ -584,6 +583,7 @@ public class Example {
         try {
             InlineResponse20011 result = apiInstance.watchlistPositionListGet(id, attributes, sort);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionListGet");
             System.err.println("Status code: " + e.getCode());
@@ -646,14 +646,13 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.ApiException;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.auth.*;
-import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.model.*;
+import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.*;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.api.WatchlistApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -663,20 +662,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         WatchlistApi apiInstance = new WatchlistApi(defaultClient);
         InlineObject14 body = new InlineObject14(); // InlineObject14 | 
         try {
             InlineResponse2003 result = apiInstance.watchlistPositionModifyPost(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling WatchlistApi#watchlistPositionModifyPost");
             System.err.println("Status code: " + e.getCode());

@@ -59,6 +59,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getTickHistory(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

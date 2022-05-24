@@ -58,6 +58,8 @@ public class NotationSearchByTextDataValidation implements Serializable {
   public static final String JSON_PROPERTY_MARKET = "market";
   private NotationSearchByTextDataValidationMarket market;
 
+  public NotationSearchByTextDataValidation() { 
+  }
 
   public NotationSearchByTextDataValidation onlyActive(Boolean onlyActive) {
     this.onlyActive = onlyActive;

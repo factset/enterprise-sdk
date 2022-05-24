@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentIssuerSearchDataName model module.
  * @module model/DebtInstrumentIssuerSearchDataName
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentIssuerSearchDataName {
     /**

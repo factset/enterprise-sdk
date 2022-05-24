@@ -42,30 +42,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = isin_api.ISINApi(api_client)
+
     isin_history_translation_request = IsinHistoryTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
     ) # IsinHistoryTranslationRequest | Request Body for ISIN History
 
-    # example passing only required values which don't have defaults set
     try:
         # Retrieve the full history or as of a specific date of ISIN changes for a requested ID.
         api_response = api_instance.batch_isin_history(isin_history_translation_request)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling ISINApi->batch_isin_history: %s\n" % e)
 ```
@@ -136,31 +137,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = isin_api.ISINApi(api_client)
+
     isin_translation_request = IsinTranslationRequest(
         ids=GetIds(["GOOGL-US"]),
         as_of_date="2010-01-01",
     ) # IsinTranslationRequest | Request Body for ISIN Symbology Translation
 
-    # example passing only required values which don't have defaults set
     try:
         # Translate market security symbols into ISIN.
         api_response = api_instance.batch_translate_isin(isin_translation_request)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling ISINApi->batch_translate_isin: %s\n" % e)
 ```
@@ -230,28 +232,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = isin_api.ISINApi(api_client)
+
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
 
-    # example passing only required values which don't have defaults set
     try:
         # Retrieve the full history or as of a specific date of ISIN changes for the requested ID(s).
         api_response = api_instance.isin_history(ids)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling ISINApi->isin_history: %s\n" % e)
 ```
@@ -321,38 +324,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Symbology.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Symbology.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Symbology.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = isin_api.ISINApi(api_client)
+
     ids = ["GOOGL-US"] # [str] | Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
     as_of_date = "2010-01-01" # str | As-Of date for historical symbol request in YYYY-MM-DD format. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Translate market security symbols into ISIN.
-        api_response = api_instance.translate_isin(ids)
-        pprint(api_response)
-    except fds.sdk.Symbology.ApiException as e:
-        print("Exception when calling ISINApi->translate_isin: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Translate market security symbols into ISIN.
         api_response = api_instance.translate_isin(ids, as_of_date=as_of_date)
         pprint(api_response)
+
     except fds.sdk.Symbology.ApiException as e:
         print("Exception when calling ISINApi->translate_isin: %s\n" % e)
 ```

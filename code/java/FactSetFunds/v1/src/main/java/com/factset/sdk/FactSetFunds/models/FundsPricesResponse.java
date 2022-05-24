@@ -43,6 +43,8 @@ public class FundsPricesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Prices> data = null;
 
+  public FundsPricesResponse() { 
+  }
 
   public FundsPricesResponse data(java.util.List<Prices> data) {
     this.data = data;

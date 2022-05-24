@@ -4,8 +4,8 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAttachment**](AttachmentsApi.md#createAttachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for an existing meeting
-[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a meeting
+[**createAttachment**](AttachmentsApi.md#createAttachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for a existing meeting
+[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
 [**getAttachments**](AttachmentsApi.md#getAttachments) | **GET** /v1/meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
 [**softDeleteMeetingAttachment**](AttachmentsApi.md#softDeleteMeetingAttachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 
 ## createAttachment
 
-> NewItemDto createAttachment(meetingId, file)
+> NewItemDto createAttachment(meetingId, _file)
 
-Create an attachment for an existing meeting
+Create an attachment for a existing meeting
 
 ### Example
 
@@ -26,14 +26,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.AttachmentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,21 +42,22 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
         java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | Meeting Id
-        File file = new File("/path/to/file"); // File | 
+        File _file = new File("/path/to/file"); // File | 
         try {
-            NewItemDto result = apiInstance.createAttachment(meetingId, file);
+            NewItemDto result = apiInstance.createAttachment(meetingId, _file);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#createAttachment");
             System.err.println("Status code: " + e.getCode());
@@ -75,7 +75,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **meetingId** | **java.util.UUID**| Meeting Id |
- **file** | **File**|  |
+ **_file** | **File**|  |
 
 ### Return type
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 > downloadAttachment(meetingId, attachmentId)
 
-Download an attachment from a meeting
+Download an attachment from a Meeting
 
 ### Example
 
@@ -112,14 +112,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.AttachmentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -129,20 +128,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
         java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | 
         java.util.UUID attachmentId = new java.util.UUID(); // java.util.UUID | 
         try {
             apiInstance.downloadAttachment(meetingId, attachmentId);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#downloadAttachment");
             System.err.println("Status code: " + e.getCode());
@@ -186,7 +186,7 @@ null (empty response body)
 
 ## getAttachments
 
-> java.util.List&lt;AttachmentSummaryDto&gt; getAttachments(meetingId)
+> java.util.List<AttachmentSummaryDto> getAttachments(meetingId)
 
 Get all the attachments belonging to a meeting
 
@@ -198,14 +198,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.AttachmentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -215,20 +214,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
         java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | Meeting Id
         try {
             java.util.List<AttachmentSummaryDto> result = apiInstance.getAttachments(meetingId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#getAttachments");
             System.err.println("Status code: " + e.getCode());
@@ -282,14 +282,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.AttachmentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -299,20 +298,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AttachmentsApi apiInstance = new AttachmentsApi(defaultClient);
         java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | Meeting Id
         java.util.UUID attachmentId = new java.util.UUID(); // java.util.UUID | Attachment Id
         try {
             apiInstance.softDeleteMeetingAttachment(meetingId, attachmentId);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AttachmentsApi#softDeleteMeetingAttachment");
             System.err.println("Status code: " + e.getCode());

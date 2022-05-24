@@ -74,6 +74,18 @@ public class SurpriseRequest implements Serializable {
   public static final String JSON_PROPERTY_STATISTIC = "statistic";
   private Statistic statistic = Statistic.MEAN;
 
+  public SurpriseRequest() { 
+  }
+
+  @JsonCreator
+  public SurpriseRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids, 
+    @JsonProperty(value=JSON_PROPERTY_METRICS, required=true) java.util.List<String> metrics
+  ) {
+    this();
+    this.ids = ids;
+    this.metrics = metrics;
+  }
 
   public SurpriseRequest ids(java.util.List<String> ids) {
     this.ids = ids;

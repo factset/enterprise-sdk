@@ -47,6 +47,8 @@ public class InlineResponse2004ComplianceFrance implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2004ComplianceFrance() { 
+  }
 
   public InlineResponse2004ComplianceFrance id(BigDecimal id) {
     this.id = id;

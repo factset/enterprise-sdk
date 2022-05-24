@@ -70,7 +70,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataActiveRevision {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataActiveRevision input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -134,11 +135,15 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.ActiveRange != null)
-                    hashCode = hashCode * 59 + this.ActiveRange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActiveRange.GetHashCode();
+                }
                 return hashCode;
             }
         }

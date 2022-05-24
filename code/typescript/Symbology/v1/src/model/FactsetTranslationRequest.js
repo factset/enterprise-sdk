@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FactsetTranslationRequest model module.
  * @module model/FactsetTranslationRequest
- * @version 0.8.1
+ * @version 0.8.2
  */
 class FactsetTranslationRequest {
     /**

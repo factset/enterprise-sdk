@@ -124,7 +124,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004EstimatesFirstFiscalYearRatios {\n");
             sb.Append("  PriceSales: ").Append(PriceSales).Append("\n");
             sb.Append("  PriceEarnings: ").Append(PriceEarnings).Append("\n");
@@ -167,8 +167,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004EstimatesFirstFiscalYearRatios input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PriceSales == input.PriceSales ||
@@ -232,25 +233,45 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.PriceSales != null)
-                    hashCode = hashCode * 59 + this.PriceSales.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceSales.GetHashCode();
+                }
                 if (this.PriceEarnings != null)
-                    hashCode = hashCode * 59 + this.PriceEarnings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceEarnings.GetHashCode();
+                }
                 if (this.PriceEarningsGrowth != null)
-                    hashCode = hashCode * 59 + this.PriceEarningsGrowth.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceEarningsGrowth.GetHashCode();
+                }
                 if (this.PriceBookValue != null)
-                    hashCode = hashCode * 59 + this.PriceBookValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceBookValue.GetHashCode();
+                }
                 if (this.PriceCashFlow != null)
-                    hashCode = hashCode * 59 + this.PriceCashFlow.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceCashFlow.GetHashCode();
+                }
                 if (this.PriceFreeCashFlow != null)
-                    hashCode = hashCode * 59 + this.PriceFreeCashFlow.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceFreeCashFlow.GetHashCode();
+                }
                 if (this.DividendYield != null)
-                    hashCode = hashCode * 59 + this.DividendYield.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DividendYield.GetHashCode();
+                }
                 if (this.EnterpriseValueEbit != null)
-                    hashCode = hashCode * 59 + this.EnterpriseValueEbit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EnterpriseValueEbit.GetHashCode();
+                }
                 if (this.EnterpriseValueEbitda != null)
-                    hashCode = hashCode * 59 + this.EnterpriseValueEbitda.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EnterpriseValueEbitda.GetHashCode();
+                }
                 if (this.EnterpriseValueSales != null)
-                    hashCode = hashCode * 59 + this.EnterpriseValueSales.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EnterpriseValueSales.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -54,6 +54,8 @@ public class InlineResponse20054DataInterestRate implements Serializable {
   public static final String JSON_PROPERTY_FINAL = "final";
   private InlineResponse20054DataInterestRateFinal _final;
 
+  public InlineResponse20054DataInterestRate() { 
+  }
 
   public InlineResponse20054DataInterestRate initial(InlineResponse20054DataInterestRateInitial initial) {
     this.initial = initial;

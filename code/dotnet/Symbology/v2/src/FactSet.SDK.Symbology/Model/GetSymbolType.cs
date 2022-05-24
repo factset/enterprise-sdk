@@ -27,9 +27,9 @@ using OpenAPIDateConverter = FactSet.SDK.Symbology.Client.OpenAPIDateConverter;
 namespace FactSet.SDK.Symbology.Model
 {
     /// <summary>
-    /// Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.**   |symbolType|Description|   |- --|- --|   |BIC|Bank Identification Codes|   |CIK|Edgar Central Index Key|   |CRD|Central Registration Depository|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|   |EIN|Employer Identification Number|   |FITCH|Fitch Ratings Identifier|   |LEI|Legal Entity Identifier|   |MD|Moody&#39;s Ratings Identifier|   |SPR|S&amp;P Ratings Identifier|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)| 
+    /// Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.**   |symbolType|Description|   |- --|- --|   |BIC|Bank Identification Codes|   |CIK|Edgar Central Index Key|   |CRD|Central Registration Depository|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|   |EIN|Employer Identification Number|   |FITCH|Fitch Ratings Identifier|   |LEI|Legal Entity Identifier|   |MD|Moody&#39;s Ratings Identifier|   |SPR|S&amp;P Ratings Identifier|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)| 
     /// </summary>
-    /// <value>Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.**   |symbolType|Description|   |- --|- --|   |BIC|Bank Identification Codes|   |CIK|Edgar Central Index Key|   |CRD|Central Registration Depository|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|   |EIN|Employer Identification Number|   |FITCH|Fitch Ratings Identifier|   |LEI|Legal Entity Identifier|   |MD|Moody&#39;s Ratings Identifier|   |SPR|S&amp;P Ratings Identifier|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)| </value>
+    /// <value>Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.**   |symbolType|Description|   |- --|- --|   |BIC|Bank Identification Codes|   |CIK|Edgar Central Index Key|   |CRD|Central Registration Depository|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|   |EIN|Employer Identification Number|   |FITCH|Fitch Ratings Identifier|   |LEI|Legal Entity Identifier|   |MD|Moody&#39;s Ratings Identifier|   |SPR|S&amp;P Ratings Identifier|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)| </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum GetSymbolType
     {
@@ -100,22 +100,28 @@ namespace FactSet.SDK.Symbology.Model
         WKN = 11,
 
         /// <summary>
-        /// Enum CRN for value: CRN
+        /// Enum JCN for value: JCN
         /// </summary>
-        [EnumMember(Value = "CRN")]
-        CRN = 12,
+        [EnumMember(Value = "JCN")]
+        JCN = 12,
+
+        /// <summary>
+        /// Enum UKCH for value: UKCH
+        /// </summary>
+        [EnumMember(Value = "UKCH")]
+        UKCH = 13,
 
         /// <summary>
         /// Enum RSSD for value: RSSD
         /// </summary>
         [EnumMember(Value = "RSSD")]
-        RSSD = 13,
+        RSSD = 14,
 
         /// <summary>
         /// Enum Empty for value: 
         /// </summary>
         [EnumMember(Value = "")]
-        Empty = 14
+        Empty = 15
 
     }
 

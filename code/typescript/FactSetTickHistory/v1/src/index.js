@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Data from './model/Data';
 import GetFilesErrorDetail from './model/GetFilesErrorDetail';
@@ -23,6 +22,7 @@ import Partial from './model/Partial';
 import RequestFileErrorDetails from './model/RequestFileErrorDetails';
 import RequestFilesResponse from './model/RequestFilesResponse';
 import RequestFilestatus from './model/RequestFilestatus';
+
 import GetFilesApi from './api/GetFilesApi';
 import RequestFilesApi from './api/RequestFilesApi';
 
@@ -56,7 +56,7 @@ import RequestFilesApi from './api/RequestFilesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -135,5 +135,6 @@ export {
     * The RequestFilesApi service constructor.
     * @property {module:api/RequestFilesApi}
     */
-    RequestFilesApi
+    RequestFilesApi,
+
 };

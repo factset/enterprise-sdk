@@ -96,6 +96,8 @@ public class InlineResponse20015DataNestedRegions implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  public InlineResponse20015DataNestedRegions() { 
+  }
 
   public InlineResponse20015DataNestedRegions id(BigDecimal id) {
     this.id = id;

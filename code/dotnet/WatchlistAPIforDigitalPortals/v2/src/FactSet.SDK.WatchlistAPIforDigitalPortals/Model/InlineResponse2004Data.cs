@@ -71,7 +71,7 @@ namespace FactSet.SDK.WatchlistAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Notation: ").Append(Notation).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.WatchlistAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -135,11 +136,15 @@ namespace FactSet.SDK.WatchlistAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
                 if (this.AdditionalData != null)
-                    hashCode = hashCode * 59 + this.AdditionalData.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalData.GetHashCode();
+                }
                 return hashCode;
             }
         }

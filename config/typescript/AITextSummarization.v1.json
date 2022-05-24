@@ -1,0 +1,15 @@
+{
+  "projectName": "@factset/sdk-aitextsummarization",
+  "projectVersion": "0.20.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "AI Text Summarization client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "aitextsummarization",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/AITextSummarization/0.20.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

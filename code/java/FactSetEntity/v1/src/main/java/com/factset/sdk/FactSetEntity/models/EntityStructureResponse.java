@@ -43,6 +43,8 @@ public class EntityStructureResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntityStructure> data = null;
 
+  public EntityStructureResponse() { 
+  }
 
   public EntityStructureResponse data(java.util.List<EntityStructure> data) {
     this.data = data;

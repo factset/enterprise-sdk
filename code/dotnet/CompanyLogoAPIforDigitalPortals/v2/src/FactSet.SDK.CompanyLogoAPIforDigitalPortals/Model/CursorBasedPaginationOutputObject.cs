@@ -93,7 +93,7 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CursorBasedPaginationOutputObject {\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  IsEstimatedTotal: ").Append(IsEstimatedTotal).Append("\n");
@@ -130,8 +130,9 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
         public bool Equals(CursorBasedPaginationOutputObject input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Total == input.Total ||
@@ -162,12 +163,16 @@ namespace FactSet.SDK.CompanyLogoAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Total.GetHashCode();
-                hashCode = hashCode * 59 + this.IsEstimatedTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsEstimatedTotal.GetHashCode();
                 if (this.Next != null)
-                    hashCode = hashCode * 59 + this.Next.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Next.GetHashCode();
+                }
                 if (this.Previous != null)
-                    hashCode = hashCode * 59 + this.Previous.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Previous.GetHashCode();
+                }
                 return hashCode;
             }
         }

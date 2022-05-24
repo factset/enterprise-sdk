@@ -60,7 +60,7 @@ namespace FactSet.SDK.IDLookup.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LookupRequest {\n");
             sb.Append("  Query: ").Append(Query).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.IDLookup.Model
         public bool Equals(LookupRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Query == input.Query ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.IDLookup.Model
             {
                 int hashCode = 41;
                 if (this.Query != null)
-                    hashCode = hashCode * 59 + this.Query.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Query.GetHashCode();
+                }
                 if (this.Settings != null)
-                    hashCode = hashCode * 59 + this.Settings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -43,6 +43,8 @@ public class RedemptionPricesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<RedemptionPrice> data = null;
 
+  public RedemptionPricesResponse() { 
+  }
 
   public RedemptionPricesResponse data(java.util.List<RedemptionPrice> data) {
     this.data = data;

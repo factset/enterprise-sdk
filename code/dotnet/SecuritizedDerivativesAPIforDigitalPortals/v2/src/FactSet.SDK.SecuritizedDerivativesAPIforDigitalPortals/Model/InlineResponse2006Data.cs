@@ -36,16 +36,18 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="id">Identifier of the notation..</param>
         /// <param name="symbol">The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market..</param>
+        /// <param name="fsym">fsym.</param>
         /// <param name="valueUnit">valueUnit.</param>
         /// <param name="market">market.</param>
         /// <param name="instrument">instrument.</param>
         /// <param name="keyFigures">keyFigures.</param>
         /// <param name="performance">performance.</param>
         /// <param name="volatility">volatility.</param>
-        public InlineResponse2006Data(string id = default(string), string symbol = default(string), InlineResponse2004ValueUnit valueUnit = default(InlineResponse2004ValueUnit), InlineResponse2006Market market = default(InlineResponse2006Market), InlineResponse2006Instrument instrument = default(InlineResponse2006Instrument), InlineResponse2006KeyFigures keyFigures = default(InlineResponse2006KeyFigures), InlineResponse2006Performance performance = default(InlineResponse2006Performance), InlineResponse2006Volatility volatility = default(InlineResponse2006Volatility))
+        public InlineResponse2006Data(string id = default(string), string symbol = default(string), InlineResponse2004Fsym fsym = default(InlineResponse2004Fsym), InlineResponse2004ValueUnit valueUnit = default(InlineResponse2004ValueUnit), InlineResponse2006Market market = default(InlineResponse2006Market), InlineResponse2006Instrument instrument = default(InlineResponse2006Instrument), InlineResponse2006KeyFigures keyFigures = default(InlineResponse2006KeyFigures), InlineResponse2006Performance performance = default(InlineResponse2006Performance), InlineResponse2006Volatility volatility = default(InlineResponse2006Volatility))
         {
             this.Id = id;
             this.Symbol = symbol;
+            this.Fsym = fsym;
             this.ValueUnit = valueUnit;
             this.Market = market;
             this.Instrument = instrument;
@@ -67,6 +69,12 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <value>The symbol of the notation. It is a market-specific code to identify the notation. Which characters can be part of a symbol depends on the market. If a market does not define a proprietary symbol, but uses a different identifier (for example, the ISIN or the WKN) to identify instruments, no symbol will be set for the notations of that market.</value>
         [DataMember(Name = "symbol", EmitDefaultValue = false)]
         public string Symbol { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Fsym
+        /// </summary>
+        [DataMember(Name = "fsym", EmitDefaultValue = false)]
+        public InlineResponse2004Fsym Fsym { get; set; }
 
         /// <summary>
         /// Gets or Sets ValueUnit
@@ -110,10 +118,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Symbol: ").Append(Symbol).Append("\n");
+            sb.Append("  Fsym: ").Append(Fsym).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
             sb.Append("  Market: ").Append(Market).Append("\n");
             sb.Append("  Instrument: ").Append(Instrument).Append("\n");
@@ -151,8 +160,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -163,6 +173,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
                     this.Symbol == input.Symbol ||
                     (this.Symbol != null &&
                     this.Symbol.Equals(input.Symbol))
+                ) && 
+                (
+                    this.Fsym == input.Fsym ||
+                    (this.Fsym != null &&
+                    this.Fsym.Equals(input.Fsym))
                 ) && 
                 (
                     this.ValueUnit == input.ValueUnit ||
@@ -206,21 +221,41 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Symbol != null)
-                    hashCode = hashCode * 59 + this.Symbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                }
+                if (this.Fsym != null)
+                {
+                    hashCode = (hashCode * 59) + this.Fsym.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 if (this.Instrument != null)
-                    hashCode = hashCode * 59 + this.Instrument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
                 if (this.KeyFigures != null)
-                    hashCode = hashCode * 59 + this.KeyFigures.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.KeyFigures.GetHashCode();
+                }
                 if (this.Performance != null)
-                    hashCode = hashCode * 59 + this.Performance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
                 if (this.Volatility != null)
-                    hashCode = hashCode * 59 + this.Volatility.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Volatility.GetHashCode();
+                }
                 return hashCode;
             }
         }

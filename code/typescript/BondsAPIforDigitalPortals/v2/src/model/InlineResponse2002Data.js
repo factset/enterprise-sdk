@@ -19,7 +19,7 @@ import InlineResponse2002DataYield from './InlineResponse2002DataYield';
 /**
  * The InlineResponse2002Data model module.
  * @module model/InlineResponse2002Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2002Data {
     /**

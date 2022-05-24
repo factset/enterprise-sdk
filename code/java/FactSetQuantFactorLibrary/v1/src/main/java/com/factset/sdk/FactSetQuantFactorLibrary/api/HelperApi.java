@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetQuantFactorLibrary.Configuration;
 import com.factset.sdk.FactSetQuantFactorLibrary.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetQuantFactorLibrary.models.LibraryRequest;
 import com.factset.sdk.FactSetQuantFactorLibrary.models.LibraryResponse;
@@ -22,6 +25,18 @@ public class HelperApi {
   public HelperApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFactorLibraryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFactorLibraryResponseTypeMap.put(200, new GenericType<LibraryResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFactorLibraryListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFactorLibraryListResponseTypeMap.put(200, new GenericType<LibraryResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -101,11 +116,17 @@ public class HelperApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LibraryResponse> localVarReturnType = new GenericType<LibraryResponse>() {};
 
-    return apiClient.invokeAPI("HelperApi.getFactorLibrary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LibraryResponse
+      
+    > apiResponse = apiClient.invokeAPI("HelperApi.getFactorLibrary", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFactorLibraryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Retrieves a list of all available factors with relevant meta data.
@@ -168,10 +189,16 @@ public class HelperApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LibraryResponse> localVarReturnType = new GenericType<LibraryResponse>() {};
 
-    return apiClient.invokeAPI("HelperApi.getFactorLibraryList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LibraryResponse
+      
+    > apiResponse = apiClient.invokeAPI("HelperApi.getFactorLibraryList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFactorLibraryListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

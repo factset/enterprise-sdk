@@ -17,7 +17,7 @@ import ChangeColor from './ChangeColor';
 /**
  * The PercentChange model module.
  * @module model/PercentChange
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PercentChange {
     /**

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetTermsandConditions.models.ErrorResponse;
 import com.factset.sdk.FactSetTermsandConditions.models.LeadUnderwritersResponse;
@@ -23,6 +26,28 @@ public class UnderwritersApi {
   public UnderwritersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getLeadUnderwritersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getLeadUnderwritersResponseTypeMap.put(200, new GenericType<LeadUnderwritersResponse>(){});
+    getLeadUnderwritersResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getLeadUnderwritersForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getLeadUnderwritersForListResponseTypeMap.put(200, new GenericType<LeadUnderwritersResponse>(){});
+    getLeadUnderwritersForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getLeadUnderwritersForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -114,11 +139,17 @@ public class UnderwritersApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LeadUnderwritersResponse> localVarReturnType = new GenericType<LeadUnderwritersResponse>() {};
 
-    return apiClient.invokeAPI("UnderwritersApi.getLeadUnderwriters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LeadUnderwritersResponse
+      
+    > apiResponse = apiClient.invokeAPI("UnderwritersApi.getLeadUnderwriters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getLeadUnderwritersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Return Lead Underwriters for a list of Fixed Income securities.
@@ -191,10 +222,16 @@ public class UnderwritersApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LeadUnderwritersResponse> localVarReturnType = new GenericType<LeadUnderwritersResponse>() {};
 
-    return apiClient.invokeAPI("UnderwritersApi.getLeadUnderwritersForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LeadUnderwritersResponse
+      
+    > apiResponse = apiClient.invokeAPI("UnderwritersApi.getLeadUnderwritersForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getLeadUnderwritersForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

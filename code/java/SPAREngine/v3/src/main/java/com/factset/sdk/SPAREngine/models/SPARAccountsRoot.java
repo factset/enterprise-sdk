@@ -47,6 +47,16 @@ public class SPARAccountsRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public SPARAccountsRoot() { 
+  }
+
+  @JsonCreator
+  public SPARAccountsRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) SPARAccounts data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public SPARAccountsRoot data(SPARAccounts data) {
     this.data = data;

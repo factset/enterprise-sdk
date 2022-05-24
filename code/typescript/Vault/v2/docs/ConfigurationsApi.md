@@ -48,6 +48,7 @@ const id = "'E522DF7D-C286-4EF1-AE34-0AA104AF602F'"; // String | Vault configura
 // Call api endpoint
 apiInstance.getVaultConfigurationById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const account = "'Client:Foo/Bar/myaccount.acct'"; // String | Required account 
 // Call api endpoint
 apiInstance.getVaultConfigurations(account).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

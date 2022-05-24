@@ -49,6 +49,8 @@ public class InlineResponse20062DataCostsAndChargesExAnteOneOffTypicalExitCost i
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit valueUnit;
 
+  public InlineResponse20062DataCostsAndChargesExAnteOneOffTypicalExitCost() { 
+  }
 
   public InlineResponse20062DataCostsAndChargesExAnteOneOffTypicalExitCost value(BigDecimal value) {
     this.value = value;

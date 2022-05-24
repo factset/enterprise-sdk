@@ -52,6 +52,8 @@ public class InlineResponse20072DataPerformance implements Serializable {
   public static final String JSON_PROPERTY_REFERENCE_PRICE = "referencePrice";
   private BigDecimal referencePrice;
 
+  public InlineResponse20072DataPerformance() { 
+  }
 
   public InlineResponse20072DataPerformance absolute(BigDecimal absolute) {
     this.absolute = absolute;

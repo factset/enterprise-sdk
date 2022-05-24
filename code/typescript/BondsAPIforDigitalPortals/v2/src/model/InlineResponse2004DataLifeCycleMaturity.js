@@ -19,7 +19,7 @@ import InlineResponse2004DataLifeCycleMaturityRemainingTermYears from './InlineR
 /**
  * The InlineResponse2004DataLifeCycleMaturity model module.
  * @module model/InlineResponse2004DataLifeCycleMaturity
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataLifeCycleMaturity {
     /**

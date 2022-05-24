@@ -64,6 +64,8 @@ public class InlineResponse20062DataTargetMarketRiskTolerance implements Seriali
   public static final String JSON_PROPERTY_GERMANY = "germany";
   private InlineResponse20062DataTargetMarketRiskToleranceGermany germany;
 
+  public InlineResponse20062DataTargetMarketRiskTolerance() { 
+  }
 
   public InlineResponse20062DataTargetMarketRiskTolerance sri(InlineResponse20062DataTargetMarketRiskToleranceSri sri) {
     this.sri = sri;

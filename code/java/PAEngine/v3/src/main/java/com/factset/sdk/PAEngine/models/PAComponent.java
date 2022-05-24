@@ -76,6 +76,8 @@ public class PAComponent implements Serializable {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
+  public PAComponent() { 
+  }
 
   public PAComponent id(String id) {
     this.id = id;

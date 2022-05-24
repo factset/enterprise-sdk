@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.ForeignExchangeRate",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageGuid": "{6503a425-a1f2-5317-b4dc-5b5f17960ebe}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/ForeignExchangeRate/0.9.1",
+  "httpUserAgent": "fds-sdk/dotnet/ForeignExchangeRate/0.20.0",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

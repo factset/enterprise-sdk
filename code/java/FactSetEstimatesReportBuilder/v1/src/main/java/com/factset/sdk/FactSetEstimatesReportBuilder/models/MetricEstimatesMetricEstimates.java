@@ -43,6 +43,8 @@ public class MetricEstimatesMetricEstimates implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
+  public MetricEstimatesMetricEstimates() { 
+  }
 
   public MetricEstimatesMetricEstimates value(String value) {
     this.value = value;

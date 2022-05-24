@@ -7,6 +7,9 @@ import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.OFDB.models.InlineObject1;
 import com.factset.sdk.OFDB.models.InlineObject3;
@@ -24,6 +27,63 @@ public class ModifyApi {
   public ModifyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> v1DatabasePathDatesDateDeleteResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathDatesDateDeleteResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathDatesDateDeleteResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathDatesDateDeleteResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathDatesDateDeleteResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathDatesDateDeleteResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathDatesDatePutResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathDatesDatePutResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    v1DatabasePathDatesDatePutResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathDatesDatePutResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathDatesDatePutResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathDatesDatePutResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathDatesDatePutResponseTypeMap.put(413, new GenericType<Object>(){});
+    v1DatabasePathDatesDatePutResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathSymbolsSymbolDeleteResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathSymbolsSymbolDeleteResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolDeleteResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolDeleteResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolDeleteResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolDeleteResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+  private static final Map<Integer, GenericType> v1DatabasePathSymbolsSymbolPutResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    v1DatabasePathSymbolsSymbolPutResponseTypeMap.put(201, new GenericType<SuccessPostResponse>(){});
+    v1DatabasePathSymbolsSymbolPutResponseTypeMap.put(202, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolPutResponseTypeMap.put(400, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolPutResponseTypeMap.put(403, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolPutResponseTypeMap.put(404, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolPutResponseTypeMap.put(413, new GenericType<Object>(){});
+    v1DatabasePathSymbolsSymbolPutResponseTypeMap.put(429, new GenericType<Object>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -127,11 +187,17 @@ public class ModifyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDateDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Object
+      
+    > apiResponse = apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDateDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathDatesDateDeleteResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -226,11 +292,17 @@ public class ModifyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SuccessPostResponse> localVarReturnType = new GenericType<SuccessPostResponse>() {};
 
-    return apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDatePut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SuccessPostResponse
+      
+    > apiResponse = apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDatePut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathDatesDatePutResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -324,11 +396,17 @@ public class ModifyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDateSymbolsSymbolDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Object
+      
+    > apiResponse = apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDateSymbolsSymbolDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathDatesDateSymbolsSymbolDeleteResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -429,11 +507,17 @@ public class ModifyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SuccessPostResponse> localVarReturnType = new GenericType<SuccessPostResponse>() {};
 
-    return apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDateSymbolsSymbolPut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SuccessPostResponse
+      
+    > apiResponse = apiClient.invokeAPI("ModifyApi.v1DatabasePathDatesDateSymbolsSymbolPut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathDatesDateSymbolsSymbolPutResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -519,11 +603,17 @@ public class ModifyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("ModifyApi.v1DatabasePathSymbolsSymbolDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Object
+      
+    > apiResponse = apiClient.invokeAPI("ModifyApi.v1DatabasePathSymbolsSymbolDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathSymbolsSymbolDeleteResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * 
@@ -618,10 +708,16 @@ public class ModifyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SuccessPostResponse> localVarReturnType = new GenericType<SuccessPostResponse>() {};
 
-    return apiClient.invokeAPI("ModifyApi.v1DatabasePathSymbolsSymbolPut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SuccessPostResponse
+      
+    > apiResponse = apiClient.invokeAPI("ModifyApi.v1DatabasePathSymbolsSymbolPut", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, v1DatabasePathSymbolsSymbolPutResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

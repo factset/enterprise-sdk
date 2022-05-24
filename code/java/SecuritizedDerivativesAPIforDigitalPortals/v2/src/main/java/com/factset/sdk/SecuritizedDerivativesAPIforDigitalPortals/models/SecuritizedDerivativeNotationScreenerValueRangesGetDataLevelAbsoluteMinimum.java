@@ -48,6 +48,16 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsolut
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinimum() { 
+  }
+
+  @JsonCreator
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinimum(
+    @JsonProperty(value=JSON_PROPERTY_VALUE, required=true) BigDecimal value
+  ) {
+    this();
+    this.value = value;
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsoluteMinimum value(BigDecimal value) {
     this.value = value;

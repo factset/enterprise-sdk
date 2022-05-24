@@ -43,6 +43,8 @@ public class ClientErrorResponse implements Serializable {
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private java.util.List<Error> errors = null;
 
+  public ClientErrorResponse() { 
+  }
 
   public ClientErrorResponse errors(java.util.List<Error> errors) {
     this.errors = errors;

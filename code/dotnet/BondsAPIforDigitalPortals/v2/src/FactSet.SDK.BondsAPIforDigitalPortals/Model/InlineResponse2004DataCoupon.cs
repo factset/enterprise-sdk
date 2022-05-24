@@ -60,7 +60,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataCoupon {\n");
             sb.Append("  Occurrence: ").Append(Occurrence).Append("\n");
             sb.Append("  CurrentInterestRate: ").Append(CurrentInterestRate).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataCoupon input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Occurrence == input.Occurrence ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Occurrence != null)
-                    hashCode = hashCode * 59 + this.Occurrence.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Occurrence.GetHashCode();
+                }
                 if (this.CurrentInterestRate != null)
-                    hashCode = hashCode * 59 + this.CurrentInterestRate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrentInterestRate.GetHashCode();
+                }
                 return hashCode;
             }
         }

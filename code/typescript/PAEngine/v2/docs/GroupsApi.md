@@ -46,6 +46,7 @@ const apiInstance = new GroupsApi();
 // Call api endpoint
 apiInstance.getPAGroups().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

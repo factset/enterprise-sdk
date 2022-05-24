@@ -59,6 +59,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesBidAskGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -138,6 +139,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesBidAskList(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -217,6 +219,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -296,6 +299,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesList(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -374,6 +378,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesOrderbookAggregatedGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -451,6 +456,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesOrderbookFullGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -526,6 +532,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPricesTradingScheduleEventTypeList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -597,6 +604,7 @@ const body = new quotesapifordigitalportals.InlineObject21(); // InlineObject21 
 // Call api endpoint
 apiInstance.postPricesTradingScheduleEventList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

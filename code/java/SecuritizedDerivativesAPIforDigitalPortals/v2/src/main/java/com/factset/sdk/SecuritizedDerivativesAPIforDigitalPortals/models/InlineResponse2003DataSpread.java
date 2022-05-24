@@ -48,6 +48,8 @@ public class InlineResponse2003DataSpread implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2003DataSpread() { 
+  }
 
   public InlineResponse2003DataSpread harmonized(BigDecimal harmonized) {
     this.harmonized = harmonized;

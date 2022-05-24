@@ -227,7 +227,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataGeneral {\n");
             sb.Append("  Isin: ").Append(Isin).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -273,8 +273,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataGeneral input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Isin == input.Isin ||
@@ -350,28 +351,48 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Isin != null)
-                    hashCode = hashCode * 59 + this.Isin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.ReportingDate != null)
-                    hashCode = hashCode * 59 + this.ReportingDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportingDate.GetHashCode();
+                }
                 if (this.LegalStructure != null)
-                    hashCode = hashCode * 59 + this.LegalStructure.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LegalStructure.GetHashCode();
+                }
                 if (this.Fund != null)
-                    hashCode = hashCode * 59 + this.Fund.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Fund.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Guarantor != null)
-                    hashCode = hashCode * 59 + this.Guarantor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Guarantor.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.LeveragedOrContingent.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LeveragedOrContingent.GetHashCode();
                 if (this.Manufacturer != null)
-                    hashCode = hashCode * 59 + this.Manufacturer.GetHashCode();
-                hashCode = hashCode * 59 + this.ApprovalProcedure.GetHashCode();
-                hashCode = hashCode * 59 + this.ComplexProduct.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Manufacturer.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ApprovalProcedure.GetHashCode();
+                hashCode = (hashCode * 59) + this.ComplexProduct.GetHashCode();
                 return hashCode;
             }
         }

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **identifier** | **str, none_type** |  | [optional] 
 **full_name** | **str, none_type** |  | [optional] 
 **employer_name** | **str, none_type** |  | [optional] 
+**employer_identifier** | **str, none_type** |  | [optional] 
 **city** | **str, none_type** |  | [optional] 
 **state_province** | **str, none_type** |  | [optional] 
 **postal_code** | **str, none_type** |  | [optional] 

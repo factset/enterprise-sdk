@@ -48,6 +48,8 @@ public class InlineObject4 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private BasicMicOperatingListMeta meta;
 
+  public InlineObject4() { 
+  }
 
   public InlineObject4 data(BasicMicOperatingListData data) {
     this.data = data;

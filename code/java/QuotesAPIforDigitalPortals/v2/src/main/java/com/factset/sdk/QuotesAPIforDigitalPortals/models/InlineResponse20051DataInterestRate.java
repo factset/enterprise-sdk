@@ -54,6 +54,8 @@ public class InlineResponse20051DataInterestRate implements Serializable {
   public static final String JSON_PROPERTY_PERIODIC = "periodic";
   private InlineResponse20051DataInterestRatePeriodic periodic;
 
+  public InlineResponse20051DataInterestRate() { 
+  }
 
   public InlineResponse20051DataInterestRate type(InlineResponse20051DataInterestRateType type) {
     this.type = type;

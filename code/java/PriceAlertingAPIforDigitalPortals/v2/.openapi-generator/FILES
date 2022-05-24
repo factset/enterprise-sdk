@@ -53,7 +53,6 @@ src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/ApiClient.java
 src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/ApiException.java
 src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/ApiResponse.java
 src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/Configuration.java
-src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/JSON.java
 src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/PriceAlertingAPIforDigitalPortals/Pair.java

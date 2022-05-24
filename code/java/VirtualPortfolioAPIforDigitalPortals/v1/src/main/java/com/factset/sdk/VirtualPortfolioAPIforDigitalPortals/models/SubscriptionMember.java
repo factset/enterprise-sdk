@@ -44,6 +44,16 @@ public class SubscriptionMember implements Serializable {
   public static final String JSON_PROPERTY_MINIMUM_INTERVAL = "minimumInterval";
   private BigDecimal minimumInterval;
 
+  public SubscriptionMember() { 
+  }
+
+  @JsonCreator
+  public SubscriptionMember(
+    @JsonProperty(value=JSON_PROPERTY_MINIMUM_INTERVAL, required=true) BigDecimal minimumInterval
+  ) {
+    this();
+    this.minimumInterval = minimumInterval;
+  }
 
   public SubscriptionMember minimumInterval(BigDecimal minimumInterval) {
     this.minimumInterval = minimumInterval;

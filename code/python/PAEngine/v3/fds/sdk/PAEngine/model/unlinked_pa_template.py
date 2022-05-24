@@ -25,18 +25,20 @@ from fds.sdk.PAEngine.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.PAEngine.exceptions import ApiAttributeError
 
 
 def lazy_import():
     from fds.sdk.PAEngine.model.pa_calculation_column import PACalculationColumn
+    from fds.sdk.PAEngine.model.pa_calculation_data_sources import PACalculationDataSources
     from fds.sdk.PAEngine.model.pa_calculation_group import PACalculationGroup
     from fds.sdk.PAEngine.model.pa_date_parameters import PADateParameters
     from fds.sdk.PAEngine.model.pa_identifier import PAIdentifier
     from fds.sdk.PAEngine.model.template_content_types import TemplateContentTypes
     globals()['PACalculationColumn'] = PACalculationColumn
+    globals()['PACalculationDataSources'] = PACalculationDataSources
     globals()['PACalculationGroup'] = PACalculationGroup
     globals()['PADateParameters'] = PADateParameters
     globals()['PAIdentifier'] = PAIdentifier
@@ -98,6 +100,7 @@ class UnlinkedPATemplate(ModelNormal):
             'columns': ([PACalculationColumn],),  # noqa: E501
             'dates': (PADateParameters,),  # noqa: E501
             'groups': ([PACalculationGroup],),  # noqa: E501
+            'datasources': (PACalculationDataSources,),  # noqa: E501
             'currencyisocode': (str,),  # noqa: E501
             'componentdetail': (str,),  # noqa: E501
             'content': (TemplateContentTypes,),  # noqa: E501
@@ -121,6 +124,7 @@ class UnlinkedPATemplate(ModelNormal):
         'columns': 'columns',  # noqa: E501
         'dates': 'dates',  # noqa: E501
         'groups': 'groups',  # noqa: E501
+        'datasources': 'datasources',  # noqa: E501
         'currencyisocode': 'currencyisocode',  # noqa: E501
         'componentdetail': 'componentdetail',  # noqa: E501
         'content': 'content',  # noqa: E501
@@ -179,6 +183,7 @@ class UnlinkedPATemplate(ModelNormal):
             columns ([PACalculationColumn]): List of columns for the PA calculation. [optional]  # noqa: E501
             dates (PADateParameters): [optional]  # noqa: E501
             groups ([PACalculationGroup]): List of groupings for the PA calculation. [optional]  # noqa: E501
+            datasources (PACalculationDataSources): [optional]  # noqa: E501
             currencyisocode (str): Currency ISO code for calculation.. [optional]  # noqa: E501
             componentdetail (str): PA storage type. It can be GROUPS or TOTALS or SECURITIES.. [optional]  # noqa: E501
             content (TemplateContentTypes): [optional]  # noqa: E501
@@ -275,6 +280,7 @@ class UnlinkedPATemplate(ModelNormal):
             columns ([PACalculationColumn]): List of columns for the PA calculation. [optional]  # noqa: E501
             dates (PADateParameters): [optional]  # noqa: E501
             groups ([PACalculationGroup]): List of groupings for the PA calculation. [optional]  # noqa: E501
+            datasources (PACalculationDataSources): [optional]  # noqa: E501
             currencyisocode (str): Currency ISO code for calculation.. [optional]  # noqa: E501
             componentdetail (str): PA storage type. It can be GROUPS or TOTALS or SECURITIES.. [optional]  # noqa: E501
             content (TemplateContentTypes): [optional]  # noqa: E501

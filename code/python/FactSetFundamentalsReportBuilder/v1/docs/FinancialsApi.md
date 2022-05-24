@@ -40,41 +40,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFundamentalsReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFundamentalsReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFundamentalsReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = financials_api.FinancialsApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "INTERIM"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
-    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) if omitted the server will use the default value of "RESTATED"
-    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
+    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "INTERIM")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) (default to "RESTATED")
+    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) (default to "LOCAL")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Balance Sheet
-        api_response = api_instance.get_financials_balance_sheet(id)
-        pprint(api_response)
-    except fds.sdk.FactSetFundamentalsReportBuilder.ApiException as e:
-        print("Exception when calling FinancialsApi->get_financials_balance_sheet: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Balance Sheet
         api_response = api_instance.get_financials_balance_sheet(id, periodicity=periodicity, schema=schema, report_status=report_status, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetFundamentalsReportBuilder.ApiException as e:
         print("Exception when calling FinancialsApi->get_financials_balance_sheet: %s\n" % e)
 ```
@@ -150,41 +142,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFundamentalsReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFundamentalsReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFundamentalsReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = financials_api.FinancialsApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "INTERIM"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
-    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) if omitted the server will use the default value of "RESTATED"
-    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
+    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "INTERIM")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) (default to "RESTATED")
+    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) (default to "LOCAL")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Cash Flow
-        api_response = api_instance.get_financials_cash_flow(id)
-        pprint(api_response)
-    except fds.sdk.FactSetFundamentalsReportBuilder.ApiException as e:
-        print("Exception when calling FinancialsApi->get_financials_cash_flow: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Cash Flow
         api_response = api_instance.get_financials_cash_flow(id, periodicity=periodicity, schema=schema, report_status=report_status, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetFundamentalsReportBuilder.ApiException as e:
         print("Exception when calling FinancialsApi->get_financials_cash_flow: %s\n" % e)
 ```
@@ -260,41 +244,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFundamentalsReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFundamentalsReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFundamentalsReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = financials_api.FinancialsApi(api_client)
+
     id = "FDS" # str | Company Ticker
-    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) if omitted the server will use the default value of "INTERIM"
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
-    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) if omitted the server will use the default value of "RESTATED"
-    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) if omitted the server will use the default value of "LOCAL"
+    periodicity = "INTERIM" # str | Periodicity or frequency of the fiscal periods. (optional) (default to "INTERIM")
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
+    report_status = "RESTATED" # str | Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (optional) (default to "RESTATED")
+    currency = "LOCAL" # str | Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional) (default to "LOCAL")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Income Statement
-        api_response = api_instance.get_financials_income_statement(id)
-        pprint(api_response)
-    except fds.sdk.FactSetFundamentalsReportBuilder.ApiException as e:
-        print("Exception when calling FinancialsApi->get_financials_income_statement: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Income Statement
         api_response = api_instance.get_financials_income_statement(id, periodicity=periodicity, schema=schema, report_status=report_status, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetFundamentalsReportBuilder.ApiException as e:
         print("Exception when calling FinancialsApi->get_financials_income_statement: %s\n" % e)
 ```

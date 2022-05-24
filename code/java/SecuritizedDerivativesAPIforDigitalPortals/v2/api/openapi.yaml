@@ -3,7 +3,7 @@ info:
   title: Prime Developer Trial
   version: v1
 servers:
-- url: //api.factset.com/wealth/v1
+- url: https://api.factset.com/wealth/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -279,7 +279,7 @@ paths:
   /securitizedDerivative/notation/screener/valueRanges/get:
     post:
       description: |-
-        The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter `market.priority`) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.
+        The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.
 
          Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term "level" is used instead of "price", e.g. underlying level instead of underlying price.
 
@@ -570,15 +570,16 @@ components:
           format: int32
           type: number
         isEstimatedTotal:
-          description: Flag indicating that the value of "total" is estimated.
+          description: Flag indicating that the value of `total` is estimated.
           type: boolean
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - isEstimatedTotal
@@ -596,12 +597,13 @@ components:
         a total element count is not supported.
       properties:
         next:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the next page of results, if any, otherwise null.
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
           type: string
         previous:
-          description: Cursor position to use in the attribute `pagination.cursor`
-            to retrieve the previous page of results, if any, otherwise null.
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
           type: string
       required:
       - next
@@ -2877,6 +2879,66 @@ components:
       x-property-sort:
       - effectiveUnderlying
       - participation
+    _securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum:
+      description: The minimum of the range, or `null` to indicate that there is no
+        minimum.
+      properties:
+        value:
+          description: The minimum value.
+          format: relativeValue
+          type: number
+        inclusive:
+          default: true
+          description: Indicates whether the minimum value is included in the range
+            or not.
+          type: boolean
+      required:
+      - value
+      type: object
+      x-property-sort:
+      - value
+      - inclusive
+      x-allowNullValue: true
+    _securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum:
+      description: The maximum of the range, or `null` to indicate that there is no
+        maximum.
+      properties:
+        value:
+          description: The maximum value.
+          format: relativeValue
+          type: number
+        inclusive:
+          default: true
+          description: Indicates whether the maximum value is included in the range
+            or not.
+          type: boolean
+      required:
+      - value
+      type: object
+      x-property-sort:
+      - value
+      - inclusive
+      x-allowNullValue: true
+    _securitizedDerivative_notation_ranking_intraday_list_data_performance_relative:
+      description: Value range for the relative performance.
+      properties:
+        minimum:
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
+        maximum:
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
+      type: object
+      x-property-sort:
+      - minimum
+      - maximum
+    _securitizedDerivative_notation_ranking_intraday_list_data_performance:
+      description: |
+        Performance of the most recent price calculated against the latest price which has occurred before the start of the current trading day.
+      properties:
+        relative:
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative'
+      type: object
+      x-property-sort:
+      - relative
     _securitizedDerivative_notation_ranking_intraday_list_data:
       description: The data member contains the request's primary data.
       properties:
@@ -2935,6 +2997,8 @@ components:
           - Only knocked-in securitized derivatives are included in the result.
           - Knocked-in securitized derivatives are included in the result.
           - Knocked-in securitized derivatives are excluded from the result.
+        performance:
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance'
       required:
       - market
       type: object
@@ -2954,6 +3018,7 @@ components:
       - factorCertificates
       - knockedOut
       - knockedIn
+      - performance
     _securitizedDerivative_notation_ranking_intraday_list_meta_pagination:
       description: Pagination attributes for the offset-based pagination strategy.
       properties:
@@ -3033,6 +3098,78 @@ components:
       x-property-sort:
       - data
       - meta
+    inline_response_200_4_fsym_listing:
+      description: Listing-level identifiers.
+      example:
+        tickerExchange: tickerExchange
+        isPrimary: true
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for a notation. The format is
+            six alpha numeric characters, excluding vowels, with an L suffix (XXXXXX-L).
+          type: string
+        tickerExchange:
+          description: 'FactSet market symbol of the notation, usually consisting
+            of the ticker (e.g. "DAI" for Daimler AG) and the three-character code
+            of the exchange on which the listing is traded (example: DAI-ETR).'
+          type: string
+        isPrimary:
+          description: Indicates whether the notation is the primary notation among
+            all notations within the same region (`true`) or not (`false`).
+          type: boolean
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+      - tickerExchange
+      - isPrimary
+    inline_response_200_4_fsym_regional:
+      description: Regional-level identifiers.
+      example:
+        isPrimary: true
+        tickerRegion: tickerRegion
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for a set of one or more notations
+            of the same region with the same value unit. The format is six alpha numeric
+            characters, excluding vowels, with an R suffix (XXXXXX-R).
+          type: string
+        tickerRegion:
+          description: 'FactSet regional symbol of the notation, consisting of the
+            ticker and the two-character code of the country or region where the listing
+            is traded (example: DAI-DE).'
+          type: string
+        isPrimary:
+          description: Indicates whether the notation is in the primary region of
+            the security (`true`) or not (`false`).
+          type: boolean
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+      - tickerRegion
+      - isPrimary
+    inline_response_200_4_fsym:
+      description: Notation-level FactSet identifiers of the financial instrument
+        used primarily in FactSet products other than the MDG.
+      example:
+        regional:
+          isPrimary: true
+          tickerRegion: tickerRegion
+          permanentIdentifier: permanentIdentifier
+        listing:
+          tickerExchange: tickerExchange
+          isPrimary: true
+          permanentIdentifier: permanentIdentifier
+      properties:
+        listing:
+          $ref: '#/components/schemas/inline_response_200_4_fsym_listing'
+        regional:
+          $ref: '#/components/schemas/inline_response_200_4_fsym_regional'
+      type: object
+      x-property-sort:
+      - listing
+      - regional
     inline_response_200_4_market:
       description: Market of the notation.
       example:
@@ -3183,9 +3320,36 @@ components:
       - tradingVolume
       - tradingValue
       - currency
+    inline_response_200_4_instrument_fsym_security:
+      description: Security-level identifier.
+      example:
+        permanentIdentifier: permanentIdentifier
+      properties:
+        permanentIdentifier:
+          description: FactSet Permanent Identifier for an instrument. The format
+            is six alpha numeric characters, excluding vowels, with an S suffix (XXXXXX-S).
+          type: string
+      type: object
+      x-property-sort:
+      - permanentIdentifier
+    inline_response_200_4_instrument_fsym:
+      description: Instrument-level FactSet identifier of the financial instrument
+        used primarily in FactSet products other than the MDG.
+      example:
+        security:
+          permanentIdentifier: permanentIdentifier
+      properties:
+        security:
+          $ref: '#/components/schemas/inline_response_200_4_instrument_fsym_security'
+      type: object
+      x-property-sort:
+      - security
     inline_response_200_4_instrument:
       description: Instrument data of the notation.
       example:
+        fsym:
+          security:
+            permanentIdentifier: permanentIdentifier
         name: name
         nsin:
           valor: valor
@@ -3214,6 +3378,8 @@ components:
           type: string
         nsin:
           $ref: '#/components/schemas/inline_response_200_data_nsin'
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_4_instrument_fsym'
       type: object
       x-property-sort:
       - id
@@ -3221,6 +3387,7 @@ components:
       - shortName
       - isin
       - nsin
+      - fsym
     inline_response_200_4_categorization_ddv:
       example:
         name: name
@@ -3486,6 +3653,9 @@ components:
         exercise:
           right: put
         instrument:
+          fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
           name: name
           nsin:
             valor: valor
@@ -3515,6 +3685,15 @@ components:
         market:
           name: name
           id: 0.8008281904610115
+        fsym:
+          regional:
+            isPrimary: true
+            tickerRegion: tickerRegion
+            permanentIdentifier: permanentIdentifier
+          listing:
+            tickerExchange: tickerExchange
+            isPrimary: true
+            permanentIdentifier: permanentIdentifier
         trade:
           performance:
             absolute: 5.962133916683182
@@ -3545,6 +3724,8 @@ components:
             a different identifier (for example, the ISIN or the WKN) to identify
             instruments, no symbol will be set for the notations of that market.
           type: string
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_4_fsym'
         market:
           $ref: '#/components/schemas/inline_response_200_4_market'
         valueUnit:
@@ -3603,6 +3784,7 @@ components:
       x-property-sort:
       - id
       - symbol
+      - fsym
       - market
       - valueUnit
       - trade
@@ -3662,6 +3844,9 @@ components:
           exercise:
             right: put
           instrument:
+            fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
             name: name
             nsin:
               valor: valor
@@ -3691,6 +3876,15 @@ components:
           market:
             name: name
             id: 0.8008281904610115
+          fsym:
+            regional:
+              isPrimary: true
+              tickerRegion: tickerRegion
+              permanentIdentifier: permanentIdentifier
+            listing:
+              tickerExchange: tickerExchange
+              isPrimary: true
+              permanentIdentifier: permanentIdentifier
           trade:
             performance:
               absolute: 5.962133916683182
@@ -3728,6 +3922,9 @@ components:
           exercise:
             right: put
           instrument:
+            fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
             name: name
             nsin:
               valor: valor
@@ -3757,6 +3954,15 @@ components:
           market:
             name: name
             id: 0.8008281904610115
+          fsym:
+            regional:
+              isPrimary: true
+              tickerRegion: tickerRegion
+              permanentIdentifier: permanentIdentifier
+            listing:
+              tickerExchange: tickerExchange
+              isPrimary: true
+              permanentIdentifier: permanentIdentifier
           trade:
             performance:
               absolute: 5.962133916683182
@@ -3943,12 +4149,14 @@ components:
       - exclude
       x-atMostOne: true
     _securitizedDerivative_notation_screener_valueRanges_get_data_validation_market_priority:
-      description: Sequence of markets specifying the priority order of the markets
-        for the selection of one notation per instrument. If for a given instrument
-        with two matching notations, A and B, the market of notation A precedes the
-        market of notation B in this list, A will be selected. The list does not restrict
-        the request to only those markets (use the parameter `market.selection` for
-        that purpose).
+      description: "Sequence of markets specifying the priority order of the markets\
+        \ for the selection of one notation per instrument. If for a given instrument\
+        \ with two matching notations, A and B, the market of notation A precedes\
+        \ the market of notation B in this list or if the market of notation B is\
+        \ not in this list, A is selected. If neither of the markets is in this list,\
+        \ the notation with the highest trading volume, averaged over one month, is\
+        \ selected.        \n The list does not restrict the request to only those\
+        \ markets (use the parameter `market.selection` for that purpose)."
       properties:
         ids:
           description: List of market identifiers.
@@ -4292,54 +4500,14 @@ components:
       x-property-sort:
       - right
       - style
-    _securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum:
-      description: The minimum of the range, or `null` to indicate that there is no
-        minimum.
-      properties:
-        value:
-          description: The minimum value.
-          format: relativeValue
-          type: number
-        inclusive:
-          default: true
-          description: Indicates whether the minimum value is included in the range
-            or not.
-          type: boolean
-      required:
-      - value
-      type: object
-      x-property-sort:
-      - value
-      - inclusive
-      x-allowNullValue: true
-    _securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum:
-      description: The maximum of the range, or `null` to indicate that there is no
-        maximum.
-      properties:
-        value:
-          description: The maximum value.
-          format: relativeValue
-          type: number
-        inclusive:
-          default: true
-          description: Indicates whether the maximum value is included in the range
-            or not.
-          type: boolean
-      required:
-      - value
-      type: object
-      x-property-sort:
-      - value
-      - inclusive
-      x-allowNullValue: true
     _securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection:
       description: Value range of the proportion of the nominal amount protected against
         loss.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4468,9 +4636,9 @@ components:
       description: Value range of the distance in relative terms.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4703,9 +4871,9 @@ components:
         for securitized derivatives with a current interest rate type other than `fixed`.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4745,9 +4913,9 @@ components:
       description: Value range of the bonus yield relative to the ask price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4756,9 +4924,9 @@ components:
       description: Value range of the annualized bonus yield relative to the ask price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4799,9 +4967,9 @@ components:
       description: Value range of the sideways yield relative to the ask price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4811,9 +4979,9 @@ components:
         price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4849,9 +5017,9 @@ components:
       description: Value range of the maximum yield relative to the ask price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4861,9 +5029,9 @@ components:
         price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4901,9 +5069,9 @@ components:
       description: Value range of the agio relative to the underlying level.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4912,9 +5080,9 @@ components:
       description: Value range of the annualized agio relative to the underlying level.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -4955,9 +5123,9 @@ components:
       description: Value range of the discount relative to the underlying level.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5002,9 +5170,9 @@ components:
       description: Value range of the distance relative to the underlying level.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5049,9 +5217,9 @@ components:
       description: Value range of the spread relative to the ask price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5198,9 +5366,9 @@ components:
         leveraged securitized derivatives (e.g. warrants, knock-out certificates).
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5230,9 +5398,9 @@ components:
         only.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5359,9 +5527,9 @@ components:
         most recent EOD closing price.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5370,9 +5538,9 @@ components:
       description: Value range for the ask-based relative performance since issue.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5381,9 +5549,9 @@ components:
       description: Value range for the bid-based relative performance since issue.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5405,9 +5573,9 @@ components:
       description: Value range for the time range one day.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5416,9 +5584,9 @@ components:
       description: Value range for the time range one week.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5427,9 +5595,9 @@ components:
       description: Value range for the time range one month.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5438,9 +5606,9 @@ components:
       description: Value range for the time range three months.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5449,9 +5617,9 @@ components:
       description: Value range for the time range six months.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5460,9 +5628,9 @@ components:
       description: Value range for the time range one year.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5471,9 +5639,9 @@ components:
       description: Value range for the time range three years.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5482,9 +5650,9 @@ components:
       description: Value range for the time range five years.
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -5493,9 +5661,9 @@ components:
       description: Value range for the time range year-to-date (YTD).
       properties:
         minimum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_minimum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_minimum'
         maximum:
-          $ref: '#/components/schemas/_securitizedDerivative_notation_screener_valueRanges_get_data_capitalProtection_maximum'
+          $ref: '#/components/schemas/_securitizedDerivative_notation_ranking_intraday_list_data_performance_relative_maximum'
       type: object
       x-property-sort:
       - minimum
@@ -11439,6 +11607,9 @@ components:
             name: name
             id: 7.061401241503109
         settlement: cash
+        fsym:
+          security:
+            permanentIdentifier: permanentIdentifier
         cap:
           distance:
             absolute: 1.1730742509559433
@@ -11583,6 +11754,8 @@ components:
           type: string
         nsin:
           $ref: '#/components/schemas/inline_response_200_data_nsin'
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_4_instrument_fsym'
         categorization:
           $ref: '#/components/schemas/inline_response_200_6_instrument_categorization'
         lifeCycle:
@@ -11671,6 +11844,7 @@ components:
       - shortName
       - isin
       - nsin
+      - fsym
       - categorization
       - lifeCycle
       - issuer
@@ -12360,6 +12534,15 @@ components:
           name: name
           id: 0.8008281904610115
         symbol: symbol
+        fsym:
+          regional:
+            isPrimary: true
+            tickerRegion: tickerRegion
+            permanentIdentifier: permanentIdentifier
+          listing:
+            tickerExchange: tickerExchange
+            isPrimary: true
+            permanentIdentifier: permanentIdentifier
         keyFigures:
           agio:
             annualized: 5.507386964179881
@@ -12456,6 +12639,9 @@ components:
               name: name
               id: 7.061401241503109
           settlement: cash
+          fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
           cap:
             distance:
               absolute: 1.1730742509559433
@@ -12599,6 +12785,8 @@ components:
             instruments, no symbol will be set for the notations of that market.
           type: string
           x-sortable: true
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_4_fsym'
         valueUnit:
           $ref: '#/components/schemas/inline_response_200_4_valueUnit'
         market:
@@ -12615,6 +12803,7 @@ components:
       x-property-sort:
       - id
       - symbol
+      - fsym
       - valueUnit
       - market
       - instrument
@@ -12628,6 +12817,15 @@ components:
             name: name
             id: 0.8008281904610115
           symbol: symbol
+          fsym:
+            regional:
+              isPrimary: true
+              tickerRegion: tickerRegion
+              permanentIdentifier: permanentIdentifier
+            listing:
+              tickerExchange: tickerExchange
+              isPrimary: true
+              permanentIdentifier: permanentIdentifier
           keyFigures:
             agio:
               annualized: 5.507386964179881
@@ -12724,6 +12922,9 @@ components:
                 name: name
                 id: 7.061401241503109
             settlement: cash
+            fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
             cap:
               distance:
                 absolute: 1.1730742509559433
@@ -12857,6 +13058,15 @@ components:
             name: name
             id: 0.8008281904610115
           symbol: symbol
+          fsym:
+            regional:
+              isPrimary: true
+              tickerRegion: tickerRegion
+              permanentIdentifier: permanentIdentifier
+            listing:
+              tickerExchange: tickerExchange
+              isPrimary: true
+              permanentIdentifier: permanentIdentifier
           keyFigures:
             agio:
               annualized: 5.507386964179881
@@ -12953,6 +13163,9 @@ components:
                 name: name
                 id: 7.061401241503109
             settlement: cash
+            fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
             cap:
               distance:
                 absolute: 1.1730742509559433
@@ -13127,6 +13340,9 @@ components:
     inline_response_200_7_data_notation_instrument:
       description: Instrument of the underlying.
       example:
+        fsym:
+          security:
+            permanentIdentifier: permanentIdentifier
         id: id
         typeComposite: basket
       properties:
@@ -13135,6 +13351,8 @@ components:
           format: id64
           type: string
           x-positive: true
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_4_instrument_fsym'
         typeComposite:
           description: Type of composite instrument, in case the underlying is a composite
             instrument.
@@ -13160,12 +13378,25 @@ components:
       type: object
       x-property-sort:
       - id
+      - fsym
       - typeComposite
     inline_response_200_7_data_notation:
       description: Notation of the underlying. If there is no notation for the underlying,
         the object is null.
       example:
+        fsym:
+          regional:
+            isPrimary: true
+            tickerRegion: tickerRegion
+            permanentIdentifier: permanentIdentifier
+          listing:
+            tickerExchange: tickerExchange
+            isPrimary: true
+            permanentIdentifier: permanentIdentifier
         instrument:
+          fsym:
+            security:
+              permanentIdentifier: permanentIdentifier
           id: id
           typeComposite: basket
         id: id
@@ -13175,11 +13406,14 @@ components:
           format: id64
           type: string
           x-positive: true
+        fsym:
+          $ref: '#/components/schemas/inline_response_200_4_fsym'
         instrument:
           $ref: '#/components/schemas/inline_response_200_7_data_notation_instrument'
       type: object
       x-property-sort:
       - id
+      - fsym
       - instrument
     inline_response_200_7_data_calculationLevel:
       description: Details of the underlying regarding the calculation of the barrier
@@ -13208,7 +13442,19 @@ components:
           id: 0.8008281904610115
         constantLeverage: 5.962133916683182
         notation:
+          fsym:
+            regional:
+              isPrimary: true
+              tickerRegion: tickerRegion
+              permanentIdentifier: permanentIdentifier
+            listing:
+              tickerExchange: tickerExchange
+              isPrimary: true
+              permanentIdentifier: permanentIdentifier
           instrument:
+            fsym:
+              security:
+                permanentIdentifier: permanentIdentifier
             id: id
             typeComposite: basket
           id: id
@@ -14194,7 +14440,19 @@ components:
             id: 0.8008281904610115
           constantLeverage: 5.962133916683182
           notation:
+            fsym:
+              regional:
+                isPrimary: true
+                tickerRegion: tickerRegion
+                permanentIdentifier: permanentIdentifier
+              listing:
+                tickerExchange: tickerExchange
+                isPrimary: true
+                permanentIdentifier: permanentIdentifier
             instrument:
+              fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
               id: id
               typeComposite: basket
             id: id
@@ -14213,7 +14471,19 @@ components:
             id: 0.8008281904610115
           constantLeverage: 5.962133916683182
           notation:
+            fsym:
+              regional:
+                isPrimary: true
+                tickerRegion: tickerRegion
+                permanentIdentifier: permanentIdentifier
+              listing:
+                tickerExchange: tickerExchange
+                isPrimary: true
+                permanentIdentifier: permanentIdentifier
             instrument:
+              fsym:
+                security:
+                  permanentIdentifier: permanentIdentifier
               id: id
               typeComposite: basket
             id: id
@@ -14667,7 +14937,19 @@ components:
               id: 0.8008281904610115
             constantLeverage: 5.962133916683182
             notation:
+              fsym:
+                regional:
+                  isPrimary: true
+                  tickerRegion: tickerRegion
+                  permanentIdentifier: permanentIdentifier
+                listing:
+                  tickerExchange: tickerExchange
+                  isPrimary: true
+                  permanentIdentifier: permanentIdentifier
               instrument:
+                fsym:
+                  security:
+                    permanentIdentifier: permanentIdentifier
                 id: id
                 typeComposite: basket
               id: id
@@ -14686,7 +14968,19 @@ components:
               id: 0.8008281904610115
             constantLeverage: 5.962133916683182
             notation:
+              fsym:
+                regional:
+                  isPrimary: true
+                  tickerRegion: tickerRegion
+                  permanentIdentifier: permanentIdentifier
+                listing:
+                  tickerExchange: tickerExchange
+                  isPrimary: true
+                  permanentIdentifier: permanentIdentifier
               instrument:
+                fsym:
+                  security:
+                    permanentIdentifier: permanentIdentifier
                 id: id
                 typeComposite: basket
               id: id
@@ -15132,7 +15426,7 @@ components:
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
 x-interface-version: 1
-x-documenter-version: 5.38.0
-x-api-version: 2.9.0
+x-documenter-version: 5.38.1
+x-api-version: 2.9.1
 x-original-swagger-version: "2.0"
 

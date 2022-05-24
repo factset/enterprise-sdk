@@ -54,6 +54,7 @@ const ids = ["AAPL-US","IBM-US"]; // [String] | The requested company identifier
 // Call api endpoint
 apiInstance.getCompanyCompensation(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -125,6 +126,7 @@ const companyCompensationRequest = new factsetpeople.CompanyCompensationRequest(
 // Call api endpoint
 apiInstance.getCompanyCompensationForList(companyCompensationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -199,6 +201,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getCompanyPeople(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -271,6 +274,7 @@ const companyPeopleRequest = new factsetpeople.CompanyPeopleRequest(); // Compan
 // Call api endpoint
 apiInstance.getCompanyPeopleForList(companyPeopleRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -345,6 +349,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getCompanyPositions(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -417,6 +422,7 @@ const companyPositionsRequest = new factsetpeople.CompanyPositionsRequest(); // 
 // Call api endpoint
 apiInstance.getCompanyPositionsForList(companyPositionsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -491,6 +497,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getCompanyStats(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -563,6 +570,7 @@ const companyStatsRequest = new factsetpeople.CompanyStatsRequest(); // CompanyS
 // Call api endpoint
 apiInstance.getCompanyStatsForList(companyStatsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

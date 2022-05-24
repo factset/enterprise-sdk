@@ -48,6 +48,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListMetaPagination impl
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public SecuritizedDerivativeNotationRankingIntradayListMetaPagination() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListMetaPagination offset(BigDecimal offset) {
     this.offset = offset;

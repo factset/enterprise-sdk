@@ -64,6 +64,8 @@ public class InlineResponse2005DataRangeKnockOut implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private InlineResponse2005DataCapCashFlow cashFlow;
 
+  public InlineResponse2005DataRangeKnockOut() { 
+  }
 
   public InlineResponse2005DataRangeKnockOut observation(java.util.List<InlineResponse2005DataKnockOutObservation> observation) {
     this.observation = observation;

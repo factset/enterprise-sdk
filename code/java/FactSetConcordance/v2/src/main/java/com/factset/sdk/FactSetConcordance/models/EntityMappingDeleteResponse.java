@@ -43,6 +43,8 @@ public class EntityMappingDeleteResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntityMapping> data = null;
 
+  public EntityMappingDeleteResponse() { 
+  }
 
   public EntityMappingDeleteResponse data(java.util.List<EntityMapping> data) {
     this.data = data;

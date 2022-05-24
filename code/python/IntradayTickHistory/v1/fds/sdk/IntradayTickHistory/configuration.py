@@ -104,7 +104,7 @@ conf = fds.sdk.IntradayTickHistory.Configuration(
                  access_token=None,
                  fds_oauth_client=None,
                  username=None, password=None,
-                 discard_unknown_keys=False,
+                 discard_unknown_keys=True,
                  disabled_client_side_validations="",
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
@@ -199,6 +199,9 @@ conf = fds.sdk.IntradayTickHistory.Configuration(
 
         self.proxy = None
         """Proxy URL
+        """
+        self.no_proxy = None
+        """bypass proxy for host in the no_proxy list.
         """
         self.proxy_headers = None
         """Proxy headers
@@ -419,7 +422,7 @@ conf = fds.sdk.IntradayTickHistory.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 0.9.1".\
+               "SDK Package Version: 0.20.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

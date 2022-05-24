@@ -121,7 +121,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityMappingRequest {\n");
             sb.Append("  UniverseId: ").Append(UniverseId).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
@@ -161,8 +161,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(EntityMappingRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UniverseId == input.UniverseId ||
@@ -209,19 +210,31 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UniverseId.GetHashCode();
+                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
                 if (this.ClientId != null)
-                    hashCode = hashCode * 59 + this.ClientId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
                 if (this.EntityId != null)
-                    hashCode = hashCode * 59 + this.EntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityId.GetHashCode();
+                }
                 if (this.ClientName != null)
-                    hashCode = hashCode * 59 + this.ClientName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientName.GetHashCode();
+                }
                 if (this.ClientCountry != null)
-                    hashCode = hashCode * 59 + this.ClientCountry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientCountry.GetHashCode();
+                }
                 if (this.ClientState != null)
-                    hashCode = hashCode * 59 + this.ClientState.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientState.GetHashCode();
+                }
                 if (this.ClientUrl != null)
-                    hashCode = hashCode * 59 + this.ClientUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientUrl.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -234,25 +247,25 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // ClientCountry (string) maxLength
-            if(this.ClientCountry != null && this.ClientCountry.Length > 2)
+            if (this.ClientCountry != null && this.ClientCountry.Length > 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientCountry, length must be less than 2.", new [] { "ClientCountry" });
             }
 
             // ClientCountry (string) minLength
-            if(this.ClientCountry != null && this.ClientCountry.Length < 2)
+            if (this.ClientCountry != null && this.ClientCountry.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientCountry, length must be greater than 2.", new [] { "ClientCountry" });
             }
 
             // ClientState (string) maxLength
-            if(this.ClientState != null && this.ClientState.Length > 2)
+            if (this.ClientState != null && this.ClientState.Length > 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientState, length must be less than 2.", new [] { "ClientState" });
             }
 
             // ClientState (string) minLength
-            if(this.ClientState != null && this.ClientState.Length < 2)
+            if (this.ClientState != null && this.ClientState.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientState, length must be greater than 2.", new [] { "ClientState" });
             }

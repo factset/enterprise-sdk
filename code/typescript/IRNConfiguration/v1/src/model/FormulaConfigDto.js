@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FormulaConfigDto model module.
  * @module model/FormulaConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FormulaConfigDto {
     /**
@@ -47,11 +47,11 @@ class FormulaConfigDto {
         if (data) {
             obj = obj || new FormulaConfigDto();
 
-            if (data.hasOwnProperty('formula')) {
-                obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
+            if (data.hasOwnProperty('Formula')) {
+                obj['Formula'] = ApiClient.convertToType(data['Formula'], 'String');
             }
-            if (data.hasOwnProperty('formulaType')) {
-                obj['formulaType'] = ApiClient.convertToType(data['formulaType'], 'String');
+            if (data.hasOwnProperty('FormulaType')) {
+                obj['FormulaType'] = ApiClient.convertToType(data['FormulaType'], 'String');
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class FormulaConfigDto {
 }
 
 /**
- * @member {String} formula
+ * @member {String} Formula
  */
-FormulaConfigDto.prototype['formula'] = undefined;
+FormulaConfigDto.prototype['Formula'] = undefined;
 
 /**
- * @member {String} formulaType
+ * @member {String} FormulaType
  */
-FormulaConfigDto.prototype['formulaType'] = undefined;
+FormulaConfigDto.prototype['FormulaType'] = undefined;
 
 
 

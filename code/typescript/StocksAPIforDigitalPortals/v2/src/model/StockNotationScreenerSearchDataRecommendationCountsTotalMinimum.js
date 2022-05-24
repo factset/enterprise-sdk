@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataRecommendationCountsTotalMinimum model module.
  * @module model/StockNotationScreenerSearchDataRecommendationCountsTotalMinimum
- * @version 0.9.1
+ * @version 0.9.2
  */
 class StockNotationScreenerSearchDataRecommendationCountsTotalMinimum {
     /**

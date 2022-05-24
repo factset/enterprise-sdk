@@ -47,6 +47,8 @@ public class InlineResponse2007DataRangeUpperBreach implements Serializable {
   public static final String JSON_PROPERTY_DATETIME_BREACH = "datetimeBreach";
   private String datetimeBreach;
 
+  public InlineResponse2007DataRangeUpperBreach() { 
+  }
 
   public InlineResponse2007DataRangeUpperBreach isBreached(Boolean isBreached) {
     this.isBreached = isBreached;

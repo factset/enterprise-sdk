@@ -84,15 +84,15 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             }
             set
             {
-                if (value.GetType() == typeof(Answer))
+                if (value is Answer)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(AnswerWithoutData))
+                else if (value is AnswerWithoutData)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(NoAnswersFound))
+                else if (value is NoAnswersFound)
                 {
                     this._actualInstance = value;
                 }
@@ -173,15 +173,12 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(Answer).GetProperty("AdditionalProperties") == null)
-                {
-                    newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<Answer>(jsonString, DataAnswerData.SerializerSettings));
-                }
-                else
-                {
-                    newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<Answer>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(Answer).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<Answer>(
+                    jsonString, 
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
                 matchedTypes.Add("Answer");
                 match++;
             }
@@ -193,15 +190,12 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(AnswerWithoutData).GetProperty("AdditionalProperties") == null)
-                {
-                    newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<AnswerWithoutData>(jsonString, DataAnswerData.SerializerSettings));
-                }
-                else
-                {
-                    newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<AnswerWithoutData>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(AnswerWithoutData).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<AnswerWithoutData>(
+                    jsonString, 
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
                 matchedTypes.Add("AnswerWithoutData");
                 match++;
             }
@@ -213,15 +207,12 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(NoAnswersFound).GetProperty("AdditionalProperties") == null)
-                {
-                    newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<NoAnswersFound>(jsonString, DataAnswerData.SerializerSettings));
-                }
-                else
-                {
-                    newDataAnswerData = new DataAnswerData(JsonConvert.DeserializeObject<NoAnswersFound>(jsonString, DataAnswerData.AdditionalPropertiesSerializerSettings));
-                }
+                var hasAdditionalProperties = !(typeof(NoAnswersFound).GetProperty("AdditionalProperties") is null);
+                var parsedValue = JsonConvert.DeserializeObject<NoAnswersFound>(
+                    jsonString, 
+                    hasAdditionalProperties ? DataAnswerData.AdditionalPropertiesSerializerSettings : DataAnswerData.SerializerSettings
+                );
+                newDataAnswerData = new DataAnswerData(parsedValue);
                 matchedTypes.Add("NoAnswersFound");
                 match++;
             }
@@ -321,7 +312,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return DataAnswerData.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return DataAnswerData.FromJson(JToken.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

@@ -47,6 +47,8 @@ public class InlineResponse200DataCountrySecurityRegistration implements Seriali
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse200DataCountrySecurityRegistration() { 
+  }
 
   public InlineResponse200DataCountrySecurityRegistration id(BigDecimal id) {
     this.id = id;

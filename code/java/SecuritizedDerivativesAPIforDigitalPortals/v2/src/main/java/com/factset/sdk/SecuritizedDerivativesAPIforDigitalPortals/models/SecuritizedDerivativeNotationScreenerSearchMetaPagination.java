@@ -48,6 +48,8 @@ public class SecuritizedDerivativeNotationScreenerSearchMetaPagination implement
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public SecuritizedDerivativeNotationScreenerSearchMetaPagination() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerSearchMetaPagination offset(BigDecimal offset) {
     this.offset = offset;

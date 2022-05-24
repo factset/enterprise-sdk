@@ -71,6 +71,16 @@ public class HighLowRequest implements Serializable {
   public static final String JSON_PROPERTY_ADJUST = "adjust";
   private Adjust adjust = Adjust.SPLIT;
 
+  public HighLowRequest() { 
+  }
+
+  @JsonCreator
+  public HighLowRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public HighLowRequest ids(java.util.List<String> ids) {
     this.ids = ids;

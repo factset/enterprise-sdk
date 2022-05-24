@@ -99,6 +99,21 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
     {
         private FactSet.SDK.BarraPortfolioOptimizer.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetBarraStrategyDocumentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DocumentDirectoriesRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="StrategyDocumentsApi"/> class.
         /// </summary>
@@ -209,7 +224,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
         /// <returns>DocumentDirectoriesRoot</returns>
         public DocumentDirectoriesRoot GetBarraStrategyDocuments(string path)
         {
-            FactSet.SDK.BarraPortfolioOptimizer.Client.ApiResponse<DocumentDirectoriesRoot> localVarResponse = GetBarraStrategyDocumentsWithHttpInfo(path);
+            var localVarResponse = GetBarraStrategyDocumentsWithHttpInfo(path);
             return localVarResponse.Data;
         }
 
@@ -219,11 +234,13 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
         /// <exception cref="FactSet.SDK.BarraPortfolioOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectoriesRoot</returns>
-        public FactSet.SDK.BarraPortfolioOptimizer.Client.ApiResponse<DocumentDirectoriesRoot> GetBarraStrategyDocumentsWithHttpInfo(string path)
+        public ApiResponse<DocumentDirectoriesRoot> GetBarraStrategyDocumentsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.BarraPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'path' when calling StrategyDocumentsApi->GetBarraStrategyDocuments");
+            }
 
             FactSet.SDK.BarraPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.BarraPortfolioOptimizer.Client.RequestOptions();
 
@@ -236,22 +253,28 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -263,15 +286,19 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DocumentDirectoriesRoot>("/analytics/engines/bpm/v3/strategies/{path}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetBarraStrategyDocumentsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DocumentDirectoriesRoot>("/analytics/engines/bpm/v3/strategies/{path}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBarraStrategyDocuments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -282,9 +309,9 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectoriesRoot</returns>
-        public async System.Threading.Tasks.Task<DocumentDirectoriesRoot> GetBarraStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DocumentDirectoriesRoot>GetBarraStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.BarraPortfolioOptimizer.Client.ApiResponse<DocumentDirectoriesRoot> localVarResponse = await GetBarraStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetBarraStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -295,11 +322,14 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.BarraPortfolioOptimizer.Client.ApiResponse<DocumentDirectoriesRoot>> GetBarraStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetBarraStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.BarraPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'path' when calling StrategyDocumentsApi->GetBarraStrategyDocuments");
+            }
 
 
             FactSet.SDK.BarraPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.BarraPortfolioOptimizer.Client.RequestOptions();
@@ -312,24 +342,29 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.BarraPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -341,14 +376,18 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetBarraStrategyDocumentsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectoriesRoot>("/analytics/engines/bpm/v3/strategies/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBarraStrategyDocuments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

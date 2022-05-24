@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SedolHistoryTranslation model module.
  * @module model/SedolHistoryTranslation
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SedolHistoryTranslation {
     /**

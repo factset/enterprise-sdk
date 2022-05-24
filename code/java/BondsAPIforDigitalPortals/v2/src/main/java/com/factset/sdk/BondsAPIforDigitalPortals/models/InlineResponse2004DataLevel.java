@@ -44,6 +44,8 @@ public class InlineResponse2004DataLevel implements Serializable {
   public static final String JSON_PROPERTY_NUMBER = "number";
   private BigDecimal number;
 
+  public InlineResponse2004DataLevel() { 
+  }
 
   public InlineResponse2004DataLevel number(BigDecimal number) {
     this.number = number;

@@ -52,6 +52,8 @@ public class InlineResponse2003Yield implements Serializable {
   public static final String JSON_PROPERTY_SPREAD = "spread";
   private BigDecimal spread;
 
+  public InlineResponse2003Yield() { 
+  }
 
   public InlineResponse2003Yield current(BigDecimal current) {
     this.current = current;

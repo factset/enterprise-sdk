@@ -17,7 +17,7 @@ import InlineResponse20085DataType from './InlineResponse20085DataType';
 /**
  * The InlineResponse20085DataEvents model module.
  * @module model/InlineResponse20085DataEvents
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20085DataEvents {
     /**

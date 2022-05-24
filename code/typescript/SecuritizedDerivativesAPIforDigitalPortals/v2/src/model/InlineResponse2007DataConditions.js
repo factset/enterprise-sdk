@@ -19,7 +19,7 @@ import InlineResponse2007DataObservation from './InlineResponse2007DataObservati
 /**
  * The InlineResponse2007DataConditions model module.
  * @module model/InlineResponse2007DataConditions
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataConditions {
     /**

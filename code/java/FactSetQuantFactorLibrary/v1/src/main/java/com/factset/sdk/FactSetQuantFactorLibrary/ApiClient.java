@@ -11,7 +11,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.github.scribejava.core.model.OAuth2AccessToken;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
@@ -48,7 +47,7 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Date;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 
 import java.net.URLEncoder;
 
@@ -62,11 +61,9 @@ import java.util.regex.Pattern;
 import com.factset.sdk.FactSetQuantFactorLibrary.auth.Authentication;
 import com.factset.sdk.FactSetQuantFactorLibrary.auth.HttpBasicAuth;
 import com.factset.sdk.FactSetQuantFactorLibrary.auth.HttpBearerAuth;
-import com.factset.sdk.FactSetQuantFactorLibrary.auth.FactSetOAuth2ClientAuth;
 import com.factset.sdk.FactSetQuantFactorLibrary.auth.ApiKeyAuth;
-import com.factset.sdk.FactSetQuantFactorLibrary.auth.OAuth;
-
 import com.factset.sdk.utils.authentication.OAuth2Client;
+import com.factset.sdk.FactSetQuantFactorLibrary.auth.FactSetOAuth2ClientAuth;
 
 /**
  * <p>ApiClient class.</p>
@@ -114,28 +111,18 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * Constructs a new ApiClient with FactSet OAuth2Client.
-   *
-   * @param oauth2Client FactSet OAuth2Client
-   */
-  public ApiClient(OAuth2Client oauth2Client) {
-      this(null, oauth2Client);
-  }
-
-  /**
    * Constructs a new ApiClient with the specified authentication parameters.
    *
    * @param authMap A hash map containing authentication parameters.
-   * @param oauth2Client FactSet OAuth2Client
    */
-  public ApiClient(Map<String, Authentication> authMap, OAuth2Client oauth2Client) {
+  public ApiClient(Map<String, Authentication> authMap) {
     json = new JSON();
     httpClient = buildHttpClient();
 
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("fds-sdk/java/FactSetQuantFactorLibrary/0.9.1");
+    setUserAgent("fds-sdk/java/FactSetQuantFactorLibrary/0.20.0");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();
@@ -148,36 +135,13 @@ public class ApiClient extends JavaTimeFormatter {
     } else {
       authentications.put("FactSetApiKey", new HttpBasicAuth());
     }
-
-    if (authMap != null) {
-      auth = authMap.get("FactSetOAuth2Client");
-    }
-    if(auth instanceof FactSetOAuth2ClientAuth) {
-      authentications.put("FactSetOAuth2Client", auth);
-    } else {
-      if (oauth2Client != null) {
-        authentications.put("FactSetOAuth2Client", new FactSetOAuth2ClientAuth(oauth2Client));
-      }
-    }
-
     if (authMap != null) {
       auth = authMap.get("FactSetOAuth2");
     }
-    if (auth instanceof OAuth) {
+    if (auth instanceof FactSetOAuth2ClientAuth) {
       authentications.put("FactSetOAuth2", auth);
     } else {
-      authentications.put("FactSetOAuth2", new OAuth(basePath, "https://auth.factset.com/as/token.oauth2"));
-    }
-
-    if (authMap != null) {
-      auth = authMap.get("FactSetOAuth2Client");
-    }
-    if(auth instanceof FactSetOAuth2ClientAuth) {
-      authentications.put("FactSetOAuth2Client", auth);
-    } else {
-      if (oauth2Client != null) {
-        authentications.put("FactSetOAuth2Client", new FactSetOAuth2ClientAuth(oauth2Client));
-      }
+      authentications.put("FactSetOAuth2", new FactSetOAuth2ClientAuth());
     }
 
     // Prevent the authentications from being modified.
@@ -233,7 +197,6 @@ public class ApiClient extends JavaTimeFormatter {
    */
   public ApiClient setBasePath(String basePath) {
     this.basePath = basePath;
-    setOauthBasePath(basePath);
     return this;
   }
 
@@ -303,14 +266,6 @@ public class ApiClient extends JavaTimeFormatter {
   private void updateBasePath() {
     if (serverIndex != null) {
         setBasePath(servers.get(serverIndex).URL(serverVariables));
-    }
-  }
-
-  private void setOauthBasePath(String basePath) {
-    for(Authentication auth : authentications.values()) {
-      if (auth instanceof OAuth) {
-        ((OAuth) auth).setBasePath(basePath);
-      }
     }
   }
 
@@ -435,87 +390,20 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
-   * Helper method to set access token for the first OAuth2 authentication.
+   * Helper method to set the FactSet OAuth 2.0 client.
    *
-   * @param accessToken Access token
+   * @param client a reference to the FactSet OAuth 2.0 client.
    * @return this instance of {@link com.factset.sdk.FactSetQuantFactorLibrary.ApiClient} object.
    */
-  public ApiClient setAccessToken(String accessToken) {
+  public ApiClient setFactSetOAuth2Client(OAuth2Client client) {
     for (Authentication auth : authentications.values()) {
-      if (auth instanceof OAuth) {
-        ((OAuth) auth).setAccessToken(accessToken);
+      if (auth instanceof FactSetOAuth2ClientAuth) {
+        ((FactSetOAuth2ClientAuth) auth).setClient(client);
         return this;
       }
     }
     throw new RuntimeException("No OAuth2 authentication configured!");
   }
-
-  /**
-   * Helper method to set the credentials for the first OAuth2 authentication.
-   *
-   * @param clientId the client ID
-   * @param clientSecret the client secret
-   * @return this instance of {@link com.factset.sdk.FactSetQuantFactorLibrary.ApiClient} object.
-   */
-  public ApiClient setOauthCredentials(String clientId, String clientSecret) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof OAuth) {
-        ((OAuth) auth).setCredentials(clientId, clientSecret, isDebugging());
-        return this;
-      }
-    }
-    throw new RuntimeException("No OAuth2 authentication configured!");
-  }
-
-  /**
-   * Helper method to set the password flow for the first OAuth2 authentication.
-   *
-   * @param username the user name
-   * @param password the user password
-   * @return this instance of {@link com.factset.sdk.FactSetQuantFactorLibrary.ApiClient} object.
-   */
-  public ApiClient setOauthPasswordFlow(String username, String password) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof OAuth) {
-        ((OAuth) auth).usePasswordFlow(username, password);
-        return this;
-      }
-    }
-    throw new RuntimeException("No OAuth2 authentication configured!");
-  }
-
-  /**
-   * Helper method to set the authorization code flow for the first OAuth2 authentication.
-   *
-   * @param code the authorization code
-   * @return this instance of {@link com.factset.sdk.FactSetQuantFactorLibrary.ApiClient} object.
-   */
-  public ApiClient setOauthAuthorizationCodeFlow(String code) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof OAuth) {
-        ((OAuth) auth).useAuthorizationCodeFlow(code);
-        return this;
-      }
-    }
-    throw new RuntimeException("No OAuth2 authentication configured!");
-  }
-
-  /**
-   * Helper method to set the scopes for the first OAuth2 authentication.
-   *
-   * @param scope the oauth scope
-   * @return this instance of {@link com.factset.sdk.FactSetQuantFactorLibrary.ApiClient} object.
-   */
-  public ApiClient setOauthScope(String scope) {
-    for (Authentication auth : authentications.values()) {
-      if (auth instanceof OAuth) {
-        ((OAuth) auth).setScope(scope);
-        return this;
-      }
-    }
-    throw new RuntimeException("No OAuth2 authentication configured!");
-  }
-
   /**
    * Set the User-Agent header's value (by adding to the default header map).
    *
@@ -984,7 +872,7 @@ public class ApiClient extends JavaTimeFormatter {
       return null;
     }
 
-    if ("byte[]".equals(returnType.toString())) {
+    if (returnType.getRawType().equals(byte[].class)) {
       // Handle binary response (byte array).
       return (T) response.readEntity(byte[].class);
     } else if (returnType.getRawType() == File.class) {
@@ -1078,11 +966,12 @@ public class ApiClient extends JavaTimeFormatter {
    * @param accept The request's Accept header
    * @param contentType The request's Content-Type header
    * @param authNames The authentications to apply
-   * @param returnType The return type into which to deserialize the response
+   * @param returnTypeMap The return type into which to deserialize the response for a given status code
    * @param isBodyNullable True if the body is nullable
    * @return The response body in type of string
    * @throws ApiException API exception
    */
+  @SuppressWarnings("unchecked")
   public <T> ApiResponse<T> invokeAPI(
       String operation,
       String path,
@@ -1095,10 +984,9 @@ public class ApiClient extends JavaTimeFormatter {
       String accept,
       String contentType,
       String[] authNames,
-      GenericType<T> returnType,
+      Map<Integer, GenericType> returnTypeMap,
       boolean isBodyNullable)
       throws ApiException {
-
     // Not using `.target(targetURL).path(path)` below,
     // to support (constant) query string in `path`, e.g. "/posts?draft=1"
     String targetURL;
@@ -1127,7 +1015,12 @@ public class ApiClient extends JavaTimeFormatter {
       }
     }
 
-    Invocation.Builder invocationBuilder = target.request().accept(accept);
+    Invocation.Builder invocationBuilder;
+    if (accept != null) {
+      invocationBuilder = target.request().accept(accept);
+    } else {
+      invocationBuilder = target.request();
+    }
 
     for (Entry<String, String> entry : cookieParams.entrySet()) {
       String value = entry.getValue();
@@ -1170,35 +1063,41 @@ public class ApiClient extends JavaTimeFormatter {
 
     try {
       response = sendRequest(method, invocationBuilder, entity);
-
-      // If OAuth is used and a status 401 is received, renew the access token and retry the request
-      if (response.getStatusInfo() == Status.UNAUTHORIZED) {
-        for (String authName : authNames) {
-          Authentication authentication = authentications.get(authName);
-          if (authentication instanceof OAuth) {
-            OAuth2AccessToken accessToken = ((OAuth) authentication).renewAccessToken();
-            if (accessToken != null) {
-              invocationBuilder.header("Authorization", null);
-              invocationBuilder.header("Authorization", "Bearer " + accessToken.getAccessToken());
-              response = sendRequest(method, invocationBuilder, entity);
-            }
-            break;
-          }
-        }
-      }
-
       int statusCode = response.getStatusInfo().getStatusCode();
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
 
       if (response.getStatusInfo() == Status.NO_CONTENT) {
         return new ApiResponse<T>(statusCode, responseHeaders);
-      } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
-        if (returnType == null) {
-          return new ApiResponse<T>(statusCode, responseHeaders);
-        } else {
-          return new ApiResponse<T>(statusCode, responseHeaders, deserialize(response, returnType));
+      }
+
+      if(returnTypeMap.keySet().contains(statusCode)){
+
+        if(response.getStatusInfo().getFamily() != Status.Family.SUCCESSFUL){
+
+
+
+          String message = "error";
+          String respBody = null;
+          if (response.hasEntity()) {
+            try {
+              respBody = String.valueOf(response.readEntity(String.class));
+              message = respBody;
+            } catch (RuntimeException e) {
+              // e.printStackTrace();
+            }
+          }
+          throw new ApiException(response.getStatus(), message, buildResponseHeaders(response), respBody);
+
         }
-      } else {
+
+        T deserializedResponse = deserialize(response,  (GenericType<T>) returnTypeMap.get(statusCode));
+
+        return new ApiResponse<T>(statusCode, responseHeaders, deserializedResponse);
+      }
+
+      if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
+        return new ApiResponse<T>(statusCode, responseHeaders);
+      } else{
         String message = "error";
         String respBody = null;
         if (response.hasEntity()) {
@@ -1209,8 +1108,8 @@ public class ApiClient extends JavaTimeFormatter {
             // e.printStackTrace();
           }
         }
-        throw new ApiException(
-            response.getStatus(), message, buildResponseHeaders(response), respBody);
+        throw new ApiException(response.getStatus(), message, buildResponseHeaders(response), respBody);
+
       }
     } finally {
       try {
@@ -1236,14 +1135,6 @@ public class ApiClient extends JavaTimeFormatter {
       response = invocationBuilder.method(method);
     }
     return response;
-  }
-
-  /**
-   * @deprecated Add qualified name of the operation as a first parameter.
-   */
-  @Deprecated
-  public <T> ApiResponse<T> invokeAPI(String path, String method, List<Pair> queryParams, Object body, Map<String, String> headerParams, Map<String, String> cookieParams, Map<String, Object> formParams, String accept, String contentType, String[] authNames, GenericType<T> returnType, boolean isBodyNullable) throws ApiException {
-    return invokeAPI(null, path, method, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames, returnType, isBodyNullable);
   }
 
   /**

@@ -24,14 +24,13 @@ import com.factset.sdk.FactSetNER.ApiClient;
 import com.factset.sdk.FactSetNER.ApiException;
 import com.factset.sdk.FactSetNER.Configuration;
 import com.factset.sdk.FactSetNER.auth.*;
-import com.factset.sdk.FactSetNER.model.*;
+import com.factset.sdk.FactSetNER.models.*;
 import com.factset.sdk.FactSetNER.api.EntitiesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -41,20 +40,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         EntitiesApi apiInstance = new EntitiesApi(defaultClient);
         Request payload = new Request(); // Request | 
         try {
             Response result = apiInstance.postEntitiesEntities(payload);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling EntitiesApi#postEntitiesEntities");
             System.err.println("Status code: " + e.getCode());

@@ -44,6 +44,16 @@ public class WatchlistPositionDeleteDataPosition implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public WatchlistPositionDeleteDataPosition() { 
+  }
+
+  @JsonCreator
+  public WatchlistPositionDeleteDataPosition(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) BigDecimal id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public WatchlistPositionDeleteDataPosition id(BigDecimal id) {
     this.id = id;

@@ -58,6 +58,8 @@ public class TemplatedPAComponentPostSummary implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  public TemplatedPAComponentPostSummary() { 
+  }
 
   public TemplatedPAComponentPostSummary id(String id) {
     this.id = id;

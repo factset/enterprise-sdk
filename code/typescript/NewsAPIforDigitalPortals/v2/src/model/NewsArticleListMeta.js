@@ -18,7 +18,7 @@ import NewsArticleListMetaSubscription from './NewsArticleListMetaSubscription';
 /**
  * The NewsArticleListMeta model module.
  * @module model/NewsArticleListMeta
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListMeta {
     /**

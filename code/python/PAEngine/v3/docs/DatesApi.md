@@ -38,37 +38,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dates_api.DatesApi(api_client)
-    startdate = "-3AY" # str | Start Date (optional) if omitted the server will use the default value of "-3AY"
 
-    # example passing only required values which don't have defaults set
+    enddate = "-1AY" # str | End Date (default to "-1AY")
+    componentid = "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935" # str | Component Id (default to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935")
+    account = "Client:Foo/Bar/myaccount.acct" # str | Account (default to "Client:Foo/Bar/myaccount.acct")
+    startdate = "-3AY" # str | Start Date (optional) (default to "-3AY")
+
     try:
         # Convert PA dates to absolute format
-        api_response = api_instance.convert_pa_dates_to_absolute_format()
+        api_response = api_instance.convert_pa_dates_to_absolute_format(enddate, componentid, account, startdate=startdate)
         pprint(api_response)
-    except fds.sdk.PAEngine.ApiException as e:
-        print("Exception when calling DatesApi->convert_pa_dates_to_absolute_format: %s\n" % e)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Convert PA dates to absolute format
-        api_response = api_instance.convert_pa_dates_to_absolute_format(startdate=startdate)
-        pprint(api_response)
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling DatesApi->convert_pa_dates_to_absolute_format: %s\n" % e)
 ```

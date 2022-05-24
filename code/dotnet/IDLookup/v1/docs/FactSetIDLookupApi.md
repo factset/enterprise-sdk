@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
  **lookupRequest** | [**LookupRequest**](LookupRequest.md)| Post body to lookup any FactSet identifiers | 
 
 ### Return type
-
 [**LookupResponse**](LookupResponse.md)
 
 ### Authorization

@@ -12,15 +12,18 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse20015DataCategory from './InlineResponse20015DataCategory';
+import InlineResponse20015DataGeography from './InlineResponse20015DataGeography';
 
 /**
  * The InlineResponse20015Data model module.
  * @module model/InlineResponse20015Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20015Data {
     /**
      * Constructs a new <code>InlineResponse20015Data</code>.
+     * Class information of given ETP.
      * @alias module:model/InlineResponse20015Data
      */
     constructor() { 
@@ -47,26 +50,17 @@ class InlineResponse20015Data {
         if (data) {
             obj = obj || new InlineResponse20015Data();
 
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
+            if (data.hasOwnProperty('asset')) {
+                obj['asset'] = ApiClient.convertToType(data['asset'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('economicDevelopment')) {
+                obj['economicDevelopment'] = ApiClient.convertToType(data['economicDevelopment'], 'String');
             }
-            if (data.hasOwnProperty('reportDate')) {
-                obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
+            if (data.hasOwnProperty('geography')) {
+                obj['geography'] = InlineResponse20015DataGeography.constructFromObject(data['geography']);
             }
-            if (data.hasOwnProperty('shares')) {
-                obj['shares'] = ApiClient.convertToType(data['shares'], 'Number');
-            }
-            if (data.hasOwnProperty('marketValue')) {
-                obj['marketValue'] = ApiClient.convertToType(data['marketValue'], 'Number');
-            }
-            if (data.hasOwnProperty('currencyCode')) {
-                obj['currencyCode'] = ApiClient.convertToType(data['currencyCode'], 'String');
-            }
-            if (data.hasOwnProperty('weight')) {
-                obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
+            if (data.hasOwnProperty('category')) {
+                obj['category'] = InlineResponse20015DataCategory.constructFromObject(data['category']);
             }
         }
         return obj;
@@ -76,49 +70,107 @@ class InlineResponse20015Data {
 }
 
 /**
- * Identifier of the holding. (when available).
- * @member {String} symbol
+ * Asset class of ETP holdings (Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives), text and standardized value available. This data is available for all the regions.
+ * @member {module:model/InlineResponse20015Data.AssetEnum} asset
  */
-InlineResponse20015Data.prototype['symbol'] = undefined;
+InlineResponse20015Data.prototype['asset'] = undefined;
 
 /**
- * Name of the holding.
- * @member {String} name
+ * The country development level of the ETP's holdings (Developed, Emerging, Frontier, or Blended), text and standardized value available. This data is available for all the regions.
+ * @member {module:model/InlineResponse20015Data.EconomicDevelopmentEnum} economicDevelopment
  */
-InlineResponse20015Data.prototype['name'] = undefined;
+InlineResponse20015Data.prototype['economicDevelopment'] = undefined;
 
 /**
- * Reporting date of the holding.
- * @member {Date} reportDate
+ * @member {module:model/InlineResponse20015DataGeography} geography
  */
-InlineResponse20015Data.prototype['reportDate'] = undefined;
+InlineResponse20015Data.prototype['geography'] = undefined;
 
 /**
- * Number of shares held, unadjusted for corporate actions.
- * @member {Number} shares
+ * @member {module:model/InlineResponse20015DataCategory} category
  */
-InlineResponse20015Data.prototype['shares'] = undefined;
+InlineResponse20015Data.prototype['category'] = undefined;
+
+
+
+
 
 /**
- * Market value of the holding, unadjusted for corporate actions.
- * @member {Number} marketValue
+ * Allowed values for the <code>asset</code> property.
+ * @enum {String}
+ * @readonly
  */
-InlineResponse20015Data.prototype['marketValue'] = undefined;
+InlineResponse20015Data['AssetEnum'] = {
+
+    /**
+     * value: "Equity"
+     * @const
+     */
+    "Equity": "Equity",
+
+    /**
+     * value: "Alternatives"
+     * @const
+     */
+    "Alternatives": "Alternatives",
+
+    /**
+     * value: "Fixed Income"
+     * @const
+     */
+    "Fixed Income": "Fixed Income",
+
+    /**
+     * value: "Commodities"
+     * @const
+     */
+    "Commodities": "Commodities",
+
+    /**
+     * value: "Currency"
+     * @const
+     */
+    "Currency": "Currency",
+
+    /**
+     * value: "Asset Allocation"
+     * @const
+     */
+    "Asset Allocation": "Asset Allocation"
+};
+
 
 /**
- * Code representing the currency of the ETP and  it's in format ISO 4217
- * @member {String} currencyCode
+ * Allowed values for the <code>economicDevelopment</code> property.
+ * @enum {String}
+ * @readonly
  */
-InlineResponse20015Data.prototype['currencyCode'] = undefined;
+InlineResponse20015Data['EconomicDevelopmentEnum'] = {
 
-/**
- * Weight of the holding within the ETP.
- * @member {Number} weight
- */
-InlineResponse20015Data.prototype['weight'] = undefined;
+    /**
+     * value: "Developed Markets"
+     * @const
+     */
+    "Developed Markets": "Developed Markets",
 
+    /**
+     * value: "Blended Development"
+     * @const
+     */
+    "Blended Development": "Blended Development",
 
+    /**
+     * value: "Emerging Markets"
+     * @const
+     */
+    "Emerging Markets": "Emerging Markets",
 
+    /**
+     * value: "Frontier Markets"
+     * @const
+     */
+    "Frontier Markets": "Frontier Markets"
+};
 
 
 

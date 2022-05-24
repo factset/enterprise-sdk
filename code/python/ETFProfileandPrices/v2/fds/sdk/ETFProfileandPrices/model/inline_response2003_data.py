@@ -24,14 +24,14 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response2003_data_exchanges import InlineResponse2003DataExchanges
-    globals()['InlineResponse2003DataExchanges'] = InlineResponse2003DataExchanges
+    from fds.sdk.ETFProfileandPrices.model.inline_response2003_data_currencies import InlineResponse2003DataCurrencies
+    globals()['InlineResponse2003DataCurrencies'] = InlineResponse2003DataCurrencies
 
 
 class InlineResponse2003Data(ModelNormal):
@@ -62,7 +62,7 @@ class InlineResponse2003Data(ModelNormal):
     }
 
     validations = {
-        ('exchanges',): {
+        ('currencies',): {
         },
     }
 
@@ -90,7 +90,7 @@ class InlineResponse2003Data(ModelNormal):
         lazy_import()
         return {
             'report_date': (date,),  # noqa: E501
-            'exchanges': ([InlineResponse2003DataExchanges],),  # noqa: E501
+            'currencies': ([InlineResponse2003DataCurrencies],),  # noqa: E501
         }
 
     @cached_property
@@ -100,7 +100,7 @@ class InlineResponse2003Data(ModelNormal):
 
     attribute_map = {
         'report_date': 'reportDate',  # noqa: E501
-        'exchanges': 'exchanges',  # noqa: E501
+        'currencies': 'currencies',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,7 +145,7 @@ class InlineResponse2003Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
-            exchanges ([InlineResponse2003DataExchanges]): List of allocations by exchange.. [optional]  # noqa: E501
+            currencies ([InlineResponse2003DataCurrencies]): List of allocations by currency.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +228,7 @@ class InlineResponse2003Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
-            exchanges ([InlineResponse2003DataExchanges]): List of allocations by exchange.. [optional]  # noqa: E501
+            currencies ([InlineResponse2003DataCurrencies]): List of allocations by currency.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

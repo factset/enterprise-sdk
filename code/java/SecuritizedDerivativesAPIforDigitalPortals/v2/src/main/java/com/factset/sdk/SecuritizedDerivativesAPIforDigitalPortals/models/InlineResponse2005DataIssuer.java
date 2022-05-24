@@ -49,6 +49,8 @@ public class InlineResponse2005DataIssuer implements Serializable {
   public static final String JSON_PROPERTY_GROUP = "group";
   private java.util.List<InlineResponse2005DataIssuerGroup> group = null;
 
+  public InlineResponse2005DataIssuer() { 
+  }
 
   public InlineResponse2005DataIssuer juristicPerson(java.util.List<InlineResponse2005DataIssuerJuristicPerson> juristicPerson) {
     this.juristicPerson = juristicPerson;

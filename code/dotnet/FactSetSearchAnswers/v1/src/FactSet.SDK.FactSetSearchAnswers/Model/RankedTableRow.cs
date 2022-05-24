@@ -82,7 +82,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RankedTableRow {\n");
             sb.Append("  Rank: ").Append(Rank).Append("\n");
             sb.Append("  Entity: ").Append(Entity).Append("\n");
@@ -119,8 +119,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(RankedTableRow input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Rank == input.Rank ||
@@ -153,13 +154,19 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Rank.GetHashCode();
+                hashCode = (hashCode * 59) + this.Rank.GetHashCode();
                 if (this.Entity != null)
-                    hashCode = hashCode * 59 + this.Entity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Entity.GetHashCode();
+                }
                 if (this.ApplicationLink != null)
-                    hashCode = hashCode * 59 + this.ApplicationLink.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ApplicationLink.GetHashCode();
+                }
                 if (this.AdditionalData != null)
-                    hashCode = hashCode * 59 + this.AdditionalData.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalData.GetHashCode();
+                }
                 return hashCode;
             }
         }

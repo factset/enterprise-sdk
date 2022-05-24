@@ -20,7 +20,7 @@ import VaultComponentRoot from '../model/VaultComponentRoot';
 /**
 * Components service.
 * @module api/ComponentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ComponentsApi {
 
@@ -63,7 +63,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = VaultComponentRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/components/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class ComponentsApi {
      * Get Vault component by id
      * This endpoint returns the default settings of a Vault component.
      * @param {String} id Unique identifier for a vault component
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/VaultComponentRoot}
+     * @return { Promise.< module:model/VaultComponentRoot > } a Promise, with data of type {@link module:model/VaultComponentRoot }
      */
     getVaultComponentById(id) {
       return this.getVaultComponentByIdWithHttpInfo(id)
@@ -111,7 +114,10 @@ export default class ComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ComponentSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/components', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class ComponentsApi {
      * Get Vault components
      * This endpoint returns the list of Vault components in a given Vault document.
      * @param {String} document Document Name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ComponentSummaryRoot}
+     * @return { Promise.< module:model/ComponentSummaryRoot > } a Promise, with data of type {@link module:model/ComponentSummaryRoot }
      */
     getVaultComponents(document) {
       return this.getVaultComponentsWithHttpInfo(document)
@@ -134,3 +140,8 @@ export default class ComponentsApi {
 
 
 }
+
+
+
+
+

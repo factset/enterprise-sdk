@@ -57,6 +57,8 @@ public class InlineResponse2004Accumulated implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private InlineResponse2004AccumulatedCurrency currency;
 
+  public InlineResponse2004Accumulated() { 
+  }
 
   public InlineResponse2004Accumulated numberTrades(BigDecimal numberTrades) {
     this.numberTrades = numberTrades;

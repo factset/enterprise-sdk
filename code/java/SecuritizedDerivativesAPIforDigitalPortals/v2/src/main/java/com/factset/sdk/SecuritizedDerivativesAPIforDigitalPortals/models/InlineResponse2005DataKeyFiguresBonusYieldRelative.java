@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresBonusYieldRelative implements Seria
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresBonusYieldRelative() { 
+  }
 
   public InlineResponse2005DataKeyFiguresBonusYieldRelative minimum(BigDecimal minimum) {
     this.minimum = minimum;

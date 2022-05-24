@@ -51,6 +51,20 @@ public class SPARDateParameters implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private String frequency;
 
+  public SPARDateParameters() { 
+  }
+
+  @JsonCreator
+  public SPARDateParameters(
+    @JsonProperty(value=JSON_PROPERTY_STARTDATE, required=true) String startdate, 
+    @JsonProperty(value=JSON_PROPERTY_ENDDATE, required=true) String enddate, 
+    @JsonProperty(value=JSON_PROPERTY_FREQUENCY, required=true) String frequency
+  ) {
+    this();
+    this.startdate = startdate;
+    this.enddate = enddate;
+    this.frequency = frequency;
+  }
 
   public SPARDateParameters startdate(String startdate) {
     this.startdate = startdate;

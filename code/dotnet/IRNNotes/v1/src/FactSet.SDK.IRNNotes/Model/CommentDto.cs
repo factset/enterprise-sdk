@@ -55,43 +55,43 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "Id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorId
         /// </summary>
-        [DataMember(Name = "authorId", EmitDefaultValue = false)]
+        [DataMember(Name = "AuthorId", EmitDefaultValue = false)]
         public Guid AuthorId { get; set; }
 
         /// <summary>
         /// Gets or Sets ParentCommentId
         /// </summary>
-        [DataMember(Name = "parentCommentId", EmitDefaultValue = true)]
+        [DataMember(Name = "ParentCommentId", EmitDefaultValue = true)]
         public Guid? ParentCommentId { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name = "body", EmitDefaultValue = true)]
+        [DataMember(Name = "Body", EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
+        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets Attachments
         /// </summary>
-        [DataMember(Name = "attachments", EmitDefaultValue = true)]
+        [DataMember(Name = "Attachments", EmitDefaultValue = true)]
         public List<AttachmentSummaryDto> Attachments { get; set; }
 
         /// <summary>
         /// Gets or Sets Subcomments
         /// </summary>
-        [DataMember(Name = "subcomments", EmitDefaultValue = true)]
+        [DataMember(Name = "Subcomments", EmitDefaultValue = true)]
         public List<SubcommentSummaryDto> Subcomments { get; set; }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CommentDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
@@ -140,8 +140,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(CommentDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -192,19 +193,33 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
                 if (this.ParentCommentId != null)
-                    hashCode = hashCode * 59 + this.ParentCommentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentCommentId.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Attachments != null)
-                    hashCode = hashCode * 59 + this.Attachments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
+                }
                 if (this.Subcomments != null)
-                    hashCode = hashCode * 59 + this.Subcomments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subcomments.GetHashCode();
+                }
                 return hashCode;
             }
         }

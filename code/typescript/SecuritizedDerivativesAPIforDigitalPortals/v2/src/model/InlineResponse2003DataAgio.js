@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2003DataAgio model module.
  * @module model/InlineResponse2003DataAgio
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003DataAgio {
     /**

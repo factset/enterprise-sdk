@@ -111,6 +111,19 @@ namespace FactSet.SDK.Vault.Api
     {
         private FactSet.SDK.Vault.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> ConvertVaultDatesToAbsoluteFormatResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(DateParametersSummary) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DatesApi"/> class.
         /// </summary>
@@ -224,7 +237,7 @@ namespace FactSet.SDK.Vault.Api
         /// <returns>DateParametersSummary</returns>
         public DateParametersSummary ConvertVaultDatesToAbsoluteFormat(string enddate, string componentid, string account, string startdate = default(string))
         {
-            FactSet.SDK.Vault.Client.ApiResponse<DateParametersSummary> localVarResponse = ConvertVaultDatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, startdate);
+            var localVarResponse = ConvertVaultDatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, startdate);
             return localVarResponse.Data;
         }
 
@@ -237,19 +250,25 @@ namespace FactSet.SDK.Vault.Api
         /// <param name="account">Account</param>
         /// <param name="startdate">Start Date (optional, default to &quot;-3AY&quot;)</param>
         /// <returns>ApiResponse of DateParametersSummary</returns>
-        public FactSet.SDK.Vault.Client.ApiResponse<DateParametersSummary> ConvertVaultDatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string))
+        public ApiResponse<DateParametersSummary> ConvertVaultDatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string))
         {
             // verify the required parameter 'enddate' is set
             if (enddate == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'enddate' when calling DatesApi->ConvertVaultDatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'componentid' is set
             if (componentid == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'componentid' when calling DatesApi->ConvertVaultDatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'account' is set
             if (account == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'account' when calling DatesApi->ConvertVaultDatesToAbsoluteFormat");
+            }
 
             FactSet.SDK.Vault.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vault.Client.RequestOptions();
 
@@ -262,10 +281,16 @@ namespace FactSet.SDK.Vault.Api
             };
 
             var localVarContentType = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (startdate != null)
             {
@@ -277,13 +302,13 @@ namespace FactSet.SDK.Vault.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vault.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -295,15 +320,19 @@ namespace FactSet.SDK.Vault.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<DateParametersSummary>("/analytics/lookups/v2/engines/vault/dates", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = ConvertVaultDatesToAbsoluteFormatResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            DateParametersSummary>("/analytics/lookups/v2/engines/vault/dates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConvertVaultDatesToAbsoluteFormat", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -317,9 +346,9 @@ namespace FactSet.SDK.Vault.Api
         /// <param name="startdate">Start Date (optional, default to &quot;-3AY&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DateParametersSummary</returns>
-        public async System.Threading.Tasks.Task<DateParametersSummary> ConvertVaultDatesToAbsoluteFormatAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DateParametersSummary>ConvertVaultDatesToAbsoluteFormatAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Vault.Client.ApiResponse<DateParametersSummary> localVarResponse = await ConvertVaultDatesToAbsoluteFormatWithHttpInfoAsync(enddate, componentid, account, startdate, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await ConvertVaultDatesToAbsoluteFormatWithHttpInfoAsync(enddate, componentid, account, startdate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -333,19 +362,26 @@ namespace FactSet.SDK.Vault.Api
         /// <param name="startdate">Start Date (optional, default to &quot;-3AY&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DateParametersSummary)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Vault.Client.ApiResponse<DateParametersSummary>> ConvertVaultDatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<DateParametersSummary>> ConvertVaultDatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'enddate' is set
             if (enddate == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'enddate' when calling DatesApi->ConvertVaultDatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'componentid' is set
             if (componentid == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'componentid' when calling DatesApi->ConvertVaultDatesToAbsoluteFormat");
+            }
 
             // verify the required parameter 'account' is set
             if (account == null)
+            {
                 throw new FactSet.SDK.Vault.Client.ApiException(400, "Missing required parameter 'account' when calling DatesApi->ConvertVaultDatesToAbsoluteFormat");
+            }
 
 
             FactSet.SDK.Vault.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Vault.Client.RequestOptions();
@@ -358,12 +394,17 @@ namespace FactSet.SDK.Vault.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Vault.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (startdate != null)
             {
@@ -375,13 +416,13 @@ namespace FactSet.SDK.Vault.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Vault.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -393,14 +434,18 @@ namespace FactSet.SDK.Vault.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = ConvertVaultDatesToAbsoluteFormatResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<DateParametersSummary>("/analytics/lookups/v2/engines/vault/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ConvertVaultDatesToAbsoluteFormat", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

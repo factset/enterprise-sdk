@@ -48,6 +48,8 @@ public class InlineResponse2003DataVega implements Serializable {
   public static final String JSON_PROPERTY_UNADJUSTED = "unadjusted";
   private BigDecimal unadjusted;
 
+  public InlineResponse2003DataVega() { 
+  }
 
   public InlineResponse2003DataVega effective(BigDecimal effective) {
     this.effective = effective;

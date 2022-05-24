@@ -51,6 +51,16 @@ public class ModelAccountFields implements Serializable {
   public static final String JSON_PROPERTY_ADDITIONAL_FIELDS = "additionalFields";
   private java.util.List<ModelAccountAdditionalField> additionalFields = null;
 
+  public ModelAccountFields() { 
+  }
+
+  @JsonCreator
+  public ModelAccountFields(
+    @JsonProperty(value=JSON_PROPERTY_ITERATIVE, required=true) java.util.Map<String, java.util.Map<String, java.util.Map<String, Object>>> iterative
+  ) {
+    this();
+    this.iterative = iterative;
+  }
 
   public ModelAccountFields iterative(java.util.Map<String, java.util.Map<String, java.util.Map<String, Object>>> iterative) {
     this.iterative = iterative;

@@ -261,7 +261,7 @@
         },
         "responses": {
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request",
@@ -408,7 +408,7 @@
         "tags": [
           "Attachments"
         ],
-        "summary": "Create an attachment for an existing meeting",
+        "summary": "Create an attachment for a existing meeting",
         "operationId": "CreateAttachment",
         "parameters": [
           {
@@ -479,7 +479,7 @@
         "tags": [
           "Attachments"
         ],
-        "summary": "Download an attachment from a meeting",
+        "summary": "Download an attachment from a Meeting",
         "operationId": "DownloadAttachment",
         "parameters": [
           {
@@ -538,28 +538,17 @@
         }
       }
     },
-    "/v1/meetings/{meetingId}/attachments/{attachmentId}": {
-      "delete": {
+    "/v1/meetings/{meetingId}/comments": {
+      "get": {
         "tags": [
-          "Attachments"
+          "Comments"
         ],
-        "summary": "Delete attachment from meeting",
-        "operationId": "SoftDeleteMeetingAttachment",
+        "summary": "Get all comments for a meeting",
+        "operationId": "GetComments",
         "parameters": [
           {
             "name": "meetingId",
             "in": "path",
-            "description": "Meeting Id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "attachmentId",
-            "in": "path",
-            "description": "Attachment Id",
             "required": true,
             "schema": {
               "type": "string",
@@ -569,7 +558,17 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommentSummaryDto"
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
@@ -602,134 +601,13 @@
             }
           }
         }
-      }
-    },
-    "/v1/meetings/{meetingId}/events": {
-      "get": {
-        "tags": [
-          "Events"
-        ],
-        "summary": "Get all the record events that belong to a meeting",
-        "operationId": "GetEvents",
-        "parameters": [
-          {
-            "name": "meetingId",
-            "in": "path",
-            "description": "Meeting Id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RecordEventSummaryDto"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/meetings/{meetingId}/events/{recordEventId}": {
-      "get": {
-        "tags": [
-          "Events"
-        ],
-        "summary": "Get details of a record event of a meeting",
-        "operationId": "GetRecordEvent",
-        "parameters": [
-          {
-            "name": "meetingId",
-            "in": "path",
-            "description": "Meeting Id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "recordEventId",
-            "in": "path",
-            "description": "Record Event Id",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MeetingEventDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/meetings/{meetingId}/comments/{commentId}": {
-      "delete": {
+      },
+      "post": {
         "tags": [
           "Comments"
         ],
-        "summary": "Delete a Comment from a Meeting",
-        "operationId": "DeleteComment",
+        "summary": "Create a comment to a Meeting",
+        "operationId": "CreateComment",
         "parameters": [
           {
             "name": "meetingId",
@@ -739,20 +617,52 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCommentDto"
+              }
+            }
+          }
+        },
         "responses": {
-          "200": {
-            "description": "Success"
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "403": {
             "description": "Forbidden",
@@ -778,7 +688,9 @@
             "description": "Server Error"
           }
         }
-      },
+      }
+    },
+    "/v1/meetings/{meetingId}/comments/{commentId}": {
       "get": {
         "tags": [
           "Comments"
@@ -945,18 +857,25 @@
             }
           }
         }
-      }
-    },
-    "/v1/meetings/{meetingId}/comments": {
-      "get": {
+      },
+      "delete": {
         "tags": [
           "Comments"
         ],
-        "summary": "Get all comments for a meeting",
-        "operationId": "GetComments",
+        "summary": "Delete a Comment from a Meeting",
+        "operationId": "DeleteComment",
         "parameters": [
           {
             "name": "meetingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
             "in": "path",
             "required": true,
             "schema": {
@@ -967,111 +886,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/CommentSummaryDto"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Create a comment to a Meeting",
-        "operationId": "CreateComment",
-        "parameters": [
-          {
-            "name": "meetingId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCommentDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NewItemDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
+            "description": "Success"
           },
           "403": {
             "description": "Forbidden",
@@ -1100,96 +915,6 @@
       }
     },
     "/v1/meetings/{meetingId}/comments/{commentId}/attachments": {
-      "post": {
-        "tags": [
-          "Comments"
-        ],
-        "summary": "Create a comment attachment to a Meeting",
-        "operationId": "CreateCommentAttachment",
-        "parameters": [
-          {
-            "name": "meetingId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "commentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "file"
-                ],
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NewItemDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Server Error"
-          }
-        }
-      },
       "get": {
         "tags": [
           "Comments"
@@ -1259,6 +984,96 @@
                 }
               }
             }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Comments"
+        ],
+        "summary": "Create a comment attachment to a Meeting",
+        "operationId": "CreateCommentAttachment",
+        "parameters": [
+          {
+            "name": "meetingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "file"
+                ],
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error"
           }
         }
       }
@@ -1336,20 +1151,22 @@
         }
       }
     },
-    "/v1/identifiers": {
+    "/v1/meetings/{meetingId}/events": {
       "get": {
         "tags": [
-          "Identifiers"
+          "Events"
         ],
-        "summary": "Get all the identifier details for given identifiers",
-        "operationId": "GetIdentifiers",
+        "summary": "Get all the record events that belong to a meeting",
+        "operationId": "GetEvents",
         "parameters": [
           {
-            "name": "identifiers",
-            "in": "query",
-            "description": "Identifiers",
+            "name": "meetingId",
+            "in": "path",
+            "description": "Meeting ID",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1361,14 +1178,153 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/IdentifierResolutionDto"
+                    "$ref": "#/components/schemas/RecordEventSummaryDto"
                   }
                 }
               }
             }
           },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/meetings/{meetingId}/events/{recordEventId}": {
+      "get": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Get details of a record event of a meeting",
+        "operationId": "GetRecordEvent",
+        "parameters": [
+          {
+            "name": "meetingId",
+            "in": "path",
+            "description": "Meeting Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "recordEventId",
+            "in": "path",
+            "description": "Record Event Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeetingEventDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/meetings/{meetingId}/attachments/{attachmentId}": {
+      "delete": {
+        "tags": [
+          "Attachments"
+        ],
+        "summary": "Delete attachment from meeting",
+        "operationId": "SoftDeleteMeetingAttachment",
+        "parameters": [
+          {
+            "name": "meetingId",
+            "in": "path",
+            "description": "Meeting Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "description": "Attachment Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
           "400": {
             "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
             "content": {
               "application/json": {
                 "schema": {
@@ -1383,15 +1339,24 @@
   },
   "components": {
     "schemas": {
-      "LocationDto": {
+      "AttachmentSummaryDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
             "format": "uuid"
           },
-          "locationName": {
+          "fileName": {
             "type": "string",
+            "nullable": true
+          },
+          "mimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
             "nullable": true
           }
         },
@@ -1415,18 +1380,23 @@
         },
         "additionalProperties": false
       },
-      "MeetingSummaryDto": {
+      "CommentDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
             "format": "uuid"
           },
-          "start": {
+          "authorId": {
             "type": "string",
+            "format": "uuid"
+          },
+          "parentCommentId": {
+            "type": "string",
+            "format": "uuid",
             "nullable": true
           },
-          "end": {
+          "body": {
             "type": "string",
             "nullable": true
           },
@@ -1434,142 +1404,42 @@
             "type": "string",
             "nullable": true
           },
-          "authorId": {
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttachmentSummaryDto"
+            },
+            "nullable": true
+          },
+          "subcomments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubcommentSummaryDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommentSummaryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
             "type": "string",
             "format": "uuid"
           },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "identifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "organizer": {
-            "type": "string",
-            "nullable": true
-          },
-          "organizerId": {
+          "userId": {
             "type": "string",
             "format": "uuid"
           },
-          "attachmentIds": {
+          "createdAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "subcomments": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "relatedSymbols": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "locations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LocationDto"
-            },
-            "nullable": true
-          },
-          "attendees": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AttendeeDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProblemDetails": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserSerialDto": {
-        "required": [
-          "serialNumber",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "username": {
-            "maxLength": 30,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "serialNumber": {
-            "maxLength": 8,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ReferenceAttendeeDto": {
-        "type": "object",
-        "properties": {
-          "emailAddress": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RelatedRecordsDto": {
-        "type": "object",
-        "properties": {
-          "noteIds": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "meetingIds": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
+              "$ref": "#/components/schemas/SubcommentSummaryDto"
             },
             "nullable": true
           }
@@ -1586,6 +1456,25 @@
         },
         "additionalProperties": false
       },
+      "CreateCommentDto": {
+        "type": "object",
+        "properties": {
+          "authorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentCommentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "body": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateCustomFieldValueDto": {
         "required": [
           "code"
@@ -1593,8 +1482,7 @@
         "type": "object",
         "properties": {
           "code": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "integerValue": {
             "type": "integer",
@@ -1649,9 +1537,7 @@
         "required": [
           "author",
           "end",
-          "identifier",
-          "start",
-          "title"
+          "start"
         ],
         "type": "object",
         "properties": {
@@ -1669,12 +1555,10 @@
             "nullable": true
           },
           "start": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "end": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "locations": {
             "type": "array",
@@ -1687,7 +1571,8 @@
             "maxLength": 255,
             "minLength": 0,
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "organizerId": {
             "type": "string",
@@ -1720,7 +1605,7 @@
             "nullable": true
           },
           "relatedSymbols": {
-            "maxLength": 100,
+            "maxItems": 100,
             "type": "array",
             "items": {
               "type": "string"
@@ -1736,16 +1621,6 @@
               "$ref": "#/components/schemas/CreateCustomFieldValueDto"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "NewItemDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -1774,6 +1649,20 @@
               "type": "string",
               "format": "uuid"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocationDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "locationName": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -1812,7 +1701,8 @@
           },
           "organizer": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "organizerId": {
             "type": "string",
@@ -1826,6 +1716,12 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "alertAttendees": {
+            "type": "boolean"
+          },
+          "alertAuthor": {
+            "type": "boolean"
           },
           "locations": {
             "type": "array",
@@ -1869,24 +1765,37 @@
         },
         "additionalProperties": false
       },
-      "UpdateMeetingDto": {
-        "required": [
-          "end",
-          "identifier",
-          "start",
-          "title"
-        ],
+      "MeetingEventDto": {
         "type": "object",
         "properties": {
-          "title": {
-            "maxLength": 255,
-            "minLength": 0,
+          "createdAt": {
             "type": "string",
             "nullable": true
           },
-          "identifier": {
+          "type": {
             "type": "string",
             "nullable": true
+          },
+          "user": {
+            "type": "string",
+            "nullable": true
+          },
+          "changeList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecordChangeDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MeetingSummaryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
           },
           "start": {
             "type": "string",
@@ -1896,42 +1805,32 @@
             "type": "string",
             "nullable": true
           },
-          "locations": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+          "createdAt": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "identifier": {
+            "type": "string",
             "nullable": true
           },
           "organizer": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "deprecated": true
           },
           "organizerId": {
             "type": "string",
             "format": "uuid"
           },
-          "attendees": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReferenceAttendeeDto"
-            },
-            "nullable": true
-          },
-          "alertAttendees": {
-            "type": "boolean",
-            "default": false
-          },
-          "alertAuthor": {
-            "type": "boolean",
-            "default": false
-          },
-          "relatedRecords": {
-            "$ref": "#/components/schemas/RelatedRecordsDto"
-          },
-          "relatedContacts": {
+          "attachmentIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -1940,61 +1839,109 @@
             "nullable": true
           },
           "relatedSymbols": {
-            "maxLength": 100,
             "type": "array",
             "items": {
               "type": "string"
             },
             "nullable": true
           },
-          "body": {
-            "$ref": "#/components/schemas/CreateBodyDto"
+          "locations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocationDto"
+            },
+            "nullable": true
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttendeeDto"
+            },
+            "nullable": true
           },
           "customFieldValues": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CreateCustomFieldValueDto"
+              "$ref": "#/components/schemas/CustomFieldValueDto"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "AttachmentSummaryDto": {
+      "NewItemDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operation": {
+        "type": "object",
+        "properties": {
+          "operationType": {
+            "$ref": "#/components/schemas/OperationType"
           },
-          "fileName": {
+          "path": {
             "type": "string",
             "nullable": true
           },
-          "mimeType": {
+          "op": {
             "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "RecordEventSummaryDto": {
+      "OperationType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ProblemDetails": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
           "type": {
             "type": "string",
             "nullable": true
           },
-          "createdAt": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
             "type": "string",
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": {}
       },
       "RecordChangeDto": {
         "type": "object",
@@ -2032,25 +1979,50 @@
         },
         "additionalProperties": false
       },
-      "MeetingEventDto": {
+      "RecordEventSummaryDto": {
         "type": "object",
         "properties": {
-          "createdAt": {
+          "id": {
             "type": "string",
-            "nullable": true
+            "format": "uuid"
           },
           "type": {
             "type": "string",
             "nullable": true
           },
-          "user": {
+          "createdAt": {
             "type": "string",
             "nullable": true
-          },
-          "changeList": {
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReferenceAttendeeDto": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedRecordsDto": {
+        "type": "object",
+        "properties": {
+          "noteIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RecordChangeDto"
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "meetingIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
             },
             "nullable": true
           }
@@ -2075,153 +2047,110 @@
         },
         "additionalProperties": false
       },
-      "CommentDto": {
+      "UpdateMeetingDto": {
+        "required": [
+          "end",
+          "identifier",
+          "start",
+          "title"
+        ],
         "type": "object",
         "properties": {
-          "id": {
+          "title": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "organizer": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "organizerId": {
             "type": "string",
             "format": "uuid"
           },
-          "authorId": {
-            "type": "string",
-            "format": "uuid"
+          "attendees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReferenceAttendeeDto"
+            },
+            "nullable": true
           },
-          "parentCommentId": {
-            "type": "string",
-            "format": "uuid",
+          "alertAttendees": {
+            "type": "boolean",
+            "default": false
+          },
+          "alertAuthor": {
+            "type": "boolean",
+            "default": false
+          },
+          "relatedRecords": {
+            "$ref": "#/components/schemas/RelatedRecordsDto"
+          },
+          "relatedContacts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "relatedSymbols": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "body": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/CreateBodyDto"
           },
-          "createdAt": {
-            "type": "string",
-            "nullable": true
-          },
-          "attachments": {
+          "customFieldValues": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AttachmentSummaryDto"
-            },
-            "nullable": true
-          },
-          "subcomments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubcommentSummaryDto"
+              "$ref": "#/components/schemas/CreateCustomFieldValueDto"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "Operation": {
+      "UserSerialDto": {
+        "required": [
+          "serialNumber",
+          "username"
+        ],
         "type": "object",
         "properties": {
-          "value": {
-            "type": "object",
-            "additionalProperties": false,
-            "nullable": true
+          "username": {
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string"
           },
-          "path": {
-            "type": "string",
-            "nullable": true
-          },
-          "op": {
-            "type": "string",
-            "nullable": true
-          },
-          "from": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CommentSummaryDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "createdAt": {
-            "type": "string",
-            "nullable": true
-          },
-          "subcomments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubcommentSummaryDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateCommentDto": {
-        "type": "object",
-        "properties": {
-          "authorId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "parentCommentId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "body": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ResolvedInstrumentDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "entityId": {
-            "type": "string",
-            "nullable": true
-          },
-          "ticker": {
-            "type": "string",
-            "nullable": true
-          },
-          "sedol": {
-            "type": "string",
-            "nullable": true
-          },
-          "cusip": {
-            "type": "string",
-            "nullable": true
-          },
-          "isin": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "IdentifierResolutionDto": {
-        "type": "object",
-        "properties": {
-          "instrumentMetadata": {
-            "$ref": "#/components/schemas/ResolvedInstrumentDto"
-          },
-          "query": {
-            "type": "string",
-            "nullable": true
+          "serialNumber": {
+            "maxLength": 8,
+            "minLength": 0,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -2249,6 +2178,20 @@
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Attachments"
+    },
+    {
+      "name": "Comments"
+    },
+    {
+      "name": "Events"
+    },
+    {
+      "name": "Meetings"
     }
   ]
 }

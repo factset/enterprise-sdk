@@ -5,19 +5,19 @@
 ## Enum
 
 
-* `UNKNOWN` (value: `"UNKNOWN"`)
+* `NUMBER_0` (value: `0`)
 
-* `ACCOUNT` (value: `"ACCOUNT"`)
+* `NUMBER_1` (value: `1`)
 
-* `CUSTOM` (value: `"CUSTOM"`)
+* `NUMBER_2` (value: `2`)
 
-* `INSTRUMENT` (value: `"INSTRUMENT"`)
+* `NUMBER_3` (value: `3`)
 
-* `CONTACT` (value: `"CONTACT"`)
+* `NUMBER_4` (value: `4`)
 
-* `MARKET_NOTE` (value: `"MARKET_NOTE"`)
+* `NUMBER_5` (value: `5`)
 
-* `PORTFOLIO` (value: `"PORTFOLIO"`)
+* `NUMBER_6` (value: `6`)
 
 
 

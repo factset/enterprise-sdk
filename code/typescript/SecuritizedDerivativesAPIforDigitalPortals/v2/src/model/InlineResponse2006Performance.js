@@ -18,7 +18,7 @@ import InlineResponse2006PerformanceSinceIssue from './InlineResponse2006Perform
 /**
  * The InlineResponse2006Performance model module.
  * @module model/InlineResponse2006Performance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006Performance {
     /**

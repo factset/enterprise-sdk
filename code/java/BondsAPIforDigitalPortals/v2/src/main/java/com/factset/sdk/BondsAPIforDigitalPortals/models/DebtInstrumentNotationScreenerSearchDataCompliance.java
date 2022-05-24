@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataCompliance implements Seria
   public static final String JSON_PROPERTY_GERMANY = "germany";
   private DebtInstrumentNotationScreenerSearchDataComplianceGermany germany;
 
+  public DebtInstrumentNotationScreenerSearchDataCompliance() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataCompliance germany(DebtInstrumentNotationScreenerSearchDataComplianceGermany germany) {
     this.germany = germany;

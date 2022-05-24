@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | [**UserSerialDto**](UserSerialDto.md) |  | 
 **title** | **String** |  | [optional] 
-**identifier** | **String** |  | 
+**identifier** | **String** |  | [optional] 
 **date** | **String** |  | 
 **subjectId** | **String** |  | [optional] 
 **recommendationId** | **String** |  | [optional] 
@@ -18,6 +18,6 @@ Name | Type | Description | Notes
 **relatedContacts** | **[String]** |  | [optional] 
 **relatedRecords** | [**RelatedRecordsDto**](RelatedRecordsDto.md) |  | [optional] 
 **customFieldValues** | [**[CreateCustomFieldValueDto]**](CreateCustomFieldValueDto.md) |  | [optional] 
-**isPersonal** | **Boolean** |  | [optional] 
+**isPersonal** | **Boolean** |  | [optional] [default to false]
 
 

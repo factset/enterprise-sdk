@@ -43,6 +43,16 @@ public class DataAnswerSuccessResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private DataAnswerData data;
 
+  public DataAnswerSuccessResponse() { 
+  }
+
+  @JsonCreator
+  public DataAnswerSuccessResponse(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) DataAnswerData data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public DataAnswerSuccessResponse data(DataAnswerData data) {
     this.data = data;

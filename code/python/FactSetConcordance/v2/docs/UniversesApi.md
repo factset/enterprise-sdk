@@ -41,28 +41,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
+
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.*
 
-    # example passing only required values which don't have defaults set
     try:
         # Get statistics on a given universe
         api_response = api_instance.get_entity_universe_statistics(universe_id)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling UniversesApi->get_entity_universe_statistics: %s\n" % e)
 ```
@@ -129,31 +130,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
+
     create_universe_request = CreateUniverseRequest(
         universe_name="My Universe",
         universe_description="This is my universe",
     ) # CreateUniverseRequest | A request to create a user's universe
 
-    # example passing only required values which don't have defaults set
     try:
         # Create a new universe
         api_response = api_instance.get_universe_for_list(create_universe_request)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling UniversesApi->get_universe_for_list: %s\n" % e)
 ```
@@ -224,29 +226,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
+
     universe_id = 1 # int | Universe identifier. *To create a universe, use the `/universe' endpoint.* (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Fetch metadata for universes
         api_response = api_instance.get_universes(universe_id=universe_id)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling UniversesApi->get_universes: %s\n" % e)
 ```
@@ -313,32 +315,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = universes_api.UniversesApi(api_client)
+
     update_universe_request = UpdateUniverseRequest(
         universe_name="My Universe",
         universe_description="This is my universe",
         universe_id=1,
     ) # UpdateUniverseRequest | A request to update a user's universe
 
-    # example passing only required values which don't have defaults set
     try:
         # Update metadata for an existing universe
         api_response = api_instance.get_update_universe_for_list(update_universe_request)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling UniversesApi->get_update_universe_for_list: %s\n" % e)
 ```

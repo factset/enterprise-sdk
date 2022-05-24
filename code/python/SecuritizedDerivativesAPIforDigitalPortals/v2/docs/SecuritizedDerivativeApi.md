@@ -1,6 +1,6 @@
 # fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.SecuritizedDerivativeApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -44,31 +44,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of barrier types.
         api_response = api_instance.get_securitized_derivative_barrier_type_list(attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->get_securitized_derivative_barrier_type_list: %s\n" % e)
 ```
@@ -132,41 +132,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     id = "id_example" # str | Identifier of the instrument.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Fundamental data for a single securitized derivative.
-        api_response = api_instance.get_securitized_derivative_get(id)
-        pprint(api_response)
-    except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling SecuritizedDerivativeApi->get_securitized_derivative_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Fundamental data for a single securitized derivative.
         api_response = api_instance.get_securitized_derivative_get(id, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->get_securitized_derivative_get: %s\n" % e)
 ```
@@ -232,41 +224,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     id = "id_example" # str | Identifier of a notation.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Notation-based key figures of a securitized derivative.
-        api_response = api_instance.get_securitized_derivative_key_figures_notation_get(id)
-        pprint(api_response)
-    except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling SecuritizedDerivativeApi->get_securitized_derivative_key_figures_notation_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Notation-based key figures of a securitized derivative.
         api_response = api_instance.get_securitized_derivative_key_figures_notation_get(id, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->get_securitized_derivative_key_figures_notation_get: %s\n" % e)
 ```
@@ -332,41 +316,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     id = "id_example" # str | Identifier of an instrument.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List of underlyings with barrier and cash flow information.
-        api_response = api_instance.get_securitized_derivative_underlying_list(id)
-        pprint(api_response)
-    except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling SecuritizedDerivativeApi->get_securitized_derivative_underlying_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of underlyings with barrier and cash flow information.
         api_response = api_instance.get_securitized_derivative_underlying_list(id, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->get_securitized_derivative_underlying_list: %s\n" % e)
 ```
@@ -433,21 +409,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     body = InlineObject(
         data=SecuritizedDerivativeIssuerSearchData(
             role="issuerGroup",
@@ -493,12 +470,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
         ),
     ) # InlineObject |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for issuers of securitized derivatives.
         api_response = api_instance.post_securitized_derivative_issuer_search(body=body)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->post_securitized_derivative_issuer_search: %s\n" % e)
 ```
@@ -563,21 +539,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     body = InlineObject1(
         data=SecuritizedDerivativeNotationRankingIntradayListData(
             prices=SecuritizedDerivativeNotationRankingIntradayListDataPrices(
@@ -651,6 +628,18 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             ),
             knocked_out="exclude",
             knocked_in="exclude",
+            performance=SecuritizedDerivativeNotationRankingIntradayListDataPerformance(
+                relative=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelative(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
+                        value=3.14,
+                        inclusive=True,
+                    ),
+                ),
+            ),
         ),
         meta=SecuritizedDerivativeNotationRankingIntradayListMeta(
             attributes=AttributesMember([
@@ -667,12 +656,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
         ),
     ) # InlineObject1 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Ranking of securitized derivatives' notations using intraday figures.
         api_response = api_instance.post_securitized_derivative_notation_ranking_intraday_list(body=body)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->post_securitized_derivative_notation_ranking_intraday_list: %s\n" % e)
 ```
@@ -737,21 +725,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     body = InlineObject3(
         data=SecuritizedDerivativeNotationScreenerSearchData(
             validation=SecuritizedDerivativeNotationScreenerSearchDataValidation(
@@ -868,11 +857,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             collateralized=True,
             quanto=True,
             capital_protection=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection(
-                minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                     value=3.14,
                     inclusive=True,
                 ),
-                maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                     value=3.14,
                     inclusive=True,
                 ),
@@ -922,11 +911,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                             ),
                         ),
                         relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataDistanceRelative(
-                            minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                            minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                            maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
@@ -1022,11 +1011,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             current_interest_rate=SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRate(
                 type="fixed",
                 value=SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRateValue(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -1045,21 +1034,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYieldRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYieldAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1077,21 +1066,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1109,21 +1098,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYieldRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYieldAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1141,21 +1130,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1173,11 +1162,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1206,11 +1195,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                             ),
                         ),
                         relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEvenDistanceRelative(
-                            minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                            minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                            maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
@@ -1229,11 +1218,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1306,11 +1295,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                     ),
                 ),
                 leverage=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresLeverage(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -1326,11 +1315,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                     ),
                 ),
                 implied_volatility=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresImpliedVolatility(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -1378,32 +1367,32 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             ),
             performance=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformance(
                 intraday=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceIntraday(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 since_issue=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssue(
                     ask=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueAsk(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     bid=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueBid(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1411,91 +1400,91 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                 ),
                 end_of_day=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDay(
                     day1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayDay1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     week1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     month1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonth1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     months3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths3(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     months6=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     year1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYear1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     years3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     years5=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears5(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     year_to_date=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYearToDate(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -1504,81 +1493,81 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             ),
             volatility=SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility(
                 week1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 month1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonth1(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 months3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths3(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 months6=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 year1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYear1(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 years3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 years5=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears5(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 year_to_date=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYearToDate(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -1600,12 +1589,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
         ),
     ) # InlineObject3 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Screener for securitized derivatives's notations based on securitized derivatives-specific parameters.
         api_response = api_instance.post_securitized_derivative_notation_screener_search(body=body)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->post_securitized_derivative_notation_screener_search: %s\n" % e)
 ```
@@ -1644,7 +1632,7 @@ Name | Type | Description  | Notes
 
 Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
 
-The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches, only the notation with the best market priority (according to the parameter `market.priority`) or, in the absence of market priorities, with the highest monetary trading volume, averaged over 30 trading days, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
+The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/securitizedDerivatives/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/securitizedDerivatives/notation/screener/search` endpoint so that performing a search always leads to a non-empty list of notations. Lists of distinct values, e.g. identifiers, are sorted descending by the number of notations for each value.   Since some underlyings, e.g. an index or a performance difference of a stock and an index (alpha structure), do not represent a directly tradable asset, they do not have a price in the classical sense. Therefore, the term \"level\" is used instead of \"price\", e.g. underlying level instead of underlying price.   The endpoint does not support possible values and value ranges for securitized derivatives with multiple underlyings, thus only securitized derivatives with a single underlying are considered.   The possible values and value ranges can be restricted to a specific set of products by using customer-specific instrument or notation lists. Such restriction lists are set up by FactSet upon request.
 
 ### Example
 
@@ -1670,21 +1658,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = securitized_derivative_api.SecuritizedDerivativeApi(api_client)
+
     body = InlineObject2(
         data=SecuritizedDerivativeNotationScreenerValueRangesGetData(
             validation=SecuritizedDerivativeNotationScreenerValueRangesGetDataValidation(
@@ -1801,11 +1790,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             collateralized=True,
             quanto=True,
             capital_protection=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtection(
-                minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                     value=3.14,
                     inclusive=True,
                 ),
-                maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                     value=3.14,
                     inclusive=True,
                 ),
@@ -1855,11 +1844,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                             ),
                         ),
                         relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataDistanceRelative(
-                            minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                            minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                            maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
@@ -1955,11 +1944,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             current_interest_rate=SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRate(
                 type="fixed",
                 value=SecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRateValue(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -1978,21 +1967,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYieldRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYieldAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2010,21 +1999,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2042,21 +2031,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYieldRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresMaximumYieldAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2074,21 +2063,21 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     annualized=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresAgioAnnualized(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2106,11 +2095,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresDiscountRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2139,11 +2128,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                             ),
                         ),
                         relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEvenDistanceRelative(
-                            minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                            minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                                 value=3.14,
                                 inclusive=True,
                             ),
-                            maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                            maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                                 value=3.14,
                                 inclusive=True,
                             ),
@@ -2162,11 +2151,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                         ),
                     ),
                     relative=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadRelative(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2239,11 +2228,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                     ),
                 ),
                 leverage=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresLeverage(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -2259,11 +2248,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                     ),
                 ),
                 implied_volatility=SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresImpliedVolatility(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -2311,32 +2300,32 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             ),
             performance=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformance(
                 intraday=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceIntraday(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 since_issue=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssue(
                     ask=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueAsk(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     bid=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueBid(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2344,91 +2333,91 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
                 ),
                 end_of_day=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDay(
                     day1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayDay1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     week1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     month1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonth1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     months3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths3(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     months6=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     year1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYear1(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     years3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     years5=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears5(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
                     ),
                     year_to_date=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYearToDate(
-                        minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                        minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                             value=3.14,
                             inclusive=True,
                         ),
-                        maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                        maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                             value=3.14,
                             inclusive=True,
                         ),
@@ -2437,81 +2426,81 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
             ),
             volatility=SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility(
                 week1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayWeek1(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 month1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonth1(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 months3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths3(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 months6=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 year1=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYear1(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 years3=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears3(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 years5=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYears5(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
                 ),
                 year_to_date=SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayYearToDate(
-                    minimum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum(
+                    minimum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum(
                         value=3.14,
                         inclusive=True,
                     ),
-                    maximum=SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum(
+                    maximum=SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum(
                         value=3.14,
                         inclusive=True,
                     ),
@@ -2526,12 +2515,11 @@ with fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiClient(configuration)
         ),
     ) # InlineObject2 |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Possible values and value ranges for the parameters used in the endpoint `/securitizedDerivative/notation/screener/search`.
         api_response = api_instance.post_securitized_derivative_notation_screener_value_ranges_get(body=body)
         pprint(api_response)
+
     except fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.ApiException as e:
         print("Exception when calling SecuritizedDerivativeApi->post_securitized_derivative_notation_screener_value_ranges_get: %s\n" % e)
 ```

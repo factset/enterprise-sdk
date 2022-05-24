@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -23,7 +23,7 @@ import EmployerDto from './EmployerDto';
 /**
  * The ContactDto model module.
  * @module model/ContactDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactDto {
     /**
@@ -54,44 +54,44 @@ class ContactDto {
         if (data) {
             obj = obj || new ContactDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('primaryEmailAddress')) {
-                obj['primaryEmailAddress'] = ApiClient.convertToType(data['primaryEmailAddress'], 'String');
+            if (data.hasOwnProperty('PrimaryEmailAddress')) {
+                obj['PrimaryEmailAddress'] = ApiClient.convertToType(data['PrimaryEmailAddress'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
-                obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
+            if (data.hasOwnProperty('Identifier')) {
+                obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
             }
-            if (data.hasOwnProperty('fullName')) {
-                obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
+            if (data.hasOwnProperty('FullName')) {
+                obj['FullName'] = ApiClient.convertToType(data['FullName'], 'String');
             }
-            if (data.hasOwnProperty('address')) {
-                obj['address'] = ContactAddressDto.constructFromObject(data['address']);
+            if (data.hasOwnProperty('Address')) {
+                obj['Address'] = ContactAddressDto.constructFromObject(data['Address']);
             }
-            if (data.hasOwnProperty('linkedInProfile')) {
-                obj['linkedInProfile'] = ApiClient.convertToType(data['linkedInProfile'], 'String');
+            if (data.hasOwnProperty('LinkedInProfile')) {
+                obj['LinkedInProfile'] = ApiClient.convertToType(data['LinkedInProfile'], 'String');
             }
-            if (data.hasOwnProperty('isDeleted')) {
-                obj['isDeleted'] = ApiClient.convertToType(data['isDeleted'], 'Boolean');
+            if (data.hasOwnProperty('IsDeleted')) {
+                obj['IsDeleted'] = ApiClient.convertToType(data['IsDeleted'], 'Boolean');
             }
-            if (data.hasOwnProperty('employer')) {
-                obj['employer'] = EmployerDto.constructFromObject(data['employer']);
+            if (data.hasOwnProperty('Employer')) {
+                obj['Employer'] = EmployerDto.constructFromObject(data['Employer']);
             }
-            if (data.hasOwnProperty('role')) {
-                obj['role'] = ContactRoleDto.constructFromObject(data['role']);
+            if (data.hasOwnProperty('Role')) {
+                obj['Role'] = ContactRoleDto.constructFromObject(data['Role']);
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ContactTypeDto.constructFromObject(data['type']);
+            if (data.hasOwnProperty('Type')) {
+                obj['Type'] = ContactTypeDto.constructFromObject(data['Type']);
             }
-            if (data.hasOwnProperty('phoneNumbers')) {
-                obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [ContactPhoneDto]);
+            if (data.hasOwnProperty('PhoneNumbers')) {
+                obj['PhoneNumbers'] = ApiClient.convertToType(data['PhoneNumbers'], [ContactPhoneDto]);
             }
-            if (data.hasOwnProperty('alternativeEmailAddresses')) {
-                obj['alternativeEmailAddresses'] = ApiClient.convertToType(data['alternativeEmailAddresses'], [AlternativeEmailAddressDto]);
+            if (data.hasOwnProperty('AlternativeEmailAddresses')) {
+                obj['AlternativeEmailAddresses'] = ApiClient.convertToType(data['AlternativeEmailAddresses'], [AlternativeEmailAddressDto]);
             }
-            if (data.hasOwnProperty('customFields')) {
-                obj['customFields'] = ApiClient.convertToType(data['customFields'], [ContactCustomFieldValueDto]);
+            if (data.hasOwnProperty('CustomFields')) {
+                obj['CustomFields'] = ApiClient.convertToType(data['CustomFields'], [ContactCustomFieldValueDto]);
             }
         }
         return obj;
@@ -101,69 +101,69 @@ class ContactDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-ContactDto.prototype['id'] = undefined;
+ContactDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} primaryEmailAddress
+ * @member {String} PrimaryEmailAddress
  */
-ContactDto.prototype['primaryEmailAddress'] = undefined;
+ContactDto.prototype['PrimaryEmailAddress'] = undefined;
 
 /**
- * @member {String} identifier
+ * @member {String} Identifier
  */
-ContactDto.prototype['identifier'] = undefined;
+ContactDto.prototype['Identifier'] = undefined;
 
 /**
- * @member {String} fullName
+ * @member {String} FullName
  */
-ContactDto.prototype['fullName'] = undefined;
+ContactDto.prototype['FullName'] = undefined;
 
 /**
- * @member {module:model/ContactAddressDto} address
+ * @member {module:model/ContactAddressDto} Address
  */
-ContactDto.prototype['address'] = undefined;
+ContactDto.prototype['Address'] = undefined;
 
 /**
- * @member {String} linkedInProfile
+ * @member {String} LinkedInProfile
  */
-ContactDto.prototype['linkedInProfile'] = undefined;
+ContactDto.prototype['LinkedInProfile'] = undefined;
 
 /**
- * @member {Boolean} isDeleted
+ * @member {Boolean} IsDeleted
  */
-ContactDto.prototype['isDeleted'] = undefined;
+ContactDto.prototype['IsDeleted'] = undefined;
 
 /**
- * @member {module:model/EmployerDto} employer
+ * @member {module:model/EmployerDto} Employer
  */
-ContactDto.prototype['employer'] = undefined;
+ContactDto.prototype['Employer'] = undefined;
 
 /**
- * @member {module:model/ContactRoleDto} role
+ * @member {module:model/ContactRoleDto} Role
  */
-ContactDto.prototype['role'] = undefined;
+ContactDto.prototype['Role'] = undefined;
 
 /**
- * @member {module:model/ContactTypeDto} type
+ * @member {module:model/ContactTypeDto} Type
  */
-ContactDto.prototype['type'] = undefined;
+ContactDto.prototype['Type'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactPhoneDto>} phoneNumbers
+ * @member {Array.<module:model/ContactPhoneDto>} PhoneNumbers
  */
-ContactDto.prototype['phoneNumbers'] = undefined;
+ContactDto.prototype['PhoneNumbers'] = undefined;
 
 /**
- * @member {Array.<module:model/AlternativeEmailAddressDto>} alternativeEmailAddresses
+ * @member {Array.<module:model/AlternativeEmailAddressDto>} AlternativeEmailAddresses
  */
-ContactDto.prototype['alternativeEmailAddresses'] = undefined;
+ContactDto.prototype['AlternativeEmailAddresses'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactCustomFieldValueDto>} customFields
+ * @member {Array.<module:model/ContactCustomFieldValueDto>} CustomFields
  */
-ContactDto.prototype['customFields'] = undefined;
+ContactDto.prototype['CustomFields'] = undefined;
 
 
 

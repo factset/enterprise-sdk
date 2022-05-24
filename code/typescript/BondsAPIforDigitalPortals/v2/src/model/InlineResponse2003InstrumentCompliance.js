@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentComplianceGermany from './InlineResponse2003I
 /**
  * The InlineResponse2003InstrumentCompliance model module.
  * @module model/InlineResponse2003InstrumentCompliance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentCompliance {
     /**

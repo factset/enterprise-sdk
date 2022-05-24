@@ -48,6 +48,16 @@ public class InlineObject20 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private InstrumentBackgroundTextTypeListMeta meta;
 
+  public InlineObject20() { 
+  }
+
+  @JsonCreator
+  public InlineObject20(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) NotationCrossReferenceFactSetIdentifierListByInstrumentData data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public InlineObject20 data(NotationCrossReferenceFactSetIdentifierListByInstrumentData data) {
     this.data = data;

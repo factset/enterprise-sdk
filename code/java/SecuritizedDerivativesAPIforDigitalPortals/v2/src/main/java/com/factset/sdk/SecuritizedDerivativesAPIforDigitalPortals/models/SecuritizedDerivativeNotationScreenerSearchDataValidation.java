@@ -68,6 +68,8 @@ public class SecuritizedDerivativeNotationScreenerSearchDataValidation implement
   public static final String JSON_PROPERTY_NOTATION_RESTRICTION_LIST = "notationRestrictionList";
   private SecuritizedDerivativeNotationScreenerSearchDataValidationNotationRestrictionList notationRestrictionList;
 
+  public SecuritizedDerivativeNotationScreenerSearchDataValidation() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerSearchDataValidation onlyActive(Boolean onlyActive) {
     this.onlyActive = onlyActive;

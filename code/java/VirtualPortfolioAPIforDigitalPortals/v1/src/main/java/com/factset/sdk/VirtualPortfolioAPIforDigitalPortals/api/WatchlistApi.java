@@ -7,6 +7,9 @@ import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Configuration;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.InlineObject10;
 import com.factset.sdk.VirtualPortfolioAPIforDigitalPortals.models.InlineObject11;
@@ -32,6 +35,42 @@ public class WatchlistApi {
   public WatchlistApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> watchlistCreatePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistCreatePostResponseTypeMap.put(201, new GenericType<InlineResponse2012>(){});
+  }
+  private static final Map<Integer, GenericType> watchlistDeletePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistDeletePostResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> watchlistListGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistListGetResponseTypeMap.put(200, new GenericType<InlineResponse20010>(){});
+  }
+  private static final Map<Integer, GenericType> watchlistModifyPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistModifyPostResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> watchlistPositionCreatePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistPositionCreatePostResponseTypeMap.put(201, new GenericType<InlineResponse2013>(){});
+  }
+  private static final Map<Integer, GenericType> watchlistPositionDeletePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistPositionDeletePostResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> watchlistPositionListGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistPositionListGetResponseTypeMap.put(200, new GenericType<InlineResponse20011>(){});
+  }
+  private static final Map<Integer, GenericType> watchlistPositionModifyPostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    watchlistPositionModifyPostResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -107,11 +146,17 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2012> localVarReturnType = new GenericType<InlineResponse2012>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2012
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistCreatePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a watchlist.
@@ -169,11 +214,17 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistDeletePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of watchlists.
@@ -235,11 +286,17 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20010> localVarReturnType = new GenericType<InlineResponse20010>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20010
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistListGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Modify a watchlist.
@@ -297,11 +354,17 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistModifyPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Add a position to a watchlist.
@@ -359,11 +422,17 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2013> localVarReturnType = new GenericType<InlineResponse2013>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistPositionCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2013
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistPositionCreatePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistPositionCreatePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a position of a watchlist.
@@ -421,11 +490,17 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistPositionDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistPositionDeletePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistPositionDeletePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of positions of a watchlist.
@@ -495,11 +570,17 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20011> localVarReturnType = new GenericType<InlineResponse20011>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistPositionListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20011
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistPositionListGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistPositionListGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Modify a position in a watchlist.
@@ -557,10 +638,16 @@ public class WatchlistApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("WatchlistApi.watchlistPositionModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("WatchlistApi.watchlistPositionModifyPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, watchlistPositionModifyPostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -52,7 +52,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ReportStatus {\n");
             sb.Append("  ReportStaus: ").Append(ReportStaus).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         public bool Equals(ReportStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReportStaus == input.ReportStaus ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this.ReportStaus != null)
-                    hashCode = hashCode * 59 + this.ReportStaus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportStaus.GetHashCode();
+                }
                 return hashCode;
             }
         }

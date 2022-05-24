@@ -44,6 +44,8 @@ public class BasicValueUnitCurrencyMainListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private BasicValueUnitCurrencyMainListDataFilter filter;
 
+  public BasicValueUnitCurrencyMainListData() { 
+  }
 
   public BasicValueUnitCurrencyMainListData filter(BasicValueUnitCurrencyMainListDataFilter filter) {
     this.filter = filter;

@@ -48,6 +48,8 @@ public class InlineResponse2004DataSensitivitiesElasticity implements Serializab
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataSensitivitiesElasticity() { 
+  }
 
   public InlineResponse2004DataSensitivitiesElasticity minimum(BigDecimal minimum) {
     this.minimum = minimum;

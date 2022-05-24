@@ -56,6 +56,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistCreatePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistDeletePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -203,6 +205,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistListGet(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -277,6 +280,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistModifyPost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -350,6 +354,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistPositionCreatePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -423,6 +428,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistPositionDeletePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -498,6 +504,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistPositionListGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -573,6 +580,7 @@ const opts = {
 // Call api endpoint
 apiInstance.watchlistPositionModifyPost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

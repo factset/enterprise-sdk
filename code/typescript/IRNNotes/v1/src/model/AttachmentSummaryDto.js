@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AttachmentSummaryDto model module.
  * @module model/AttachmentSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class AttachmentSummaryDto {
     /**
@@ -47,14 +47,17 @@ class AttachmentSummaryDto {
         if (data) {
             obj = obj || new AttachmentSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
-                obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
+            if (data.hasOwnProperty('FileName')) {
+                obj['FileName'] = ApiClient.convertToType(data['FileName'], 'String');
             }
-            if (data.hasOwnProperty('mimeType')) {
-                obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
+            if (data.hasOwnProperty('MimeType')) {
+                obj['MimeType'] = ApiClient.convertToType(data['MimeType'], 'String');
+            }
+            if (data.hasOwnProperty('Size')) {
+                obj['Size'] = ApiClient.convertToType(data['Size'], 'Number');
             }
         }
         return obj;
@@ -64,19 +67,24 @@ class AttachmentSummaryDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-AttachmentSummaryDto.prototype['id'] = undefined;
+AttachmentSummaryDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} fileName
+ * @member {String} FileName
  */
-AttachmentSummaryDto.prototype['fileName'] = undefined;
+AttachmentSummaryDto.prototype['FileName'] = undefined;
 
 /**
- * @member {String} mimeType
+ * @member {String} MimeType
  */
-AttachmentSummaryDto.prototype['mimeType'] = undefined;
+AttachmentSummaryDto.prototype['MimeType'] = undefined;
+
+/**
+ * @member {Number} Size
+ */
+AttachmentSummaryDto.prototype['Size'] = undefined;
 
 
 

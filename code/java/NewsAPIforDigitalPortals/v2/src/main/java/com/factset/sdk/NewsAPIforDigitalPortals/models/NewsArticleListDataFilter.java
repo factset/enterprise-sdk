@@ -74,6 +74,8 @@ public class NewsArticleListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_TYPES = "types";
   private NewsArticleListDataFilterTypes types;
 
+  public NewsArticleListDataFilter() { 
+  }
 
   public NewsArticleListDataFilter range(NewsArticleListDataFilterRange range) {
     this.range = range;

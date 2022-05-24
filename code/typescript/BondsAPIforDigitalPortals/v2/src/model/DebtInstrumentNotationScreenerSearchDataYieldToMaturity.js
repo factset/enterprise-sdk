@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMin
 /**
  * The DebtInstrumentNotationScreenerSearchDataYieldToMaturity model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataYieldToMaturity
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataYieldToMaturity {
     /**

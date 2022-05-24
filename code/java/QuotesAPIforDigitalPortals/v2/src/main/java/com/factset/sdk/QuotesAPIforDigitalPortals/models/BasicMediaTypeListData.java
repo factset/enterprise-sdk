@@ -44,6 +44,8 @@ public class BasicMediaTypeListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private BasicMediaTypeListDataFilter filter;
 
+  public BasicMediaTypeListData() { 
+  }
 
   public BasicMediaTypeListData filter(BasicMediaTypeListDataFilter filter) {
     this.filter = filter;

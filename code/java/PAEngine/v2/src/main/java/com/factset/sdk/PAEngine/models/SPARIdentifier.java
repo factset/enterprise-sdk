@@ -51,6 +51,16 @@ public class SPARIdentifier implements Serializable {
   public static final String JSON_PROPERTY_PREFIX = "prefix";
   private String prefix;
 
+  public SPARIdentifier() { 
+  }
+
+  @JsonCreator
+  public SPARIdentifier(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public SPARIdentifier id(String id) {
     this.id = id;

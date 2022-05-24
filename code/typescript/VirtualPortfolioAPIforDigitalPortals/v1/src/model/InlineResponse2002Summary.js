@@ -18,7 +18,7 @@ import InlineResponse2002SummaryTransactions from './InlineResponse2002SummaryTr
 /**
  * The InlineResponse2002Summary model module.
  * @module model/InlineResponse2002Summary
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2002Summary {
     /**

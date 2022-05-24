@@ -62,7 +62,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataCreateRedeem {\n");
             sb.Append("  UnitCost: ").Append(UnitCost).Append("\n");
             sb.Append("  UnitSize: ").Append(UnitSize).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataCreateRedeem input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UnitCost == input.UnitCost ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UnitCost.GetHashCode();
-                hashCode = hashCode * 59 + this.UnitSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.UnitCost.GetHashCode();
+                hashCode = (hashCode * 59) + this.UnitSize.GetHashCode();
                 return hashCode;
             }
         }

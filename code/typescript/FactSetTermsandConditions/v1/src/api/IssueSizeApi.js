@@ -20,7 +20,7 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * IssueSize service.
 * @module api/IssueSizeApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class IssueSizeApi {
 
@@ -63,7 +63,10 @@ export default class IssueSizeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = IssueSizeResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/issue-size', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class IssueSizeApi {
      * Return Issue Size data for a list of Fixed Income securities.
      * Returns Issue Size data for the Fixed Income security. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IssueSizeResponse}
+     * @return { Promise.< module:model/IssueSizeResponse > } a Promise, with data of type {@link module:model/IssueSizeResponse }
      */
     getIssueSize(ids) {
       return this.getIssueSizeWithHttpInfo(ids)
@@ -110,7 +113,10 @@ export default class IssueSizeApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = IssueSizeResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/issue-size', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class IssueSizeApi {
      * Return Issue Size data for a large list of Fixed Income securities.
      * Returns Issue Size data for a list of Fixed Income securities. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Issue Size.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/IssueSizeResponse}
+     * @return { Promise.< module:model/IssueSizeResponse > } a Promise, with data of type {@link module:model/IssueSizeResponse }
      */
     getIssueSizeForList(termsAndConditionsScalarRequest) {
       return this.getIssueSizeForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -133,3 +139,8 @@ export default class IssueSizeApi {
 
 
 }
+
+
+
+
+

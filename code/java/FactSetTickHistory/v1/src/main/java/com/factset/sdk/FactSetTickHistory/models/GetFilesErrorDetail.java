@@ -50,6 +50,8 @@ public class GetFilesErrorDetail implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION_OFFSET = "_paginationOffset";
   private java.util.List<String> paginationOffset = null;
 
+  public GetFilesErrorDetail() { 
+  }
 
   public GetFilesErrorDetail notAuthorizedTickers(java.util.List<String> notAuthorizedTickers) {
     this.notAuthorizedTickers = notAuthorizedTickers;

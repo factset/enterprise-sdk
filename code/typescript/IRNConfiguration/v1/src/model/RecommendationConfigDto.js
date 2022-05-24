@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecommendationConfigDto model module.
  * @module model/RecommendationConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RecommendationConfigDto {
     /**
@@ -47,17 +47,17 @@ class RecommendationConfigDto {
         if (data) {
             obj = obj || new RecommendationConfigDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+            if (data.hasOwnProperty('Code')) {
+                obj['Code'] = ApiClient.convertToType(data['Code'], 'Number');
             }
-            if (data.hasOwnProperty('isHidden')) {
-                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
+            if (data.hasOwnProperty('IsHidden')) {
+                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
             }
         }
         return obj;
@@ -67,24 +67,24 @@ class RecommendationConfigDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-RecommendationConfigDto.prototype['id'] = undefined;
+RecommendationConfigDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-RecommendationConfigDto.prototype['name'] = undefined;
+RecommendationConfigDto.prototype['Name'] = undefined;
 
 /**
- * @member {Number} code
+ * @member {Number} Code
  */
-RecommendationConfigDto.prototype['code'] = undefined;
+RecommendationConfigDto.prototype['Code'] = undefined;
 
 /**
- * @member {Boolean} isHidden
+ * @member {Boolean} IsHidden
  */
-RecommendationConfigDto.prototype['isHidden'] = undefined;
+RecommendationConfigDto.prototype['IsHidden'] = undefined;
 
 
 

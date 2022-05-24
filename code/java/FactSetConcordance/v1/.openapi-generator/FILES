@@ -40,7 +40,6 @@ src/main/java/com/factset/sdk/FactSetConcordance/ApiClient.java
 src/main/java/com/factset/sdk/FactSetConcordance/ApiException.java
 src/main/java/com/factset/sdk/FactSetConcordance/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetConcordance/Configuration.java
-src/main/java/com/factset/sdk/FactSetConcordance/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetConcordance/JSON.java
 src/main/java/com/factset/sdk/FactSetConcordance/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetConcordance/Pair.java

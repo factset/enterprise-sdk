@@ -31,6 +31,7 @@ from fds.sdk.FactSetEstimates.model.metrics import Metrics
 from fds.sdk.FactSetEstimates.model.metrics_request import MetricsRequest
 from fds.sdk.FactSetEstimates.model.metrics_response import MetricsResponse
 from fds.sdk.FactSetEstimates.model.periodicity import Periodicity
+from fds.sdk.FactSetEstimates.model.periodicity_detail import PeriodicityDetail
 from fds.sdk.FactSetEstimates.model.periodicity_surprise import PeriodicitySurprise
 from fds.sdk.FactSetEstimates.model.rolling_consensus_request import RollingConsensusRequest
 from fds.sdk.FactSetEstimates.model.rolling_detail_request import RollingDetailRequest

@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -20,52 +20,52 @@ import ApiClient from '../ApiClient';
 export default class SymbolType {
     
         /**
-         * value: "UNKNOWN"
+         * value: 0
          * @const
          */
-        "UNKNOWN" = "UNKNOWN";
+        "0" = 0;
 
     
         /**
-         * value: "ACCOUNT"
+         * value: 1
          * @const
          */
-        "ACCOUNT" = "ACCOUNT";
+        "1" = 1;
 
     
         /**
-         * value: "CUSTOM"
+         * value: 2
          * @const
          */
-        "CUSTOM" = "CUSTOM";
+        "2" = 2;
 
     
         /**
-         * value: "INSTRUMENT"
+         * value: 3
          * @const
          */
-        "INSTRUMENT" = "INSTRUMENT";
+        "3" = 3;
 
     
         /**
-         * value: "CONTACT"
+         * value: 4
          * @const
          */
-        "CONTACT" = "CONTACT";
+        "4" = 4;
 
     
         /**
-         * value: "MARKET_NOTE"
+         * value: 5
          * @const
          */
-        "MARKET_NOTE" = "MARKET_NOTE";
+        "5" = 5;
 
     
         /**
-         * value: "PORTFOLIO"
+         * value: 6
          * @const
          */
-        "PORTFOLIO" = "PORTFOLIO";
+        "6" = 6;
 
     
 

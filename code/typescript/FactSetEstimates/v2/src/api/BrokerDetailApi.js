@@ -21,7 +21,7 @@ import RollingDetailRequest from '../model/RollingDetailRequest';
 /**
 * BrokerDetail service.
 * @module api/BrokerDetailApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class BrokerDetailApi {
 
@@ -47,7 +47,7 @@ export default class BrokerDetailApi {
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'D')
-     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (default to 'ANN')
+     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
      * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
      * @param {String} opts.fiscalPeriodStart Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
      * @param {String} opts.fiscalPeriodEnd Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
@@ -88,7 +88,10 @@ export default class BrokerDetailApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DetailResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/fixed-detail', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -105,12 +108,12 @@ export default class BrokerDetailApi {
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'D')
-     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (default to 'ANN')
+     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
      * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
      * @param {String} opts.fiscalPeriodStart Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
      * @param {String} opts.fiscalPeriodEnd Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019) 
      * @param {String} opts.currency Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DetailResponse}
+     * @return { Promise.< module:model/DetailResponse > } a Promise, with data of type {@link module:model/DetailResponse }
      */
     getFixedDetail(ids, metrics, opts) {
       return this.getFixedDetailWithHttpInfo(ids, metrics, opts)
@@ -145,7 +148,10 @@ export default class BrokerDetailApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = DetailResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/fixed-detail', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -157,7 +163,7 @@ export default class BrokerDetailApi {
      * Estimates detail data for fixed fiscal periods
      * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. 
      * @param {module:model/FixedDetailRequest} fixedDetailRequest Request object for Estimate Data Items.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DetailResponse}
+     * @return { Promise.< module:model/DetailResponse > } a Promise, with data of type {@link module:model/DetailResponse }
      */
     getFixedDetailForList(fixedDetailRequest) {
       return this.getFixedDetailForListWithHttpInfo(fixedDetailRequest)
@@ -176,7 +182,7 @@ export default class BrokerDetailApi {
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'D')
-     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (default to 'ANN')
+     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
      * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
      * @param {Number} opts.relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).
      * @param {Number} opts.relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).
@@ -217,7 +223,10 @@ export default class BrokerDetailApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DetailResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/rolling-detail', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -234,12 +243,12 @@ export default class BrokerDetailApi {
      * @param {String} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {String} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {module:model/String} opts.frequency Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (default to 'D')
-     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.  (default to 'ANN')
+     * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
      * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus     (default to false)
      * @param {Number} opts.relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1).
      * @param {Number} opts.relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).
      * @param {String} opts.currency Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DetailResponse}
+     * @return { Promise.< module:model/DetailResponse > } a Promise, with data of type {@link module:model/DetailResponse }
      */
     getRollingDetail(ids, metrics, opts) {
       return this.getRollingDetailWithHttpInfo(ids, metrics, opts)
@@ -274,7 +283,10 @@ export default class BrokerDetailApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = DetailResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/rolling-detail', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -286,7 +298,7 @@ export default class BrokerDetailApi {
      * FactSet estimates detail data for rolling fiscal periods
      * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. 
      * @param {module:model/RollingDetailRequest} rollingDetailRequest Request object for Estimate Data Items.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DetailResponse}
+     * @return { Promise.< module:model/DetailResponse > } a Promise, with data of type {@link module:model/DetailResponse }
      */
     getRollingDetailForList(rollingDetailRequest) {
       return this.getRollingDetailForListWithHttpInfo(rollingDetailRequest)
@@ -297,3 +309,8 @@ export default class BrokerDetailApi {
 
 
 }
+
+
+
+
+

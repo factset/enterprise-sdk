@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2004InstrumentFsym from './InlineResponse2004InstrumentFsym';
 import InlineResponse2006InstrumentBonusLevel from './InlineResponse2006InstrumentBonusLevel';
 import InlineResponse2006InstrumentCap from './InlineResponse2006InstrumentCap';
 import InlineResponse2006InstrumentCapitalGuarantee from './InlineResponse2006InstrumentCapitalGuarantee';
@@ -34,7 +35,7 @@ import InlineResponse200DataNsin from './InlineResponse200DataNsin';
 /**
  * The InlineResponse2006Instrument model module.
  * @module model/InlineResponse2006Instrument
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006Instrument {
     /**
@@ -80,6 +81,9 @@ class InlineResponse2006Instrument {
             }
             if (data.hasOwnProperty('nsin')) {
                 obj['nsin'] = InlineResponse200DataNsin.constructFromObject(data['nsin']);
+            }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2004InstrumentFsym.constructFromObject(data['fsym']);
             }
             if (data.hasOwnProperty('categorization')) {
                 obj['categorization'] = InlineResponse2006InstrumentCategorization.constructFromObject(data['categorization']);
@@ -185,6 +189,11 @@ InlineResponse2006Instrument.prototype['isin'] = undefined;
  * @member {module:model/InlineResponse200DataNsin} nsin
  */
 InlineResponse2006Instrument.prototype['nsin'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2004InstrumentFsym} fsym
+ */
+InlineResponse2006Instrument.prototype['fsym'] = undefined;
 
 /**
  * @member {module:model/InlineResponse2006InstrumentCategorization} categorization

@@ -81,7 +81,7 @@ namespace FactSet.SDK.Publisher.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Calculation {\n");
             sb.Append("  Pa: ").Append(Pa).Append("\n");
             sb.Append("  Spar: ").Append(Spar).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.Publisher.Model
         public bool Equals(Calculation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Pa == input.Pa ||
@@ -157,13 +158,21 @@ namespace FactSet.SDK.Publisher.Model
             {
                 int hashCode = 41;
                 if (this.Pa != null)
-                    hashCode = hashCode * 59 + this.Pa.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pa.GetHashCode();
+                }
                 if (this.Spar != null)
-                    hashCode = hashCode * 59 + this.Spar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Spar.GetHashCode();
+                }
                 if (this.Vault != null)
-                    hashCode = hashCode * 59 + this.Vault.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Vault.GetHashCode();
+                }
                 if (this.Pub != null)
-                    hashCode = hashCode * 59 + this.Pub.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pub.GetHashCode();
+                }
                 return hashCode;
             }
         }

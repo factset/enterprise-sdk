@@ -114,7 +114,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationStatusSummary {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
@@ -151,8 +151,9 @@ namespace FactSet.SDK.SPAREngine.Model
         public bool Equals(CalculationStatusSummary input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -183,12 +184,16 @@ namespace FactSet.SDK.SPAREngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.Units.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Units.GetHashCode();
                 if (this.RequestTime != null)
-                    hashCode = hashCode * 59 + this.RequestTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestTime.GetHashCode();
+                }
                 if (this.LastPollTime != null)
-                    hashCode = hashCode * 59 + this.LastPollTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastPollTime.GetHashCode();
+                }
                 return hashCode;
             }
         }

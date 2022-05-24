@@ -48,6 +48,8 @@ public class StockNotationScreenerSearchDataRecommendationCountsTotalMinimum imp
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public StockNotationScreenerSearchDataRecommendationCountsTotalMinimum() { 
+  }
 
   public StockNotationScreenerSearchDataRecommendationCountsTotalMinimum value(BigDecimal value) {
     this.value = value;

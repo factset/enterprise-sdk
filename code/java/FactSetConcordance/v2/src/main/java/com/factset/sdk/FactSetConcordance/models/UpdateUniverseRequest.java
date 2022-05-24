@@ -50,6 +50,16 @@ public class UpdateUniverseRequest implements Serializable {
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
   private Integer universeId;
 
+  public UpdateUniverseRequest() { 
+  }
+
+  @JsonCreator
+  public UpdateUniverseRequest(
+    @JsonProperty(value=JSON_PROPERTY_UNIVERSE_ID, required=true) Integer universeId
+  ) {
+    this();
+    this.universeId = universeId;
+  }
 
   public UpdateUniverseRequest universeName(String universeName) {
     this.universeName = universeName;

@@ -42,6 +42,8 @@ public class Ofdb implements Serializable {
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
+  public Ofdb() { 
+  }
 
   public Ofdb username(String username) {
     this.username = username;

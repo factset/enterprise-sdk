@@ -52,7 +52,7 @@ namespace FactSet.SDK.IDLookup.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LookupAssettype {\n");
             sb.Append("  People: ").Append(People).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.IDLookup.Model
         public bool Equals(LookupAssettype input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.People == input.People ||
@@ -104,7 +105,7 @@ namespace FactSet.SDK.IDLookup.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.People.GetHashCode();
+                hashCode = (hashCode * 59) + this.People.GetHashCode();
                 return hashCode;
             }
         }

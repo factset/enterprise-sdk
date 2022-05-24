@@ -487,7 +487,7 @@ paths:
             to identify the beginning of next set of results
   /bulk-documents/nrt/v1/list-snippets:
     get:
-      summary: Returns the latest snippets from an active call
+      summary: Returns the latest transcript snippets from an active call
       tags:
         - Near Real-Time Transcripts
       responses:
@@ -503,12 +503,12 @@ paths:
                     data:
                       - reportId: 2457785
                         snippetEndTimestamp: '2021-10-15 13:16:50'
-                        snippetData:
-                          - metadata:
+                        transcriptData:
+                          - snippetData:
                               transcript: 'The operator will be with you shortly '
                               endTime: 3.78
                               startTime: 0
-                          - metadata:
+                          - snippetData:
                               transcript: >-
                                 , welcomed the course call, please hold an
                                 operator will be with you shortly. 
@@ -518,12 +518,12 @@ paths:
                         audioSourceId: 421599
                       - reportId: 2457785
                         snippetEndTimestamp: '2021-10-15 13:17:16'
-                        snippetData:
-                          - metadata:
+                        transcriptData:
+                          - snippetData:
                               transcript: 'What Congress are looking to join '
                               endTime: 47.64
                               startTime: 41.46
-                          - metadata:
+                          - snippetData:
                               transcript: '. Can I have your first and name '
                               endTime: 55.32
                               startTime: 47.64
@@ -531,8 +531,8 @@ paths:
                         audioSourceId: 421599
                       - reportId: 2457785
                         snippetEndTimestamp: '2021-10-15 13:17:28'
-                        snippetData:
-                          - metadata:
+                        transcriptData:
+                          - snippetData:
                               transcript: '? Thank you. And good company '
                               endTime: 67.68
                               startTime: 61.2
@@ -540,8 +540,8 @@ paths:
                         audioSourceId: 421599
                       - reportId: 2457785
                         snippetEndTimestamp: '2021-10-15 13:17:41'
-                        snippetData:
-                          - metadata:
+                        transcriptData:
+                          - snippetData:
                               transcript: >-
                                 . Let's I'll join you and hold onto the calls
                                 again.
@@ -551,8 +551,8 @@ paths:
                         audioSourceId: 421599
                       - reportId: 2457785
                         snippetEndTimestamp: '2021-10-15 13:18:57'
-                        snippetData:
-                          - metadata:
+                        transcriptData:
+                          - snippetData:
                               transcript: 'on '
                               endTime: 156.78
                               startTime: 150.9
@@ -795,11 +795,684 @@ paths:
       description: >-
         Returns the latest speakerIds with the cosine scores(confidence scores)
         generated for an active call.
+  /bulk-documents/nrt/v1/indexed-nrt:
+    get:
+      summary: >-
+        Returns the  indexed transcript data  in small increments throughout the
+        duration of an active call.
+      tags:
+        - Near Real-Time Transcripts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Indexed-NRT'
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - reportId: 2397129
+                        snippetEndTimestamp: '2022-01-14 15:03:08'
+                        snippetSequence: 7
+                        audioSourceId: 437863
+                        transcriptData:
+                          - indexedData:
+                              - index:
+                                  - confidence: 1
+                                    content: Revenue
+                                    language: en
+                                endTime: 782.6299999976159
+                                startTime: 782.1199999922515
+                                type: word
+                              - index:
+                                  - confidence: 0.9172338247299194
+                                    content: increased
+                                    language: en
+                                endTime: 782.9899999523163
+                                startTime: 782.6299999976159
+                                type: word
+                              - index:
+                                  - confidence: 0.9998389482498169
+                                    content: six
+                                    language: en
+                                endTime: 783.2299999618531
+                                startTime: 782.9899999523163
+                                type: word
+                              - index:
+                                  - confidence: 0.9989027976989746
+                                    content: percent
+                                    language: en
+                                endTime: 783.7999383831025
+                                startTime: 783.2299999618531
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: as
+                                    language: en
+                                endTime: 784.0099999332429
+                                startTime: 783.8000000143052
+                                type: word
+                              - index:
+                                  - confidence: 0.9140177965164185
+                                    content: we
+                                    language: en
+                                endTime: 784.0999967479706
+                                startTime: 784.0099999332429
+                                type: word
+                              - index:
+                                  - confidence: 0.8930811285972595
+                                    content: benefited
+                                    language: en
+                                endTime: 784.6999999904633
+                                startTime: 784.1026543998719
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: from
+                                    language: en
+                                endTime: 784.9100000286103
+                                startTime: 784.6999999904633
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: strong
+                                    language: en
+                                endTime: 785.4499999904633
+                                startTime: 784.9100546264649
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: gains
+                                    language: en
+                                endTime: 786.3499998474122
+                                startTime: 785.7499999427796
+                                type: word
+                              - index:
+                                  - confidence: 0.9999908208847046
+                                    content: from
+                                    language: en
+                                endTime: 786.8299755477906
+                                startTime: 786.5599998855591
+                                type: word
+                              - index:
+                                  - confidence: 0.9939011335372925
+                                    content: equity
+                                    language: en
+                                endTime: 787.19
+                                startTime: 786.8299998664857
+                                type: word
+                              - index:
+                                  - confidence: 0.9999626874923706
+                                    content: securities
+                                    language: en
+                                endTime: 787.9399942779542
+                                startTime: 787.1901826286316
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: and
+                                    language: en
+                                endTime: 788.4499997520447
+                                startTime: 788.1800994300843
+                                type: word
+                              - index:
+                                  - confidence: 0.6049093008041382
+                                    content: gain
+                                    language: en
+                                endTime: 788.9599990272523
+                                startTime: 788.4499997520447
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: from
+                                    language: en
+                                endTime: 789.5299996757508
+                                startTime: 789.2599996948243
+                                type: word
+                              - index:
+                                  - confidence: 0.9999662637710571
+                                    content: sales
+                                    language: en
+                                endTime: 790.0999998474122
+                                startTime: 789.5299996757508
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: of
+                                    language: en
+                                endTime: 790.280000152588
+                                startTime: 790.0999998474122
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: our
+                                    language: en
+                                endTime: 790.3699993515015
+                                startTime: 790.280000152588
+                                type: word
+                              - index:
+                                  - confidence: 0.999971866607666
+                                    content: student
+                                    language: en
+                                endTime: 790.7000002288819
+                                startTime: 790.3699993515015
+                                type: word
+                              - index:
+                                  - confidence: 0.9998940825462341
+                                    content: lending
+                                    language: en
+                                endTime: 791.150000038147
+                                startTime: 790.7000011825562
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: asset
+                                    language: en
+                                endTime: 791.7499994659424
+                                startTime: 791.2999996566773
+                                type: word
+                            snippetData:
+                              transcript: >-
+                                Revenue increased six percent as we benefited
+                                from strong gains from equity securities and
+                                gain from sales of our student lending asset 
+                              endTime: 791.75
+                              startTime: 781.94
+                      - reportId: 2397129
+                        snippetEndTimestamp: '2022-01-14 15:03:28'
+                        snippetSequence: 8
+                        audioSourceId: 437863
+                        transcriptData:
+                          - indexedData:
+                              - index:
+                                  - confidence: 1
+                                    content: management
+                                    language: en
+                                endTime: 792.4099999666214
+                                startTime: 791.7799999993294
+                                type: word
+                              - index:
+                                  - confidence: 0.9995142221450806
+                                    content: and
+                                    language: en
+                                endTime: 792.589999973774
+                                startTime: 792.4099999666214
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: corporate
+                                    language: en
+                                endTime: 792.9199999570847
+                                startTime: 792.589999973774
+                                type: word
+                              - index:
+                                  - confidence: 0.9906429052352905
+                                    content: trust
+                                    language: en
+                                endTime: 793.2199999094009
+                                startTime: 792.9199999570847
+                                type: word
+                              - index:
+                                  - confidence: 0.9990030527114868
+                                    content: businesses
+                                    language: en
+                                endTime: 793.8563723564148
+                                startTime: 793.2199999094009
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: .
+                                    language: en
+                                endTime: 793.8563723564148
+                                startTime: 793.8563723564148
+                                isEOS: true
+                                type: punctuation
+                              - index:
+                                  - confidence: 1
+                                    content: We
+                                    language: en
+                                endTime: 794.5999999046326
+                                startTime: 794.3899998664856
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: also
+                                    language: en
+                                endTime: 794.9299998283386
+                                startTime: 794.5999999046326
+                                type: word
+                              - index:
+                                  - confidence: 0.8609960079193115
+                                    content: have
+                                    language: en
+                                endTime: 795.0797309875488
+                                startTime: 794.9299998283386
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: broad
+                                    language: en
+                                endTime: 795.4099998474121
+                                startTime: 795.079999923706
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: based
+                                    language: en
+                                endTime: 795.7099997997284
+                                startTime: 795.4099998474121
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: revenue
+                                    language: en
+                                endTime: 796.0699996948242
+                                startTime: 795.7099997997284
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: growth
+                                    language: en
+                                endTime: 796.4899997711182
+                                startTime: 796.0699996948242
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: across
+                                    language: en
+                                endTime: 796.8800001144409
+                                startTime: 796.4899997711182
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: our
+                                    language: en
+                                endTime: 796.9699997901917
+                                startTime: 796.8800001144409
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: businesses
+                                    language: en
+                                endTime: 797.539999961853
+                                startTime: 796.9699997901917
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: ','
+                                    language: en
+                                endTime: 797.539999961853
+                                startTime: 797.539999961853
+                                isEOS: false
+                                type: punctuation
+                              - index:
+                                  - confidence: 1
+                                    content: including
+                                    language: en
+                                endTime: 797.9600076675415
+                                startTime: 797.539999961853
+                                type: word
+                              - index:
+                                  - confidence: 0.9997471570968628
+                                    content: home
+                                    language: en
+                                endTime: 798.1699695587158
+                                startTime: 797.9600076675415
+                                type: word
+                              - index:
+                                  - confidence: 0.9999999403953552
+                                    content: lending
+                                    language: en
+                                endTime: 798.5899996757507
+                                startTime: 798.170000076294
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: ','
+                                    language: en
+                                endTime: 798.5899996757507
+                                startTime: 798.5899996757507
+                                isEOS: false
+                                type: punctuation
+                              - index:
+                                  - confidence: 0.9962349534034729
+                                    content: consumer
+                                    language: en
+                                endTime: 799.4587783813477
+                                startTime: 798.9800000190735
+                                type: word
+                              - index:
+                                  - confidence: 0.9955459237098694
+                                    content: and
+                                    language: en
+                                endTime: 799.5499267578125
+                                startTime: 799.4600353240967
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: small
+                                    language: en
+                                endTime: 799.789999961853
+                                startTime: 799.5499997138977
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: business
+                                    language: en
+                                endTime: 800.1199998855591
+                                startTime: 799.789999961853
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: banking
+                                    language: en
+                                endTime: 800.5999069213867
+                                startTime: 800.1199998855591
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: ','
+                                    language: en
+                                endTime: 800.5999069213867
+                                startTime: 800.5999069213867
+                                isEOS: false
+                                type: punctuation
+                              - index:
+                                  - confidence: 1
+                                    content: credit
+                                    language: en
+                                endTime: 801.2600002288818
+                                startTime: 800.8699998855591
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: card
+                                    language: en
+                                endTime: 801.6499996185303
+                                startTime: 801.2600002288818
+                                type: word
+                            snippetData:
+                              transcript: >-
+                                management and corporate trust businesses. We
+                                also have broad based revenue growth across our
+                                businesses, including home lending, consumer and
+                                small business banking, credit card 
+                              endTime: 801.65
+                              startTime: 791.75
+                          - indexedData:
+                              - index:
+                                  - confidence: 1
+                                    content: ','
+                                    language: en
+                                endTime: 801.9799999833107
+                                startTime: 801.9799999833107
+                                isEOS: false
+                                type: punctuation
+                              - index:
+                                  - confidence: 0.9995478391647339
+                                    content: auto
+                                    language: en
+                                endTime: 802.5800000071525
+                                startTime: 801.9799999833107
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: ','
+                                    language: en
+                                endTime: 802.5800000071525
+                                startTime: 802.5800000071525
+                                isEOS: false
+                                type: punctuation
+                              - index:
+                                  - confidence: 1
+                                    content: commercial
+                                    language: en
+                                endTime: 803.2399999141693
+                                startTime: 802.7899999856949
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: real
+                                    language: en
+                                endTime: 803.4199999809265
+                                startTime: 803.2399999141693
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: estate
+                                    language: en
+                                endTime: 803.8999732971191
+                                startTime: 803.4199999809265
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: ','
+                                    language: en
+                                endTime: 803.8999732971191
+                                startTime: 803.8999732971191
+                                isEOS: false
+                                type: punctuation
+                              - index:
+                                  - confidence: 1
+                                    content: banking
+                                    language: en
+                                endTime: 804.8299998283386
+                                startTime: 804.229999923706
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: and
+                                    language: en
+                                endTime: 805.3399998188019
+                                startTime: 805.0699998378753
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: wealth
+                                    language: en
+                                endTime: 805.6699999809265
+                                startTime: 805.3399998188019
+                                type: word
+                              - index:
+                                  - confidence: 0.9995111227035522
+                                    content: and
+                                    language: en
+                                endTime: 805.8200000762939
+                                startTime: 805.6699999809265
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: investment
+                                    language: en
+                                endTime: 806.3000000953674
+                                startTime: 805.8200000762939
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: management
+                                    language: en
+                                endTime: 806.8099998474121
+                                startTime: 806.3000000953674
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: .
+                                    language: en
+                                endTime: 806.8099998474121
+                                startTime: 806.8099998474121
+                                isEOS: true
+                                type: punctuation
+                              - index:
+                                  - confidence: 1
+                                    content: Credit
+                                    language: en
+                                endTime: 807.9199999809265
+                                startTime: 807.5599998474121
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: quality
+                                    language: en
+                                endTime: 808.4
+                                startTime: 807.9199999809265
+                                type: word
+                              - index:
+                                  - confidence: 0.6613963842391968
+                                    content: improved
+                                    language: en
+                                endTime: 808.7600001335144
+                                startTime: 808.4000004768371
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: significantly
+                                    language: en
+                                endTime: 809.689999961853
+                                startTime: 808.7640556335449
+                                type: word
+                              - index:
+                                  - confidence: 0.9995760321617126
+                                    content: as
+                                    language: en
+                                endTime: 809.9599994659424
+                                startTime: 809.7199996948242
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: the
+                                    language: en
+                                endTime: 810.0499996185303
+                                startTime: 809.9599994659424
+                                type: word
+                              - index:
+                                  - confidence: 1
+                                    content: economy
+                                    language: en
+                                endTime: 810.7099994659424
+                                startTime: 810.0499996185303
+                                type: word
+                              - index:
+                                  - confidence: 0.9282795786857605
+                                    content: improved
+                                    language: en
+                                endTime: 811.7000907897949
+                                startTime: 811.0399993896484
+                                type: word
+                            snippetData:
+                              transcript: >-
+                                , auto, commercial real estate, banking and
+                                wealth and investment management. Credit quality
+                                improved significantly as the economy improved 
+                              endTime: 811.6999999999999
+                              startTime: 801.65
+                    meta:
+                      pagination:
+                        total: 807
+                        isEstimatedTotal: false
+                        limit: 2
+                        offset: 8
+                      partial:
+                        isPartial: true
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NRT-Snippets-400-Response'
+              examples:
+                example-1:
+                  value:
+                    id: 39bf5f1c-c503-4787-94e0-e557a3564fd6,
+                    error_message: >-
+                      parameterError:['_paginationLmit'] is not a valid
+                      parameter(s),
+                    details:
+                      validParameters:
+                        _paginationLimit:
+                          - integer from 0 to 50
+                        _paginationOffset:
+                          - positive integer
+                        audioSourceId:
+                          - positive integer
+                        reportId:
+                          - positive integer
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Authentication Failed
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Entitlements Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    error_message: Internal Service Error
+      operationId: get-bulk-documents-nrt-v1-indexed-nrt
+      description: >-
+        Returns the  indexed transcript data  in small increments throughout the
+        duration of an active call.
+      parameters:
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: reportId
+          description: Unique identifier for an event
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: audioSourceId
+          required: true
+          description: >-
+            Unique ID for an Internal recording specific to reportID. For
+            example, ReportID X would have multiple recordings from different
+            source (dial-in or webcast). One ReportID can have multiple
+            AudioSource ids.
+        - schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+          in: query
+          name: _paginationLimit
+          description: >-
+            Specifies the  number of results to return per page. [ Min=0; Max=50
+            ]
+        - schema:
+            type: integer
+            format: int32
+          in: query
+          name: _paginationOffset
+          description: >-
+            Specifies the starting point for pagination. This parameter is used
+            to identify the beginning of next set of results
 components:
   schemas:
     NRT-Snippets:
       description: >-
-        Metadata of the snippets of active calls happening at that moment are
+        Transcript snippet metadata of active calls happening at that moment are
         returned
       type: object
       properties:
@@ -817,12 +1490,12 @@ components:
                   The snippet end time is calculated based off the endTime in
                   the snippetData section and the recordingStartTime from the
                   calls endpoint 
-              snippetData:
+              transcriptData:
                 type: array
                 items:
                   type: object
                   properties:
-                    metadata:
+                    snippetData:
                       type: object
                       properties:
                         transcript:
@@ -1041,11 +1714,6 @@ components:
 
                   A score > 0.5 while a key-speaker is speaking can be
                   considered as a high confidence in the predicted speaker
-
-
-                  Negative and null cosine scores are eliminated from the
-                  speakerid result set as they are the predictions due to either
-                  music or silence in the call
 
 
                   Only the Speakerids with the highest cosineScore are rendered
@@ -1396,6 +2064,142 @@ components:
       properties:
         error_message:
           type: string
+    Indexed-NRT:
+      description: >-
+        Indexed transcript metadata of active calls happening at that moment are
+        returned
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            properties:
+              reportId:
+                type: integer
+                description: The unique ID for an event.
+              snippetEndTimestamp:
+                type: string
+                description: >-
+                  The snippet end time is calculated based off the endTime in
+                  the snippetData section and the recordingStartTime from the
+                  calls endpoint
+              snippetSequence:
+                type: integer
+                description: >-
+                  The sequence number of the snippet from the start of the
+                  current call
+              audioSourceId:
+                type: integer
+                description: >-
+                  The Unique ID for an Internal recording specific to reportID.
+                  For example, ReportID X would have multiple recordings from a
+                  different source (dial-in or webcast). One ReportID can have
+                  multiple audioSource ids.
+              transcriptData:
+                type: array
+                items:
+                  properties:
+                    indexedData:
+                      type: array
+                      items:
+                        properties:
+                          index:
+                            type: array
+                            items:
+                              properties:
+                                confidence:
+                                  type: number
+                                  description: >-
+                                    Represents the confidence with which the
+                                    speech to text recognition engine predicts.
+                                    1 represents 100% confidence about the
+                                    content'
+                                content:
+                                  type: string
+                                  description: It denotes the spoken content
+                                language:
+                                  type: string
+                                  description: >-
+                                    It denotes the spoken language Its always
+                                    english
+                          endTime:
+                            type: number
+                            description: >-
+                              The number of seconds into the call, when the
+                              content ends
+                          startTime:
+                            type: number
+                            description: >-
+                              The number of seconds into the call, when the
+                              content begins
+                          type:
+                            type: string
+                            description: |-
+                              It denotes the type of content.
+
+                              Values- punctuation, word, speaker_change
+                          isEOS:
+                            type: boolean
+                            description: >-
+                              isEOS is an abbreviation for isEndOfSentence. True
+                              – When the type is punctuation and content
+                              is‘.’   
+
+
+                                                               
+                    snippetData:
+                      type: object
+                      properties:
+                        transcript:
+                          type: string
+                          description: The actual transcript snippet
+                        endTime:
+                          type: number
+                          description: >-
+                            The number of seconds into the call,when the
+                            transcript snippet ended
+                        startTime:
+                          type: number
+                          description: >-
+                            The number of seconds into the call,when the
+                            transcript snippet started
+        meta:
+          type: object
+          properties:
+            pagination:
+              type: object
+              properties:
+                total:
+                  type: integer
+                  description: Total number for results returned for a specific query
+                isEstimatedTotal:
+                  type: boolean
+                  description: >-
+                    This field acts as a flag for the exact count of results and
+                    is defaulted to false as the API should always return the
+                    exact count of results
+                limit:
+                  type: integer
+                  description: Number of results returned per page
+                offset:
+                  type: integer
+                  description: >-
+                    The flag indicating the position in the results array if
+                    additional results are available beyond the default value or
+                    the value in _paginationLimit parameter (if used). This
+                    value is passed in the _paginationOffset parameter to
+                    retrieve subsequent results
+            partial:
+              type: object
+              properties:
+                isPartial:
+                  type: boolean
+                  description: >-
+                    True – When the API returns all the results of the query
+
+
+                    False – When API returns partial results of the query based
+                    on _paginationOffset parameter
   securitySchemes:
     FactSetOAuth2:
       type: oauth2

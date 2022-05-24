@@ -96,6 +96,8 @@ public class InlineResponse20050Data implements Serializable {
   public static final String JSON_PROPERTY_COMPONENTS = "components";
   private java.util.List<InlineResponse20050DataComponents> components = null;
 
+  public InlineResponse20050Data() { 
+  }
 
   public InlineResponse20050Data typeComposite(TypeCompositeEnum typeComposite) {
     this.typeComposite = typeComposite;

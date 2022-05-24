@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CreateDatabaseResponse from './model/CreateDatabaseResponse';
 import DatabaseSchema from './model/DatabaseSchema';
@@ -24,6 +23,7 @@ import InlineObject5 from './model/InlineObject5';
 import InlineResponse201 from './model/InlineResponse201';
 import Ofdb from './model/Ofdb';
 import SuccessPostResponse from './model/SuccessPostResponse';
+
 import CreateApi from './api/CreateApi';
 import ModifyApi from './api/ModifyApi';
 import ViewApi from './api/ViewApi';
@@ -58,7 +58,7 @@ import ViewApi from './api/ViewApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.9.2
 */
 export {
     /**
@@ -149,5 +149,6 @@ export {
     * The ViewApi service constructor.
     * @property {module:api/ViewApi}
     */
-    ViewApi
+    ViewApi,
+
 };

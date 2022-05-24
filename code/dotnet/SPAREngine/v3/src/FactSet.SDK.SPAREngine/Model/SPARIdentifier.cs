@@ -81,7 +81,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SPARIdentifier {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Returntype: ").Append(Returntype).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.SPAREngine.Model
         public bool Equals(SPARIdentifier input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -147,11 +148,17 @@ namespace FactSet.SDK.SPAREngine.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Returntype != null)
-                    hashCode = hashCode * 59 + this.Returntype.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Returntype.GetHashCode();
+                }
                 if (this.Prefix != null)
-                    hashCode = hashCode * 59 + this.Prefix.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Prefix.GetHashCode();
+                }
                 return hashCode;
             }
         }

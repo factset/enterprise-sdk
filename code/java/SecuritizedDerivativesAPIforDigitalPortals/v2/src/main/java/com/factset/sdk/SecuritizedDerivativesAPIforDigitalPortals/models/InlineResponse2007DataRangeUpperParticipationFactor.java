@@ -48,6 +48,8 @@ public class InlineResponse2007DataRangeUpperParticipationFactor implements Seri
   public static final String JSON_PROPERTY_NEGATIVE = "negative";
   private BigDecimal negative;
 
+  public InlineResponse2007DataRangeUpperParticipationFactor() { 
+  }
 
   public InlineResponse2007DataRangeUpperParticipationFactor positive(BigDecimal positive) {
     this.positive = positive;

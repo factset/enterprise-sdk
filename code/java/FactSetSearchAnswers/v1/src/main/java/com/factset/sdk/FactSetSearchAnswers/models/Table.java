@@ -50,6 +50,16 @@ public class Table implements Serializable {
   public static final String JSON_PROPERTY_TABLE_FOOTERS = "tableFooters";
   private java.util.List<String> tableFooters = null;
 
+  public Table() { 
+  }
+
+  @JsonCreator
+  public Table(
+    @JsonProperty(value=JSON_PROPERTY_TABLE_ROWS, required=true) java.util.List<java.util.List<String>> tableRows
+  ) {
+    this();
+    this.tableRows = tableRows;
+  }
 
   public Table tableHeaders(java.util.List<String> tableHeaders) {
     this.tableHeaders = tableHeaders;

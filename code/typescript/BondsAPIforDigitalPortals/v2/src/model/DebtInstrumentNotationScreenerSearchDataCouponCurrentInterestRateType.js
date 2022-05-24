@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateType model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateType
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateType {
     /**

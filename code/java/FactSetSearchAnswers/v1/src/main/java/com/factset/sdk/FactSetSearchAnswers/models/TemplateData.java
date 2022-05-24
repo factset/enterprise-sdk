@@ -111,6 +111,66 @@ public class TemplateData extends AbstractOpenApiSchema implements Serializable 
         public TemplateData deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
+            TemplateData newTemplateData = new TemplateData();
+            Map<String,Object> result2 = tree.traverse(jp.getCodec()).readValueAs(new TypeReference<Map<String, Object>>() {});
+            String discriminatorValue = (String)result2.get("template");
+            switch (discriminatorValue) {
+                case "ColoredValueLabelDateTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ColoredValueLabelDateTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "LabelValueChangeLabelValueChangeTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LabelValueChangeLabelValueChangeTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "LinkTextBlockTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(LinkTextBlockTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "PercentChangeLabelTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(PercentChangeLabelTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "RankedTableTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(RankedTableTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "TableTableTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TableTableTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "TableTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TableTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "TextBlockFootingTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(TextBlockFootingTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "ValueChangeDateLabelTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueChangeDateLabelTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "ValueLabelDateDataPairListTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateDataPairListTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "ValueLabelDateTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "ValueLabelDateTextBlockTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelDateTextBlockTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                case "ValueLabelTemplate":
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ValueLabelTemplate.class);
+                    newTemplateData.setActualInstance(deserialized);
+                    return newTemplateData;
+                default:
+                    log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TemplateData. Possible values: ColoredValueLabelDateTemplate LabelValueChangeLabelValueChangeTemplate LinkTextBlockTemplate PercentChangeLabelTemplate RankedTableTemplate TableTableTemplate TableTemplate TextBlockFootingTemplate ValueChangeDateLabelTemplate ValueLabelDateDataPairListTemplate ValueLabelDateTemplate ValueLabelDateTextBlockTemplate ValueLabelTemplate", discriminatorValue));
+            }
+
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();

@@ -81,7 +81,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorResponseSubErrors {\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Field: ").Append(Field).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         public bool Equals(ErrorResponseSubErrors input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Object == input.Object ||
@@ -154,13 +155,21 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
             {
                 int hashCode = 41;
                 if (this.Object != null)
-                    hashCode = hashCode * 59 + this.Object.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Object.GetHashCode();
+                }
                 if (this.Field != null)
-                    hashCode = hashCode * 59 + this.Field.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Field.GetHashCode();
+                }
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 if (this.RejectedValue != null)
-                    hashCode = hashCode * 59 + this.RejectedValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RejectedValue.GetHashCode();
+                }
                 return hashCode;
             }
         }

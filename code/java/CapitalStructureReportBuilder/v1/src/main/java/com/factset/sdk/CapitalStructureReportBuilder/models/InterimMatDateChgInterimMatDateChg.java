@@ -43,6 +43,8 @@ public class InterimMatDateChgInterimMatDateChg implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private Boolean value;
 
+  public InterimMatDateChgInterimMatDateChg() { 
+  }
 
   public InterimMatDateChgInterimMatDateChg value(Boolean value) {
     this.value = value;

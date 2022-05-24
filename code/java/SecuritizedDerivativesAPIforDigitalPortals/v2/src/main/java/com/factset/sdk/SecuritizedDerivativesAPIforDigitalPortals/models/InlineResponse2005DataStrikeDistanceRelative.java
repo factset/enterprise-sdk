@@ -48,6 +48,8 @@ public class InlineResponse2005DataStrikeDistanceRelative implements Serializabl
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataStrikeDistanceRelative() { 
+  }
 
   public InlineResponse2005DataStrikeDistanceRelative minimum(BigDecimal minimum) {
     this.minimum = minimum;

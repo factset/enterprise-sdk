@@ -29,14 +29,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,14 +45,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
@@ -61,6 +60,7 @@ public class Example {
         try {
             NewItemDto result = apiInstance.createComment(noteId, createCommentDto);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#createComment");
             System.err.println("Status code: " + e.getCode());
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ## createCommentAttachment
 
-> NewItemDto createCommentAttachment(noteId, commentId, file)
+> NewItemDto createCommentAttachment(noteId, commentId, _file)
 
 Create a comment attachment to a Note
 
@@ -118,14 +118,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,22 +134,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
         java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
-        File file = new File("/path/to/file"); // File | 
+        File _file = new File("/path/to/file"); // File | 
         try {
-            NewItemDto result = apiInstance.createCommentAttachment(noteId, commentId, file);
+            NewItemDto result = apiInstance.createCommentAttachment(noteId, commentId, _file);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#createCommentAttachment");
             System.err.println("Status code: " + e.getCode());
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **noteId** | **java.util.UUID**|  |
  **commentId** | **java.util.UUID**|  |
- **file** | **File**|  |
+ **_file** | **File**|  |
 
 ### Return type
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Success |  -  |
+| **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
@@ -208,14 +208,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -225,20 +224,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
         java.util.UUID commentId = new java.util.UUID(); // java.util.UUID | 
         try {
             apiInstance.deleteComment(noteId, commentId);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#deleteComment");
             System.err.println("Status code: " + e.getCode());
@@ -294,14 +294,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -311,14 +310,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
@@ -326,6 +325,7 @@ public class Example {
         java.util.UUID attachmentId = new java.util.UUID(); // java.util.UUID | 
         try {
             apiInstance.downloadCommentAttachmentForComment(noteId, commentId, attachmentId);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#downloadCommentAttachmentForComment");
             System.err.println("Status code: " + e.getCode());
@@ -382,14 +382,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -399,14 +398,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
@@ -414,6 +413,7 @@ public class Example {
         try {
             CommentDto result = apiInstance.getComment(noteId, commentId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#getComment");
             System.err.println("Status code: " + e.getCode());
@@ -457,7 +457,7 @@ Name | Type | Description  | Notes
 
 ## getCommentAttachments
 
-> java.util.List&lt;AttachmentSummaryDto&gt; getCommentAttachments(noteId, commentId)
+> java.util.List<AttachmentSummaryDto> getCommentAttachments(noteId, commentId)
 
 Get attachments summary of a comment belonging to a note
 
@@ -469,14 +469,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -486,14 +485,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
@@ -501,6 +500,7 @@ public class Example {
         try {
             java.util.List<AttachmentSummaryDto> result = apiInstance.getCommentAttachments(noteId, commentId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#getCommentAttachments");
             System.err.println("Status code: " + e.getCode());
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 ## getComments
 
-> java.util.List&lt;CommentSummaryDto&gt; getComments(noteId)
+> java.util.List<CommentSummaryDto> getComments(noteId)
 
 Get all comments for a note
 
@@ -556,14 +556,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -573,20 +572,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
         try {
             java.util.List<CommentSummaryDto> result = apiInstance.getComments(noteId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#getComments");
             System.err.println("Status code: " + e.getCode());
@@ -641,14 +641,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.CommentsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -658,14 +657,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CommentsApi apiInstance = new CommentsApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
@@ -673,6 +672,7 @@ public class Example {
         java.util.List<Operation> operation = Arrays.asList(); // java.util.List<Operation> | 
         try {
             apiInstance.patchComment(noteId, commentId, operation);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentsApi#patchComment");
             System.err.println("Status code: " + e.getCode());

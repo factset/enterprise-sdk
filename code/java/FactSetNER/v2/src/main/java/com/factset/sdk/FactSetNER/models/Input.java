@@ -50,6 +50,16 @@ public class Input implements Serializable {
   public static final String JSON_PROPERTY_ENABLE_ID_LOOKUP = "enableIdLookup";
   private Boolean enableIdLookup = true;
 
+  public Input() { 
+  }
+
+  @JsonCreator
+  public Input(
+    @JsonProperty(value=JSON_PROPERTY_TEXT, required=true) String text
+  ) {
+    this();
+    this.text = text;
+  }
 
   public Input text(String text) {
     this.text = text;

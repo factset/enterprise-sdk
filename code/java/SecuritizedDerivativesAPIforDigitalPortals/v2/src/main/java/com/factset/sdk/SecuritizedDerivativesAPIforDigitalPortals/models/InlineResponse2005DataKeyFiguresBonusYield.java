@@ -54,6 +54,8 @@ public class InlineResponse2005DataKeyFiguresBonusYield implements Serializable 
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private InlineResponse2005DataKeyFiguresBonusYieldAnnualized annualized;
 
+  public InlineResponse2005DataKeyFiguresBonusYield() { 
+  }
 
   public InlineResponse2005DataKeyFiguresBonusYield absolute(InlineResponse2005DataKeyFiguresBonusYieldAbsolute absolute) {
     this.absolute = absolute;

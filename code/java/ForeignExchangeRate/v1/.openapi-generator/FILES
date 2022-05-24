@@ -31,7 +31,6 @@ src/main/java/com/factset/sdk/ForeignExchangeRate/ApiClient.java
 src/main/java/com/factset/sdk/ForeignExchangeRate/ApiException.java
 src/main/java/com/factset/sdk/ForeignExchangeRate/ApiResponse.java
 src/main/java/com/factset/sdk/ForeignExchangeRate/Configuration.java
-src/main/java/com/factset/sdk/ForeignExchangeRate/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/ForeignExchangeRate/JSON.java
 src/main/java/com/factset/sdk/ForeignExchangeRate/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/ForeignExchangeRate/Pair.java

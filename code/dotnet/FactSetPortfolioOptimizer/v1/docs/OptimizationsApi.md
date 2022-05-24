@@ -52,7 +52,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OptimizationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Run Optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Run Optimization endpoint
 
             try
             {
@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Run Optimization endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -146,7 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new OptimizationsApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Run Optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Run Optimization endpoint
 
             try
             {
@@ -171,7 +170,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Run Optimization endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -266,7 +264,6 @@ Name | Type | Description  | Notes
  **fPOOptimizationParameters** | [**FPOOptimizationParameters**](FPOOptimizationParameters.md)|  | [optional] 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization

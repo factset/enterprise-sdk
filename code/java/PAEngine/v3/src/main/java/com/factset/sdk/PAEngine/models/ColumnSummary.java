@@ -51,6 +51,8 @@ public class ColumnSummary implements Serializable {
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
+  public ColumnSummary() { 
+  }
 
   public ColumnSummary name(String name) {
     this.name = name;

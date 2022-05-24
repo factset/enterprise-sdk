@@ -109,7 +109,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TemplatedPAComponent {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Directory: ").Append(Directory).Append("\n");
@@ -150,8 +150,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(TemplatedPAComponent input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -204,20 +205,34 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Directory != null)
-                    hashCode = hashCode * 59 + this.Directory.GetHashCode();
-                hashCode = hashCode * 59 + this.Snapshot.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Directory.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Snapshot.GetHashCode();
                 if (this.ComponentData != null)
-                    hashCode = hashCode * 59 + this.ComponentData.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ComponentData.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ParentTemplateId != null)
-                    hashCode = hashCode * 59 + this.ParentTemplateId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentTemplateId.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 return hashCode;
             }
         }

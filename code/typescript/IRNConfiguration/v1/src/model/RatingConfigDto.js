@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RatingConfigDto model module.
  * @module model/RatingConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RatingConfigDto {
     /**
@@ -47,20 +47,20 @@ class RatingConfigDto {
         if (data) {
             obj = obj || new RatingConfigDto();
 
-            if (data.hasOwnProperty('ratingsVisibleToAuthor')) {
-                obj['ratingsVisibleToAuthor'] = ApiClient.convertToType(data['ratingsVisibleToAuthor'], 'Boolean');
+            if (data.hasOwnProperty('RatingsVisibleToAuthor')) {
+                obj['RatingsVisibleToAuthor'] = ApiClient.convertToType(data['RatingsVisibleToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('ratingsVisibleToViewers')) {
-                obj['ratingsVisibleToViewers'] = ApiClient.convertToType(data['ratingsVisibleToViewers'], 'Boolean');
+            if (data.hasOwnProperty('RatingsVisibleToViewers')) {
+                obj['RatingsVisibleToViewers'] = ApiClient.convertToType(data['RatingsVisibleToViewers'], 'Boolean');
             }
-            if (data.hasOwnProperty('ratingsVisibleToAll')) {
-                obj['ratingsVisibleToAll'] = ApiClient.convertToType(data['ratingsVisibleToAll'], 'Boolean');
+            if (data.hasOwnProperty('RatingsVisibleToAll')) {
+                obj['RatingsVisibleToAll'] = ApiClient.convertToType(data['RatingsVisibleToAll'], 'Boolean');
             }
-            if (data.hasOwnProperty('viewerIds')) {
-                obj['viewerIds'] = ApiClient.convertToType(data['viewerIds'], ['String']);
+            if (data.hasOwnProperty('ViewerIds')) {
+                obj['ViewerIds'] = ApiClient.convertToType(data['ViewerIds'], ['String']);
             }
-            if (data.hasOwnProperty('optionValues')) {
-                obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['Number']);
+            if (data.hasOwnProperty('OptionValues')) {
+                obj['OptionValues'] = ApiClient.convertToType(data['OptionValues'], ['Number']);
             }
         }
         return obj;
@@ -70,29 +70,29 @@ class RatingConfigDto {
 }
 
 /**
- * @member {Boolean} ratingsVisibleToAuthor
+ * @member {Boolean} RatingsVisibleToAuthor
  */
-RatingConfigDto.prototype['ratingsVisibleToAuthor'] = undefined;
+RatingConfigDto.prototype['RatingsVisibleToAuthor'] = undefined;
 
 /**
- * @member {Boolean} ratingsVisibleToViewers
+ * @member {Boolean} RatingsVisibleToViewers
  */
-RatingConfigDto.prototype['ratingsVisibleToViewers'] = undefined;
+RatingConfigDto.prototype['RatingsVisibleToViewers'] = undefined;
 
 /**
- * @member {Boolean} ratingsVisibleToAll
+ * @member {Boolean} RatingsVisibleToAll
  */
-RatingConfigDto.prototype['ratingsVisibleToAll'] = undefined;
+RatingConfigDto.prototype['RatingsVisibleToAll'] = undefined;
 
 /**
- * @member {Array.<String>} viewerIds
+ * @member {Array.<String>} ViewerIds
  */
-RatingConfigDto.prototype['viewerIds'] = undefined;
+RatingConfigDto.prototype['ViewerIds'] = undefined;
 
 /**
- * @member {Array.<Number>} optionValues
+ * @member {Array.<Number>} OptionValues
  */
-RatingConfigDto.prototype['optionValues'] = undefined;
+RatingConfigDto.prototype['OptionValues'] = undefined;
 
 
 

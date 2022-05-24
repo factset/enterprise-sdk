@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UniverseStatistics model module.
  * @module model/UniverseStatistics
- * @version 0.9.1
+ * @version 0.20.0
  */
 class UniverseStatistics {
     /**

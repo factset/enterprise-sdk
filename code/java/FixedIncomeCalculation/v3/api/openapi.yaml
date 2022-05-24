@@ -9,13 +9,272 @@ info:
     name: Apache License 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.txt
   title: FI API
-  version: v3
+  version: "3"
 servers:
 - url: https://api.factset.com
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 paths:
+  /analytics/engines/fi/v3/discount-curves:
+    get:
+      description: This endpoint lists all the discount curves that can be applied
+        to a FI calculation.
+      operationId: getAllFIDiscountCurves
+      parameters:
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FIDiscountCurveInfoRoot'
+          description: Expected response, returns a list of FI discount curves.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not found
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            Retry-After:
+              description: Time to wait in seconds before making a new request as
+                the rate limit has reached.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get Discount Curves
+      tags:
+      - DiscountCurves
+      x-accepts: application/json
   /analytics/engines/fi/v3/calculations:
     post:
       description: This endpoint creates and runs a new FI calculation specified in
@@ -550,12 +809,7 @@ paths:
       summary: Create and Run FI calculation
       tags:
       - FICalculations
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "202"
-        response-type: CalculationInfoRoot
-      - status-code: "201"
-        response-type: ObjectRoot
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/fi/v3/calculations/{id}:
@@ -805,9 +1059,6 @@ paths:
       summary: Cancel FI calculation by id
       tags:
       - FICalculations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "204"
       x-accepts: application/json
     get:
       description: This is the endpoint that returns the calculation parameters passed
@@ -1072,10 +1323,6 @@ paths:
       summary: Get FI calculation parameters by id
       tags:
       - FICalculations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: FICalculationParametersRoot
       x-accepts: application/json
     put:
       description: This endpoint updates and run the FI optimization specified in
@@ -1526,12 +1773,7 @@ paths:
       summary: Create or Update FI calculation and run it.
       tags:
       - FICalculations
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "202"
-        response-type: CalculationInfoRoot
-      - status-code: "201"
-        response-type: ObjectRoot
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/fi/v3/calculations/{id}/status:
@@ -1841,11 +2083,6 @@ paths:
       summary: Get FI calculation status by id
       tags:
       - FICalculations
-      x-are-multiple-success-responses-different: true
-      x-success-response-types:
-      - status-code: "201"
-        response-type: ObjectRoot
-      - status-code: "202"
       x-accepts: application/json
   /analytics/engines/fi/v3/calculations/{id}/result:
     get:
@@ -2123,28 +2360,186 @@ paths:
       summary: Get FI calculation result by id
       tags:
       - FICalculations
-      x-are-multiple-success-responses-different: false
-      x-success-response-types:
-      - status-code: "200"
-        response-type: ObjectRoot
       x-accepts: application/json
 components:
   schemas:
-    FISecurity:
+    FIDiscountCurveInfo:
+      additionalProperties: false
+      example:
+        name: name
+        currency: currency
+        category: category
+      properties:
+        category:
+          type: string
+        name:
+          type: string
+        currency:
+          type: string
+      type: object
+    FIDiscountCurveInfoRoot:
+      additionalProperties: false
+      example:
+        data:
+          key:
+            name: name
+            currency: currency
+            category: category
+        meta: '{}'
+      properties:
+        data:
+          additionalProperties:
+            $ref: '#/components/schemas/FIDiscountCurveInfo'
+          type: object
+        meta:
+          type: object
+      required:
+      - data
+      type: object
+    ErrorSource:
+      additionalProperties: false
+      properties:
+        pointer:
+          type: string
+        parameter:
+          type: string
+      type: object
+    Error:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        detail:
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      type: object
+    ClientErrorResponse:
+      additionalProperties: false
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      type: object
+    FIReferencePrepay:
+      additionalProperties: false
+      example:
+        prepayName: prepayName
+      properties:
+        prepayName:
+          description: Reference Prepay Name
+          type: string
+      type: object
+    FIReferenceSecurity:
+      additionalProperties: false
       example:
         calcFromMethod: calcFromMethod
-        symbol: symbol
-        face: 6.027456183070403
-        discountCurve: discountCurve
+        prepay:
+          prepayName: prepayName
+        securityName: securityName
         calcFromValue: 0.8008281904610115
-        faceType: Current
+        securityType: securityType
         settlement: settlement
+      properties:
+        securityType:
+          description: Reference Security Type
+          type: string
+        securityName:
+          description: Reference Security Name
+          type: string
+        calcFromMethod:
+          description: "Reference Calculation Method.\r\nMethods : Active Spread,\
+            \ Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield\
+            \ To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,\r\nYield\
+            \ To Worst Call, Discount Yield, Discount Margin, Implied Volatility,\
+            \ Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix"
+          type: string
+        calcFromValue:
+          description: Reference CalcFromValue
+          format: double
+          type: number
+        prepay:
+          $ref: '#/components/schemas/FIReferencePrepay'
+        settlement:
+          description: Reference Settlement Date
+          type: string
+      type: object
+    FILoss:
+      additionalProperties: false
+      example:
+        lossName: lossName
+      properties:
+        lossName:
+          description: Loss Name
+          type: string
+      type: object
+    FIPrepay:
+      additionalProperties: false
+      example:
+        prepayName: prepayName
+      properties:
+        prepayName:
+          description: Prepay Name
+          type: string
+      type: object
+    FISecurity:
+      additionalProperties: false
+      example:
+        callMethod: No Call
+        symbol: symbol
+        matrixMultiplier: 1.4658129805029452
+        discountCurve: discountCurve
+        calcFromValue: 5.962133916683182
+        faceType: Current
+        referenceSecurity:
+          calcFromMethod: calcFromMethod
+          prepay:
+            prepayName: prepayName
+          securityName: securityName
+          calcFromValue: 0.8008281904610115
+          securityType: securityType
+          settlement: settlement
+        settlement: settlement
+        calcFromMethod: calcFromMethod
+        loss:
+          lossName: lossName
+        prepay:
+          prepayName: prepayName
+        face: 5.637376656633329
+        matrixSpreadAdjustment: 6.027456183070403
       properties:
         settlement:
           description: Settlement date
           type: string
+        callMethod:
+          description: Call Method
+          enum:
+          - No Call
+          - Intrinsic Value
+          - First Call
+          - First Par
+          type: string
+        referenceSecurity:
+          $ref: '#/components/schemas/FIReferenceSecurity'
+        loss:
+          $ref: '#/components/schemas/FILoss'
+        prepay:
+          $ref: '#/components/schemas/FIPrepay'
+        matrixSpreadAdjustment:
+          description: Matrix Spread Adjustment
+          format: double
+          type: number
+        matrixMultiplier:
+          description: Matrix Multiplier
+          format: double
+          type: number
         calcFromMethod:
-          description: Calculation from method
+          description: "Calculation Method.\r\nMethods : Active Spread, Actual Spread,\
+            \ Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act\
+            \ Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount\
+            \ Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread\
+            \ To Worst Call, Pricing Matrix"
           type: string
         calcFromValue:
           description: Calculation from value
@@ -2169,16 +2564,34 @@ components:
           description: Discount curve
           type: string
       required:
-      - calcFromMethod
       - calcFromValue
       - symbol
       type: object
-    FIJobSettings:
+    FIMarketEnvironment:
+      additionalProperties: false
       example:
+        ratePath: FLAT & FORWARD
+      properties:
+        ratePath:
+          default: FLAT & FORWARD
+          enum:
+          - FLAT
+          - FORWARD
+          - FLAT & FORWARD
+          type: string
+      type: object
+    FIJobSettings:
+      additionalProperties: false
+      example:
+        callMethod: No Call
+        calcFromMethod: calcFromMethod
+        marketEnvironment:
+          ratePath: FLAT & FORWARD
         asOfDate: asOfDate
         partialDurationMonths:
-        - 1
-        - 1
+        - 2
+        - 2
+        settlement: settlement
       properties:
         asOfDate:
           description: As of date
@@ -2189,34 +2602,90 @@ components:
             format: int32
             type: integer
           type: array
+        callMethod:
+          description: Call Method
+          enum:
+          - No Call
+          - Intrinsic Value
+          - First Call
+          - First Par
+          type: string
+        settlement:
+          description: Settlement Date
+          type: string
+        calcFromMethod:
+          description: "Calculation Method.\r\nMethods : Active Spread, Actual Spread,\
+            \ Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act\
+            \ Yield To No Call, Bond Equivalent Yield,\r\nYield To Worst Call, Discount\
+            \ Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread\
+            \ To Worst Call, Pricing Matrix"
+          type: string
+        marketEnvironment:
+          $ref: '#/components/schemas/FIMarketEnvironment'
       required:
       - asOfDate
       type: object
     FICalculationParameters:
+      additionalProperties: false
       example:
         jobSettings:
+          callMethod: No Call
+          calcFromMethod: calcFromMethod
+          marketEnvironment:
+            ratePath: FLAT & FORWARD
           asOfDate: asOfDate
           partialDurationMonths:
-          - 1
-          - 1
+          - 2
+          - 2
+          settlement: settlement
         calculations:
         - calculations
         - calculations
         securities:
-        - calcFromMethod: calcFromMethod
+        - callMethod: No Call
           symbol: symbol
-          face: 6.027456183070403
+          matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 0.8008281904610115
+          calcFromValue: 5.962133916683182
           faceType: Current
+          referenceSecurity:
+            calcFromMethod: calcFromMethod
+            prepay:
+              prepayName: prepayName
+            securityName: securityName
+            calcFromValue: 0.8008281904610115
+            securityType: securityType
+            settlement: settlement
           settlement: settlement
-        - calcFromMethod: calcFromMethod
+          calcFromMethod: calcFromMethod
+          loss:
+            lossName: lossName
+          prepay:
+            prepayName: prepayName
+          face: 5.637376656633329
+          matrixSpreadAdjustment: 6.027456183070403
+        - callMethod: No Call
           symbol: symbol
-          face: 6.027456183070403
+          matrixMultiplier: 1.4658129805029452
           discountCurve: discountCurve
-          calcFromValue: 0.8008281904610115
+          calcFromValue: 5.962133916683182
           faceType: Current
+          referenceSecurity:
+            calcFromMethod: calcFromMethod
+            prepay:
+              prepayName: prepayName
+            securityName: securityName
+            calcFromValue: 0.8008281904610115
+            securityType: securityType
+            settlement: settlement
           settlement: settlement
+          calcFromMethod: calcFromMethod
+          loss:
+            lossName: lossName
+          prepay:
+            prepayName: prepayName
+          face: 5.637376656633329
+          matrixSpreadAdjustment: 6.027456183070403
       properties:
         securities:
           description: List of securities
@@ -2236,6 +2705,7 @@ components:
       - securities
       type: object
     CalculationMeta:
+      additionalProperties: false
       example:
         contentorganization: SimplifiedRow
         format: JsonStach
@@ -2281,31 +2751,67 @@ components:
           type: string
       type: object
     FICalculationParametersRoot:
+      additionalProperties: false
       example:
         data:
           jobSettings:
+            callMethod: No Call
+            calcFromMethod: calcFromMethod
+            marketEnvironment:
+              ratePath: FLAT & FORWARD
             asOfDate: asOfDate
             partialDurationMonths:
-            - 1
-            - 1
+            - 2
+            - 2
+            settlement: settlement
           calculations:
           - calculations
           - calculations
           securities:
-          - calcFromMethod: calcFromMethod
+          - callMethod: No Call
             symbol: symbol
-            face: 6.027456183070403
+            matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 0.8008281904610115
+            calcFromValue: 5.962133916683182
             faceType: Current
+            referenceSecurity:
+              calcFromMethod: calcFromMethod
+              prepay:
+                prepayName: prepayName
+              securityName: securityName
+              calcFromValue: 0.8008281904610115
+              securityType: securityType
+              settlement: settlement
             settlement: settlement
-          - calcFromMethod: calcFromMethod
+            calcFromMethod: calcFromMethod
+            loss:
+              lossName: lossName
+            prepay:
+              prepayName: prepayName
+            face: 5.637376656633329
+            matrixSpreadAdjustment: 6.027456183070403
+          - callMethod: No Call
             symbol: symbol
-            face: 6.027456183070403
+            matrixMultiplier: 1.4658129805029452
             discountCurve: discountCurve
-            calcFromValue: 0.8008281904610115
+            calcFromValue: 5.962133916683182
             faceType: Current
+            referenceSecurity:
+              calcFromMethod: calcFromMethod
+              prepay:
+                prepayName: prepayName
+              securityName: securityName
+              calcFromValue: 0.8008281904610115
+              securityType: securityType
+              settlement: settlement
             settlement: settlement
+            calcFromMethod: calcFromMethod
+            loss:
+              lossName: lossName
+            prepay:
+              prepayName: prepayName
+            face: 5.637376656633329
+            matrixSpreadAdjustment: 6.027456183070403
         meta:
           contentorganization: SimplifiedRow
           format: JsonStach
@@ -2318,12 +2824,14 @@ components:
           $ref: '#/components/schemas/CalculationMeta'
       type: object
     CalculationInfo:
+      additionalProperties: false
       properties:
         calculationId:
           description: Calculation identifier
           type: string
       type: object
     CalculationInfoRoot:
+      additionalProperties: false
       properties:
         data:
           $ref: '#/components/schemas/CalculationInfo'
@@ -2333,6 +2841,7 @@ components:
       - data
       type: object
     ObjectRoot:
+      additionalProperties: false
       example:
         data: '{}'
         meta: '{}'
@@ -2343,29 +2852,6 @@ components:
           type: object
       required:
       - data
-      type: object
-    ErrorSource:
-      properties:
-        pointer:
-          type: string
-        parameter:
-          type: string
-      type: object
-    Error:
-      properties:
-        id:
-          type: string
-        detail:
-          type: string
-        source:
-          $ref: '#/components/schemas/ErrorSource'
-      type: object
-    ClientErrorResponse:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/Error'
-          type: array
       type: object
   securitySchemes:
     FactSetOAuth2:

@@ -33,7 +33,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataVolatility from '.
 /**
  * The SecuritizedDerivativeNotationScreenerSearchData model module.
  * @module model/SecuritizedDerivativeNotationScreenerSearchData
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerSearchData {
     /**

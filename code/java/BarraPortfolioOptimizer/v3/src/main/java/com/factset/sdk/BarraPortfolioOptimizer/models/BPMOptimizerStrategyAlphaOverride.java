@@ -91,6 +91,8 @@ public class BPMOptimizerStrategyAlphaOverride implements Serializable {
   public static final String JSON_PROPERTY_RETURN_MULTIPLIER = "returnMultiplier";
   private String returnMultiplier;
 
+  public BPMOptimizerStrategyAlphaOverride() { 
+  }
 
   public BPMOptimizerStrategyAlphaOverride formula(String formula) {
     this.formula = formula;

@@ -90,6 +90,8 @@ public class InstrumentCategoryListMeta implements Serializable {
   public static final String JSON_PROPERTY_SORT = "sort";
   private java.util.Set<SortEnum> sort = null;
 
+  public InstrumentCategoryListMeta() { 
+  }
 
   public InstrumentCategoryListMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

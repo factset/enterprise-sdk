@@ -58,6 +58,8 @@ public class BPMOptimization implements Serializable {
   public static final String JSON_PROPERTY_CASHFLOW = "cashflow";
   private String cashflow;
 
+  public BPMOptimization() { 
+  }
 
   public BPMOptimization market(String market) {
     this.market = market;

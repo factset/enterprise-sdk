@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPeople.Configuration;
 import com.factset.sdk.FactSetPeople.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPeople.models.ErrorResponse;
 import com.factset.sdk.FactSetPeople.models.PeopleJobsRequest;
@@ -23,6 +26,28 @@ public class JobHistoryApi {
   public JobHistoryApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPeopleJobsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPeopleJobsResponseTypeMap.put(200, new GenericType<PeopleJobsResponse>(){});
+    getPeopleJobsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getPeopleJobsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getPeopleJobsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getPeopleJobsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getPeopleJobsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getPeopleJobsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPeopleJobsForListResponseTypeMap.put(200, new GenericType<PeopleJobsResponse>(){});
+    getPeopleJobsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getPeopleJobsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getPeopleJobsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getPeopleJobsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getPeopleJobsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -123,11 +148,17 @@ public class JobHistoryApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PeopleJobsResponse> localVarReturnType = new GenericType<PeopleJobsResponse>() {};
 
-    return apiClient.invokeAPI("JobHistoryApi.getPeopleJobs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PeopleJobsResponse
+      
+    > apiResponse = apiClient.invokeAPI("JobHistoryApi.getPeopleJobs", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPeopleJobsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the Job history for the large list of people.
@@ -200,10 +231,16 @@ public class JobHistoryApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PeopleJobsResponse> localVarReturnType = new GenericType<PeopleJobsResponse>() {};
 
-    return apiClient.invokeAPI("JobHistoryApi.getPeopleJobsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PeopleJobsResponse
+      
+    > apiResponse = apiClient.invokeAPI("JobHistoryApi.getPeopleJobsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPeopleJobsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

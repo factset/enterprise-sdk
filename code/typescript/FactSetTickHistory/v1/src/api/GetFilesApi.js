@@ -19,7 +19,7 @@ import GetFilesStatus from '../model/GetFilesStatus';
 /**
 * GetFiles service.
 * @module api/GetFilesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class GetFilesApi {
 
@@ -67,7 +67,10 @@ export default class GetFilesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = GetFilesResponse;
+
       return this.apiClient.callApi(
         '/v1/get-files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -81,7 +84,7 @@ export default class GetFilesApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.paginationLimit Specifies the maximum number of results to return per response page (default to 20)
      * @param {Number} opts.paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GetFilesResponse}
+     * @return { Promise.< module:model/GetFilesResponse > } a Promise, with data of type {@link module:model/GetFilesResponse }
      */
     v1GetFilesGet(requestId, opts) {
       return this.v1GetFilesGetWithHttpInfo(requestId, opts)
@@ -92,3 +95,8 @@ export default class GetFilesApi {
 
 
 }
+
+
+
+
+

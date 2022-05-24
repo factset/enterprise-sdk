@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * BloombergFIGI service.
 * @module api/BloombergFIGIApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class BloombergFIGIApi {
 
@@ -62,7 +62,10 @@ export default class BloombergFIGIApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = BloombergTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/bloomberg', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class BloombergFIGIApi {
      * Translate market security symbols into Bloomberg Identifiers.
      * Returns the current security, composite, and regional identifiers from Bloomberg. <p>This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>
      * @param {module:model/BloombergTranslationRequest} bloombergTranslationRequest Request Body for Bloomberg FIGIs.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BloombergTranslationResponse}
+     * @return { Promise.< module:model/BloombergTranslationResponse > } a Promise, with data of type {@link module:model/BloombergTranslationResponse }
      */
     batchTranslateBloomberg(bloombergTranslationRequest) {
       return this.batchTranslateBloombergWithHttpInfo(bloombergTranslationRequest)
@@ -110,7 +113,10 @@ export default class BloombergFIGIApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = BloombergTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/bloomberg', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class BloombergFIGIApi {
      * Translate FactSet symbols into Bloomberg Identifiers.
      * Returns the current security, composite, regional Bloomberg (FIGI) unique identifiers.
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BloombergTranslationResponse}
+     * @return { Promise.< module:model/BloombergTranslationResponse > } a Promise, with data of type {@link module:model/BloombergTranslationResponse }
      */
     translateBloomberg(ids) {
       return this.translateBloombergWithHttpInfo(ids)
@@ -133,3 +139,8 @@ export default class BloombergFIGIApi {
 
 
 }
+
+
+
+
+

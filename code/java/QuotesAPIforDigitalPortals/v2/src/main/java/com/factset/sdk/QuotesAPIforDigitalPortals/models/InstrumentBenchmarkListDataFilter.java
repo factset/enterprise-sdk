@@ -44,6 +44,8 @@ public class InstrumentBenchmarkListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_TYPES = "types";
   private java.util.Set<BigDecimal> types = null;
 
+  public InstrumentBenchmarkListDataFilter() { 
+  }
 
   public InstrumentBenchmarkListDataFilter types(java.util.Set<BigDecimal> types) {
     this.types = types;

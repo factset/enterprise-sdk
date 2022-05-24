@@ -44,6 +44,8 @@ public class InlineResponse201Meta implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusObject status;
 
+  public InlineResponse201Meta() { 
+  }
 
   public InlineResponse201Meta status(StatusObject status) {
     this.status = status;

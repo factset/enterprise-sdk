@@ -99,7 +99,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityMatchRequestInput {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
@@ -137,8 +137,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(EntityMatchRequestInput input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -177,15 +178,25 @@ namespace FactSet.SDK.FactSetConcordance.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ClientId != null)
-                    hashCode = hashCode * 59 + this.ClientId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
                 if (this.Country != null)
-                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                }
                 if (this.State != null)
-                    hashCode = hashCode * 59 + this.State.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.State.GetHashCode();
+                }
                 if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -198,25 +209,25 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Country (string) maxLength
-            if(this.Country != null && this.Country.Length > 2)
+            if (this.Country != null && this.Country.Length > 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be less than 2.", new [] { "Country" });
             }
 
             // Country (string) minLength
-            if(this.Country != null && this.Country.Length < 2)
+            if (this.Country != null && this.Country.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Country, length must be greater than 2.", new [] { "Country" });
             }
 
             // State (string) maxLength
-            if(this.State != null && this.State.Length > 2)
+            if (this.State != null && this.State.Length > 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be less than 2.", new [] { "State" });
             }
 
             // State (string) minLength
-            if(this.State != null && this.State.Length < 2)
+            if (this.State != null && this.State.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for State, length must be greater than 2.", new [] { "State" });
             }

@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "IRN API v1",
-    "description": "Allows users to create, update and configure IRN data.",
+    "description": "Allows users to extract, create, update and configure IRN data.",
     "version": "1"
   },
   "servers": [
@@ -14,9 +14,10 @@
     "/v1/authors": {
       "get": {
         "tags": [
-          "Authors"
+          "Notes - Configuration"
         ],
         "summary": "Get all Authors",
+        "operationId": "GetAuthors",
         "parameters": [
           {
             "name": "X-IRN-Ignore-Permissions",
@@ -35,7 +36,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserConfigDto"
+                    "$ref": "#/components/schemas/AuthorConfigDto"
                   }
                 }
               }
@@ -54,12 +55,493 @@
         }
       }
     },
+    "/v1/contact-custom-fields": {
+      "get": {
+        "tags": [
+          "Contacts - CustomFields"
+        ],
+        "summary": "Get all the contact custom fields",
+        "operationId": "GetContactCustomFields",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContactCustomFieldDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contacts - CustomFields"
+        ],
+        "summary": "Create a contact custom field",
+        "operationId": "CreateContactCustomField",
+        "requestBody": {
+          "description": "ContactCustomFieldSaveDto object to save",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactCustomFieldSaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/contact-custom-fields/{contactCustomFieldId}": {
+      "get": {
+        "tags": [
+          "Contacts - CustomFields"
+        ],
+        "summary": "Get a specific Contact custom field's details",
+        "operationId": "GetContactCustomField",
+        "parameters": [
+          {
+            "name": "contactCustomFieldId",
+            "in": "path",
+            "description": "contactCustomFieldId to get associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactCustomFieldDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Contacts - CustomFields"
+        ],
+        "summary": "Edit a contact custom field",
+        "operationId": "PatchContactCustomField",
+        "parameters": [
+          {
+            "name": "contactCustomFieldId",
+            "in": "path",
+            "description": "contactCustomFieldId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "contactCustomFieldUpdateDto object to update",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contacts - CustomFields"
+        ],
+        "summary": "Delete a contact custom field",
+        "operationId": "DeleteContactCustomField",
+        "parameters": [
+          {
+            "name": "contactCustomFieldId",
+            "in": "path",
+            "description": "contactCustomFieldId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/contact-roles": {
+      "get": {
+        "tags": [
+          "Contacts - Roles"
+        ],
+        "summary": "Get list of the contact roles configured in your group",
+        "operationId": "GetContactRoles",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContactRoleDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contacts - Roles"
+        ],
+        "summary": "Create contact roles",
+        "operationId": "CreateContactRole",
+        "requestBody": {
+          "description": "Contact role name",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/contact-types": {
+      "get": {
+        "tags": [
+          "Contacts - Types"
+        ],
+        "summary": "Get list of the contact types configured in your group",
+        "operationId": "GetContactTypes",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContactTypeDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contacts - Types"
+        ],
+        "summary": "Create contact types",
+        "operationId": "CreateContactType",
+        "requestBody": {
+          "description": "Contact type name",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/custom-fields": {
       "get": {
         "tags": [
-          "CustomFields"
+          "Notes - Configuration"
         ],
         "summary": "Get all Custom Fields",
+        "operationId": "GetCustomFields",
         "parameters": [
           {
             "name": "X-IRN-Ignore-Permissions",
@@ -97,12 +579,629 @@
         }
       }
     },
+    "/v1/custom-symbol-custom-fields": {
+      "get": {
+        "tags": [
+          "CustomSymbols - CustomFields"
+        ],
+        "summary": "Get all the Custom symbol custom fields",
+        "operationId": "GetCustomSymbolCustomFields",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomSymbolCustomFieldConfigDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CustomSymbols - CustomFields"
+        ],
+        "summary": "Create a Custom symbol custom field",
+        "operationId": "CreateCustomSymbolCustomField",
+        "requestBody": {
+          "description": "createCustomSymbolCustomFieldDto object to save",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomSymbolCustomFieldDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/custom-symbol-custom-fields/{customSymbolCustomFieldId}": {
+      "get": {
+        "tags": [
+          "CustomSymbols - CustomFields"
+        ],
+        "summary": "Get a specific Custom symbol custom field's details",
+        "operationId": "GetCustomSymbolCustomField",
+        "parameters": [
+          {
+            "name": "customSymbolCustomFieldId",
+            "in": "path",
+            "description": "customSymbolCustomFieldId to get associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomSymbolCustomFieldConfigDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CustomSymbols - CustomFields"
+        ],
+        "summary": "Edit a Custom symbol custom field",
+        "operationId": "PatchCustomSymbolCustomField",
+        "parameters": [
+          {
+            "name": "customSymbolCustomFieldId",
+            "in": "path",
+            "description": "customSymbolCustomFieldId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "customSymbolCustomFieldUpdateDto object to update",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CustomSymbols - CustomFields"
+        ],
+        "summary": "Delete a Custom symbol custom field",
+        "operationId": "DeleteCustomSymbolCustomField",
+        "parameters": [
+          {
+            "name": "customSymbolCustomFieldId",
+            "in": "path",
+            "description": "customSymbolCustomFieldId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/custom-symbol-types": {
+      "get": {
+        "tags": [
+          "CustomSymbols - Types"
+        ],
+        "summary": "Get all the custom symbol types",
+        "operationId": "GetCustomSymbolTypes",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomSymbolTypeDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CustomSymbols - Types"
+        ],
+        "summary": "Create a Custom symbol type",
+        "operationId": "CreateCustomSymbolType",
+        "requestBody": {
+          "description": "saveCustomSymbolTypeDto object to save",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveCustomSymbolTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/custom-symbol-types/{customSymbolTypeId}": {
+      "get": {
+        "tags": [
+          "CustomSymbols - Types"
+        ],
+        "summary": "Get a specific Custom symbol type's details",
+        "operationId": "GetCustomSymbolType",
+        "parameters": [
+          {
+            "name": "customSymbolTypeId",
+            "in": "path",
+            "description": "customSymbolTypeId to get associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomSymbolTypeDetailDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CustomSymbols - Types"
+        ],
+        "summary": "Edit a Custom symbol type",
+        "operationId": "UpdateCustomSymbolType",
+        "parameters": [
+          {
+            "name": "customSymbolTypeId",
+            "in": "path",
+            "description": "customSymbolTypeId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "updateCustomSymbolTypeDto object to update",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomSymbolTypeDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomSymbolTypeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomSymbolTypeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomSymbolTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CustomSymbols - Types"
+        ],
+        "summary": "Delete a Custom symbol type",
+        "operationId": "DeleteCustomSymbolTypeAsync",
+        "parameters": [
+          {
+            "name": "customSymbolTypeId",
+            "in": "path",
+            "description": "customSymbolTypeId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/custom-symbol-types/{customSymbolTypeId}/custom-fields": {
+      "get": {
+        "tags": [
+          "CustomSymbols - Types"
+        ],
+        "summary": "Get Custom fields for Custom Symbol type",
+        "operationId": "GetSymbolCustomFieldsForCustomSymbolType",
+        "parameters": [
+          {
+            "name": "customSymbolTypeId",
+            "in": "path",
+            "description": "customSymbolTypeId to get associated Custom fileds",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomSymbolCustomFieldConfigDto"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/group": {
       "get": {
         "tags": [
-          "Group"
+          "Notes - Configuration"
         ],
         "summary": "Get Group details",
+        "operationId": "GetGroup",
         "responses": {
           "200": {
             "description": "Success",
@@ -120,8 +1219,9 @@
     "/v1/group/client-sales-representative": {
       "get": {
         "tags": [
-          "Group"
+          "Notes - Configuration"
         ],
+        "operationId": "GetClientsSalesRepresentative",
         "responses": {
           "200": {
             "description": "Success",
@@ -146,12 +1246,110 @@
         }
       }
     },
+    "/v1/phone-number-types": {
+      "get": {
+        "tags": [
+          "Contacts - PhoneNumberTypes"
+        ],
+        "summary": "Get list of the phone types configured in your group",
+        "operationId": "GetPhoneNumberTypes",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PhoneNumberTypeDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contacts - PhoneNumberTypes"
+        ],
+        "summary": "Create a phone type",
+        "operationId": "CreatePhoneNumberType",
+        "requestBody": {
+          "description": "To add phoneNumberType",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/recommendations": {
       "get": {
         "tags": [
-          "Recommendations"
+          "Notes - Configuration"
         ],
         "summary": "Get all Recommendations",
+        "operationId": "GetRecommendations",
         "responses": {
           "200": {
             "description": "Success",
@@ -169,12 +1367,198 @@
         }
       }
     },
+    "/v1/relationship-categories": {
+      "get": {
+        "tags": [
+          "Contacts - Relationship Category"
+        ],
+        "summary": "Get list of the relationship categories configured in your group",
+        "operationId": "GetRelationshipCategories",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RelationshipCategoryDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contacts - Relationship Category"
+        ],
+        "summary": "Create a relationship category",
+        "operationId": "CreateRelationshipCategory",
+        "requestBody": {
+          "description": "RelationshipCategorySaveDto object to save",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/relationships": {
+      "get": {
+        "tags": [
+          "Contacts - Relationships"
+        ],
+        "summary": "Get list of the relationships configured in your group",
+        "operationId": "GetRelationships",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/RelationshipType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RelationshipDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contacts - Relationships"
+        ],
+        "summary": "Create a relationship type",
+        "operationId": "CreateContactRelationshipType",
+        "requestBody": {
+          "description": "RelationshipSaveDto object to save",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/sentiments": {
       "get": {
         "tags": [
-          "Sentiments"
+          "Notes - Configuration"
         ],
         "summary": "Get all Sentiments",
+        "operationId": "GetSentiments",
         "responses": {
           "200": {
             "description": "Success",
@@ -195,9 +1579,10 @@
     "/v1/subjects": {
       "get": {
         "tags": [
-          "Subjects"
+          "Notes - Configuration"
         ],
         "summary": "Get all Subjects",
+        "operationId": "GetSubjects",
         "parameters": [
           {
             "name": "X-IRN-Ignore-Permissions",
@@ -238,9 +1623,10 @@
     "/v1/subjects/{subjectId}": {
       "get": {
         "tags": [
-          "Subjects"
+          "Notes - Configuration"
         ],
         "summary": "Get Subject details for the given Id provided",
+        "operationId": "GetSubject",
         "parameters": [
           {
             "name": "subjectId",
@@ -296,12 +1682,101 @@
         }
       }
     },
+    "/v1/symbols-relationships": {
+      "get": {
+        "tags": [
+          "CustomSymbols - Relationships"
+        ],
+        "summary": "Get all the Symbols Relationships",
+        "operationId": "GetSymbolsRelationships",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SymbolsRelationshipDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CustomSymbols - Relationships"
+        ],
+        "summary": "Create a symbol relationship",
+        "operationId": "CreateSymbolRelationshipType",
+        "requestBody": {
+          "description": "symbolsRelationshipSaveDto object to save",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewItemDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/teams": {
       "get": {
         "tags": [
-          "Teams"
+          "Notes - Configuration"
         ],
         "summary": "Get all Teams",
+        "operationId": "GetTeams",
         "parameters": [
           {
             "name": "X-IRN-Ignore-Permissions",
@@ -342,9 +1817,10 @@
     "/v1/teams/{teamId}": {
       "get": {
         "tags": [
-          "Teams"
+          "Notes - Configuration"
         ],
         "summary": "Get Team details for the given Id provided",
+        "operationId": "GetTeam",
         "parameters": [
           {
             "name": "teamId",
@@ -403,9 +1879,10 @@
     "/v1/users": {
       "get": {
         "tags": [
-          "Users"
+          "Notes - Configuration"
         ],
         "summary": "Get all assigned FactSet users",
+        "operationId": "GetAssignedFactSetUsers",
         "responses": {
           "200": {
             "description": "Success",
@@ -422,57 +1899,1855 @@
           }
         }
       }
+    },
+    "/v1/custom-symbol-types/reorder": {
+      "post": {
+        "tags": [
+          "CustomSymbols - Types"
+        ],
+        "operationId": "UpdateCustomSymbolTypeOrder",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderCustomSymbolTypeDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderCustomSymbolTypeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderCustomSymbolTypeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReorderCustomSymbolTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/relationship-categories/reorder": {
+      "post": {
+        "tags": [
+          "Contacts - Relationship Category"
+        ],
+        "summary": "Reorder relationship categories",
+        "operationId": "UpdateRelationshipCategoryOrder",
+        "requestBody": {
+          "description": "List of Guid",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategoryListDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategoryListDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategoryListDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategoryListDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/contact-roles/{contactRoleId}": {
+      "put": {
+        "tags": [
+          "Contacts - Roles"
+        ],
+        "summary": "Edit a contact role",
+        "operationId": "UpdateContactRole",
+        "parameters": [
+          {
+            "name": "contactRoleId",
+            "in": "path",
+            "description": "contactRoleId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated contact role name",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contacts - Roles"
+        ],
+        "summary": "Delete a contact role",
+        "operationId": "DeleteContactRole",
+        "parameters": [
+          {
+            "name": "contactRoleId",
+            "in": "path",
+            "description": "contactRoleId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/contact-types/{contactTypeId}": {
+      "put": {
+        "tags": [
+          "Contacts - Types"
+        ],
+        "summary": "Edit a contact type",
+        "operationId": "UpdateContactType",
+        "parameters": [
+          {
+            "name": "contactTypeId",
+            "in": "path",
+            "description": "contactTypeId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Updated contact type name",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contacts - Types"
+        ],
+        "summary": "Delete a contact type",
+        "operationId": "DeleteContactType",
+        "parameters": [
+          {
+            "name": "contactTypeId",
+            "in": "path",
+            "description": "contactTypeId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/phone-number-types/{phoneNumberTypeId}": {
+      "put": {
+        "tags": [
+          "Contacts - PhoneNumberTypes"
+        ],
+        "summary": "Edit a phone type",
+        "operationId": "UpdatePhoneNumberType",
+        "parameters": [
+          {
+            "name": "phoneNumberTypeId",
+            "in": "path",
+            "description": "phoneNumberTypeId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update with phoneNumberType",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "maxLength": 50,
+                "minLength": 0,
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contacts - PhoneNumberTypes"
+        ],
+        "summary": "Delete a phone type",
+        "operationId": "DeletePhoneNumberType",
+        "parameters": [
+          {
+            "name": "phoneNumberTypeId",
+            "in": "path",
+            "description": "phoneNumberTypeId for deleting associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/relationship-categories/{relationshipCategoryId}": {
+      "put": {
+        "tags": [
+          "Contacts - Relationship Category"
+        ],
+        "summary": "Edit a relationship category",
+        "operationId": "EditRelationshipCategory",
+        "parameters": [
+          {
+            "name": "relationshipCategoryId",
+            "in": "path",
+            "description": "relationshipCategoryId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "RelationshipCategorySaveDto object to update",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipCategorySaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contacts - Relationship Category"
+        ],
+        "summary": "Delete a relationship category",
+        "operationId": "DeleteRelationshipCategory",
+        "parameters": [
+          {
+            "name": "relationshipCategoryId",
+            "in": "path",
+            "description": "relationshipCategoryId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/relationships/{relationshipId}": {
+      "put": {
+        "tags": [
+          "Contacts - Relationships"
+        ],
+        "summary": "Edit a relationship type",
+        "operationId": "EditRelationship",
+        "parameters": [
+          {
+            "name": "relationshipId",
+            "in": "path",
+            "description": "relationshipId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "RelationshipSaveDto object to update",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelationshipSaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contacts - Relationships"
+        ],
+        "summary": "Delete a relationship type",
+        "operationId": "DeleteRelationship",
+        "parameters": [
+          {
+            "name": "relationshipId",
+            "in": "path",
+            "description": "relationshipId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/symbols-relationships/{symbolsRelationshipId}": {
+      "put": {
+        "tags": [
+          "CustomSymbols - Relationships"
+        ],
+        "summary": "Edit a symbol relationship",
+        "operationId": "EditSymbolsRelationship",
+        "parameters": [
+          {
+            "name": "symbolsRelationshipId",
+            "in": "path",
+            "description": "symbolsRelationshipId to update associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "SymbolsRelationShipSaveDto object to update",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SymbolsRelationShipSaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CustomSymbols - Relationships"
+        ],
+        "summary": "Delete a symbol relationship",
+        "operationId": "DeleteSymbolsRelationship",
+        "parameters": [
+          {
+            "name": "symbolsRelationshipId",
+            "in": "path",
+            "description": "symbolsRelationshipId to delete associated record",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "TeamSummaryDto": {
+      "ApprovalLevelConfigDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "code": {
+          "ApproverIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApprovalProcessConfigDto": {
+        "type": "object",
+        "properties": {
+          "ApprovalLevels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApprovalLevelConfigDto"
+            },
+            "nullable": true
+          },
+          "ViewerIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "ShouldSendEmailAlertsWhenSubmittedForApproval": {
+            "type": "boolean"
+          },
+          "ShouldSendEmailAlertsWhenApproved": {
+            "type": "boolean"
+          },
+          "ShouldSendEmailAlertsWhenDenied": {
+            "type": "boolean"
+          },
+          "ShouldSendEmailAlertsToAuthor": {
+            "type": "boolean"
+          },
+          "ShouldSendEmailAlertsToApprovers": {
+            "type": "boolean"
+          },
+          "ShouldSendEmailAlertsToViewers": {
+            "type": "boolean"
+          },
+          "CanAuthorSelfApprove": {
+            "type": "boolean"
+          },
+          "CanAuthorEditPending": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorConfigDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "UserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SerialNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "FirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Team": {
+            "$ref": "#/components/schemas/TeamSummaryDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientSalesRepresentativeDto": {
+        "type": "object",
+        "properties": {
+          "Fullname": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailAddress": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "UserConfigDto": {
+      "CommentaryConfigDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "ShouldSendEmailAlertsToAuthor": {
+            "type": "boolean"
+          },
+          "ShouldSendEmailAlertsToCommenters": {
+            "type": "boolean"
+          },
+          "ShouldSendEmailAlertsToAll": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactCustomFieldDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
             "type": "string",
             "format": "uuid"
           },
-          "userName": {
+          "Code": {
             "type": "string",
             "nullable": true
           },
-          "serialNumber": {
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "firstName": {
+          "Type": {
             "type": "string",
             "nullable": true
           },
-          "lastName": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "FormulaConfig": {
+            "$ref": "#/components/schemas/FormulaConfigDto"
+          },
+          "ContactCustomFieldOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactCustomFieldOptionDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactCustomFieldFormulaDto": {
+        "type": "object",
+        "properties": {
+          "Formula": {
+            "maxLength": 2040,
             "type": "string",
             "nullable": true
           },
-          "emailAddress": {
+          "IsScreening": {
+            "type": "boolean",
+            "default": false
+          },
+          "Symbol": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactCustomFieldOptionDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "team": {
-            "$ref": "#/components/schemas/TeamSummaryDto"
+          "Order": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactCustomFieldOptionSaveDto": {
+        "required": [
+          "Name"
+        ],
+        "type": "object",
+        "properties": {
+          "Name": {
+            "maxLength": 255,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactCustomFieldSaveDto": {
+        "required": [
+          "Code",
+          "IsHidden",
+          "IsMandatory",
+          "Name",
+          "Type"
+        ],
+        "type": "object",
+        "properties": {
+          "Code": {
+            "maxLength": 32,
+            "type": "string"
+          },
+          "Name": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "Type": {
+            "$ref": "#/components/schemas/ContactCustomFieldType"
+          },
+          "IsHidden": {
+            "type": "boolean",
+            "default": false
+          },
+          "IsMandatory": {
+            "type": "boolean",
+            "default": false
+          },
+          "FieldFormula": {
+            "$ref": "#/components/schemas/ContactCustomFieldFormulaDto"
+          },
+          "ContactCustomFieldOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactCustomFieldOptionSaveDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactCustomFieldType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ContactRoleDto": {
+        "required": [
+          "Id",
+          "Name"
+        ],
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactTypeDto": {
+        "required": [
+          "Id",
+          "Name"
+        ],
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateCustomSymbolCustomFieldDto": {
+        "required": [
+          "Code",
+          "CustomSymbolTypes",
+          "IsHidden",
+          "IsMandatory",
+          "IsShownInInfobox",
+          "Name",
+          "Type"
+        ],
+        "type": "object",
+        "properties": {
+          "Code": {
+            "maxLength": 32,
+            "type": "string"
+          },
+          "Name": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "Type": {
+            "type": "string",
+            "description": "Type can be one of Text, SingleOption, MultiOptions, Numeric, Date, ExtendedText, ContactLookup"
+          },
+          "IsHidden": {
+            "type": "boolean",
+            "default": false
+          },
+          "IsMandatory": {
+            "type": "boolean",
+            "default": false
+          },
+          "IsShownInInfobox": {
+            "type": "boolean",
+            "default": true
+          },
+          "FormulaConfig": {
+            "$ref": "#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto"
+          },
+          "OptionsConfig": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "CustomSymbolTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomFieldConfigDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Source": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "UsePreviousValue": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsFilePath": {
+            "type": "boolean"
+          },
+          "FormulaConfig": {
+            "$ref": "#/components/schemas/FormulaConfigDto"
+          },
+          "NumericConfig": {
+            "$ref": "#/components/schemas/NumericConfigDto"
+          },
+          "IntegerConfig": {
+            "$ref": "#/components/schemas/IntegerConfigDto"
+          },
+          "ExtendedTextConfig": {
+            "$ref": "#/components/schemas/ExtendedTextConfigDto"
+          },
+          "OptionsConfig": {
+            "$ref": "#/components/schemas/OptionsConfigDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomSymbolCustomFieldConfigDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "IsShownInInfobox": {
+            "type": "boolean"
+          },
+          "FormulaConfig": {
+            "$ref": "#/components/schemas/CustomSymbolCustomFieldFormulaConfigDto"
+          },
+          "OptionsConfig": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "CustomSymbolTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomSymbolTypeSummaryDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomSymbolCustomFieldFormulaConfigDto": {
+        "required": [
+          "Formula",
+          "FormulaType"
+        ],
+        "type": "object",
+        "properties": {
+          "Formula": {
+            "maxLength": 2040,
+            "type": "string"
+          },
+          "FormulaType": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomSymbolSubTypeDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomSymbolTypeDetailDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "HideAddressField": {
+            "type": "boolean"
+          },
+          "HideSymbolSubType": {
+            "type": "boolean"
+          },
+          "IsDefault": {
+            "type": "boolean"
+          },
+          "DueDiligenceSymbolEntityType": {
+            "$ref": "#/components/schemas/EntityType"
+          },
+          "SubTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomSymbolSubTypeDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomSymbolTypeDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "HideAddressField": {
+            "type": "boolean"
+          },
+          "HideSymbolSubType": {
+            "type": "boolean"
+          },
+          "IsDefault": {
+            "type": "boolean"
+          },
+          "Order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DueDiligenceSymbolEntityType": {
+            "$ref": "#/components/schemas/EntityType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CustomSymbolTypeSummaryDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DateSettingsDto": {
+        "type": "object",
+        "properties": {
+          "AllowEdit": {
+            "type": "boolean"
+          },
+          "IsLocked": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntityType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ExtendedTextConfigDto": {
+        "type": "object",
+        "properties": {
+          "MaxChars": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FormulaConfigDto": {
+        "type": "object",
+        "properties": {
+          "Formula": {
+            "type": "string",
+            "nullable": true
+          },
+          "FormulaType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupConfigDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Fields": {
+            "$ref": "#/components/schemas/GroupFieldsDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GroupFieldsDto": {
+        "type": "object",
+        "properties": {
+          "Title": {
+            "$ref": "#/components/schemas/TitleSettingsDto"
+          },
+          "Date": {
+            "$ref": "#/components/schemas/DateSettingsDto"
+          },
+          "Identifier": {
+            "$ref": "#/components/schemas/IdentifierSettingsDto"
+          },
+          "Subject": {
+            "$ref": "#/components/schemas/SubjectSettingsDto"
+          },
+          "Recommendation": {
+            "$ref": "#/components/schemas/RecommendationSettingsDto"
+          },
+          "Sentiment": {
+            "$ref": "#/components/schemas/SentimentSettingsDto"
+          },
+          "Link": {
+            "$ref": "#/components/schemas/LinkSettingsDto"
+          },
+          "Note": {
+            "$ref": "#/components/schemas/NoteSettingsDto"
+          },
+          "Source": {
+            "$ref": "#/components/schemas/SourceSettingsDto"
+          },
+          "RelatedSymbols": {
+            "$ref": "#/components/schemas/RelatedSymbolsSettingsDto"
+          },
+          "RelatedResearch": {
+            "$ref": "#/components/schemas/RelatedResearchSettingsDto"
+          },
+          "RelatedContacts": {
+            "$ref": "#/components/schemas/RelatedContactsSettingsDto"
+          },
+          "Team": {
+            "$ref": "#/components/schemas/TeamSettingsDto"
+          },
+          "Organizer": {
+            "$ref": "#/components/schemas/OrganizerSettingsDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HeadlineFormatConfigDto": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomString": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomFieldName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdentifierSettingsDto": {
+        "type": "object",
+        "properties": {
+          "AllowEdit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IntegerConfigDto": {
+        "type": "object",
+        "properties": {
+          "SplitType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LinkSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewItemDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NoteSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          },
+          "AllowPersonal": {
+            "type": "boolean"
+          },
+          "DefaultStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "AlternativeCustomFieldId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NumericConfigDto": {
+        "type": "object",
+        "properties": {
+          "Decimals": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SplitType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operation": {
+        "type": "object",
+        "properties": {
+          "OperationType": {
+            "$ref": "#/components/schemas/OperationType"
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "op": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OperationType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "OptionsConfigDto": {
+        "type": "object",
+        "properties": {
+          "MultiSelectEnabled": {
+            "type": "boolean"
+          },
+          "OnTheFlyEnabled": {
+            "type": "boolean"
+          },
+          "Options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrganizerSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PhoneNumberTypeDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "IsStandard": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -500,391 +3775,23 @@
           "instance": {
             "type": "string",
             "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": false
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
-        "additionalProperties": false
-      },
-      "FormulaConfigDto": {
-        "type": "object",
-        "properties": {
-          "formula": {
-            "type": "string",
-            "nullable": true
-          },
-          "formulaType": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "NumericConfigDto": {
-        "type": "object",
-        "properties": {
-          "decimals": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "splitType": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "IntegerConfigDto": {
-        "type": "object",
-        "properties": {
-          "splitType": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ExtendedTextConfigDto": {
-        "type": "object",
-        "properties": {
-          "maxChars": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "OptionsConfigDto": {
-        "type": "object",
-        "properties": {
-          "multiSelectEnabled": {
-            "type": "boolean"
-          },
-          "onTheFlyEnabled": {
-            "type": "boolean"
-          },
-          "options": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomFieldConfigDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "source": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "usePreviousValue": {
-            "type": "boolean"
-          },
-          "isMandatory": {
-            "type": "boolean"
-          },
-          "isHidden": {
-            "type": "boolean"
-          },
-          "formulaConfig": {
-            "$ref": "#/components/schemas/FormulaConfigDto"
-          },
-          "numericConfig": {
-            "$ref": "#/components/schemas/NumericConfigDto"
-          },
-          "integerConfig": {
-            "$ref": "#/components/schemas/IntegerConfigDto"
-          },
-          "extendedTextConfig": {
-            "$ref": "#/components/schemas/ExtendedTextConfigDto"
-          },
-          "optionsConfig": {
-            "$ref": "#/components/schemas/OptionsConfigDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SubjectSettingsDto": {
-        "type": "object",
-        "properties": {
-          "defaultId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecommendationSettingsDto": {
-        "type": "object",
-        "properties": {
-          "defaultId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SentimentSettingsDto": {
-        "type": "object",
-        "properties": {
-          "defaultId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "GroupFieldsDto": {
-        "type": "object",
-        "properties": {
-          "subject": {
-            "$ref": "#/components/schemas/SubjectSettingsDto"
-          },
-          "recommendation": {
-            "$ref": "#/components/schemas/RecommendationSettingsDto"
-          },
-          "sentiment": {
-            "$ref": "#/components/schemas/SentimentSettingsDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "GroupConfigDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "fields": {
-            "$ref": "#/components/schemas/GroupFieldsDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ClientSalesRepresentativeDto": {
-        "type": "object",
-        "properties": {
-          "fullname": {
-            "type": "string",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RecommendationConfigDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isHidden": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SentimentConfigDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isHidden": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SubjectSummaryDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "identifierType": {
-            "type": "string",
-            "nullable": true
-          },
-          "isHidden": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApprovalLevelConfigDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "approverIds": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApprovalProcessConfigDto": {
-        "type": "object",
-        "properties": {
-          "approvalLevels": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApprovalLevelConfigDto"
-            },
-            "nullable": true
-          },
-          "viewerIds": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "shouldSendEmailAlertsWhenSubmittedForApproval": {
-            "type": "boolean"
-          },
-          "shouldSendEmailAlertsWhenApproved": {
-            "type": "boolean"
-          },
-          "shouldSendEmailAlertsWhenDenied": {
-            "type": "boolean"
-          },
-          "shouldSendEmailAlertsToAuthor": {
-            "type": "boolean"
-          },
-          "shouldSendEmailAlertsToApprovers": {
-            "type": "boolean"
-          },
-          "shouldSendEmailAlertsToViewers": {
-            "type": "boolean"
-          },
-          "canAuthorSelfApprove": {
-            "type": "boolean"
-          },
-          "canAuthorEditPending": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CommentaryConfigDto": {
-        "type": "object",
-        "properties": {
-          "shouldSendEmailAlertsToAuthor": {
-            "type": "boolean"
-          },
-          "shouldSendEmailAlertsToCommenters": {
-            "type": "boolean"
-          },
-          "shouldSendEmailAlertsToAll": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "HeadlineFormatConfigDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "customString": {
-            "type": "string",
-            "nullable": true
-          },
-          "customFieldName": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
+        "additionalProperties": {}
       },
       "RatingConfigDto": {
         "type": "object",
         "properties": {
-          "ratingsVisibleToAuthor": {
+          "RatingsVisibleToAuthor": {
             "type": "boolean"
           },
-          "ratingsVisibleToViewers": {
+          "RatingsVisibleToViewers": {
             "type": "boolean"
           },
-          "ratingsVisibleToAll": {
+          "RatingsVisibleToAll": {
             "type": "boolean"
           },
-          "viewerIds": {
+          "ViewerIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -892,7 +3799,7 @@
             },
             "nullable": true
           },
-          "optionValues": {
+          "OptionValues": {
             "type": "array",
             "items": {
               "type": "integer",
@@ -903,29 +3810,413 @@
         },
         "additionalProperties": false
       },
-      "SubjectConfigDto": {
+      "RecommendationConfigDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "string",
             "format": "uuid"
           },
-          "name": {
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "code": {
-            "type": "string",
-            "nullable": true
+          "Code": {
+            "type": "integer",
+            "format": "int32"
           },
-          "isHidden": {
+          "IsHidden": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecommendationSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
             "type": "boolean"
           },
-          "identifierType": {
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          },
+          "DefaultId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedContactsSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedResearchSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedSymbolsSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelationshipCategoryDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "customFieldIds": {
+          "IsStandard": {
+            "type": "boolean"
+          },
+          "IsContactToContact": {
+            "type": "boolean"
+          },
+          "IsContactToSymbol": {
+            "type": "boolean"
+          },
+          "Relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RelationshipDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelationshipCategoryListDto": {
+        "required": [
+          "Ids"
+        ],
+        "type": "object",
+        "properties": {
+          "Ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelationshipCategorySaveDto": {
+        "required": [
+          "CategoryName"
+        ],
+        "type": "object",
+        "properties": {
+          "CategoryName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "IsContactToContact": {
+            "type": "boolean",
+            "default": false
+          },
+          "IsContactToSymbol": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelationshipDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "RelationshipCategoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "RelationshipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "BidirectionalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeftToRightName": {
+            "type": "string",
+            "nullable": true
+          },
+          "RightToLeftName": {
+            "type": "string",
+            "nullable": true
+          },
+          "HideDates": {
+            "type": "boolean"
+          },
+          "HideComment": {
+            "type": "boolean"
+          },
+          "HideCompany": {
+            "type": "boolean"
+          },
+          "IsCustomisable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelationshipSaveDto": {
+        "required": [
+          "HideComment",
+          "HideCompany",
+          "HideDates",
+          "RelationshipCategoryId"
+        ],
+        "type": "object",
+        "properties": {
+          "RelationshipCategoryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "RelationshipCode": {
+            "maxLength": 5,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "BidirectionalName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "LeftToRightName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "RightToLeftName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "HideDates": {
+            "type": "boolean",
+            "default": false
+          },
+          "HideComment": {
+            "type": "boolean",
+            "default": false
+          },
+          "HideCompany": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelationshipType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ReorderCustomSymbolTypeDto": {
+        "type": "object",
+        "properties": {
+          "Ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SaveCustomSymbolTypeDto": {
+        "required": [
+          "Name"
+        ],
+        "type": "object",
+        "properties": {
+          "Name": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "HideAddressField": {
+            "type": "boolean"
+          },
+          "HideSymbolSubtype": {
+            "type": "boolean"
+          },
+          "IsDefault": {
+            "type": "boolean",
+            "default": false
+          },
+          "DueDiligenceSymbolEntityType": {
+            "$ref": "#/components/schemas/EntityType"
+          },
+          "SubTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "CustomFieldIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SentimentConfigDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Color": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsHidden": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SentimentSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          },
+          "DefaultId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SourceSettingsDto": {
+        "type": "object",
+        "properties": {
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "UsePrevious": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectConfigDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "IdentifierType": {
+            "type": "string",
+            "nullable": true
+          },
+          "IdentifierTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomFieldIds": {
             "type": "array",
             "items": {
               "type": "string",
@@ -933,28 +4224,167 @@
             },
             "nullable": true
           },
-          "approvalProcessConfig": {
+          "ApprovalProcessConfig": {
             "$ref": "#/components/schemas/ApprovalProcessConfigDto"
           },
-          "commentaryConfig": {
+          "CommentaryConfig": {
             "$ref": "#/components/schemas/CommentaryConfigDto"
           },
-          "newsHeadlineFormat": {
+          "NewsHeadlineFormat": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/HeadlineFormatConfigDto"
             },
             "nullable": true
           },
-          "emailHeadlineFormat": {
+          "EmailHeadlineFormat": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/HeadlineFormatConfigDto"
             },
             "nullable": true
           },
-          "ratingConfig": {
+          "RatingConfig": {
             "$ref": "#/components/schemas/RatingConfigDto"
+          },
+          "NoteLengthLimit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectSettingsDto": {
+        "type": "object",
+        "properties": {
+          "DefaultId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectSummaryDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "IdentifierType": {
+            "type": "string",
+            "nullable": true
+          },
+          "IdentifierTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsHidden": {
+            "type": "boolean"
+          },
+          "CustomFieldIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "NoteLengthLimit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SymbolsRelationShipSaveDto": {
+        "required": [
+          "HideComment",
+          "HideDates"
+        ],
+        "type": "object",
+        "properties": {
+          "RelationshipCode": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "ParentToChildName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "ChildToParentName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "PeerName": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "HideDates": {
+            "type": "boolean",
+            "default": true
+          },
+          "HideComment": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SymbolsRelationshipDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "RelationshipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ParentToChildName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChildToParentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "PeerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "HideDates": {
+            "type": "boolean"
+          },
+          "HideComment": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -962,30 +4392,143 @@
       "TeamConfigDto": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "string",
             "format": "uuid"
           },
-          "name": {
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "code": {
+          "Code": {
             "type": "string",
             "nullable": true
           },
-          "defaultSubjectId": {
+          "DefaultSubjectId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "userIds": {
+          "UserIds": {
             "type": "array",
             "items": {
               "type": "string",
               "format": "uuid"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeamSettingsDto": {
+        "type": "object",
+        "properties": {
+          "DefaultId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeamSummaryDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TitleSettingsDto": {
+        "type": "object",
+        "properties": {
+          "UsePrevious": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCustomSymbolTypeDto": {
+        "required": [
+          "Name"
+        ],
+        "type": "object",
+        "properties": {
+          "Name": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "HideAddressField": {
+            "type": "boolean"
+          },
+          "HideSymbolSubtype": {
+            "type": "boolean"
+          },
+          "IsDefault": {
+            "type": "boolean",
+            "default": false
+          },
+          "DueDiligenceSymbolEntityType": {
+            "$ref": "#/components/schemas/EntityType"
+          },
+          "SubTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomSymbolSubTypeDto"
+            },
+            "nullable": true
+          },
+          "CustomFieldIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserConfigDto": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "UserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SerialNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "FirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "LastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "Team": {
+            "$ref": "#/components/schemas/TeamSummaryDto"
           }
         },
         "additionalProperties": false
@@ -1013,6 +4556,38 @@
     },
     {
       "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Contacts - CustomFields"
+    },
+    {
+      "name": "Contacts - PhoneNumberTypes"
+    },
+    {
+      "name": "Contacts - Relationship Category"
+    },
+    {
+      "name": "Contacts - Relationships"
+    },
+    {
+      "name": "Contacts - Roles"
+    },
+    {
+      "name": "Contacts - Types"
+    },
+    {
+      "name": "CustomSymbols - CustomFields"
+    },
+    {
+      "name": "CustomSymbols - Relationships"
+    },
+    {
+      "name": "CustomSymbols - Types"
+    },
+    {
+      "name": "Notes - Configuration"
     }
   ]
 }

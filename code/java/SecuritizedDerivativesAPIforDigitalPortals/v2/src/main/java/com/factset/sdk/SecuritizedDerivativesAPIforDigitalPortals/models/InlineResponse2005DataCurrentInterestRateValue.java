@@ -48,6 +48,8 @@ public class InlineResponse2005DataCurrentInterestRateValue implements Serializa
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataCurrentInterestRateValue() { 
+  }
 
   public InlineResponse2005DataCurrentInterestRateValue minimum(BigDecimal minimum) {
     this.minimum = minimum;

@@ -2,16 +2,14 @@
 
 # InlineResponse2006Data
 
-Characteristics.
+ETP industry allocation data.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gearing** | [**InlineResponse2006DataGearing**](InlineResponse2006DataGearing.md) |  |  [optional]
-**hedge** | [**InlineResponse2006DataHedge**](InlineResponse2006DataHedge.md) |  |  [optional]
-**counterParty** | [**InlineResponse2006DataCounterParty**](InlineResponse2006DataCounterParty.md) |  |  [optional]
-**serviceProvider** | [**InlineResponse2006DataServiceProvider**](InlineResponse2006DataServiceProvider.md) |  |  [optional]
+**reportDate** | **LocalDate** | Reporting date for the allocations. |  [optional]
+**industries** | [**java.util.Set&lt;InlineResponse2006DataIndustries&gt;**](InlineResponse2006DataIndustries.md) | List of allocations by industry. |  [optional]
 
 
 ## Implemented Interfaces

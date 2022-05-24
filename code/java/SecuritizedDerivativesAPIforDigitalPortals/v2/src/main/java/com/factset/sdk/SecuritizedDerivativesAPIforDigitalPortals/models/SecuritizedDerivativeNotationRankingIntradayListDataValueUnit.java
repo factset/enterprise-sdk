@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataValueUnit imple
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataValueUnit() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataValueUnit id(BigDecimal id) {
     this.id = id;

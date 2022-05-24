@@ -48,6 +48,8 @@ public class InlineResponse200DataDebtRanking implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse200DataDebtRanking() { 
+  }
 
   public InlineResponse200DataDebtRanking id(BigDecimal id) {
     this.id = id;

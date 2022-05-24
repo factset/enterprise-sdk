@@ -56,6 +56,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getReturnsSnapshot(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const returnsSnapshotRequest = new factsetprices.ReturnsSnapshotRequest(); // Re
 // Call api endpoint
 apiInstance.getReturnsSnapshotForList(returnsSnapshotRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -211,6 +213,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSecurityReturns(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -289,6 +292,7 @@ const returnsRequest = new factsetprices.ReturnsRequest(); // ReturnsRequest | R
 // Call api endpoint
 apiInstance.getSecurityReturnsForList(returnsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

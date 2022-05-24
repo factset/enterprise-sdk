@@ -17,7 +17,7 @@ import InlineResponse200DataLifeCycleMaturity from './InlineResponse200DataLifeC
 /**
  * The InlineResponse200DataLifeCycle model module.
  * @module model/InlineResponse200DataLifeCycle
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataLifeCycle {
     /**

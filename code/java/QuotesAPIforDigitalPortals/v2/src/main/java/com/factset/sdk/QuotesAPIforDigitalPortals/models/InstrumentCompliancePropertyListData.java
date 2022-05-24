@@ -44,6 +44,8 @@ public class InstrumentCompliancePropertyListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private InstrumentCompliancePropertyListDataFilter filter;
 
+  public InstrumentCompliancePropertyListData() { 
+  }
 
   public InstrumentCompliancePropertyListData filter(InstrumentCompliancePropertyListDataFilter filter) {
     this.filter = filter;

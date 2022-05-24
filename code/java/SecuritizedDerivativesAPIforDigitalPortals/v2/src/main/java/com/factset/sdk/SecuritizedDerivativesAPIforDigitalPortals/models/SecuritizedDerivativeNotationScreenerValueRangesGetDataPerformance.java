@@ -54,6 +54,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformance 
   public static final String JSON_PROPERTY_END_OF_DAY = "endOfDay";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDay endOfDay;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformance() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformance intraday(SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceIntraday intraday) {
     this.intraday = intraday;

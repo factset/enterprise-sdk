@@ -54,7 +54,7 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationInfo {\n");
             sb.Append("  CalculationId: ").Append(CalculationId).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         public bool Equals(CalculationInfo input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CalculationId == input.CalculationId ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.CalculationId != null)
-                    hashCode = hashCode * 59 + this.CalculationId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CalculationId.GetHashCode();
+                }
                 return hashCode;
             }
         }

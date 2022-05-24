@@ -53,6 +53,8 @@ public class InlineResponse20069Data implements Serializable {
   public static final String JSON_PROPERTY_REGIONAL = "regional";
   private InlineResponse20069DataRegional regional;
 
+  public InlineResponse20069Data() { 
+  }
 
   public InlineResponse20069Data instrument(InlineResponse20069DataInstrument instrument) {
     this.instrument = instrument;

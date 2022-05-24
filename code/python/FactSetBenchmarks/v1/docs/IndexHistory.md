@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **total_return_level** | **float** | Index Level Total Return Amount | [optional] 
 **total_return_percent** | **float** | Index Level Total Return Percent Change | [optional] 
 **return_type** | **str** | The requested Return Type - GROSS or NET | [optional] 
+**hedge_type** | **str** | The requested Hedge Type - HEDGED or UNHEDGED | [optional] 
 **request_id** | **str** | Benchmark Identifier specified in the request | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

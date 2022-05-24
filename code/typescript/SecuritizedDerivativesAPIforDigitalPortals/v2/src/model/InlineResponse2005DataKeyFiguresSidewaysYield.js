@@ -19,7 +19,7 @@ import InlineResponse2005DataKeyFiguresSidewaysYieldRelative from './InlineRespo
 /**
  * The InlineResponse2005DataKeyFiguresSidewaysYield model module.
  * @module model/InlineResponse2005DataKeyFiguresSidewaysYield
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKeyFiguresSidewaysYield {
     /**

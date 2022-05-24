@@ -17,7 +17,7 @@ import EntityReference from './EntityReference';
 /**
  * The EntityReferenceResponse model module.
  * @module model/EntityReferenceResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EntityReferenceResponse {
     /**

@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataRatios1DividendYield implements Seri
   public static final String JSON_PROPERTY_MEAN = "mean";
   private StockNotationScreenerSearchDataReturnOnAssets1Mean mean;
 
+  public StockNotationScreenerSearchDataRatios1DividendYield() { 
+  }
 
   public StockNotationScreenerSearchDataRatios1DividendYield mean(StockNotationScreenerSearchDataReturnOnAssets1Mean mean) {
     this.mean = mean;

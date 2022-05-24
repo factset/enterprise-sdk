@@ -53,6 +53,8 @@ public class InlineResponse2006InstrumentCap implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private BigDecimal cashFlow;
 
+  public InlineResponse2006InstrumentCap() { 
+  }
 
   public InlineResponse2006InstrumentCap value(BigDecimal value) {
     this.value = value;

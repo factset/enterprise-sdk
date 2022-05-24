@@ -13,12 +13,12 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20019Data from './InlineResponse20019Data';
-import InlineResponse2001Meta from './InlineResponse2001Meta';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse20019 model module.
  * @module model/InlineResponse20019
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20019 {
     /**
@@ -53,7 +53,7 @@ class InlineResponse20019 {
                 obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20019Data]);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -63,13 +63,13 @@ class InlineResponse20019 {
 }
 
 /**
- * List of strategy segments.
+ * List of class geographies.
  * @member {Array.<module:model/InlineResponse20019Data>} data
  */
 InlineResponse20019.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse20019.prototype['meta'] = undefined;
 

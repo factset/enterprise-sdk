@@ -155,6 +155,33 @@ namespace FactSet.SDK.FactSetPeople.Api
     {
         private FactSet.SDK.FactSetPeople.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleJobsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PeopleJobsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetPeopleJobsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PeopleJobsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="JobHistoryApi"/> class.
         /// </summary>
@@ -268,7 +295,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>PeopleJobsResponse</returns>
         public PeopleJobsResponse GetPeopleJobs(List<string> ids, string status = default(string), string level = default(string), string type = default(string))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse> localVarResponse = GetPeopleJobsWithHttpInfo(ids, status, level, type);
+            var localVarResponse = GetPeopleJobsWithHttpInfo(ids, status, level, type);
             return localVarResponse.Data;
         }
 
@@ -281,11 +308,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="level">Select the level of detail only main Jobs or include other Jobs at a company. (optional, default to DETAIL)</param>
         /// <param name="type">Select only Jobs of a certain type board member or employee. (optional, default to ALL)</param>
         /// <returns>ApiResponse of PeopleJobsResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse> GetPeopleJobsWithHttpInfo(List<string> ids, string status = default(string), string level = default(string), string type = default(string))
+        public ApiResponse<PeopleJobsResponse> GetPeopleJobsWithHttpInfo(List<string> ids, string status = default(string), string level = default(string), string type = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling JobHistoryApi->GetPeopleJobs");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -298,10 +327,16 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (status != null)
@@ -319,13 +354,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -337,15 +372,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PeopleJobsResponse>("/factset-people/v1/jobs", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleJobsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            PeopleJobsResponse>("/factset-people/v1/jobs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleJobs", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -359,9 +398,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="type">Select only Jobs of a certain type board member or employee. (optional, default to ALL)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PeopleJobsResponse</returns>
-        public async System.Threading.Tasks.Task<PeopleJobsResponse> GetPeopleJobsAsync(List<string> ids, string status = default(string), string level = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PeopleJobsResponse>GetPeopleJobsAsync(List<string> ids, string status = default(string), string level = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse> localVarResponse = await GetPeopleJobsWithHttpInfoAsync(ids, status, level, type, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPeopleJobsWithHttpInfoAsync(ids, status, level, type, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -375,11 +414,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="type">Select only Jobs of a certain type board member or employee. (optional, default to ALL)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PeopleJobsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse>> GetPeopleJobsWithHttpInfoAsync(List<string> ids, string status = default(string), string level = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PeopleJobsResponse>> GetPeopleJobsWithHttpInfoAsync(List<string> ids, string status = default(string), string level = default(string), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'ids' when calling JobHistoryApi->GetPeopleJobs");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -392,12 +434,17 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetPeople.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (status != null)
@@ -415,13 +462,13 @@ namespace FactSet.SDK.FactSetPeople.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -433,14 +480,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleJobsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<PeopleJobsResponse>("/factset-people/v1/jobs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleJobs", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -454,7 +505,7 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <returns>PeopleJobsResponse</returns>
         public PeopleJobsResponse GetPeopleJobsForList(PeopleJobsRequest peopleJobsRequest)
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse> localVarResponse = GetPeopleJobsForListWithHttpInfo(peopleJobsRequest);
+            var localVarResponse = GetPeopleJobsForListWithHttpInfo(peopleJobsRequest);
             return localVarResponse.Data;
         }
 
@@ -464,11 +515,13 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <exception cref="FactSet.SDK.FactSetPeople.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="peopleJobsRequest"></param>
         /// <returns>ApiResponse of PeopleJobsResponse</returns>
-        public FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse> GetPeopleJobsForListWithHttpInfo(PeopleJobsRequest peopleJobsRequest)
+        public ApiResponse<PeopleJobsResponse> GetPeopleJobsForListWithHttpInfo(PeopleJobsRequest peopleJobsRequest)
         {
             // verify the required parameter 'peopleJobsRequest' is set
             if (peopleJobsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'peopleJobsRequest' when calling JobHistoryApi->GetPeopleJobsForList");
+            }
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
 
@@ -482,22 +535,28 @@ namespace FactSet.SDK.FactSetPeople.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = peopleJobsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -509,15 +568,19 @@ namespace FactSet.SDK.FactSetPeople.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<PeopleJobsResponse>("/factset-people/v1/jobs", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleJobsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            PeopleJobsResponse>("/factset-people/v1/jobs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleJobsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -528,9 +591,9 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="peopleJobsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PeopleJobsResponse</returns>
-        public async System.Threading.Tasks.Task<PeopleJobsResponse> GetPeopleJobsForListAsync(PeopleJobsRequest peopleJobsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PeopleJobsResponse>GetPeopleJobsForListAsync(PeopleJobsRequest peopleJobsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse> localVarResponse = await GetPeopleJobsForListWithHttpInfoAsync(peopleJobsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPeopleJobsForListWithHttpInfoAsync(peopleJobsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -541,11 +604,14 @@ namespace FactSet.SDK.FactSetPeople.Api
         /// <param name="peopleJobsRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PeopleJobsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetPeople.Client.ApiResponse<PeopleJobsResponse>> GetPeopleJobsForListWithHttpInfoAsync(PeopleJobsRequest peopleJobsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PeopleJobsResponse>> GetPeopleJobsForListWithHttpInfoAsync(PeopleJobsRequest peopleJobsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'peopleJobsRequest' is set
             if (peopleJobsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetPeople.Client.ApiException(400, "Missing required parameter 'peopleJobsRequest' when calling JobHistoryApi->GetPeopleJobsForList");
+            }
 
 
             FactSet.SDK.FactSetPeople.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetPeople.Client.RequestOptions();
@@ -559,24 +625,29 @@ namespace FactSet.SDK.FactSetPeople.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetPeople.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = peopleJobsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetPeople.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -588,14 +659,18 @@ namespace FactSet.SDK.FactSetPeople.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetPeopleJobsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<PeopleJobsResponse>("/factset-people/v1/jobs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPeopleJobsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

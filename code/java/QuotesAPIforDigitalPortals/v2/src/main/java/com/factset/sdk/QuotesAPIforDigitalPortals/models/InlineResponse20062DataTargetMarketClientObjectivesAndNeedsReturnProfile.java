@@ -345,6 +345,8 @@ public class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnPr
   public static final String JSON_PROPERTY_GERMANY = "germany";
   private InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany germany;
 
+  public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile() { 
+  }
 
   public InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile preservation(PreservationEnum preservation) {
     this.preservation = preservation;

@@ -55,6 +55,8 @@ public class InlineResponse20070DataListing implements Serializable {
   public static final String JSON_PROPERTY_TICKER_EXCHANGE = "tickerExchange";
   private String tickerExchange;
 
+  public InlineResponse20070DataListing() { 
+  }
 
   public InlineResponse20070DataListing notation(InlineResponse20070DataNotation notation) {
     this.notation = notation;

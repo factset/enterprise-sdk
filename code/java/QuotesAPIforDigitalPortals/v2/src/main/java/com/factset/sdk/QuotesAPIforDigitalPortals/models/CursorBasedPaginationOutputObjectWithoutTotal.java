@@ -47,6 +47,18 @@ public class CursorBasedPaginationOutputObjectWithoutTotal implements Serializab
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private String previous;
 
+  public CursorBasedPaginationOutputObjectWithoutTotal() { 
+  }
+
+  @JsonCreator
+  public CursorBasedPaginationOutputObjectWithoutTotal(
+    @JsonProperty(value=JSON_PROPERTY_NEXT, required=true) String next, 
+    @JsonProperty(value=JSON_PROPERTY_PREVIOUS, required=true) String previous
+  ) {
+    this();
+    this.next = next;
+    this.previous = previous;
+  }
 
   public CursorBasedPaginationOutputObjectWithoutTotal next(String next) {
     this.next = next;

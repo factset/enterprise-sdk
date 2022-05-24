@@ -68,6 +68,8 @@ public class InlineResponse2009DataSubsample implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private BigDecimal tradingValue;
 
+  public InlineResponse2009DataSubsample() { 
+  }
 
   public InlineResponse2009DataSubsample time(String time) {
     this.time = time;

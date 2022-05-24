@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InterimCpnChgInterimCpnChg model module.
  * @module model/InterimCpnChgInterimCpnChg
- * @version 0.9.1
+ * @version 0.20.0
  */
 class InterimCpnChgInterimCpnChg {
     /**

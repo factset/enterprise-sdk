@@ -37,40 +37,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.CompanyLogoAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.CompanyLogoAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.CompanyLogoAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = company_api.CompanyApi(api_client)
+
     id = "id_example" # str | Identifier of an instrument.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # URLs of company logos.
-        api_response = api_instance.get_company_logo_get_by_instrument(id)
-        pprint(api_response)
-    except fds.sdk.CompanyLogoAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling CompanyApi->get_company_logo_get_by_instrument: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # URLs of company logos.
         api_response = api_instance.get_company_logo_get_by_instrument(id, attributes=attributes)
         pprint(api_response)
+
     except fds.sdk.CompanyLogoAPIforDigitalPortals.ApiException as e:
         print("Exception when calling CompanyApi->get_company_logo_get_by_instrument: %s\n" % e)
 ```

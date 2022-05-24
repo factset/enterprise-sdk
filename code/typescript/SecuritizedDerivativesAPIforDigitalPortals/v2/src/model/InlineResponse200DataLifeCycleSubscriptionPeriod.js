@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataLifeCycleSubscriptionPeriod model module.
  * @module model/InlineResponse200DataLifeCycleSubscriptionPeriod
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataLifeCycleSubscriptionPeriod {
     /**

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Create templated PA component
 
-This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -43,21 +43,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
+
     templated_pa_component_parameters_root = TemplatedPAComponentParametersRoot(
         data=TemplatedPAComponentParameters(
             directory="directory_example",
@@ -79,6 +80,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                 groups=[
                     PACalculationGroup(
                         id="id_example",
+                        frequency="frequency_example",
                     ),
                 ],
                 columns=[
@@ -94,6 +96,19 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                     enddate="enddate_example",
                     frequency="frequency_example",
                 ),
+                datasources=PACalculationDataSources(
+                    portfoliopricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    benchmarkpricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    useportfoliopricingsourcesforbenchmark=True,
+                ),
                 currencyisocode="currencyisocode_example",
                 componentdetail="componentdetail_example",
             ),
@@ -101,11 +116,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         meta=None,
     ) # TemplatedPAComponentParametersRoot | Request Parameters
 
-    # example passing only required values which don't have defaults set
     try:
         # Create templated PA component
         api_response = api_instance.create_templated_pa_components(templated_pa_component_parameters_root)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling TemplatedPAComponentsApi->create_templated_pa_components: %s\n" % e)
 ```
@@ -177,15 +192,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -193,10 +208,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
+
     try:
         # Delete templated PA component
-        api_instance.delete_templated_pa_components()
+        api_instance.delete_templated_pa_components(id)
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling TemplatedPAComponentsApi->delete_templated_pa_components: %s\n" % e)
 ```
@@ -269,15 +285,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -285,11 +301,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
+
     try:
         # Get templated PA component by id
-        api_response = api_instance.get_templated_pa_component_by_id()
+        api_response = api_instance.get_templated_pa_component_by_id(id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling TemplatedPAComponentsApi->get_templated_pa_component_by_id: %s\n" % e)
 ```
@@ -362,15 +380,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -378,11 +396,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    directory = "Personal:TemplatedPAComponents/" # str | Get templated PA components in path (default to "Personal:TemplatedPAComponents/")
+
     try:
         # Get templated PA components in path
-        api_response = api_instance.get_templated_pa_components_in_path()
+        api_response = api_instance.get_templated_pa_components_in_path(directory)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling TemplatedPAComponentsApi->get_templated_pa_components_in_path: %s\n" % e)
 ```
@@ -428,7 +448,7 @@ Name | Type | Description  | Notes
 
 Update templated PA component
 
-This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -455,21 +475,23 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = templated_pa_components_api.TemplatedPAComponentsApi(api_client)
+
+    id = "01234567890123456789012345678901" # str | Unique identifier for a templated PA component (default to "01234567890123456789012345678901")
     templated_pa_component_update_parameters_root = TemplatedPAComponentUpdateParametersRoot(
         data=TemplatedPAComponentUpdateParameters(
             parent_template_id="parent_template_id_example",
@@ -490,6 +512,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                 groups=[
                     PACalculationGroup(
                         id="id_example",
+                        frequency="frequency_example",
                     ),
                 ],
                 columns=[
@@ -505,6 +528,19 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                     enddate="enddate_example",
                     frequency="frequency_example",
                 ),
+                datasources=PACalculationDataSources(
+                    portfoliopricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    benchmarkpricingsources=[
+                        PACalculationPricingSource(
+                            id="id_example",
+                        ),
+                    ],
+                    useportfoliopricingsourcesforbenchmark=True,
+                ),
                 currencyisocode="currencyisocode_example",
                 componentdetail="componentdetail_example",
             ),
@@ -512,11 +548,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         meta=None,
     ) # TemplatedPAComponentUpdateParametersRoot | Request Parameters
 
-    # example passing only required values which don't have defaults set
     try:
         # Update templated PA component
-        api_response = api_instance.update_templated_pa_components(templated_pa_component_update_parameters_root)
+        api_response = api_instance.update_templated_pa_components(id, templated_pa_component_update_parameters_root)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling TemplatedPAComponentsApi->update_templated_pa_components: %s\n" % e)
 ```

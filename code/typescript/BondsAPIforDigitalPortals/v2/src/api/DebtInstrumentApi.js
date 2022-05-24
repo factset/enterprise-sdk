@@ -25,7 +25,7 @@ import InlineResponse2004 from '../model/InlineResponse2004';
 /**
 * DebtInstrument service.
 * @module api/DebtInstrumentApi
-* @version 0.9.1
+* @version 0.10.0
 */
 export default class DebtInstrumentApi {
 
@@ -74,7 +74,10 @@ export default class DebtInstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/debtInstrument/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -89,7 +92,7 @@ export default class DebtInstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     getDebtInstrumentGet(id, opts) {
       return this.getDebtInstrumentGetWithHttpInfo(id, opts)
@@ -129,7 +132,10 @@ export default class DebtInstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/debtInstrument/keyFigures/notation/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -143,7 +149,7 @@ export default class DebtInstrumentApi {
      * @param {String} id Identifier of a notation.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     getDebtInstrumentKeyFiguresNotationGet(id, opts) {
       return this.getDebtInstrumentKeyFiguresNotationGetWithHttpInfo(id, opts)
@@ -176,7 +182,10 @@ export default class DebtInstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/debtInstrument/issuer/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -189,7 +198,7 @@ export default class DebtInstrumentApi {
      * Search for issuers of debt instruments. FactSet does not consolidate the data provided by different suppliers, therefore the result may contain more than one identifier for a given issuer. The response is limited to 100 results.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     postDebtInstrumentIssuerSearch(opts) {
       return this.postDebtInstrumentIssuerSearchWithHttpInfo(opts)
@@ -222,7 +231,10 @@ export default class DebtInstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/debtInstrument/notation/screener/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -235,7 +247,7 @@ export default class DebtInstrumentApi {
      * Screener for debt instruments' notations based on debt instrument-specific parameters. The result is limited to the notations that satisfy all the selected filters. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject1} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     postDebtInstrumentNotationScreenerSearch(opts) {
       return this.postDebtInstrumentNotationScreenerSearchWithHttpInfo(opts)
@@ -268,7 +280,10 @@ export default class DebtInstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2004;
+
       return this.apiClient.callApi(
         '/debtInstrument/notation/screener/valueRanges/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -281,7 +296,7 @@ export default class DebtInstrumentApi {
      * The endpoint returns the possible values and value ranges for the parameters used in the endpoint `/debtInstrument/notation/screener/search`. It allows to request the values and value ranges only for a restricted set of notations that match predefined parameters. The functionality may be used to pre-fill the values and value ranges of the parameters of the `/debtInstrument/notation/screener/search` endpoint so that performing a search always leads to a non-empty set of notations. If more than one notation of an instrument matches the parameters, and no market priority has been specified, only the notation with the highest trading volume, averaged over one month, is considered.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject2} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     postDebtInstrumentNotationScreenerValueRangesGet(opts) {
       return this.postDebtInstrumentNotationScreenerValueRangesGetWithHttpInfo(opts)
@@ -292,3 +307,8 @@ export default class DebtInstrumentApi {
 
 
 }
+
+
+
+
+

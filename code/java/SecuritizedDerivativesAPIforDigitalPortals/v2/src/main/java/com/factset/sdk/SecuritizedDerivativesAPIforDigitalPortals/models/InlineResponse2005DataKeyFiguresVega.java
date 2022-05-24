@@ -49,6 +49,8 @@ public class InlineResponse2005DataKeyFiguresVega implements Serializable {
   public static final String JSON_PROPERTY_UNADJUSTED = "unadjusted";
   private InlineResponse2005DataKeyFiguresVegaUnadjusted unadjusted;
 
+  public InlineResponse2005DataKeyFiguresVega() { 
+  }
 
   public InlineResponse2005DataKeyFiguresVega effective(InlineResponse2005DataKeyFiguresVegaEffective effective) {
     this.effective = effective;

@@ -21,7 +21,7 @@ import VaultCalculationParametersRoot from '../model/VaultCalculationParametersR
 /**
 * VaultCalculations service.
 * @module api/VaultCalculationsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class VaultCalculationsApi {
 
@@ -64,7 +64,10 @@ export default class VaultCalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/calculations/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class VaultCalculationsApi {
      * Cancel Vault calculation by id
      * This is the endpoint to cancel a previously submitted calculation.
      * @param {String} id from url, provided from the location header in the Create and Run Vault calculation endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     cancelCalculationById(id) {
       return this.cancelCalculationByIdWithHttpInfo(id)
@@ -112,7 +115,10 @@ export default class VaultCalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = VaultCalculationParametersRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/calculations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -124,7 +130,7 @@ export default class VaultCalculationsApi {
      * Get Vault calculation parameters by id
      * This is the endpoint that returns the calculation parameters passed for a calculation.
      * @param {String} id from url, provided from the location header in the Create and Run Vault calculation endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/VaultCalculationParametersRoot}
+     * @return { Promise.< module:model/VaultCalculationParametersRoot > } a Promise, with data of type {@link module:model/VaultCalculationParametersRoot }
      */
     getCalculationParameters(id) {
       return this.getCalculationParametersWithHttpInfo(id)
@@ -160,7 +166,10 @@ export default class VaultCalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CalculationStatusRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/calculations/{id}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -172,7 +181,7 @@ export default class VaultCalculationsApi {
      * Get Vault calculation status by id
      * This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the location header will point to the result url.
      * @param {String} id from url, provided from the location header in the Create and Run Vault calculation endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CalculationStatusRoot}
+     * @return { Promise.< module:model/CalculationStatusRoot > } a Promise, with data of type {@link module:model/CalculationStatusRoot }
      */
     getCalculationStatusById(id) {
       return this.getCalculationStatusByIdWithHttpInfo(id)
@@ -214,7 +223,10 @@ export default class VaultCalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json', 'application/x-protobuf'];
+
+
       let returnType = ObjectRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/calculations/{id}/units/{unitId}/result', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -227,7 +239,7 @@ export default class VaultCalculationsApi {
      * This is the endpoint to get the result of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
      * @param {String} id from url, provided from the location header in the Get Vault calculation status by id endpoint
      * @param {String} unitId from url, provided from the location header in the Get Vault calculation status by id endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ObjectRoot}
+     * @return { Promise.< module:model/ObjectRoot > } a Promise, with data of type {@link module:model/ObjectRoot }
      */
     getCalculationUnitResultById(id, unitId) {
       return this.getCalculationUnitResultByIdWithHttpInfo(id, unitId)
@@ -264,7 +276,9 @@ export default class VaultCalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json', 'application/x-protobuf'];
-      let returnType = CalculationStatusRoot;
+
+      let returnType = PostAndCalculateResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/calculations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -279,7 +293,7 @@ export default class VaultCalculationsApi {
      * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the POST body.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/VaultCalculationParametersRoot} opts.vaultCalculationParametersRoot Calculation Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CalculationStatusRoot}
+     * @return { Promise.< PostAndCalculateResponseWrapper > } a Promise, with data of type {@link PostAndCalculateResponseWrapper }
      */
     postAndCalculate(opts) {
       return this.postAndCalculateWithHttpInfo(opts)
@@ -322,7 +336,9 @@ export default class VaultCalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json', 'application/x-protobuf'];
-      let returnType = CalculationStatusRoot;
+
+      let returnType = PutAndCalculateResponseWrapperTypeMap;
+      
       return this.apiClient.callApi(
         '/analytics/engines/vault/v3/calculations/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -338,7 +354,7 @@ export default class VaultCalculationsApi {
      * @param {Number} opts.xFactSetApiLongRunningDeadline Long running deadline in seconds when only one unit is passed in the PUT body.
      * @param {String} opts.cacheControl Standard HTTP header.  Accepts max-stale.
      * @param {module:model/VaultCalculationParametersRoot} opts.vaultCalculationParametersRoot Calculation Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CalculationStatusRoot}
+     * @return { Promise.< PutAndCalculateResponseWrapper > } a Promise, with data of type {@link PutAndCalculateResponseWrapper }
      */
     putAndCalculate(id, opts) {
       return this.putAndCalculateWithHttpInfo(id, opts)
@@ -349,3 +365,209 @@ export default class VaultCalculationsApi {
 
 
 }
+
+
+const PostAndCalculateResponseWrapperTypeMap = {
+  200: CalculationStatusRoot,
+  201: ObjectRoot,
+  202: CalculationStatusRoot,
+  400: ClientErrorResponse,
+  404: ClientErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new PostAndCalculateResponseWrapper(statusCode, response);
+  }
+};
+
+const PutAndCalculateResponseWrapperTypeMap = {
+  200: CalculationStatusRoot,
+  201: ObjectRoot,
+  202: CalculationStatusRoot,
+  400: ClientErrorResponse,
+  404: ClientErrorResponse,
+  409: ClientErrorResponse,
+
+  _createResponseWrapper(statusCode, response) {
+    return new PutAndCalculateResponseWrapper(statusCode, response);
+  }
+};
+
+
+
+/**
+ * Wrapper to support POST /analytics/engines/vault/v3/calculations returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>200 : {@code CalculationStatusRoot }<br>Expected response, if the calculation has one unit and is completed with an error.</li>
+ * 
+ *   <li>201 : {@code ObjectRoot }<br>Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.</li>
+ * 
+ *   <li>202 : {@code CalculationStatusRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 200:
+ *     CalculationStatusRoot data200 = response.getResponse200();
+ *     break;
+ *   case 201:
+ *     ObjectRoot data201 = response.getResponse201();
+ *     break;
+ *   case 202:
+ *     CalculationStatusRoot data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:PostAndCalculateResponseWrapper
+ * @class
+ */
+export class PostAndCalculateResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { CalculationStatusRoot }
+   */
+  getResponse200() {
+    if (this.statusCode !== 200) {
+      throw new Error("Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { ObjectRoot }
+   */
+  getResponse201() {
+    if (this.statusCode !== 201) {
+      throw new Error("Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { CalculationStatusRoot }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+/**
+ * Wrapper to support PUT /analytics/engines/vault/v3/calculations/{id} returning different types
+ * per status code.
+ *
+ * <p>
+ * Responses:
+ * <ul>
+ *   <li>200 : {@code CalculationStatusRoot }<br>Expected response, if the calculation has one unit and is completed with an error.</li>
+ * 
+ *   <li>201 : {@code ObjectRoot }<br>Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.</li>
+ * 
+ *   <li>202 : {@code CalculationStatusRoot }<br>Expected response, contains the poll URL in the Location header.</li>
+ * </ul>
+ *
+ * </p>
+ * Example:
+ * <pre>{@code
+ * const response = ...;
+ * switch (response.statusCode) {
+ *   case 200:
+ *     CalculationStatusRoot data200 = response.getResponse200();
+ *     break;
+ *   case 201:
+ *     ObjectRoot data201 = response.getResponse201();
+ *     break;
+ *   case 202:
+ *     CalculationStatusRoot data202 = response.getResponse202();
+ *     break;
+ *  }
+ * }</pre>
+ *
+ * @alias module:PutAndCalculateResponseWrapper
+ * @class
+ */
+export class PutAndCalculateResponseWrapper {
+
+  /**
+   * @param {number} statusCode
+   * @param {*} response
+   */
+  constructor(statusCode, response) {
+    /**
+     * @type {number}
+     */
+    this.statusCode = statusCode;
+
+    /**
+     * @type {*}
+     */
+    this.response = response;
+  }
+
+  
+  /**
+   * @returns { CalculationStatusRoot }
+   */
+  getResponse200() {
+    if (this.statusCode !== 200) {
+      throw new Error("Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { ObjectRoot }
+   */
+  getResponse201() {
+    if (this.statusCode !== 201) {
+      throw new Error("Invalid response getter called. getResponse201 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+  /**
+   * @returns { CalculationStatusRoot }
+   */
+  getResponse202() {
+    if (this.statusCode !== 202) {
+      throw new Error("Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+    }
+
+    return this.response;
+  }
+  
+}
+
+

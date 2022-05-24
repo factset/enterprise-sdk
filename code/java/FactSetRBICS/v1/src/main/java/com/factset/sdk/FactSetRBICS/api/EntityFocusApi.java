@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetRBICS.Configuration;
 import com.factset.sdk.FactSetRBICS.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetRBICS.models.EntityFocusRequest;
 import com.factset.sdk.FactSetRBICS.models.EntityFocusResponse;
@@ -23,6 +26,23 @@ public class EntityFocusApi {
   public EntityFocusApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getRbicsEntityFocusResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsEntityFocusResponseTypeMap.put(200, new GenericType<EntityFocusResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getRbicsEntityFocusForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsEntityFocusForListResponseTypeMap.put(200, new GenericType<EntityFocusResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -123,11 +143,17 @@ public class EntityFocusApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityFocusResponse> localVarReturnType = new GenericType<EntityFocusResponse>() {};
 
-    return apiClient.invokeAPI("EntityFocusApi.getRbicsEntityFocus", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityFocusResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityFocusApi.getRbicsEntityFocus", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRbicsEntityFocusResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get RBICS classification for the Focus industry
@@ -190,10 +216,16 @@ public class EntityFocusApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityFocusResponse> localVarReturnType = new GenericType<EntityFocusResponse>() {};
 
-    return apiClient.invokeAPI("EntityFocusApi.getRbicsEntityFocusForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityFocusResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityFocusApi.getRbicsEntityFocusForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRbicsEntityFocusForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

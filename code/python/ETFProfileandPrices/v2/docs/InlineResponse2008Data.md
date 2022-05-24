@@ -1,10 +1,12 @@
 # InlineResponse2008Data
 
+ETP region allocation data.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**broad_category** | **str** | ETP class broad category. | [optional] 
+**report_date** | **date** | Reporting date for the allocations. | [optional] 
+**regions** | [**[InlineResponse2008DataRegions]**](InlineResponse2008DataRegions.md) | List of allocations by region. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

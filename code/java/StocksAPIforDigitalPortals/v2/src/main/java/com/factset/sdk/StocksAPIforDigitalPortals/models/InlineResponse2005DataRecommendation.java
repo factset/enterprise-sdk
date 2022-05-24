@@ -49,6 +49,8 @@ public class InlineResponse2005DataRecommendation implements Serializable {
   public static final String JSON_PROPERTY_CONSENSUS = "consensus";
   private InlineResponse2005DataRecommendationConsensus consensus;
 
+  public InlineResponse2005DataRecommendation() { 
+  }
 
   public InlineResponse2005DataRecommendation counts(InlineResponse2005DataRecommendationCounts counts) {
     this.counts = counts;

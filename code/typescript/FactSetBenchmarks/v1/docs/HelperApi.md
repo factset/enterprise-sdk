@@ -50,6 +50,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getBenchmarkIds(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const benchmarkIdListRequest = new factsetbenchmarks.BenchmarkIdListRequest(); /
 // Call api endpoint
 apiInstance.getBenchmarkIdsForList(benchmarkIdListRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

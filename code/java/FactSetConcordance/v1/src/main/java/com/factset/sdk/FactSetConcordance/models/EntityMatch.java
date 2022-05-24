@@ -204,6 +204,8 @@ public class EntityMatch implements Serializable {
   public static final String JSON_PROPERTY_NAME_MATCH_SOURCE = "nameMatchSource";
   private String nameMatchSource;
 
+  public EntityMatch() { 
+  }
 
   public EntityMatch taskId(Integer taskId) {
     this.taskId = taskId;

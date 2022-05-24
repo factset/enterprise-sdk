@@ -17,7 +17,7 @@ import InlineResponse2005DataUnderlyingEffectiveUnderlyingInstrument from './Inl
 /**
  * The InlineResponse2005DataUnderlyingEffectiveUnderlying model module.
  * @module model/InlineResponse2005DataUnderlyingEffectiveUnderlying
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataUnderlyingEffectiveUnderlying {
     /**

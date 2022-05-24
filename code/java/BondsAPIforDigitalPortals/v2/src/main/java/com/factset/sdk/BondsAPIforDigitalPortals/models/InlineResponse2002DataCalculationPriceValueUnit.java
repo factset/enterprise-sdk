@@ -48,6 +48,8 @@ public class InlineResponse2002DataCalculationPriceValueUnit implements Serializ
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  public InlineResponse2002DataCalculationPriceValueUnit() { 
+  }
 
   public InlineResponse2002DataCalculationPriceValueUnit id(BigDecimal id) {
     this.id = id;

@@ -42,6 +42,8 @@ public class InlineResponse20019Data implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20019Data() { 
+  }
 
   public InlineResponse20019Data name(String name) {
     this.name = name;
@@ -49,11 +51,11 @@ public class InlineResponse20019Data implements Serializable {
   }
 
    /**
-   * Name of the segment.
+   * Name of the geography.
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the segment.")
+  @ApiModelProperty(value = "Name of the geography.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

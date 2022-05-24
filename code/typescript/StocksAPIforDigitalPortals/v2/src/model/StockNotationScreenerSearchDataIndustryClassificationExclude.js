@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StockNotationScreenerSearchDataIndustryClassificationExclude model module.
  * @module model/StockNotationScreenerSearchDataIndustryClassificationExclude
- * @version 0.9.1
+ * @version 0.9.2
  */
 class StockNotationScreenerSearchDataIndustryClassificationExclude {
     /**

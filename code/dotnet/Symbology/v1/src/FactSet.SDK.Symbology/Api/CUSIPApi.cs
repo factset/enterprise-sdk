@@ -235,6 +235,51 @@ namespace FactSet.SDK.Symbology.Api
     {
         private FactSet.SDK.Symbology.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> BatchCusipHistoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CusipHistoryTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> BatchTranslateCusipsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CusipTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> CusipHistoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CusipHistoryTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> TranslateCusipResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CusipTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CUSIPApi"/> class.
         /// </summary>
@@ -345,7 +390,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>CusipHistoryTranslationResponse</returns>
         public CusipHistoryTranslationResponse BatchCusipHistory(CusipHistoryTranslationRequest cusipHistoryTranslationRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse> localVarResponse = BatchCusipHistoryWithHttpInfo(cusipHistoryTranslationRequest);
+            var localVarResponse = BatchCusipHistoryWithHttpInfo(cusipHistoryTranslationRequest);
             return localVarResponse.Data;
         }
 
@@ -355,11 +400,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cusipHistoryTranslationRequest">Request Body for CUSIP History</param>
         /// <returns>ApiResponse of CusipHistoryTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse> BatchCusipHistoryWithHttpInfo(CusipHistoryTranslationRequest cusipHistoryTranslationRequest)
+        public ApiResponse<CusipHistoryTranslationResponse> BatchCusipHistoryWithHttpInfo(CusipHistoryTranslationRequest cusipHistoryTranslationRequest)
         {
             // verify the required parameter 'cusipHistoryTranslationRequest' is set
             if (cusipHistoryTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'cusipHistoryTranslationRequest' when calling CUSIPApi->BatchCusipHistory");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -373,22 +420,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = cusipHistoryTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -400,15 +453,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CusipHistoryTranslationResponse>("/symbology/v1/cusip-history", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchCusipHistoryResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CusipHistoryTranslationResponse>("/symbology/v1/cusip-history", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchCusipHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -419,9 +476,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="cusipHistoryTranslationRequest">Request Body for CUSIP History</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CusipHistoryTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<CusipHistoryTranslationResponse> BatchCusipHistoryAsync(CusipHistoryTranslationRequest cusipHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CusipHistoryTranslationResponse>BatchCusipHistoryAsync(CusipHistoryTranslationRequest cusipHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse> localVarResponse = await BatchCusipHistoryWithHttpInfoAsync(cusipHistoryTranslationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchCusipHistoryWithHttpInfoAsync(cusipHistoryTranslationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -432,11 +489,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="cusipHistoryTranslationRequest">Request Body for CUSIP History</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CusipHistoryTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse>> BatchCusipHistoryWithHttpInfoAsync(CusipHistoryTranslationRequest cusipHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CusipHistoryTranslationResponse>> BatchCusipHistoryWithHttpInfoAsync(CusipHistoryTranslationRequest cusipHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'cusipHistoryTranslationRequest' is set
             if (cusipHistoryTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'cusipHistoryTranslationRequest' when calling CUSIPApi->BatchCusipHistory");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -450,24 +510,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = cusipHistoryTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -479,14 +544,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchCusipHistoryResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CusipHistoryTranslationResponse>("/symbology/v1/cusip-history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchCusipHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -500,7 +569,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>CusipTranslationResponse</returns>
         public CusipTranslationResponse BatchTranslateCusips(CusipTranslationRequest cusipTranslationRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse> localVarResponse = BatchTranslateCusipsWithHttpInfo(cusipTranslationRequest);
+            var localVarResponse = BatchTranslateCusipsWithHttpInfo(cusipTranslationRequest);
             return localVarResponse.Data;
         }
 
@@ -510,11 +579,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cusipTranslationRequest">Request Body for CUSIP Symbology Translation</param>
         /// <returns>ApiResponse of CusipTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse> BatchTranslateCusipsWithHttpInfo(CusipTranslationRequest cusipTranslationRequest)
+        public ApiResponse<CusipTranslationResponse> BatchTranslateCusipsWithHttpInfo(CusipTranslationRequest cusipTranslationRequest)
         {
             // verify the required parameter 'cusipTranslationRequest' is set
             if (cusipTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'cusipTranslationRequest' when calling CUSIPApi->BatchTranslateCusips");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -528,22 +599,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = cusipTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -555,15 +632,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CusipTranslationResponse>("/symbology/v1/cusip", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateCusipsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CusipTranslationResponse>("/symbology/v1/cusip", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateCusips", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -574,9 +655,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="cusipTranslationRequest">Request Body for CUSIP Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CusipTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<CusipTranslationResponse> BatchTranslateCusipsAsync(CusipTranslationRequest cusipTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CusipTranslationResponse>BatchTranslateCusipsAsync(CusipTranslationRequest cusipTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse> localVarResponse = await BatchTranslateCusipsWithHttpInfoAsync(cusipTranslationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchTranslateCusipsWithHttpInfoAsync(cusipTranslationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -587,11 +668,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="cusipTranslationRequest">Request Body for CUSIP Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CusipTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse>> BatchTranslateCusipsWithHttpInfoAsync(CusipTranslationRequest cusipTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CusipTranslationResponse>> BatchTranslateCusipsWithHttpInfoAsync(CusipTranslationRequest cusipTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'cusipTranslationRequest' is set
             if (cusipTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'cusipTranslationRequest' when calling CUSIPApi->BatchTranslateCusips");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -605,24 +689,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = cusipTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -634,14 +723,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateCusipsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CusipTranslationResponse>("/symbology/v1/cusip", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateCusips", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -655,7 +748,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>CusipHistoryTranslationResponse</returns>
         public CusipHistoryTranslationResponse CusipHistory(List<string> ids)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse> localVarResponse = CusipHistoryWithHttpInfo(ids);
+            var localVarResponse = CusipHistoryWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -665,11 +758,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <returns>ApiResponse of CusipHistoryTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse> CusipHistoryWithHttpInfo(List<string> ids)
+        public ApiResponse<CusipHistoryTranslationResponse> CusipHistoryWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling CUSIPApi->CusipHistory");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -682,22 +777,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -709,15 +810,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CusipHistoryTranslationResponse>("/symbology/v1/cusip-history", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CusipHistoryResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CusipHistoryTranslationResponse>("/symbology/v1/cusip-history", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CusipHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -728,9 +833,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CusipHistoryTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<CusipHistoryTranslationResponse> CusipHistoryAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CusipHistoryTranslationResponse>CusipHistoryAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse> localVarResponse = await CusipHistoryWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CusipHistoryWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -741,11 +846,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CusipHistoryTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<CusipHistoryTranslationResponse>> CusipHistoryWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CusipHistoryTranslationResponse>> CusipHistoryWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling CUSIPApi->CusipHistory");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -758,24 +866,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -787,14 +900,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CusipHistoryResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CusipHistoryTranslationResponse>("/symbology/v1/cusip-history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CusipHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -809,7 +926,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>CusipTranslationResponse</returns>
         public CusipTranslationResponse TranslateCusip(List<string> ids, string asOfDate = default(string))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse> localVarResponse = TranslateCusipWithHttpInfo(ids, asOfDate);
+            var localVarResponse = TranslateCusipWithHttpInfo(ids, asOfDate);
             return localVarResponse.Data;
         }
 
@@ -820,11 +937,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="asOfDate">As-Of date for historical symbol request in YYYY-MM-DD format. (optional)</param>
         /// <returns>ApiResponse of CusipTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse> TranslateCusipWithHttpInfo(List<string> ids, string asOfDate = default(string))
+        public ApiResponse<CusipTranslationResponse> TranslateCusipWithHttpInfo(List<string> ids, string asOfDate = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling CUSIPApi->TranslateCusip");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -837,10 +956,16 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (asOfDate != null)
@@ -850,13 +975,13 @@ namespace FactSet.SDK.Symbology.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -868,15 +993,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CusipTranslationResponse>("/symbology/v1/cusip", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = TranslateCusipResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CusipTranslationResponse>("/symbology/v1/cusip", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateCusip", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -888,9 +1017,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="asOfDate">As-Of date for historical symbol request in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CusipTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<CusipTranslationResponse> TranslateCusipAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CusipTranslationResponse>TranslateCusipAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse> localVarResponse = await TranslateCusipWithHttpInfoAsync(ids, asOfDate, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TranslateCusipWithHttpInfoAsync(ids, asOfDate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -902,11 +1031,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="asOfDate">As-Of date for historical symbol request in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CusipTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<CusipTranslationResponse>> TranslateCusipWithHttpInfoAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CusipTranslationResponse>> TranslateCusipWithHttpInfoAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling CUSIPApi->TranslateCusip");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -919,12 +1051,17 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (asOfDate != null)
@@ -934,13 +1071,13 @@ namespace FactSet.SDK.Symbology.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -952,14 +1089,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = TranslateCusipResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CusipTranslationResponse>("/symbology/v1/cusip", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateCusip", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

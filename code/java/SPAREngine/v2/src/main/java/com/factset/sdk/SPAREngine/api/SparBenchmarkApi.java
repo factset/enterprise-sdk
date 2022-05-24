@@ -7,6 +7,9 @@ import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.SPAREngine.models.SPARBenchmark;
 
@@ -21,6 +24,14 @@ public class SparBenchmarkApi {
   public SparBenchmarkApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSPARBenchmarkByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSPARBenchmarkByIdResponseTypeMap.put(200, new GenericType<SPARBenchmark>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -118,10 +129,16 @@ public class SparBenchmarkApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SPARBenchmark> localVarReturnType = new GenericType<SPARBenchmark>() {};
 
-    return apiClient.invokeAPI("SparBenchmarkApi.getSPARBenchmarkById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SPARBenchmark
+      
+    > apiResponse = apiClient.invokeAPI("SparBenchmarkApi.getSPARBenchmarkById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSPARBenchmarkByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

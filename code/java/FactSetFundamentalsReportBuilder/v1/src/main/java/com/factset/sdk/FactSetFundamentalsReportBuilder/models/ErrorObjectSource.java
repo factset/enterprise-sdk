@@ -42,6 +42,8 @@ public class ErrorObjectSource implements Serializable {
   public static final String JSON_PROPERTY_PARAMETER = "parameter";
   private String parameter;
 
+  public ErrorObjectSource() { 
+  }
 
   public ErrorObjectSource parameter(String parameter) {
     this.parameter = parameter;

@@ -43,6 +43,8 @@ public class ManagersResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Managers> data = null;
 
+  public ManagersResponse() { 
+  }
 
   public ManagersResponse data(java.util.List<Managers> data) {
     this.data = data;

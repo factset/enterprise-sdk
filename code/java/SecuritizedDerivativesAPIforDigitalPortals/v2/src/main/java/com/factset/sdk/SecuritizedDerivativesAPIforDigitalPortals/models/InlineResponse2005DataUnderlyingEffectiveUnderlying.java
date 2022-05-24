@@ -44,6 +44,8 @@ public class InlineResponse2005DataUnderlyingEffectiveUnderlying implements Seri
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private java.util.List<InlineResponse2005DataUnderlyingEffectiveUnderlyingInstrument> instrument = null;
 
+  public InlineResponse2005DataUnderlyingEffectiveUnderlying() { 
+  }
 
   public InlineResponse2005DataUnderlyingEffectiveUnderlying instrument(java.util.List<InlineResponse2005DataUnderlyingEffectiveUnderlyingInstrument> instrument) {
     this.instrument = instrument;

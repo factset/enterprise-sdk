@@ -32,7 +32,7 @@ import InlineResponse2004DataYield from './InlineResponse2004DataYield';
 /**
  * The InlineResponse2004Data model module.
  * @module model/InlineResponse2004Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004Data {
     /**

@@ -48,6 +48,8 @@ public class InlineResponse2003InstrumentCouponOccurrenceFrequency implements Se
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2003InstrumentCouponOccurrenceFrequency() { 
+  }
 
   public InlineResponse2003InstrumentCouponOccurrenceFrequency id(BigDecimal id) {
     this.id = id;

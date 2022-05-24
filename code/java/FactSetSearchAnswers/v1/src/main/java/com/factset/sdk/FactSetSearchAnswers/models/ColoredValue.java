@@ -47,6 +47,8 @@ public class ColoredValue implements Serializable {
   public static final String JSON_PROPERTY_COLOR = "color";
   private ValueColor color;
 
+  public ColoredValue() { 
+  }
 
   public ColoredValue text(String text) {
     this.text = text;

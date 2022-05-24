@@ -54,6 +54,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSi
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldAnnualized annualized;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYield() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYield absolute(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSidewaysYieldAbsolute absolute) {
     this.absolute = absolute;

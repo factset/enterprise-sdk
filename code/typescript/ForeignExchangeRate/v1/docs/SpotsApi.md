@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSpots(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const spotsRequest = new foreignexchangerate.SpotsRequest(); // SpotsRequest | R
 // Call api endpoint
 apiInstance.getSpotsForList(spotsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

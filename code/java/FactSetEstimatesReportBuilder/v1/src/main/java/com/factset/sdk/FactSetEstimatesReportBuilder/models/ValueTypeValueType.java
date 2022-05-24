@@ -82,6 +82,8 @@ public class ValueTypeValueType implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private ValueEnum value;
 
+  public ValueTypeValueType() { 
+  }
 
   public ValueTypeValueType value(ValueEnum value) {
     this.value = value;

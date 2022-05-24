@@ -44,21 +44,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     create_comment_dto = CreateCommentDto(
         author_id="author_id_example",
@@ -66,20 +67,11 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         body="body_example",
     ) # CreateCommentDto |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a comment to a Meeting
-        api_response = api_instance.create_comment(meeting_id)
-        pprint(api_response)
-    except fds.sdk.IRNMeetings.ApiException as e:
-        print("Exception when calling CommentsApi->create_comment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a comment to a Meeting
         api_response = api_instance.create_comment(meeting_id, create_comment_dto=create_comment_dto)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->create_comment: %s\n" % e)
 ```
@@ -110,7 +102,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | Bad Request |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -147,30 +139,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     comment_id = "commentId_example" # str | 
     file = open('/path/to/file', 'rb') # file_type | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Create a comment attachment to a Meeting
         api_response = api_instance.create_comment_attachment(meeting_id, comment_id, file)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->create_comment_attachment: %s\n" % e)
 ```
@@ -202,7 +195,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | Bad Request |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
@@ -238,25 +231,25 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     comment_id = "commentId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a Comment from a Meeting
         api_instance.delete_comment(meeting_id, comment_id)
@@ -325,26 +318,26 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     comment_id = "commentId_example" # str | 
     attachment_id = "attachmentId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Download single attachment detail of a comment belonging to a meeting
         api_instance.download_comment_attachment_for_comment(meeting_id, comment_id, attachment_id)
@@ -415,29 +408,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     comment_id = "commentId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get details of a comment belonging to a meeting
         api_response = api_instance.get_comment(meeting_id, comment_id)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->get_comment: %s\n" % e)
 ```
@@ -504,29 +498,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     comment_id = "commentId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get attachments summary of a comment belonging to a meeting
         api_response = api_instance.get_comment_attachments(meeting_id, comment_id)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->get_comment_attachments: %s\n" % e)
 ```
@@ -593,28 +588,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get all comments for a meeting
         api_response = api_instance.get_comments(meeting_id)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling CommentsApi->get_comments: %s\n" % e)
 ```
@@ -680,41 +676,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comments_api.CommentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     comment_id = "commentId_example" # str | 
     operation = [
         Operation(
-            value={},
+            operation_type=OperationType(0),
             path="path_example",
             op="op_example",
             _from="_from_example",
+            value=None,
         ),
     ] # [Operation] |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit a comment for a meeting
-        api_instance.patch_comment(meeting_id, comment_id)
-    except fds.sdk.IRNMeetings.ApiException as e:
-        print("Exception when calling CommentsApi->patch_comment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit a comment for a meeting
         api_instance.patch_comment(meeting_id, comment_id, operation=operation)

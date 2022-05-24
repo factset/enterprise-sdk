@@ -59,6 +59,8 @@ public class StockNotationScreenerSearchDataSimpleMovingAverage implements Seria
   public static final String JSON_PROPERTY_TRADING_DAYS_SINCE_CROSSOVER = "tradingDaysSinceCrossover";
   private StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossover tradingDaysSinceCrossover;
 
+  public StockNotationScreenerSearchDataSimpleMovingAverage() { 
+  }
 
   public StockNotationScreenerSearchDataSimpleMovingAverage days20(StockNotationScreenerSearchDataSimpleMovingAverageDays20 days20) {
     this.days20 = days20;

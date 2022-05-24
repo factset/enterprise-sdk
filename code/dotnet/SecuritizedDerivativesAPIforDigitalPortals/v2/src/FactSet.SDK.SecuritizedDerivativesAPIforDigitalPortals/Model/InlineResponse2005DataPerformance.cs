@@ -68,7 +68,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataPerformance {\n");
             sb.Append("  Intraday: ").Append(Intraday).Append("\n");
             sb.Append("  SinceIssue: ").Append(SinceIssue).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataPerformance input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Intraday == input.Intraday ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Intraday != null)
-                    hashCode = hashCode * 59 + this.Intraday.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Intraday.GetHashCode();
+                }
                 if (this.SinceIssue != null)
-                    hashCode = hashCode * 59 + this.SinceIssue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SinceIssue.GetHashCode();
+                }
                 if (this.EndOfDay != null)
-                    hashCode = hashCode * 59 + this.EndOfDay.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndOfDay.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -17,7 +17,7 @@ import ApplicationLink from './ApplicationLink';
 /**
  * The TemplateWithLinksAllOf model module.
  * @module model/TemplateWithLinksAllOf
- * @version 0.9.1
+ * @version 0.20.0
  */
 class TemplateWithLinksAllOf {
     /**

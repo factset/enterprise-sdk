@@ -99,6 +99,8 @@ public class NotationSearchByTextMeta implements Serializable {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private BasicMarketListMetaPagination pagination;
 
+  public NotationSearchByTextMeta() { 
+  }
 
   public NotationSearchByTextMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

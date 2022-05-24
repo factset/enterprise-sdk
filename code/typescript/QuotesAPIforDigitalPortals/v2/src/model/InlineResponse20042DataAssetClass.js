@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20042DataAssetClass model module.
  * @module model/InlineResponse20042DataAssetClass
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20042DataAssetClass {
     /**

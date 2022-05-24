@@ -96,7 +96,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003Data {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Types: ").Append(Types).Append("\n");
@@ -135,8 +135,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -179,17 +180,27 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 if (this.Types != null)
-                    hashCode = hashCode * 59 + this.Types.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.ActiveRange != null)
-                    hashCode = hashCode * 59 + this.ActiveRange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActiveRange.GetHashCode();
+                }
                 if (this.Instrument != null)
-                    hashCode = hashCode * 59 + this.Instrument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Instrument.GetHashCode();
+                }
                 return hashCode;
             }
         }

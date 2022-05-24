@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle imple
   public static final String JSON_PROPERTY_MATURITY = "maturity";
   private SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity maturity;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle maturity(SecuritizedDerivativeNotationRankingIntradayListDataLifeCycleMaturity maturity) {
     this.maturity = maturity;

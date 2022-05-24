@@ -26,14 +26,13 @@ import com.factset.sdk.FactSetPrices.ApiClient;
 import com.factset.sdk.FactSetPrices.ApiException;
 import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.auth.*;
-import com.factset.sdk.FactSetPrices.model.*;
+import com.factset.sdk.FactSetPrices.models.*;
 import com.factset.sdk.FactSetPrices.api.HighLowApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,14 +42,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         HighLowApi apiInstance = new HighLowApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  2000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
@@ -63,6 +62,7 @@ public class Example {
         try {
             HighLowResponse result = apiInstance.getHighLow(ids, date, period, priceType, calendar, currency, adjust);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling HighLowApi#getHighLow");
             System.err.println("Status code: " + e.getCode());
@@ -128,14 +128,13 @@ import com.factset.sdk.FactSetPrices.ApiClient;
 import com.factset.sdk.FactSetPrices.ApiException;
 import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.auth.*;
-import com.factset.sdk.FactSetPrices.model.*;
+import com.factset.sdk.FactSetPrices.models.*;
 import com.factset.sdk.FactSetPrices.api.HighLowApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -145,20 +144,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         HighLowApi apiInstance = new HighLowApi(defaultClient);
         HighLowRequest highLowRequest = new HighLowRequest(); // HighLowRequest | Request object for high low prices.
         try {
             HighLowResponse result = apiInstance.getHighLowForList(highLowRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling HighLowApi#getHighLowForList");
             System.err.println("Status code: " + e.getCode());

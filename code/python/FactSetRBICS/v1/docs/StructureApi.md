@@ -39,32 +39,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetRBICS.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetRBICS.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structure_api.StructureApi(api_client)
+
     rbics_ids = ["101010000000","55"] # [str] | RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.  (optional)
     level = 1 # int | RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |---|---|---|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629|  (optional)
-    include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) if omitted the server will use the default value of True
+    include_names = True # bool | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional) (default to True)
     date = "2017-07-24" # str | Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
         api_response = api_instance.get_rbics_structure(rbics_ids=rbics_ids, level=level, include_names=include_names, date=date)
         pprint(api_response)
+
     except fds.sdk.FactSetRBICS.ApiException as e:
         print("Exception when calling StructureApi->get_rbics_structure: %s\n" % e)
 ```
@@ -138,21 +138,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetRBICS.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetRBICS.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structure_api.StructureApi(api_client)
+
     structure_request = StructureRequest(
         rbics_ids=RbicsIds(["101010000000","55"]),
         level=LevelStructure(3),
@@ -160,11 +161,11 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
         date="2020-09-30",
     ) # StructureRequest | Request Body to request a list of RBICS Structure objects.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
         api_response = api_instance.get_rbics_structure_for_list(structure_request)
         pprint(api_response)
+
     except fds.sdk.FactSetRBICS.ApiException as e:
         print("Exception when calling StructureApi->get_rbics_structure_for_list: %s\n" % e)
 ```

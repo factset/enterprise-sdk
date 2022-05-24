@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FactSetPrivateMarkets",
+  "projectName": "fds.sdk.FactSetPrivateMarkets",
+  "packageVersion": "0.20.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "FactSet Private Markets client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetPrivateMarkets/v1",
+  "httpUserAgent": "fds-sdk/python/FactSetPrivateMarkets/0.20.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

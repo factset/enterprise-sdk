@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RankedTable {\n");
             sb.Append("  Headers: ").Append(Headers).Append("\n");
             sb.Append("  Rows: ").Append(Rows).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(RankedTable input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Headers == input.Headers ||
@@ -123,9 +124,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Headers != null)
-                    hashCode = hashCode * 59 + this.Headers.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Headers.GetHashCode();
+                }
                 if (this.Rows != null)
-                    hashCode = hashCode * 59 + this.Rows.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Rows.GetHashCode();
+                }
                 return hashCode;
             }
         }

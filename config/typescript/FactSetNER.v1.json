@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-factsetner",
-  "projectVersion": "0.8.1",
+  "projectVersion": "0.8.2",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "FactSet NER client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "factsetner",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/FactSetNER/0.8.1",
+  "httpUserAgent": "fds-sdk/javascript/FactSetNER/0.8.2",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

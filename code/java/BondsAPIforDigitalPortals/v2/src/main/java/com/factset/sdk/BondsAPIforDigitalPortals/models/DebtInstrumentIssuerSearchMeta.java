@@ -43,6 +43,8 @@ public class DebtInstrumentIssuerSearchMeta implements Serializable {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private java.util.Set<String> attributes = null;
 
+  public DebtInstrumentIssuerSearchMeta() { 
+  }
 
   public DebtInstrumentIssuerSearchMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

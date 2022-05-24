@@ -79,7 +79,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Structure {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  RbicsId: ").Append(RbicsId).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.FactSetRBICS.Model
         public bool Equals(Structure input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return base.Equals(input) && 
                 (
                     this.RbicsId == input.RbicsId ||
@@ -148,13 +149,21 @@ namespace FactSet.SDK.FactSetRBICS.Model
             {
                 int hashCode = base.GetHashCode();
                 if (this.RbicsId != null)
-                    hashCode = hashCode * 59 + this.RbicsId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RbicsId.GetHashCode();
+                }
                 if (this.FirstDate != null)
-                    hashCode = hashCode * 59 + this.FirstDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FirstDate.GetHashCode();
+                }
                 if (this.LastDate != null)
-                    hashCode = hashCode * 59 + this.LastDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastDate.GetHashCode();
+                }
                 if (this.AdditionalProperties != null)
-                    hashCode = hashCode * 59 + this.AdditionalProperties.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
+                }
                 return hashCode;
             }
         }

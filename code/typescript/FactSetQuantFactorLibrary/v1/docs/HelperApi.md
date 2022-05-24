@@ -51,6 +51,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFactorLibrary(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -123,6 +124,7 @@ const libraryRequest = new factsetquantfactorlibrary.LibraryRequest(); // Librar
 // Call api endpoint
 apiInstance.getFactorLibraryList(libraryRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -44,6 +44,8 @@ public class StockNotationRankingIntradayListDataCompanyCountry implements Seria
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public StockNotationRankingIntradayListDataCompanyCountry() { 
+  }
 
   public StockNotationRankingIntradayListDataCompanyCountry ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

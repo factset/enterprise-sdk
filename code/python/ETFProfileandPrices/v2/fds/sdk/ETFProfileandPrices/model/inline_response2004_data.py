@@ -24,14 +24,14 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response2004_data_regions import InlineResponse2004DataRegions
-    globals()['InlineResponse2004DataRegions'] = InlineResponse2004DataRegions
+    from fds.sdk.ETFProfileandPrices.model.inline_response2004_data_classifications import InlineResponse2004DataClassifications
+    globals()['InlineResponse2004DataClassifications'] = InlineResponse2004DataClassifications
 
 
 class InlineResponse2004Data(ModelNormal):
@@ -62,8 +62,6 @@ class InlineResponse2004Data(ModelNormal):
     }
 
     validations = {
-        ('regions',): {
-        },
     }
 
     @cached_property
@@ -90,7 +88,7 @@ class InlineResponse2004Data(ModelNormal):
         lazy_import()
         return {
             'report_date': (date,),  # noqa: E501
-            'regions': ([InlineResponse2004DataRegions],),  # noqa: E501
+            'classifications': ([InlineResponse2004DataClassifications],),  # noqa: E501
         }
 
     @cached_property
@@ -100,7 +98,7 @@ class InlineResponse2004Data(ModelNormal):
 
     attribute_map = {
         'report_date': 'reportDate',  # noqa: E501
-        'regions': 'regions',  # noqa: E501
+        'classifications': 'classifications',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,7 +143,7 @@ class InlineResponse2004Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
-            regions ([InlineResponse2004DataRegions]): List of allocations by region.. [optional]  # noqa: E501
+            classifications ([InlineResponse2004DataClassifications]): List of allocations classified by a holding's economic development status, sorted by weight in descending order.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +226,7 @@ class InlineResponse2004Data(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             report_date (date): Reporting date for the allocations.. [optional]  # noqa: E501
-            regions ([InlineResponse2004DataRegions]): List of allocations by region.. [optional]  # noqa: E501
+            classifications ([InlineResponse2004DataClassifications]): List of allocations classified by a holding's economic development status, sorted by weight in descending order.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

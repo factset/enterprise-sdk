@@ -52,6 +52,20 @@ public class NoAnswersFound implements Serializable {
   public static final String JSON_PROPERTY_QUERY_SUGGESTIONS = "querySuggestions";
   private java.util.List<String> querySuggestions = new java.util.ArrayList<>();
 
+  public NoAnswersFound() { 
+  }
+
+  @JsonCreator
+  public NoAnswersFound(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE, required=true) String template, 
+    @JsonProperty(value=JSON_PROPERTY_MESSAGE, required=true) String message, 
+    @JsonProperty(value=JSON_PROPERTY_QUERY_SUGGESTIONS, required=true) java.util.List<String> querySuggestions
+  ) {
+    this();
+    this.template = template;
+    this.message = message;
+    this.querySuggestions = querySuggestions;
+  }
 
   public NoAnswersFound template(String template) {
     this.template = template;

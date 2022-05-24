@@ -60,6 +60,7 @@ const body = new virtualportfolioapifordigitalportals.InlineObject(); // InlineO
 // Call api endpoint
 apiInstance.portfolioCreatePost(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -133,6 +134,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioDeletePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -206,6 +208,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioEvaluationListPost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -280,6 +283,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioGetGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -355,6 +359,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioListGet(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -429,6 +434,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioModifyPost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -503,6 +509,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioNameListGet(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -578,6 +585,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioPositionListGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -652,6 +660,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioTransactionCashCreatePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -725,6 +734,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioTransactionCashDeletePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -798,6 +808,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioTransactionCreatePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -871,6 +882,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioTransactionDeletePost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -945,6 +957,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioTransactionListGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -1019,6 +1032,7 @@ const opts = {
 // Call api endpoint
 apiInstance.portfolioTransactionModifyPost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

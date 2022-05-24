@@ -83,6 +83,8 @@ public class InlineResponse2006InstrumentCurrentInterestRate implements Serializ
   public static final String JSON_PROPERTY_VALUE = "value";
   private BigDecimal value;
 
+  public InlineResponse2006InstrumentCurrentInterestRate() { 
+  }
 
   public InlineResponse2006InstrumentCurrentInterestRate type(TypeEnum type) {
     this.type = type;

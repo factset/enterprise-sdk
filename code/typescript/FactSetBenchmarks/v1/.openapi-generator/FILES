@@ -22,6 +22,7 @@ docs/FixedIncomeBenchmarkConstituent.md
 docs/FixedIncomeBenchmarkConstituentsRequest.md
 docs/FixedIncomeBenchmarkConstituentsResponse.md
 docs/Frequency.md
+docs/HedgeType.md
 docs/HelperApi.md
 docs/IndexHistory.md
 docs/IndexHistoryRequest.md
@@ -57,6 +58,7 @@ src/model/FixedIncomeBenchmarkConstituent.js
 src/model/FixedIncomeBenchmarkConstituentsRequest.js
 src/model/FixedIncomeBenchmarkConstituentsResponse.js
 src/model/Frequency.js
+src/model/HedgeType.js
 src/model/IndexHistory.js
 src/model/IndexHistoryRequest.js
 src/model/IndexHistoryResponse.js

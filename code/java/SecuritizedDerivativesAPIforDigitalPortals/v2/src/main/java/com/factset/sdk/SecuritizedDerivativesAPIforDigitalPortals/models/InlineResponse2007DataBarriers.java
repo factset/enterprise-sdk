@@ -53,6 +53,8 @@ public class InlineResponse2007DataBarriers implements Serializable {
   public static final String JSON_PROPERTY_RANGE = "range";
   private InlineResponse2007DataRange range;
 
+  public InlineResponse2007DataBarriers() { 
+  }
 
   public InlineResponse2007DataBarriers underlyingIndex(BigDecimal underlyingIndex) {
     this.underlyingIndex = underlyingIndex;

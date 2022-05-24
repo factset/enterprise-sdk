@@ -49,6 +49,8 @@ public class InlineResponse200DataReferenceDebtor implements Serializable {
   public static final String JSON_PROPERTY_LEGAL_ENTITY = "legalEntity";
   private InlineResponse200DataReferenceDebtorLegalEntity legalEntity;
 
+  public InlineResponse200DataReferenceDebtor() { 
+  }
 
   public InlineResponse200DataReferenceDebtor instrument(InlineResponse200DataReferenceDebtorInstrument instrument) {
     this.instrument = instrument;

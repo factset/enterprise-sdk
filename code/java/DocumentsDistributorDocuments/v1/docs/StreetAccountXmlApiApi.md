@@ -26,14 +26,13 @@ import com.factset.sdk.DocumentsDistributorDocuments.ApiClient;
 import com.factset.sdk.DocumentsDistributorDocuments.ApiException;
 import com.factset.sdk.DocumentsDistributorDocuments.Configuration;
 import com.factset.sdk.DocumentsDistributorDocuments.auth.*;
-import com.factset.sdk.DocumentsDistributorDocuments.model.*;
+import com.factset.sdk.DocumentsDistributorDocuments.models.*;
 import com.factset.sdk.DocumentsDistributorDocuments.api.StreetAccountXmlApiApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,20 +42,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         StreetAccountXmlApiApi apiInstance = new StreetAccountXmlApiApi(defaultClient);
         String jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to know the status and percentDone
         try {
             CheckstatusResponse result = apiInstance.asynchStreetaccountV1CheckStatusGet(jobID);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling StreetAccountXmlApiApi#asynchStreetaccountV1CheckStatusGet");
             System.err.println("Status code: " + e.getCode());
@@ -111,14 +111,13 @@ import com.factset.sdk.DocumentsDistributorDocuments.ApiClient;
 import com.factset.sdk.DocumentsDistributorDocuments.ApiException;
 import com.factset.sdk.DocumentsDistributorDocuments.Configuration;
 import com.factset.sdk.DocumentsDistributorDocuments.auth.*;
-import com.factset.sdk.DocumentsDistributorDocuments.model.*;
+import com.factset.sdk.DocumentsDistributorDocuments.models.*;
 import com.factset.sdk.DocumentsDistributorDocuments.api.StreetAccountXmlApiApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -128,20 +127,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         StreetAccountXmlApiApi apiInstance = new StreetAccountXmlApiApi(defaultClient);
         String jobID = "jobID_example"; // String | jobID returned by the request-files endpoint to collect the results of the query
         try {
             GetfilesResponse result = apiInstance.asynchStreetaccountV1GetFilesGet(jobID);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling StreetAccountXmlApiApi#asynchStreetaccountV1GetFilesGet");
             System.err.println("Status code: " + e.getCode());
@@ -188,25 +188,24 @@ Returns the jobID
 
 Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format
 
-This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
 
 ### Example
 
 ```java
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 // Import classes:
 import com.factset.sdk.DocumentsDistributorDocuments.ApiClient;
 import com.factset.sdk.DocumentsDistributorDocuments.ApiException;
 import com.factset.sdk.DocumentsDistributorDocuments.Configuration;
 import com.factset.sdk.DocumentsDistributorDocuments.auth.*;
-import com.factset.sdk.DocumentsDistributorDocuments.model.*;
+import com.factset.sdk.DocumentsDistributorDocuments.models.*;
 import com.factset.sdk.DocumentsDistributorDocuments.api.StreetAccountXmlApiApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -216,14 +215,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         StreetAccountXmlApiApi apiInstance = new StreetAccountXmlApiApi(defaultClient);
         LocalDate startDate = LocalDate.now(); // LocalDate | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
@@ -231,6 +230,7 @@ public class Example {
         try {
             RequestfilesResponse result = apiInstance.asynchStreetaccountV1RequestFilesGet(startDate, endDate);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling StreetAccountXmlApiApi#asynchStreetaccountV1RequestFilesGet");
             System.err.println("Status code: " + e.getCode());

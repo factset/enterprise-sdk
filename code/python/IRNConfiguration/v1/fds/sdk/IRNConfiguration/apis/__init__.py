@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.authors_api import AuthorsApi
+#   from .api.contacts___custom_fields_api import ContactsCustomFieldsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,11 +14,13 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.IRNConfiguration.api.authors_api import AuthorsApi
-from fds.sdk.IRNConfiguration.api.custom_fields_api import CustomFieldsApi
-from fds.sdk.IRNConfiguration.api.group_api import GroupApi
-from fds.sdk.IRNConfiguration.api.recommendations_api import RecommendationsApi
-from fds.sdk.IRNConfiguration.api.sentiments_api import SentimentsApi
-from fds.sdk.IRNConfiguration.api.subjects_api import SubjectsApi
-from fds.sdk.IRNConfiguration.api.teams_api import TeamsApi
-from fds.sdk.IRNConfiguration.api.users_api import UsersApi
+from fds.sdk.IRNConfiguration.api.contacts___custom_fields_api import ContactsCustomFieldsApi
+from fds.sdk.IRNConfiguration.api.contacts___phone_number_types_api import ContactsPhoneNumberTypesApi
+from fds.sdk.IRNConfiguration.api.contacts___relationship_category_api import ContactsRelationshipCategoryApi
+from fds.sdk.IRNConfiguration.api.contacts___relationships_api import ContactsRelationshipsApi
+from fds.sdk.IRNConfiguration.api.contacts___roles_api import ContactsRolesApi
+from fds.sdk.IRNConfiguration.api.contacts___types_api import ContactsTypesApi
+from fds.sdk.IRNConfiguration.api.custom_symbols___custom_fields_api import CustomSymbolsCustomFieldsApi
+from fds.sdk.IRNConfiguration.api.custom_symbols___relationships_api import CustomSymbolsRelationshipsApi
+from fds.sdk.IRNConfiguration.api.custom_symbols___types_api import CustomSymbolsTypesApi
+from fds.sdk.IRNConfiguration.api.notes___configuration_api import NotesConfigurationApi

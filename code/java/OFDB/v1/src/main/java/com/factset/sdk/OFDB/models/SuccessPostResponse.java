@@ -43,6 +43,8 @@ public class SuccessPostResponse implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public SuccessPostResponse() { 
+  }
 
   public SuccessPostResponse id(String id) {
     this.id = id;

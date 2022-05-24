@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataSensitivitiesModifiedDurati
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataSensitivitiesModifiedDuration() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataSensitivitiesModifiedDuration minimum(DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMinimum minimum) {
     this.minimum = minimum;

@@ -49,6 +49,8 @@ public class InlineResponse2007Data implements Serializable {
   public static final String JSON_PROPERTY_BARRIER_TYPE_CONDITIONS = "barrierTypeConditions";
   private java.util.List<InlineResponse2007DataBarrierTypeConditions> barrierTypeConditions = null;
 
+  public InlineResponse2007Data() { 
+  }
 
   public InlineResponse2007Data underlyings(java.util.List<InlineResponse2007DataUnderlyings> underlyings) {
     this.underlyings = underlyings;

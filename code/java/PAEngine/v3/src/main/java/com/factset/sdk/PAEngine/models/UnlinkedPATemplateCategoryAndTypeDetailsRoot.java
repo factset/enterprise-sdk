@@ -51,6 +51,16 @@ public class UnlinkedPATemplateCategoryAndTypeDetailsRoot implements Serializabl
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public UnlinkedPATemplateCategoryAndTypeDetailsRoot() { 
+  }
+
+  @JsonCreator
+  public UnlinkedPATemplateCategoryAndTypeDetailsRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) UnlinkedPATemplateCategoryAndTypeDetails data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public UnlinkedPATemplateCategoryAndTypeDetailsRoot data(UnlinkedPATemplateCategoryAndTypeDetails data) {
     this.data = data;

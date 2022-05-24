@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataTradingValueAverage implements Seria
   public static final String JSON_PROPERTY_DAYS30 = "days30";
   private StockNotationScreenerSearchDataTradingValueAverageDays30 days30;
 
+  public StockNotationScreenerSearchDataTradingValueAverage() { 
+  }
 
   public StockNotationScreenerSearchDataTradingValueAverage days5(StockNotationScreenerSearchDataTradingValueAverageDays5 days5) {
     this.days5 = days5;

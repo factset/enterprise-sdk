@@ -47,6 +47,8 @@ public class AFIOptimizationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public AFIOptimizationParametersRoot() { 
+  }
 
   public AFIOptimizationParametersRoot data(AFIOptimizationParameters data) {
     this.data = data;

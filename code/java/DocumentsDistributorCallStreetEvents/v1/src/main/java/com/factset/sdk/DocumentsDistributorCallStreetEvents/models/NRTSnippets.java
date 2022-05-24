@@ -32,9 +32,9 @@ import com.factset.sdk.DocumentsDistributorCallStreetEvents.JSON;
 
 
 /**
- * Metadata of the snippets of active calls happening at that moment are returned
+ * Transcript snippet metadata of active calls happening at that moment are returned
  */
-@ApiModel(description = "Metadata of the snippets of active calls happening at that moment are returned")
+@ApiModel(description = "Transcript snippet metadata of active calls happening at that moment are returned")
 @JsonPropertyOrder({
   NRTSnippets.JSON_PROPERTY_DATA,
   NRTSnippets.JSON_PROPERTY_META
@@ -49,6 +49,8 @@ public class NRTSnippets implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private NRTSnippetsMeta meta;
 
+  public NRTSnippets() { 
+  }
 
   public NRTSnippets data(java.util.List<NRTSnippetsData> data) {
     this.data = data;

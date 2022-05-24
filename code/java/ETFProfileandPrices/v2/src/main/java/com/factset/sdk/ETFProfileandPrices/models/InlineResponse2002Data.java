@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
@@ -49,6 +49,8 @@ public class InlineResponse2002Data implements Serializable {
   public static final String JSON_PROPERTY_COUNTRIES = "countries";
   private java.util.Set<InlineResponse2002DataCountries> countries = null;
 
+  public InlineResponse2002Data() { 
+  }
 
   public InlineResponse2002Data reportDate(LocalDate reportDate) {
     this.reportDate = reportDate;

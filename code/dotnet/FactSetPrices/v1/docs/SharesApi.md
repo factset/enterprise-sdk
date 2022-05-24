@@ -56,7 +56,7 @@ namespace Example
             var endDate = 2019-12-31;  // string | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional) 
             var frequency = D;  // string | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional)  (default to D)
             var calendar = FIVEDAY;  // string | Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (optional)  (default to FIVEDAY)
-            var splitAdjust = splitAdjust_example;  // string | Code to control split adjustments for shares count. (optional)  (default to SPLIT)
+            var splitAdjust = "SPLIT";  // string | Code to control split adjustments for shares count. (optional)  (default to SPLIT)
 
             try
             {
@@ -87,7 +87,6 @@ Name | Type | Description  | Notes
  **splitAdjust** | **string**| Code to control split adjustments for shares count. | [optional] [default to SPLIT]
 
 ### Return type
-
 [**SharesResponse**](SharesResponse.md)
 
 ### Authorization
@@ -181,7 +180,6 @@ Name | Type | Description  | Notes
  **sharesRequest** | [**SharesRequest**](SharesRequest.md)| Request object for &#x60;Security&#x60; shares. | 
 
 ### Return type
-
 [**SharesResponse**](SharesResponse.md)
 
 ### Authorization

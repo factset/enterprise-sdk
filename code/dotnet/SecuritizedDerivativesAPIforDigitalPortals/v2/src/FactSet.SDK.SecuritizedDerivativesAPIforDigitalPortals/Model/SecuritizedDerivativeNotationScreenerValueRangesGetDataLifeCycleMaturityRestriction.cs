@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityRestriction {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  RemainingTermDays: ").Append(RemainingTermDays).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityRestriction input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Date == input.Date ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.RemainingTermDays != null)
-                    hashCode = hashCode * 59 + this.RemainingTermDays.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RemainingTermDays.GetHashCode();
+                }
                 return hashCode;
             }
         }

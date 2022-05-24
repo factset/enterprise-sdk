@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemai
 /**
  * The DebtInstrumentNotationScreenerSearchDataTradedValueDays30Average model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataTradedValueDays30Average
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataTradedValueDays30Average {
     /**

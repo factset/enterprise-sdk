@@ -43,6 +43,8 @@ public class LibraryResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Library> data = null;
 
+  public LibraryResponse() { 
+  }
 
   public LibraryResponse data(java.util.List<Library> data) {
     this.data = data;

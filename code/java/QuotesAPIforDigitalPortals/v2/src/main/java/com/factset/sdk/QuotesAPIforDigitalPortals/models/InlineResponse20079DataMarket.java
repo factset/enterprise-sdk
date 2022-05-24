@@ -44,6 +44,8 @@ public class InlineResponse20079DataMarket implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public InlineResponse20079DataMarket() { 
+  }
 
   public InlineResponse20079DataMarket id(BigDecimal id) {
     this.id = id;

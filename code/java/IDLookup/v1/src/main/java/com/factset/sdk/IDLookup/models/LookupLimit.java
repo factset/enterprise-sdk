@@ -43,6 +43,8 @@ public class LookupLimit implements Serializable {
   public static final String JSON_PROPERTY_RESULT_LIMIT = "result_limit";
   private Integer resultLimit;
 
+  public LookupLimit() { 
+  }
 
   public LookupLimit resultLimit(Integer resultLimit) {
     this.resultLimit = resultLimit;

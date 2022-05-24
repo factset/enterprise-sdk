@@ -56,6 +56,8 @@ public class InlineResponse20035System implements Serializable {
   public static final String JSON_PROPERTY_FIRST_LEVEL_WITH_LEAF_CATEGORIES = "firstLevelWithLeafCategories";
   private BigDecimal firstLevelWithLeafCategories;
 
+  public InlineResponse20035System() { 
+  }
 
   public InlineResponse20035System id(BigDecimal id) {
     this.id = id;

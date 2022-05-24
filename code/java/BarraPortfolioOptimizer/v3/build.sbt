@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.factset.sdk",
     name := "barraportfoliooptimizer",
-    version := "0.9.1",
+    version := "0.20.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),
@@ -20,9 +20,8 @@ lazy val root = (project in file(".")).
       "com.fasterxml.jackson.core" % "jackson-annotations" % "2.13.0" % "compile",
       "com.fasterxml.jackson.core" % "jackson-databind" % "2.13.0" % "compile",
       "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % "2.13.0" % "compile",
-      "com.github.joschi.jackson" % "jackson-datatype-threetenbp" % "2.12.5" % "compile",
-      "org.openapitools" % "jackson-databind-nullable" % "0.2.1" % "compile",
-      "com.github.scribejava" % "scribejava-apis" % "6.9.0" % "compile",
+      "org.openapitools" % "jackson-databind-nullable" % "0.2.2" % "compile",
+      "com.github.scribejava" % "scribejava-apis" % "8.3.1" % "compile",
       "jakarta.annotation" % "jakarta.annotation-api" % "1.3.5" % "compile",
       "junit" % "junit" % "4.13.2" % "test",
       "com.novocode" % "junit-interface" % "0.10" % "test"

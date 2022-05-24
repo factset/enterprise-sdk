@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.IRNContacts.models.OperationType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,17 +38,18 @@ import com.factset.sdk.IRNContacts.JSON;
  * Operation
  */
 @JsonPropertyOrder({
-  Operation.JSON_PROPERTY_VALUE,
+  Operation.JSON_PROPERTY_OPERATION_TYPE,
   Operation.JSON_PROPERTY_PATH,
   Operation.JSON_PROPERTY_OP,
-  Operation.JSON_PROPERTY_FROM
+  Operation.JSON_PROPERTY_FROM,
+  Operation.JSON_PROPERTY_VALUE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Operation implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private JsonNullable<Object> value = JsonNullable.<Object>undefined();
+  public static final String JSON_PROPERTY_OPERATION_TYPE = "OperationType";
+  private OperationType operationType;
 
   public static final String JSON_PROPERTY_PATH = "path";
   private JsonNullable<String> path = JsonNullable.<String>undefined();
@@ -58,38 +60,35 @@ public class Operation implements Serializable {
   public static final String JSON_PROPERTY_FROM = "from";
   private JsonNullable<String> from = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private JsonNullable<Object> value = JsonNullable.<Object>of(null);
 
-  public Operation value(Object value) {
-    this.value = JsonNullable.<Object>of(value);
+  public Operation() { 
+  }
+
+  public Operation operationType(OperationType operationType) {
+    this.operationType = operationType;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Get operationType
+   * @return operationType
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Object getValue() {
-        return value.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(JSON_PROPERTY_OPERATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getValue_JsonNullable() {
-    return value;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  public void setValue_JsonNullable(JsonNullable<Object> value) {
-    this.value = value;
+  public OperationType getOperationType() {
+    return operationType;
   }
 
-  public void setValue(Object value) {
-    this.value = JsonNullable.<Object>of(value);
+
+  @JsonProperty(JSON_PROPERTY_OPERATION_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOperationType(OperationType operationType) {
+    this.operationType = operationType;
   }
 
 
@@ -195,6 +194,40 @@ public class Operation implements Serializable {
   }
 
 
+  public Operation value(Object value) {
+    this.value = JsonNullable.<Object>of(value);
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Object getValue() {
+        return value.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getValue_JsonNullable() {
+    return value;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<Object> value) {
+    this.value = value;
+  }
+
+  public void setValue(Object value) {
+    this.value = JsonNullable.<Object>of(value);
+  }
+
+
   /**
    * Return true if this Operation object is equal to o.
    */
@@ -207,10 +240,11 @@ public class Operation implements Serializable {
       return false;
     }
     Operation operation = (Operation) o;
-    return equalsNullable(this.value, operation.value) &&
+    return Objects.equals(this.operationType, operation.operationType) &&
         equalsNullable(this.path, operation.path) &&
         equalsNullable(this.op, operation.op) &&
-        equalsNullable(this.from, operation.from);
+        equalsNullable(this.from, operation.from) &&
+        equalsNullable(this.value, operation.value);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -219,7 +253,7 @@ public class Operation implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(value), hashCodeNullable(path), hashCodeNullable(op), hashCodeNullable(from));
+    return Objects.hash(operationType, hashCodeNullable(path), hashCodeNullable(op), hashCodeNullable(from), hashCodeNullable(value));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,10 +267,11 @@ public class Operation implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Operation {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    op: ").append(toIndentedString(op)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

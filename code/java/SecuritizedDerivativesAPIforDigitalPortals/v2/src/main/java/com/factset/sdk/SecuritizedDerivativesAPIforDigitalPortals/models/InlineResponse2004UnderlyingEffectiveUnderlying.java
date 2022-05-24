@@ -44,6 +44,8 @@ public class InlineResponse2004UnderlyingEffectiveUnderlying implements Serializ
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse2004UnderlyingEffectiveUnderlyingInstrument instrument;
 
+  public InlineResponse2004UnderlyingEffectiveUnderlying() { 
+  }
 
   public InlineResponse2004UnderlyingEffectiveUnderlying instrument(InlineResponse2004UnderlyingEffectiveUnderlyingInstrument instrument) {
     this.instrument = instrument;

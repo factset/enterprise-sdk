@@ -73,8 +73,18 @@ public class ValueLabelDateDataPairListTemplate implements Serializable {
   private String date;
 
   public static final String JSON_PROPERTY_LIST = "list";
-  private java.util.List<DataPair> list = null;
+  private java.util.List<DataPair> _list = null;
 
+  public ValueLabelDateDataPairListTemplate() { 
+  }
+
+  @JsonCreator
+  public ValueLabelDateDataPairListTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public ValueLabelDateDataPairListTemplate headline(String headline) {
     this.headline = headline;
@@ -266,22 +276,22 @@ public class ValueLabelDateDataPairListTemplate implements Serializable {
   }
 
 
-  public ValueLabelDateDataPairListTemplate list(java.util.List<DataPair> list) {
-    this.list = list;
+  public ValueLabelDateDataPairListTemplate _list(java.util.List<DataPair> _list) {
+    this._list = _list;
     return this;
   }
 
-  public ValueLabelDateDataPairListTemplate addListItem(DataPair listItem) {
-    if (this.list == null) {
-      this.list = new java.util.ArrayList<>();
+  public ValueLabelDateDataPairListTemplate addListItem(DataPair _listItem) {
+    if (this._list == null) {
+      this._list = new java.util.ArrayList<>();
     }
-    this.list.add(listItem);
+    this._list.add(_listItem);
     return this;
   }
 
    /**
-   * Get list
-   * @return list
+   * Get _list
+   * @return _list
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
@@ -289,14 +299,14 @@ public class ValueLabelDateDataPairListTemplate implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public java.util.List<DataPair> getList() {
-    return list;
+    return _list;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setList(java.util.List<DataPair> list) {
-    this.list = list;
+  public void setList(java.util.List<DataPair> _list) {
+    this._list = _list;
   }
 
 
@@ -319,12 +329,12 @@ public class ValueLabelDateDataPairListTemplate implements Serializable {
         Objects.equals(this.value, valueLabelDateDataPairListTemplate.value) &&
         Objects.equals(this.label, valueLabelDateDataPairListTemplate.label) &&
         Objects.equals(this.date, valueLabelDateDataPairListTemplate.date) &&
-        Objects.equals(this.list, valueLabelDateDataPairListTemplate.list);
+        Objects.equals(this._list, valueLabelDateDataPairListTemplate._list);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(headline, footer, fdc3Context, applicationLinks, value, label, date, list);
+    return Objects.hash(headline, footer, fdc3Context, applicationLinks, value, label, date, _list);
   }
 
   @Override
@@ -338,7 +348,7 @@ public class ValueLabelDateDataPairListTemplate implements Serializable {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    list: ").append(toIndentedString(list)).append("\n");
+    sb.append("    _list: ").append(toIndentedString(_list)).append("\n");
     sb.append("}");
     return sb.toString();
   }

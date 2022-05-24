@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Category from './model/Category';
 import CategoryCategory from './model/CategoryCategory';
@@ -35,6 +34,7 @@ import Scale from './model/Scale';
 import ScaleScale from './model/ScaleScale';
 import ValueType from './model/ValueType';
 import ValueTypeValueType from './model/ValueTypeValueType';
+
 import AllEstimatesApi from './api/AllEstimatesApi';
 import EstimateTablesApi from './api/EstimateTablesApi';
 
@@ -68,7 +68,7 @@ import EstimateTablesApi from './api/EstimateTablesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -219,5 +219,6 @@ export {
     * The EstimateTablesApi service constructor.
     * @property {module:api/EstimateTablesApi}
     */
-    EstimateTablesApi
+    EstimateTablesApi,
+
 };

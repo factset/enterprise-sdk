@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import EntityReference from './model/EntityReference';
 import EntityReferenceRequest from './model/EntityReferenceRequest';
@@ -28,6 +27,7 @@ import SecurityType from './model/SecurityType';
 import UltimateEntityStructureRequest from './model/UltimateEntityStructureRequest';
 import UltimateEntityStructureResponse from './model/UltimateEntityStructureResponse';
 import UtlimateEntityStructure from './model/UtlimateEntityStructure';
+
 import EntityReferenceApi from './api/EntityReferenceApi';
 import EntitySecuritiesApi from './api/EntitySecuritiesApi';
 import EntityStructureApi from './api/EntityStructureApi';
@@ -62,7 +62,7 @@ import EntityStructureApi from './api/EntityStructureApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -177,5 +177,6 @@ export {
     * The EntityStructureApi service constructor.
     * @property {module:api/EntityStructureApi}
     */
-    EntityStructureApi
+    EntityStructureApi,
+
 };

@@ -7,6 +7,9 @@ import com.factset.sdk.ForeignExchangeRate.Configuration;
 import com.factset.sdk.ForeignExchangeRate.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.ForeignExchangeRate.models.ErrorResponse;
 import com.factset.sdk.ForeignExchangeRate.models.SpotsRequest;
@@ -23,6 +26,28 @@ public class SpotsApi {
   public SpotsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSpotsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSpotsResponseTypeMap.put(200, new GenericType<SpotsResponse>(){});
+    getSpotsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSpotsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSpotsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSpotsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSpotsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSpotsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSpotsForListResponseTypeMap.put(200, new GenericType<SpotsResponse>(){});
+    getSpotsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSpotsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSpotsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSpotsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSpotsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -123,11 +148,17 @@ public class SpotsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SpotsResponse> localVarReturnType = new GenericType<SpotsResponse>() {};
 
-    return apiClient.invokeAPI("SpotsApi.getSpots", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SpotsResponse
+      
+    > apiResponse = apiClient.invokeAPI("SpotsApi.getSpots", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSpotsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets spots for a list of currency pairs
@@ -200,10 +231,16 @@ public class SpotsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SpotsResponse> localVarReturnType = new GenericType<SpotsResponse>() {};
 
-    return apiClient.invokeAPI("SpotsApi.getSpotsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SpotsResponse
+      
+    > apiResponse = apiClient.invokeAPI("SpotsApi.getSpotsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSpotsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

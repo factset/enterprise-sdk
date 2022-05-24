@@ -90,7 +90,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConvertibleTriggers {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -128,8 +128,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(ConvertibleTriggers input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -167,14 +168,22 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.ConvTriggerEvent != null)
-                    hashCode = hashCode * 59 + this.ConvTriggerEvent.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvTriggerEvent.GetHashCode();
+                }
                 if (this.ConvTriggerEventDesc != null)
-                    hashCode = hashCode * 59 + this.ConvTriggerEventDesc.GetHashCode();
-                hashCode = hashCode * 59 + this.TriggerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConvTriggerEventDesc.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TriggerId.GetHashCode();
                 return hashCode;
             }
         }

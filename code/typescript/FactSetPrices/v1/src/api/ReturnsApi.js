@@ -22,7 +22,7 @@ import ReturnsSnapshotResponse from '../model/ReturnsSnapshotResponse';
 /**
 * Returns service.
 * @module api/ReturnsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ReturnsApi {
 
@@ -75,7 +75,10 @@ export default class ReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ReturnsSnapshotResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/returns-snapshot', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -92,7 +95,7 @@ export default class ReturnsApi {
      * @param {module:model/String} opts.calendar Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (default to 'FIVEDAY')
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
      * @param {module:model/String} opts.dividendAdjust Controls the dividend reinvestment for the returns calculation. Dividends will be reinvested on the date the dividends go ex (when the dividends belong to the seller rather than the buyer). Visit [OA 8748](https://my.apps.factset.com/oa/pages/8748) for calculation methodology.   * **PRICE** = Price Change - Dividends Excluded.   * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested. Dividends accumulated throughout the specified period are added to the price at the end of the period.   * **EXDATE_C** = Compound Return - Dividends reinvested on exdate. Dividends accumulated throughout the specified period are used to buy more shares of stock in the company.  (default to 'PRICE')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReturnsSnapshotResponse}
+     * @return { Promise.< module:model/ReturnsSnapshotResponse > } a Promise, with data of type {@link module:model/ReturnsSnapshotResponse }
      */
     getReturnsSnapshot(ids, opts) {
       return this.getReturnsSnapshotWithHttpInfo(ids, opts)
@@ -127,7 +130,10 @@ export default class ReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ReturnsSnapshotResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/returns-snapshot', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -139,7 +145,7 @@ export default class ReturnsApi {
      * Returns the price performance of the security and annualized compound total returns.
      * Retrieves various return periods as of a given date for a requested list of securities. This endpoint is very helpful for quickly retrieving a list of pre-calculated returns for application development.<p> Return periods include   * oneDay   * weekToDate   * monthToDate   * quarterToDate   * yearToDate   * oneMonth   * threeMonth   * sixMonth   * nineMonth   * oneYear   * twoYearAnnualized   * threeYearAnnualized   * fiveYearAnnualized   * tenYearAnnualized   * twentyYearAnnualized   * thirtyYearAnnualized   * ipoToDateAnnualized   </p> 
      * @param {module:model/ReturnsSnapshotRequest} returnsSnapshotRequest Request object for Returns-Snapshot.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReturnsSnapshotResponse}
+     * @return { Promise.< module:model/ReturnsSnapshotResponse > } a Promise, with data of type {@link module:model/ReturnsSnapshotResponse }
      */
     getReturnsSnapshotForList(returnsSnapshotRequest) {
       return this.getReturnsSnapshotForListWithHttpInfo(returnsSnapshotRequest)
@@ -191,7 +197,10 @@ export default class ReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ReturnsResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/returns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -211,7 +220,7 @@ export default class ReturnsApi {
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
      * @param {module:model/String} opts.dividendAdjust Controls the dividend reinvestment for the returns calculation.   * **PRICE** = Price Change - Dividends Excluded   * **EXDATE** = Simple Return - Dividends Received on exdate but not reinvested   * **PAYDATE** = Simple Return - Dividends Received on paydate but not reinvested   * **EXDATE_C** = Compound Return - Dividends reinvested on exdate   * **PAYDATE_C** = Compound Return - Dividends reinvested on paydate.  (default to 'PRICE')
      * @param {module:model/String} opts.rollingPeriod Period of measure for the rolling cumulative return. This does not change display `frequency` but rather the underlying return calculation period. All periods are referencing actual periods of measure, not period-ends. For example, 1M rolling period will go back to that date the previous month, which is not always the month-end date.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReturnsResponse}
+     * @return { Promise.< module:model/ReturnsResponse > } a Promise, with data of type {@link module:model/ReturnsResponse }
      */
     getSecurityReturns(ids, opts) {
       return this.getSecurityReturnsWithHttpInfo(ids, opts)
@@ -246,7 +255,10 @@ export default class ReturnsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ReturnsResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/returns', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -258,7 +270,7 @@ export default class ReturnsApi {
      * Requests security returns for the given date range and rollingPeriod.
      * The simple or compound return for the requested frequency and/or rollingPeriod. Depending on the input parameters the return will adjust accordingly. If you simply use frequency and no rollingPeriod, the return value will represent the frequency period. If you use rollingPeriod, the values will be returned in actual period ends (e.g. actual month, actual week, daily, etc.). General Return Calculation Details found on [Online Assistant Page #8748](https://oa.apps.factset.com/pages/8748)
      * @param {module:model/ReturnsRequest} returnsRequest Request object for `Security` returns.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ReturnsResponse}
+     * @return { Promise.< module:model/ReturnsResponse > } a Promise, with data of type {@link module:model/ReturnsResponse }
      */
     getSecurityReturnsForList(returnsRequest) {
       return this.getSecurityReturnsForListWithHttpInfo(returnsRequest)
@@ -269,3 +281,8 @@ export default class ReturnsApi {
 
 
 }
+
+
+
+
+

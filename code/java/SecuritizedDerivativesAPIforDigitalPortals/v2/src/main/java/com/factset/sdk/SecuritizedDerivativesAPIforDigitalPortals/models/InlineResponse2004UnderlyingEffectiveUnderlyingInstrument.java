@@ -47,6 +47,8 @@ public class InlineResponse2004UnderlyingEffectiveUnderlyingInstrument implement
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2004UnderlyingEffectiveUnderlyingInstrument() { 
+  }
 
   public InlineResponse2004UnderlyingEffectiveUnderlyingInstrument id(String id) {
     this.id = id;

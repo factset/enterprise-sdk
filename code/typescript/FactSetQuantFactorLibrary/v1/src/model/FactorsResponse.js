@@ -17,7 +17,7 @@ import Factors from './Factors';
 /**
  * The FactorsResponse model module.
  * @module model/FactorsResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FactorsResponse {
     /**

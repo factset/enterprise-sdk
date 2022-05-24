@@ -53,7 +53,7 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
@@ -64,7 +64,7 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
@@ -95,11 +95,11 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <returns>FactsetTranslationAdvancedResponse</returns>
         FactsetTranslationAdvancedResponse TranslateFactsetAdvanced(List<string> ids, string symbolType = default(string));
 
@@ -107,11 +107,11 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <returns>ApiResponse of FactsetTranslationAdvancedResponse</returns>
         ApiResponse<FactsetTranslationAdvancedResponse> TranslateFactsetAdvancedWithHttpInfo(List<string> ids, string symbolType = default(string));
         #endregion Synchronous Operations
@@ -150,7 +150,7 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
@@ -162,7 +162,7 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
@@ -196,11 +196,11 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactsetTranslationAdvancedResponse</returns>
         System.Threading.Tasks.Task<FactsetTranslationAdvancedResponse> TranslateFactsetAdvancedAsync(List<string> ids, string symbolType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -209,11 +209,11 @@ namespace FactSet.SDK.Symbology.Api
         /// Translate advanced symbol types into FactSet Permanent Identifiers
         /// </summary>
         /// <remarks>
-        /// FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </remarks>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactsetTranslationAdvancedResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<FactsetTranslationAdvancedResponse>> TranslateFactsetAdvancedWithHttpInfoAsync(List<string> ids, string symbolType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -234,6 +234,51 @@ namespace FactSet.SDK.Symbology.Api
     public partial class FactSetApi : IFactSetApi
     {
         private FactSet.SDK.Symbology.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> BatchTranslateFactSetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactsetTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> BatchTranslateFactSetAdvancedResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactsetTranslationAdvancedResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> TranslateFactsetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactsetTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> TranslateFactsetAdvancedResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FactsetTranslationAdvancedResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FactSetApi"/> class.
@@ -345,7 +390,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>FactsetTranslationResponse</returns>
         public FactsetTranslationResponse BatchTranslateFactSet(FactsetTranslationRequest factsetTranslationRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = BatchTranslateFactSetWithHttpInfo(factsetTranslationRequest);
+            var localVarResponse = BatchTranslateFactSetWithHttpInfo(factsetTranslationRequest);
             return localVarResponse.Data;
         }
 
@@ -355,11 +400,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationRequest">Request Body for FactSet Symbology Translation</param>
         /// <returns>ApiResponse of FactsetTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> BatchTranslateFactSetWithHttpInfo(FactsetTranslationRequest factsetTranslationRequest)
+        public ApiResponse<FactsetTranslationResponse> BatchTranslateFactSetWithHttpInfo(FactsetTranslationRequest factsetTranslationRequest)
         {
             // verify the required parameter 'factsetTranslationRequest' is set
             if (factsetTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'factsetTranslationRequest' when calling FactSetApi->BatchTranslateFactSet");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -373,22 +420,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factsetTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -400,15 +453,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FactsetTranslationResponse>("/symbology/v2/factset", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateFactSetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FactsetTranslationResponse>("/symbology/v2/factset", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateFactSet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -419,9 +476,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="factsetTranslationRequest">Request Body for FactSet Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactsetTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<FactsetTranslationResponse> BatchTranslateFactSetAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactsetTranslationResponse>BatchTranslateFactSetAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = await BatchTranslateFactSetWithHttpInfoAsync(factsetTranslationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchTranslateFactSetWithHttpInfoAsync(factsetTranslationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -432,11 +489,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="factsetTranslationRequest">Request Body for FactSet Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactsetTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse>> BatchTranslateFactSetWithHttpInfoAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactsetTranslationResponse>> BatchTranslateFactSetWithHttpInfoAsync(FactsetTranslationRequest factsetTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'factsetTranslationRequest' is set
             if (factsetTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'factsetTranslationRequest' when calling FactSetApi->BatchTranslateFactSet");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -450,24 +510,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factsetTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -479,42 +544,48 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateFactSetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FactsetTranslationResponse>("/symbology/v2/factset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateFactSet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
         /// <returns>FactsetTranslationAdvancedResponse</returns>
         public FactsetTranslationAdvancedResponse BatchTranslateFactSetAdvanced(FactsetTranslationAdvancedRequest factsetTranslationAdvancedRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse> localVarResponse = BatchTranslateFactSetAdvancedWithHttpInfo(factsetTranslationAdvancedRequest);
+            var localVarResponse = BatchTranslateFactSetAdvancedWithHttpInfo(factsetTranslationAdvancedRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
         /// <returns>ApiResponse of FactsetTranslationAdvancedResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse> BatchTranslateFactSetAdvancedWithHttpInfo(FactsetTranslationAdvancedRequest factsetTranslationAdvancedRequest)
+        public ApiResponse<FactsetTranslationAdvancedResponse> BatchTranslateFactSetAdvancedWithHttpInfo(FactsetTranslationAdvancedRequest factsetTranslationAdvancedRequest)
         {
             // verify the required parameter 'factsetTranslationAdvancedRequest' is set
             if (factsetTranslationAdvancedRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'factsetTranslationAdvancedRequest' when calling FactSetApi->BatchTranslateFactSetAdvanced");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -528,22 +599,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factsetTranslationAdvancedRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -555,43 +632,50 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FactsetTranslationAdvancedResponse>("/symbology/v2/factset-advanced", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateFactSetAdvancedResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FactsetTranslationAdvancedResponse>("/symbology/v2/factset-advanced", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateFactSetAdvanced", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactsetTranslationAdvancedResponse</returns>
-        public async System.Threading.Tasks.Task<FactsetTranslationAdvancedResponse> BatchTranslateFactSetAdvancedAsync(FactsetTranslationAdvancedRequest factsetTranslationAdvancedRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactsetTranslationAdvancedResponse>BatchTranslateFactSetAdvancedAsync(FactsetTranslationAdvancedRequest factsetTranslationAdvancedRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse> localVarResponse = await BatchTranslateFactSetAdvancedWithHttpInfoAsync(factsetTranslationAdvancedRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchTranslateFactSetAdvancedWithHttpInfoAsync(factsetTranslationAdvancedRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids. Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)    Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="factsetTranslationAdvancedRequest">Request Body for FactSet Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactsetTranslationAdvancedResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse>> BatchTranslateFactSetAdvancedWithHttpInfoAsync(FactsetTranslationAdvancedRequest factsetTranslationAdvancedRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactsetTranslationAdvancedResponse>> BatchTranslateFactSetAdvancedWithHttpInfoAsync(FactsetTranslationAdvancedRequest factsetTranslationAdvancedRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'factsetTranslationAdvancedRequest' is set
             if (factsetTranslationAdvancedRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'factsetTranslationAdvancedRequest' when calling FactSetApi->BatchTranslateFactSetAdvanced");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -605,24 +689,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = factsetTranslationAdvancedRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -634,14 +723,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateFactSetAdvancedResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FactsetTranslationAdvancedResponse>("/symbology/v2/factset-advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateFactSetAdvanced", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -655,7 +748,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>FactsetTranslationResponse</returns>
         public FactsetTranslationResponse TranslateFactset(List<string> ids)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = TranslateFactsetWithHttpInfo(ids);
+            var localVarResponse = TranslateFactsetWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -665,11 +758,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
         /// <returns>ApiResponse of FactsetTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> TranslateFactsetWithHttpInfo(List<string> ids)
+        public ApiResponse<FactsetTranslationResponse> TranslateFactsetWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetApi->TranslateFactset");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -682,22 +777,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -709,15 +810,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FactsetTranslationResponse>("/symbology/v2/factset", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = TranslateFactsetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FactsetTranslationResponse>("/symbology/v2/factset", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateFactset", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -728,9 +833,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactsetTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<FactsetTranslationResponse> TranslateFactsetAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactsetTranslationResponse>TranslateFactsetAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse> localVarResponse = await TranslateFactsetWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TranslateFactsetWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -741,11 +846,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactsetTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationResponse>> TranslateFactsetWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactsetTranslationResponse>> TranslateFactsetWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetApi->TranslateFactset");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -758,24 +866,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -787,44 +900,50 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = TranslateFactsetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FactsetTranslationResponse>("/symbology/v2/factset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateFactset", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <returns>FactsetTranslationAdvancedResponse</returns>
         public FactsetTranslationAdvancedResponse TranslateFactsetAdvanced(List<string> ids, string symbolType = default(string))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse> localVarResponse = TranslateFactsetAdvancedWithHttpInfo(ids, symbolType);
+            var localVarResponse = TranslateFactsetAdvancedWithHttpInfo(ids, symbolType);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <returns>ApiResponse of FactsetTranslationAdvancedResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse> TranslateFactsetAdvancedWithHttpInfo(List<string> ids, string symbolType = default(string))
+        public ApiResponse<FactsetTranslationAdvancedResponse> TranslateFactsetAdvancedWithHttpInfo(List<string> ids, string symbolType = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetApi->TranslateFactsetAdvanced");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -837,10 +956,16 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (symbolType != null)
@@ -850,13 +975,13 @@ namespace FactSet.SDK.Symbology.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -868,45 +993,52 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FactsetTranslationAdvancedResponse>("/symbology/v2/factset-advanced", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = TranslateFactsetAdvancedResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FactsetTranslationAdvancedResponse>("/symbology/v2/factset-advanced", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateFactsetAdvanced", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FactsetTranslationAdvancedResponse</returns>
-        public async System.Threading.Tasks.Task<FactsetTranslationAdvancedResponse> TranslateFactsetAdvancedAsync(List<string> ids, string symbolType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactsetTranslationAdvancedResponse>TranslateFactsetAdvancedAsync(List<string> ids, string symbolType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse> localVarResponse = await TranslateFactsetAdvancedWithHttpInfoAsync(ids, symbolType, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TranslateFactsetAdvancedWithHttpInfoAsync(ids, symbolType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives your enhanced resolution capabilities to translate a wider variety of input ids  Using the &#x60;symbolType&#x60; parameter, you are able to resolve from the below list of advanced identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themseleves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level    
+        /// Translate advanced symbol types into FactSet Permanent Identifiers FactSet Advanced Symbology gives you enhanced resolution capabilities to translate a wider variety of input ids. Using the symbolType parameter, you are able to resolve from the below list of third-party identifier types into FactSet Permanent Identifiers. Any symbol types within this category MUST be declared by themselves to appropriately resolve.  * BIC - Bank Identification Code (e.g. ABXXHKH1) * CIK - Edgar Central Index Keys (e.g. 0000100331) * CRD - Central Registration Depository (e.g. 149722) * DUNS - Dun &amp; Bradstreet Data Universal Numbering System (e.g. 621513451) * EIN - Employer Identification Number (e.g. 953540776) * FITCH - Fitch Ratings Identifier (e.g. 47504) * LEI - Legal Entity Identifier (e.g. 549300A6K7JX8EX2QZ33) * MD - Moody&#39;s Ratings Identifier (e.g. 0823736553) * SPR - S&amp;P Ratings Identifier (e.g. 301939) * VALOREN - Valoren (\&quot;Valor\&quot;) Identification (e.g. 685558) * WKN - German Securities Identification (\&quot;Wert\&quot;) (e.g. A0MU9T) * UKCH - UK Company House Identifier(e.g.CE012494) * RSSD -   Federal Reserve RSSD Identifier(1139297)  Not providing a symbolType will use FactSet Advanced Unknown logic, allowing you to resolve a mix of ids across various input id types and asset classes (Equities, Debt Instruments, Companies, Portfolios, Market Listings, and more). Input Id Types include -  * FactSet Ticker, Ticker-Region, Ticker-Exchange * FactSet Permanent Identifiers (-R, -S, -L, -E) * CUSIP * SEDOL * ISIN * Bloomberg FIGI - Regional/Security/Listing Level * Bloomberg Ticker - Regional/Listing Level 
         /// </summary>
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
-        /// <param name="symbolType">Specifies the type of symbol being requested in the &#x60;ids&#x60; parameter. **This is only required when requesting to translate from the given symbolType to a FactSet Permanent Identifier. Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |CRN|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
+        /// <param name="ids">Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*</param>
+        /// <param name="symbolType">Specifies the type of symbol being requested in the ids parameter. **This is only required when requesting to translate from the symbolTypes in the list below to a FactSet Permanent Identifier.  Only one symbolType is permitted per request, and all ids passed in request must be of the same type.** It is expected that not all fsym* types respond with values. Every response for valid translations will include at a minimum the fsymId and requestId.   |symbolType|Description|fsymId Default Perm Type|   |- --|- --|- --|   |BIC|Bank Identification Codes|Entity (-E)|   |CIK|Edgar Central Index Key|Entity (-E)|   |CRD|Central Registration Depository|Entity (-E)|   |DUNS|Dun &amp; Bradstreet Data Universal Numbering System|Entity (-E)|   |EIN|Employer Identification Number|Entity (-E)|   |FITCH|Fitch Ratings Identifier|Entity (-E)|   |LEI|Legal Entity Identifier|Entity (-E)|   |MD|Moody&#39;s Ratings Identifier|Entity (-E)|   |SPR|S&amp;P Ratings Identifier|Entity (-E)|   |VALOREN|Valoren (\&quot;Valor\&quot;) Identification|Security (-S)|   |WKN|German Securities Identification (\&quot;Wert\&quot;)|Security (-S)|   |UKCH|UK Company House Identifier|Entity(-E)|   |RSSD|Federal Reserve RSSD Identifier|Entity(-E)|  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FactsetTranslationAdvancedResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<FactsetTranslationAdvancedResponse>> TranslateFactsetAdvancedWithHttpInfoAsync(List<string> ids, string symbolType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FactsetTranslationAdvancedResponse>> TranslateFactsetAdvancedWithHttpInfoAsync(List<string> ids, string symbolType = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetApi->TranslateFactsetAdvanced");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -919,12 +1051,17 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (symbolType != null)
@@ -934,13 +1071,13 @@ namespace FactSet.SDK.Symbology.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -952,14 +1089,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = TranslateFactsetAdvancedResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FactsetTranslationAdvancedResponse>("/symbology/v2/factset-advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateFactsetAdvanced", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

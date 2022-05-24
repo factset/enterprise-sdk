@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **Object** |  | [optional] 
+**operationType** | [**OperationType**](OperationType.md) |  | [optional] 
 **path** | **String** |  | [optional] 
 **op** | **String** |  | [optional] 
 **from** | **String** |  | [optional] 
+**value** | **Object** |  | [optional] 
 
 

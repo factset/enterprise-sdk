@@ -1,0 +1,3230 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "fpo_mp_input",
+    "description": "",
+    "version": "1"
+  },
+  "paths": {
+    "/mpo/v1/optimizeFPO": {
+      "post": {
+        "consumes": [
+          "application/x-protobuf"
+        ],
+        "produces": [
+          "application/x-protobuf"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "MultiPeriodInput",
+            "description": "Multiperiod protobuf input",
+            "schema": {
+              "$ref": "#/definitions/optimizer.inputs.MultiPeriodInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Multiperiod protobuf output",
+            "schema": {
+              "$ref": "#/definitions/optimizer.outputs.MultiPeriodOutput"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "VAR.DistributionType": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "description": "0 - eMonteCarlo \n1 - eExtremeEventSimulation \n2 - eHistorical \n3 - eFactorStressTest \n4 - eExtremeEventStressTest \n5 - eStressTestPerSe \n6 - eFactorExposure "
+    },
+    "VAR.StatusIndicator": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eSuccess \n1 - eFailure "
+    },
+    "VAR.DistributionDescription": {
+      "type": "object",
+      "properties": {
+        "riskModel": {
+          "type": "string"
+        },
+        "factorGroup": {
+          "type": "string"
+        },
+        "factors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "distributionType": {
+          "$ref": "#/definitions/VAR.DistributionType"
+        },
+        "reportDate": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reportCurrency": {
+          "type": "string"
+        },
+        "horizonInTradingDays": {
+          "type": "number",
+          "format": "float"
+        },
+        "returnDates": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": "Only possibly defined for historical distributions"
+        }
+      },
+      "required": []
+    },
+    "VAR.SimulatedReturns": {
+      "type": "object",
+      "properties": {
+        "entity": {
+          "type": "string"
+        },
+        "returns": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "required": []
+    },
+    "VAR.DistributionStatus": {
+      "type": "object",
+      "properties": {
+        "indicator": {
+          "$ref": "#/definitions/VAR.StatusIndicator"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "VAR.DistributionDataMessage": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "$ref": "#/definitions/VAR.DistributionDescription"
+        },
+        "securitySimulations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VAR.SimulatedReturns"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/VAR.DistributionStatus"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MultiPeriodInput": {
+      "type": "object",
+      "properties": {
+        "strategy": {
+          "$ref": "#/definitions/optimizer.inputs.MultiPeriodStrategy"
+        },
+        "universe": {
+          "$ref": "#/definitions/optimizer.inputs.TotalUniverse"
+        },
+        "portfolios": {
+          "$ref": "#/definitions/optimizer.inputs.Portfolios"
+        },
+        "riskmodels": {
+          "$ref": "#/definitions/optimizer.inputs.MultiPeriodRiskModels"
+        },
+        "lookup_tables": {
+          "$ref": "#/definitions/optimizer.inputs.LookupTables"
+        },
+        "output_statistics": {
+          "type": "boolean"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPFrontierInput": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/optimizer.inputs.MultiPeriodInput"
+        },
+        "frontier": {
+          "$ref": "#/definitions/optimizer.inputs.FrontierSettings"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MultiPeriodStrategy": {
+      "type": "object",
+      "properties": {
+        "objective": {
+          "$ref": "#/definitions/optimizer.inputs.MultiPeriodObjective"
+        },
+        "constraints": {
+          "$ref": "#/definitions/optimizer.inputs.MultiPeriodConstraints"
+        },
+        "transaction_cost": {
+          "$ref": "#/definitions/optimizer.inputs.TransactionCost"
+        },
+        "options": {
+          "$ref": "#/definitions/optimizer.inputs.MultiPeriodOptions"
+        },
+        "expected_return": {
+          "$ref": "#/definitions/optimizer.inputs.ExpectedReturn"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MultiPeriodConstraints": {
+      "type": "object",
+      "properties": {
+        "expected_returns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPExpectedReturnConstraint"
+          }
+        },
+        "diversification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPDiversificationConstraint"
+          }
+        },
+        "factor_exposures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPFactorExposureConstraint"
+          }
+        },
+        "general_linear": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPGeneralLinearConstraint"
+          }
+        },
+        "holding_threshold": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPHoldingsThresholdConstraint"
+          }
+        },
+        "leverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPLeverageConstraint"
+          }
+        },
+        "num_of_assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPNumberofAssetsConstraint"
+          }
+        },
+        "sensitivity": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPSensitivityConstraint"
+          }
+        },
+        "weight_constraint": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPHoldingsWeightConstraint"
+          }
+        },
+        "number_of_buys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPNumberOfBuysConstraint"
+          }
+        },
+        "number_of_sells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPNumberOfSellsConstraint"
+          }
+        },
+        "round_lots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPRoundlotsConstraint"
+          }
+        },
+        "trade_threshold": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPTradeThresholdConstraint"
+          }
+        },
+        "trading_turnover": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPTurnoverConstraint"
+          }
+        },
+        "risk_contribution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPRiskContributionConstraint"
+          }
+        },
+        "risk_volatility": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPRiskVolatilityConstraint"
+          }
+        },
+        "tail_risk": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPLimitTailRiskConstraint"
+          },
+          "description": "MultiPeriod-Specific"
+        },
+        "target_probability": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPTargetProbabilityConstraint"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPExpectedReturnConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.ExpectedReturnConstraint"
+        },
+        "constraint_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "annualization_factor": {
+          "type": "number",
+          "format": "double"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPDiversificationConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.DiversificationConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPFactorExposureConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.FactorExposureConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPGeneralLinearConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.GeneralLinearConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPHoldingsThresholdConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.HoldingsThresholdConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPLeverageConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.LeverageConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPNumberofAssetsConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.NumberofAssetsConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPSensitivityConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.SensitivityConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPHoldingsWeightConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.HoldingsWeightConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPNumberOfBuysConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.NumberOfBuysConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPNumberOfSellsConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.NumberOfSellsConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPRoundlotsConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.RoundlotsConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPTradeThresholdConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.TradeThresholdConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPTransactionCostConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.TransactionCostConstraint",
+          "description": "not supported in engine yet."
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPTurnoverConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.TurnoverConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPRiskContributionConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.RiskContributionConstraint"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPRiskVolatilityConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.RiskVolatilityConstraint"
+        },
+        "constraint_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPLimitTailRiskConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.LimitTailRiskConstraint"
+        },
+        "constraint_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.LimitTailRiskConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "risk_measure": {
+          "$ref": "#/definitions/optimizer.inputs.TailRiskMeasure.Enum"
+        },
+        "max_risk": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "confidence_level": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "active_risk": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPTargetProbabilityConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "$ref": "#/definitions/optimizer.inputs.TargetProbabilityConstraint"
+        },
+        "constraint_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.TargetProbabilityConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "threshold_min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "threshold_max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "min_probability": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max_probability": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.EFPOConstraintWeightType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EFPOConstraintAssetType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintReturnType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintRiskRelativeInterpretationType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintGroupType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintTurnoverType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintValueType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.ELeverageValueType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintLevel": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintPenaltyType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintRiskType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EConstraintUnitType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EWeightingMethodType": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "description": "ToDo :: follow-up for what unit type the optimizer expects,"
+    },
+    "optimizer.inputs.ConstraintGroup": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "id": {
+          "type": "string"
+        },
+        "nested_groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "group_lookup_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.FactorExposureAttributes": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Penalty": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "penalty_type": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintPenaltyType.Enum"
+        },
+        "penalty_value": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max_violation": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Constraints": {
+      "type": "object",
+      "properties": {
+        "expected_returns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ExpectedReturnConstraint"
+          }
+        },
+        "diversification": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.DiversificationConstraint"
+          }
+        },
+        "factor_exposures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.FactorExposureConstraint"
+          }
+        },
+        "general_linear": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.GeneralLinearConstraint"
+          }
+        },
+        "holding_threshold": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.HoldingsThresholdConstraint"
+          }
+        },
+        "leverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.LeverageConstraint"
+          }
+        },
+        "num_of_assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.NumberofAssetsConstraint"
+          }
+        },
+        "sensitivity": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.SensitivityConstraint"
+          }
+        },
+        "weight_constraint": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.HoldingsWeightConstraint"
+          }
+        },
+        "number_of_buys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.NumberOfBuysConstraint"
+          }
+        },
+        "number_of_sells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.NumberOfSellsConstraint"
+          }
+        },
+        "round_lots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.RoundlotsConstraint"
+          }
+        },
+        "trade_threshold": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.TradeThresholdConstraint"
+          }
+        },
+        "transaction_cost": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.TransactionCostConstraint"
+          }
+        },
+        "trading_turnover": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.TurnoverConstraint"
+          }
+        },
+        "risk_etl": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.LimitRiskETLConstraint"
+          }
+        },
+        "risk_contribution": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.RiskContributionConstraint"
+          }
+        },
+        "risk_volatility": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.RiskVolatilityConstraint"
+          }
+        },
+        "limit_trade_constraint": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.TradingLimitTradeConstraint"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.ExpectedReturnConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "return_value": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "use_strategy_return_value": {
+          "type": "boolean"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "return_type": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintReturnType.Enum"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "1"
+    },
+    "optimizer.inputs.DiversificationConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "asset_value": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max_percent": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "unit": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintUnitType.Enum"
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "2"
+    },
+    "optimizer.inputs.FactorExposureConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "factors": {
+          "$ref": "#/definitions/optimizer.inputs.FactorExposureAttributes",
+          "description": "id --> min/max"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        }
+      },
+      "required": [],
+      "description": "3"
+    },
+    "optimizer.inputs.GeneralLinearConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "security_attribute": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "weighting_method": {
+          "$ref": "#/definitions/optimizer.inputs.EWeightingMethodType.Enum"
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "4"
+    },
+    "optimizer.inputs.HoldingsThresholdConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum",
+          "description": "Scope can be asset"
+        },
+        "unit": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintUnitType.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "5"
+    },
+    "optimizer.inputs.LeverageConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "value_type": {
+          "$ref": "#/definitions/optimizer.inputs.ELeverageValueType.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        }
+      },
+      "required": [],
+      "description": "6"
+    },
+    "optimizer.inputs.NumberofAssetsConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "7"
+    },
+    "optimizer.inputs.SensitivityConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "sensitivity_attribute": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unit": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintUnitType.Enum"
+        }
+      },
+      "required": [],
+      "description": "8"
+    },
+    "optimizer.inputs.HoldingsWeightConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "unit": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintUnitType.Enum"
+        },
+        "weight_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintWeightType.Enum"
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "apply_only_to_direct": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "description": "9"
+    },
+    "optimizer.inputs.NumberOfBuysConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "10"
+    },
+    "optimizer.inputs.NumberOfSellsConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "11"
+    },
+    "optimizer.inputs.RoundlotsConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "asset_level": {
+          "$ref": "#/definitions/optimizer.inputs.Value",
+          "description": "No Negative Value"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "general_value": {
+          "type": "number",
+          "format": "double"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "12"
+    },
+    "optimizer.inputs.TradeThresholdConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "unit": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintUnitType.Enum"
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "13"
+    },
+    "optimizer.inputs.TransactionCostConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "unit": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintUnitType.Enum"
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "14"
+    },
+    "optimizer.inputs.TurnoverConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "value_type": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintValueType.Enum"
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "turnover_type": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintTurnoverType.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "15"
+    },
+    "optimizer.inputs.TradingLimitTradeConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "unit": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintUnitType.Enum"
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "19"
+    },
+    "optimizer.inputs.LimitRiskETLConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "max_etl": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "confidence_level": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "active_etl": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "16"
+    },
+    "optimizer.inputs.RiskContributionConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "max_percent": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "custom_asset": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "asset_type": {
+          "$ref": "#/definitions/optimizer.inputs.EFPOConstraintAssetType.Enum"
+        },
+        "risk_type": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintRiskType.Enum"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "17"
+    },
+    "optimizer.inputs.RiskVolatilityConstraint": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "max_value_of_risk": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "level": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintLevel.Enum"
+        },
+        "penalty": {
+          "$ref": "#/definitions/optimizer.inputs.Penalty"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ConstraintGroup"
+          }
+        },
+        "risk_type": {
+          "$ref": "#/definitions/optimizer.inputs.EConstraintRiskType.Enum"
+        },
+        "active_risk": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hierarchy": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [],
+      "description": "18"
+    },
+    "optimizer.inputs.EValueType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.Value": {
+      "type": "object",
+      "properties": {
+        "value_type": {
+          "$ref": "#/definitions/optimizer.inputs.EValueType.Enum"
+        },
+        "raw_value": {
+          "type": "number",
+          "format": "double"
+        },
+        "ref_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.BoundSource": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.OnPeriods": {
+      "type": "object",
+      "properties": {
+        "periods": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.AcrossPeriods": {
+      "type": "object",
+      "properties": {
+        "start_period": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end_period": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rolling": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods.RollingPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.RollingMethod": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.TailRiskMeasure": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.MultiPeriodObjective": {
+      "type": "object",
+      "properties": {
+        "factor_exposure": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPFactorExposureTerm"
+          }
+        },
+        "volatility": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPVolatilityTerm"
+          }
+        },
+        "general_linear": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPGeneralLinearTerm"
+          }
+        },
+        "expected_return": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPExpectedReturnTerm"
+          }
+        },
+        "sensitivity": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPSensitivityTerm"
+          }
+        },
+        "objective_ratio": {
+          "$ref": "#/definitions/optimizer.inputs.MPObjectiveRatioTerm"
+        },
+        "tail_risk": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPTailRiskTerm"
+          },
+          "description": "MultiPeriod-Specific"
+        },
+        "target_probability": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.MPTargetProbabilityTerm"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPFactorExposureTerm": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "$ref": "#/definitions/optimizer.inputs.FactorExposureTerm"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPVolatilityTerm": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "$ref": "#/definitions/optimizer.inputs.VolatilityTerm"
+        },
+        "term_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPGeneralLinearTerm": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "$ref": "#/definitions/optimizer.inputs.GeneralLinearTerm"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPExpectedReturnTerm": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "$ref": "#/definitions/optimizer.inputs.ExpectedReturnTerm"
+        },
+        "term_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "annualization_factor": {
+          "type": "number",
+          "format": "double"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPSensitivityTerm": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "$ref": "#/definitions/optimizer.inputs.SensitivityTerm"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPObjectiveRatioTerm": {
+      "type": "object",
+      "properties": {
+        "sharpe_ratio": {
+          "$ref": "#/definitions/optimizer.inputs.SharpeRatioTerm"
+        },
+        "starr": {
+          "$ref": "#/definitions/optimizer.inputs.STARRTerm"
+        },
+        "diversification_ratio": {
+          "$ref": "#/definitions/optimizer.inputs.DiversificationRatioTerm"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPTargetProbabilityTerm": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "$ref": "#/definitions/optimizer.inputs.TargetProbabilityTerm"
+        },
+        "constrain_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.TargetProbabilityTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "threshold_min": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "threshold_max": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MPTailRiskTerm": {
+      "type": "object",
+      "properties": {
+        "term": {
+          "$ref": "#/definitions/optimizer.inputs.TailRiskTerm"
+        },
+        "term_on": {
+          "$ref": "#/definitions/optimizer.inputs.BoundSource.Enum"
+        },
+        "on_periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        },
+        "across_periods": {
+          "$ref": "#/definitions/optimizer.inputs.AcrossPeriods"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.TailRiskTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "risk_measure": {
+          "$ref": "#/definitions/optimizer.inputs.TailRiskMeasure.Enum"
+        },
+        "confidence_level": {
+          "type": "number",
+          "format": "double"
+        },
+        "use_centered_etl": {
+          "type": "boolean"
+        },
+        "active_risk": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.EObjectiveTermDirection": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EAggregationMethod": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.EObjectiveRiskType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.Objective": {
+      "type": "object",
+      "properties": {
+        "factor_exposure": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.FactorExposureTerm"
+          }
+        },
+        "expected_tail_loss": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ExpectedTailLossTerm"
+          }
+        },
+        "volatility": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.VolatilityTerm"
+          }
+        },
+        "drawdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.DrawdownTerm"
+          }
+        },
+        "general_linear": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.GeneralLinearTerm"
+          }
+        },
+        "expected_return": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ExpectedReturnTerm"
+          }
+        },
+        "sensitivity": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.SensitivityTerm"
+          }
+        },
+        "sharpe_ratio": {
+          "$ref": "#/definitions/optimizer.inputs.SharpeRatioTerm"
+        },
+        "starr": {
+          "$ref": "#/definitions/optimizer.inputs.STARRTerm"
+        },
+        "diversification_ratio": {
+          "$ref": "#/definitions/optimizer.inputs.DiversificationRatioTerm"
+        },
+        "null_risk_parity": {
+          "type": "boolean",
+          "description": "This is true when there is no risk_parity"
+        },
+        "risk_parity": {
+          "$ref": "#/definitions/optimizer.inputs.RiskParityTerm"
+        },
+        "transaction_cost": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.TransactionCostTerm"
+          }
+        }
+      },
+      "required": [],
+      "description": "ToDo :Note to circle back to this when we have more info on factors"
+    },
+    "optimizer.inputs.FactorExposureTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "factors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.ExpectedTailLossTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "confidence_level": {
+          "type": "number",
+          "format": "double"
+        },
+        "use_centered_etl": {
+          "type": "boolean"
+        },
+        "active_risk": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.VolatilityTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "risk_type": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveRiskType.Enum",
+          "description": "TODO:  RiskModel"
+        },
+        "factors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "active_risk": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.DrawdownTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "confidence_level": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.GeneralLinearTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "attribute": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "method": {
+          "$ref": "#/definitions/optimizer.inputs.EAggregationMethod.Enum"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.ExpectedReturnTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "return_values": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "use_alpha": {
+          "type": "boolean"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.TransactionCostTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.SensitivityTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "sensitivity_attribute": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "rel_to_benchmark": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.SharpeRatioTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "risk_free_rate": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "active_risk": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.STARRTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "risk_free_rate": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        },
+        "confidence_level": {
+          "type": "number",
+          "format": "double"
+        },
+        "use_centered_etl": {
+          "type": "boolean"
+        },
+        "active_risk": {
+          "type": "boolean"
+        },
+        "benchmark_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.DiversificationRatioTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "multiplier": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "direction": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveTermDirection.Enum"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.RiskParityTerm": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "risk_type": {
+          "$ref": "#/definitions/optimizer.inputs.EObjectiveRiskType.Enum"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MultiPeriodOptions": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "$ref": "#/definitions/optimizer.inputs.Options"
+        },
+        "weight_rebalance_periods": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "total_periods_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "initial_point_randomization_count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Options": {
+      "type": "object",
+      "properties": {
+        "maxRunTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ConvergenceTolerance": {
+          "type": "number",
+          "format": "double"
+        },
+        "cash_flow_formula": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "convert_weights_to_cash_for_ip": {
+          "type": "boolean"
+        },
+        "convert_weights_to_cash_for_bmk": {
+          "type": "boolean"
+        },
+        "composite_asset_lookthrough_level": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.ETransactionCostUnitType": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "description": "ToDo :: follow-up for what unit type the optimizer expects,\nand we can populate it accordingly in the request?"
+    },
+    "optimizer.inputs.TransactionCost": {
+      "type": "object",
+      "properties": {
+        "unit_type": {
+          "$ref": "#/definitions/optimizer.inputs.ETransactionCostUnitType.Enum"
+        },
+        "buy_cost": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "sell_cost": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.EAlphaUnitType": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.ExpectedReturn": {
+      "type": "object",
+      "properties": {
+        "alpha": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        },
+        "alpha_unit": {
+          "$ref": "#/definitions/optimizer.inputs.EAlphaUnitType.Enum"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.MultiPeriodRiskModels": {
+      "type": "object",
+      "properties": {
+        "risk_models": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.RiskModelForPeriods"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.RiskModelForPeriods": {
+      "type": "object",
+      "properties": {
+        "risk_model": {
+          "$ref": "#/definitions/optimizer.inputs.RiskModel"
+        },
+        "periods": {
+          "$ref": "#/definitions/optimizer.inputs.OnPeriods"
+        }
+      },
+      "required": [],
+      "description": "Must have *one* model for each period"
+    },
+    "optimizer.inputs.RiskModel": {
+      "type": "object",
+      "properties": {
+        "simulated_risk_model": {
+          "$ref": "#/definitions/optimizer.inputs.SimulatedRiskModel"
+        },
+        "quant_risk_model": {
+          "$ref": "#/definitions/optimizer.inputs.QuantRiskModel"
+        },
+        "raw_model": {
+          "$ref": "#/definitions/optimizer.inputs.RawRiskModel"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.QuantRiskModel": {
+      "type": "object",
+      "properties": {
+        "raw_data": {
+          "$ref": "#/definitions/optimizer.inputs.QuantRiskModelRawData"
+        },
+        "request_info": {
+          "$ref": "#/definitions/optimizer.inputs.QuantRiskRequestInfo"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.QuantRiskRequestInfo": {
+      "type": "object",
+      "properties": {
+        "service_url": {
+          "type": "string",
+          "description": "POST"
+        },
+        "json_post_body": {
+          "type": "string"
+        },
+        "lima_header": {
+          "type": "string"
+        },
+        "pickup_base_url": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.QuantRiskModelRawData": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "$ref": "#/definitions/optimizer.inputs.Labels"
+        },
+        "RawAssetCovarianceMatrix": {
+          "$ref": "#/definitions/optimizer.inputs.SparseMatrix"
+        },
+        "RawFactorExposure": {
+          "$ref": "#/definitions/optimizer.inputs.SparseMatrix"
+        },
+        "RawFactorCovarianceMatrix": {
+          "$ref": "#/definitions/optimizer.inputs.DenseMatrix"
+        },
+        "RiskModelCoverageFlag": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Labels": {
+      "type": "object",
+      "properties": {
+        "factor": {
+          "$ref": "#/definitions/optimizer.inputs.Factor"
+        },
+        "security": {
+          "$ref": "#/definitions/optimizer.inputs.Security"
+        }
+      },
+      "required": [],
+      "description": "Labeling and index information to be able to reconstruct the calculated data results to the provided inputs from the request."
+    },
+    "optimizer.inputs.Factor": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "description": "Labels relevant to calculation-levels with 'Factor' in the name"
+    },
+    "optimizer.inputs.Security": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "description": "Labels relevant to calculation-levels with 'Security' in the name"
+    },
+    "optimizer.inputs.SparseMatrix": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "columns": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexPointer": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "indices": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "required": [],
+      "description": "Represents a sparse matrix in the CSR format"
+    },
+    "optimizer.inputs.DenseMatrix": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/google.protobuf.ListValue"
+          },
+          "description": "2D array of doubles"
+        }
+      },
+      "required": [],
+      "description": "Represents a dense matrix"
+    },
+    "optimizer.inputs.SimulatedRiskModel": {
+      "type": "object",
+      "properties": {
+        "raw_data": {
+          "$ref": "#/definitions/VAR.DistributionDataMessage"
+        },
+        "request_info": {
+          "$ref": "#/definitions/optimizer.inputs.SimulatedRiskRequestInfo"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.SimulatedRiskRequestInfo": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "GET"
+        },
+        "lima_header": {
+          "type": "string"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.RawRiskModel": {
+      "type": "object",
+      "properties": {
+        "simulations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.RawRiskModel.Simulations"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.TotalUniverse": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.Asset"
+          }
+        },
+        "composite_assets": {
+          "$ref": "#/definitions/optimizer.inputs.CompositeAsset"
+        },
+        "derivatives": {
+          "$ref": "#/definitions/optimizer.inputs.Derivative"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Asset": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.AssetPrice": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/optimizer.inputs.AssetPrice.EPriceSource"
+        },
+        "price_override": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.CompositeConstituent": {
+      "type": "object",
+      "properties": {
+        "univ_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "price": {
+          "$ref": "#/definitions/optimizer.inputs.AssetPrice"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.CompositeAsset": {
+      "type": "object",
+      "properties": {
+        "constituents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.CompositeConstituent"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Derivative": {
+      "type": "object",
+      "properties": {
+        "offset_index": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Index of the offset. E.g. CASH_USD_FUT for Futures or 2nd leg for Forwards. -1 if no offset generated"
+        },
+        "future": {
+          "$ref": "#/definitions/optimizer.inputs.Derivative.Future"
+        },
+        "forward": {
+          "type": "boolean",
+          "description": "Nothing else is needed for forwards."
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.LookupTables": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.GroupDefinition"
+          },
+          "description": "tables to be referenced by index from the strategy."
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.ValueReference"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.GroupDefinition": {
+      "type": "object",
+      "properties": {
+        "univ_indices": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "required": [],
+      "description": "Contains the subset of assets associated with a\nconstraint group. (excluding Factor groups, as the\noptimizer will be respondible for fetching the risk\nmodel and expanding factor groups."
+    },
+    "optimizer.inputs.ValueReference": {
+      "type": "object",
+      "properties": {
+        "asset_values": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [],
+      "description": "Contains the results of an asset-level formula from FPO,\nmapping the TotalUniverse asset index to resulting value.\nThe list of ValueReferences in the LookupTables should\nprovide results for ALL formulae referenced throughout\nthe FPO strategy. When the optimizer encounters a \"reference\"\nvalue in the strategy, it will come here to resolve the\nvalue for each asset within the scope of that reference."
+    },
+    "optimizer.inputs.Portfolios": {
+      "type": "object",
+      "properties": {
+        "initial": {
+          "$ref": "#/definitions/optimizer.inputs.Portfolio"
+        },
+        "benchmarks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.Portfolio"
+          },
+          "description": "index 0 is always the \"Primary Benchmark\""
+        },
+        "buylist": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.BuyListItem"
+          }
+        },
+        "cash_univ_index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Portfolio": {
+      "type": "object",
+      "properties": {
+        "holdings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.PortfolioItem"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.PortfolioItem": {
+      "type": "object",
+      "properties": {
+        "univ_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "$ref": "#/definitions/optimizer.inputs.AssetPrice",
+          "description": "if null, use total univ pricing"
+        },
+        "shares": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.BuyListItem": {
+      "type": "object",
+      "properties": {
+        "univ_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "$ref": "#/definitions/optimizer.inputs.AssetPrice",
+          "description": "if null, use total univ pricing"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.FrontierSettings": {
+      "type": "object",
+      "properties": {
+        "constraint_name": {
+          "type": "string"
+        },
+        "objective_term_name": {
+          "type": "string"
+        },
+        "min": {
+          "$ref": "#/definitions/optimizer.inputs.Range"
+        },
+        "max": {
+          "$ref": "#/definitions/optimizer.inputs.Range"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Range": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "type": "integer",
+          "format": "int32",
+          "description": "points determined by Engine"
+        },
+        "start_to_end": {
+          "$ref": "#/definitions/optimizer.inputs.StartEndRange"
+        },
+        "specific_points": {
+          "$ref": "#/definitions/optimizer.inputs.SpecificPoints"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.StartEndRange": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "number",
+          "format": "double"
+        },
+        "end": {
+          "type": "number",
+          "format": "double"
+        },
+        "points": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.SpecificPoints": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.outputs.MultiPeriodOutput": {
+      "type": "object",
+      "properties": {
+        "periods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.outputs.Periods"
+          }
+        },
+        "raw_stats": {
+          "type": "string",
+          "description": "temporary"
+        }
+      },
+      "required": []
+    },
+    "optimizer.outputs.Periods": {
+      "type": "object",
+      "properties": {
+        "weights": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": []
+    },
+    "google.protobuf.Struct": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "$ref": "#/definitions/optimizer.inputs.Value"
+        }
+      },
+      "required": []
+    },
+    "google.protobuf.Value": {
+      "type": "object",
+      "properties": {
+        "nullValue": {
+          "$ref": "#/definitions/google.protobuf.NullValue"
+        },
+        "numberValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "stringValue": {
+          "type": "string"
+        },
+        "boolValue": {
+          "type": "boolean"
+        },
+        "structValue": {
+          "$ref": "#/definitions/google.protobuf.Struct"
+        },
+        "listValue": {
+          "$ref": "#/definitions/google.protobuf.ListValue"
+        }
+      },
+      "required": []
+    },
+    "google.protobuf.NullValue": {
+      "type": "number",
+      "enum": [
+        0
+      ],
+      "description": "0 - NULL_VALUE "
+    },
+    "google.protobuf.ListValue": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/optimizer.inputs.Value"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.EFPOConstraintWeightType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - ePercentOfPortfolioValue \n1 - ePercentOfExposure "
+    },
+    "optimizer.inputs.EFPOConstraintAssetType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - eAll \n1 - eCustom \n2 - eBuyList "
+    },
+    "optimizer.inputs.EConstraintReturnType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eTarget \n1 - eMaximizeProbability "
+    },
+    "optimizer.inputs.EConstraintRiskRelativeInterpretationType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eVolatilityDifference \n1 - eTrackingError "
+    },
+    "optimizer.inputs.EConstraintGroupType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - eTotal \n1 - eSelection \n2 - eSecurity "
+    },
+    "optimizer.inputs.EConstraintTurnoverType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - eTotal \n1 - eBuy \n2 - eSell "
+    },
+    "optimizer.inputs.EConstraintValueType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eMarketValue \n1 - eExposureValue "
+    },
+    "optimizer.inputs.ELeverageValueType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eFixedValue \n1 - eMaximumValue "
+    },
+    "optimizer.inputs.EConstraintLevel.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - ePortfolio \n1 - eGroup \n2 - eAsset "
+    },
+    "optimizer.inputs.EConstraintPenaltyType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - eLinear \n1 - eQuadratic \n2 - eScaledQuadratic "
+    },
+    "optimizer.inputs.EConstraintRiskType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eStandardDevition \n1 - eVariance "
+    },
+    "optimizer.inputs.EConstraintUnitType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - eCurrency \n1 - ePercentage \n2 - eNumber "
+    },
+    "optimizer.inputs.EWeightingMethodType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eWeights \n1 - eShares "
+    },
+    "optimizer.inputs.EValueType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": "0 - eNA \n1 - eRaw \n2 - eReference \n3 - eExpandRaw "
+    },
+    "optimizer.inputs.BoundSource.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "description": "0 - ePortfolioReturn \n1 - ePortfolioValue \n2 - eFundingRatio \n3 - eSurplusReturn \n4 - eDrawdownPercent \n5 - eDrawdownValue "
+    },
+    "optimizer.inputs.AcrossPeriods.RollingPeriods": {
+      "type": "object",
+      "properties": {
+        "frequency": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "method": {
+          "$ref": "#/definitions/optimizer.inputs.RollingMethod.Enum"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.RollingMethod.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": "0 - eValuePerPath \n1 - eAllValues \n2 - eMinPerStep \n3 - eMaxPerStep "
+    },
+    "optimizer.inputs.TailRiskMeasure.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - ETL \n1 - VaR "
+    },
+    "optimizer.inputs.EObjectiveTermDirection.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eMinimize \n1 - eMaximize "
+    },
+    "optimizer.inputs.EAggregationMethod.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eWeights \n1 - eQuantity "
+    },
+    "optimizer.inputs.EObjectiveRiskType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - eETL \n1 - eStandardDeviation \n2 - eVariance "
+    },
+    "optimizer.inputs.ETransactionCostUnitType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - ePercent \n1 - eCostPerShare "
+    },
+    "optimizer.inputs.EAlphaUnitType.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - ePercent \n1 - eAbsolute "
+    },
+    "optimizer.inputs.RawRiskModel.Simulations": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "simulatedReturns": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.AssetPrice.EPriceSource": {
+      "type": "number",
+      "enum": [
+        0,
+        1
+      ],
+      "description": "0 - eTotalUniverse \n1 - eOverride "
+    },
+    "optimizer.inputs.Derivative.Future": {
+      "type": "object",
+      "properties": {
+        "contract_size": {
+          "type": "number",
+          "format": "double"
+        },
+        "method": {
+          "$ref": "#/definitions/optimizer.inputs.Derivative.Future.EComputationMethod.Enum"
+        },
+        "using_pa_multiply": {
+          "type": "boolean"
+        }
+      },
+      "required": []
+    },
+    "optimizer.inputs.Derivative.Future.EComputationMethod": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "optimizer.inputs.Derivative.Future.EComputationMethod.Enum": {
+      "type": "number",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": "0 - eCost \n1 - eTotalCost \n2 - eMarkToMarket "
+    }
+  },
+  "securityDefinitions": {
+    "FactSetApiKey": {
+      "type": "basic"
+    },
+    "FactSetOAuth2": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

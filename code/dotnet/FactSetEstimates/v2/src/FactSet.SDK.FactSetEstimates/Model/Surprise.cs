@@ -199,7 +199,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Surprise {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
@@ -249,8 +249,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(Surprise input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -342,32 +343,52 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Metric != null)
-                    hashCode = hashCode * 59 + this.Metric.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Metric.GetHashCode();
+                }
                 if (this.Statistic != null)
-                    hashCode = hashCode * 59 + this.Statistic.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Statistic.GetHashCode();
+                }
                 if (this.Periodicity != null)
-                    hashCode = hashCode * 59 + this.Periodicity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Periodicity.GetHashCode();
+                }
                 if (this.FiscalEndDate != null)
-                    hashCode = hashCode * 59 + this.FiscalEndDate.GetHashCode();
-                hashCode = hashCode * 59 + this.FiscalYear.GetHashCode();
-                hashCode = hashCode * 59 + this.FiscalPeriod.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FiscalEndDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FiscalYear.GetHashCode();
+                hashCode = (hashCode * 59) + this.FiscalPeriod.GetHashCode();
                 if (this.SurpriseDate != null)
-                    hashCode = hashCode * 59 + this.SurpriseDate.GetHashCode();
-                hashCode = hashCode * 59 + this.SurpriseAmount.GetHashCode();
-                hashCode = hashCode * 59 + this.SurprisePercent.GetHashCode();
-                hashCode = hashCode * 59 + this.SurpriseBefore.GetHashCode();
-                hashCode = hashCode * 59 + this.SurpriseAfter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SurpriseDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SurpriseAmount.GetHashCode();
+                hashCode = (hashCode * 59) + this.SurprisePercent.GetHashCode();
+                hashCode = (hashCode * 59) + this.SurpriseBefore.GetHashCode();
+                hashCode = (hashCode * 59) + this.SurpriseAfter.GetHashCode();
                 if (this.EventDescription != null)
-                    hashCode = hashCode * 59 + this.EventDescription.GetHashCode();
-                hashCode = hashCode * 59 + this.EventFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EventDescription.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EventFlag.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -48,6 +48,8 @@ public class BasicMarketListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_ONLY_ACTIVE = "onlyActive";
   private Boolean onlyActive = true;
 
+  public BasicMarketListDataFilter() { 
+  }
 
   public BasicMarketListDataFilter markets(BasicMarketListDataFilterMarkets markets) {
     this.markets = markets;

@@ -22,7 +22,7 @@ import TickerTranslationResponse from '../model/TickerTranslationResponse';
 /**
 * Ticker service.
 * @module api/TickerApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class TickerApi {
 
@@ -64,7 +64,10 @@ export default class TickerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = TickerHistoryTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/ticker-history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class TickerApi {
      * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security.
      * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>
      * @param {module:model/TickerHistoryTranslationRequest} tickerHistoryTranslationRequest Response Body for Ticker History
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TickerHistoryTranslationResponse}
+     * @return { Promise.< module:model/TickerHistoryTranslationResponse > } a Promise, with data of type {@link module:model/TickerHistoryTranslationResponse }
      */
     batchTickerHistory(tickerHistoryTranslationRequest) {
       return this.batchTickerHistoryWithHttpInfo(tickerHistoryTranslationRequest)
@@ -111,7 +114,10 @@ export default class TickerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = TickerTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/ticker', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class TickerApi {
      * Returns the Ticker-Exchange or Ticker-Region for a given security.
      * Returns the full history of Ticker-Exchange or Ticker-Region changes for a requested security. <p> This method is best for requesting **large universes** of `ids`.</p><p>**This endpoint is included with all other Content API packages.**</p>
      * @param {module:model/TickerTranslationRequest} tickerTranslationRequest Request Body for Ticker History
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TickerTranslationResponse}
+     * @return { Promise.< module:model/TickerTranslationResponse > } a Promise, with data of type {@link module:model/TickerTranslationResponse }
      */
     batchTranslateTicker(tickerTranslationRequest) {
       return this.batchTranslateTickerWithHttpInfo(tickerTranslationRequest)
@@ -165,7 +171,10 @@ export default class TickerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = TickerHistoryTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/ticker-history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -180,7 +189,7 @@ export default class TickerApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.tickerType Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (default to 'REGION')
      * @param {String} opts.asOfDate As-Of date for historical symbol request in YYYY-MM-DD format. This is the date requested in the service. If no asOfDate was requested, the response will be null.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TickerHistoryTranslationResponse}
+     * @return { Promise.< module:model/TickerHistoryTranslationResponse > } a Promise, with data of type {@link module:model/TickerHistoryTranslationResponse }
      */
     tickerHistory(ids, opts) {
       return this.tickerHistoryWithHttpInfo(ids, opts)
@@ -220,7 +229,10 @@ export default class TickerApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = TickerTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v2/ticker', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -234,7 +246,7 @@ export default class TickerApi {
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.tickerType Controls the Ticker Type returned. The only accepted parameter values are REGION or EXCHANGE.   * **REGION** = Ticker-Regional (e.g. GOOGL-US)   * **EXCHANGE** = TIcker-Exchange (e.g. GOOGL-NAS)  (default to 'REGION')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TickerTranslationResponse}
+     * @return { Promise.< module:model/TickerTranslationResponse > } a Promise, with data of type {@link module:model/TickerTranslationResponse }
      */
     translateTicker(ids, opts) {
       return this.translateTickerWithHttpInfo(ids, opts)
@@ -245,3 +257,8 @@ export default class TickerApi {
 
 
 }
+
+
+
+
+

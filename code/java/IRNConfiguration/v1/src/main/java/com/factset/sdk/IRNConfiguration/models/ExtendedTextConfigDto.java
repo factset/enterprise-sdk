@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -39,9 +39,11 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class ExtendedTextConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_MAX_CHARS = "maxChars";
+  public static final String JSON_PROPERTY_MAX_CHARS = "MaxChars";
   private Integer maxChars;
 
+  public ExtendedTextConfigDto() { 
+  }
 
   public ExtendedTextConfigDto maxChars(Integer maxChars) {
     this.maxChars = maxChars;

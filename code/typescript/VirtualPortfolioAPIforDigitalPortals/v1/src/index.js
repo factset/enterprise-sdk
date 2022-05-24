@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -121,6 +120,7 @@ import WatchlistPositionDeleteData from './model/WatchlistPositionDeleteData';
 import WatchlistPositionDeleteDataPosition from './model/WatchlistPositionDeleteDataPosition';
 import WatchlistPositionModifyData from './model/WatchlistPositionModifyData';
 import WatchlistPositionModifyDataPosition from './model/WatchlistPositionModifyDataPosition';
+
 import PortfolioApi from './api/PortfolioApi';
 import WatchlistApi from './api/WatchlistApi';
 
@@ -154,7 +154,7 @@ import WatchlistApi from './api/WatchlistApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.9.2
 */
 export {
     /**
@@ -821,5 +821,6 @@ export {
     * The WatchlistApi service constructor.
     * @property {module:api/WatchlistApi}
     */
-    WatchlistApi
+    WatchlistApi,
+
 };

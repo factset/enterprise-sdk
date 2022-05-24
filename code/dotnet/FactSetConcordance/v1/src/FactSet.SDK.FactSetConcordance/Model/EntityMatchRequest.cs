@@ -107,7 +107,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityMatchRequest {\n");
             sb.Append("  Input: ").Append(Input).Append("\n");
             sb.Append("  IncludeEntityType: ").Append(IncludeEntityType).Append("\n");
@@ -146,8 +146,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(EntityMatchRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Input == input.Input ||
@@ -195,16 +196,26 @@ namespace FactSet.SDK.FactSetConcordance.Model
             {
                 int hashCode = 41;
                 if (this.Input != null)
-                    hashCode = hashCode * 59 + this.Input.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Input.GetHashCode();
+                }
                 if (this.IncludeEntityType != null)
-                    hashCode = hashCode * 59 + this.IncludeEntityType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IncludeEntityType.GetHashCode();
+                }
                 if (this.ExcludeEntityType != null)
-                    hashCode = hashCode * 59 + this.ExcludeEntityType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExcludeEntityType.GetHashCode();
+                }
                 if (this.IncludeEntitySubType != null)
-                    hashCode = hashCode * 59 + this.IncludeEntitySubType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IncludeEntitySubType.GetHashCode();
+                }
                 if (this.ExcludeEntitySubType != null)
-                    hashCode = hashCode * 59 + this.ExcludeEntitySubType.GetHashCode();
-                hashCode = hashCode * 59 + this.IncludeParent.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExcludeEntitySubType.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IncludeParent.GetHashCode();
                 return hashCode;
             }
         }

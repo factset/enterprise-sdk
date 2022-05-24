@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// Structure.
+    /// InlineResponse20020Data
     /// </summary>
     [DataContract(Name = "inline_response_200_20_data")]
     public partial class InlineResponse20020Data : IEquatable<InlineResponse20020Data>, IValidatableObject
@@ -34,117 +34,27 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20020Data" /> class.
         /// </summary>
-        /// <param name="isEtn">Flags exchange-traded notes. This data is available for all the regions..</param>
-        /// <param name="type">Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions..</param>
-        /// <param name="isActivelyManaged">Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions..</param>
-        /// <param name="backing">Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions..</param>
-        /// <param name="syntheticType">Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only..</param>
-        /// <param name="legalStructure">The organizational structure of the ETP, text and standardized value available. This data is available for all the regions..</param>
-        /// <param name="isUcitsCompliant">The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions..</param>
-        /// <param name="isHoldingsTransparent">States whether or not the ETP&#39;s issuer discloses its positions on its website daily. This data is available for all the regions..</param>
-        /// <param name="portfolioDisclosure">The frequency of an issuer&#39;s disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions..</param>
-        /// <param name="cashFlowFrequency">States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe..</param>
-        /// <param name="isEligibleForRegisteredAccounts">Product can be held in tax-advantaged investment accounts. This data is available for Canada only..</param>
-        /// <param name="isDripEligible">Ability to have dividends reinvested. This data is available for Canada only..</param>
-        public InlineResponse20020Data(bool isEtn = default(bool), string type = default(string), bool isActivelyManaged = default(bool), string backing = default(string), string syntheticType = default(string), string legalStructure = default(string), bool isUcitsCompliant = default(bool), bool isHoldingsTransparent = default(bool), string portfolioDisclosure = default(string), string cashFlowFrequency = default(string), bool isEligibleForRegisteredAccounts = default(bool), bool isDripEligible = default(bool))
+        /// <param name="symbol">Ticker-region as defined by FactSet..</param>
+        /// <param name="name">Name of the competitor..</param>
+        public InlineResponse20020Data(string symbol = default(string), string name = default(string))
         {
-            this.IsEtn = isEtn;
-            this.Type = type;
-            this.IsActivelyManaged = isActivelyManaged;
-            this.Backing = backing;
-            this.SyntheticType = syntheticType;
-            this.LegalStructure = legalStructure;
-            this.IsUcitsCompliant = isUcitsCompliant;
-            this.IsHoldingsTransparent = isHoldingsTransparent;
-            this.PortfolioDisclosure = portfolioDisclosure;
-            this.CashFlowFrequency = cashFlowFrequency;
-            this.IsEligibleForRegisteredAccounts = isEligibleForRegisteredAccounts;
-            this.IsDripEligible = isDripEligible;
+            this.Symbol = symbol;
+            this.Name = name;
         }
 
         /// <summary>
-        /// Flags exchange-traded notes. This data is available for all the regions.
+        /// Ticker-region as defined by FactSet.
         /// </summary>
-        /// <value>Flags exchange-traded notes. This data is available for all the regions.</value>
-        [DataMember(Name = "isEtn", EmitDefaultValue = true)]
-        public bool IsEtn { get; set; }
+        /// <value>Ticker-region as defined by FactSet.</value>
+        [DataMember(Name = "symbol", EmitDefaultValue = false)]
+        public string Symbol { get; set; }
 
         /// <summary>
-        /// Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions.
+        /// Name of the competitor.
         /// </summary>
-        /// <value>Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions.</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.
-        /// </summary>
-        /// <value>Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.</value>
-        [DataMember(Name = "isActivelyManaged", EmitDefaultValue = true)]
-        public bool IsActivelyManaged { get; set; }
-
-        /// <summary>
-        /// Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions.
-        /// </summary>
-        /// <value>Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions.</value>
-        [DataMember(Name = "backing", EmitDefaultValue = false)]
-        public string Backing { get; set; }
-
-        /// <summary>
-        /// Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.
-        /// </summary>
-        /// <value>Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.</value>
-        [DataMember(Name = "syntheticType", EmitDefaultValue = false)]
-        public string SyntheticType { get; set; }
-
-        /// <summary>
-        /// The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.
-        /// </summary>
-        /// <value>The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.</value>
-        [DataMember(Name = "legalStructure", EmitDefaultValue = false)]
-        public string LegalStructure { get; set; }
-
-        /// <summary>
-        /// The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.
-        /// </summary>
-        /// <value>The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.</value>
-        [DataMember(Name = "isUcitsCompliant", EmitDefaultValue = true)]
-        public bool IsUcitsCompliant { get; set; }
-
-        /// <summary>
-        /// States whether or not the ETP&#39;s issuer discloses its positions on its website daily. This data is available for all the regions.
-        /// </summary>
-        /// <value>States whether or not the ETP&#39;s issuer discloses its positions on its website daily. This data is available for all the regions.</value>
-        [DataMember(Name = "isHoldingsTransparent", EmitDefaultValue = true)]
-        public bool IsHoldingsTransparent { get; set; }
-
-        /// <summary>
-        /// The frequency of an issuer&#39;s disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.
-        /// </summary>
-        /// <value>The frequency of an issuer&#39;s disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.</value>
-        [DataMember(Name = "portfolioDisclosure", EmitDefaultValue = false)]
-        public string PortfolioDisclosure { get; set; }
-
-        /// <summary>
-        /// States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.
-        /// </summary>
-        /// <value>States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.</value>
-        [DataMember(Name = "cashFlowFrequency", EmitDefaultValue = false)]
-        public string CashFlowFrequency { get; set; }
-
-        /// <summary>
-        /// Product can be held in tax-advantaged investment accounts. This data is available for Canada only.
-        /// </summary>
-        /// <value>Product can be held in tax-advantaged investment accounts. This data is available for Canada only.</value>
-        [DataMember(Name = "isEligibleForRegisteredAccounts", EmitDefaultValue = true)]
-        public bool IsEligibleForRegisteredAccounts { get; set; }
-
-        /// <summary>
-        /// Ability to have dividends reinvested. This data is available for Canada only.
-        /// </summary>
-        /// <value>Ability to have dividends reinvested. This data is available for Canada only.</value>
-        [DataMember(Name = "isDripEligible", EmitDefaultValue = true)]
-        public bool IsDripEligible { get; set; }
+        /// <value>Name of the competitor.</value>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -152,20 +62,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20020Data {\n");
-            sb.Append("  IsEtn: ").Append(IsEtn).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  IsActivelyManaged: ").Append(IsActivelyManaged).Append("\n");
-            sb.Append("  Backing: ").Append(Backing).Append("\n");
-            sb.Append("  SyntheticType: ").Append(SyntheticType).Append("\n");
-            sb.Append("  LegalStructure: ").Append(LegalStructure).Append("\n");
-            sb.Append("  IsUcitsCompliant: ").Append(IsUcitsCompliant).Append("\n");
-            sb.Append("  IsHoldingsTransparent: ").Append(IsHoldingsTransparent).Append("\n");
-            sb.Append("  PortfolioDisclosure: ").Append(PortfolioDisclosure).Append("\n");
-            sb.Append("  CashFlowFrequency: ").Append(CashFlowFrequency).Append("\n");
-            sb.Append("  IsEligibleForRegisteredAccounts: ").Append(IsEligibleForRegisteredAccounts).Append("\n");
-            sb.Append("  IsDripEligible: ").Append(IsDripEligible).Append("\n");
+            sb.Append("  Symbol: ").Append(Symbol).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -197,62 +97,19 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20020Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.IsEtn == input.IsEtn ||
-                    this.IsEtn.Equals(input.IsEtn)
+                    this.Symbol == input.Symbol ||
+                    (this.Symbol != null &&
+                    this.Symbol.Equals(input.Symbol))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.IsActivelyManaged == input.IsActivelyManaged ||
-                    this.IsActivelyManaged.Equals(input.IsActivelyManaged)
-                ) && 
-                (
-                    this.Backing == input.Backing ||
-                    (this.Backing != null &&
-                    this.Backing.Equals(input.Backing))
-                ) && 
-                (
-                    this.SyntheticType == input.SyntheticType ||
-                    (this.SyntheticType != null &&
-                    this.SyntheticType.Equals(input.SyntheticType))
-                ) && 
-                (
-                    this.LegalStructure == input.LegalStructure ||
-                    (this.LegalStructure != null &&
-                    this.LegalStructure.Equals(input.LegalStructure))
-                ) && 
-                (
-                    this.IsUcitsCompliant == input.IsUcitsCompliant ||
-                    this.IsUcitsCompliant.Equals(input.IsUcitsCompliant)
-                ) && 
-                (
-                    this.IsHoldingsTransparent == input.IsHoldingsTransparent ||
-                    this.IsHoldingsTransparent.Equals(input.IsHoldingsTransparent)
-                ) && 
-                (
-                    this.PortfolioDisclosure == input.PortfolioDisclosure ||
-                    (this.PortfolioDisclosure != null &&
-                    this.PortfolioDisclosure.Equals(input.PortfolioDisclosure))
-                ) && 
-                (
-                    this.CashFlowFrequency == input.CashFlowFrequency ||
-                    (this.CashFlowFrequency != null &&
-                    this.CashFlowFrequency.Equals(input.CashFlowFrequency))
-                ) && 
-                (
-                    this.IsEligibleForRegisteredAccounts == input.IsEligibleForRegisteredAccounts ||
-                    this.IsEligibleForRegisteredAccounts.Equals(input.IsEligibleForRegisteredAccounts)
-                ) && 
-                (
-                    this.IsDripEligible == input.IsDripEligible ||
-                    this.IsDripEligible.Equals(input.IsDripEligible)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -265,24 +122,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IsEtn.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.IsActivelyManaged.GetHashCode();
-                if (this.Backing != null)
-                    hashCode = hashCode * 59 + this.Backing.GetHashCode();
-                if (this.SyntheticType != null)
-                    hashCode = hashCode * 59 + this.SyntheticType.GetHashCode();
-                if (this.LegalStructure != null)
-                    hashCode = hashCode * 59 + this.LegalStructure.GetHashCode();
-                hashCode = hashCode * 59 + this.IsUcitsCompliant.GetHashCode();
-                hashCode = hashCode * 59 + this.IsHoldingsTransparent.GetHashCode();
-                if (this.PortfolioDisclosure != null)
-                    hashCode = hashCode * 59 + this.PortfolioDisclosure.GetHashCode();
-                if (this.CashFlowFrequency != null)
-                    hashCode = hashCode * 59 + this.CashFlowFrequency.GetHashCode();
-                hashCode = hashCode * 59 + this.IsEligibleForRegisteredAccounts.GetHashCode();
-                hashCode = hashCode * 59 + this.IsDripEligible.GetHashCode();
+                if (this.Symbol != null)
+                {
+                    hashCode = (hashCode * 59) + this.Symbol.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 return hashCode;
             }
         }

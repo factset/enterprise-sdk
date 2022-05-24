@@ -174,7 +174,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class References {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -221,8 +221,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(References input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -306,33 +307,61 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.SecType != null)
-                    hashCode = hashCode * 59 + this.SecType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecType.GetHashCode();
+                }
                 if (this.SecTypeCode != null)
-                    hashCode = hashCode * 59 + this.SecTypeCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecTypeCode.GetHashCode();
+                }
                 if (this.SecTypeCodeDet != null)
-                    hashCode = hashCode * 59 + this.SecTypeCodeDet.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecTypeCodeDet.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Country != null)
-                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
+                }
                 if (this.PrimaryExchange != null)
-                    hashCode = hashCode * 59 + this.PrimaryExchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PrimaryExchange.GetHashCode();
+                }
                 if (this.ExchangeCountry != null)
-                    hashCode = hashCode * 59 + this.ExchangeCountry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExchangeCountry.GetHashCode();
+                }
                 if (this.LocalIndex != null)
-                    hashCode = hashCode * 59 + this.LocalIndex.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LocalIndex.GetHashCode();
+                }
                 if (this.NextTradingHolidayDate != null)
-                    hashCode = hashCode * 59 + this.NextTradingHolidayDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NextTradingHolidayDate.GetHashCode();
+                }
                 if (this.FirstDate != null)
-                    hashCode = hashCode * 59 + this.FirstDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FirstDate.GetHashCode();
+                }
                 if (this.LastDate != null)
-                    hashCode = hashCode * 59 + this.LastDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastDate.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

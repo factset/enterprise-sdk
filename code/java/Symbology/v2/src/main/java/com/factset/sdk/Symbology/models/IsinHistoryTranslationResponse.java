@@ -44,6 +44,8 @@ public class IsinHistoryTranslationResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<IsinHistoryTranslation> data = null;
 
+  public IsinHistoryTranslationResponse() { 
+  }
 
   public IsinHistoryTranslationResponse data(java.util.List<IsinHistoryTranslation> data) {
     this.data = data;

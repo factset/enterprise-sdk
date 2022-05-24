@@ -47,6 +47,8 @@ public class BPMOptimizationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public BPMOptimizationParametersRoot() { 
+  }
 
   public BPMOptimizationParametersRoot data(BPMOptimizationParameters data) {
     this.data = data;

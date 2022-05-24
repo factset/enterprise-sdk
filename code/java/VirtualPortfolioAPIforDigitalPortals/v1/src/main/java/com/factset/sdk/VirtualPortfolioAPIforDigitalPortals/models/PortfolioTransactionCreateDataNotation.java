@@ -43,6 +43,16 @@ public class PortfolioTransactionCreateDataNotation implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public PortfolioTransactionCreateDataNotation() { 
+  }
+
+  @JsonCreator
+  public PortfolioTransactionCreateDataNotation(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public PortfolioTransactionCreateDataNotation id(String id) {
     this.id = id;

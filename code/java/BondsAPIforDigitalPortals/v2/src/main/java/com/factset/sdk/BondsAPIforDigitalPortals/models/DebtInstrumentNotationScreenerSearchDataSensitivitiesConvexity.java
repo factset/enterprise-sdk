@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataSensitivitiesConvexity impl
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataSensitivitiesConvexity() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataSensitivitiesConvexity minimum(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMinimum minimum) {
     this.minimum = minimum;

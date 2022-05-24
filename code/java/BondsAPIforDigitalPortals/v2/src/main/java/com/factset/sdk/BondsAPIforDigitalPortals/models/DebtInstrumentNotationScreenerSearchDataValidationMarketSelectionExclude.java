@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataValidationMarketSelectionEx
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public DebtInstrumentNotationScreenerSearchDataValidationMarketSelectionExclude() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataValidationMarketSelectionExclude ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

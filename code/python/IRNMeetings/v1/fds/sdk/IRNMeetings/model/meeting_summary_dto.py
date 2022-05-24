@@ -24,15 +24,17 @@ from fds.sdk.IRNMeetings.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNMeetings.exceptions import ApiAttributeError
 
 
 def lazy_import():
     from fds.sdk.IRNMeetings.model.attendee_dto import AttendeeDto
+    from fds.sdk.IRNMeetings.model.custom_field_value_dto import CustomFieldValueDto
     from fds.sdk.IRNMeetings.model.location_dto import LocationDto
     globals()['AttendeeDto'] = AttendeeDto
+    globals()['CustomFieldValueDto'] = CustomFieldValueDto
     globals()['LocationDto'] = LocationDto
 
 
@@ -95,6 +97,7 @@ class MeetingSummaryDto(ModelNormal):
             'related_symbols': ([str], none_type,),  # noqa: E501
             'locations': ([LocationDto], none_type,),  # noqa: E501
             'attendees': ([AttendeeDto], none_type,),  # noqa: E501
+            'custom_field_values': ([CustomFieldValueDto], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -116,6 +119,7 @@ class MeetingSummaryDto(ModelNormal):
         'related_symbols': 'relatedSymbols',  # noqa: E501
         'locations': 'locations',  # noqa: E501
         'attendees': 'attendees',  # noqa: E501
+        'custom_field_values': 'customFieldValues',  # noqa: E501
     }
 
     read_only_vars = {
@@ -172,6 +176,7 @@ class MeetingSummaryDto(ModelNormal):
             related_symbols ([str], none_type): [optional]  # noqa: E501
             locations ([LocationDto], none_type): [optional]  # noqa: E501
             attendees ([AttendeeDto], none_type): [optional]  # noqa: E501
+            custom_field_values ([CustomFieldValueDto], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,6 +271,7 @@ class MeetingSummaryDto(ModelNormal):
             related_symbols ([str], none_type): [optional]  # noqa: E501
             locations ([LocationDto], none_type): [optional]  # noqa: E501
             attendees ([AttendeeDto], none_type): [optional]  # noqa: E501
+            custom_field_values ([CustomFieldValueDto], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

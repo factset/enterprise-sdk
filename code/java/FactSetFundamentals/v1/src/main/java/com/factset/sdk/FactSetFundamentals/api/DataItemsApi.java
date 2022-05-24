@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetFundamentals.Configuration;
 import com.factset.sdk.FactSetFundamentals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetFundamentals.models.ErrorResponse;
 import com.factset.sdk.FactSetFundamentals.models.MetricsRequest;
@@ -23,6 +26,28 @@ public class DataItemsApi {
   public DataItemsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFdsFundamentalsMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFdsFundamentalsMetricsResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
+    getFdsFundamentalsMetricsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFdsFundamentalsMetricsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFdsFundamentalsMetricsForListResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
+    getFdsFundamentalsMetricsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsMetricsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -112,11 +137,17 @@ public class DataItemsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MetricsResponse> localVarReturnType = new GenericType<MetricsResponse>() {};
 
-    return apiClient.invokeAPI("DataItemsApi.getFdsFundamentalsMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MetricsResponse
+      
+    > apiResponse = apiClient.invokeAPI("DataItemsApi.getFdsFundamentalsMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFdsFundamentalsMetricsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Available fundamental metrics or ratios.
@@ -189,10 +220,16 @@ public class DataItemsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MetricsResponse> localVarReturnType = new GenericType<MetricsResponse>() {};
 
-    return apiClient.invokeAPI("DataItemsApi.getFdsFundamentalsMetricsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MetricsResponse
+      
+    > apiResponse = apiClient.invokeAPI("DataItemsApi.getFdsFundamentalsMetricsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFdsFundamentalsMetricsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

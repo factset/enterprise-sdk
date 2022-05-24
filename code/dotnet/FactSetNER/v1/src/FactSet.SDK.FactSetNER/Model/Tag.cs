@@ -205,7 +205,7 @@ namespace FactSet.SDK.FactSetNER.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Tag {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  SubType: ").Append(SubType).Append("\n");
@@ -246,8 +246,9 @@ namespace FactSet.SDK.FactSetNER.Model
         public bool Equals(Tag input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Type == input.Type ||
@@ -295,17 +296,23 @@ namespace FactSet.SDK.FactSetNER.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.SubType.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.SubType.GetHashCode();
                 if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
-                hashCode = hashCode * 59 + this.Score.GetHashCode();
-                hashCode = hashCode * 59 + this.StartChar.GetHashCode();
-                hashCode = hashCode * 59 + this.EndChar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Text.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Score.GetHashCode();
+                hashCode = (hashCode * 59) + this.StartChar.GetHashCode();
+                hashCode = (hashCode * 59) + this.EndChar.GetHashCode();
                 if (this.LookupText != null)
-                    hashCode = hashCode * 59 + this.LookupText.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LookupText.GetHashCode();
+                }
                 if (this.NeId != null)
-                    hashCode = hashCode * 59 + this.NeId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NeId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -318,19 +325,19 @@ namespace FactSet.SDK.FactSetNER.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Score (decimal) minimum
-            if(this.Score < (decimal)0)
+            if (this.Score < (decimal)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Score, must be a value greater than or equal to 0.", new [] { "Score" });
             }
 
             // StartChar (int) minimum
-            if(this.StartChar < (int)0)
+            if (this.StartChar < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartChar, must be a value greater than or equal to 0.", new [] { "StartChar" });
             }
 
             // EndChar (int) minimum
-            if(this.EndChar < (int)0)
+            if (this.EndChar < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EndChar, must be a value greater than or equal to 0.", new [] { "EndChar" });
             }

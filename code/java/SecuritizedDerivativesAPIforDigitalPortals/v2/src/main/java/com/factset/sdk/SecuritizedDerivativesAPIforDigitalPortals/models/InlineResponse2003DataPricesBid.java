@@ -48,6 +48,8 @@ public class InlineResponse2003DataPricesBid implements Serializable {
   public static final String JSON_PROPERTY_PRICE = "price";
   private BigDecimal price;
 
+  public InlineResponse2003DataPricesBid() { 
+  }
 
   public InlineResponse2003DataPricesBid time(String time) {
     this.time = time;

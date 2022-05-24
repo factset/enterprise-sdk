@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CommentaryConfigDto model module.
  * @module model/CommentaryConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CommentaryConfigDto {
     /**
@@ -47,14 +47,14 @@ class CommentaryConfigDto {
         if (data) {
             obj = obj || new CommentaryConfigDto();
 
-            if (data.hasOwnProperty('shouldSendEmailAlertsToAuthor')) {
-                obj['shouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAuthor'], 'Boolean');
+            if (data.hasOwnProperty('ShouldSendEmailAlertsToAuthor')) {
+                obj['ShouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsToCommenters')) {
-                obj['shouldSendEmailAlertsToCommenters'] = ApiClient.convertToType(data['shouldSendEmailAlertsToCommenters'], 'Boolean');
+            if (data.hasOwnProperty('ShouldSendEmailAlertsToCommenters')) {
+                obj['ShouldSendEmailAlertsToCommenters'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToCommenters'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsToAll')) {
-                obj['shouldSendEmailAlertsToAll'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAll'], 'Boolean');
+            if (data.hasOwnProperty('ShouldSendEmailAlertsToAll')) {
+                obj['ShouldSendEmailAlertsToAll'] = ApiClient.convertToType(data['ShouldSendEmailAlertsToAll'], 'Boolean');
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class CommentaryConfigDto {
 }
 
 /**
- * @member {Boolean} shouldSendEmailAlertsToAuthor
+ * @member {Boolean} ShouldSendEmailAlertsToAuthor
  */
-CommentaryConfigDto.prototype['shouldSendEmailAlertsToAuthor'] = undefined;
+CommentaryConfigDto.prototype['ShouldSendEmailAlertsToAuthor'] = undefined;
 
 /**
- * @member {Boolean} shouldSendEmailAlertsToCommenters
+ * @member {Boolean} ShouldSendEmailAlertsToCommenters
  */
-CommentaryConfigDto.prototype['shouldSendEmailAlertsToCommenters'] = undefined;
+CommentaryConfigDto.prototype['ShouldSendEmailAlertsToCommenters'] = undefined;
 
 /**
- * @member {Boolean} shouldSendEmailAlertsToAll
+ * @member {Boolean} ShouldSendEmailAlertsToAll
  */
-CommentaryConfigDto.prototype['shouldSendEmailAlertsToAll'] = undefined;
+CommentaryConfigDto.prototype['ShouldSendEmailAlertsToAll'] = undefined;
 
 
 

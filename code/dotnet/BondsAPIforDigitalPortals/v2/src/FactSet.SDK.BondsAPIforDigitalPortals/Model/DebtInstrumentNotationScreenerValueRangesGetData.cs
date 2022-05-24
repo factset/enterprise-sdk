@@ -149,7 +149,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DebtInstrumentNotationScreenerValueRangesGetData {\n");
             sb.Append("  Validation: ").Append(Validation).Append("\n");
             sb.Append("  LifeCycle: ").Append(LifeCycle).Append("\n");
@@ -195,8 +195,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(DebtInstrumentNotationScreenerValueRangesGetData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Validation == input.Validation ||
@@ -274,30 +275,54 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Validation != null)
-                    hashCode = hashCode * 59 + this.Validation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Validation.GetHashCode();
+                }
                 if (this.LifeCycle != null)
-                    hashCode = hashCode * 59 + this.LifeCycle.GetHashCode();
-                hashCode = hashCode * 59 + this.Subordinated.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LifeCycle.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Subordinated.GetHashCode();
                 if (this.Rating != null)
-                    hashCode = hashCode * 59 + this.Rating.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Rating.GetHashCode();
+                }
                 if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issuer.GetHashCode();
+                }
                 if (this.Issue != null)
-                    hashCode = hashCode * 59 + this.Issue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issue.GetHashCode();
+                }
                 if (this.TradingVolume != null)
-                    hashCode = hashCode * 59 + this.TradingVolume.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
+                }
                 if (this.Compliance != null)
-                    hashCode = hashCode * 59 + this.Compliance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Compliance.GetHashCode();
+                }
                 if (this.Coupon != null)
-                    hashCode = hashCode * 59 + this.Coupon.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Coupon.GetHashCode();
+                }
                 if (this.Yield != null)
-                    hashCode = hashCode * 59 + this.Yield.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Yield.GetHashCode();
+                }
                 if (this.MacaulayDuration != null)
-                    hashCode = hashCode * 59 + this.MacaulayDuration.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MacaulayDuration.GetHashCode();
+                }
                 if (this.Sensitivities != null)
-                    hashCode = hashCode * 59 + this.Sensitivities.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sensitivities.GetHashCode();
+                }
                 if (this.TradedValue != null)
-                    hashCode = hashCode * 59 + this.TradedValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradedValue.GetHashCode();
+                }
                 return hashCode;
             }
         }

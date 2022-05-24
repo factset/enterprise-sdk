@@ -25,7 +25,9 @@
 
 * `WKN` (value: `"WKN"`)
 
-* `CRN` (value: `"CRN"`)
+* `JCN` (value: `"JCN"`)
+
+* `UKCH` (value: `"UKCH"`)
 
 * `RSSD` (value: `"RSSD"`)
 

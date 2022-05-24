@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Author** | [**UserSerialDto**](UserSerialDto.md) |  | 
 **Title** | **string** |  | [optional] 
-**Identifier** | **string** |  | 
+**Identifier** | **string** |  | [optional] 
 **Date** | **string** |  | 
 **SubjectId** | **Guid?** |  | [optional] 
 **RecommendationId** | **Guid?** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **RelatedContacts** | **List&lt;Guid&gt;** |  | [optional] 
 **RelatedRecords** | [**RelatedRecordsDto**](RelatedRecordsDto.md) |  | [optional] 
 **CustomFieldValues** | [**List&lt;CreateCustomFieldValueDto&gt;**](CreateCustomFieldValueDto.md) |  | [optional] 
-**IsPersonal** | **bool?** |  | [optional] 
+**IsPersonal** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

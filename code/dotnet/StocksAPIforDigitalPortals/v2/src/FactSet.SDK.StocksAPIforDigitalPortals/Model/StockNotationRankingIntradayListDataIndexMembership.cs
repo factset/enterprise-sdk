@@ -62,7 +62,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationRankingIntradayListDataIndexMembership {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  UseAlternativeNotation: ").Append(UseAlternativeNotation).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationRankingIntradayListDataIndexMembership input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -122,8 +123,10 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
-                hashCode = hashCode * 59 + this.UseAlternativeNotation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UseAlternativeNotation.GetHashCode();
                 return hashCode;
             }
         }

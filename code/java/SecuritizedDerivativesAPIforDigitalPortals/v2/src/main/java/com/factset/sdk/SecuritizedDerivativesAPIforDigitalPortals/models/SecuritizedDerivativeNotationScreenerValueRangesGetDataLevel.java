@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataLevel implem
   public static final String JSON_PROPERTY_ABSOLUTE = "absolute";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsolute absolute;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataLevel() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataLevel absolute(SecuritizedDerivativeNotationScreenerValueRangesGetDataLevelAbsolute absolute) {
     this.absolute = absolute;

@@ -43,6 +43,16 @@ public class SummariesRequest implements Serializable {
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.List<String> ids = new java.util.ArrayList<>();
 
+  public SummariesRequest() { 
+  }
+
+  @JsonCreator
+  public SummariesRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public SummariesRequest ids(java.util.List<String> ids) {
     this.ids = ids;

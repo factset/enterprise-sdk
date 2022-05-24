@@ -695,6 +695,7 @@ paths:
       summary: Create and Run Axioma optimization
       tags:
       - AXP Optimizer
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/axp/v3/optimizations/{id}:
@@ -1602,6 +1603,7 @@ paths:
       summary: Create or Update Axioma optimization and run it.
       tags:
       - AXP Optimizer
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/axp/v3/optimizations/{id}/status:

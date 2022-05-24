@@ -23,7 +23,7 @@ import NewsArticleListDataFilterTypes from './NewsArticleListDataFilterTypes';
 /**
  * The NewsArticleListDataFilter model module.
  * @module model/NewsArticleListDataFilter
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListDataFilter {
     /**

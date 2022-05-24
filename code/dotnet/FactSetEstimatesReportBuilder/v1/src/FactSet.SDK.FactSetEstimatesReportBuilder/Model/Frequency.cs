@@ -52,7 +52,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Frequency {\n");
             sb.Append("  _Frequency: ").Append(_Frequency).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         public bool Equals(Frequency input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._Frequency == input._Frequency ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._Frequency != null)
-                    hashCode = hashCode * 59 + this._Frequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._Frequency.GetHashCode();
+                }
                 return hashCode;
             }
         }

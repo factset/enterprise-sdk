@@ -70,6 +70,16 @@ public class FundsPricesRequest implements Serializable {
   public static final String JSON_PROPERTY_SPLIT_ADJUST = "splitAdjust";
   private SplitAdjust splitAdjust = SplitAdjust.SPLIT;
 
+  public FundsPricesRequest() { 
+  }
+
+  @JsonCreator
+  public FundsPricesRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public FundsPricesRequest ids(java.util.List<String> ids) {
     this.ids = ids;

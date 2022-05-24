@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**InlineResponse20020Data**](InlineResponse20020Data.md) |  |  [optional]
+**data** | [**java.util.Set&lt;InlineResponse20020Data&gt;**](InlineResponse20020Data.md) | Competitor&#39;s data. |  [optional]
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  |  [optional]
 
 

@@ -80,7 +80,7 @@ namespace FactSet.SDK.ChartGenerationService.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ChartList {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.ChartGenerationService.Model
         public bool Equals(ChartList input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -154,13 +155,21 @@ namespace FactSet.SDK.ChartGenerationService.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
                 if (this.Inputs != null)
-                    hashCode = hashCode * 59 + this.Inputs.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Inputs.GetHashCode();
+                }
                 return hashCode;
             }
         }

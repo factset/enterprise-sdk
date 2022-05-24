@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetOwnership.models.ErrorResponse;
 import com.factset.sdk.FactSetOwnership.models.FundHoldingsRequest;
@@ -23,6 +26,28 @@ public class FundHoldingsApi {
   public FundHoldingsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getOwnershipHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getOwnershipHoldingsResponseTypeMap.put(200, new GenericType<FundHoldingsResponse>(){});
+    getOwnershipHoldingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getOwnershipHoldingsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getOwnershipHoldingsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getOwnershipHoldingsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getOwnershipHoldingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postOwnershipHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postOwnershipHoldingsResponseTypeMap.put(200, new GenericType<FundHoldingsResponse>(){});
+    postOwnershipHoldingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postOwnershipHoldingsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postOwnershipHoldingsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postOwnershipHoldingsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postOwnershipHoldingsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -126,11 +151,17 @@ public class FundHoldingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundHoldingsResponse> localVarReturnType = new GenericType<FundHoldingsResponse>() {};
 
-    return apiClient.invokeAPI("FundHoldingsApi.getOwnershipHoldings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundHoldingsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FundHoldingsApi.getOwnershipHoldings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getOwnershipHoldingsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get holdings for a list of funds.
@@ -203,10 +234,16 @@ public class FundHoldingsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundHoldingsResponse> localVarReturnType = new GenericType<FundHoldingsResponse>() {};
 
-    return apiClient.invokeAPI("FundHoldingsApi.postOwnershipHoldings", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundHoldingsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FundHoldingsApi.postOwnershipHoldings", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postOwnershipHoldingsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

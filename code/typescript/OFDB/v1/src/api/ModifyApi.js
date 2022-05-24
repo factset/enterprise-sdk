@@ -21,7 +21,7 @@ import SuccessPostResponse from '../model/SuccessPostResponse';
 /**
 * Modify service.
 * @module api/ModifyApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class ModifyApi {
 
@@ -69,7 +69,10 @@ export default class ModifyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Object;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/dates/{date}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -81,7 +84,7 @@ export default class ModifyApi {
      * Deletes all data specific to the date in 3d database(OFDB). This includes all the symbols related to that date
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return { Promise.< Object > } a Promise, with data of type {@link Object }
      */
     v1DatabasePathDatesDateDelete(path, date) {
       return this.v1DatabasePathDatesDateDeleteWithHttpInfo(path, date)
@@ -127,7 +130,10 @@ export default class ModifyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SuccessPostResponse;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/dates/{date}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -140,7 +146,7 @@ export default class ModifyApi {
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
      * @param {module:model/InlineObject3} inlineObject3 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessPostResponse}
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     v1DatabasePathDatesDatePut(path, date, inlineObject3) {
       return this.v1DatabasePathDatesDatePutWithHttpInfo(path, date, inlineObject3)
@@ -187,7 +193,10 @@ export default class ModifyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Object;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/dates/{date}/symbols/{symbol}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -200,7 +209,7 @@ export default class ModifyApi {
      * @param {String} path Encode database path
      * @param {Number} date Date in YYYYMMDD format
      * @param {String} symbol Symbol with in the ofdb
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return { Promise.< Object > } a Promise, with data of type {@link Object }
      */
     v1DatabasePathDatesDateSymbolsSymbolDelete(path, date, symbol) {
       return this.v1DatabasePathDatesDateSymbolsSymbolDeleteWithHttpInfo(path, date, symbol)
@@ -252,7 +261,10 @@ export default class ModifyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SuccessPostResponse;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/dates/{date}/symbols/{symbol}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -266,7 +278,7 @@ export default class ModifyApi {
      * @param {Number} date Date in YYYYMMDD format
      * @param {String} symbol Symbol with in the ofdb
      * @param {module:model/InlineObject5} inlineObject5 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessPostResponse}
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5) {
       return this.v1DatabasePathDatesDateSymbolsSymbolPutWithHttpInfo(path, date, symbol, inlineObject5)
@@ -307,7 +319,10 @@ export default class ModifyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Object;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/symbols/{symbol}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -319,7 +334,7 @@ export default class ModifyApi {
      * Deletes all data specific to the symbol in both 2d and 3d database(OFDB). This includes all the dates related to that symbols in 3d database(OFDB)
      * @param {String} path Encode database path
      * @param {String} symbol Symbol with in the ofdb
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return { Promise.< Object > } a Promise, with data of type {@link Object }
      */
     v1DatabasePathSymbolsSymbolDelete(path, symbol) {
       return this.v1DatabasePathSymbolsSymbolDeleteWithHttpInfo(path, symbol)
@@ -365,7 +380,10 @@ export default class ModifyApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SuccessPostResponse;
+
       return this.apiClient.callApi(
         '/v1/database/{path}/symbols/{symbol}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -378,7 +396,7 @@ export default class ModifyApi {
      * @param {String} path Encode database path
      * @param {String} symbol Symbol with in the ofdb
      * @param {module:model/InlineObject1} inlineObject1 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SuccessPostResponse}
+     * @return { Promise.< module:model/SuccessPostResponse > } a Promise, with data of type {@link module:model/SuccessPostResponse }
      */
     v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1) {
       return this.v1DatabasePathSymbolsSymbolPutWithHttpInfo(path, symbol, inlineObject1)
@@ -389,3 +407,8 @@ export default class ModifyApi {
 
 
 }
+
+
+
+
+

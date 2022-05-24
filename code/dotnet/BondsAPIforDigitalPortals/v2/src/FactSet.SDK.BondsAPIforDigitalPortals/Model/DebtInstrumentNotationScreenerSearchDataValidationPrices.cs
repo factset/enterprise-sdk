@@ -90,7 +90,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DebtInstrumentNotationScreenerSearchDataValidationPrices {\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
             sb.Append("  Latest: ").Append(Latest).Append("\n");
@@ -126,8 +126,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(DebtInstrumentNotationScreenerSearchDataValidationPrices input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Quality == input.Quality ||
@@ -154,11 +155,15 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Latest != null)
-                    hashCode = hashCode * 59 + this.Latest.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Latest.GetHashCode();
+                }
                 if (this.Previous != null)
-                    hashCode = hashCode * 59 + this.Previous.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Previous.GetHashCode();
+                }
                 return hashCode;
             }
         }

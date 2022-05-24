@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssuer implements Serializa
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private DebtInstrumentNotationScreenerSearchDataIssuerCountry country;
 
+  public DebtInstrumentNotationScreenerSearchDataIssuer() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssuer selection(DebtInstrumentNotationScreenerSearchDataIssuerSelection selection) {
     this.selection = selection;

@@ -44,6 +44,8 @@ public class InlineResponse2005DataEstimatesFirstFiscalYearRatiosDividendYield i
   public static final String JSON_PROPERTY_MEAN = "mean";
   private InlineResponse2005DataEstimatesFirstFiscalYearRatiosDividendYieldMean mean;
 
+  public InlineResponse2005DataEstimatesFirstFiscalYearRatiosDividendYield() { 
+  }
 
   public InlineResponse2005DataEstimatesFirstFiscalYearRatiosDividendYield mean(InlineResponse2005DataEstimatesFirstFiscalYearRatiosDividendYieldMean mean) {
     this.mean = mean;

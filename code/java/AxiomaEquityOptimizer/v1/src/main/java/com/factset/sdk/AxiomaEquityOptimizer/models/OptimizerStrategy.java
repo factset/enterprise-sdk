@@ -47,6 +47,16 @@ public class OptimizerStrategy implements Serializable {
   public static final String JSON_PROPERTY_OVERRIDES = "overrides";
   private OptimizerStrategyOverrides overrides;
 
+  public OptimizerStrategy() { 
+  }
+
+  @JsonCreator
+  public OptimizerStrategy(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public OptimizerStrategy id(String id) {
     this.id = id;

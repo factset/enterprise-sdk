@@ -48,6 +48,7 @@ const referencesRequest = new factsetprices.ReferencesRequest(); // ReferencesRe
 // Call api endpoint
 apiInstance.getSecurityReferenceForList(referencesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const ids = ["AAPL-USA"]; // [String] | The requested list of security identifie
 // Call api endpoint
 apiInstance.getSecurityReferences(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

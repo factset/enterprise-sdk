@@ -17,7 +17,7 @@ import NRTSpeakerids400ResponseDetails from './NRTSpeakerids400ResponseDetails';
 /**
  * The NRTSpeakerids400Response model module.
  * @module model/NRTSpeakerids400Response
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSpeakerids400Response {
     /**

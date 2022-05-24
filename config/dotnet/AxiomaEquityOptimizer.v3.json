@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.AxiomaEquityOptimizer",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageGuid": "{a3cc8a6d-d9e6-50e7-8eaf-13a895ba1d1d}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/AxiomaEquityOptimizer/0.9.1",
+  "httpUserAgent": "fds-sdk/dotnet/AxiomaEquityOptimizer/0.20.0",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

@@ -21,7 +21,7 @@ import StockNotationScreenerSearchDataValidationValueUnit from './StockNotationS
 /**
  * The StockNotationScreenerSearchDataValidation model module.
  * @module model/StockNotationScreenerSearchDataValidation
- * @version 0.9.1
+ * @version 0.9.2
  */
 class StockNotationScreenerSearchDataValidation {
     /**

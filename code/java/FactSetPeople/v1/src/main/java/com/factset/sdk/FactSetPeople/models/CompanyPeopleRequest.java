@@ -47,6 +47,16 @@ public class CompanyPeopleRequest implements Serializable {
   public static final String JSON_PROPERTY_FUNCTION = "function";
   private Function function = Function.PEOPLE;
 
+  public CompanyPeopleRequest() { 
+  }
+
+  @JsonCreator
+  public CompanyPeopleRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public CompanyPeopleRequest ids(java.util.List<String> ids) {
     this.ids = ids;

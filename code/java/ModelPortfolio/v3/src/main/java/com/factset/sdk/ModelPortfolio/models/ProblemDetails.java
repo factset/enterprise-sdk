@@ -62,6 +62,8 @@ public class ProblemDetails implements Serializable {
   public static final String JSON_PROPERTY_INSTANCE = "instance";
   private String instance;
 
+  public ProblemDetails() { 
+  }
 
   public ProblemDetails type(String type) {
     this.type = type;

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeIssuerSearchDataCategory model module.
  * @module model/SecuritizedDerivativeIssuerSearchDataCategory
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeIssuerSearchDataCategory {
     /**

@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRegions(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const regionRequest = new factsetgeorev.RegionRequest(); // RegionRequest | The 
 // Call api endpoint
 apiInstance.getRegionsForList(regionRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

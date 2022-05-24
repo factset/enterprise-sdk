@@ -126,7 +126,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CompanyPositions {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  PersonId: ").Append(PersonId).Append("\n");
@@ -168,8 +168,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(CompanyPositions input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -226,21 +227,35 @@ namespace FactSet.SDK.FactSetPeople.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.PersonId != null)
-                    hashCode = hashCode * 59 + this.PersonId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PersonId.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                hashCode = hashCode * 59 + this.YearsAtFirm.GetHashCode();
-                hashCode = hashCode * 59 + this.Age.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.YearsAtFirm.GetHashCode();
+                hashCode = (hashCode * 59) + this.Age.GetHashCode();
                 if (this.Gender != null)
-                    hashCode = hashCode * 59 + this.Gender.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Gender.GetHashCode();
+                }
                 if (this.RequestPosition != null)
-                    hashCode = hashCode * 59 + this.RequestPosition.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestPosition.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

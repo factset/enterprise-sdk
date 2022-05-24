@@ -46,6 +46,16 @@ public class PAIdentifier implements Serializable {
   public static final String JSON_PROPERTY_HOLDINGSMODE = "holdingsmode";
   private String holdingsmode;
 
+  public PAIdentifier() { 
+  }
+
+  @JsonCreator
+  public PAIdentifier(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public PAIdentifier id(String id) {
     this.id = id;

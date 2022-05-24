@@ -1,5 +1,5 @@
 # FactSet.SDK.DocumentsDistributorCallStreetEvents.Model.NRTSnippets
-Metadata of the snippets of active calls happening at that moment are returned
+Transcript snippet metadata of active calls happening at that moment are returned
 
 ## Properties
 

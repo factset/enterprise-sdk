@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentCapDistance implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006InstrumentCapDistance() { 
+  }
 
   public InlineResponse2006InstrumentCapDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

@@ -17,8 +17,8 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2001Meta;
 import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20022Data;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse200Meta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,47 +43,41 @@ public class InlineResponse20022 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.Set<InlineResponse20022Data> data = null;
+  private InlineResponse20022Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private InlineResponse2001Meta meta;
+  private InlineResponse200Meta meta;
 
+  public InlineResponse20022() { 
+  }
 
-  public InlineResponse20022 data(java.util.Set<InlineResponse20022Data> data) {
+  public InlineResponse20022 data(InlineResponse20022Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse20022 addDataItem(InlineResponse20022Data dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.LinkedHashSet<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * Time series.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time series.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.Set<InlineResponse20022Data> getData() {
+  public InlineResponse20022Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.Set<InlineResponse20022Data> data) {
+  public void setData(InlineResponse20022Data data) {
     this.data = data;
   }
 
 
-  public InlineResponse20022 meta(InlineResponse2001Meta meta) {
+  public InlineResponse20022 meta(InlineResponse200Meta meta) {
     this.meta = meta;
     return this;
   }
@@ -97,14 +91,14 @@ public class InlineResponse20022 implements Serializable {
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse2001Meta getMeta() {
+  public InlineResponse200Meta getMeta() {
     return meta;
   }
 
 
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeta(InlineResponse2001Meta meta) {
+  public void setMeta(InlineResponse200Meta meta) {
     this.meta = meta;
   }
 

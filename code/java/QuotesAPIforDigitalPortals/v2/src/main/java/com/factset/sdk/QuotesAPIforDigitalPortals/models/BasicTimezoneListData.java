@@ -44,6 +44,8 @@ public class BasicTimezoneListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private BasicTimezoneListDataFilter filter;
 
+  public BasicTimezoneListData() { 
+  }
 
   public BasicTimezoneListData filter(BasicTimezoneListDataFilter filter) {
     this.filter = filter;

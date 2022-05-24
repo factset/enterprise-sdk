@@ -7,8 +7,10 @@ import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-import com.factset.sdk.IRNNotes.models.IdentifierResolutionDto;
 import com.factset.sdk.IRNNotes.models.ProblemDetails;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -22,6 +24,15 @@ public class IdentifiersApi {
   public IdentifiersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getIdentifiersResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIdentifiersResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
+    getIdentifiersResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -45,7 +56,7 @@ public class IdentifiersApi {
    * Get all the identifier details for given identifiers
    * 
    * @param identifiers Identifiers (optional)
-   * @return java.util.List&lt;IdentifierResolutionDto&gt;
+   * @return java.util.List<Object>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -54,7 +65,7 @@ public class IdentifiersApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<IdentifierResolutionDto> getIdentifiers(String identifiers) throws ApiException {
+  public java.util.List<Object> getIdentifiers(String identifiers) throws ApiException {
     return getIdentifiersWithHttpInfo(identifiers).getData();
   }
 
@@ -62,7 +73,7 @@ public class IdentifiersApi {
    * Get all the identifier details for given identifiers
    * 
    * @param identifiers Identifiers (optional)
-   * @return ApiResponse&lt;java.util.List&lt;IdentifierResolutionDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<Object>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -71,7 +82,7 @@ public class IdentifiersApi {
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<IdentifierResolutionDto>> getIdentifiersWithHttpInfo(String identifiers) throws ApiException {
+  public ApiResponse<java.util.List<Object>> getIdentifiersWithHttpInfo(String identifiers) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -100,10 +111,16 @@ public class IdentifiersApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<IdentifierResolutionDto>> localVarReturnType = new GenericType<java.util.List<IdentifierResolutionDto>>() {};
 
-    return apiClient.invokeAPI("IdentifiersApi.getIdentifiers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<Object>
+      
+    > apiResponse = apiClient.invokeAPI("IdentifiersApi.getIdentifiers", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getIdentifiersResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

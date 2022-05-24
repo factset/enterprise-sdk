@@ -23,7 +23,7 @@ import TemplatedPAComponentUpdateParametersRoot from '../model/TemplatedPACompon
 /**
 * TemplatedPAComponents service.
 * @module api/TemplatedPAComponentsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class TemplatedPAComponentsApi {
 
@@ -42,7 +42,7 @@ export default class TemplatedPAComponentsApi {
 
     /**
      * Create templated PA component
-     * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {module:model/TemplatedPAComponentParametersRoot} templatedPAComponentParametersRoot Request Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TemplatedPAComponentPostSummaryRoot} and HTTP response
      */
@@ -65,7 +65,10 @@ export default class TemplatedPAComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['text/plain', 'application/json', 'text/json'];
+
+
       let returnType = TemplatedPAComponentPostSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/templated-components', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,9 +78,9 @@ export default class TemplatedPAComponentsApi {
 
     /**
      * Create templated PA component
-     * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {module:model/TemplatedPAComponentParametersRoot} templatedPAComponentParametersRoot Request Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TemplatedPAComponentPostSummaryRoot}
+     * @return { Promise.< module:model/TemplatedPAComponentPostSummaryRoot > } a Promise, with data of type {@link module:model/TemplatedPAComponentPostSummaryRoot }
      */
     createTemplatedPAComponents(templatedPAComponentParametersRoot) {
       return this.createTemplatedPAComponentsWithHttpInfo(templatedPAComponentParametersRoot)
@@ -113,7 +116,10 @@ export default class TemplatedPAComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/templated-components/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -125,7 +131,7 @@ export default class TemplatedPAComponentsApi {
      * Delete templated PA component
      * This endpoint deletes an existing templated PA component
      * @param {String} id Unique identifier for a templated PA component
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     deleteTemplatedPAComponents(id) {
       return this.deleteTemplatedPAComponentsWithHttpInfo(id)
@@ -161,7 +167,10 @@ export default class TemplatedPAComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = TemplatedPAComponentRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/templated-components/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -173,7 +182,7 @@ export default class TemplatedPAComponentsApi {
      * Get templated PA component by id
      * This endpoint fetches the templated PA component settings.
      * @param {String} id Unique identifier for a templated PA component
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TemplatedPAComponentRoot}
+     * @return { Promise.< module:model/TemplatedPAComponentRoot > } a Promise, with data of type {@link module:model/TemplatedPAComponentRoot }
      */
     getTemplatedPAComponentById(id) {
       return this.getTemplatedPAComponentByIdWithHttpInfo(id)
@@ -209,7 +218,10 @@ export default class TemplatedPAComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = TemplatedPAComponentSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/templated-components', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -221,7 +233,7 @@ export default class TemplatedPAComponentsApi {
      * Get templated PA components in path
      * This endpoint returns the list of templated PA components in path.
      * @param {String} directory Get templated PA components in path
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TemplatedPAComponentSummaryRoot}
+     * @return { Promise.< module:model/TemplatedPAComponentSummaryRoot > } a Promise, with data of type {@link module:model/TemplatedPAComponentSummaryRoot }
      */
     getTemplatedPAComponentsInPath(directory) {
       return this.getTemplatedPAComponentsInPathWithHttpInfo(directory)
@@ -233,7 +245,7 @@ export default class TemplatedPAComponentsApi {
 
     /**
      * Update templated PA component
-     * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {String} id Unique identifier for a templated PA component
      * @param {module:model/TemplatedPAComponentUpdateParametersRoot} templatedPAComponentUpdateParametersRoot Request Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TemplatedPAComponentPostSummaryRoot} and HTTP response
@@ -262,7 +274,10 @@ export default class TemplatedPAComponentsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = TemplatedPAComponentPostSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/templated-components/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -272,10 +287,10 @@ export default class TemplatedPAComponentsApi {
 
     /**
      * Update templated PA component
-     * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+     * This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
      * @param {String} id Unique identifier for a templated PA component
      * @param {module:model/TemplatedPAComponentUpdateParametersRoot} templatedPAComponentUpdateParametersRoot Request Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TemplatedPAComponentPostSummaryRoot}
+     * @return { Promise.< module:model/TemplatedPAComponentPostSummaryRoot > } a Promise, with data of type {@link module:model/TemplatedPAComponentPostSummaryRoot }
      */
     updateTemplatedPAComponents(id, templatedPAComponentUpdateParametersRoot) {
       return this.updateTemplatedPAComponentsWithHttpInfo(id, templatedPAComponentUpdateParametersRoot)
@@ -286,3 +301,8 @@ export default class TemplatedPAComponentsApi {
 
 
 }
+
+
+
+
+

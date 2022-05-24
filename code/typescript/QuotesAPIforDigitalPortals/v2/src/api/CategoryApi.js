@@ -28,7 +28,7 @@ import InlineResponse20041 from '../model/InlineResponse20041';
 /**
 * Category service.
 * @module api/CategoryApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class CategoryApi {
 
@@ -71,7 +71,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20035;
+
       return this.apiClient.callApi(
         '/category/dataset/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -85,7 +88,7 @@ export default class CategoryApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20035}
+     * @return { Promise.< module:model/InlineResponse20035 > } a Promise, with data of type {@link module:model/InlineResponse20035 }
      */
     getCategoryDatasetList(opts) {
       return this.getCategoryDatasetListWithHttpInfo(opts)
@@ -127,7 +130,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20031;
+
       return this.apiClient.callApi(
         '/category/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -142,7 +148,7 @@ export default class CategoryApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20031}
+     * @return { Promise.< module:model/InlineResponse20031 > } a Promise, with data of type {@link module:model/InlineResponse20031 }
      */
     getCategoryGet(id, opts) {
       return this.getCategoryGetWithHttpInfo(id, opts)
@@ -192,7 +198,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20036;
+
       return this.apiClient.callApi(
         '/category/instrument/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -209,7 +218,7 @@ export default class CategoryApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20036}
+     * @return { Promise.< module:model/InlineResponse20036 > } a Promise, with data of type {@link module:model/InlineResponse20036 }
      */
     getCategoryInstrumentList(idCategory, idCategoryDataset, opts) {
       return this.getCategoryInstrumentListWithHttpInfo(idCategory, idCategoryDataset, opts)
@@ -251,7 +260,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20037;
+
       return this.apiClient.callApi(
         '/category/level/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -266,7 +278,7 @@ export default class CategoryApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20037}
+     * @return { Promise.< module:model/InlineResponse20037 > } a Promise, with data of type {@link module:model/InlineResponse20037 }
      */
     getCategoryLevelGet(id, opts) {
       return this.getCategoryLevelGetWithHttpInfo(id, opts)
@@ -308,7 +320,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20032;
+
       return this.apiClient.callApi(
         '/category/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -323,7 +338,7 @@ export default class CategoryApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20032}
+     * @return { Promise.< module:model/InlineResponse20032 > } a Promise, with data of type {@link module:model/InlineResponse20032 }
      */
     getCategoryList(ids, opts) {
       return this.getCategoryListWithHttpInfo(ids, opts)
@@ -369,7 +384,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20033;
+
       return this.apiClient.callApi(
         '/category/listByLevel', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -386,7 +404,7 @@ export default class CategoryApi {
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20033}
+     * @return { Promise.< module:model/InlineResponse20033 > } a Promise, with data of type {@link module:model/InlineResponse20033 }
      */
     getCategoryListByLevel(id, opts) {
       return this.getCategoryListByLevelWithHttpInfo(id, opts)
@@ -432,7 +450,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20034;
+
       return this.apiClient.callApi(
         '/category/listBySystem', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -449,7 +470,7 @@ export default class CategoryApi {
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20034}
+     * @return { Promise.< module:model/InlineResponse20034 > } a Promise, with data of type {@link module:model/InlineResponse20034 }
      */
     getCategoryListBySystem(id, opts) {
       return this.getCategoryListBySystemWithHttpInfo(id, opts)
@@ -491,7 +512,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20038;
+
       return this.apiClient.callApi(
         '/category/path/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -506,7 +530,7 @@ export default class CategoryApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20038}
+     * @return { Promise.< module:model/InlineResponse20038 > } a Promise, with data of type {@link module:model/InlineResponse20038 }
      */
     getCategoryPathGet(id, opts) {
       return this.getCategoryPathGetWithHttpInfo(id, opts)
@@ -548,7 +572,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20039;
+
       return this.apiClient.callApi(
         '/category/system/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -563,7 +590,7 @@ export default class CategoryApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20039}
+     * @return { Promise.< module:model/InlineResponse20039 > } a Promise, with data of type {@link module:model/InlineResponse20039 }
      */
     getCategorySystemGet(id, opts) {
       return this.getCategorySystemGetWithHttpInfo(id, opts)
@@ -601,7 +628,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20040;
+
       return this.apiClient.callApi(
         '/category/system/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -616,7 +646,7 @@ export default class CategoryApi {
      * @param {Number} opts.idType Filter for a specific category system type. See endpoint `/category/system/type/list` for valid values.
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20040}
+     * @return { Promise.< module:model/InlineResponse20040 > } a Promise, with data of type {@link module:model/InlineResponse20040 }
      */
     getCategorySystemList(opts) {
       return this.getCategorySystemListWithHttpInfo(opts)
@@ -652,7 +682,10 @@ export default class CategoryApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20041;
+
       return this.apiClient.callApi(
         '/category/system/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -666,7 +699,7 @@ export default class CategoryApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20041}
+     * @return { Promise.< module:model/InlineResponse20041 > } a Promise, with data of type {@link module:model/InlineResponse20041 }
      */
     getCategorySystemTypeList(opts) {
       return this.getCategorySystemTypeListWithHttpInfo(opts)
@@ -677,3 +710,8 @@ export default class CategoryApi {
 
 
 }
+
+
+
+
+

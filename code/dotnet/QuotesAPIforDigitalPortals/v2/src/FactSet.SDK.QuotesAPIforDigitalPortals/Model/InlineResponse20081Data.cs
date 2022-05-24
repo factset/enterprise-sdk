@@ -120,7 +120,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20081Data {\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
@@ -159,8 +159,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20081Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ValueUnit == input.ValueUnit ||
@@ -203,16 +204,26 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Bid != null)
-                    hashCode = hashCode * 59 + this.Bid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Bid.GetHashCode();
+                }
                 if (this.Ask != null)
-                    hashCode = hashCode * 59 + this.Ask.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ask.GetHashCode();
+                }
                 return hashCode;
             }
         }

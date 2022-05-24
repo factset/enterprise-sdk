@@ -43,42 +43,36 @@ public class InlineResponse20011 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.Set<InlineResponse20011Data> data = null;
+  private InlineResponse20011Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
 
+  public InlineResponse20011() { 
+  }
 
-  public InlineResponse20011 data(java.util.Set<InlineResponse20011Data> data) {
+  public InlineResponse20011 data(InlineResponse20011Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse20011 addDataItem(InlineResponse20011Data dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.LinkedHashSet<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * List of class geographies.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of class geographies.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.Set<InlineResponse20011Data> getData() {
+  public InlineResponse20011Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.Set<InlineResponse20011Data> data) {
+  public void setData(InlineResponse20011Data data) {
     this.data = data;
   }
 

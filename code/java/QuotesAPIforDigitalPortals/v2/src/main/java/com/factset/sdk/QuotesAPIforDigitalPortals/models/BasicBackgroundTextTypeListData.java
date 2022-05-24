@@ -44,6 +44,8 @@ public class BasicBackgroundTextTypeListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private BasicBackgroundTextTypeListDataFilter filter;
 
+  public BasicBackgroundTextTypeListData() { 
+  }
 
   public BasicBackgroundTextTypeListData filter(BasicBackgroundTextTypeListDataFilter filter) {
     this.filter = filter;

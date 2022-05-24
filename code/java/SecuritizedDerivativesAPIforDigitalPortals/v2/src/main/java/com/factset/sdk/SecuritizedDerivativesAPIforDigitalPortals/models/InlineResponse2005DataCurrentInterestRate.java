@@ -49,6 +49,8 @@ public class InlineResponse2005DataCurrentInterestRate implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private InlineResponse2005DataCurrentInterestRateValue value;
 
+  public InlineResponse2005DataCurrentInterestRate() { 
+  }
 
   public InlineResponse2005DataCurrentInterestRate types(java.util.List<InlineResponse2005DataCurrentInterestRateTypes> types) {
     this.types = types;

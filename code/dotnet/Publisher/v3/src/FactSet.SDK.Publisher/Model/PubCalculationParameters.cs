@@ -87,7 +87,7 @@ namespace FactSet.SDK.Publisher.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PubCalculationParameters {\n");
             sb.Append("  Document: ").Append(Document).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
@@ -123,8 +123,9 @@ namespace FactSet.SDK.Publisher.Model
         public bool Equals(PubCalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Document == input.Document ||
@@ -153,11 +154,17 @@ namespace FactSet.SDK.Publisher.Model
             {
                 int hashCode = 41;
                 if (this.Document != null)
-                    hashCode = hashCode * 59 + this.Document.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Document.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
                 return hashCode;
             }
         }

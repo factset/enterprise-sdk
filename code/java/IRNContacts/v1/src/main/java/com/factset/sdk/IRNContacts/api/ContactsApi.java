@@ -7,12 +7,16 @@ import com.factset.sdk.IRNContacts.Configuration;
 import com.factset.sdk.IRNContacts.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IRNContacts.models.ContactDto;
 import com.factset.sdk.IRNContacts.models.ContactEventDto;
 import com.factset.sdk.IRNContacts.models.ContactRelationshipDto;
 import com.factset.sdk.IRNContacts.models.ContactSaveDto;
 import com.factset.sdk.IRNContacts.models.ContactSummaryDto;
+import com.factset.sdk.IRNContacts.models.NewItemDto;
 import com.factset.sdk.IRNContacts.models.Operation;
 import com.factset.sdk.IRNContacts.models.ProblemDetails;
 import com.factset.sdk.IRNContacts.models.RecordPreviewDto;
@@ -28,6 +32,52 @@ public class ContactsApi {
   public ContactsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createContactResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createContactResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
+    createContactResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    createContactResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> deleteContactResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getContactResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getContactResponseTypeMap.put(200, new GenericType<ContactDto>(){});
+    getContactResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getContactResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getContactEventsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getContactEventsResponseTypeMap.put(200, new GenericType<java.util.List<ContactEventDto>>(){});
+    getContactEventsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getContactEventsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getContactNotesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getContactNotesResponseTypeMap.put(200, new GenericType<String>(){});
+    getContactNotesResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getContactNotesResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getContactRecordsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getContactRecordsResponseTypeMap.put(200, new GenericType<java.util.List<RecordPreviewDto>>(){});
+    getContactRecordsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getContactRecordsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getContactRelationshipsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getContactRelationshipsResponseTypeMap.put(200, new GenericType<java.util.List<ContactRelationshipDto>>(){});
+    getContactRelationshipsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getContactRelationshipsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> getContactsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getContactsResponseTypeMap.put(200, new GenericType<java.util.List<ContactSummaryDto>>(){});
+  }
+  private static final Map<Integer, GenericType> patchContactResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -48,48 +98,42 @@ public class ContactsApi {
   }
 
   /**
-   * Get the About field content for a specific contact
+   * Create a contact
    * 
-   * @param contactId contactId of associated record (required)
-   * @return String
+   * @param contactSaveDto contactSaveDto object to save (optional)
+   * @return NewItemDto
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public String v1ContactsContactIdAboutGet(java.util.UUID contactId) throws ApiException {
-    return v1ContactsContactIdAboutGetWithHttpInfo(contactId).getData();
+  public NewItemDto createContact(ContactSaveDto contactSaveDto) throws ApiException {
+    return createContactWithHttpInfo(contactSaveDto).getData();
   }
 
   /**
-   * Get the About field content for a specific contact
+   * Create a contact
    * 
-   * @param contactId contactId of associated record (required)
-   * @return ApiResponse&lt;String&gt;
+   * @param contactSaveDto contactSaveDto object to save (optional)
+   * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> v1ContactsContactIdAboutGetWithHttpInfo(java.util.UUID contactId) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'contactId' is set
-    if (contactId == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactId' when calling v1ContactsContactIdAboutGet");
-    }
+  public ApiResponse<NewItemDto> createContactWithHttpInfo(ContactSaveDto contactSaveDto) throws ApiException {
+    Object localVarPostBody = contactSaveDto;
     
     // create path and map variables
-    String localVarPath = "/v1/contacts/{contactId}/about"
-      .replaceAll("\\{" + "contactId" + "\\}", apiClient.escapeString(contactId.toString()));
+    String localVarPath = "/v1/contacts";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -107,17 +151,23 @@ public class ContactsApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      
+      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsContactIdAboutGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        NewItemDto
+      
+    > apiResponse = apiClient.invokeAPI("ContactsApi.createContact", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createContactResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete a contact
@@ -133,8 +183,8 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public void v1ContactsContactIdDelete(java.util.UUID contactId) throws ApiException {
-    v1ContactsContactIdDeleteWithHttpInfo(contactId);
+  public void deleteContact(java.util.UUID contactId) throws ApiException {
+    deleteContactWithHttpInfo(contactId);
   }
 
   /**
@@ -152,12 +202,12 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> v1ContactsContactIdDeleteWithHttpInfo(java.util.UUID contactId) throws ApiException {
+  public ApiResponse<Void> deleteContactWithHttpInfo(java.util.UUID contactId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'contactId' is set
     if (contactId == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactId' when calling v1ContactsContactIdDelete");
+      throw new ApiException(400, "Missing the required parameter 'contactId' when calling deleteContact");
     }
     
     // create path and map variables
@@ -186,15 +236,21 @@ public class ContactsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsContactIdDelete", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("ContactsApi.deleteContact", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteContactResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
-   * Get a contact’s audit history
+   * Get all custom field and standard field details on a specific contact
    * 
-   * @param contactId contactId to get associated records (required)
-   * @return java.util.List&lt;ContactEventDto&gt;
+   * @param contactId contactId to get associated record (required)
+   * @return ContactDto
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -204,15 +260,93 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<ContactEventDto> v1ContactsContactIdEventsGet(java.util.UUID contactId) throws ApiException {
-    return v1ContactsContactIdEventsGetWithHttpInfo(contactId).getData();
+  public ContactDto getContact(java.util.UUID contactId) throws ApiException {
+    return getContactWithHttpInfo(contactId).getData();
+  }
+
+  /**
+   * Get all custom field and standard field details on a specific contact
+   * 
+   * @param contactId contactId to get associated record (required)
+   * @return ApiResponse&lt;ContactDto&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ContactDto> getContactWithHttpInfo(java.util.UUID contactId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'contactId' is set
+    if (contactId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contactId' when calling getContact");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/v1/contacts/{contactId}"
+      .replaceAll("\\{" + "contactId" + "\\}", apiClient.escapeString(contactId.toString()));
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        ContactDto
+      
+    > apiResponse = apiClient.invokeAPI("ContactsApi.getContact", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getContactResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Get a contact’s audit history
+   * 
+   * @param contactId contactId to get associated records (required)
+   * @return java.util.List<ContactEventDto>
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public java.util.List<ContactEventDto> getContactEvents(java.util.UUID contactId) throws ApiException {
+    return getContactEventsWithHttpInfo(contactId).getData();
   }
 
   /**
    * Get a contact’s audit history
    * 
    * @param contactId contactId to get associated records (required)
-   * @return ApiResponse&lt;java.util.List&lt;ContactEventDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<ContactEventDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -222,12 +356,12 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<ContactEventDto>> v1ContactsContactIdEventsGetWithHttpInfo(java.util.UUID contactId) throws ApiException {
+  public ApiResponse<java.util.List<ContactEventDto>> getContactEventsWithHttpInfo(java.util.UUID contactId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'contactId' is set
     if (contactId == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactId' when calling v1ContactsContactIdEventsGet");
+      throw new ApiException(400, "Missing the required parameter 'contactId' when calling getContactEvents");
     }
     
     // create path and map variables
@@ -256,17 +390,23 @@ public class ContactsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<ContactEventDto>> localVarReturnType = new GenericType<java.util.List<ContactEventDto>>() {};
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsContactIdEventsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<ContactEventDto>
+      
+    > apiResponse = apiClient.invokeAPI("ContactsApi.getContactEvents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getContactEventsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
-   * Get all custom field and standard field details on a specific contact
+   * Get the About field content for a specific contact
    * 
-   * @param contactId contactId to get associated record (required)
-   * @return ContactDto
+   * @param contactId contactId of associated record (required)
+   * @return String
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -276,15 +416,15 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ContactDto v1ContactsContactIdGet(java.util.UUID contactId) throws ApiException {
-    return v1ContactsContactIdGetWithHttpInfo(contactId).getData();
+  public String getContactNotes(java.util.UUID contactId) throws ApiException {
+    return getContactNotesWithHttpInfo(contactId).getData();
   }
 
   /**
-   * Get all custom field and standard field details on a specific contact
+   * Get the About field content for a specific contact
    * 
-   * @param contactId contactId to get associated record (required)
-   * @return ApiResponse&lt;ContactDto&gt;
+   * @param contactId contactId of associated record (required)
+   * @return ApiResponse&lt;String&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -294,16 +434,16 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ContactDto> v1ContactsContactIdGetWithHttpInfo(java.util.UUID contactId) throws ApiException {
+  public ApiResponse<String> getContactNotesWithHttpInfo(java.util.UUID contactId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'contactId' is set
     if (contactId == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactId' when calling v1ContactsContactIdGet");
+      throw new ApiException(400, "Missing the required parameter 'contactId' when calling getContactNotes");
     }
     
     // create path and map variables
-    String localVarPath = "/v1/contacts/{contactId}"
+    String localVarPath = "/v1/contacts/{contactId}/about"
       .replaceAll("\\{" + "contactId" + "\\}", apiClient.escapeString(contactId.toString()));
 
     // query params
@@ -328,90 +468,23 @@ public class ContactsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ContactDto> localVarReturnType = new GenericType<ContactDto>() {};
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsContactIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        String
+      
+    > apiResponse = apiClient.invokeAPI("ContactsApi.getContactNotes", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Edit a contact’s standard field and custom field data
-   * 
-   * @param contactId contactId to update associated record (required)
-   * @param operation contactSaveDtoPatch object to update (optional)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public void v1ContactsContactIdPatch(java.util.UUID contactId, java.util.List<Operation> operation) throws ApiException {
-    v1ContactsContactIdPatchWithHttpInfo(contactId, operation);
-  }
+                               localVarAuthNames, getContactNotesResponseTypeMap, false);
 
-  /**
-   * Edit a contact’s standard field and custom field data
-   * 
-   * @param contactId contactId to update associated record (required)
-   * @param operation contactSaveDtoPatch object to update (optional)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-       <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> v1ContactsContactIdPatchWithHttpInfo(java.util.UUID contactId, java.util.List<Operation> operation) throws ApiException {
-    Object localVarPostBody = operation;
-    
-    // verify the required parameter 'contactId' is set
-    if (contactId == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactId' when calling v1ContactsContactIdPatch");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/v1/contacts/{contactId}"
-      .replaceAll("\\{" + "contactId" + "\\}", apiClient.escapeString(contactId.toString()));
+    return apiResponse;
 
-    // query params
-    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
-    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
-    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json-patch+json", "application/json", "text/json", "application/_*+json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
-
-    return apiClient.invokeAPI("ContactsApi.v1ContactsContactIdPatch", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
   }
   /**
    * Get all notes and meetings where a specific contact was tagged
    * 
    * @param contactId contactId to get associated records (required)
-   * @return java.util.List&lt;RecordPreviewDto&gt;
+   * @return java.util.List<RecordPreviewDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -421,15 +494,15 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<RecordPreviewDto> v1ContactsContactIdRecordsGet(java.util.UUID contactId) throws ApiException {
-    return v1ContactsContactIdRecordsGetWithHttpInfo(contactId).getData();
+  public java.util.List<RecordPreviewDto> getContactRecords(java.util.UUID contactId) throws ApiException {
+    return getContactRecordsWithHttpInfo(contactId).getData();
   }
 
   /**
    * Get all notes and meetings where a specific contact was tagged
    * 
    * @param contactId contactId to get associated records (required)
-   * @return ApiResponse&lt;java.util.List&lt;RecordPreviewDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<RecordPreviewDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -439,12 +512,12 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<RecordPreviewDto>> v1ContactsContactIdRecordsGetWithHttpInfo(java.util.UUID contactId) throws ApiException {
+  public ApiResponse<java.util.List<RecordPreviewDto>> getContactRecordsWithHttpInfo(java.util.UUID contactId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'contactId' is set
     if (contactId == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactId' when calling v1ContactsContactIdRecordsGet");
+      throw new ApiException(400, "Missing the required parameter 'contactId' when calling getContactRecords");
     }
     
     // create path and map variables
@@ -473,17 +546,23 @@ public class ContactsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<RecordPreviewDto>> localVarReturnType = new GenericType<java.util.List<RecordPreviewDto>>() {};
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsContactIdRecordsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<RecordPreviewDto>
+      
+    > apiResponse = apiClient.invokeAPI("ContactsApi.getContactRecords", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getContactRecordsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns a list of a contact’s relationships
    * 
    * @param contactId contactId to get associated records (required)
-   * @return java.util.List&lt;ContactRelationshipDto&gt;
+   * @return java.util.List<ContactRelationshipDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -493,15 +572,15 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<ContactRelationshipDto> v1ContactsContactIdRelationshipsGet(java.util.UUID contactId) throws ApiException {
-    return v1ContactsContactIdRelationshipsGetWithHttpInfo(contactId).getData();
+  public java.util.List<ContactRelationshipDto> getContactRelationships(java.util.UUID contactId) throws ApiException {
+    return getContactRelationshipsWithHttpInfo(contactId).getData();
   }
 
   /**
    * Returns a list of a contact’s relationships
    * 
    * @param contactId contactId to get associated records (required)
-   * @return ApiResponse&lt;java.util.List&lt;ContactRelationshipDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<ContactRelationshipDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -511,12 +590,12 @@ public class ContactsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<ContactRelationshipDto>> v1ContactsContactIdRelationshipsGetWithHttpInfo(java.util.UUID contactId) throws ApiException {
+  public ApiResponse<java.util.List<ContactRelationshipDto>> getContactRelationshipsWithHttpInfo(java.util.UUID contactId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'contactId' is set
     if (contactId == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactId' when calling v1ContactsContactIdRelationshipsGet");
+      throw new ApiException(400, "Missing the required parameter 'contactId' when calling getContactRelationships");
     }
     
     // create path and map variables
@@ -545,11 +624,17 @@ public class ContactsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<ContactRelationshipDto>> localVarReturnType = new GenericType<java.util.List<ContactRelationshipDto>>() {};
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsContactIdRelationshipsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<ContactRelationshipDto>
+      
+    > apiResponse = apiClient.invokeAPI("ContactsApi.getContactRelationships", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getContactRelationshipsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get list of all contacts in your group along with some of their standard field data
@@ -563,7 +648,7 @@ public class ContactsApi {
    * @param sort  (optional)
    * @param includeLastMeetingDate If true, returns when they were last tagged as an attendee in an IRN meeting (optional, default to false)
    * @param limit Restrict number of records returned (optional, default to 0)
-   * @return java.util.List&lt;ContactSummaryDto&gt;
+   * @return java.util.List<ContactSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -571,8 +656,8 @@ public class ContactsApi {
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.List<ContactSummaryDto> v1ContactsGet(String fullName, String emailAddress, String identifier, String employerName, Boolean customFieldValues, String search, String sort, Boolean includeLastMeetingDate, Integer limit) throws ApiException {
-    return v1ContactsGetWithHttpInfo(fullName, emailAddress, identifier, employerName, customFieldValues, search, sort, includeLastMeetingDate, limit).getData();
+  public java.util.List<ContactSummaryDto> getContacts(String fullName, String emailAddress, String identifier, String employerName, Boolean customFieldValues, String search, String sort, Boolean includeLastMeetingDate, Integer limit) throws ApiException {
+    return getContactsWithHttpInfo(fullName, emailAddress, identifier, employerName, customFieldValues, search, sort, includeLastMeetingDate, limit).getData();
   }
 
   /**
@@ -587,7 +672,7 @@ public class ContactsApi {
    * @param sort  (optional)
    * @param includeLastMeetingDate If true, returns when they were last tagged as an attendee in an IRN meeting (optional, default to false)
    * @param limit Restrict number of records returned (optional, default to 0)
-   * @return ApiResponse&lt;java.util.List&lt;ContactSummaryDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<ContactSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -595,7 +680,7 @@ public class ContactsApi {
        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.List<ContactSummaryDto>> v1ContactsGetWithHttpInfo(String fullName, String emailAddress, String identifier, String employerName, Boolean customFieldValues, String search, String sort, Boolean includeLastMeetingDate, Integer limit) throws ApiException {
+  public ApiResponse<java.util.List<ContactSummaryDto>> getContactsWithHttpInfo(String fullName, String emailAddress, String identifier, String employerName, Boolean customFieldValues, String search, String sort, Boolean includeLastMeetingDate, Integer limit) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -632,49 +717,64 @@ public class ContactsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<ContactSummaryDto>> localVarReturnType = new GenericType<java.util.List<ContactSummaryDto>>() {};
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<ContactSummaryDto>
+      
+    > apiResponse = apiClient.invokeAPI("ContactsApi.getContacts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getContactsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
-   * Create a contact
+   * Edit a contact’s standard field and custom field data
    * 
-   * @param contactSaveDto contactSaveDto object to save (optional)
-   * @return java.util.UUID
+   * @param contactId contactId to update associated record (required)
+   * @param operation contactSaveDtoPatch object to update (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public java.util.UUID v1ContactsPost(ContactSaveDto contactSaveDto) throws ApiException {
-    return v1ContactsPostWithHttpInfo(contactSaveDto).getData();
+  public void patchContact(java.util.UUID contactId, java.util.List<Operation> operation) throws ApiException {
+    patchContactWithHttpInfo(contactId, operation);
   }
 
   /**
-   * Create a contact
+   * Edit a contact’s standard field and custom field data
    * 
-   * @param contactSaveDto contactSaveDto object to save (optional)
-   * @return ApiResponse&lt;java.util.UUID&gt;
+   * @param contactId contactId to update associated record (required)
+   * @param operation contactSaveDtoPatch object to update (optional)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Success </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<java.util.UUID> v1ContactsPostWithHttpInfo(ContactSaveDto contactSaveDto) throws ApiException {
-    Object localVarPostBody = contactSaveDto;
+  public ApiResponse<Void> patchContactWithHttpInfo(java.util.UUID contactId, java.util.List<Operation> operation) throws ApiException {
+    Object localVarPostBody = operation;
+    
+    // verify the required parameter 'contactId' is set
+    if (contactId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contactId' when calling patchContact");
+    }
     
     // create path and map variables
-    String localVarPath = "/v1/contacts";
+    String localVarPath = "/v1/contacts/{contactId}"
+      .replaceAll("\\{" + "contactId" + "\\}", apiClient.escapeString(contactId.toString()));
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -698,10 +798,14 @@ public class ContactsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.UUID> localVarReturnType = new GenericType<java.util.UUID>() {};
 
-    return apiClient.invokeAPI("ContactsApi.v1ContactsPost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("ContactsApi.patchContact", localVarPath, "PATCH", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, patchContactResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

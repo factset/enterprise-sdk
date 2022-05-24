@@ -44,6 +44,8 @@ public class BloombergTranslationResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<BloombergTranslation> data = null;
 
+  public BloombergTranslationResponse() { 
+  }
 
   public BloombergTranslationResponse data(java.util.List<BloombergTranslation> data) {
     this.data = data;

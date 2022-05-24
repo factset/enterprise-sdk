@@ -124,6 +124,8 @@ public class InlineResponse2005DataKeyFigures implements Serializable {
   public static final String JSON_PROPERTY_PARITY = "parity";
   private InlineResponse2005DataKeyFiguresParity parity;
 
+  public InlineResponse2005DataKeyFigures() { 
+  }
 
   public InlineResponse2005DataKeyFigures bonusYield(InlineResponse2005DataKeyFiguresBonusYield bonusYield) {
     this.bonusYield = bonusYield;

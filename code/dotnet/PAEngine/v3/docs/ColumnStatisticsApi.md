@@ -72,7 +72,6 @@ namespace Example
 This endpoint does not need any parameter.
 
 ### Return type
-
 [**ColumnStatisticRoot**](ColumnStatisticRoot.md)
 
 ### Authorization

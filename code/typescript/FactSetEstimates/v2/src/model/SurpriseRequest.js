@@ -19,7 +19,7 @@ import Statistic from './Statistic';
 /**
  * The SurpriseRequest model module.
  * @module model/SurpriseRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SurpriseRequest {
     /**

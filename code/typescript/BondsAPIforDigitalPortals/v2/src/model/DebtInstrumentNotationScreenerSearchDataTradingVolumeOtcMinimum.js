@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemai
 /**
  * The DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum {
     /**

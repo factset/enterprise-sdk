@@ -48,6 +48,8 @@ public class InlineResponse20060LegalEntitiesBackgroundTexts implements Serializ
   public static final String JSON_PROPERTY_BODY = "body";
   private String body;
 
+  public InlineResponse20060LegalEntitiesBackgroundTexts() { 
+  }
 
   public InlineResponse20060LegalEntitiesBackgroundTexts type(InlineResponse20060LegalEntitiesBackgroundTextsType type) {
     this.type = type;

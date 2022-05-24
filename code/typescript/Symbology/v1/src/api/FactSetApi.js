@@ -20,7 +20,7 @@ import FactsetTranslationResponse from '../model/FactsetTranslationResponse';
 /**
 * FactSet service.
 * @module api/FactSetApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class FactSetApi {
 
@@ -62,7 +62,10 @@ export default class FactSetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = FactsetTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/factset', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +77,7 @@ export default class FactSetApi {
      * Translate market security symbols into FactSet Permanent Identifiers.
      * Translate market security symbols into FactSet Permanent Security Identifiers. The permanent identifier provides a unique record key and a convenient way to link across content sets. Additionally, if your firm does not have licenses for the symbol systems (e.g., CUSIP, SEDOL, ISIN), the permanent identifier provides a way to deliver security and listing-level data.
      * @param {module:model/FactsetTranslationRequest} factsetTranslationRequest Request Body for FactSet Symbology Translation
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FactsetTranslationResponse}
+     * @return { Promise.< module:model/FactsetTranslationResponse > } a Promise, with data of type {@link module:model/FactsetTranslationResponse }
      */
     batchTranslateFactset(factsetTranslationRequest) {
       return this.batchTranslateFactsetWithHttpInfo(factsetTranslationRequest)
@@ -110,7 +113,10 @@ export default class FactSetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FactsetTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/factset', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class FactSetApi {
      * Translate market security symbols into FactSet Permanent Identifiers.
      * Translate market security symbols into FactSet Permanent Security Identifiers. The permanent identifier provides a unique record key and a convenient way to link across content sets. Additionally, if your firm does not have licenses for the symbol systems (e.g., CUSIP, SEDOL, ISIN), the permanent identifier provides a way to deliver security and listing-level data. <p>*GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it's advised to use POST method to retrieve the same response model.*</P><p>**This endpoint is included with all other Content API packages.**</p>
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FactsetTranslationResponse}
+     * @return { Promise.< module:model/FactsetTranslationResponse > } a Promise, with data of type {@link module:model/FactsetTranslationResponse }
      */
     translateFactset(ids) {
       return this.translateFactsetWithHttpInfo(ids)
@@ -133,3 +139,8 @@ export default class FactSetApi {
 
 
 }
+
+
+
+
+

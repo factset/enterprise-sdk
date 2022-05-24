@@ -122,6 +122,7 @@ const id = "id_example"; // String | from url, provided from the location header
 // Call api endpoint
 apiInstance.getCalculationParameters(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -193,6 +194,7 @@ const id = "id_example"; // String | from url, provided from the location header
 // Call api endpoint
 apiInstance.getCalculationStatusById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -265,6 +267,7 @@ const unitId = "unitId_example"; // String | from url, provided from the locatio
 // Call api endpoint
 apiInstance.getCalculationUnitResultById(id, unitId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -304,7 +307,7 @@ Name | Type | Description  | Notes
 
 Create and Run PA calculation
 
-This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -341,8 +344,27 @@ const opts = {
 // Call api endpoint
 apiInstance.postAndCalculate(opts).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: PostAndCalculateResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // CalculationStatusRoot
+             console.log(data.getResponse200());
+             break;
+
+          case 201:
+             // ObjectRoot
+             console.log(data.getResponse201());
+             break;
+
+          case 202:
+             // CalculationStatusRoot
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -381,7 +403,7 @@ Name | Type | Description  | Notes
 
 Create or Update PA calculation and run it.
 
-This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -419,8 +441,27 @@ const opts = {
 // Call api endpoint
 apiInstance.putAndCalculate(id, opts).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: PutAndCalculateResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // CalculationStatusRoot
+             console.log(data.getResponse200());
+             break;
+
+          case 201:
+             // ObjectRoot
+             console.log(data.getResponse201());
+             break;
+
+          case 202:
+             // CalculationStatusRoot
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

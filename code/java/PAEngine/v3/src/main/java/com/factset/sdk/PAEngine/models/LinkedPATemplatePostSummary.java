@@ -54,6 +54,8 @@ public class LinkedPATemplatePostSummary implements Serializable {
   public static final String JSON_PROPERTY_PARENT_COMPONENT_ID = "parentComponentId";
   private String parentComponentId;
 
+  public LinkedPATemplatePostSummary() { 
+  }
 
   public LinkedPATemplatePostSummary id(String id) {
     this.id = id;

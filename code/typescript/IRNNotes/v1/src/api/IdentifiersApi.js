@@ -13,13 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
-import IdentifierResolutionDto from '../model/IdentifierResolutionDto';
 import ProblemDetails from '../model/ProblemDetails';
 
 /**
 * Identifiers service.
 * @module api/IdentifiersApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class IdentifiersApi {
 
@@ -40,7 +39,7 @@ export default class IdentifiersApi {
      * Get all the identifier details for given identifiers
      * @param {Object} opts Optional parameters
      * @param {String} opts.identifiers Identifiers
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/IdentifierResolutionDto>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
      */
     getIdentifiersWithHttpInfo(opts) {
       opts = opts || {};
@@ -59,7 +58,10 @@ export default class IdentifiersApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [IdentifierResolutionDto];
+
+
+      let returnType = [Object];
+
       return this.apiClient.callApi(
         '/v1/identifiers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -71,7 +73,7 @@ export default class IdentifiersApi {
      * Get all the identifier details for given identifiers
      * @param {Object} opts Optional parameters
      * @param {String} opts.identifiers Identifiers
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/IdentifierResolutionDto>}
+     * @return { Promise.< Array.<Object> > } a Promise, with data of type {@link Array.<Object> }
      */
     getIdentifiers(opts) {
       return this.getIdentifiersWithHttpInfo(opts)
@@ -82,3 +84,8 @@ export default class IdentifiersApi {
 
 
 }
+
+
+
+
+

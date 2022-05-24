@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Error from './model/Error';
 import EventsAudio from './model/EventsAudio';
@@ -21,6 +20,7 @@ import EventsAudio400ResponseDetailsValidParameters from './model/EventsAudio400
 import EventsAudioData from './model/EventsAudioData';
 import EventsAudioMeta from './model/EventsAudioMeta';
 import EventsAudioMetaPagination from './model/EventsAudioMetaPagination';
+import IndexedNRT from './model/IndexedNRT';
 import NRTCalls from './model/NRTCalls';
 import NRTCalls400Response from './model/NRTCalls400Response';
 import NRTCalls400ResponseDetails from './model/NRTCalls400ResponseDetails';
@@ -35,8 +35,8 @@ import NRTSnippetsData from './model/NRTSnippetsData';
 import NRTSnippetsMeta from './model/NRTSnippetsMeta';
 import NRTSnippetsMetaPagination from './model/NRTSnippetsMetaPagination';
 import NRTSnippetsMetaPartial from './model/NRTSnippetsMetaPartial';
-import NRTSnippetsMetadata from './model/NRTSnippetsMetadata';
 import NRTSnippetsSnippetData from './model/NRTSnippetsSnippetData';
+import NRTSnippetsTranscriptData from './model/NRTSnippetsTranscriptData';
 import NRTSpeakerids from './model/NRTSpeakerids';
 import NRTSpeakerids400Response from './model/NRTSpeakerids400Response';
 import NRTSpeakerids400ResponseDetails from './model/NRTSpeakerids400ResponseDetails';
@@ -44,6 +44,7 @@ import NRTSpeakerids400ResponseDetailsValidParameters from './model/NRTSpeakerid
 import NRTSpeakeridsData from './model/NRTSpeakeridsData';
 import NRTSpeakeridsMeta from './model/NRTSpeakeridsMeta';
 import NRTSpeakeridsMetaPagination from './model/NRTSpeakeridsMetaPagination';
+
 import EventsAudioApi from './api/EventsAudioApi';
 import NearRealTimeTranscriptsApi from './api/NearRealTimeTranscriptsApi';
 
@@ -77,7 +78,7 @@ import NearRealTimeTranscriptsApi from './api/NearRealTimeTranscriptsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -133,6 +134,12 @@ export {
      * @property {module:model/EventsAudioMetaPagination}
      */
     EventsAudioMetaPagination,
+
+    /**
+     * The IndexedNRT model constructor.
+     * @property {module:model/IndexedNRT}
+     */
+    IndexedNRT,
 
     /**
      * The NRTCalls model constructor.
@@ -219,16 +226,16 @@ export {
     NRTSnippetsMetaPartial,
 
     /**
-     * The NRTSnippetsMetadata model constructor.
-     * @property {module:model/NRTSnippetsMetadata}
-     */
-    NRTSnippetsMetadata,
-
-    /**
      * The NRTSnippetsSnippetData model constructor.
      * @property {module:model/NRTSnippetsSnippetData}
      */
     NRTSnippetsSnippetData,
+
+    /**
+     * The NRTSnippetsTranscriptData model constructor.
+     * @property {module:model/NRTSnippetsTranscriptData}
+     */
+    NRTSnippetsTranscriptData,
 
     /**
      * The NRTSpeakerids model constructor.
@@ -282,5 +289,6 @@ export {
     * The NearRealTimeTranscriptsApi service constructor.
     * @property {module:api/NearRealTimeTranscriptsApi}
     */
-    NearRealTimeTranscriptsApi
+    NearRealTimeTranscriptsApi,
+
 };

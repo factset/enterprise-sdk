@@ -96,7 +96,7 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class GetFilesResponse {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Request: ").Append(Request).Append("\n");
@@ -135,8 +135,9 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         public bool Equals(GetFilesResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -182,17 +183,29 @@ namespace FactSet.SDK.FactSetTickHistory.Model
             {
                 int hashCode = 41;
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Request != null)
-                    hashCode = hashCode * 59 + this.Request.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Request.GetHashCode();
+                }
                 if (this.RequestTimestamp != null)
-                    hashCode = hashCode * 59 + this.RequestTimestamp.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestTimestamp.GetHashCode();
+                }
                 if (this.UpdateTimestamp != null)
-                    hashCode = hashCode * 59 + this.UpdateTimestamp.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpdateTimestamp.GetHashCode();
+                }
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }

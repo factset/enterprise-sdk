@@ -20,7 +20,7 @@ import MetricsResponse from '../model/MetricsResponse';
 /**
 * DataItems service.
 * @module api/DataItemsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class DataItemsApi {
 
@@ -63,7 +63,10 @@ export default class DataItemsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = MetricsResponse;
+
       return this.apiClient.callApi(
         '/factset-fundamentals/v1/metrics', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -77,7 +80,7 @@ export default class DataItemsApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.category Filters the list of FF_* metrics by major category -   * **INCOME_STATEMENT** = Income Statement line items, such as Sales, Gross Profit, Net Income.   * **BALANCE_SHEET** = Balance Sheet line items, such as Assets, Liabilities, and Shareholders Equity.   * **CASH_FLOW** = Cash Flow Statement line items, such as Financing activities, Operation, and Per Share.   * **RATIOS** = Pre-calculated Ratios, including Financial, Growth Rates, Profitability, Liquidity, Size, and Valuation.   * **FINANCIAL_SERVICES** = Financial Statement Items modified for Financial Services companies.   * **INDUSTRY_METRICS** = Industry Specific Line Items or Modifications. View subcategory for list of Industries.   * **PENSION_AND_POSTRETIREMENT** = Accumulated Pension Benefit Obligations and related data.   * **MARKET_DATA** = General Market Data, such as Shares Outstanding. *Note - /factset-prices/prices/ endpoints may be better suited for pricing related market data.*   * **MISCELLANEOUS** = Corporation Data, Financial Records details, Indicators.   * **DATES** = Relevant Dates 
      * @param {module:model/String} opts.subcategory Sub-Category Filter for the Primary Category Requested. Choose a related sub-category for the Category requested-   * **INCOME_STATEMENT** - INCOME_STATEMENT, NON-OPERATING, PER_SHARE, SUPPLEMENTAL   * **BALANCE_SHEET** - ASSETS, BALANCE_SHEET, HEALTHCARE, LIABILITIES, PER_SHARE, SHAREHOLDERS_EQUITY, SUPPLEMENTAL   * **CASH_FLOW** - CASH_FLOW, CHANGE_IN_CASH, FINANCING, INVESTING, OPERATING, PER_SHARE, SUPPLEMENTAL   * **RATIOS** - FINANCIAL, GROWTH_RATE, LIQUIDITY, PROFITABILITY, SIZE, VALUATION   * **FINANCIAL_SERVICES** - BALANCE_SHEET, INCOME_STATEMENT, SUPPLEMENTAL   * **INDUSTRY_METRICS** - AIRLINES, BANKING, HOTELS_AND_GAMING, METALS_AND_MINING, OIL_AND_GAS, PHARMACEUTICAL, REIT, RETAIL, BANK, INSURANCE, UTILITY   * **PENSION_AND_POSTRETIREMENT** - PENSION_AND_POSTRETIREMENT   * **MARKET_DATA** - MARKET_DATA   * **MISCELLANEOUS** - CLASSIFICATION, CORPORATE_DATA, FINANCIAL_RECORDS, INDICATOR, EMPLOYEES_AND_MANAGEMENT   * **DATES** - DATES 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MetricsResponse}
+     * @return { Promise.< module:model/MetricsResponse > } a Promise, with data of type {@link module:model/MetricsResponse }
      */
     getFdsFundamentalsMetrics(opts) {
       return this.getFdsFundamentalsMetricsWithHttpInfo(opts)
@@ -112,7 +115,10 @@ export default class DataItemsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = MetricsResponse;
+
       return this.apiClient.callApi(
         '/factset-fundamentals/v1/metrics', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -124,7 +130,7 @@ export default class DataItemsApi {
      * Available fundamental metrics or ratios.
      * Returns list of available FF_* metrics that can be used in the `metrics` parameter of related endpoints. These are related to FactSet Fundamentals standardized data. As-Reported will be available in future endpoints. Leave Category and Subcategory blank to request all available items. The Endpoint Data model is optimized for timeseries data with periodicity. Some items in this list are non-timeseries.        **For methodology definitions, reference the `OApageID` or `OAurl` response items to launch the available methodology page.** 
      * @param {module:model/MetricsRequest} metricsRequest Request object for requesting fundamentals data
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MetricsResponse}
+     * @return { Promise.< module:model/MetricsResponse > } a Promise, with data of type {@link module:model/MetricsResponse }
      */
     getFdsFundamentalsMetricsForList(metricsRequest) {
       return this.getFdsFundamentalsMetricsForListWithHttpInfo(metricsRequest)
@@ -135,3 +141,8 @@ export default class DataItemsApi {
 
 
 }
+
+
+
+
+

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetGeoRev.Configuration;
 import com.factset.sdk.FactSetGeoRev.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetGeoRev.models.CountryRequest;
 import com.factset.sdk.FactSetGeoRev.models.CountryResponse;
@@ -23,6 +26,28 @@ public class CountriesApi {
   public CountriesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getCountriesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCountriesResponseTypeMap.put(200, new GenericType<CountryResponse>(){});
+    getCountriesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCountriesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCountriesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCountriesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCountriesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getCountriesForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCountriesForListResponseTypeMap.put(200, new GenericType<CountryResponse>(){});
+    getCountriesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCountriesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCountriesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCountriesForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getCountriesForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -129,11 +154,17 @@ public class CountriesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CountryResponse> localVarReturnType = new GenericType<CountryResponse>() {};
 
-    return apiClient.invokeAPI("CountriesApi.getCountries", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CountryResponse
+      
+    > apiResponse = apiClient.invokeAPI("CountriesApi.getCountries", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCountriesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets the revenue details for the requested Countries. Use for large lists of ids.
@@ -206,10 +237,16 @@ public class CountriesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<CountryResponse> localVarReturnType = new GenericType<CountryResponse>() {};
 
-    return apiClient.invokeAPI("CountriesApi.getCountriesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        CountryResponse
+      
+    > apiResponse = apiClient.invokeAPI("CountriesApi.getCountriesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCountriesForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

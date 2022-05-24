@@ -7,6 +7,9 @@ import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import java.io.File;
 import com.factset.sdk.QuantitativeResearchEnvironment.models.FileUploadStatus;
@@ -22,6 +25,19 @@ public class FilesApi {
   public FilesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> analyticsQuantQreV1FilesServerFilePostResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    analyticsQuantQreV1FilesServerFilePostResponseTypeMap.put(202, new GenericType<FileUploadStatus>(){});
+  }
+  private static final Map<Integer, GenericType> analyticsQuantQreV1FilesUploadsIdGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    analyticsQuantQreV1FilesUploadsIdGetResponseTypeMap.put(200, new GenericType<FileUploadStatus>(){});
+    analyticsQuantQreV1FilesUploadsIdGetResponseTypeMap.put(202, new GenericType<FileUploadStatus>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -45,7 +61,7 @@ public class FilesApi {
    * Starts a file upload
    * This endpoint takes a file and uploads it
    * @param server The server to upload the file to. Either &#x60;interactive&#x60; or &#x60;batch&#x60;. (required)
-   * @param file The file name to upload the file to. Existing directory can be specified. (required)
+   * @param _file The file name to upload the file to. Existing directory can be specified. (required)
    * @param body  (optional)
    * @return FileUploadStatus
    * @throws ApiException if fails to make API call
@@ -57,15 +73,15 @@ public class FilesApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public FileUploadStatus analyticsQuantQreV1FilesServerFilePost(String server, String file, File body) throws ApiException {
-    return analyticsQuantQreV1FilesServerFilePostWithHttpInfo(server, file, body).getData();
+  public FileUploadStatus analyticsQuantQreV1FilesServerFilePost(String server, String _file, File body) throws ApiException {
+    return analyticsQuantQreV1FilesServerFilePostWithHttpInfo(server, _file, body).getData();
   }
 
   /**
    * Starts a file upload
    * This endpoint takes a file and uploads it
    * @param server The server to upload the file to. Either &#x60;interactive&#x60; or &#x60;batch&#x60;. (required)
-   * @param file The file name to upload the file to. Existing directory can be specified. (required)
+   * @param _file The file name to upload the file to. Existing directory can be specified. (required)
    * @param body  (optional)
    * @return ApiResponse&lt;FileUploadStatus&gt;
    * @throws ApiException if fails to make API call
@@ -77,7 +93,7 @@ public class FilesApi {
        <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<FileUploadStatus> analyticsQuantQreV1FilesServerFilePostWithHttpInfo(String server, String file, File body) throws ApiException {
+  public ApiResponse<FileUploadStatus> analyticsQuantQreV1FilesServerFilePostWithHttpInfo(String server, String _file, File body) throws ApiException {
     Object localVarPostBody = body;
     
     // verify the required parameter 'server' is set
@@ -85,15 +101,15 @@ public class FilesApi {
       throw new ApiException(400, "Missing the required parameter 'server' when calling analyticsQuantQreV1FilesServerFilePost");
     }
     
-    // verify the required parameter 'file' is set
-    if (file == null) {
-      throw new ApiException(400, "Missing the required parameter 'file' when calling analyticsQuantQreV1FilesServerFilePost");
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling analyticsQuantQreV1FilesServerFilePost");
     }
     
     // create path and map variables
     String localVarPath = "/analytics/quant/qre/v1/files/{server}/{file}"
       .replaceAll("\\{" + "server" + "\\}", apiClient.escapeString(server.toString()))
-      .replaceAll("\\{" + "file" + "\\}", apiClient.escapeString(file.toString()));
+      .replaceAll("\\{" + "file" + "\\}", apiClient.escapeString(_file.toString()));
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
@@ -117,11 +133,17 @@ public class FilesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FileUploadStatus> localVarReturnType = new GenericType<FileUploadStatus>() {};
 
-    return apiClient.invokeAPI("FilesApi.analyticsQuantQreV1FilesServerFilePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FileUploadStatus
+      
+    > apiResponse = apiClient.invokeAPI("FilesApi.analyticsQuantQreV1FilesServerFilePost", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, analyticsQuantQreV1FilesServerFilePostResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get upload status by id
@@ -191,10 +213,16 @@ public class FilesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FileUploadStatus> localVarReturnType = new GenericType<FileUploadStatus>() {};
 
-    return apiClient.invokeAPI("FilesApi.analyticsQuantQreV1FilesUploadsIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FileUploadStatus
+      
+    > apiResponse = apiClient.invokeAPI("FilesApi.analyticsQuantQreV1FilesUploadsIdGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, analyticsQuantQreV1FilesUploadsIdGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

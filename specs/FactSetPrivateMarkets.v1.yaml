@@ -1,0 +1,772 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: FactSet Private Markets API
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+  description: >
+    FactSet Private Markets API encompasses Private Company Financials data to
+    start. Private Company firmographics can be found in the FactSet Entity API.
+    The future plans of this service will include additional Private Markets
+    data, such as Private Equity/Venture Capital.
+servers:
+  - url: https://api.factset.com/content
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Financials
+    description: Retrieve Private Company Financials
+  - name: Non-Periodic
+    description: Retrieve Private Company Reference Data.
+  - name: Data Items
+    description: Retrieve available Private Company fields, metrics, and ratios.
+paths:
+  /factset-private-markets/v1/financials:
+    get:
+      summary: Returns Private Company Financials for a list of ids.
+      description: |
+        Returns Private Company Financials Information.
+      tags:
+        - Financials
+      operationId: getFinancials
+      parameters:
+        - $ref: '#/components/parameters/privateMarketIds'
+        - $ref: '#/components/parameters/financialsFields'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/endDate'
+      responses:
+        '200':
+          description: Fetches Private Company Financials for a list of ids.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/financialsResponse'
+              examples:
+                Private Company Financials:
+                  $ref: '#/components/examples/privateCompanyFinancials'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Returns Private Company Financials for a list of ids.
+      description: |
+        Returns a private markets financials object for the requested ids.
+      tags:
+        - Financials
+      operationId: getFinancialsForList
+      requestBody:
+        required: true
+        description: Request Body to request a list of Private Market financials objects.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/financialsRequest'
+      responses:
+        '200':
+          description: Private Company financials data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/financialsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-private-markets/v1/non-periodic:
+    get:
+      summary: Returns Private Company reference data for a list of ids.
+      description: |
+        Returns Private Company reference information.
+      tags:
+        - Non-Periodic
+      operationId: getNonPeriodic
+      parameters:
+        - $ref: '#/components/parameters/privateMarketIds'
+        - $ref: '#/components/parameters/nonPeriodicFields'
+      responses:
+        '200':
+          description: Fetches Private Company reference data for a list of ids.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nonPeriodicResponse'
+              examples:
+                Private Company Non Periodic:
+                  $ref: '#/components/examples/privateCompanyNonPeriodic'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Returns Private Company reference data for a list of ids.
+      description: |
+        Returns a private markets reference object for the requested ids.
+      tags:
+        - Non-Periodic
+      operationId: getNonPeriodicForList
+      requestBody:
+        required: true
+        description: Request Body to request a list of Private Market non-periodic objects.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/nonPeriodicRequest'
+      responses:
+        '200':
+          description: Private Company Reference data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nonPeriodicResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-private-markets/v1/fields:
+    get:
+      summary: Available private company fields, metrics, and ratios.
+      operationId: getFields
+      tags:
+        - Data Items
+      description: >
+        Returns list of available Private Company fields that can be used in the
+        `fields` parameter of related endpoints. These are related to FactSet
+        Private Company standardized data.
+      parameters:
+        - $ref: '#/components/parameters/category'
+      responses:
+        '200':
+          description: Private Company data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fieldsResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    privateMarketIds:
+      name: ids
+      in: query
+      description: >
+        The requested FactSet Private Market Entity Identifier in XXXXXX-E
+        format.<p>**Max Ids Limit set to 3000 in a single request**</p>
+          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
+              which may lead to exceeding this request line limit of 8KB, its
+              advised for any requests with large request lines to be requested through
+              the respective \"POST\" method.</p>*
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+          example: 000C64-E
+        minItems: 1
+        maxItems: 3000
+      explode: false
+      example:
+        - 000BFG-E
+        - 000BGZ-E
+        - 000C64-E
+    financialsFields:
+      name: fields
+      in: query
+      description: |
+        Private Markets Financials Fields.
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+          example: assets
+        minItems: 1
+        maxItems: 100
+      explode: false
+      example:
+        - assets
+        - ebitda
+    nonPeriodicFields:
+      name: fields
+      in: query
+      description: |
+        Private Markets Non-Periodic Fields.
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+          example: amtRaisedUsd
+        minItems: 1
+        maxItems: 100
+      explode: false
+      example:
+        - amtRaisedUsd
+    startDate:
+      name: startDate
+      in: query
+      required: true
+      schema:
+        type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If left blank, the API will default to previous close. Future
+        dates (T+1) are not accepted in this endpoint.
+      example: '2019-01-01'
+    endDate:
+      name: endDate
+      in: query
+      required: true
+      schema:
+        type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        If left blank, the API will default to previous close. Future dates
+        (T+1) are not accepted in this endpoint.
+      example: '2019-12-31'
+    category:
+      name: category
+      in: query
+      schema:
+        type: string
+        enum:
+          - FINANCIALS
+          - NON_PERIODIC
+      required: false
+      description: |
+        Filters the list of available fields per endpoint  -
+          * **FINANCIALS** = Financials endpoint data items, such as Assets, Liabilities, and EBITDA.
+          * **NON_PERIODIC** = Non-Periodic endpoint data items, such as ISO Currency, Current CEO, and Investor List.
+      examples:
+        FINANCIALS:
+          summary: FINANCIALS - Financials.
+          value: FINANCIALS
+        NON_PERIODIC:
+          summary: NON_PERIODIC - Non-Periodic.
+          value: NON_PERIODIC
+  schemas:
+    financialsResponse:
+      type: object
+      title: Private Company Financials Response
+      properties:
+        data:
+          description: Array of Private Company Financials objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/financials'
+    financials:
+      title: Private Company Financials
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            Unique FactSet-generated identifier representing an entity for the
+            current entity identifier (-E)
+          example: 000BGM-E
+        requestId:
+          type: string
+          description: Identifier used in `ids`.
+          example: 000BGM-E
+      additionalProperties: true
+    nonPeriodicResponse:
+      type: object
+      title: Private Company Non-Periodic Response
+      properties:
+        data:
+          description: Array of Private Company Non-Periodic objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/nonPeriodic'
+    nonPeriodic:
+      title: Private Company Non-Periodic
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            Unique FactSet-generated identifier representing an entity for the
+            current entity identifier (-E)
+          example: 000BGM-E
+        requestId:
+          type: string
+          description: Identifier used in `ids`.
+          example: 000BGM-E
+      additionalProperties: true
+    fieldsResponse:
+      type: object
+      title: Fields Response
+      properties:
+        data:
+          description: >
+            Array of field objects representing the data items that can be
+            requested from the Private Markets API.
+          type: array
+          items:
+            $ref: '#/components/schemas/field'
+    field:
+      title: Field Object
+      type: object
+      properties:
+        field:
+          description: >-
+            Data item to be used as `fields` input in
+            `/factset-private-markets/v#/` endpoint.
+          type: string
+          example: assets
+        name:
+          description: Plain text name of the field.
+          type: string
+          example: Total Assets
+        category:
+          description: >-
+            Corresponding endpoint to input field item. For example, fields
+            returning the category 'FINANCIALS' should be used in the
+            /financials endpoint. The same follows data items falling in the
+            category for NON_PERIODIC, which would be used in the /non-periodic
+            endpoint.
+          type: string
+          example: FINANCIALS
+        factor:
+          description: The factor for the field (e.g. 1000 = thousands).
+          type: integer
+          example: 1000000
+        sdfName:
+          description: >-
+            The name of the data item as it appears in the Standard Data Feed
+            (SDF). A null value represents items available only in API.
+          type: string
+          example: FPC_ASSETS
+    financialsRequest:
+      title: Entity Reference Request
+      description: Entity Reference Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/privateMarketIds'
+        fields:
+          $ref: '#/components/schemas/financialsFields'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+      required:
+        - ids
+        - startDate
+        - endDate
+    nonPeriodicRequest:
+      title: Entity Reference Request
+      description: Entity Reference Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/privateMarketIds'
+        fields:
+          $ref: '#/components/schemas/nonPeriodicFields'
+      required:
+        - ids
+    privateMarketIds:
+      title: ids
+      description: >
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
+        SEDOL are accepted input.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 3000
+      example:
+        - 000BFG-E
+        - 000BGZ-E
+        - 000C64-E
+    financialsFields:
+      title: fields
+      description: |
+        Private Markets Financials Fields.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 3000
+      example:
+        - assets
+        - ebitda
+    nonPeriodicFields:
+      title: fields
+      description: |
+        Private Markets Non-Periodic Fields.
+      type: array
+      items:
+        type: string
+      minItems: 1
+      maxItems: 3000
+      example:
+        - amtRaised
+    startDate:
+      title: Start Date
+      type: string
+      description: >
+        The start date requested for a given date range in **YYYY-MM-DD**
+        format. If left blank, the API will default to previous close. Future
+        dates (T+1) are not accepted in this endpoint.
+      example: '2019-01-01'
+    endDate:
+      title: End Date
+      type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        If left blank, the API will default to previous close. Future dates
+        (T+1) are not accepted in this endpoint.
+      example: '2019-12-31'
+    errorResponse:
+      type: object
+      description: error description
+      title: Error Response
+      properties:
+        status:
+          description: status
+          type: string
+          example: Bad Request
+        timestamp:
+          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          type: string
+          example: '2019-11-01 11:09:41.918'
+          format: date-time
+        path:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: string
+          example: /factset-private-markets/v1/{end-point}
+        message:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        subErrors:
+          description: subErrors related to the error message. Null if not applicable.
+          type: object
+          properties:
+            object:
+              description: the operation ID
+              type: string
+            field:
+              description: Parameter Field Name
+              type: string
+            message:
+              description: Error message
+              type: string
+            rejectedValue:
+              description: Rejected Values in an Array
+              type: array
+              items:
+                type: string
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Forbidden:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  examples:
+    privateCompanyFinancials:
+      summary: Private Company Financials Sales Array
+      description: Array of Private Markets Financials Objects for a list of Companies
+      value:
+        data:
+          - fsymId: 000BGM-E
+            fiscalYear: '2004-12-31'
+            sales: 1202.5
+            requestId: 000BGM-E
+          - fsymId: 000BGM-E
+            fiscalYear: '2005-12-31'
+            sales: 1464.39
+            requestId: 000BGM-E
+          - fsymId: 000BGM-E
+            fiscalYear: '2006-12-31'
+            sales: 1260.361
+            requestId: 000BGM-E
+          - fsymId: 000BGM-E
+            fiscalYear: '2007-12-31'
+            sales: 1174.515
+            requestId: 000BGM-E
+          - fsymId: 000BGZ-E
+            fiscalYear: '2003-12-31'
+            sales: 3159
+            requestId: 000BGM-E
+          - fsymId: 000BGZ-E
+            fiscalYear: '2004-12-31'
+            sales: 3289
+            requestId: 000BGM-E
+          - fsymId: 000BGZ-E
+            fiscalYear: '2005-12-31'
+            sales: 3466
+            requestId: 000BGM-E
+          - fsymId: 000BGZ-E
+            fiscalYear: '2006-12-31'
+            sales: 3769.949
+            requestId: 000BGM-E
+          - fsymId: 000BGZ-E
+            fiscalYear: '2007-12-31'
+            sales: 3970.644
+            requestId: 000BGM-E
+          - fsymId: 000BGZ-E
+            fiscalYear: '2008-12-31'
+            sales: 3864.223
+            requestId: 000BGM-E
+          - fsymId: 000BGZ-E
+            fiscalYear: '2011-12-31'
+            sales: null
+            requestId: 000BGM-E
+          - fsymId: 000BJK-E
+            fiscalYear: '1993-09-24'
+            sales: 60
+            requestId: 000BGM-E
+          - fsymId: 000BJK-E
+            fiscalYear: '1996-01-09'
+            sales: 101.2
+            requestId: 000BGM-E
+          - fsymId: 000BJK-E
+            fiscalYear: '1997-09-30'
+            sales: 156.8
+            requestId: 000BGM-E
+          - fsymId: 000BJK-E
+            fiscalYear: '1998-12-31'
+            sales: 170.1
+            requestId: 000BGM-E
+    privateCompanyNonPeriodic:
+      summary: Private Company Non-Periodic Array
+      description: Array of Private Markets Non-Periodic Objects for a list of Companies
+      value:
+        data:
+          - fsymId: 09N07X-E
+            amtRaisedUsd: 1216.95
+            requestId: 09N07X-E
+          - fsymId: 000BGM-E
+            amtRaisedUsd: null
+            requestId: 000BGM-E
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 11:52:36.464'
+        path: /factset-private-markets/v1/{endpoint}
+        message: 'The date parameter must be in the following date format: YYYY-MM-DD'
+        subErrors: null
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisks
+        symbol in the specification file.
+      value:
+        status: Bad Request
+        timestamp: '2020-06-30 13:22:09.053'
+        path: /factset-private-markets/v1/{endpoint}
+        message: The parameter 'ids' is required and may not be empty.
+        subErrors: null
+    badRequestInvalidParameters:
+      summary: Bad Request - Passing Invalid Parameter
+      description: This error message occurs when user is passing an Invalid Parameter
+      value:
+        status: Bad Request
+        timestamp: '2020-07-23 11:03:40.765'
+        path: /factset-private-markets/v1/{endpoint}
+        message: >-
+          Invalid Parameter (s): fakeParameter. Please modify your request to
+          use parameters outlined in the specification for this endpoint.
+        subErrors: null
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON,
+        but is not in proper JSON format.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 11:59:09.649'
+        path: /factset-private-markets/v1/{endpoint}
+        message: Malformed JSON Request
+        subErrors: null
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        status: Bad Request
+        timestamp: '2020-07-02 16:18:38.949'
+        path: /factset-private-markets/v1/{endpoint}
+        message: The request took too long. Try again with a smaller request.
+        subErrors: null
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report Issue under 401 error for help with troubleshooting.
+      value:
+        status: User Authentication Failed
+        timestamp: '2020-07-02 16:08:07.945'
+        path: /factset-private-markets/v1/{endpoint}
+        message: User Authentication Failed.
+        subErrors: null
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        status: Forbidden
+        timestamp: '2020-07-02 17:21:52.197'
+        path: /factset-private-markets/v1/{endpoint}
+        message: >-
+          USERNAME-SERIAL does not have permission to use
+          /factset-private-markets/v1/{endpoint}
+        subErrors: null
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently the APIs only support 'application/json'.
+      value:
+        status: Unsupported Media Type
+        timestamp: '2020-07-02 09:42:27.237'
+        path: /factset-private-markets/v1/{endpoint}
+        message: >-
+          text/html media type is not supported. Supported media types are
+          application/json.
+        subErrors: null
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        status: Internal Server Error
+        timestamp: '2020-07-02 09:48:29.18'
+        path: /factset-private-markets/v1/{endpoint}
+        message: Error writing JSON output
+        subErrors: null
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        status: Internal Server Error
+        timestamp: '2020-07-02 10:36:01.944'
+        path: /factset-private-markets/v1/{endpoint}
+        message: Unexpected error
+        subErrors: null

@@ -51,6 +51,8 @@ public class InlineResponse2004DataRatingSystem1Rating implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2004DataRatingSystem1Rating() { 
+  }
 
   public InlineResponse2004DataRatingSystem1Rating id(BigDecimal id) {
     this.id = id;

@@ -39,28 +39,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_reference_api.EntityReferenceApi(api_client)
+
     ids = ["AAPL-US","0FPWZZ-E","TSLA-US"] # [str] | The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns an entity reference profiles for an individual entity
         api_response = api_instance.get_entity_references(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntityReferenceApi->get_entity_references: %s\n" % e)
 ```
@@ -131,30 +132,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEntity.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEntity.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEntity.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_reference_api.EntityReferenceApi(api_client)
+
     entity_reference_request = EntityReferenceRequest(
         ids=Ids(["FDS-US","0FPWZZ-E","TSLA-US"]),
     ) # EntityReferenceRequest | Request Body to request a list of Entity Reference objects.
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns an entity reference data for a list of ids.
         api_response = api_instance.post_entity_references(entity_reference_request)
         pprint(api_response)
+
     except fds.sdk.FactSetEntity.ApiException as e:
         print("Exception when calling EntityReferenceApi->post_entity_references: %s\n" % e)
 ```

@@ -58,6 +58,18 @@ public class BPMOptimizationParameters implements Serializable {
   public static final String JSON_PROPERTY_OUTPUT_TYPES = "outputTypes";
   private OptimizerOutputTypes outputTypes;
 
+  public BPMOptimizationParameters() { 
+  }
+
+  @JsonCreator
+  public BPMOptimizationParameters(
+    @JsonProperty(value=JSON_PROPERTY_STRATEGY, required=true) BPMOptimizerStrategy strategy, 
+    @JsonProperty(value=JSON_PROPERTY_OUTPUT_TYPES, required=true) OptimizerOutputTypes outputTypes
+  ) {
+    this();
+    this.strategy = strategy;
+    this.outputTypes = outputTypes;
+  }
 
   public BPMOptimizationParameters strategy(BPMOptimizerStrategy strategy) {
     this.strategy = strategy;

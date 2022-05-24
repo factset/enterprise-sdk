@@ -235,6 +235,51 @@ namespace FactSet.SDK.Symbology.Api
     {
         private FactSet.SDK.Symbology.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> BatchIsinHistoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(IsinHistoryTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> BatchTranslateIsinResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(IsinTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> IsinHistoryResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(IsinHistoryTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> TranslateIsinResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(IsinTranslationResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ISINApi"/> class.
         /// </summary>
@@ -345,7 +390,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>IsinHistoryTranslationResponse</returns>
         public IsinHistoryTranslationResponse BatchIsinHistory(IsinHistoryTranslationRequest isinHistoryTranslationRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse> localVarResponse = BatchIsinHistoryWithHttpInfo(isinHistoryTranslationRequest);
+            var localVarResponse = BatchIsinHistoryWithHttpInfo(isinHistoryTranslationRequest);
             return localVarResponse.Data;
         }
 
@@ -355,11 +400,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isinHistoryTranslationRequest">Request Body for ISIN History</param>
         /// <returns>ApiResponse of IsinHistoryTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse> BatchIsinHistoryWithHttpInfo(IsinHistoryTranslationRequest isinHistoryTranslationRequest)
+        public ApiResponse<IsinHistoryTranslationResponse> BatchIsinHistoryWithHttpInfo(IsinHistoryTranslationRequest isinHistoryTranslationRequest)
         {
             // verify the required parameter 'isinHistoryTranslationRequest' is set
             if (isinHistoryTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'isinHistoryTranslationRequest' when calling ISINApi->BatchIsinHistory");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -373,22 +420,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = isinHistoryTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -400,15 +453,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<IsinHistoryTranslationResponse>("/symbology/v1/isin-history", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchIsinHistoryResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            IsinHistoryTranslationResponse>("/symbology/v1/isin-history", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchIsinHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -419,9 +476,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="isinHistoryTranslationRequest">Request Body for ISIN History</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IsinHistoryTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<IsinHistoryTranslationResponse> BatchIsinHistoryAsync(IsinHistoryTranslationRequest isinHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IsinHistoryTranslationResponse>BatchIsinHistoryAsync(IsinHistoryTranslationRequest isinHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse> localVarResponse = await BatchIsinHistoryWithHttpInfoAsync(isinHistoryTranslationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchIsinHistoryWithHttpInfoAsync(isinHistoryTranslationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -432,11 +489,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="isinHistoryTranslationRequest">Request Body for ISIN History</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IsinHistoryTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse>> BatchIsinHistoryWithHttpInfoAsync(IsinHistoryTranslationRequest isinHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<IsinHistoryTranslationResponse>> BatchIsinHistoryWithHttpInfoAsync(IsinHistoryTranslationRequest isinHistoryTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'isinHistoryTranslationRequest' is set
             if (isinHistoryTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'isinHistoryTranslationRequest' when calling ISINApi->BatchIsinHistory");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -450,24 +510,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = isinHistoryTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -479,14 +544,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchIsinHistoryResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<IsinHistoryTranslationResponse>("/symbology/v1/isin-history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchIsinHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -500,7 +569,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>IsinTranslationResponse</returns>
         public IsinTranslationResponse BatchTranslateIsin(IsinTranslationRequest isinTranslationRequest)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse> localVarResponse = BatchTranslateIsinWithHttpInfo(isinTranslationRequest);
+            var localVarResponse = BatchTranslateIsinWithHttpInfo(isinTranslationRequest);
             return localVarResponse.Data;
         }
 
@@ -510,11 +579,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isinTranslationRequest">Request Body for ISIN Symbology Translation</param>
         /// <returns>ApiResponse of IsinTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse> BatchTranslateIsinWithHttpInfo(IsinTranslationRequest isinTranslationRequest)
+        public ApiResponse<IsinTranslationResponse> BatchTranslateIsinWithHttpInfo(IsinTranslationRequest isinTranslationRequest)
         {
             // verify the required parameter 'isinTranslationRequest' is set
             if (isinTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'isinTranslationRequest' when calling ISINApi->BatchTranslateIsin");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -528,22 +599,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = isinTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -555,15 +632,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<IsinTranslationResponse>("/symbology/v1/isin", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateIsinResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            IsinTranslationResponse>("/symbology/v1/isin", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateIsin", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -574,9 +655,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="isinTranslationRequest">Request Body for ISIN Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IsinTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<IsinTranslationResponse> BatchTranslateIsinAsync(IsinTranslationRequest isinTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IsinTranslationResponse>BatchTranslateIsinAsync(IsinTranslationRequest isinTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse> localVarResponse = await BatchTranslateIsinWithHttpInfoAsync(isinTranslationRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await BatchTranslateIsinWithHttpInfoAsync(isinTranslationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -587,11 +668,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="isinTranslationRequest">Request Body for ISIN Symbology Translation</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IsinTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse>> BatchTranslateIsinWithHttpInfoAsync(IsinTranslationRequest isinTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<IsinTranslationResponse>> BatchTranslateIsinWithHttpInfoAsync(IsinTranslationRequest isinTranslationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'isinTranslationRequest' is set
             if (isinTranslationRequest == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'isinTranslationRequest' when calling ISINApi->BatchTranslateIsin");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -605,24 +689,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = isinTranslationRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -634,14 +723,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = BatchTranslateIsinResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<IsinTranslationResponse>("/symbology/v1/isin", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchTranslateIsin", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -655,7 +748,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>IsinHistoryTranslationResponse</returns>
         public IsinHistoryTranslationResponse IsinHistory(List<string> ids)
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse> localVarResponse = IsinHistoryWithHttpInfo(ids);
+            var localVarResponse = IsinHistoryWithHttpInfo(ids);
             return localVarResponse.Data;
         }
 
@@ -665,11 +758,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <exception cref="FactSet.SDK.Symbology.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <returns>ApiResponse of IsinHistoryTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse> IsinHistoryWithHttpInfo(List<string> ids)
+        public ApiResponse<IsinHistoryTranslationResponse> IsinHistoryWithHttpInfo(List<string> ids)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling ISINApi->IsinHistory");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -682,22 +777,28 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -709,15 +810,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<IsinHistoryTranslationResponse>("/symbology/v1/isin-history", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = IsinHistoryResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            IsinHistoryTranslationResponse>("/symbology/v1/isin-history", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("IsinHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -728,9 +833,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IsinHistoryTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<IsinHistoryTranslationResponse> IsinHistoryAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IsinHistoryTranslationResponse>IsinHistoryAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse> localVarResponse = await IsinHistoryWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await IsinHistoryWithHttpInfoAsync(ids, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -741,11 +846,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IsinHistoryTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<IsinHistoryTranslationResponse>> IsinHistoryWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<IsinHistoryTranslationResponse>> IsinHistoryWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling ISINApi->IsinHistory");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -758,24 +866,29 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -787,14 +900,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = IsinHistoryResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<IsinHistoryTranslationResponse>("/symbology/v1/isin-history", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("IsinHistory", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -809,7 +926,7 @@ namespace FactSet.SDK.Symbology.Api
         /// <returns>IsinTranslationResponse</returns>
         public IsinTranslationResponse TranslateIsin(List<string> ids, string asOfDate = default(string))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse> localVarResponse = TranslateIsinWithHttpInfo(ids, asOfDate);
+            var localVarResponse = TranslateIsinWithHttpInfo(ids, asOfDate);
             return localVarResponse.Data;
         }
 
@@ -820,11 +937,13 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="ids">Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;.</param>
         /// <param name="asOfDate">As-Of date for historical symbol request in YYYY-MM-DD format. (optional)</param>
         /// <returns>ApiResponse of IsinTranslationResponse</returns>
-        public FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse> TranslateIsinWithHttpInfo(List<string> ids, string asOfDate = default(string))
+        public ApiResponse<IsinTranslationResponse> TranslateIsinWithHttpInfo(List<string> ids, string asOfDate = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling ISINApi->TranslateIsin");
+            }
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
 
@@ -837,10 +956,16 @@ namespace FactSet.SDK.Symbology.Api
             };
 
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (asOfDate != null)
@@ -850,13 +975,13 @@ namespace FactSet.SDK.Symbology.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -868,15 +993,19 @@ namespace FactSet.SDK.Symbology.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<IsinTranslationResponse>("/symbology/v1/isin", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = TranslateIsinResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            IsinTranslationResponse>("/symbology/v1/isin", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateIsin", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -888,9 +1017,9 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="asOfDate">As-Of date for historical symbol request in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of IsinTranslationResponse</returns>
-        public async System.Threading.Tasks.Task<IsinTranslationResponse> TranslateIsinAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IsinTranslationResponse>TranslateIsinAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse> localVarResponse = await TranslateIsinWithHttpInfoAsync(ids, asOfDate, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await TranslateIsinWithHttpInfoAsync(ids, asOfDate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -902,11 +1031,14 @@ namespace FactSet.SDK.Symbology.Api
         /// <param name="asOfDate">As-Of date for historical symbol request in YYYY-MM-DD format. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (IsinTranslationResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.Symbology.Client.ApiResponse<IsinTranslationResponse>> TranslateIsinWithHttpInfoAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<IsinTranslationResponse>> TranslateIsinWithHttpInfoAsync(List<string> ids, string asOfDate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.Symbology.Client.ApiException(400, "Missing required parameter 'ids' when calling ISINApi->TranslateIsin");
+            }
 
 
             FactSet.SDK.Symbology.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.Symbology.Client.RequestOptions();
@@ -919,12 +1051,17 @@ namespace FactSet.SDK.Symbology.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.Symbology.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.Symbology.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (asOfDate != null)
@@ -934,13 +1071,13 @@ namespace FactSet.SDK.Symbology.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.Symbology.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -952,14 +1089,18 @@ namespace FactSet.SDK.Symbology.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = TranslateIsinResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<IsinTranslationResponse>("/symbology/v1/isin", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TranslateIsin", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

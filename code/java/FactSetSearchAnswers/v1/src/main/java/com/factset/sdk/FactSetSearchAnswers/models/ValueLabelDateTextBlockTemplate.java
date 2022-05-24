@@ -74,6 +74,16 @@ public class ValueLabelDateTextBlockTemplate implements Serializable {
   public static final String JSON_PROPERTY_BLURB = "blurb";
   private String blurb;
 
+  public ValueLabelDateTextBlockTemplate() { 
+  }
+
+  @JsonCreator
+  public ValueLabelDateTextBlockTemplate(
+    @JsonProperty(value=JSON_PROPERTY_HEADLINE, required=true) String headline
+  ) {
+    this();
+    this.headline = headline;
+  }
 
   public ValueLabelDateTextBlockTemplate headline(String headline) {
     this.headline = headline;

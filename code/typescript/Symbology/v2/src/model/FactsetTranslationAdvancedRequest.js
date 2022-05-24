@@ -17,14 +17,14 @@ import GetSymbolType from './GetSymbolType';
 /**
  * The FactsetTranslationAdvancedRequest model module.
  * @module model/FactsetTranslationAdvancedRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FactsetTranslationAdvancedRequest {
     /**
      * Constructs a new <code>FactsetTranslationAdvancedRequest</code>.
      * Request object for FactSet endpoint.
      * @alias module:model/FactsetTranslationAdvancedRequest
-     * @param ids {Array.<String>} Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.
+     * @param ids {Array.<String>} Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.
      */
     constructor(ids) { 
         
@@ -65,7 +65,7 @@ class FactsetTranslationAdvancedRequest {
 }
 
 /**
- * Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId'.
+ * Requested market securities or entities. Accepted identifiers include all identifiers in the list above. This request value is sent back in the response as ‘requestId’.
  * @member {Array.<String>} ids
  */
 FactsetTranslationAdvancedRequest.prototype['ids'] = undefined;

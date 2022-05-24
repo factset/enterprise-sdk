@@ -60,7 +60,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 {\n");
             sb.Append("  Up: ").Append(Up).Append("\n");
             sb.Append("  Down: ").Append(Down).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Up == input.Up ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Up != null)
-                    hashCode = hashCode * 59 + this.Up.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Up.GetHashCode();
+                }
                 if (this.Down != null)
-                    hashCode = hashCode * 59 + this.Down.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Down.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -96,7 +96,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2002Data {\n");
             sb.Append("  Notation: ").Append(Notation).Append("\n");
             sb.Append("  Beta: ").Append(Beta).Append("\n");
@@ -135,8 +135,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2002Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Notation == input.Notation ||
@@ -176,13 +177,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
-                hashCode = hashCode * 59 + this.Beta.GetHashCode();
-                hashCode = hashCode * 59 + this.Correlation.GetHashCode();
-                hashCode = hashCode * 59 + this.Outperformance.GetHashCode();
-                hashCode = hashCode * 59 + this.RelativeStrength.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Beta.GetHashCode();
+                hashCode = (hashCode * 59) + this.Correlation.GetHashCode();
+                hashCode = (hashCode * 59) + this.Outperformance.GetHashCode();
+                hashCode = (hashCode * 59) + this.RelativeStrength.GetHashCode();
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 return hashCode;
             }
         }

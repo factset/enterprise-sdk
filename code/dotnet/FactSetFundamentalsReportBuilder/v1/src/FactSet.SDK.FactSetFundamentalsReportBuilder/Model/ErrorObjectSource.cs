@@ -52,7 +52,7 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorObjectSource {\n");
             sb.Append("  Parameter: ").Append(Parameter).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
         public bool Equals(ErrorObjectSource input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Parameter == input.Parameter ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.FactSetFundamentalsReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this.Parameter != null)
-                    hashCode = hashCode * 59 + this.Parameter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Parameter.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -59,6 +59,8 @@ public class InlineResponse2008DataPrices implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private BigDecimal tradingValue;
 
+  public InlineResponse2008DataPrices() { 
+  }
 
   public InlineResponse2008DataPrices time(String time) {
     this.time = time;

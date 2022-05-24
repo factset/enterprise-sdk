@@ -18,7 +18,7 @@ import Periodicity from './Periodicity';
 /**
  * The RollingConsensusRequest model module.
  * @module model/RollingConsensusRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RollingConsensusRequest {
     /**

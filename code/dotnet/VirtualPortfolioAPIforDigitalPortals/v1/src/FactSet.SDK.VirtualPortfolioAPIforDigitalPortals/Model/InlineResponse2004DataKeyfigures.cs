@@ -88,7 +88,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataKeyfigures {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Cash: ").Append(Cash).Append("\n");
@@ -126,8 +126,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataKeyfigures input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Date == input.Date ||
@@ -164,13 +165,19 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                hashCode = hashCode * 59 + this.Cash.GetHashCode();
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Cash.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 if (this.ProfitLoss != null)
-                    hashCode = hashCode * 59 + this.ProfitLoss.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ProfitLoss.GetHashCode();
+                }
                 if (this.Period != null)
-                    hashCode = hashCode * 59 + this.Period.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                }
                 return hashCode;
             }
         }

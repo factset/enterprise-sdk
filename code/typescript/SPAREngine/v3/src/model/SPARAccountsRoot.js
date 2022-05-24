@@ -17,7 +17,7 @@ import SPARAccounts from './SPARAccounts';
 /**
  * The SPARAccountsRoot model module.
  * @module model/SPARAccountsRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SPARAccountsRoot {
     /**

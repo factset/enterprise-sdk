@@ -81,7 +81,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityStructureRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  Level: ").Append(Level).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.FactSetEntity.Model
         public bool Equals(EntityStructureRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -146,9 +147,11 @@ namespace FactSet.SDK.FactSetEntity.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
-                hashCode = hashCode * 59 + this.Level.GetHashCode();
-                hashCode = hashCode * 59 + this.Active.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                hashCode = (hashCode * 59) + this.Active.GetHashCode();
                 return hashCode;
             }
         }
@@ -161,13 +164,13 @@ namespace FactSet.SDK.FactSetEntity.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Active (int) maximum
-            if(this.Active > (int)1)
+            if (this.Active > (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Active, must be a value less than or equal to 1.", new [] { "Active" });
             }
 
             // Active (int) minimum
-            if(this.Active < (int)-1)
+            if (this.Active < (int)-1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Active, must be a value greater than or equal to -1.", new [] { "Active" });
             }

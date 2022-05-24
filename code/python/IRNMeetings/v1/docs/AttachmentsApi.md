@@ -4,8 +4,8 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_attachment**](AttachmentsApi.md#create_attachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for an existing meeting
-[**download_attachment**](AttachmentsApi.md#download_attachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a meeting
+[**create_attachment**](AttachmentsApi.md#create_attachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for a existing meeting
+[**download_attachment**](AttachmentsApi.md#download_attachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
 [**get_attachments**](AttachmentsApi.md#get_attachments) | **GET** /v1/meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
 [**soft_delete_meeting_attachment**](AttachmentsApi.md#soft_delete_meeting_attachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **create_attachment**
 > NewItemDto create_attachment(meeting_id, file)
 
-Create an attachment for an existing meeting
+Create an attachment for a existing meeting
 
 ### Example
 
@@ -39,29 +39,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | Meeting Id
     file = open('/path/to/file', 'rb') # file_type | 
 
-    # example passing only required values which don't have defaults set
     try:
-        # Create an attachment for an existing meeting
+        # Create an attachment for a existing meeting
         api_response = api_instance.create_attachment(meeting_id, file)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling AttachmentsApi->create_attachment: %s\n" % e)
 ```
@@ -101,7 +102,7 @@ Name | Type | Description  | Notes
 # **download_attachment**
 > download_attachment(meeting_id, attachment_id)
 
-Download an attachment from a meeting
+Download an attachment from a Meeting
 
 ### Example
 
@@ -126,27 +127,27 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
     attachment_id = "attachmentId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
-        # Download an attachment from a meeting
+        # Download an attachment from a Meeting
         api_instance.download_attachment(meeting_id, attachment_id)
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling AttachmentsApi->download_attachment: %s\n" % e)
@@ -214,28 +215,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | Meeting Id
 
-    # example passing only required values which don't have defaults set
     try:
         # Get all the attachments belonging to a meeting
         api_response = api_instance.get_attachments(meeting_id)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling AttachmentsApi->get_attachments: %s\n" % e)
 ```
@@ -299,25 +301,25 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
+
     meeting_id = "meetingId_example" # str | Meeting Id
     attachment_id = "attachmentId_example" # str | Attachment Id
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete attachment from meeting
         api_instance.soft_delete_meeting_attachment(meeting_id, attachment_id)

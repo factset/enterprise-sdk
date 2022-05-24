@@ -48,6 +48,7 @@ const ids = ["30231GBJ","88579EAA"]; // [String] | List of Fixed Income Security
 // Call api endpoint
 apiInstance.getIssueSize(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const termsAndConditionsScalarRequest = new factsettermsandconditions.TermsAndCo
 // Call api endpoint
 apiInstance.getIssueSizeForList(termsAndConditionsScalarRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

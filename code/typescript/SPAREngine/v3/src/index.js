@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AccountDirectories from './model/AccountDirectories';
 import AccountDirectoriesRoot from './model/AccountDirectoriesRoot';
@@ -42,6 +41,7 @@ import SPARCalculationParameters from './model/SPARCalculationParameters';
 import SPARCalculationParametersRoot from './model/SPARCalculationParametersRoot';
 import SPARDateParameters from './model/SPARDateParameters';
 import SPARIdentifier from './model/SPARIdentifier';
+
 import AccountsApi from './api/AccountsApi';
 import BenchmarksApi from './api/BenchmarksApi';
 import ComponentsApi from './api/ComponentsApi';
@@ -49,6 +49,8 @@ import CurrenciesApi from './api/CurrenciesApi';
 import DocumentsApi from './api/DocumentsApi';
 import FrequenciesApi from './api/FrequenciesApi';
 import SPARCalculationsApi from './api/SPARCalculationsApi';
+import PostAndCalculateResponseWrapper from './api/SPARCalculationsApi';
+import PutAndCalculateResponseWrapper from './api/SPARCalculationsApi';
 
 
 /**
@@ -80,7 +82,7 @@ import SPARCalculationsApi from './api/SPARCalculationsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -303,5 +305,18 @@ export {
     * The SPARCalculationsApi service constructor.
     * @property {module:api/SPARCalculationsApi}
     */
-    SPARCalculationsApi
+    SPARCalculationsApi,
+
+    /**
+    * The PostAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PostAndCalculateResponseWrapper,
+
+    /**
+    * The PutAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PutAndCalculateResponseWrapper,
+
 };

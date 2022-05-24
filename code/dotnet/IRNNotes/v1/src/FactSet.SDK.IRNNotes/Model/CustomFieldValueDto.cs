@@ -49,25 +49,25 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "code", EmitDefaultValue = true)]
+        [DataMember(Name = "Code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = true)]
+        [DataMember(Name = "Value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
         /// Gets or Sets Options
         /// </summary>
-        [DataMember(Name = "options", EmitDefaultValue = true)]
+        [DataMember(Name = "Options", EmitDefaultValue = true)]
         public List<string> Options { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactValues
         /// </summary>
-        [DataMember(Name = "contactValues", EmitDefaultValue = true)]
+        [DataMember(Name = "ContactValues", EmitDefaultValue = true)]
         public List<Guid> ContactValues { get; set; }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CustomFieldValueDto {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(CustomFieldValueDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Code == input.Code ||
@@ -150,13 +151,21 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Code != null)
-                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
+                }
                 if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 if (this.Options != null)
-                    hashCode = hashCode * 59 + this.Options.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Options.GetHashCode();
+                }
                 if (this.ContactValues != null)
-                    hashCode = hashCode * 59 + this.ContactValues.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ContactValues.GetHashCode();
+                }
                 return hashCode;
             }
         }

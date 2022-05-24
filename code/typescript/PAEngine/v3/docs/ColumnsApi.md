@@ -48,6 +48,7 @@ const id = "'2B729FA4EQAEA58B330055A5D064FC4FA32491DAF9D169C3DAD9793880F5'"; // 
 // Call api endpoint
 apiInstance.getPAColumnById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -123,6 +124,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getPAColumns(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

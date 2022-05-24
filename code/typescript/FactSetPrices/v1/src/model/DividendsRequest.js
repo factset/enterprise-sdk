@@ -17,7 +17,7 @@ import Adjust from './Adjust';
 /**
  * The DividendsRequest model module.
  * @module model/DividendsRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class DividendsRequest {
     /**

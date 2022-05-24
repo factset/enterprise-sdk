@@ -29,14 +29,13 @@ import com.factset.sdk.SPAREngine.ApiClient;
 import com.factset.sdk.SPAREngine.ApiException;
 import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.auth.*;
-import com.factset.sdk.SPAREngine.model.*;
+import com.factset.sdk.SPAREngine.models.*;
 import com.factset.sdk.SPAREngine.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,19 +45,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         String id = "id_example"; // String | From url, provided from the location header in the Run Multiple Calculations endpoint.
         try {
             apiInstance.cancelCalculationById(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#cancelCalculationById");
             System.err.println("Status code: " + e.getCode());
@@ -120,14 +120,13 @@ import com.factset.sdk.SPAREngine.ApiClient;
 import com.factset.sdk.SPAREngine.ApiException;
 import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.auth.*;
-import com.factset.sdk.SPAREngine.model.*;
+import com.factset.sdk.SPAREngine.models.*;
 import com.factset.sdk.SPAREngine.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -137,20 +136,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         String id = "id_example"; // String | From url, provided from the location header in the Run Multiple Calculations endpoint.
         try {
             CalculationStatus result = apiInstance.getCalculationStatusById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#getCalculationStatusById");
             System.err.println("Status code: " + e.getCode());
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ## getCalculationStatusSummaries
 
-> java.util.Map&lt;String, CalculationStatusSummary&gt; getCalculationStatusSummaries()
+> java.util.Map<String, CalculationStatusSummary> getCalculationStatusSummaries()
 
 Get all calculation statuses
 
@@ -212,14 +212,13 @@ import com.factset.sdk.SPAREngine.ApiClient;
 import com.factset.sdk.SPAREngine.ApiException;
 import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.auth.*;
-import com.factset.sdk.SPAREngine.model.*;
+import com.factset.sdk.SPAREngine.models.*;
 import com.factset.sdk.SPAREngine.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -229,19 +228,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         try {
             java.util.Map<String, CalculationStatusSummary> result = apiInstance.getCalculationStatusSummaries();
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#getCalculationStatusSummaries");
             System.err.println("Status code: " + e.getCode());
@@ -305,14 +305,13 @@ import com.factset.sdk.SPAREngine.ApiClient;
 import com.factset.sdk.SPAREngine.ApiException;
 import com.factset.sdk.SPAREngine.Configuration;
 import com.factset.sdk.SPAREngine.auth.*;
-import com.factset.sdk.SPAREngine.model.*;
+import com.factset.sdk.SPAREngine.models.*;
 import com.factset.sdk.SPAREngine.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -322,19 +321,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         Calculation calculation = new Calculation(); // Calculation | 
         try {
             apiInstance.runCalculation(calculation);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#runCalculation");
             System.err.println("Status code: " + e.getCode());

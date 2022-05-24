@@ -63,7 +63,34 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <returns>ApiResponse of NRTCalls</returns>
         ApiResponse<NRTCalls> GetBulkDocumentsNrtV1CallsWithHttpInfo(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
         /// <summary>
-        /// Returns the latest snippets from an active call
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </summary>
+        /// <remarks>
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <returns>IndexedNRT</returns>
+        IndexedNRT GetBulkDocumentsNrtV1IndexedNrt(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+
+        /// <summary>
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </summary>
+        /// <remarks>
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <returns>ApiResponse of IndexedNRT</returns>
+        ApiResponse<IndexedNRT> GetBulkDocumentsNrtV1IndexedNrtWithHttpInfo(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
+        /// <summary>
+        /// Returns the latest transcript snippets from an active call
         /// </summary>
         /// <remarks>
         /// Returns the latest snippets from an active call
@@ -77,7 +104,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         NRTSnippets GetBulkDocumentsNrtV1ListSnippets(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?));
 
         /// <summary>
-        /// Returns the latest snippets from an active call
+        /// Returns the latest transcript snippets from an active call
         /// </summary>
         /// <remarks>
         /// Returns the latest snippets from an active call
@@ -163,7 +190,36 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <returns>Task of ApiResponse (NRTCalls)</returns>
         System.Threading.Tasks.Task<ApiResponse<NRTCalls>> GetBulkDocumentsNrtV1CallsWithHttpInfoAsync(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Returns the latest snippets from an active call
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </summary>
+        /// <remarks>
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of IndexedNRT</returns>
+        System.Threading.Tasks.Task<IndexedNRT> GetBulkDocumentsNrtV1IndexedNrtAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </summary>
+        /// <remarks>
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (IndexedNRT)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IndexedNRT>> GetBulkDocumentsNrtV1IndexedNrtWithHttpInfoAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Returns the latest transcript snippets from an active call
         /// </summary>
         /// <remarks>
         /// Returns the latest snippets from an active call
@@ -178,7 +234,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         System.Threading.Tasks.Task<NRTSnippets> GetBulkDocumentsNrtV1ListSnippetsAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Returns the latest snippets from an active call
+        /// Returns the latest transcript snippets from an active call
         /// </summary>
         /// <remarks>
         /// Returns the latest snippets from an active call
@@ -237,6 +293,47 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
     public partial class NearRealTimeTranscriptsApi : INearRealTimeTranscriptsApi
     {
         private FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1CallsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(NRTCalls) },
+            { (HttpStatusCode)400, typeof(NRTCalls400Response) },
+            { (HttpStatusCode)401, typeof(Error) },
+            { (HttpStatusCode)403, typeof(Error) },
+            { (HttpStatusCode)500, typeof(Error) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1IndexedNrtResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(IndexedNRT) },
+            { (HttpStatusCode)400, typeof(NRTSnippets400Response) },
+            { (HttpStatusCode)401, typeof(Error) },
+            { (HttpStatusCode)403, typeof(Error) },
+            { (HttpStatusCode)500, typeof(Error) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1ListSnippetsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(NRTSnippets) },
+            { (HttpStatusCode)400, typeof(NRTSnippets400Response) },
+            { (HttpStatusCode)401, typeof(Error) },
+            { (HttpStatusCode)403, typeof(Error) },
+            { (HttpStatusCode)500, typeof(Error) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetBulkDocumentsNrtV1SpeakeridsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(NRTSpeakerids) },
+            { (HttpStatusCode)400, typeof(NRTSpeakerids400Response) },
+            { (HttpStatusCode)401, typeof(Error) },
+            { (HttpStatusCode)403, typeof(Error) },
+            { (HttpStatusCode)500, typeof(Error) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NearRealTimeTranscriptsApi"/> class.
@@ -355,7 +452,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <returns>NRTCalls</returns>
         public NRTCalls GetBulkDocumentsNrtV1Calls(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTCalls> localVarResponse = GetBulkDocumentsNrtV1CallsWithHttpInfo(sort, reportId, audioSourceId, entityId, ticker, callStatus, paginationLimit, paginationOffset);
+            var localVarResponse = GetBulkDocumentsNrtV1CallsWithHttpInfo(sort, reportId, audioSourceId, entityId, ticker, callStatus, paginationLimit, paginationOffset);
             return localVarResponse.Data;
         }
 
@@ -372,7 +469,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="paginationLimit">Specifies the number of results to return per page.[ Min&#x3D;0 ; Max&#x3D;500 ] (optional)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <returns>ApiResponse of NRTCalls</returns>
-        public FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTCalls> GetBulkDocumentsNrtV1CallsWithHttpInfo(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        public ApiResponse<NRTCalls> GetBulkDocumentsNrtV1CallsWithHttpInfo(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
 
@@ -385,10 +482,16 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             };
 
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (sort != null)
             {
@@ -425,13 +528,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -443,15 +546,19 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<NRTCalls>("/bulk-documents/nrt/v1/calls", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1CallsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            NRTCalls>("/bulk-documents/nrt/v1/calls", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1Calls", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -469,9 +576,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NRTCalls</returns>
-        public async System.Threading.Tasks.Task<NRTCalls> GetBulkDocumentsNrtV1CallsAsync(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NRTCalls>GetBulkDocumentsNrtV1CallsAsync(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTCalls> localVarResponse = await GetBulkDocumentsNrtV1CallsWithHttpInfoAsync(sort, reportId, audioSourceId, entityId, ticker, callStatus, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetBulkDocumentsNrtV1CallsWithHttpInfoAsync(sort, reportId, audioSourceId, entityId, ticker, callStatus, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -489,7 +596,8 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NRTCalls)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTCalls>> GetBulkDocumentsNrtV1CallsWithHttpInfoAsync(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NRTCalls>> GetBulkDocumentsNrtV1CallsWithHttpInfoAsync(string sort = default(string), int? reportId = default(int?), int? audioSourceId = default(int?), string entityId = default(string), string ticker = default(string), string callStatus = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
@@ -502,12 +610,17 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (sort != null)
             {
@@ -544,13 +657,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -562,44 +675,48 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1CallsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<NRTCalls>("/bulk-documents/nrt/v1/calls", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1Calls", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Returns the latest snippets from an active call Returns the latest snippets from an active call
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call. Returns the  indexed transcript data  in small increments throughout the duration of an active call.
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
         /// <param name="reportId">Unique identifier for an event (optional)</param>
-        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
-        /// <returns>NRTSnippets</returns>
-        public NRTSnippets GetBulkDocumentsNrtV1ListSnippets(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        /// <returns>IndexedNRT</returns>
+        public IndexedNRT GetBulkDocumentsNrtV1IndexedNrt(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSnippets> localVarResponse = GetBulkDocumentsNrtV1ListSnippetsWithHttpInfo(audioSourceId, reportId, paginationLimit, paginationOffset);
+            var localVarResponse = GetBulkDocumentsNrtV1IndexedNrtWithHttpInfo(audioSourceId, reportId, paginationLimit, paginationOffset);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Returns the latest snippets from an active call Returns the latest snippets from an active call
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call. Returns the  indexed transcript data  in small increments throughout the duration of an active call.
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
         /// <param name="reportId">Unique identifier for an event (optional)</param>
-        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
-        /// <returns>ApiResponse of NRTSnippets</returns>
-        public FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSnippets> GetBulkDocumentsNrtV1ListSnippetsWithHttpInfo(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        /// <returns>ApiResponse of IndexedNRT</returns>
+        public ApiResponse<IndexedNRT> GetBulkDocumentsNrtV1IndexedNrtWithHttpInfo(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
 
@@ -612,10 +729,16 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             };
 
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (reportId != null)
             {
@@ -633,13 +756,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -651,45 +774,50 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<NRTSnippets>("/bulk-documents/nrt/v1/list-snippets", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1IndexedNrtResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            IndexedNRT>("/bulk-documents/nrt/v1/indexed-nrt", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1ListSnippets", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1IndexedNrt", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Returns the latest snippets from an active call Returns the latest snippets from an active call
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call. Returns the  indexed transcript data  in small increments throughout the duration of an active call.
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
         /// <param name="reportId">Unique identifier for an event (optional)</param>
-        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of NRTSnippets</returns>
-        public async System.Threading.Tasks.Task<NRTSnippets> GetBulkDocumentsNrtV1ListSnippetsAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of IndexedNRT</returns>
+        public async System.Threading.Tasks.Task<IndexedNRT>GetBulkDocumentsNrtV1IndexedNrtAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSnippets> localVarResponse = await GetBulkDocumentsNrtV1ListSnippetsWithHttpInfoAsync(audioSourceId, reportId, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetBulkDocumentsNrtV1IndexedNrtWithHttpInfoAsync(audioSourceId, reportId, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Returns the latest snippets from an active call Returns the latest snippets from an active call
+        /// Returns the  indexed transcript data  in small increments throughout the duration of an active call. Returns the  indexed transcript data  in small increments throughout the duration of an active call.
         /// </summary>
         /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
         /// <param name="reportId">Unique identifier for an event (optional)</param>
-        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;50 ] (optional)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (NRTSnippets)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSnippets>> GetBulkDocumentsNrtV1ListSnippetsWithHttpInfoAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (IndexedNRT)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<IndexedNRT>> GetBulkDocumentsNrtV1IndexedNrtWithHttpInfoAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
@@ -702,12 +830,17 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (reportId != null)
             {
@@ -725,13 +858,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -743,14 +876,219 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1IndexedNrtResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IndexedNRT>("/bulk-documents/nrt/v1/indexed-nrt", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1IndexedNrt", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns the latest transcript snippets from an active call Returns the latest snippets from an active call
+        /// </summary>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <returns>NRTSnippets</returns>
+        public NRTSnippets GetBulkDocumentsNrtV1ListSnippets(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            var localVarResponse = GetBulkDocumentsNrtV1ListSnippetsWithHttpInfo(audioSourceId, reportId, paginationLimit, paginationOffset);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns the latest transcript snippets from an active call Returns the latest snippets from an active call
+        /// </summary>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <returns>ApiResponse of NRTSnippets</returns>
+        public ApiResponse<NRTSnippets> GetBulkDocumentsNrtV1ListSnippetsWithHttpInfo(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        {
+            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (reportId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "reportId", reportId));
+            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "audioSourceId", audioSourceId));
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1ListSnippetsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            NRTSnippets>("/bulk-documents/nrt/v1/list-snippets", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1ListSnippets", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Returns the latest transcript snippets from an active call Returns the latest snippets from an active call
+        /// </summary>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of NRTSnippets</returns>
+        public async System.Threading.Tasks.Task<NRTSnippets>GetBulkDocumentsNrtV1ListSnippetsAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetBulkDocumentsNrtV1ListSnippetsWithHttpInfoAsync(audioSourceId, reportId, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns the latest transcript snippets from an active call Returns the latest snippets from an active call
+        /// </summary>
+        /// <exception cref="FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audioSourceId">Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSource ids.</param>
+        /// <param name="reportId">Unique identifier for an event (optional)</param>
+        /// <param name="paginationLimit">Specifies the  number of results to return per page. [ Min&#x3D;0; Max&#x3D;500 ] (optional)</param>
+        /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (NRTSnippets)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<NRTSnippets>> GetBulkDocumentsNrtV1ListSnippetsWithHttpInfoAsync(int audioSourceId, int? reportId = default(int?), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+
+            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (reportId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "reportId", reportId));
+            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "audioSourceId", audioSourceId));
+            if (paginationLimit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "_paginationLimit", paginationLimit));
+            }
+            if (paginationOffset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.ParameterToMultiMap("", "_paginationOffset", paginationOffset));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1ListSnippetsResponseTypeDictionary;
+
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<NRTSnippets>("/bulk-documents/nrt/v1/list-snippets", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1ListSnippets", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -767,7 +1105,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <returns>NRTSpeakerids</returns>
         public NRTSpeakerids GetBulkDocumentsNrtV1Speakerids(int audioSourceId, string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSpeakerids> localVarResponse = GetBulkDocumentsNrtV1SpeakeridsWithHttpInfo(audioSourceId, sort, paginationLimit, paginationOffset);
+            var localVarResponse = GetBulkDocumentsNrtV1SpeakeridsWithHttpInfo(audioSourceId, sort, paginationLimit, paginationOffset);
             return localVarResponse.Data;
         }
 
@@ -780,7 +1118,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="paginationLimit">Specifies the number of results to return per page.[ Min&#x3D;0 ; Max&#x3D;500 ] (optional)</param>
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <returns>ApiResponse of NRTSpeakerids</returns>
-        public FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSpeakerids> GetBulkDocumentsNrtV1SpeakeridsWithHttpInfo(int audioSourceId, string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
+        public ApiResponse<NRTSpeakerids> GetBulkDocumentsNrtV1SpeakeridsWithHttpInfo(int audioSourceId, string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?))
         {
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
 
@@ -793,10 +1131,16 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             };
 
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (sort != null)
             {
@@ -814,13 +1158,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -832,15 +1176,19 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<NRTSpeakerids>("/bulk-documents/nrt/v1/speakerids", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1SpeakeridsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            NRTSpeakerids>("/bulk-documents/nrt/v1/speakerids", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1Speakerids", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -854,9 +1202,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NRTSpeakerids</returns>
-        public async System.Threading.Tasks.Task<NRTSpeakerids> GetBulkDocumentsNrtV1SpeakeridsAsync(int audioSourceId, string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NRTSpeakerids>GetBulkDocumentsNrtV1SpeakeridsAsync(int audioSourceId, string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSpeakerids> localVarResponse = await GetBulkDocumentsNrtV1SpeakeridsWithHttpInfoAsync(audioSourceId, sort, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetBulkDocumentsNrtV1SpeakeridsWithHttpInfoAsync(audioSourceId, sort, paginationLimit, paginationOffset, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -870,7 +1218,8 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="paginationOffset">Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NRTSpeakerids)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<NRTSpeakerids>> GetBulkDocumentsNrtV1SpeakeridsWithHttpInfoAsync(int audioSourceId, string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NRTSpeakerids>> GetBulkDocumentsNrtV1SpeakeridsWithHttpInfoAsync(int audioSourceId, string sort = default(string), int? paginationLimit = default(int?), int? paginationOffset = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
@@ -883,12 +1232,17 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (sort != null)
             {
@@ -906,13 +1260,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -924,14 +1278,18 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetBulkDocumentsNrtV1SpeakeridsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<NRTSpeakerids>("/bulk-documents/nrt/v1/speakerids", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBulkDocumentsNrtV1Speakerids", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

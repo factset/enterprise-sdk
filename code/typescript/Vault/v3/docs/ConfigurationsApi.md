@@ -48,6 +48,7 @@ const id = "id_example"; // String | Vault configuration id to get the details o
 // Call api endpoint
 apiInstance.getVaultConfigurationById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const account = "account_example"; // String | Required account query parameter 
 // Call api endpoint
 apiInstance.getVaultConfigurations(account).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

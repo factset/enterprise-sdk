@@ -17,5 +17,4 @@
 from fds.sdk.IRNMeetings.api.attachments_api import AttachmentsApi
 from fds.sdk.IRNMeetings.api.comments_api import CommentsApi
 from fds.sdk.IRNMeetings.api.events_api import EventsApi
-from fds.sdk.IRNMeetings.api.identifiers_api import IdentifiersApi
 from fds.sdk.IRNMeetings.api.meetings_api import MeetingsApi

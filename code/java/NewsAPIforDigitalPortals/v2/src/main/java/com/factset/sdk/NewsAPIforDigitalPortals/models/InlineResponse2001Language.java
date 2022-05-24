@@ -44,6 +44,8 @@ public class InlineResponse2001Language implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public InlineResponse2001Language() { 
+  }
 
   public InlineResponse2001Language id(BigDecimal id) {
     this.id = id;

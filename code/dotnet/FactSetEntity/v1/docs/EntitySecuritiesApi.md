@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **securityType** | **string**| Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). | [optional] [default to EQ]
 
 ### Return type
-
 [**EntitySecuritiesResponse**](EntitySecuritiesResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **entitySecuritiesRequest** | [**EntitySecuritiesRequest**](EntitySecuritiesRequest.md)| Request Body to request a list of Entity Security objects. | 
 
 ### Return type
-
 [**EntitySecuritiesResponse**](EntitySecuritiesResponse.md)
 
 ### Authorization

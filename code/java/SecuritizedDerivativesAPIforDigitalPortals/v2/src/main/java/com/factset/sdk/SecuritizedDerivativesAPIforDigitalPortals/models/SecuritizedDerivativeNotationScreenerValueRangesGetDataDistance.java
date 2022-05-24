@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataDistance imp
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataDistanceRelative relative;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataDistance() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataDistance absolute(SecuritizedDerivativeNotationScreenerValueRangesGetDataDistanceAbsolute absolute) {
     this.absolute = absolute;

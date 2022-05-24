@@ -52,6 +52,20 @@ public class FICalculationParameters implements Serializable {
   public static final String JSON_PROPERTY_JOB_SETTINGS = "jobSettings";
   private FIJobSettings jobSettings;
 
+  public FICalculationParameters() { 
+  }
+
+  @JsonCreator
+  public FICalculationParameters(
+    @JsonProperty(value=JSON_PROPERTY_SECURITIES, required=true) java.util.List<FISecurity> securities, 
+    @JsonProperty(value=JSON_PROPERTY_CALCULATIONS, required=true) java.util.List<String> calculations, 
+    @JsonProperty(value=JSON_PROPERTY_JOB_SETTINGS, required=true) FIJobSettings jobSettings
+  ) {
+    this();
+    this.securities = securities;
+    this.calculations = calculations;
+    this.jobSettings = jobSettings;
+  }
 
   public FICalculationParameters securities(java.util.List<FISecurity> securities) {
     this.securities = securities;

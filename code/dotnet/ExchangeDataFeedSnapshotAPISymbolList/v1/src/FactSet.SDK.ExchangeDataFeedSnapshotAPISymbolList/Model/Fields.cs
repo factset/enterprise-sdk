@@ -1143,7 +1143,7 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Fields {\n");
             sb.Append("  Exchange: ").Append(Exchange).Append("\n");
             sb.Append("  Product: ").Append(Product).Append("\n");
@@ -1298,8 +1298,9 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
         public bool Equals(Fields input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Exchange == input.Exchange ||
@@ -1849,175 +1850,271 @@ namespace FactSet.SDK.ExchangeDataFeedSnapshotAPISymbolList.Model
             {
                 int hashCode = 41;
                 if (this.Exchange != null)
-                    hashCode = hashCode * 59 + this.Exchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exchange.GetHashCode();
+                }
                 if (this.Product != null)
-                    hashCode = hashCode * 59 + this.Product.GetHashCode();
-                hashCode = hashCode * 59 + this.Bid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Product.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Bid.GetHashCode();
                 if (this.BidDate != null)
-                    hashCode = hashCode * 59 + this.BidDate.GetHashCode();
-                hashCode = hashCode * 59 + this.BidTime.GetHashCode();
-                hashCode = hashCode * 59 + this.BidVol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BidDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.BidTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.BidVol.GetHashCode();
                 if (this.BidTick != null)
-                    hashCode = hashCode * 59 + this.BidTick.GetHashCode();
-                hashCode = hashCode * 59 + this.BidClose.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BidTick.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.BidClose.GetHashCode();
                 if (this.BidCloseDate != null)
-                    hashCode = hashCode * 59 + this.BidCloseDate.GetHashCode();
-                hashCode = hashCode * 59 + this.BidCloseVol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BidCloseDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.BidCloseVol.GetHashCode();
                 if (this.BidExch != null)
-                    hashCode = hashCode * 59 + this.BidExch.GetHashCode();
-                hashCode = hashCode * 59 + this.Ask.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BidExch.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Ask.GetHashCode();
                 if (this.AskDate != null)
-                    hashCode = hashCode * 59 + this.AskDate.GetHashCode();
-                hashCode = hashCode * 59 + this.AskTime.GetHashCode();
-                hashCode = hashCode * 59 + this.AskVol.GetHashCode();
-                hashCode = hashCode * 59 + this.AskClose.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AskDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AskTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.AskVol.GetHashCode();
+                hashCode = (hashCode * 59) + this.AskClose.GetHashCode();
                 if (this.AskCloseDate != null)
-                    hashCode = hashCode * 59 + this.AskCloseDate.GetHashCode();
-                hashCode = hashCode * 59 + this.AskCloseVol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AskCloseDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AskCloseVol.GetHashCode();
                 if (this.AskExch != null)
-                    hashCode = hashCode * 59 + this.AskExch.GetHashCode();
-                hashCode = hashCode * 59 + this.ShortSaleIndicator.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AskExch.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ShortSaleIndicator.GetHashCode();
                 if (this.QuoteCondition != null)
-                    hashCode = hashCode * 59 + this.QuoteCondition.GetHashCode();
-                hashCode = hashCode * 59 + this.LastPrice.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.QuoteCondition.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LastPrice.GetHashCode();
                 if (this.LastDate != null)
-                    hashCode = hashCode * 59 + this.LastDate.GetHashCode();
-                hashCode = hashCode * 59 + this.LastTime.GetHashCode();
-                hashCode = hashCode * 59 + this.LastVol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.LastTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastVol.GetHashCode();
                 if (this.LastTick != null)
-                    hashCode = hashCode * 59 + this.LastTick.GetHashCode();
-                hashCode = hashCode * 59 + this.OfficialClose.GetHashCode();
-                hashCode = hashCode * 59 + this.OfficialCloseTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastTick.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.OfficialClose.GetHashCode();
+                hashCode = (hashCode * 59) + this.OfficialCloseTime.GetHashCode();
                 if (this.LastExch != null)
-                    hashCode = hashCode * 59 + this.LastExch.GetHashCode();
-                hashCode = hashCode * 59 + this.Settlement.GetHashCode();
-                hashCode = hashCode * 59 + this.TradedPrice.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastExch.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Settlement.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradedPrice.GetHashCode();
                 if (this.TradedDate != null)
-                    hashCode = hashCode * 59 + this.TradedDate.GetHashCode();
-                hashCode = hashCode * 59 + this.TradedTime.GetHashCode();
-                hashCode = hashCode * 59 + this.TradedVol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradedDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TradedTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradedVol.GetHashCode();
                 if (this.TradedCondition != null)
-                    hashCode = hashCode * 59 + this.TradedCondition.GetHashCode();
-                hashCode = hashCode * 59 + this.NetChange.GetHashCode();
-                hashCode = hashCode * 59 + this.PercentChange.GetHashCode();
-                hashCode = hashCode * 59 + this.PremktPrice.GetHashCode();
-                hashCode = hashCode * 59 + this.PremktTime.GetHashCode();
-                hashCode = hashCode * 59 + this.PremktVol.GetHashCode();
-                hashCode = hashCode * 59 + this.PremktCVol.GetHashCode();
-                hashCode = hashCode * 59 + this.PostmktPrice.GetHashCode();
-                hashCode = hashCode * 59 + this.PostmktTime.GetHashCode();
-                hashCode = hashCode * 59 + this.PostmktVol.GetHashCode();
-                hashCode = hashCode * 59 + this.PostmktCvol.GetHashCode();
-                hashCode = hashCode * 59 + this.OffbookCumVol.GetHashCode();
-                hashCode = hashCode * 59 + this.OfficialBidClose.GetHashCode();
-                hashCode = hashCode * 59 + this.OfficialAskClose.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradedCondition.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.NetChange.GetHashCode();
+                hashCode = (hashCode * 59) + this.PercentChange.GetHashCode();
+                hashCode = (hashCode * 59) + this.PremktPrice.GetHashCode();
+                hashCode = (hashCode * 59) + this.PremktTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.PremktVol.GetHashCode();
+                hashCode = (hashCode * 59) + this.PremktCVol.GetHashCode();
+                hashCode = (hashCode * 59) + this.PostmktPrice.GetHashCode();
+                hashCode = (hashCode * 59) + this.PostmktTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.PostmktVol.GetHashCode();
+                hashCode = (hashCode * 59) + this.PostmktCvol.GetHashCode();
+                hashCode = (hashCode * 59) + this.OffbookCumVol.GetHashCode();
+                hashCode = (hashCode * 59) + this.OfficialBidClose.GetHashCode();
+                hashCode = (hashCode * 59) + this.OfficialAskClose.GetHashCode();
                 if (this.MidDate != null)
-                    hashCode = hashCode * 59 + this.MidDate.GetHashCode();
-                hashCode = hashCode * 59 + this.MidTime.GetHashCode();
-                hashCode = hashCode * 59 + this.Cvol.GetHashCode();
-                hashCode = hashCode * 59 + this.Turnover.GetHashCode();
-                hashCode = hashCode * 59 + this.Vwap.GetHashCode();
-                hashCode = hashCode * 59 + this.TradeCount.GetHashCode();
-                hashCode = hashCode * 59 + this.BlockTradeCount.GetHashCode();
-                hashCode = hashCode * 59 + this.BlockCvol.GetHashCode();
-                hashCode = hashCode * 59 + this.PrevClose.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MidDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MidTime.GetHashCode();
+                hashCode = (hashCode * 59) + this.Cvol.GetHashCode();
+                hashCode = (hashCode * 59) + this.Turnover.GetHashCode();
+                hashCode = (hashCode * 59) + this.Vwap.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradeCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.BlockTradeCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.BlockCvol.GetHashCode();
+                hashCode = (hashCode * 59) + this.PrevClose.GetHashCode();
                 if (this.CloseDate != null)
-                    hashCode = hashCode * 59 + this.CloseDate.GetHashCode();
-                hashCode = hashCode * 59 + this.PrevCloseUnadj.GetHashCode();
-                hashCode = hashCode * 59 + this.PrevClose2.GetHashCode();
-                hashCode = hashCode * 59 + this.PrevCloseUnadj2.GetHashCode();
-                hashCode = hashCode * 59 + this.LowerTradingBand.GetHashCode();
-                hashCode = hashCode * 59 + this.UpperTradingBand.GetHashCode();
-                hashCode = hashCode * 59 + this.BuyImbalance.GetHashCode();
-                hashCode = hashCode * 59 + this.SellImbalance.GetHashCode();
-                hashCode = hashCode * 59 + this.NasBuyImbalance.GetHashCode();
-                hashCode = hashCode * 59 + this.NasSellImbalance.GetHashCode();
-                hashCode = hashCode * 59 + this.Open.GetHashCode();
-                hashCode = hashCode * 59 + this.High.GetHashCode();
-                hashCode = hashCode * 59 + this.Low.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CloseDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PrevCloseUnadj.GetHashCode();
+                hashCode = (hashCode * 59) + this.PrevClose2.GetHashCode();
+                hashCode = (hashCode * 59) + this.PrevCloseUnadj2.GetHashCode();
+                hashCode = (hashCode * 59) + this.LowerTradingBand.GetHashCode();
+                hashCode = (hashCode * 59) + this.UpperTradingBand.GetHashCode();
+                hashCode = (hashCode * 59) + this.BuyImbalance.GetHashCode();
+                hashCode = (hashCode * 59) + this.SellImbalance.GetHashCode();
+                hashCode = (hashCode * 59) + this.NasBuyImbalance.GetHashCode();
+                hashCode = (hashCode * 59) + this.NasSellImbalance.GetHashCode();
+                hashCode = (hashCode * 59) + this.Open.GetHashCode();
+                hashCode = (hashCode * 59) + this.High.GetHashCode();
+                hashCode = (hashCode * 59) + this.Low.GetHashCode();
                 if (this.Venue != null)
-                    hashCode = hashCode * 59 + this.Venue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Venue.GetHashCode();
+                }
                 if (this.BuyId != null)
-                    hashCode = hashCode * 59 + this.BuyId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BuyId.GetHashCode();
+                }
                 if (this.SellId != null)
-                    hashCode = hashCode * 59 + this.SellId.GetHashCode();
-                hashCode = hashCode * 59 + this.AutoTradeVwap.GetHashCode();
-                hashCode = hashCode * 59 + this.AutoTradeCvol.GetHashCode();
-                hashCode = hashCode * 59 + this.AutoTradeCount.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SellId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AutoTradeVwap.GetHashCode();
+                hashCode = (hashCode * 59) + this.AutoTradeCvol.GetHashCode();
+                hashCode = (hashCode * 59) + this.AutoTradeCount.GetHashCode();
                 if (this.ExDateStatus != null)
-                    hashCode = hashCode * 59 + this.ExDateStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.PremktNetChange.GetHashCode();
-                hashCode = hashCode * 59 + this.PremktPercentChange.GetHashCode();
-                hashCode = hashCode * 59 + this.ClosingVol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ExDateStatus.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PremktNetChange.GetHashCode();
+                hashCode = (hashCode * 59) + this.PremktPercentChange.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClosingVol.GetHashCode();
                 if (this.PrimaryMarket != null)
-                    hashCode = hashCode * 59 + this.PrimaryMarket.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PrimaryMarket.GetHashCode();
+                }
                 if (this.IsoCountryExchange != null)
-                    hashCode = hashCode * 59 + this.IsoCountryExchange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IsoCountryExchange.GetHashCode();
+                }
                 if (this.PremktExch != null)
-                    hashCode = hashCode * 59 + this.PremktExch.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PremktExch.GetHashCode();
+                }
                 if (this.PostmktExch != null)
-                    hashCode = hashCode * 59 + this.PostmktExch.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PostmktExch.GetHashCode();
+                }
                 if (this.FrefSecurityType != null)
-                    hashCode = hashCode * 59 + this.FrefSecurityType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FrefSecurityType.GetHashCode();
+                }
                 if (this.SecuritySubType != null)
-                    hashCode = hashCode * 59 + this.SecuritySubType.GetHashCode();
-                hashCode = hashCode * 59 + this.PostmktNetChange.GetHashCode();
-                hashCode = hashCode * 59 + this.PostmktPercentChange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecuritySubType.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PostmktNetChange.GetHashCode();
+                hashCode = (hashCode * 59) + this.PostmktPercentChange.GetHashCode();
                 if (this.Isin != null)
-                    hashCode = hashCode * 59 + this.Isin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                }
                 if (this.Cusip != null)
-                    hashCode = hashCode * 59 + this.Cusip.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cusip.GetHashCode();
+                }
                 if (this.Sedol != null)
-                    hashCode = hashCode * 59 + this.Sedol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sedol.GetHashCode();
+                }
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.SharesOutstanding.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SharesOutstanding.GetHashCode();
                 if (this.PriceCurrency != null)
-                    hashCode = hashCode * 59 + this.PriceCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PriceCurrency.GetHashCode();
+                }
                 if (this.SecurityStatus != null)
-                    hashCode = hashCode * 59 + this.SecurityStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.GmtOffset.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecurityStatus.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.GmtOffset.GetHashCode();
                 if (this.MarketSegment != null)
-                    hashCode = hashCode * 59 + this.MarketSegment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MarketSegment.GetHashCode();
+                }
                 if (this.MarketSector != null)
-                    hashCode = hashCode * 59 + this.MarketSector.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MarketSector.GetHashCode();
+                }
                 if (this.Period != null)
-                    hashCode = hashCode * 59 + this.Period.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                }
                 if (this.CountryCode != null)
-                    hashCode = hashCode * 59 + this.CountryCode.GetHashCode();
-                hashCode = hashCode * 59 + this.FinancialStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryCode.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FinancialStatus.GetHashCode();
                 if (this.FactsetIndustry != null)
-                    hashCode = hashCode * 59 + this.FactsetIndustry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactsetIndustry.GetHashCode();
+                }
                 if (this.FactsetSector != null)
-                    hashCode = hashCode * 59 + this.FactsetSector.GetHashCode();
-                hashCode = hashCode * 59 + this.HaltInfo.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactsetSector.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.HaltInfo.GetHashCode();
                 if (this.Homepage != null)
-                    hashCode = hashCode * 59 + this.Homepage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Homepage.GetHashCode();
+                }
                 if (this.HaltDescription != null)
-                    hashCode = hashCode * 59 + this.HaltDescription.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HaltDescription.GetHashCode();
+                }
                 if (this.FeedCurrency != null)
-                    hashCode = hashCode * 59 + this.FeedCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FeedCurrency.GetHashCode();
+                }
                 if (this.CountryName != null)
-                    hashCode = hashCode * 59 + this.CountryName.GetHashCode();
-                hashCode = hashCode * 59 + this.OrderLotSize.GetHashCode();
-                hashCode = hashCode * 59 + this.TradeLotSize.GetHashCode();
-                hashCode = hashCode * 59 + this.TickSize.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CountryName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.OrderLotSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradeLotSize.GetHashCode();
+                hashCode = (hashCode * 59) + this.TickSize.GetHashCode();
                 if (this.TickGroup != null)
-                    hashCode = hashCode * 59 + this.TickGroup.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TickGroup.GetHashCode();
+                }
                 if (this.TickPilotEffDate != null)
-                    hashCode = hashCode * 59 + this.TickPilotEffDate.GetHashCode();
-                hashCode = hashCode * 59 + this.Avg30DayVol.GetHashCode();
-                hashCode = hashCode * 59 + this.Avg5DayVol.GetHashCode();
-                hashCode = hashCode * 59 + this.High52Week.GetHashCode();
-                hashCode = hashCode * 59 + this.Low52Week.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TickPilotEffDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Avg30DayVol.GetHashCode();
+                hashCode = (hashCode * 59) + this.Avg5DayVol.GetHashCode();
+                hashCode = (hashCode * 59) + this.High52Week.GetHashCode();
+                hashCode = (hashCode * 59) + this.Low52Week.GetHashCode();
                 if (this.High52WeekDate != null)
-                    hashCode = hashCode * 59 + this.High52WeekDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.High52WeekDate.GetHashCode();
+                }
                 if (this.Low52WeekDate != null)
-                    hashCode = hashCode * 59 + this.Low52WeekDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Low52WeekDate.GetHashCode();
+                }
                 if (this.TradeCondition != null)
-                    hashCode = hashCode * 59 + this.TradeCondition.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalReturn3M.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalReturn52W.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradeCondition.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.TotalReturn3M.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalReturn52W.GetHashCode();
                 return hashCode;
             }
         }

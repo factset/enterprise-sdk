@@ -60,6 +60,8 @@ public class InlineResponse2004ReportedKeyFiguresFirstFiscalYearCurrencyDependen
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private BigDecimal cashFlow;
 
+  public InlineResponse2004ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare() { 
+  }
 
   public InlineResponse2004ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare sales(BigDecimal sales) {
     this.sales = sales;

@@ -17,7 +17,7 @@ import PortfolioTransactionDeleteDataNotation from './PortfolioTransactionDelete
 /**
  * The PortfolioTransactionModifyDataTransaction model module.
  * @module model/PortfolioTransactionModifyDataTransaction
- * @version 0.9.1
+ * @version 0.9.2
  */
 class PortfolioTransactionModifyDataTransaction {
     /**

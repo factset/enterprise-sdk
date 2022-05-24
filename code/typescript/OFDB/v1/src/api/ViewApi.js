@@ -17,7 +17,7 @@ import ApiClient from "../ApiClient";
 /**
 * View service.
 * @module api/ViewApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class ViewApi {
 
@@ -83,7 +83,10 @@ export default class ViewApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/database/{path}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -106,7 +109,7 @@ export default class ViewApi {
      * @param {String} opts.filterSymbolsValues Can specify the symbol filter values of the date filter operations e.g: [\"ab\", \"xy\"] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided. 
      * @param {String} opts.sortFieldName Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested
      * @param {module:model/String} opts.sortFieldOrder Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     getDatabase(path, opts) {
       return this.getDatabaseWithHttpInfo(path, opts)
@@ -153,7 +156,10 @@ export default class ViewApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ['Number'];
+
       return this.apiClient.callApi(
         '/v1/database/{path}/dates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -170,7 +176,7 @@ export default class ViewApi {
      * @param {String} opts.before Returns list of dates which are before mentioned date
      * @param {String} opts.after Returns list of dates which are after mentioned date
      * @param {module:model/String} opts.orderBy Returns dates in the mentioned sorted order, should provide asc or desc
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Number>}
+     * @return { Promise.< Array.<Number> > } a Promise, with data of type {@link Array.<Number> }
      */
     v1DatabasePathDatesGet(path, opts) {
       return this.v1DatabasePathDatesGetWithHttpInfo(path, opts)
@@ -205,7 +211,10 @@ export default class ViewApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [Object];
+
       return this.apiClient.callApi(
         '/v1/database/{path}/fields', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -216,7 +225,7 @@ export default class ViewApi {
     /**
      * Returns all the fields in the database(OFDB, OMS_OFDB, ECONOFDB)
      * @param {String} path Encode database path
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     * @return { Promise.< Array.<Object> > } a Promise, with data of type {@link Array.<Object> }
      */
     v1DatabasePathFieldsGet(path) {
       return this.v1DatabasePathFieldsGetWithHttpInfo(path)
@@ -263,7 +272,10 @@ export default class ViewApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ['String'];
+
       return this.apiClient.callApi(
         '/v1/database/{path}/symbols', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -280,7 +292,7 @@ export default class ViewApi {
      * @param {String} opts.contains Returns list of symbols which contains mentioned string
      * @param {String} opts.equals Returns symbol which matches mentioned string
      * @param {module:model/String} opts.orderBy Returns symbols in the mentioned sorted order, should provide asc or desc
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<String>}
+     * @return { Promise.< Array.<String> > } a Promise, with data of type {@link Array.<String> }
      */
     v1DatabasePathSymbolsGet(path, opts) {
       return this.v1DatabasePathSymbolsGetWithHttpInfo(path, opts)
@@ -291,3 +303,8 @@ export default class ViewApi {
 
 
 }
+
+
+
+
+

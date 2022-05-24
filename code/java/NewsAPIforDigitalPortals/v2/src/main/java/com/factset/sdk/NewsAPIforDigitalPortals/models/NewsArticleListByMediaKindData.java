@@ -49,6 +49,16 @@ public class NewsArticleListByMediaKindData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private NewsArticleListDataFilter filter;
 
+  public NewsArticleListByMediaKindData() { 
+  }
+
+  @JsonCreator
+  public NewsArticleListByMediaKindData(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.Set<BigDecimal> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public NewsArticleListByMediaKindData ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

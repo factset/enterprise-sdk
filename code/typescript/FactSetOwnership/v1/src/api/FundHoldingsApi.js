@@ -20,7 +20,7 @@ import FundHoldingsResponse from '../model/FundHoldingsResponse';
 /**
 * FundHoldings service.
 * @module api/FundHoldingsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FundHoldingsApi {
 
@@ -73,7 +73,10 @@ export default class FundHoldingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FundHoldingsResponse;
+
       return this.apiClient.callApi(
         '/factset-ownership/v1/fund-holdings', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -90,7 +93,7 @@ export default class FundHoldingsApi {
      * @param {String} opts.topn Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (default to 'ALL')
      * @param {module:model/String} opts.assetType Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL  (default to 'EQ')
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundHoldingsResponse}
+     * @return { Promise.< module:model/FundHoldingsResponse > } a Promise, with data of type {@link module:model/FundHoldingsResponse }
      */
     getOwnershipHoldings(ids, opts) {
       return this.getOwnershipHoldingsWithHttpInfo(ids, opts)
@@ -125,7 +128,10 @@ export default class FundHoldingsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = FundHoldingsResponse;
+
       return this.apiClient.callApi(
         '/factset-ownership/v1/fund-holdings', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -137,7 +143,7 @@ export default class FundHoldingsApi {
      * Get holdings for a list of funds.
      * Gets Holding information for a long list of Fund objects.
      * @param {module:model/FundHoldingsRequest} fundHoldingsRequest Requesting Underlying Holdings for a list of Fund Identifiers.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundHoldingsResponse}
+     * @return { Promise.< module:model/FundHoldingsResponse > } a Promise, with data of type {@link module:model/FundHoldingsResponse }
      */
     postOwnershipHoldings(fundHoldingsRequest) {
       return this.postOwnershipHoldingsWithHttpInfo(fundHoldingsRequest)
@@ -148,3 +154,8 @@ export default class FundHoldingsApi {
 
 
 }
+
+
+
+
+

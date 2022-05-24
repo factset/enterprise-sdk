@@ -48,6 +48,8 @@ public class InlineResponse20051DataInterestRatePeriodic implements Serializable
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private BigDecimal amount;
 
+  public InlineResponse20051DataInterestRatePeriodic() { 
+  }
 
   public InlineResponse20051DataInterestRatePeriodic fixed(BigDecimal fixed) {
     this.fixed = fixed;

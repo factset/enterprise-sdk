@@ -89,6 +89,8 @@ public class InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatios imple
   public static final String JSON_PROPERTY_DEBT_EQUITY = "debtEquity";
   private InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosDebtEquity debtEquity;
 
+  public InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatios() { 
+  }
 
   public InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatios priceSales(InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosPriceSales priceSales) {
     this.priceSales = priceSales;

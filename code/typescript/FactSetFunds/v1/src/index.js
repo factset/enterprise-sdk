@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Aum from './model/Aum';
 import AumRequest from './model/AumRequest';
@@ -59,6 +58,7 @@ import StatusesResponse from './model/StatusesResponse';
 import Summaries from './model/Summaries';
 import SummariesRequest from './model/SummariesRequest';
 import SummariesResponse from './model/SummariesResponse';
+
 import FundFlowsAUMApi from './api/FundFlowsAUMApi';
 import HelperApi from './api/HelperApi';
 import PricesReturnsApi from './api/PricesReturnsApi';
@@ -94,7 +94,7 @@ import ReferenceApi from './api/ReferenceApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -401,5 +401,6 @@ export {
     * The ReferenceApi service constructor.
     * @property {module:api/ReferenceApi}
     */
-    ReferenceApi
+    ReferenceApi,
+
 };

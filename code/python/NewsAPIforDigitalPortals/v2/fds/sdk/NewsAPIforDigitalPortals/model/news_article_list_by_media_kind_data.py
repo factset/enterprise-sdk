@@ -24,8 +24,8 @@ from fds.sdk.NewsAPIforDigitalPortals.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.NewsAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -63,7 +63,7 @@ class NewsArticleListByMediaKindData(ModelNormal):
 
     validations = {
         ('ids',): {
-            'max_items': 16,
+            'max_items': 20,
             'min_items': 1,
         },
     }

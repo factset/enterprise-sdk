@@ -145,7 +145,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BenchmarkDetails {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  BenchmarkId: ").Append(BenchmarkId).Append("\n");
@@ -189,8 +189,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(BenchmarkDetails input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -259,27 +260,49 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.BenchmarkId != null)
-                    hashCode = hashCode * 59 + this.BenchmarkId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BenchmarkId.GetHashCode();
+                }
                 if (this.BenchmarkName != null)
-                    hashCode = hashCode * 59 + this.BenchmarkName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BenchmarkName.GetHashCode();
+                }
                 if (this.MultipleBenchmarkFlag != null)
-                    hashCode = hashCode * 59 + this.MultipleBenchmarkFlag.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MultipleBenchmarkFlag.GetHashCode();
+                }
                 if (this.BenchmarkChangeDate != null)
-                    hashCode = hashCode * 59 + this.BenchmarkChangeDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BenchmarkChangeDate.GetHashCode();
+                }
                 if (this.Segment != null)
-                    hashCode = hashCode * 59 + this.Segment.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Segment.GetHashCode();
+                }
                 if (this.SegmentBenchmarkId != null)
-                    hashCode = hashCode * 59 + this.SegmentBenchmarkId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SegmentBenchmarkId.GetHashCode();
+                }
                 if (this.SegmentBenchmarkName != null)
-                    hashCode = hashCode * 59 + this.SegmentBenchmarkName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SegmentBenchmarkName.GetHashCode();
+                }
                 if (this.SegmentBenchmarkCurrency != null)
-                    hashCode = hashCode * 59 + this.SegmentBenchmarkCurrency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SegmentBenchmarkCurrency.GetHashCode();
+                }
                 if (this.SegmentBenchmarkReturnType != null)
-                    hashCode = hashCode * 59 + this.SegmentBenchmarkReturnType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SegmentBenchmarkReturnType.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

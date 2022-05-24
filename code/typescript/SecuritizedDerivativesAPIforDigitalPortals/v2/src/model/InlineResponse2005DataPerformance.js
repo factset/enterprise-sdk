@@ -19,7 +19,7 @@ import InlineResponse2005DataPerformanceSinceIssue from './InlineResponse2005Dat
 /**
  * The InlineResponse2005DataPerformance model module.
  * @module model/InlineResponse2005DataPerformance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataPerformance {
     /**

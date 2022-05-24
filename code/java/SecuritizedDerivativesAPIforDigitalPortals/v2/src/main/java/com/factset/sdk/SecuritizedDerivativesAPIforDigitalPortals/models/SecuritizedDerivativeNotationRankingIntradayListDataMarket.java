@@ -44,6 +44,16 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataMarket implemen
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = new java.util.LinkedHashSet<>();
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataMarket() { 
+  }
+
+  @JsonCreator
+  public SecuritizedDerivativeNotationRankingIntradayListDataMarket(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.Set<BigDecimal> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataMarket ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

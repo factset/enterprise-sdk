@@ -251,6 +251,42 @@ namespace FactSet.SDK.FactSetConcordance.Api
     {
         private FactSet.SDK.FactSetConcordance.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityDecisionsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityDecisionsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityTaskForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityTaskResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEntityTaskStatusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityTaskStatusResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityMatchBulkApi"/> class.
         /// </summary>
@@ -363,7 +399,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityDecisionsResponse</returns>
         public EntityDecisionsResponse GetEntityDecisions(int taskId, int? offset = default(int?), int? limit = default(int?))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityDecisionsResponse> localVarResponse = GetEntityDecisionsWithHttpInfo(taskId, offset, limit);
+            var localVarResponse = GetEntityDecisionsWithHttpInfo(taskId, offset, limit);
             return localVarResponse.Data;
         }
 
@@ -375,7 +411,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="offset">Starting row for records to return or rows to skip. (optional, default to 0)</param>
         /// <param name="limit">Limits the number of records in the response. (optional)</param>
         /// <returns>ApiResponse of EntityDecisionsResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityDecisionsResponse> GetEntityDecisionsWithHttpInfo(int taskId, int? offset = default(int?), int? limit = default(int?))
+        public ApiResponse<EntityDecisionsResponse> GetEntityDecisionsWithHttpInfo(int taskId, int? offset = default(int?), int? limit = default(int?))
         {
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -389,10 +425,16 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "taskId", taskId));
             if (offset != null)
@@ -406,13 +448,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -424,15 +466,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EntityDecisionsResponse>("/factset-concordance/v2/entity-decisions", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityDecisionsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EntityDecisionsResponse>("/factset-concordance/v2/entity-decisions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityDecisions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -445,9 +491,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="limit">Limits the number of records in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityDecisionsResponse</returns>
-        public async System.Threading.Tasks.Task<EntityDecisionsResponse> GetEntityDecisionsAsync(int taskId, int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityDecisionsResponse>GetEntityDecisionsAsync(int taskId, int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityDecisionsResponse> localVarResponse = await GetEntityDecisionsWithHttpInfoAsync(taskId, offset, limit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityDecisionsWithHttpInfoAsync(taskId, offset, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -460,7 +506,8 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="limit">Limits the number of records in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityDecisionsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityDecisionsResponse>> GetEntityDecisionsWithHttpInfoAsync(int taskId, int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityDecisionsResponse>> GetEntityDecisionsWithHttpInfoAsync(int taskId, int? offset = default(int?), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -474,12 +521,17 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToMultiMap("", "taskId", taskId));
             if (offset != null)
@@ -493,13 +545,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -511,14 +563,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityDecisionsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EntityDecisionsResponse>("/factset-concordance/v2/entity-decisions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityDecisions", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -543,7 +599,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityTaskResponse</returns>
         public EntityTaskResponse GetEntityTaskForList(int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = default(string), string urlColumn = default(string), string stateColumn = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskResponse> localVarResponse = GetEntityTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
+            var localVarResponse = GetEntityTaskForListWithHttpInfo(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType);
             return localVarResponse.Data;
         }
 
@@ -564,23 +620,31 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="includeEntitySubType">Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Only candidates with an entity subtype specified will be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)</param>
         /// <param name="excludeEntitySubType">Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)</param>
         /// <returns>ApiResponse of EntityTaskResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskResponse> GetEntityTaskForListWithHttpInfo(int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = default(string), string urlColumn = default(string), string stateColumn = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>))
+        public ApiResponse<EntityTaskResponse> GetEntityTaskForListWithHttpInfo(int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = default(string), string urlColumn = default(string), string stateColumn = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>))
         {
             // verify the required parameter 'taskName' is set
             if (taskName == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'taskName' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'inputFile' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
             // verify the required parameter 'clientIdColumn' is set
             if (clientIdColumn == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'clientIdColumn' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
             // verify the required parameter 'nameColumn' is set
             if (nameColumn == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'nameColumn' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -595,10 +659,16 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.FormParameters.Add("universeId", FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToString(universeId)); // form parameter
             localVarRequestOptions.FormParameters.Add("taskName", FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToString(taskName)); // form parameter
@@ -636,13 +706,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -654,15 +724,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EntityTaskResponse>("/factset-concordance/v2/entity-task", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityTaskForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EntityTaskResponse>("/factset-concordance/v2/entity-task", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityTaskForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -684,9 +758,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="excludeEntitySubType">Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityTaskResponse</returns>
-        public async System.Threading.Tasks.Task<EntityTaskResponse> GetEntityTaskForListAsync(int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = default(string), string urlColumn = default(string), string stateColumn = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityTaskResponse>GetEntityTaskForListAsync(int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = default(string), string urlColumn = default(string), string stateColumn = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskResponse> localVarResponse = await GetEntityTaskForListWithHttpInfoAsync(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityTaskForListWithHttpInfoAsync(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -708,23 +782,32 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="excludeEntitySubType">Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will *not* be considered for the final match result. Multiple types can be entered separated by commas. **Do not include within &#x60;inputFile&#x60;.**  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityTaskResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskResponse>> GetEntityTaskForListWithHttpInfoAsync(int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = default(string), string urlColumn = default(string), string stateColumn = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityTaskResponse>> GetEntityTaskForListWithHttpInfoAsync(int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = default(string), string urlColumn = default(string), string stateColumn = default(string), List<string> includeEntityType = default(List<string>), List<string> excludeEntityType = default(List<string>), List<string> includeEntitySubType = default(List<string>), List<string> excludeEntitySubType = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'taskName' is set
             if (taskName == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'taskName' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'inputFile' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
             // verify the required parameter 'clientIdColumn' is set
             if (clientIdColumn == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'clientIdColumn' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
             // verify the required parameter 'nameColumn' is set
             if (nameColumn == null)
+            {
                 throw new FactSet.SDK.FactSetConcordance.Client.ApiException(400, "Missing required parameter 'nameColumn' when calling EntityMatchBulkApi->GetEntityTaskForList");
+            }
 
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -739,12 +822,17 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.FormParameters.Add("universeId", FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToString(universeId)); // form parameter
             localVarRequestOptions.FormParameters.Add("taskName", FactSet.SDK.FactSetConcordance.Client.ClientUtils.ParameterToString(taskName)); // form parameter
@@ -782,13 +870,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -800,14 +888,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityTaskForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EntityTaskResponse>("/factset-concordance/v2/entity-task", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityTaskForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -824,7 +916,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <returns>EntityTaskStatusResponse</returns>
         public EntityTaskStatusResponse GetEntityTaskStatus(int? taskId = default(int?), int? offset = default(int?), int? limit = default(int?), List<string> status = default(List<string>))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskStatusResponse> localVarResponse = GetEntityTaskStatusWithHttpInfo(taskId, offset, limit, status);
+            var localVarResponse = GetEntityTaskStatusWithHttpInfo(taskId, offset, limit, status);
             return localVarResponse.Data;
         }
 
@@ -837,7 +929,7 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="limit">Limits the number of records in the response. (optional)</param>
         /// <param name="status">Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)</param>
         /// <returns>ApiResponse of EntityTaskStatusResponse</returns>
-        public FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskStatusResponse> GetEntityTaskStatusWithHttpInfo(int? taskId = default(int?), int? offset = default(int?), int? limit = default(int?), List<string> status = default(List<string>))
+        public ApiResponse<EntityTaskStatusResponse> GetEntityTaskStatusWithHttpInfo(int? taskId = default(int?), int? offset = default(int?), int? limit = default(int?), List<string> status = default(List<string>))
         {
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
 
@@ -851,10 +943,16 @@ namespace FactSet.SDK.FactSetConcordance.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (taskId != null)
             {
@@ -875,13 +973,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -893,15 +991,19 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EntityTaskStatusResponse>("/factset-concordance/v2/entity-task-status", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityTaskStatusResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EntityTaskStatusResponse>("/factset-concordance/v2/entity-task-status", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityTaskStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -915,9 +1017,9 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="status">Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityTaskStatusResponse</returns>
-        public async System.Threading.Tasks.Task<EntityTaskStatusResponse> GetEntityTaskStatusAsync(int? taskId = default(int?), int? offset = default(int?), int? limit = default(int?), List<string> status = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityTaskStatusResponse>GetEntityTaskStatusAsync(int? taskId = default(int?), int? offset = default(int?), int? limit = default(int?), List<string> status = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskStatusResponse> localVarResponse = await GetEntityTaskStatusWithHttpInfoAsync(taskId, offset, limit, status, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEntityTaskStatusWithHttpInfoAsync(taskId, offset, limit, status, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -931,7 +1033,8 @@ namespace FactSet.SDK.FactSetConcordance.Api
         /// <param name="status">Filter on the status of the Concordance Tasks. Default is no filter.   * PENDING - The task has not yet started   * IN_PROGRESS - The task is submitted and decisions are in progress.   * SUCCESS - The task was successful! Move to the /entity-decisions endpoint to retrieve decisions.   * FAILURE - The task failed. Reach out to FactSet Support for assistance.   * BAD_REQUEST - The task creation was unsuccesfull. Typically occurs with an incorrect input file format or column headers.   * ABORTED - The task was aborted.  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityTaskStatusResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetConcordance.Client.ApiResponse<EntityTaskStatusResponse>> GetEntityTaskStatusWithHttpInfoAsync(int? taskId = default(int?), int? offset = default(int?), int? limit = default(int?), List<string> status = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityTaskStatusResponse>> GetEntityTaskStatusWithHttpInfoAsync(int? taskId = default(int?), int? offset = default(int?), int? limit = default(int?), List<string> status = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetConcordance.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetConcordance.Client.RequestOptions();
@@ -945,12 +1048,17 @@ namespace FactSet.SDK.FactSetConcordance.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetConcordance.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (taskId != null)
             {
@@ -971,13 +1079,13 @@ namespace FactSet.SDK.FactSetConcordance.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetConcordance.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -989,14 +1097,18 @@ namespace FactSet.SDK.FactSetConcordance.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEntityTaskStatusResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EntityTaskStatusResponse>("/factset-concordance/v2/entity-task-status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEntityTaskStatus", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

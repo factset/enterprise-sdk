@@ -48,6 +48,8 @@ public class InlineResponse2005DataPerformanceEndOfDayMonths3 implements Seriali
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataPerformanceEndOfDayMonths3() { 
+  }
 
   public InlineResponse2005DataPerformanceEndOfDayMonths3 minimum(BigDecimal minimum) {
     this.minimum = minimum;

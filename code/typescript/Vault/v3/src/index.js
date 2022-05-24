@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CalculationMeta from './model/CalculationMeta';
 import CalculationStatus from './model/CalculationStatus';
@@ -42,12 +41,15 @@ import VaultConfigurationSummary from './model/VaultConfigurationSummary';
 import VaultConfigurationSummaryRoot from './model/VaultConfigurationSummaryRoot';
 import VaultDateParameters from './model/VaultDateParameters';
 import VaultIdentifier from './model/VaultIdentifier';
+
 import ComponentsApi from './api/ComponentsApi';
 import ConfigurationsApi from './api/ConfigurationsApi';
 import DatesApi from './api/DatesApi';
 import DocumentsApi from './api/DocumentsApi';
 import FrequenciesApi from './api/FrequenciesApi';
 import VaultCalculationsApi from './api/VaultCalculationsApi';
+import PostAndCalculateResponseWrapper from './api/VaultCalculationsApi';
+import PutAndCalculateResponseWrapper from './api/VaultCalculationsApi';
 
 
 /**
@@ -79,7 +81,7 @@ import VaultCalculationsApi from './api/VaultCalculationsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -296,5 +298,18 @@ export {
     * The VaultCalculationsApi service constructor.
     * @property {module:api/VaultCalculationsApi}
     */
-    VaultCalculationsApi
+    VaultCalculationsApi,
+
+    /**
+    * The PostAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PostAndCalculateResponseWrapper,
+
+    /**
+    * The PutAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PutAndCalculateResponseWrapper,
+
 };

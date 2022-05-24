@@ -43,6 +43,8 @@ public class ReturnsRangeResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ReturnsRange> data = null;
 
+  public ReturnsRangeResponse() { 
+  }
 
   public ReturnsRangeResponse data(java.util.List<ReturnsRange> data) {
     this.data = data;

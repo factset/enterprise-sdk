@@ -4,8 +4,8 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateAttachment**](AttachmentsApi.md#createattachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for an existing meeting
-[**DownloadAttachment**](AttachmentsApi.md#downloadattachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a meeting
+[**CreateAttachment**](AttachmentsApi.md#createattachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for a existing meeting
+[**DownloadAttachment**](AttachmentsApi.md#downloadattachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
 [**GetAttachments**](AttachmentsApi.md#getattachments) | **GET** /v1/meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
 [**SoftDeleteMeetingAttachment**](AttachmentsApi.md#softdeletemeetingattachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 # **CreateAttachment**
 > NewItemDto CreateAttachment (Guid meetingId, System.IO.Stream file)
 
-Create an attachment for an existing meeting
+Create an attachment for a existing meeting
 
 ### Example
 ```csharp
@@ -51,12 +51,12 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Meeting Id
-            var file = BINARY_DATA_HERE;  // System.IO.Stream | 
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream | 
 
             try
             {
-                // Create an attachment for an existing meeting
+                // Create an attachment for a existing meeting
                 NewItemDto result = apiInstance.CreateAttachment(meetingId, file);
                 Console.WriteLine(result.ToJson());
             }
@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **file** | **System.IO.Stream****System.IO.Stream**|  | 
 
 ### Return type
-
 [**NewItemDto**](NewItemDto.md)
 
 ### Authorization
@@ -105,7 +104,7 @@ Name | Type | Description  | Notes
 # **DownloadAttachment**
 > void DownloadAttachment (Guid meetingId, Guid attachmentId)
 
-Download an attachment from a meeting
+Download an attachment from a Meeting
 
 ### Example
 ```csharp
@@ -142,12 +141,12 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
-            var attachmentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | 
+            var meetingId = "meetingId_example";  // Guid | 
+            var attachmentId = "attachmentId_example";  // Guid | 
 
             try
             {
-                // Download an attachment from a meeting
+                // Download an attachment from a Meeting
                 apiInstance.DownloadAttachment(meetingId, attachmentId);
             }
             catch (ApiException  e)
@@ -169,7 +168,6 @@ Name | Type | Description  | Notes
  **attachmentId** | **Guid**|  | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -233,7 +231,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Meeting Id
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
 
             try
             {
@@ -259,7 +257,6 @@ Name | Type | Description  | Notes
  **meetingId** | **Guid**| Meeting Id | 
 
 ### Return type
-
 [**List&lt;AttachmentSummaryDto&gt;**](AttachmentSummaryDto.md)
 
 ### Authorization
@@ -322,8 +319,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AttachmentsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Meeting Id
-            var attachmentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Attachment Id
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var attachmentId = "attachmentId_example";  // Guid | Attachment Id
 
             try
             {
@@ -349,7 +346,6 @@ Name | Type | Description  | Notes
  **attachmentId** | **Guid**| Attachment Id | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization

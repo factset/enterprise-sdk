@@ -73,6 +73,8 @@ public class InlineResponse2006DataPositions implements Serializable {
   public static final String JSON_PROPERTY_PROFIT_LOSS = "profitLoss";
   private InlineResponse2006DataProfitLoss profitLoss;
 
+  public InlineResponse2006DataPositions() { 
+  }
 
   public InlineResponse2006DataPositions instrument(InlineResponse2006DataInstrument instrument) {
     this.instrument = instrument;

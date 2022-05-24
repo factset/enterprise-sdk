@@ -51,7 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
-            var id = id_example;  // string | Vault configuration id to get the details of (default to "E522DF7D-C286-4EF1-AE34-0AA104AF602F")
+            var id = "\"E522DF7D-C286-4EF1-AE34-0AA104AF602F\"";  // string | Vault configuration id to get the details of (default to "E522DF7D-C286-4EF1-AE34-0AA104AF602F")
 
             try
             {
@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Vault configuration id to get the details of | [default to &quot;E522DF7D-C286-4EF1-AE34-0AA104AF602F&quot;]
 
 ### Return type
-
 [**VaultConfiguration**](VaultConfiguration.md)
 
 ### Authorization
@@ -148,7 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ConfigurationsApi(config);
-            var account = account_example;  // string | Required account query parameter to filter configurations for a specific account (default to "Client:Foo/Bar/myaccount.acct")
+            var account = "\"Client:Foo/Bar/myaccount.acct\"";  // string | Required account query parameter to filter configurations for a specific account (default to "Client:Foo/Bar/myaccount.acct")
 
             try
             {
@@ -174,7 +173,6 @@ Name | Type | Description  | Notes
  **account** | **string**| Required account query parameter to filter configurations for a specific account | [default to &quot;Client:Foo/Bar/myaccount.acct&quot;]
 
 ### Return type
-
 [**Dictionary&lt;string, VaultConfigurationSummary&gt;**](VaultConfigurationSummary.md)
 
 ### Authorization

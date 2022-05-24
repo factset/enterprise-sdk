@@ -24,7 +24,6 @@ src/main/java/com/factset/sdk/ModelPortfolio/ApiClient.java
 src/main/java/com/factset/sdk/ModelPortfolio/ApiException.java
 src/main/java/com/factset/sdk/ModelPortfolio/ApiResponse.java
 src/main/java/com/factset/sdk/ModelPortfolio/Configuration.java
-src/main/java/com/factset/sdk/ModelPortfolio/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/ModelPortfolio/JSON.java
 src/main/java/com/factset/sdk/ModelPortfolio/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/ModelPortfolio/Pair.java

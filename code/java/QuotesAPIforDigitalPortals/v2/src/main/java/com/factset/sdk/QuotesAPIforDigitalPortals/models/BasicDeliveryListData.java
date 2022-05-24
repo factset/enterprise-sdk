@@ -44,6 +44,8 @@ public class BasicDeliveryListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private BasicDeliveryListDataFilter filter;
 
+  public BasicDeliveryListData() { 
+  }
 
   public BasicDeliveryListData filter(BasicDeliveryListDataFilter filter) {
     this.filter = filter;

@@ -100,7 +100,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsArticleListDataFilter {\n");
             sb.Append("  Range: ").Append(Range).Append("\n");
             sb.Append("  Categories: ").Append(Categories).Append("\n");
@@ -140,8 +140,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsArticleListDataFilter input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Range == input.Range ||
@@ -190,19 +191,33 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Range != null)
-                    hashCode = hashCode * 59 + this.Range.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
                 if (this.Categories != null)
-                    hashCode = hashCode * 59 + this.Categories.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Categories.GetHashCode();
+                }
                 if (this.Regions != null)
-                    hashCode = hashCode * 59 + this.Regions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Regions.GetHashCode();
+                }
                 if (this.Distributor != null)
-                    hashCode = hashCode * 59 + this.Distributor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Distributor.GetHashCode();
+                }
                 if (this.Publisher != null)
-                    hashCode = hashCode * 59 + this.Publisher.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Publisher.GetHashCode();
+                }
                 if (this.Language != null)
-                    hashCode = hashCode * 59 + this.Language.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Language.GetHashCode();
+                }
                 if (this.Types != null)
-                    hashCode = hashCode * 59 + this.Types.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Types.GetHashCode();
+                }
                 return hashCode;
             }
         }

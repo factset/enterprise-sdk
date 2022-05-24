@@ -47,7 +47,7 @@ import InlineResponse20087 from '../model/InlineResponse20087';
 /**
 * Instrument service.
 * @module api/InstrumentApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class InstrumentApi {
 
@@ -96,7 +96,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20044;
+
       return this.apiClient.callApi(
         '/instrument/backgroundText/listByInstrument', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -111,7 +114,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20044}
+     * @return { Promise.< module:model/InlineResponse20044 > } a Promise, with data of type {@link module:model/InlineResponse20044 }
      */
     getInstrumentBackgroundTextListByInstrument(id, opts) {
       return this.getInstrumentBackgroundTextListByInstrumentWithHttpInfo(id, opts)
@@ -153,7 +156,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20049;
+
       return this.apiClient.callApi(
         '/instrument/complianceProperty/listByInstrument', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -168,7 +174,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20049}
+     * @return { Promise.< module:model/InlineResponse20049 > } a Promise, with data of type {@link module:model/InlineResponse20049 }
      */
     getInstrumentCompliancePropertyListByInstrument(id, opts) {
       return this.getInstrumentCompliancePropertyListByInstrumentWithHttpInfo(id, opts)
@@ -210,7 +216,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20050;
+
       return this.apiClient.callApi(
         '/instrument/composite/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -225,7 +234,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20050}
+     * @return { Promise.< module:model/InlineResponse20050 > } a Promise, with data of type {@link module:model/InlineResponse20050 }
      */
     getInstrumentCompositeGet(id, opts) {
       return this.getInstrumentCompositeGetWithHttpInfo(id, opts)
@@ -261,7 +270,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20052;
+
       return this.apiClient.callApi(
         '/instrument/coupon/dayCountConvention/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -275,7 +287,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20052}
+     * @return { Promise.< module:model/InlineResponse20052 > } a Promise, with data of type {@link module:model/InlineResponse20052 }
      */
     getInstrumentCouponDayCountConventionTypeList(opts) {
       return this.getInstrumentCouponDayCountConventionTypeListWithHttpInfo(opts)
@@ -311,7 +323,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20053;
+
       return this.apiClient.callApi(
         '/instrument/coupon/interestRate/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -325,7 +340,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20053}
+     * @return { Promise.< module:model/InlineResponse20053 > } a Promise, with data of type {@link module:model/InlineResponse20053 }
      */
     getInstrumentCouponInterestRateTypeList(opts) {
       return this.getInstrumentCouponInterestRateTypeListWithHttpInfo(opts)
@@ -367,7 +382,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20054;
+
       return this.apiClient.callApi(
         '/instrument/coupon/keyData/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -382,7 +400,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20054}
+     * @return { Promise.< module:model/InlineResponse20054 > } a Promise, with data of type {@link module:model/InlineResponse20054 }
      */
     getInstrumentCouponKeyDataGet(id, opts) {
       return this.getInstrumentCouponKeyDataGetWithHttpInfo(id, opts)
@@ -424,7 +442,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20051;
+
       return this.apiClient.callApi(
         '/instrument/coupon/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -439,7 +460,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20051}
+     * @return { Promise.< module:model/InlineResponse20051 > } a Promise, with data of type {@link module:model/InlineResponse20051 }
      */
     getInstrumentCouponList(id, opts) {
       return this.getInstrumentCouponListWithHttpInfo(id, opts)
@@ -479,7 +500,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20055;
+
       return this.apiClient.callApi(
         '/instrument/crossReference/getByISIN', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -493,7 +517,7 @@ export default class InstrumentApi {
      * @param {String} isin Source ISIN to be translated.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20055}
+     * @return { Promise.< module:model/InlineResponse20055 > } a Promise, with data of type {@link module:model/InlineResponse20055 }
      */
     getInstrumentCrossReferenceGetByISIN(isin, opts) {
       return this.getInstrumentCrossReferenceGetByISINWithHttpInfo(isin, opts)
@@ -533,7 +557,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20055;
+
       return this.apiClient.callApi(
         '/instrument/crossReference/getByWKN', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -547,7 +574,7 @@ export default class InstrumentApi {
      * @param {String} wkn Source WKN to be translated.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20055}
+     * @return { Promise.< module:model/InlineResponse20055 > } a Promise, with data of type {@link module:model/InlineResponse20055 }
      */
     getInstrumentCrossReferenceGetByWKN(wkn, opts) {
       return this.getInstrumentCrossReferenceGetByWKNWithHttpInfo(wkn, opts)
@@ -591,7 +618,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20058;
+
       return this.apiClient.callApi(
         '/instrument/crossReference/history/getByISIN', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -607,7 +637,7 @@ export default class InstrumentApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20058}
+     * @return { Promise.< module:model/InlineResponse20058 > } a Promise, with data of type {@link module:model/InlineResponse20058 }
      */
     getInstrumentCrossReferenceHistoryGetByISIN(isin, opts) {
       return this.getInstrumentCrossReferenceHistoryGetByISINWithHttpInfo(isin, opts)
@@ -651,7 +681,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20058;
+
       return this.apiClient.callApi(
         '/instrument/crossReference/history/getByWKN', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -667,7 +700,7 @@ export default class InstrumentApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 10.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20058}
+     * @return { Promise.< module:model/InlineResponse20058 > } a Promise, with data of type {@link module:model/InlineResponse20058 }
      */
     getInstrumentCrossReferenceHistoryGetByWKN(wkn, opts) {
       return this.getInstrumentCrossReferenceHistoryGetByWKNWithHttpInfo(wkn, opts)
@@ -715,7 +748,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20059;
+
       return this.apiClient.callApi(
         '/instrument/exchangeRate/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -731,7 +767,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20059}
+     * @return { Promise.< module:model/InlineResponse20059 > } a Promise, with data of type {@link module:model/InlineResponse20059 }
      */
     getInstrumentExchangeRateGet(target, source, opts) {
       return this.getInstrumentExchangeRateGetWithHttpInfo(target, source, opts)
@@ -779,7 +815,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20059;
+
       return this.apiClient.callApi(
         '/instrument/exchangeRate/getByISOCode', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -795,7 +834,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20059}
+     * @return { Promise.< module:model/InlineResponse20059 > } a Promise, with data of type {@link module:model/InlineResponse20059 }
      */
     getInstrumentExchangeRateGetByISOCode(target, source, opts) {
       return this.getInstrumentExchangeRateGetByISOCodeWithHttpInfo(target, source, opts)
@@ -837,7 +876,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20042;
+
       return this.apiClient.callApi(
         '/instrument/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -852,7 +894,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20042}
+     * @return { Promise.< module:model/InlineResponse20042 > } a Promise, with data of type {@link module:model/InlineResponse20042 }
      */
     getInstrumentGet(id, opts) {
       return this.getInstrumentGetWithHttpInfo(id, opts)
@@ -894,7 +936,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20043;
+
       return this.apiClient.callApi(
         '/instrument/getByNotation', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -909,7 +954,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20043}
+     * @return { Promise.< module:model/InlineResponse20043 > } a Promise, with data of type {@link module:model/InlineResponse20043 }
      */
     getInstrumentGetByNotation(id, opts) {
       return this.getInstrumentGetByNotationWithHttpInfo(id, opts)
@@ -951,7 +996,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20060;
+
       return this.apiClient.callApi(
         '/instrument/legalEntity/backgroundText/listByInstrument', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -966,7 +1014,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20060}
+     * @return { Promise.< module:model/InlineResponse20060 > } a Promise, with data of type {@link module:model/InlineResponse20060 }
      */
     getInstrumentLegalEntityBackgroundTextListByInstrument(id, opts) {
       return this.getInstrumentLegalEntityBackgroundTextListByInstrumentWithHttpInfo(id, opts)
@@ -1008,7 +1056,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20061;
+
       return this.apiClient.callApi(
         '/instrument/legalEntity/complianceProperty/listByInstrument', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1023,7 +1074,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20061}
+     * @return { Promise.< module:model/InlineResponse20061 > } a Promise, with data of type {@link module:model/InlineResponse20061 }
      */
     getInstrumentLegalEntityCompliancePropertyListByInstrument(id, opts) {
       return this.getInstrumentLegalEntityCompliancePropertyListByInstrumentWithHttpInfo(id, opts)
@@ -1065,7 +1116,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20062;
+
       return this.apiClient.callApi(
         '/instrument/mifid/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1080,7 +1134,7 @@ export default class InstrumentApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {String} opts.language ISO 639-1 code of the language.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20062}
+     * @return { Promise.< module:model/InlineResponse20062 > } a Promise, with data of type {@link module:model/InlineResponse20062 }
      */
     getInstrumentMifidGet(id, opts) {
       return this.getInstrumentMifidGetWithHttpInfo(id, opts)
@@ -1132,7 +1186,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20087;
+
       return this.apiClient.callApi(
         '/instrument/search/basic', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1152,7 +1209,7 @@ export default class InstrumentApi {
      * @param {String} opts.language ISO 639-1 code of the language.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20087}
+     * @return { Promise.< module:model/InlineResponse20087 > } a Promise, with data of type {@link module:model/InlineResponse20087 }
      */
     getInstrumentSearchBasic(searchValue, opts) {
       return this.getInstrumentSearchBasicWithHttpInfo(searchValue, opts)
@@ -1185,7 +1242,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20045;
+
       return this.apiClient.callApi(
         '/instrument/backgroundText/type/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1198,7 +1258,7 @@ export default class InstrumentApi {
      * List of background text types for instruments.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject9} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20045}
+     * @return { Promise.< module:model/InlineResponse20045 > } a Promise, with data of type {@link module:model/InlineResponse20045 }
      */
     postInstrumentBackgroundTextTypeList(opts) {
       return this.postInstrumentBackgroundTextTypeListWithHttpInfo(opts)
@@ -1231,7 +1291,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20046;
+
       return this.apiClient.callApi(
         '/instrument/benchmark/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1244,7 +1307,7 @@ export default class InstrumentApi {
      * Provides a list of benchmark notations for a selected financial instrument, optionally restricted to specific benchmark types.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject10} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20046}
+     * @return { Promise.< module:model/InlineResponse20046 > } a Promise, with data of type {@link module:model/InlineResponse20046 }
      */
     postInstrumentBenchmarkList(opts) {
       return this.postInstrumentBenchmarkListWithHttpInfo(opts)
@@ -1277,7 +1340,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20047;
+
       return this.apiClient.callApi(
         '/instrument/category/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1290,7 +1356,7 @@ export default class InstrumentApi {
      * List of categories assigned to a specific instrument the application is entitled to see. Optionally it is possible to restrict the output to only list those for a specific category dataset.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject11} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20047}
+     * @return { Promise.< module:model/InlineResponse20047 > } a Promise, with data of type {@link module:model/InlineResponse20047 }
      */
     postInstrumentCategoryList(opts) {
       return this.postInstrumentCategoryListWithHttpInfo(opts)
@@ -1323,7 +1389,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20048;
+
       return this.apiClient.callApi(
         '/instrument/complianceProperty/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1336,7 +1405,7 @@ export default class InstrumentApi {
      * List of compliance properties for instruments.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject12} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20048}
+     * @return { Promise.< module:model/InlineResponse20048 > } a Promise, with data of type {@link module:model/InlineResponse20048 }
      */
     postInstrumentCompliancePropertyList(opts) {
       return this.postInstrumentCompliancePropertyListWithHttpInfo(opts)
@@ -1371,7 +1440,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20056;
+
       return this.apiClient.callApi(
         '/instrument/crossReference/listByISIN', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1383,7 +1455,7 @@ export default class InstrumentApi {
      * Translate a list of ISINs to instruments.
      * Translate a given list of ISINs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
      * @param {module:model/InlineObject13} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20056}
+     * @return { Promise.< module:model/InlineResponse20056 > } a Promise, with data of type {@link module:model/InlineResponse20056 }
      */
     postInstrumentCrossReferenceListByISIN(body) {
       return this.postInstrumentCrossReferenceListByISINWithHttpInfo(body)
@@ -1418,7 +1490,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20057;
+
       return this.apiClient.callApi(
         '/instrument/crossReference/listByWKN', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1430,7 +1505,7 @@ export default class InstrumentApi {
      * Translate a list of WKNs to instruments.
      * Translate a given list of WKNs to the respective most recent instrument identifiers, retrieved from the Cross Reference Service.
      * @param {module:model/InlineObject14} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20057}
+     * @return { Promise.< module:model/InlineResponse20057 > } a Promise, with data of type {@link module:model/InlineResponse20057 }
      */
     postInstrumentCrossReferenceListByWKN(body) {
       return this.postInstrumentCrossReferenceListByWKNWithHttpInfo(body)
@@ -1463,7 +1538,10 @@ export default class InstrumentApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20063;
+
       return this.apiClient.callApi(
         '/instrument/rating/grade/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1476,7 +1554,7 @@ export default class InstrumentApi {
      * List of rating grades for a list of instruments. The list can be restricted to rating grades belonging to particular rating systems.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject15} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20063}
+     * @return { Promise.< module:model/InlineResponse20063 > } a Promise, with data of type {@link module:model/InlineResponse20063 }
      */
     postInstrumentRatingGradeList(opts) {
       return this.postInstrumentRatingGradeListWithHttpInfo(opts)
@@ -1487,3 +1565,8 @@ export default class InstrumentApi {
 
 
 }
+
+
+
+
+

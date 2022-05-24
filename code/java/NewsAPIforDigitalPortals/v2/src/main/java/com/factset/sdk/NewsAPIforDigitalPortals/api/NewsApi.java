@@ -7,6 +7,9 @@ import com.factset.sdk.NewsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.NewsAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import java.math.BigDecimal;
 import com.factset.sdk.NewsAPIforDigitalPortals.models.InlineObject;
@@ -38,6 +41,70 @@ public class NewsApi {
   public NewsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getNewsArticleGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsArticleGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> getNewsArticleTypeGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsArticleTypeGetResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> getNewsArticleTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsArticleTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+  }
+  private static final Map<Integer, GenericType> getNewsDistributorGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsDistributorGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+  }
+  private static final Map<Integer, GenericType> getNewsDistributorListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsDistributorListResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
+  }
+  private static final Map<Integer, GenericType> getNewsPublisherGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsPublisherGetResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
+  }
+  private static final Map<Integer, GenericType> getNewsPublisherListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsPublisherListResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
+  }
+  private static final Map<Integer, GenericType> getNewsPublisherListByDistributorResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getNewsPublisherListByDistributorResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
+  }
+  private static final Map<Integer, GenericType> postNewsArticleListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNewsArticleListResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postNewsArticleListByChainResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNewsArticleListByChainResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> postNewsArticleListByIndexResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNewsArticleListByIndexResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postNewsArticleListByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNewsArticleListByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postNewsArticleListByMediaKindResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNewsArticleListByMediaKindResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postNewsArticleSearchByTextResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNewsArticleSearchByTextResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postNewsPublisherSearchByNameResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postNewsPublisherSearchByNameResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -128,11 +195,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsArticleGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsArticleGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsArticleGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Details for a news article type.
@@ -202,11 +275,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsArticleTypeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsArticleTypeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsArticleTypeGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of news article types.
@@ -268,11 +347,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsArticleTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2004
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsArticleTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsArticleTypeListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Details of a distributor.
@@ -339,11 +424,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2005> localVarReturnType = new GenericType<InlineResponse2005>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsDistributorGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2005
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsDistributorGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsDistributorGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of distributors.
@@ -408,11 +499,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2006> localVarReturnType = new GenericType<InlineResponse2006>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsDistributorList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2006
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsDistributorList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsDistributorListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Details of a publisher.
@@ -479,11 +576,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2007> localVarReturnType = new GenericType<InlineResponse2007>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsPublisherGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2007
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsPublisherGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsPublisherGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of publishers.
@@ -554,11 +657,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2008> localVarReturnType = new GenericType<InlineResponse2008>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsPublisherList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2008
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsPublisherList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsPublisherListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of publishers provided by the given distributor.
@@ -628,11 +737,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2009> localVarReturnType = new GenericType<InlineResponse2009>() {};
 
-    return apiClient.invokeAPI("NewsApi.getNewsPublisherListByDistributor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2009
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.getNewsPublisherListByDistributor", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getNewsPublisherListByDistributorResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of news articles.
@@ -690,11 +805,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("NewsApi.postNewsArticleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postNewsArticleListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List news articles of an article chain.
@@ -757,11 +878,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("NewsApi.postNewsArticleListByChain", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleListByChain", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postNewsArticleListByChainResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * News articles for instruments that are constituents of the given indices.
@@ -824,11 +951,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("NewsApi.postNewsArticleListByIndex", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleListByIndex", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postNewsArticleListByIndexResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * News articles for instruments.
@@ -891,11 +1024,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("NewsApi.postNewsArticleListByInstrument", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleListByInstrument", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postNewsArticleListByInstrumentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List news articles which contain media of specific media kinds.
@@ -958,11 +1097,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("NewsApi.postNewsArticleListByMediaKind", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleListByMediaKind", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postNewsArticleListByMediaKindResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Search for news articles using a fulltext search.
@@ -1020,11 +1165,17 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("NewsApi.postNewsArticleSearchByText", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.postNewsArticleSearchByText", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postNewsArticleSearchByTextResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Search for publishers.
@@ -1087,10 +1238,16 @@ public class NewsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2009> localVarReturnType = new GenericType<InlineResponse2009>() {};
 
-    return apiClient.invokeAPI("NewsApi.postNewsPublisherSearchByName", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2009
+      
+    > apiResponse = apiClient.invokeAPI("NewsApi.postNewsPublisherSearchByName", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postNewsPublisherSearchByNameResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

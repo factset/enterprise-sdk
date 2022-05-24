@@ -98,7 +98,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataMedia {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
@@ -137,8 +137,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataMedia input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Url == input.Url ||
@@ -180,15 +181,23 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
+                }
                 if (this.MimeType != null)
-                    hashCode = hashCode * 59 + this.MimeType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MimeType.GetHashCode();
+                }
                 if (this.Caption != null)
-                    hashCode = hashCode * 59 + this.Caption.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Caption.GetHashCode();
+                }
                 if (this.AlternativeText != null)
-                    hashCode = hashCode * 59 + this.AlternativeText.GetHashCode();
-                hashCode = hashCode * 59 + this.Width.GetHashCode();
-                hashCode = hashCode * 59 + this.Height.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AlternativeText.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Width.GetHashCode();
+                hashCode = (hashCode * 59) + this.Height.GetHashCode();
                 return hashCode;
             }
         }

@@ -46,6 +46,7 @@ const apiInstance = new FrequenciesApi();
 // Call api endpoint
 apiInstance.getPAFrequencies().then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

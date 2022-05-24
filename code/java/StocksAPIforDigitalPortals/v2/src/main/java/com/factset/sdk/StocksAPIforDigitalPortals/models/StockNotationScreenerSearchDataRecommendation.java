@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRecommendation implements Serializab
   public static final String JSON_PROPERTY_CONSENSUS = "consensus";
   private StockNotationScreenerSearchDataRecommendationConsensus consensus;
 
+  public StockNotationScreenerSearchDataRecommendation() { 
+  }
 
   public StockNotationScreenerSearchDataRecommendation counts(StockNotationScreenerSearchDataRecommendationCounts counts) {
     this.counts = counts;

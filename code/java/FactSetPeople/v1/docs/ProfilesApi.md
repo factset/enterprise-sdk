@@ -26,14 +26,13 @@ import com.factset.sdk.FactSetPeople.ApiClient;
 import com.factset.sdk.FactSetPeople.ApiException;
 import com.factset.sdk.FactSetPeople.Configuration;
 import com.factset.sdk.FactSetPeople.auth.*;
-import com.factset.sdk.FactSetPeople.model.*;
+import com.factset.sdk.FactSetPeople.models.*;
 import com.factset.sdk.FactSetPeople.api.ProfilesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,20 +42,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of FactSet Person Entity identifier.
         try {
             PeopleProfilesResponse result = apiInstance.getPeopleProfiles(ids);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilesApi#getPeopleProfiles");
             System.err.println("Status code: " + e.getCode());
@@ -113,14 +113,13 @@ import com.factset.sdk.FactSetPeople.ApiClient;
 import com.factset.sdk.FactSetPeople.ApiException;
 import com.factset.sdk.FactSetPeople.Configuration;
 import com.factset.sdk.FactSetPeople.auth.*;
-import com.factset.sdk.FactSetPeople.model.*;
+import com.factset.sdk.FactSetPeople.models.*;
 import com.factset.sdk.FactSetPeople.api.ProfilesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -130,20 +129,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ProfilesApi apiInstance = new ProfilesApi(defaultClient);
         PeopleProfilesRequest peopleProfilesRequest = new PeopleProfilesRequest(); // PeopleProfilesRequest | 
         try {
             PeopleProfilesResponse result = apiInstance.getPeopleProfilesForList(peopleProfilesRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilesApi#getPeopleProfilesForList");
             System.err.println("Status code: " + e.getCode());

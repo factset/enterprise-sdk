@@ -63,6 +63,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycle im
   public static final String JSON_PROPERTY_REPAYMENT = "repayment";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleRepayment repayment;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycle() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycle issue(SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleIssue issue) {
     this.issue = issue;

@@ -56,6 +56,8 @@ public class InlineResponse20069DataRegional implements Serializable {
   public static final String JSON_PROPERTY_LISTING = "listing";
   private InlineResponse20069DataRegionalListing listing;
 
+  public InlineResponse20069DataRegional() { 
+  }
 
   public InlineResponse20069DataRegional isPrimary(Boolean isPrimary) {
     this.isPrimary = isPrimary;

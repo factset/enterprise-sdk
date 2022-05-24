@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerValueRangesGetDataRating implements S
   public static final String JSON_PROPERTY_GRADE = "grade";
   private DebtInstrumentNotationScreenerSearchDataRatingGrade grade;
 
+  public DebtInstrumentNotationScreenerValueRangesGetDataRating() { 
+  }
 
   public DebtInstrumentNotationScreenerValueRangesGetDataRating system(DebtInstrumentNotationScreenerValueRangesGetDataRatingSystem system) {
     this.system = system;

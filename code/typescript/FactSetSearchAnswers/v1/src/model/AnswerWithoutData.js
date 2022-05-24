@@ -19,7 +19,7 @@ import NoAnswersFound from './NoAnswersFound';
 /**
  * The AnswerWithoutData model module.
  * @module model/AnswerWithoutData
- * @version 0.9.1
+ * @version 0.20.0
  */
 class AnswerWithoutData {
     /**

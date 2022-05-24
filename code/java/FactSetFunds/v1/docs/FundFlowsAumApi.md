@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetFunds.ApiClient;
 import com.factset.sdk.FactSetFunds.ApiException;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
-import com.factset.sdk.FactSetFunds.model.*;
+import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.FundFlowsAumApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FundFlowsAumApi apiInstance = new FundFlowsAumApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -64,6 +63,7 @@ public class Example {
         try {
             AumResponse result = apiInstance.getFundsAum(ids, startDate, endDate, frequency, currency, dataType);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FundFlowsAumApi#getFundsAum");
             System.err.println("Status code: " + e.getCode());
@@ -128,14 +128,13 @@ import com.factset.sdk.FactSetFunds.ApiClient;
 import com.factset.sdk.FactSetFunds.ApiException;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
-import com.factset.sdk.FactSetFunds.model.*;
+import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.FundFlowsAumApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -145,20 +144,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FundFlowsAumApi apiInstance = new FundFlowsAumApi(defaultClient);
         AumRequest aumRequest = new AumRequest(); // AumRequest | The AUM request body, allowing the user to specify a list of ids.
         try {
             AumResponse result = apiInstance.getFundsAumForList(aumRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FundFlowsAumApi#getFundsAumForList");
             System.err.println("Status code: " + e.getCode());
@@ -223,14 +223,13 @@ import com.factset.sdk.FactSetFunds.ApiClient;
 import com.factset.sdk.FactSetFunds.ApiException;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
-import com.factset.sdk.FactSetFunds.model.*;
+import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.FundFlowsAumApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -240,14 +239,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FundFlowsAumApi apiInstance = new FundFlowsAumApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -258,6 +257,7 @@ public class Example {
         try {
             FlowsResponse result = apiInstance.getFundsFlows(ids, startDate, endDate, frequency, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FundFlowsAumApi#getFundsFlows");
             System.err.println("Status code: " + e.getCode());
@@ -326,14 +326,13 @@ import com.factset.sdk.FactSetFunds.ApiClient;
 import com.factset.sdk.FactSetFunds.ApiException;
 import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
-import com.factset.sdk.FactSetFunds.model.*;
+import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.FundFlowsAumApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -343,20 +342,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         FundFlowsAumApi apiInstance = new FundFlowsAumApi(defaultClient);
         FlowsRequest flowsRequest = new FlowsRequest(); // FlowsRequest | The Fund Flows request body, allowing the user to specify a list of ids.
         try {
             FlowsResponse result = apiInstance.getFundsFlowsForList(flowsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling FundFlowsAumApi#getFundsFlowsForList");
             System.err.println("Status code: " + e.getCode());

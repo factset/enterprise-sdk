@@ -141,7 +141,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimizerOptimalHoldings {\n");
             sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
             sb.Append("  IncludeCash: ").Append(IncludeCash).Append("\n");
@@ -177,8 +177,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
         public bool Equals(OptimizerOptimalHoldings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IdentifierType == input.IdentifierType ||
@@ -203,9 +204,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IdentifierType.GetHashCode();
-                hashCode = hashCode * 59 + this.IncludeCash.GetHashCode();
-                hashCode = hashCode * 59 + this.ExcludeZero.GetHashCode();
+                hashCode = (hashCode * 59) + this.IdentifierType.GetHashCode();
+                hashCode = (hashCode * 59) + this.IncludeCash.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExcludeZero.GetHashCode();
                 return hashCode;
             }
         }

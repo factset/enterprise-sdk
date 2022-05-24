@@ -47,6 +47,8 @@ public class InlineResponse200DataLifeCycleIntradayActivation implements Seriali
   public static final String JSON_PROPERTY_IS_ACTIVATED = "isActivated";
   private Boolean isActivated;
 
+  public InlineResponse200DataLifeCycleIntradayActivation() { 
+  }
 
   public InlineResponse200DataLifeCycleIntradayActivation time(String time) {
     this.time = time;

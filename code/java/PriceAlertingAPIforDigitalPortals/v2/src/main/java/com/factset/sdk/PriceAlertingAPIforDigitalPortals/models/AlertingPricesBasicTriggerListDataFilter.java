@@ -44,6 +44,8 @@ public class AlertingPricesBasicTriggerListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private AlertingPricesBasicTriggerListDataFilterStatus status;
 
+  public AlertingPricesBasicTriggerListDataFilter() { 
+  }
 
   public AlertingPricesBasicTriggerListDataFilter status(AlertingPricesBasicTriggerListDataFilterStatus status) {
     this.status = status;

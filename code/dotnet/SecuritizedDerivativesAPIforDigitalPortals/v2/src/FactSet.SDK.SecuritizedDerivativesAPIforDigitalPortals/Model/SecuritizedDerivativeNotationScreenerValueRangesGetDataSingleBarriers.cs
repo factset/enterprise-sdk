@@ -156,7 +156,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriers {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Observation: ").Append(Observation).Append("\n");
@@ -195,8 +195,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriers input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Type == input.Type ||
@@ -238,17 +239,27 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 if (this.Observation != null)
-                    hashCode = hashCode * 59 + this.Observation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Observation.GetHashCode();
+                }
                 if (this.Level != null)
-                    hashCode = hashCode * 59 + this.Level.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                }
                 if (this.Distance != null)
-                    hashCode = hashCode * 59 + this.Distance.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Distance.GetHashCode();
+                }
                 if (this.Breach != null)
-                    hashCode = hashCode * 59 + this.Breach.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Breach.GetHashCode();
+                }
                 if (this.CashFlow != null)
-                    hashCode = hashCode * 59 + this.CashFlow.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CashFlow.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -86,7 +86,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany {\n");
             sb.Append("  ExpertInvestor: ").Append(ExpertInvestor).Append("\n");
             sb.Append("}\n");
@@ -120,8 +120,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketKnowledgeAndExperienceGermany input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ExpertInvestor == input.ExpertInvestor ||
@@ -138,7 +139,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ExpertInvestor.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExpertInvestor.GetHashCode();
                 return hashCode;
             }
         }

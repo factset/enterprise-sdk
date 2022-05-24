@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.PAEngine",
   "projectName": "fds.sdk.PAEngine",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "PA Engine client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/PAEngine/v3",
-  "httpUserAgent": "fds-sdk/python/PAEngine/0.9.1",
+  "httpUserAgent": "fds-sdk/python/PAEngine/0.20.0",
   "files": {
     "LICENSE": {}
   }

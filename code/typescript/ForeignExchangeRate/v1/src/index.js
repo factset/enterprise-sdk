@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import ErrorResponse from './model/ErrorResponse';
 import ErrorResponseSubErrors from './model/ErrorResponseSubErrors';
@@ -23,6 +22,7 @@ import Frequency from './model/Frequency';
 import Spot from './model/Spot';
 import SpotsRequest from './model/SpotsRequest';
 import SpotsResponse from './model/SpotsResponse';
+
 import ForwardsApi from './api/ForwardsApi';
 import SpotsApi from './api/SpotsApi';
 
@@ -56,7 +56,7 @@ import SpotsApi from './api/SpotsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -135,5 +135,6 @@ export {
     * The SpotsApi service constructor.
     * @property {module:api/SpotsApi}
     */
-    SpotsApi
+    SpotsApi,
+
 };

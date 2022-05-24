@@ -46,7 +46,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="filterSymbolsValues">Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)</param>
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void GetDatabase(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string));
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="before">Returns list of dates which are before mentioned date (optional)</param>
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>List&lt;int&gt;</returns>
+        /// <returns>List<int></returns>
         List<int> V1DatabasePathDatesGet(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string));
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="before">Returns list of dates which are before mentioned date (optional)</param>
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>ApiResponse of List&lt;int&gt;</returns>
+        /// <returns>ApiResponse of List<int></returns>
         ApiResponse<List<int>> V1DatabasePathDatesGetWithHttpInfo(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string));
         /// <summary>
         /// 
@@ -109,7 +109,7 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         List<Object> V1DatabasePathFieldsGet(string path);
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace FactSet.SDK.OFDB.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        /// <returns>ApiResponse of List<Object></returns>
         ApiResponse<List<Object>> V1DatabasePathFieldsGetWithHttpInfo(string path);
         /// <summary>
         /// 
@@ -135,7 +135,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="contains">Returns list of symbols which contains mentioned string (optional)</param>
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List<string></returns>
         List<string> V1DatabasePathSymbolsGet(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string));
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="contains">Returns list of symbols which contains mentioned string (optional)</param>
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>ApiResponse of List&lt;string&gt;</returns>
+        /// <returns>ApiResponse of List<string></returns>
         ApiResponse<List<string>> V1DatabasePathSymbolsGetWithHttpInfo(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string));
         #endregion Synchronous Operations
     }
@@ -238,7 +238,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;int&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<int>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<int>>> V1DatabasePathDatesGetWithHttpInfoAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
@@ -261,7 +261,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<Object>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Object>>> V1DatabasePathFieldsGetWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
@@ -294,7 +294,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<string>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<string>>> V1DatabasePathSymbolsGetWithHttpInfoAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -313,6 +313,45 @@ namespace FactSet.SDK.OFDB.Api
     public partial class ViewApi : IViewApi
     {
         private FactSet.SDK.OFDB.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetDatabaseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathDatesGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<int>) },
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathFieldsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<Object>) },
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> V1DatabasePathSymbolsGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<string>) },
+            { (HttpStatusCode)202, typeof(Object) },
+            { (HttpStatusCode)400, typeof(Object) },
+            { (HttpStatusCode)403, typeof(Object) },
+            { (HttpStatusCode)404, typeof(Object) },
+            { (HttpStatusCode)429, typeof(Object) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewApi"/> class.
@@ -432,7 +471,7 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="filterSymbolsValues">Can specify the symbol filter values of the date filter operations e.g: [\&quot;ab\&quot;, \&quot;xy\&quot;] in respective order of values in filterSymbolsOps query parameter.  Note: The request will respond with 400 1. If filterSymbolsOps query parameter is missing when filterSymbolsValues is present. 2. If number of values given for filterSymbolsOps and filterSymbolsValues differ. 3. If date query parameter is not provided.  (optional)</param>
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void GetDatabase(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string))
         {
             GetDatabaseWithHttpInfo(path, symbol, date, filterFields, filterOps, filterValues, filterDatesOps, filterDatesValues, filterSymbolsOps, filterSymbolsValues, sortFieldName, sortFieldOrder);
@@ -455,11 +494,13 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="sortFieldName">Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn&#39;t exist in the OFDB is requested (optional)</param>
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<Object> GetDatabaseWithHttpInfo(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string))
+        public ApiResponse<Object> GetDatabaseWithHttpInfo(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->GetDatabase");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -472,10 +513,16 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             if (symbol != null)
@@ -525,13 +572,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -543,15 +590,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/database/{path}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetDatabaseResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Object>("/v1/database/{path}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDatabase", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -596,11 +647,14 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="sortFieldOrder">Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<Object>> GetDatabaseWithHttpInfoAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetDatabaseWithHttpInfoAsync(string path, string symbol = default(string), string date = default(string), string filterFields = default(string), string filterOps = default(string), string filterValues = default(string), string filterDatesOps = default(string), string filterDatesValues = default(string), string filterSymbolsOps = default(string), string filterSymbolsValues = default(string), string sortFieldName = default(string), string sortFieldOrder = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->GetDatabase");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -613,12 +667,17 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             if (symbol != null)
@@ -668,13 +727,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -686,14 +745,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetDatabaseResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/database/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDatabase", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -709,10 +772,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="before">Returns list of dates which are before mentioned date (optional)</param>
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>List&lt;int&gt;</returns>
+        /// <returns>List<int></returns>
         public List<int> V1DatabasePathDatesGet(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<List<int>> localVarResponse = V1DatabasePathDatesGetWithHttpInfo(path, between, equals, before, after, orderBy);
+            var localVarResponse = V1DatabasePathDatesGetWithHttpInfo(path, between, equals, before, after, orderBy);
             return localVarResponse.Data;
         }
 
@@ -727,11 +790,13 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="after">Returns list of dates which are after mentioned date (optional)</param>
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <returns>ApiResponse of List&lt;int&gt;</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<List<int>> V1DatabasePathDatesGetWithHttpInfo(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string))
+        public ApiResponse<List<int>> V1DatabasePathDatesGetWithHttpInfo(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->V1DatabasePathDatesGet");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -744,10 +809,16 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             if (between != null)
@@ -773,13 +844,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -791,15 +862,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<int>>("/v1/database/{path}/dates", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<int>>("/v1/database/{path}/dates", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -815,9 +890,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;int&gt;</returns>
-        public async System.Threading.Tasks.Task<List<int>> V1DatabasePathDatesGetAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<int>>V1DatabasePathDatesGetAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<List<int>> localVarResponse = await V1DatabasePathDatesGetWithHttpInfoAsync(path, between, equals, before, after, orderBy, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathDatesGetWithHttpInfoAsync(path, between, equals, before, after, orderBy, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -833,11 +908,14 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="orderBy">Returns dates in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;int&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<List<int>>> V1DatabasePathDatesGetWithHttpInfoAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<int>>> V1DatabasePathDatesGetWithHttpInfoAsync(string path, string between = default(string), string equals = default(string), string before = default(string), string after = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->V1DatabasePathDatesGet");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -850,12 +928,17 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             if (between != null)
@@ -881,13 +964,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -899,14 +982,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathDatesGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<int>>("/v1/database/{path}/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathDatesGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -917,10 +1004,10 @@ namespace FactSet.SDK.OFDB.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
-        /// <returns>List&lt;Object&gt;</returns>
+        /// <returns>List<Object></returns>
         public List<Object> V1DatabasePathFieldsGet(string path)
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<List<Object>> localVarResponse = V1DatabasePathFieldsGetWithHttpInfo(path);
+            var localVarResponse = V1DatabasePathFieldsGetWithHttpInfo(path);
             return localVarResponse.Data;
         }
 
@@ -930,11 +1017,13 @@ namespace FactSet.SDK.OFDB.Api
         /// <exception cref="FactSet.SDK.OFDB.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">Encode database path</param>
         /// <returns>ApiResponse of List&lt;Object&gt;</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<List<Object>> V1DatabasePathFieldsGetWithHttpInfo(string path)
+        public ApiResponse<List<Object>> V1DatabasePathFieldsGetWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->V1DatabasePathFieldsGet");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -947,22 +1036,28 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -974,15 +1069,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Object>>("/v1/database/{path}/fields", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathFieldsGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<Object>>("/v1/database/{path}/fields", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathFieldsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -993,9 +1092,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Object&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Object>> V1DatabasePathFieldsGetAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Object>>V1DatabasePathFieldsGetAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<List<Object>> localVarResponse = await V1DatabasePathFieldsGetWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathFieldsGetWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1006,11 +1105,14 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="path">Encode database path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<List<Object>>> V1DatabasePathFieldsGetWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<Object>>> V1DatabasePathFieldsGetWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->V1DatabasePathFieldsGet");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -1023,24 +1125,29 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1052,14 +1159,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathFieldsGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/v1/database/{path}/fields", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathFieldsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1075,10 +1186,10 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="contains">Returns list of symbols which contains mentioned string (optional)</param>
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
-        /// <returns>List&lt;string&gt;</returns>
+        /// <returns>List<string></returns>
         public List<string> V1DatabasePathSymbolsGet(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<List<string>> localVarResponse = V1DatabasePathSymbolsGetWithHttpInfo(path, startsWith, endsWith, contains, equals, orderBy);
+            var localVarResponse = V1DatabasePathSymbolsGetWithHttpInfo(path, startsWith, endsWith, contains, equals, orderBy);
             return localVarResponse.Data;
         }
 
@@ -1093,11 +1204,13 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="equals">Returns symbol which matches mentioned string (optional)</param>
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        public FactSet.SDK.OFDB.Client.ApiResponse<List<string>> V1DatabasePathSymbolsGetWithHttpInfo(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string))
+        public ApiResponse<List<string>> V1DatabasePathSymbolsGetWithHttpInfo(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->V1DatabasePathSymbolsGet");
+            }
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
 
@@ -1110,10 +1223,16 @@ namespace FactSet.SDK.OFDB.Api
             };
 
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             if (startsWith != null)
@@ -1139,13 +1258,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1157,15 +1276,19 @@ namespace FactSet.SDK.OFDB.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<string>>("/v1/database/{path}/symbols", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathSymbolsGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<string>>("/v1/database/{path}/symbols", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathSymbolsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1181,9 +1304,9 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;string&gt;</returns>
-        public async System.Threading.Tasks.Task<List<string>> V1DatabasePathSymbolsGetAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<string>>V1DatabasePathSymbolsGetAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.OFDB.Client.ApiResponse<List<string>> localVarResponse = await V1DatabasePathSymbolsGetWithHttpInfoAsync(path, startsWith, endsWith, contains, equals, orderBy, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await V1DatabasePathSymbolsGetWithHttpInfoAsync(path, startsWith, endsWith, contains, equals, orderBy, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1199,11 +1322,14 @@ namespace FactSet.SDK.OFDB.Api
         /// <param name="orderBy">Returns symbols in the mentioned sorted order, should provide asc or desc (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.OFDB.Client.ApiResponse<List<string>>> V1DatabasePathSymbolsGetWithHttpInfoAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<string>>> V1DatabasePathSymbolsGetWithHttpInfoAsync(string path, string startsWith = default(string), string endsWith = default(string), string contains = default(string), string equals = default(string), string orderBy = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
+            {
                 throw new FactSet.SDK.OFDB.Client.ApiException(400, "Missing required parameter 'path' when calling ViewApi->V1DatabasePathSymbolsGet");
+            }
 
 
             FactSet.SDK.OFDB.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.OFDB.Client.RequestOptions();
@@ -1216,12 +1342,17 @@ namespace FactSet.SDK.OFDB.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.OFDB.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("path", FactSet.SDK.OFDB.Client.ClientUtils.ParameterToString(path)); // path parameter
             if (startsWith != null)
@@ -1247,13 +1378,13 @@ namespace FactSet.SDK.OFDB.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.OFDB.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1265,14 +1396,18 @@ namespace FactSet.SDK.OFDB.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = V1DatabasePathSymbolsGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<string>>("/v1/database/{path}/symbols", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("V1DatabasePathSymbolsGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -20,7 +20,7 @@ import ValueLabelDateTextBlockTemplateAllOf from './ValueLabelDateTextBlockTempl
 /**
  * The ValueLabelDateTextBlockTemplate model module.
  * @module model/ValueLabelDateTextBlockTemplate
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ValueLabelDateTextBlockTemplate {
     /**

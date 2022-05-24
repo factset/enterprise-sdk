@@ -17,7 +17,7 @@ import ValueTypeValueType from './ValueTypeValueType';
 /**
  * The ValueType model module.
  * @module model/ValueType
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ValueType {
     /**

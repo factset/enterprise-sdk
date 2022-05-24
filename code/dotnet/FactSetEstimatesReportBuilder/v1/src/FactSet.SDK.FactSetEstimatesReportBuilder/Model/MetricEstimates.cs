@@ -52,7 +52,7 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MetricEstimates {\n");
             sb.Append("  _MetricEstimates: ").Append(_MetricEstimates).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
         public bool Equals(MetricEstimates input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._MetricEstimates == input._MetricEstimates ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.FactSetEstimatesReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._MetricEstimates != null)
-                    hashCode = hashCode * 59 + this._MetricEstimates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._MetricEstimates.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -52,7 +52,7 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CurrencySymbol {\n");
             sb.Append("  _CurrencySymbol: ").Append(_CurrencySymbol).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
         public bool Equals(CurrencySymbol input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this._CurrencySymbol == input._CurrencySymbol ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.CapitalStructureReportBuilder.Model
             {
                 int hashCode = 41;
                 if (this._CurrencySymbol != null)
-                    hashCode = hashCode * 59 + this._CurrencySymbol.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this._CurrencySymbol.GetHashCode();
+                }
                 return hashCode;
             }
         }

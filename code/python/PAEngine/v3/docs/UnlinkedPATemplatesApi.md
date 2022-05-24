@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create unlinked PA template
 
-This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also       overriding the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -45,21 +45,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
+
     unlinked_pa_template_parameters_root = UnlinkedPATemplateParametersRoot(
         data=UnlinkedPATemplateParameters(
             directory="directory_example",
@@ -93,8 +94,22 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
             groups=[
                 PACalculationGroup(
                     id="id_example",
+                    frequency="frequency_example",
                 ),
             ],
+            datasources=PACalculationDataSources(
+                portfoliopricingsources=[
+                    PACalculationPricingSource(
+                        id="id_example",
+                    ),
+                ],
+                benchmarkpricingsources=[
+                    PACalculationPricingSource(
+                        id="id_example",
+                    ),
+                ],
+                useportfoliopricingsourcesforbenchmark=True,
+            ),
             currencyisocode="currencyisocode_example",
             componentdetail="componentdetail_example",
             content=TemplateContentTypes(
@@ -112,11 +127,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         meta=None,
     ) # UnlinkedPATemplateParametersRoot | Request Parameters
 
-    # example passing only required values which don't have defaults set
     try:
         # Create unlinked PA template
         api_response = api_instance.create_unlinked_pa_templates(unlinked_pa_template_parameters_root)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->create_unlinked_pa_templates: %s\n" % e)
 ```
@@ -187,15 +202,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -203,10 +218,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+
     try:
         # Delete unlinked PA template
-        api_instance.delete_unlinked_pa_templates()
+        api_instance.delete_unlinked_pa_templates(id)
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->delete_unlinked_pa_templates: %s\n" % e)
 ```
@@ -278,15 +294,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -294,11 +310,12 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+
     try:
         # Get default unlinked PA template types.
         api_response = api_instance.get_default_unlinked_pa_template_types()
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->get_default_unlinked_pa_template_types: %s\n" % e)
 ```
@@ -366,28 +383,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
+
     id = "id_example" # str | Unique identifier for an unlinked PA template type
 
-    # example passing only required values which don't have defaults set
     try:
         # Get unlinked PA template type details by id.
         api_response = api_instance.get_details_type(id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->get_details_type: %s\n" % e)
 ```
@@ -460,30 +478,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
-    directory = "Personal:UninkedPATemplates/" # str | Get unlinked PA templates in path. (optional) if omitted the server will use the default value of "Personal:UninkedPATemplates/"
-    category = "Weights" # str | Get unlinked PA templates by category. (optional) if omitted the server will use the default value of "Weights"
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    directory = "Personal:UninkedPATemplates/" # str | Get unlinked PA templates in path. (optional) (default to "Personal:UninkedPATemplates/")
+    category = "Weights" # str | Get unlinked PA templates by category. (optional) (default to "Weights")
+
     try:
         # Get unlinked PA templates
         api_response = api_instance.get_unlinked_pa_templates(directory=directory, category=category)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->get_unlinked_pa_templates: %s\n" % e)
 ```
@@ -556,15 +574,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -572,11 +590,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
+
     try:
         # Get unlinked PA template details by id
-        api_response = api_instance.get_unlinked_pa_templates_by_id()
+        api_response = api_instance.get_unlinked_pa_templates_by_id(id)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->get_unlinked_pa_templates_by_id: %s\n" % e)
 ```
@@ -623,7 +643,7 @@ Name | Type | Description  | Notes
 
 Update unlinked PA template
 
-This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
+This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -650,21 +670,23 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.PAEngine.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.PAEngine.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = unlinked_pa_templates_api.UnlinkedPATemplatesApi(api_client)
+
+    id = "01234567890123456789012345678901" # str | Unique identifier for an unlinked PA template (default to "01234567890123456789012345678901")
     unlinked_pa_template_update_parameters_root = UnlinkedPATemplateUpdateParametersRoot(
         data=UnlinkedPATemplateUpdateParameters(
             description="description_example",
@@ -696,8 +718,22 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
             groups=[
                 PACalculationGroup(
                     id="id_example",
+                    frequency="frequency_example",
                 ),
             ],
+            datasources=PACalculationDataSources(
+                portfoliopricingsources=[
+                    PACalculationPricingSource(
+                        id="id_example",
+                    ),
+                ],
+                benchmarkpricingsources=[
+                    PACalculationPricingSource(
+                        id="id_example",
+                    ),
+                ],
+                useportfoliopricingsourcesforbenchmark=True,
+            ),
             currencyisocode="currencyisocode_example",
             componentdetail="componentdetail_example",
             content=TemplateContentTypes(
@@ -715,11 +751,11 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
         meta=None,
     ) # UnlinkedPATemplateUpdateParametersRoot | Request Parameters
 
-    # example passing only required values which don't have defaults set
     try:
         # Update unlinked PA template
-        api_response = api_instance.update_unlinked_pa_templates(unlinked_pa_template_update_parameters_root)
+        api_response = api_instance.update_unlinked_pa_templates(id, unlinked_pa_template_update_parameters_root)
         pprint(api_response)
+
     except fds.sdk.PAEngine.ApiException as e:
         print("Exception when calling UnlinkedPATemplatesApi->update_unlinked_pa_templates: %s\n" % e)
 ```

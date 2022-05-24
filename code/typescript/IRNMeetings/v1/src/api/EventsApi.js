@@ -20,7 +20,7 @@ import RecordEventSummaryDto from '../model/RecordEventSummaryDto';
 /**
 * Events service.
 * @module api/EventsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EventsApi {
 
@@ -39,7 +39,7 @@ export default class EventsApi {
 
     /**
      * Get all the record events that belong to a meeting
-     * @param {String} meetingId Meeting Id
+     * @param {String} meetingId Meeting ID
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RecordEventSummaryDto>} and HTTP response
      */
     getEventsWithHttpInfo(meetingId) {
@@ -62,7 +62,10 @@ export default class EventsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [RecordEventSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/events', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -72,8 +75,8 @@ export default class EventsApi {
 
     /**
      * Get all the record events that belong to a meeting
-     * @param {String} meetingId Meeting Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RecordEventSummaryDto>}
+     * @param {String} meetingId Meeting ID
+     * @return { Promise.< Array.<module:model/RecordEventSummaryDto> > } a Promise, with data of type {@link Array.<module:model/RecordEventSummaryDto> }
      */
     getEvents(meetingId) {
       return this.getEventsWithHttpInfo(meetingId)
@@ -114,7 +117,10 @@ export default class EventsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = MeetingEventDto;
+
       return this.apiClient.callApi(
         '/v1/meetings/{meetingId}/events/{recordEventId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -126,7 +132,7 @@ export default class EventsApi {
      * Get details of a record event of a meeting
      * @param {String} meetingId Meeting Id
      * @param {String} recordEventId Record Event Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MeetingEventDto}
+     * @return { Promise.< module:model/MeetingEventDto > } a Promise, with data of type {@link module:model/MeetingEventDto }
      */
     getRecordEvent(meetingId, recordEventId) {
       return this.getRecordEventWithHttpInfo(meetingId, recordEventId)
@@ -137,3 +143,8 @@ export default class EventsApi {
 
 
 }
+
+
+
+
+

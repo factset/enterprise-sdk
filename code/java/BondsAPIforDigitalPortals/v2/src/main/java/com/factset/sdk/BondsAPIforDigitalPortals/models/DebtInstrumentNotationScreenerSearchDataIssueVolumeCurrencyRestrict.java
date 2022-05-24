@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyRestrict
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyRestrict() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyRestrict ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

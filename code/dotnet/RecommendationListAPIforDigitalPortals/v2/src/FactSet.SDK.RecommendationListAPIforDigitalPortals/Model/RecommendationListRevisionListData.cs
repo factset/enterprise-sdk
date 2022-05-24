@@ -74,7 +74,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RecommendationListRevisionListData {\n");
             sb.Append("  IdList: ").Append(IdList).Append("\n");
             sb.Append("  IdRevision: ").Append(IdRevision).Append("\n");
@@ -110,8 +110,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         public bool Equals(RecommendationListRevisionListData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IdList == input.IdList ||
@@ -139,11 +140,15 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IdList.GetHashCode();
+                hashCode = (hashCode * 59) + this.IdList.GetHashCode();
                 if (this.IdRevision != null)
-                    hashCode = hashCode * 59 + this.IdRevision.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IdRevision.GetHashCode();
+                }
                 if (this.ActiveRange != null)
-                    hashCode = hashCode * 59 + this.ActiveRange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ActiveRange.GetHashCode();
+                }
                 return hashCode;
             }
         }

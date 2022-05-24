@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactCustomFieldOptionValueDto model module.
  * @module model/ContactCustomFieldOptionValueDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactCustomFieldOptionValueDto {
     /**
@@ -47,11 +47,11 @@ class ContactCustomFieldOptionValueDto {
         if (data) {
             obj = obj || new ContactCustomFieldOptionValueDto();
 
-            if (data.hasOwnProperty('optionId')) {
-                obj['optionId'] = ApiClient.convertToType(data['optionId'], 'String');
+            if (data.hasOwnProperty('OptionId')) {
+                obj['OptionId'] = ApiClient.convertToType(data['OptionId'], 'String');
             }
-            if (data.hasOwnProperty('optionName')) {
-                obj['optionName'] = ApiClient.convertToType(data['optionName'], 'String');
+            if (data.hasOwnProperty('OptionName')) {
+                obj['OptionName'] = ApiClient.convertToType(data['OptionName'], 'String');
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class ContactCustomFieldOptionValueDto {
 }
 
 /**
- * @member {String} optionId
+ * @member {String} OptionId
  */
-ContactCustomFieldOptionValueDto.prototype['optionId'] = undefined;
+ContactCustomFieldOptionValueDto.prototype['OptionId'] = undefined;
 
 /**
- * @member {String} optionName
+ * @member {String} OptionName
  */
-ContactCustomFieldOptionValueDto.prototype['optionName'] = undefined;
+ContactCustomFieldOptionValueDto.prototype['OptionName'] = undefined;
 
 
 

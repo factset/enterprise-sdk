@@ -1,6 +1,6 @@
 # recommendationlistapifordigitalportals.RecommendationListApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -56,6 +56,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRecommendationListGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -133,6 +134,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRecommendationListRevisionElementList(idRevision, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -210,6 +212,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRecommendationListRevisionGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -288,6 +291,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRecommendationListRevisionSearch(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -367,6 +371,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRecommendationListSearch(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -441,6 +446,7 @@ const body = new recommendationlistapifordigitalportals.InlineObject(); // Inlin
 // Call api endpoint
 apiInstance.postRecommendationListRevisionList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

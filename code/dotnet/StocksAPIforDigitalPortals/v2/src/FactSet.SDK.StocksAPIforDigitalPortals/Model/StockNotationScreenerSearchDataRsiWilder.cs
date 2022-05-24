@@ -52,7 +52,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataRsiWilder {\n");
             sb.Append("  Days14: ").Append(Days14).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataRsiWilder input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Days14 == input.Days14 ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Days14 != null)
-                    hashCode = hashCode * 59 + this.Days14.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Days14.GetHashCode();
+                }
                 return hashCode;
             }
         }

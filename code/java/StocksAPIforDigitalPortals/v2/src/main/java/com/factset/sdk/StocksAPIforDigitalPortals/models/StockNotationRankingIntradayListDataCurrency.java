@@ -44,6 +44,8 @@ public class StockNotationRankingIntradayListDataCurrency implements Serializabl
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public StockNotationRankingIntradayListDataCurrency() { 
+  }
 
   public StockNotationRankingIntradayListDataCurrency id(BigDecimal id) {
     this.id = id;

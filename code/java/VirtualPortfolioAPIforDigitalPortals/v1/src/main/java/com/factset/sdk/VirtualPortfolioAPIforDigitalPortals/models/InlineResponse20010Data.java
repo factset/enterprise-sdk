@@ -55,6 +55,8 @@ public class InlineResponse20010Data implements Serializable {
   public static final String JSON_PROPERTY_CREATION = "creation";
   private String creation;
 
+  public InlineResponse20010Data() { 
+  }
 
   public InlineResponse20010Data id(String id) {
     this.id = id;

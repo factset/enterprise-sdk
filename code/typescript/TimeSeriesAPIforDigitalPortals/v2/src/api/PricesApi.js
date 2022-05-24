@@ -28,7 +28,7 @@ import InlineResponse2009 from '../model/InlineResponse2009';
 /**
 * Prices service.
 * @module api/PricesApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class PricesApi {
 
@@ -87,7 +87,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2009;
+
       return this.apiClient.callApi(
         '/prices/timeSeries/intraday/subsample/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -105,7 +108,7 @@ export default class PricesApi {
      * @param {module:model/String} opts.quality Quality of the price. (default to 'DLY')
      * @param {module:model/String} opts.granularity Subsample granularities suitable for intraday data. (default to '1h')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2009}
+     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
      */
     getPricesTimeSeriesIntradaySubsampleGet(id, from, opts) {
       return this.getPricesTimeSeriesIntradaySubsampleGetWithHttpInfo(id, from, opts)
@@ -140,7 +143,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2005;
+
       return this.apiClient.callApi(
         '/prices/timeSeries/eod/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -152,7 +158,7 @@ export default class PricesApi {
      * End-of-day time series data for a notation.
      * End-of-day time series data for a notation. The resulting time series is always adjusted for currency changes.
      * @param {module:model/InlineObject4} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2005}
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
     postPricesTimeSeriesEodList(body) {
       return this.postPricesTimeSeriesEodListWithHttpInfo(body)
@@ -187,7 +193,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2006;
+
       return this.apiClient.callApi(
         '/prices/timeSeries/eod/subsample/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -199,7 +208,7 @@ export default class PricesApi {
      * Single subsample end-of-day data for a notation.
      * Single subsample end-of-day data for a notation. The sample is always adjusted for currency changes. The subsample may exceed the entitled date range, but will be based only on days that are in the entitled range.
      * @param {module:model/InlineObject5} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2006}
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
      */
     postPricesTimeSeriesEodSubsampleGet(body) {
       return this.postPricesTimeSeriesEodSubsampleGetWithHttpInfo(body)
@@ -234,7 +243,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2007;
+
       return this.apiClient.callApi(
         '/prices/timeSeries/eod/subsample/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -246,7 +258,7 @@ export default class PricesApi {
      * Subsampled end-of-day time series data for a notation.
      * Subsampled end-of-day time series data for a notation. The resulting time series is always adjusted for currency changes. If a subsample's date range is not entirely within the maximally entitled date range, the subsample is excluded from the response.
      * @param {module:model/InlineObject6} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2007}
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
      */
     postPricesTimeSeriesEodSubsampleList(body) {
       return this.postPricesTimeSeriesEodSubsampleListWithHttpInfo(body)
@@ -281,7 +293,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2008;
+
       return this.apiClient.callApi(
         '/prices/timeSeries/intraday/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -293,7 +308,7 @@ export default class PricesApi {
      * Intraday time series data for a notation.
      * Intraday time series data for a notation.
      * @param {module:model/InlineObject7} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2008}
+     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
      */
     postPricesTimeSeriesIntradayList(body) {
       return this.postPricesTimeSeriesIntradayListWithHttpInfo(body)
@@ -328,7 +343,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20010;
+
       return this.apiClient.callApi(
         '/prices/timeSeries/intraday/subsample/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -340,7 +358,7 @@ export default class PricesApi {
      * Subsampled intraday time series data for a notation.
      * Subsampled intraday time series data for a notation. If a subsample's time range is not entirely within the maximally entitled time range, the subsample is excluded from the response.
      * @param {module:model/InlineObject8} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20010}
+     * @return { Promise.< module:model/InlineResponse20010 > } a Promise, with data of type {@link module:model/InlineResponse20010 }
      */
     postPricesTimeSeriesIntradaySubsampleList(body) {
       return this.postPricesTimeSeriesIntradaySubsampleListWithHttpInfo(body)
@@ -351,3 +369,8 @@ export default class PricesApi {
 
 
 }
+
+
+
+
+

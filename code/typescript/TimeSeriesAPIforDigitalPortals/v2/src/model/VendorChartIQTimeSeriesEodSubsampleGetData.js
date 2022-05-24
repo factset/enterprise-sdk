@@ -18,7 +18,7 @@ import VendorChartIQTimeSeriesEodSubsampleGetDataInterval from './VendorChartIQT
 /**
  * The VendorChartIQTimeSeriesEodSubsampleGetData model module.
  * @module model/VendorChartIQTimeSeriesEodSubsampleGetData
- * @version 0.9.1
+ * @version 0.9.2
  */
 class VendorChartIQTimeSeriesEodSubsampleGetData {
     /**

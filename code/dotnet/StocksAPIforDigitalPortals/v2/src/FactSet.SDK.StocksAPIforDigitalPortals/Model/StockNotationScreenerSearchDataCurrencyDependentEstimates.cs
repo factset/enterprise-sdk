@@ -85,7 +85,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataCurrencyDependentEstimates {\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Ebit: ").Append(Ebit).Append("\n");
@@ -122,8 +122,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataCurrencyDependentEstimates input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Currency == input.Currency ||
@@ -157,13 +158,21 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Ebit != null)
-                    hashCode = hashCode * 59 + this.Ebit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ebit.GetHashCode();
+                }
                 if (this.Ebitda != null)
-                    hashCode = hashCode * 59 + this.Ebitda.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ebitda.GetHashCode();
+                }
                 if (this.PerShare != null)
-                    hashCode = hashCode * 59 + this.PerShare.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PerShare.GetHashCode();
+                }
                 return hashCode;
             }
         }

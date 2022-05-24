@@ -17,7 +17,7 @@ import InlineResponse200DataRedemptionPriceValueUnit from './InlineResponse200Da
 /**
  * The InlineResponse200DataRedemptionPrice model module.
  * @module model/InlineResponse200DataRedemptionPrice
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataRedemptionPrice {
     /**

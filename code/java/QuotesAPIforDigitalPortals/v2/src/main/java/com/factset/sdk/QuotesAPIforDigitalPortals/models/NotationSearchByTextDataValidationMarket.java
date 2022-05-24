@@ -49,6 +49,8 @@ public class NotationSearchByTextDataValidationMarket implements Serializable {
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private NotationSearchByTextDataValidationMarketPriority priority;
 
+  public NotationSearchByTextDataValidationMarket() { 
+  }
 
   public NotationSearchByTextDataValidationMarket selection(NotationSearchByTextDataValidationMarketSelection selection) {
     this.selection = selection;

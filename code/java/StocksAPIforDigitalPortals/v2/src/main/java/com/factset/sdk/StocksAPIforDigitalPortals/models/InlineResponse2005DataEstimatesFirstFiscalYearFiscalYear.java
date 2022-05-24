@@ -48,6 +48,8 @@ public class InlineResponse2005DataEstimatesFirstFiscalYearFiscalYear implements
   public static final String JSON_PROPERTY_YEAR = "year";
   private BigDecimal year;
 
+  public InlineResponse2005DataEstimatesFirstFiscalYearFiscalYear() { 
+  }
 
   public InlineResponse2005DataEstimatesFirstFiscalYearFiscalYear yearEnd(BigDecimal yearEnd) {
     this.yearEnd = yearEnd;

@@ -79,6 +79,8 @@ public class StockNotationScreenerSearchDataVolatility implements Serializable {
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
   private StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate yearToDate;
 
+  public StockNotationScreenerSearchDataVolatility() { 
+  }
 
   public StockNotationScreenerSearchDataVolatility week1(StockNotationScreenerSearchDataPerformanceEndOfDayWeek1 week1) {
     this.week1 = week1;

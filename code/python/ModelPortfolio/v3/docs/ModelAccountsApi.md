@@ -40,21 +40,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ModelPortfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
+
     name = "name_example" # str | The path and filename of the model account to create or update
     model_account_fields_root = ModelAccountFieldsRoot(
         data=ModelAccountFields(
@@ -87,15 +88,6 @@ with fds.sdk.ModelPortfolio.ApiClient(configuration) as api_client:
         },
     ) # ModelAccountFieldsRoot | The object containing the input values (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create or update an existing model account
-        api_instance.create_or_update_model_account(name)
-    except fds.sdk.ModelPortfolio.ApiException as e:
-        print("Exception when calling ModelAccountsApi->create_or_update_model_account: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create or update an existing model account
         api_instance.create_or_update_model_account(name, model_account_fields_root=model_account_fields_root)
@@ -168,24 +160,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ModelPortfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
+
     name = "name_example" # str | The path and filename of model account to delete
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete model account, takes an account path and name and deletes it.
         api_instance.delete_a_model_account(name)
@@ -254,39 +246,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ModelPortfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
+
     name = "name_example" # str | The path and filename of the account to get
     date = "date_example" # str | The date for which data needs to be updated
-    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
+    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) (default to "JsonStach")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get account endpoint, takes an account name, date and returns underlying data for that date
-        api_response = api_instance.get_account_for_date(name, date)
-        pprint(api_response)
-    except fds.sdk.ModelPortfolio.ApiException as e:
-        print("Exception when calling ModelAccountsApi->get_account_for_date: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get account endpoint, takes an account name, date and returns underlying data for that date
         api_response = api_instance.get_account_for_date(name, date, format=format)
         pprint(api_response)
+
     except fds.sdk.ModelPortfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->get_account_for_date: %s\n" % e)
 ```
@@ -356,40 +340,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ModelPortfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
+
     name = "name_example" # str | The path and filename of the account to get
     symbol = "symbol_example" # str | The symbol for which data needs to be updated
     date = "date_example" # str | The date for which data needs to be updated
-    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
+    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) (default to "JsonStach")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get account endpoint, takes an account name and returns underlying data
-        api_response = api_instance.get_account_for_date_and_symbol(name, symbol, date)
-        pprint(api_response)
-    except fds.sdk.ModelPortfolio.ApiException as e:
-        print("Exception when calling ModelAccountsApi->get_account_for_date_and_symbol: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get account endpoint, takes an account name and returns underlying data
         api_response = api_instance.get_account_for_date_and_symbol(name, symbol, date, format=format)
         pprint(api_response)
+
     except fds.sdk.ModelPortfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->get_account_for_date_and_symbol: %s\n" % e)
 ```
@@ -460,39 +436,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ModelPortfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
+
     name = "name_example" # str | The path and filename of the account to get
     symbol = "symbol_example" # str | The symbol for which data needs to be updated
-    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) if omitted the server will use the default value of "JsonStach"
+    format = "JsonStach" # str | Optional format for the response, supported formats are JsonStach and AccountModel (optional) (default to "JsonStach")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
-        api_response = api_instance.get_account_for_symbol(name, symbol)
-        pprint(api_response)
-    except fds.sdk.ModelPortfolio.ApiException as e:
-        print("Exception when calling ModelAccountsApi->get_account_for_symbol: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
         api_response = api_instance.get_account_for_symbol(name, symbol, format=format)
         pprint(api_response)
+
     except fds.sdk.ModelPortfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->get_account_for_symbol: %s\n" % e)
 ```
@@ -562,28 +530,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ModelPortfolio.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ModelPortfolio.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ModelPortfolio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = model_accounts_api.ModelAccountsApi(api_client)
+
     name = "name_example" # str | The path and filename of the account to get its schema
 
-    # example passing only required values which don't have defaults set
     try:
         # Get account schema endpoint, takes an account name and returns its schema
         api_response = api_instance.get_account_schema(name)
         pprint(api_response)
+
     except fds.sdk.ModelPortfolio.ApiException as e:
         print("Exception when calling ModelAccountsApi->get_account_schema: %s\n" % e)
 ```

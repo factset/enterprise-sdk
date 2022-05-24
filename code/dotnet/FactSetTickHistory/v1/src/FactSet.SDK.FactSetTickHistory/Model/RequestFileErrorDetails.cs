@@ -80,7 +80,7 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RequestFileErrorDetails {\n");
             sb.Append("  PermissionError: ").Append(PermissionError).Append("\n");
             sb.Append("  ParamError: ").Append(ParamError).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         public bool Equals(RequestFileErrorDetails input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PermissionError == input.PermissionError ||
@@ -156,13 +157,21 @@ namespace FactSet.SDK.FactSetTickHistory.Model
             {
                 int hashCode = 41;
                 if (this.PermissionError != null)
-                    hashCode = hashCode * 59 + this.PermissionError.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PermissionError.GetHashCode();
+                }
                 if (this.ParamError != null)
-                    hashCode = hashCode * 59 + this.ParamError.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParamError.GetHashCode();
+                }
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

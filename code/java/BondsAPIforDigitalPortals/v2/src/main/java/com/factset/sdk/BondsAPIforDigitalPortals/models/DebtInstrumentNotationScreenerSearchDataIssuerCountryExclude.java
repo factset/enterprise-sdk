@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssuerCountryExclude implem
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public DebtInstrumentNotationScreenerSearchDataIssuerCountryExclude() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssuerCountryExclude ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

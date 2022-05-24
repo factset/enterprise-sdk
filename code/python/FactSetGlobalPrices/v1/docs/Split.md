@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **adj_factor_combined** | **float** | Combined adjustment factor for all distribution events on that day. | [optional] 
 **dist_old_term** | **float** | Component of distribution ratio -  Number of shares held. | [optional] 
 **dist_new_term** | **float** | Component of distribution ratio -  Number of shares received. | [optional] 
+**dist_inst_fsym_id** | **str** | Parent Spin-Off for a company | [optional] 
 **short_desc** | **str** | Textual description identifying the event. | [optional] 
 **request_id** | **str** | Identifier that was used for the request. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

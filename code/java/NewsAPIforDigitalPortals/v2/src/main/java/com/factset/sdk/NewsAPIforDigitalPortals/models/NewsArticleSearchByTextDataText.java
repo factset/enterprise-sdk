@@ -44,6 +44,8 @@ public class NewsArticleSearchByTextDataText implements Serializable {
   public static final String JSON_PROPERTY_CRITERIA = "criteria";
   private NewsArticleSearchByTextDataTextCriteria criteria;
 
+  public NewsArticleSearchByTextDataText() { 
+  }
 
   public NewsArticleSearchByTextDataText criteria(NewsArticleSearchByTextDataTextCriteria criteria) {
     this.criteria = criteria;

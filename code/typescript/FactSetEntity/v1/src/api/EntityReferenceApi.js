@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityReference service.
 * @module api/EntityReferenceApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EntityReferenceApi {
 
@@ -63,7 +63,10 @@ export default class EntityReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EntityReferenceResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/entity-references', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class EntityReferenceApi {
      * Returns an entity reference profiles for an individual entity
      * Returns an Entity reference profile for the requested Entity Id(s). Data points include - Ultimate Parent Id, Credit Parent Id, Headquarters location details, Website URL, and Business Description. 
      * @param {Array.<String>} ids The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityReferenceResponse}
+     * @return { Promise.< module:model/EntityReferenceResponse > } a Promise, with data of type {@link module:model/EntityReferenceResponse }
      */
     getEntityReferences(ids) {
       return this.getEntityReferencesWithHttpInfo(ids)
@@ -110,7 +113,10 @@ export default class EntityReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntityReferenceResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/entity-references', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class EntityReferenceApi {
      * Returns an entity reference data for a list of ids.
      * Returns an entity reference object for the requested entity ids. Data points include - ultimate parent id, headquarters location details, credit parent id, website, and business description. 
      * @param {module:model/EntityReferenceRequest} entityReferenceRequest Request Body to request a list of Entity Reference objects.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityReferenceResponse}
+     * @return { Promise.< module:model/EntityReferenceResponse > } a Promise, with data of type {@link module:model/EntityReferenceResponse }
      */
     postEntityReferences(entityReferenceRequest) {
       return this.postEntityReferencesWithHttpInfo(entityReferenceRequest)
@@ -133,3 +139,8 @@ export default class EntityReferenceApi {
 
 
 }
+
+
+
+
+

@@ -21,7 +21,7 @@ import InlineResponse20081DataBid from './InlineResponse20081DataBid';
 /**
  * The InlineResponse20081Data model module.
  * @module model/InlineResponse20081Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20081Data {
     /**

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataCompanyCountry implements Serializab
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private StockNotationScreenerSearchDataCompanyCountryExclude exclude;
 
+  public StockNotationScreenerSearchDataCompanyCountry() { 
+  }
 
   public StockNotationScreenerSearchDataCompanyCountry restrict(StockNotationScreenerSearchDataCompanyCountryRestrict restrict) {
     this.restrict = restrict;

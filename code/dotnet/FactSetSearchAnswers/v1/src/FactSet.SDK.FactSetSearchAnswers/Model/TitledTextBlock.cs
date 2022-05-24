@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TitledTextBlock {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(TitledTextBlock input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Title == input.Title ||
@@ -121,9 +122,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.Content != null)
-                    hashCode = hashCode * 59 + this.Content.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Content.GetHashCode();
+                }
                 return hashCode;
             }
         }

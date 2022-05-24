@@ -36,7 +36,7 @@ import ValueLabelTemplate from './ValueLabelTemplate';
 /**
  * The TemplateData model module.
  * @module model/TemplateData
- * @version 0.9.1
+ * @version 0.20.0
  */
 class TemplateData {
     /**
@@ -79,79 +79,7 @@ class TemplateData {
      * @return {module:model/TemplateData} The populated <code>TemplateData</code> instance.
      */
     static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new TemplateData();
-            LinkTextBlockTemplate.constructFromObject(data, obj);
-            TextBlockFootingTemplate.constructFromObject(data, obj);
-            PercentChangeLabelTemplate.constructFromObject(data, obj);
-            ValueChangeDateLabelTemplate.constructFromObject(data, obj);
-            RankedTableTemplate.constructFromObject(data, obj);
-            TableTemplate.constructFromObject(data, obj);
-            TableTableTemplate.constructFromObject(data, obj);
-            ValueLabelTemplate.constructFromObject(data, obj);
-            ValueLabelDateTemplate.constructFromObject(data, obj);
-            ColoredValueLabelDateTemplate.constructFromObject(data, obj);
-            ValueLabelDateTextBlockTemplate.constructFromObject(data, obj);
-            ValueLabelDateDataPairListTemplate.constructFromObject(data, obj);
-            LabelValueChangeLabelValueChangeTemplate.constructFromObject(data, obj);
-
-            if (data.hasOwnProperty('headline')) {
-                obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
-            }
-            if (data.hasOwnProperty('footer')) {
-                obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
-            }
-            if (data.hasOwnProperty('fdc3Context')) {
-                obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
-            }
-            if (data.hasOwnProperty('applicationLinks')) {
-                obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
-            }
-            if (data.hasOwnProperty('link')) {
-                obj['link'] = ApiClient.convertToType(data['link'], 'String');
-            }
-            if (data.hasOwnProperty('blurb')) {
-                obj['blurb'] = ApiClient.convertToType(data['blurb'], 'String');
-            }
-            if (data.hasOwnProperty('body')) {
-                obj['body'] = ApiClient.convertToType(data['body'], 'String');
-            }
-            if (data.hasOwnProperty('footing')) {
-                obj['footing'] = TitledTextBlock.constructFromObject(data['footing']);
-            }
-            if (data.hasOwnProperty('percentChange')) {
-                obj['percentChange'] = PercentChange.constructFromObject(data['percentChange']);
-            }
-            if (data.hasOwnProperty('label')) {
-                obj['label'] = ApiClient.convertToType(data['label'], 'String');
-            }
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], 'String');
-            }
-            if (data.hasOwnProperty('valueChange')) {
-                obj['valueChange'] = ValueChange.constructFromObject(data['valueChange']);
-            }
-            if (data.hasOwnProperty('date')) {
-                obj['date'] = ApiClient.convertToType(data['date'], 'String');
-            }
-            if (data.hasOwnProperty('table')) {
-                obj['table'] = Table.constructFromObject(data['table']);
-            }
-            if (data.hasOwnProperty('table1')) {
-                obj['table1'] = Table.constructFromObject(data['table1']);
-            }
-            if (data.hasOwnProperty('table2')) {
-                obj['table2'] = Table.constructFromObject(data['table2']);
-            }
-            if (data.hasOwnProperty('list')) {
-                obj['list'] = ApiClient.convertToType(data['list'], [DataPair]);
-            }
-            if (data.hasOwnProperty('value2')) {
-                obj['value2'] = ApiClient.convertToType(data['value2'], 'String');
-            }
-            if (data.hasOwnProperty('label2')) {
-                obj['label2'] = ApiClient.convertToType(data['label2'], 'String');
-            }
+        switch (data['template']) {
         }
         return obj;
     }

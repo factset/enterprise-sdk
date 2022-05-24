@@ -65,6 +65,8 @@ public class InlineResponse2002Data implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private InlineResponse2002Status status;
 
+  public InlineResponse2002Data() { 
+  }
 
   public InlineResponse2002Data notation(InlineResponse2002Notation notation) {
     this.notation = notation;

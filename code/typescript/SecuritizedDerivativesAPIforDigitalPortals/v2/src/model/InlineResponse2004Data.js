@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import InlineResponse2004Accumulated from './InlineResponse2004Accumulated';
 import InlineResponse2004Categorization from './InlineResponse2004Categorization';
 import InlineResponse2004Exercise from './InlineResponse2004Exercise';
+import InlineResponse2004Fsym from './InlineResponse2004Fsym';
 import InlineResponse2004Instrument from './InlineResponse2004Instrument';
 import InlineResponse2004Issuer from './InlineResponse2004Issuer';
 import InlineResponse2004LifeCycle from './InlineResponse2004LifeCycle';
@@ -26,7 +27,7 @@ import InlineResponse2004ValueUnit from './InlineResponse2004ValueUnit';
 /**
  * The InlineResponse2004Data model module.
  * @module model/InlineResponse2004Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004Data {
     /**
@@ -62,6 +63,9 @@ class InlineResponse2004Data {
             }
             if (data.hasOwnProperty('symbol')) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
+            }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2004Fsym.constructFromObject(data['fsym']);
             }
             if (data.hasOwnProperty('market')) {
                 obj['market'] = InlineResponse2004Market.constructFromObject(data['market']);
@@ -123,6 +127,11 @@ InlineResponse2004Data.prototype['id'] = undefined;
  * @member {String} symbol
  */
 InlineResponse2004Data.prototype['symbol'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2004Fsym} fsym
+ */
+InlineResponse2004Data.prototype['fsym'] = undefined;
 
 /**
  * @member {module:model/InlineResponse2004Market} market

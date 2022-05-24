@@ -62,7 +62,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class VendorChartIQTimeSeriesEodListDataAdjustments {\n");
             sb.Append("  Payout: ").Append(Payout).Append("\n");
             sb.Append("  Split: ").Append(Split).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public bool Equals(VendorChartIQTimeSeriesEodListDataAdjustments input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Payout == input.Payout ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Payout.GetHashCode();
-                hashCode = hashCode * 59 + this.Split.GetHashCode();
+                hashCode = (hashCode * 59) + this.Payout.GetHashCode();
+                hashCode = (hashCode * 59) + this.Split.GetHashCode();
                 return hashCode;
             }
         }

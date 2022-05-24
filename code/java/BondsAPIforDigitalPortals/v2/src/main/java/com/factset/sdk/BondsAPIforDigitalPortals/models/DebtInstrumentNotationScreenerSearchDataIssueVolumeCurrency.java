@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency impleme
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyExclude exclude;
 
+  public DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency restrict(DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrencyRestrict restrict) {
     this.restrict = restrict;

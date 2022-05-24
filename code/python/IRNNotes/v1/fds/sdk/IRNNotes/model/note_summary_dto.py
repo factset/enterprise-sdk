@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -84,10 +84,12 @@ class NoteSummaryDto(ModelNormal):
             'date': (str, none_type,),  # noqa: E501
             'created_at': (str, none_type,),  # noqa: E501
             'author_id': (str,),  # noqa: E501
+            'contributor_id': (str,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'identifier': (str, none_type,),  # noqa: E501
             'subject_id': (str,),  # noqa: E501
             'is_personal': (bool,),  # noqa: E501
+            'state': (str, none_type,),  # noqa: E501
             'approval_status': (str, none_type,),  # noqa: E501
             'attachment_ids': ([str], none_type,),  # noqa: E501
             'related_symbols': ([str], none_type,),  # noqa: E501
@@ -102,20 +104,22 @@ class NoteSummaryDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'date': 'date',  # noqa: E501
-        'created_at': 'createdAt',  # noqa: E501
-        'author_id': 'authorId',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'identifier': 'identifier',  # noqa: E501
-        'subject_id': 'subjectId',  # noqa: E501
-        'is_personal': 'isPersonal',  # noqa: E501
-        'approval_status': 'approvalStatus',  # noqa: E501
-        'attachment_ids': 'attachmentIds',  # noqa: E501
-        'related_symbols': 'relatedSymbols',  # noqa: E501
-        'recommendation_id': 'recommendationId',  # noqa: E501
-        'sentiment_id': 'sentimentId',  # noqa: E501
-        'custom_fields': 'customFields',  # noqa: E501
+        'id': 'Id',  # noqa: E501
+        'date': 'Date',  # noqa: E501
+        'created_at': 'CreatedAt',  # noqa: E501
+        'author_id': 'AuthorId',  # noqa: E501
+        'contributor_id': 'ContributorId',  # noqa: E501
+        'title': 'Title',  # noqa: E501
+        'identifier': 'Identifier',  # noqa: E501
+        'subject_id': 'SubjectId',  # noqa: E501
+        'is_personal': 'IsPersonal',  # noqa: E501
+        'state': 'State',  # noqa: E501
+        'approval_status': 'ApprovalStatus',  # noqa: E501
+        'attachment_ids': 'AttachmentIds',  # noqa: E501
+        'related_symbols': 'RelatedSymbols',  # noqa: E501
+        'recommendation_id': 'RecommendationId',  # noqa: E501
+        'sentiment_id': 'SentimentId',  # noqa: E501
+        'custom_fields': 'CustomFields',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,10 +167,12 @@ class NoteSummaryDto(ModelNormal):
             date (str, none_type): [optional]  # noqa: E501
             created_at (str, none_type): [optional]  # noqa: E501
             author_id (str): [optional]  # noqa: E501
+            contributor_id (str): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             identifier (str, none_type): [optional]  # noqa: E501
             subject_id (str): [optional]  # noqa: E501
             is_personal (bool): [optional]  # noqa: E501
+            state (str, none_type): [optional]  # noqa: E501
             approval_status (str, none_type): [optional]  # noqa: E501
             attachment_ids ([str], none_type): [optional]  # noqa: E501
             related_symbols ([str], none_type): [optional]  # noqa: E501
@@ -258,10 +264,12 @@ class NoteSummaryDto(ModelNormal):
             date (str, none_type): [optional]  # noqa: E501
             created_at (str, none_type): [optional]  # noqa: E501
             author_id (str): [optional]  # noqa: E501
+            contributor_id (str): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             identifier (str, none_type): [optional]  # noqa: E501
             subject_id (str): [optional]  # noqa: E501
             is_personal (bool): [optional]  # noqa: E501
+            state (str, none_type): [optional]  # noqa: E501
             approval_status (str, none_type): [optional]  # noqa: E501
             attachment_ids ([str], none_type): [optional]  # noqa: E501
             related_symbols ([str], none_type): [optional]  # noqa: E501

@@ -2,14 +2,14 @@
 
 # InlineResponse2005Data
 
-ETP sector allocation data.
+ETP exchange allocation data.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reportDate** | **LocalDate** | Reporting date for the allocations. |  [optional]
-**sectors** | [**java.util.Set&lt;InlineResponse2005DataSectors&gt;**](InlineResponse2005DataSectors.md) | List of allocations by sector. |  [optional]
+**exchanges** | [**java.util.Set&lt;InlineResponse2005DataExchanges&gt;**](InlineResponse2005DataExchanges.md) | List of allocations by exchange. |  [optional]
 
 
 ## Implemented Interfaces

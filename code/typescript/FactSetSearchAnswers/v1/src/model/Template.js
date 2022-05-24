@@ -17,7 +17,7 @@ import Fdc3Context from './Fdc3Context';
 /**
  * The Template model module.
  * @module model/Template
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Template {
     /**

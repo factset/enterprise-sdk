@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getCountries(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const countryRequest = new factsetgeorev.CountryRequest(); // CountryRequest | T
 // Call api endpoint
 apiInstance.getCountriesForList(countryRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

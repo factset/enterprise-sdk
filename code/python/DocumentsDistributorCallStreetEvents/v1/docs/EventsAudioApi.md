@@ -39,22 +39,23 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.DocumentsDistributorCallStreetEvents.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.DocumentsDistributorCallStreetEvents.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_audio_api.EventsAudioApi(api_client)
-    sort = "-startDate" # str | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional) if omitted the server will use the default value of "-startDate"
+
+    sort = "-startDate" # str | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional) (default to "-startDate")
     pagination_limit = 0 # int | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional)
     start_date = dateutil_parser('1970-01-01').date() # date | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: -1 for yesterday)' (optional)
     pagination_offset = 1 # int | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional)
@@ -66,12 +67,11 @@ with fds.sdk.DocumentsDistributorCallStreetEvents.ApiClient(configuration) as ap
     trimmed = True # bool | This parameters helps to search trimmed audio files (optional)
     upload_time = -168 # int | This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime = -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime= -1  Maximum is 1 week/168 hours i.e., uploadTime=-168  While using uploadTime, the startDate and endDate parameters will be ignored (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Retrieve audio recordings and metadata within FactSet coverage
         api_response = api_instance.get_docs_distributor_audio_v1_list_files(sort=sort, pagination_limit=pagination_limit, start_date=start_date, pagination_offset=pagination_offset, end_date=end_date, report_id=report_id, ids=ids, source_code=source_code, file_name=file_name, trimmed=trimmed, upload_time=upload_time)
         pprint(api_response)
+
     except fds.sdk.DocumentsDistributorCallStreetEvents.ApiException as e:
         print("Exception when calling EventsAudioApi->get_docs_distributor_audio_v1_list_files: %s\n" % e)
 ```

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// Characteristics.
+    /// ETP industry allocation data.
     /// </summary>
     [DataContract(Name = "inline_response_200_6_data")]
     public partial class InlineResponse2006Data : IEquatable<InlineResponse2006Data>, IValidatableObject
@@ -34,41 +34,28 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2006Data" /> class.
         /// </summary>
-        /// <param name="gearing">gearing.</param>
-        /// <param name="hedge">hedge.</param>
-        /// <param name="counterParty">counterParty.</param>
-        /// <param name="serviceProvider">serviceProvider.</param>
-        public InlineResponse2006Data(InlineResponse2006DataGearing gearing = default(InlineResponse2006DataGearing), InlineResponse2006DataHedge hedge = default(InlineResponse2006DataHedge), InlineResponse2006DataCounterParty counterParty = default(InlineResponse2006DataCounterParty), InlineResponse2006DataServiceProvider serviceProvider = default(InlineResponse2006DataServiceProvider))
+        /// <param name="reportDate">Reporting date for the allocations..</param>
+        /// <param name="industries">List of allocations by industry..</param>
+        public InlineResponse2006Data(DateTime reportDate = default(DateTime), List<InlineResponse2006DataIndustries> industries = default(List<InlineResponse2006DataIndustries>))
         {
-            this.Gearing = gearing;
-            this.Hedge = hedge;
-            this.CounterParty = counterParty;
-            this.ServiceProvider = serviceProvider;
+            this.ReportDate = reportDate;
+            this.Industries = industries;
         }
 
         /// <summary>
-        /// Gets or Sets Gearing
+        /// Reporting date for the allocations.
         /// </summary>
-        [DataMember(Name = "gearing", EmitDefaultValue = false)]
-        public InlineResponse2006DataGearing Gearing { get; set; }
+        /// <value>Reporting date for the allocations.</value>
+        [DataMember(Name = "reportDate", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime ReportDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Hedge
+        /// List of allocations by industry.
         /// </summary>
-        [DataMember(Name = "hedge", EmitDefaultValue = false)]
-        public InlineResponse2006DataHedge Hedge { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CounterParty
-        /// </summary>
-        [DataMember(Name = "counterParty", EmitDefaultValue = false)]
-        public InlineResponse2006DataCounterParty CounterParty { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ServiceProvider
-        /// </summary>
-        [DataMember(Name = "serviceProvider", EmitDefaultValue = false)]
-        public InlineResponse2006DataServiceProvider ServiceProvider { get; set; }
+        /// <value>List of allocations by industry.</value>
+        [DataMember(Name = "industries", EmitDefaultValue = false)]
+        public List<InlineResponse2006DataIndustries> Industries { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,12 +63,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006Data {\n");
-            sb.Append("  Gearing: ").Append(Gearing).Append("\n");
-            sb.Append("  Hedge: ").Append(Hedge).Append("\n");
-            sb.Append("  CounterParty: ").Append(CounterParty).Append("\n");
-            sb.Append("  ServiceProvider: ").Append(ServiceProvider).Append("\n");
+            sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
+            sb.Append("  Industries: ").Append(Industries).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,28 +98,20 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse2006Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.Gearing == input.Gearing ||
-                    (this.Gearing != null &&
-                    this.Gearing.Equals(input.Gearing))
+                    this.ReportDate == input.ReportDate ||
+                    (this.ReportDate != null &&
+                    this.ReportDate.Equals(input.ReportDate))
                 ) && 
                 (
-                    this.Hedge == input.Hedge ||
-                    (this.Hedge != null &&
-                    this.Hedge.Equals(input.Hedge))
-                ) && 
-                (
-                    this.CounterParty == input.CounterParty ||
-                    (this.CounterParty != null &&
-                    this.CounterParty.Equals(input.CounterParty))
-                ) && 
-                (
-                    this.ServiceProvider == input.ServiceProvider ||
-                    (this.ServiceProvider != null &&
-                    this.ServiceProvider.Equals(input.ServiceProvider))
+                    this.Industries == input.Industries ||
+                    this.Industries != null &&
+                    input.Industries != null &&
+                    this.Industries.SequenceEqual(input.Industries)
                 );
         }
 
@@ -147,14 +124,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Gearing != null)
-                    hashCode = hashCode * 59 + this.Gearing.GetHashCode();
-                if (this.Hedge != null)
-                    hashCode = hashCode * 59 + this.Hedge.GetHashCode();
-                if (this.CounterParty != null)
-                    hashCode = hashCode * 59 + this.CounterParty.GetHashCode();
-                if (this.ServiceProvider != null)
-                    hashCode = hashCode * 59 + this.ServiceProvider.GetHashCode();
+                if (this.ReportDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
+                }
+                if (this.Industries != null)
+                {
+                    hashCode = (hashCode * 59) + this.Industries.GetHashCode();
+                }
                 return hashCode;
             }
         }

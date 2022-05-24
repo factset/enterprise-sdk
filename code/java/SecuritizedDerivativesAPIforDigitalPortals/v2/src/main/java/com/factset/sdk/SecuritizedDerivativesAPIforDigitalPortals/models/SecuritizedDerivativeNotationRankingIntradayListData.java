@@ -26,6 +26,7 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.Securit
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataMarket;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList;
+import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataPerformance;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataPrices;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry;
 import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.models.SecuritizedDerivativeNotationRankingIntradayListDataUnderlying;
@@ -61,7 +62,8 @@ import com.factset.sdk.SecuritizedDerivativesAPIforDigitalPortals.JSON;
   SecuritizedDerivativeNotationRankingIntradayListData.JSON_PROPERTY_UNDERLYING,
   SecuritizedDerivativeNotationRankingIntradayListData.JSON_PROPERTY_FACTOR_CERTIFICATES,
   SecuritizedDerivativeNotationRankingIntradayListData.JSON_PROPERTY_KNOCKED_OUT,
-  SecuritizedDerivativeNotationRankingIntradayListData.JSON_PROPERTY_KNOCKED_IN
+  SecuritizedDerivativeNotationRankingIntradayListData.JSON_PROPERTY_KNOCKED_IN,
+  SecuritizedDerivativeNotationRankingIntradayListData.JSON_PROPERTY_PERFORMANCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecuritizedDerivativeNotationRankingIntradayListData implements Serializable {
@@ -186,6 +188,19 @@ public class SecuritizedDerivativeNotationRankingIntradayListData implements Ser
   public static final String JSON_PROPERTY_KNOCKED_IN = "knockedIn";
   private KnockedInEnum knockedIn = KnockedInEnum.EXCLUDE;
 
+  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
+  private SecuritizedDerivativeNotationRankingIntradayListDataPerformance performance;
+
+  public SecuritizedDerivativeNotationRankingIntradayListData() { 
+  }
+
+  @JsonCreator
+  public SecuritizedDerivativeNotationRankingIntradayListData(
+    @JsonProperty(value=JSON_PROPERTY_MARKET, required=true) SecuritizedDerivativeNotationRankingIntradayListDataMarket market
+  ) {
+    this();
+    this.market = market;
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListData prices(SecuritizedDerivativeNotationRankingIntradayListDataPrices prices) {
     this.prices = prices;
@@ -577,6 +592,32 @@ public class SecuritizedDerivativeNotationRankingIntradayListData implements Ser
   }
 
 
+  public SecuritizedDerivativeNotationRankingIntradayListData performance(SecuritizedDerivativeNotationRankingIntradayListDataPerformance performance) {
+    this.performance = performance;
+    return this;
+  }
+
+   /**
+   * Get performance
+   * @return performance
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SecuritizedDerivativeNotationRankingIntradayListDataPerformance getPerformance() {
+    return performance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPerformance(SecuritizedDerivativeNotationRankingIntradayListDataPerformance performance) {
+    this.performance = performance;
+  }
+
+
   /**
    * Return true if this _securitizedDerivative_notation_ranking_intraday_list_data object is equal to o.
    */
@@ -603,12 +644,13 @@ public class SecuritizedDerivativeNotationRankingIntradayListData implements Ser
         Objects.equals(this.underlying, securitizedDerivativeNotationRankingIntradayListData.underlying) &&
         Objects.equals(this.factorCertificates, securitizedDerivativeNotationRankingIntradayListData.factorCertificates) &&
         Objects.equals(this.knockedOut, securitizedDerivativeNotationRankingIntradayListData.knockedOut) &&
-        Objects.equals(this.knockedIn, securitizedDerivativeNotationRankingIntradayListData.knockedIn);
+        Objects.equals(this.knockedIn, securitizedDerivativeNotationRankingIntradayListData.knockedIn) &&
+        Objects.equals(this.performance, securitizedDerivativeNotationRankingIntradayListData.performance);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(prices, valueUnit, currency, market, instrumentRestrictionList, notationRestrictionList, category, registrationCountry, lifeCycle, issuer, exercise, underlying, factorCertificates, knockedOut, knockedIn);
+    return Objects.hash(prices, valueUnit, currency, market, instrumentRestrictionList, notationRestrictionList, category, registrationCountry, lifeCycle, issuer, exercise, underlying, factorCertificates, knockedOut, knockedIn, performance);
   }
 
   @Override
@@ -630,6 +672,7 @@ public class SecuritizedDerivativeNotationRankingIntradayListData implements Ser
     sb.append("    factorCertificates: ").append(toIndentedString(factorCertificates)).append("\n");
     sb.append("    knockedOut: ").append(toIndentedString(knockedOut)).append("\n");
     sb.append("    knockedIn: ").append(toIndentedString(knockedIn)).append("\n");
+    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11,6 +11,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.AxiomaEquityOptimizer.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.AxiomaEquityOptimizer.model_utils import (  # noqa: F401
@@ -22,7 +24,11 @@ from fds.sdk.AxiomaEquityOptimizer.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.AxiomaEquityOptimizer.exceptions import ApiException
 from fds.sdk.AxiomaEquityOptimizer.model.document_directories_root import DocumentDirectoriesRoot
+
+
+
 
 
 class StrategyDocumentsApi(object):
@@ -38,7 +44,10 @@ class StrategyDocumentsApi(object):
         self.api_client = api_client
         self.get_axioma_equity_strategy_documents_endpoint = _Endpoint(
             settings={
-                'response_type': (DocumentDirectoriesRoot,),
+                'response_type': (
+                  { 200: (DocumentDirectoriesRoot,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -89,26 +98,32 @@ class StrategyDocumentsApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def get_axioma_equity_strategy_documents(
         self,
         path="Client:folder1/folder2",
         **kwargs
-    ):
+    ) -> DocumentDirectoriesRoot:
         """Get Axioma Equity strategy documents and sub-directories in a directory  # noqa: E501
 
         This endpoint looks up all Axioma Equity strategy documents and sub-directories in a given directory.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_axioma_equity_strategy_documents(path="Client:folder1/folder2", async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             path (str): The directory to get the strategy documents and sub-directories in. defaults to "Client:folder1/folder2", must be one of ["Client:folder1/folder2"]
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -122,35 +137,161 @@ class StrategyDocumentsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             DocumentDirectoriesRoot
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['path'] = \
+            path
+        return self.get_axioma_equity_strategy_documents_endpoint.call_with_http_info(**kwargs)
+
+    def get_axioma_equity_strategy_documents_with_http_info(
+        self,
+        path="Client:folder1/folder2",
+        **kwargs
+    ) -> typing.Tuple[DocumentDirectoriesRoot, int, typing.MutableMapping]:
+        """Get Axioma Equity strategy documents and sub-directories in a directory  # noqa: E501
+
+        This endpoint looks up all Axioma Equity strategy documents and sub-directories in a given directory.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            path (str): The directory to get the strategy documents and sub-directories in. defaults to "Client:folder1/folder2", must be one of ["Client:folder1/folder2"]
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            DocumentDirectoriesRoot
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['path'] = \
+            path
+        return self.get_axioma_equity_strategy_documents_endpoint.call_with_http_info(**kwargs)
+
+    def get_axioma_equity_strategy_documents_async(
+        self,
+        path="Client:folder1/folder2",
+        **kwargs
+    ) -> "ApplyResult[DocumentDirectoriesRoot]":
+        """Get Axioma Equity strategy documents and sub-directories in a directory  # noqa: E501
+
+        This endpoint looks up all Axioma Equity strategy documents and sub-directories in a given directory.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            path (str): The directory to get the strategy documents and sub-directories in. defaults to "Client:folder1/folder2", must be one of ["Client:folder1/folder2"]
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[DocumentDirectoriesRoot]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['path'] = \
+            path
+        return self.get_axioma_equity_strategy_documents_endpoint.call_with_http_info(**kwargs)
+
+    def get_axioma_equity_strategy_documents_with_http_info_async(
+        self,
+        path="Client:folder1/folder2",
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[DocumentDirectoriesRoot, int, typing.MutableMapping]]":
+        """Get Axioma Equity strategy documents and sub-directories in a directory  # noqa: E501
+
+        This endpoint looks up all Axioma Equity strategy documents and sub-directories in a given directory.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            path (str): The directory to get the strategy documents and sub-directories in. defaults to "Client:folder1/folder2", must be one of ["Client:folder1/folder2"]
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(DocumentDirectoriesRoot, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['path'] = \
             path
         return self.get_axioma_equity_strategy_documents_endpoint.call_with_http_info(**kwargs)

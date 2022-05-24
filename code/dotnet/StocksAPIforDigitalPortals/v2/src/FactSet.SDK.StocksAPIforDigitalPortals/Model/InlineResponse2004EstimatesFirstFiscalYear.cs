@@ -84,7 +84,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004EstimatesFirstFiscalYear {\n");
             sb.Append("  FiscalYear: ").Append(FiscalYear).Append("\n");
             sb.Append("  CurrencyDependentEstimates: ").Append(CurrencyDependentEstimates).Append("\n");
@@ -122,8 +122,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004EstimatesFirstFiscalYear input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FiscalYear == input.FiscalYear ||
@@ -162,15 +163,25 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.FiscalYear != null)
-                    hashCode = hashCode * 59 + this.FiscalYear.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FiscalYear.GetHashCode();
+                }
                 if (this.CurrencyDependentEstimates != null)
-                    hashCode = hashCode * 59 + this.CurrencyDependentEstimates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrencyDependentEstimates.GetHashCode();
+                }
                 if (this.ReturnOnAssets != null)
-                    hashCode = hashCode * 59 + this.ReturnOnAssets.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReturnOnAssets.GetHashCode();
+                }
                 if (this.ReturnOnEquity != null)
-                    hashCode = hashCode * 59 + this.ReturnOnEquity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReturnOnEquity.GetHashCode();
+                }
                 if (this.Ratios != null)
-                    hashCode = hashCode * 59 + this.Ratios.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ratios.GetHashCode();
+                }
                 return hashCode;
             }
         }

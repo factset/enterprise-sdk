@@ -18,7 +18,7 @@ import EventsAudioMeta from './EventsAudioMeta';
 /**
  * The EventsAudio model module.
  * @module model/EventsAudio
- * @version 0.9.1
+ * @version 0.20.0
  */
 class EventsAudio {
     /**

@@ -43,6 +43,8 @@ public class BatchStatusResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private BatchStatus data;
 
+  public BatchStatusResponse() { 
+  }
 
   public BatchStatusResponse data(BatchStatus data) {
     this.data = data;

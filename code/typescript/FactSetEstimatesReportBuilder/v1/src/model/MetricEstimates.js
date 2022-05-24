@@ -17,7 +17,7 @@ import MetricEstimatesMetricEstimates from './MetricEstimatesMetricEstimates';
 /**
  * The MetricEstimates model module.
  * @module model/MetricEstimates
- * @version 0.9.1
+ * @version 0.20.0
  */
 class MetricEstimates {
     /**

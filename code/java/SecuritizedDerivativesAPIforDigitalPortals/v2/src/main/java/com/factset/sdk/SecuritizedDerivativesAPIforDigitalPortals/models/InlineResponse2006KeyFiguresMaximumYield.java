@@ -52,6 +52,8 @@ public class InlineResponse2006KeyFiguresMaximumYield implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private BigDecimal annualized;
 
+  public InlineResponse2006KeyFiguresMaximumYield() { 
+  }
 
   public InlineResponse2006KeyFiguresMaximumYield absolute(BigDecimal absolute) {
     this.absolute = absolute;

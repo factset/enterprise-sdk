@@ -47,6 +47,16 @@ public class AnswerWithoutDataAllOf implements Serializable {
   public static final String JSON_PROPERTY_TEMPLATE_DATA = "templateData";
   private AnswerWithoutDataAllOfTemplateData templateData;
 
+  public AnswerWithoutDataAllOf() { 
+  }
+
+  @JsonCreator
+  public AnswerWithoutDataAllOf(
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+  ) {
+    this();
+    this.title = title;
+  }
 
   public AnswerWithoutDataAllOf title(String title) {
     this.title = title;

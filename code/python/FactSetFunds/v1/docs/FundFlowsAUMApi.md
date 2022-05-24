@@ -41,42 +41,34 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_flows__aum_api.FundFlowsAUMApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     start_date = "2018-12-31" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    frequency = "M" # str | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional) if omitted the server will use the default value of "M"
-    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
-    data_type = "ROLL" # str | The Data Type of the NAV expressed as Raw or Rolled values. (optional) if omitted the server will use the default value of "ROLL"
+    frequency = "M" # str | Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly  (optional) (default to "M")
+    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) (default to "LOCAL")
+    data_type = "ROLL" # str | The Data Type of the NAV expressed as Raw or Rolled values. (optional) (default to "ROLL")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Fund AUM for a requested date range and list of ids
-        api_response = api_instance.get_funds_aum(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetFunds.ApiException as e:
-        print("Exception when calling FundFlowsAUMApi->get_funds_aum: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Fund AUM for a requested date range and list of ids
         api_response = api_instance.get_funds_aum(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency, data_type=data_type)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling FundFlowsAUMApi->get_funds_aum: %s\n" % e)
 ```
@@ -152,21 +144,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_flows__aum_api.FundFlowsAUMApi(api_client)
+
     aum_request = AumRequest(
         ids=Ids(["MABAX","FCNTX"]),
         start_date="2019-01-01",
@@ -176,11 +169,11 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         data_type=DataType("ROLL"),
     ) # AumRequest | The AUM request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Fund AUM for a requested date range and large list of ids
         api_response = api_instance.get_funds_aum_for_list(aum_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling FundFlowsAUMApi->get_funds_aum_for_list: %s\n" % e)
 ```
@@ -250,41 +243,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_flows__aum_api.FundFlowsAUMApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     start_date = "2018-12-31" # str | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
     end_date = "2019-12-31" # str | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    frequency = "M" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional) if omitted the server will use the default value of "M"
-    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
+    frequency = "M" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (optional) (default to "M")
+    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) (default to "LOCAL")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Fund Flows for a requested date range and list of ids
-        api_response = api_instance.get_funds_flows(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetFunds.ApiException as e:
-        print("Exception when calling FundFlowsAUMApi->get_funds_flows: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Fund Flows for a requested date range and list of ids
         api_response = api_instance.get_funds_flows(ids, start_date=start_date, end_date=end_date, frequency=frequency, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling FundFlowsAUMApi->get_funds_flows: %s\n" % e)
 ```
@@ -359,21 +344,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fund_flows__aum_api.FundFlowsAUMApi(api_client)
+
     flows_request = FlowsRequest(
         ids=Ids(["MABAX","FCNTX"]),
         start_date="2019-01-01",
@@ -382,11 +368,11 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
         currency="USD",
     ) # FlowsRequest | The Fund Flows request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Fund Flows for a requested date range and large list of ids
         api_response = api_instance.get_funds_flows_for_list(flows_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling FundFlowsAUMApi->get_funds_flows_for_list: %s\n" % e)
 ```

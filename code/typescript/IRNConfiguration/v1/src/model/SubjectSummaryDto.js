@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SubjectSummaryDto model module.
  * @module model/SubjectSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SubjectSummaryDto {
     /**
@@ -47,20 +47,32 @@ class SubjectSummaryDto {
         if (data) {
             obj = obj || new SubjectSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('Code')) {
+                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
             }
-            if (data.hasOwnProperty('identifierType')) {
-                obj['identifierType'] = ApiClient.convertToType(data['identifierType'], 'String');
+            if (data.hasOwnProperty('IdentifierType')) {
+                obj['IdentifierType'] = ApiClient.convertToType(data['IdentifierType'], 'String');
             }
-            if (data.hasOwnProperty('isHidden')) {
-                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
+            if (data.hasOwnProperty('IdentifierTypes')) {
+                obj['IdentifierTypes'] = ApiClient.convertToType(data['IdentifierTypes'], ['String']);
+            }
+            if (data.hasOwnProperty('Type')) {
+                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
+            }
+            if (data.hasOwnProperty('IsHidden')) {
+                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
+            }
+            if (data.hasOwnProperty('CustomFieldIds')) {
+                obj['CustomFieldIds'] = ApiClient.convertToType(data['CustomFieldIds'], ['String']);
+            }
+            if (data.hasOwnProperty('NoteLengthLimit')) {
+                obj['NoteLengthLimit'] = ApiClient.convertToType(data['NoteLengthLimit'], 'Number');
             }
         }
         return obj;
@@ -70,29 +82,49 @@ class SubjectSummaryDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-SubjectSummaryDto.prototype['id'] = undefined;
+SubjectSummaryDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-SubjectSummaryDto.prototype['name'] = undefined;
+SubjectSummaryDto.prototype['Name'] = undefined;
 
 /**
- * @member {String} code
+ * @member {String} Code
  */
-SubjectSummaryDto.prototype['code'] = undefined;
+SubjectSummaryDto.prototype['Code'] = undefined;
 
 /**
- * @member {String} identifierType
+ * @member {String} IdentifierType
  */
-SubjectSummaryDto.prototype['identifierType'] = undefined;
+SubjectSummaryDto.prototype['IdentifierType'] = undefined;
 
 /**
- * @member {Boolean} isHidden
+ * @member {Array.<String>} IdentifierTypes
  */
-SubjectSummaryDto.prototype['isHidden'] = undefined;
+SubjectSummaryDto.prototype['IdentifierTypes'] = undefined;
+
+/**
+ * @member {String} Type
+ */
+SubjectSummaryDto.prototype['Type'] = undefined;
+
+/**
+ * @member {Boolean} IsHidden
+ */
+SubjectSummaryDto.prototype['IsHidden'] = undefined;
+
+/**
+ * @member {Array.<String>} CustomFieldIds
+ */
+SubjectSummaryDto.prototype['CustomFieldIds'] = undefined;
+
+/**
+ * @member {Number} NoteLengthLimit
+ */
+SubjectSummaryDto.prototype['NoteLengthLimit'] = undefined;
 
 
 

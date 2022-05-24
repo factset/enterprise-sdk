@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NumericConfigDto model module.
  * @module model/NumericConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NumericConfigDto {
     /**
@@ -47,11 +47,11 @@ class NumericConfigDto {
         if (data) {
             obj = obj || new NumericConfigDto();
 
-            if (data.hasOwnProperty('decimals')) {
-                obj['decimals'] = ApiClient.convertToType(data['decimals'], 'Number');
+            if (data.hasOwnProperty('Decimals')) {
+                obj['Decimals'] = ApiClient.convertToType(data['Decimals'], 'Number');
             }
-            if (data.hasOwnProperty('splitType')) {
-                obj['splitType'] = ApiClient.convertToType(data['splitType'], 'String');
+            if (data.hasOwnProperty('SplitType')) {
+                obj['SplitType'] = ApiClient.convertToType(data['SplitType'], 'String');
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class NumericConfigDto {
 }
 
 /**
- * @member {Number} decimals
+ * @member {Number} Decimals
  */
-NumericConfigDto.prototype['decimals'] = undefined;
+NumericConfigDto.prototype['Decimals'] = undefined;
 
 /**
- * @member {String} splitType
+ * @member {String} SplitType
  */
-NumericConfigDto.prototype['splitType'] = undefined;
+NumericConfigDto.prototype['SplitType'] = undefined;
 
 
 

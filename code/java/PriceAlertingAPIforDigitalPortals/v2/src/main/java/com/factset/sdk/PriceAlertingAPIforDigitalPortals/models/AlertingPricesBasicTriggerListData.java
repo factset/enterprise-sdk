@@ -44,6 +44,8 @@ public class AlertingPricesBasicTriggerListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private AlertingPricesBasicTriggerListDataFilter filter;
 
+  public AlertingPricesBasicTriggerListData() { 
+  }
 
   public AlertingPricesBasicTriggerListData filter(AlertingPricesBasicTriggerListDataFilter filter) {
     this.filter = filter;

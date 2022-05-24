@@ -16,3 +16,4 @@
 # Import APIs into API package:
 from fds.sdk.FactSetGlobalPrices.api.corporate_actions_api import CorporateActionsApi
 from fds.sdk.FactSetGlobalPrices.api.prices_api import PricesApi
+from fds.sdk.FactSetGlobalPrices.api.returns_api import ReturnsApi

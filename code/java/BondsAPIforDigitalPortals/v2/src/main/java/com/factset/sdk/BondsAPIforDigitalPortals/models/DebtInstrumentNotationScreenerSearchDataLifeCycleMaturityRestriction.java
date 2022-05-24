@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictio
   public static final String JSON_PROPERTY_REMAINING_TERM_YEARS = "remainingTermYears";
   private DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYears remainingTermYears;
 
+  public DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestriction() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestriction date(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionDate date) {
     this.date = date;

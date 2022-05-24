@@ -46,6 +46,8 @@ public class Specialfield implements Serializable {
   public static final String JSON_PROPERTY_N_A = "NA";
   private Object NA;
 
+  public Specialfield() { 
+  }
 
   public Specialfield NF(String NF) {
     this.NF = NF;

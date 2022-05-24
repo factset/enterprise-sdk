@@ -94,6 +94,16 @@ public class Metric implements Serializable {
   public static final String JSON_PROPERTY_DATA_TYPE = "dataType";
   private DataTypeEnum dataType;
 
+  public Metric() { 
+  }
+
+  @JsonCreator
+  public Metric(
+    @JsonProperty(value=JSON_PROPERTY_METRIC, required=true) String metric
+  ) {
+    this();
+    this.metric = metric;
+  }
 
   public Metric metric(String metric) {
     this.metric = metric;

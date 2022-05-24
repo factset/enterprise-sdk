@@ -24,8 +24,8 @@ from fds.sdk.NewsAPIforDigitalPortals.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.NewsAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -101,6 +101,7 @@ class InlineResponse200Data(ModelNormal):
         return {
             'time': (str,),  # noqa: E501
             'headline': (str,),  # noqa: E501
+            'summary': (str,),  # noqa: E501
             'body': (str,),  # noqa: E501
             'types': ([InlineResponse200DataTypes],),  # noqa: E501
             'language': (InlineResponse200DataLanguage,),  # noqa: E501
@@ -119,6 +120,7 @@ class InlineResponse200Data(ModelNormal):
     attribute_map = {
         'time': 'time',  # noqa: E501
         'headline': 'headline',  # noqa: E501
+        'summary': 'summary',  # noqa: E501
         'body': 'body',  # noqa: E501
         'types': 'types',  # noqa: E501
         'language': 'language',  # noqa: E501
@@ -172,6 +174,7 @@ class InlineResponse200Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             time (str): Date and time of the news article.. [optional]  # noqa: E501
             headline (str): Headline of the news article represented as text with HTML entity encoding but without HTML tags.. [optional]  # noqa: E501
+            summary (str): Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.. [optional]  # noqa: E501
             body (str): Text body of the news article.. [optional]  # noqa: E501
             types ([InlineResponse200DataTypes]): Types of news article. See endpoint `/news/article/type/list` for possible values.. [optional]  # noqa: E501
             language (InlineResponse200DataLanguage): [optional]  # noqa: E501
@@ -263,6 +266,7 @@ class InlineResponse200Data(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             time (str): Date and time of the news article.. [optional]  # noqa: E501
             headline (str): Headline of the news article represented as text with HTML entity encoding but without HTML tags.. [optional]  # noqa: E501
+            summary (str): Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.. [optional]  # noqa: E501
             body (str): Text body of the news article.. [optional]  # noqa: E501
             types ([InlineResponse200DataTypes]): Types of news article. See endpoint `/news/article/type/list` for possible values.. [optional]  # noqa: E501
             language (InlineResponse200DataLanguage): [optional]  # noqa: E501

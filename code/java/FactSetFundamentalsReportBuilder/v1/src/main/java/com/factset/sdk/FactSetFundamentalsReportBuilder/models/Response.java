@@ -50,6 +50,8 @@ public class Response implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private java.util.Map<String, String> meta = null;
 
+  public Response() { 
+  }
 
   public Response data(Object data) {
     this.data = JsonNullable.<Object>of(data);

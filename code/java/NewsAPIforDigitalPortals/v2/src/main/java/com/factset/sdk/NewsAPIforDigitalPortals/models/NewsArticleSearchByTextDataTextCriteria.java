@@ -128,6 +128,8 @@ public class NewsArticleSearchByTextDataTextCriteria implements Serializable {
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private ScopeEnum scope = ScopeEnum.ALL;
 
+  public NewsArticleSearchByTextDataTextCriteria() { 
+  }
 
   public NewsArticleSearchByTextDataTextCriteria selectionType(SelectionTypeEnum selectionType) {
     this.selectionType = selectionType;

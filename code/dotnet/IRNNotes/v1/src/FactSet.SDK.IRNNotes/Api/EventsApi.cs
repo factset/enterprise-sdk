@@ -28,11 +28,33 @@ namespace FactSet.SDK.IRNNotes.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get all the record events in the specified date range filtered on the given types
+        /// </summary>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <returns>List<EventSnippetDto></returns>
+        List<EventSnippetDto> GetAllEvents(string startDate, string endDate = default(string), List<string> types = default(List<string>));
+
+        /// <summary>
+        /// Get all the record events in the specified date range filtered on the given types
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <returns>ApiResponse of List<EventSnippetDto></returns>
+        ApiResponse<List<EventSnippetDto>> GetAllEventsWithHttpInfo(string startDate, string endDate = default(string), List<string> types = default(List<string>));
+        /// <summary>
         /// Get all the record events that belong to a note
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId">Note Id</param>
-        /// <returns>List&lt;RecordEventSummaryDto&gt;</returns>
+        /// <returns>List<RecordEventSummaryDto></returns>
         List<RecordEventSummaryDto> GetEvents(Guid noteId);
 
         /// <summary>
@@ -43,7 +65,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId">Note Id</param>
-        /// <returns>ApiResponse of List&lt;RecordEventSummaryDto&gt;</returns>
+        /// <returns>ApiResponse of List<RecordEventSummaryDto></returns>
         ApiResponse<List<RecordEventSummaryDto>> GetEventsWithHttpInfo(Guid noteId);
         /// <summary>
         /// Get details of a record event of a note
@@ -75,6 +97,33 @@ namespace FactSet.SDK.IRNNotes.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Get all the record events in the specified date range filtered on the given types
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;EventSnippetDto&gt;</returns>
+        System.Threading.Tasks.Task<List<EventSnippetDto>> GetAllEventsAsync(string startDate, string endDate = default(string), List<string> types = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get all the record events in the specified date range filtered on the given types
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List<EventSnippetDto>)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<EventSnippetDto>>> GetAllEventsWithHttpInfoAsync(string startDate, string endDate = default(string), List<string> types = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Get all the record events that belong to a note
         /// </summary>
         /// <remarks>
@@ -95,7 +144,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;RecordEventSummaryDto&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<RecordEventSummaryDto>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<RecordEventSummaryDto>>> GetEventsWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get details of a record event of a note
@@ -139,6 +188,31 @@ namespace FactSet.SDK.IRNNotes.Api
     public partial class EventsApi : IEventsApi
     {
         private FactSet.SDK.IRNNotes.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetAllEventsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<EventSnippetDto>) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetEventsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<RecordEventSummaryDto>) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
+            { (HttpStatusCode)0, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRecordEventResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(NoteEventDto) },
+            { (HttpStatusCode)403, typeof(ProblemDetails) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EventsApi"/> class.
@@ -243,25 +317,35 @@ namespace FactSet.SDK.IRNNotes.Api
         }
 
         /// <summary>
-        /// Get all the record events that belong to a note 
+        /// Get all the record events in the specified date range filtered on the given types 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId">Note Id</param>
-        /// <returns>List&lt;RecordEventSummaryDto&gt;</returns>
-        public List<RecordEventSummaryDto> GetEvents(Guid noteId)
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <returns>List<EventSnippetDto></returns>
+        public List<EventSnippetDto> GetAllEvents(string startDate, string endDate = default(string), List<string> types = default(List<string>))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<List<RecordEventSummaryDto>> localVarResponse = GetEventsWithHttpInfo(noteId);
+            var localVarResponse = GetAllEventsWithHttpInfo(startDate, endDate, types);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get all the record events that belong to a note 
+        /// Get all the record events in the specified date range filtered on the given types 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="noteId">Note Id</param>
-        /// <returns>ApiResponse of List&lt;RecordEventSummaryDto&gt;</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<List<RecordEventSummaryDto>> GetEventsWithHttpInfo(Guid noteId)
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <returns>ApiResponse of List&lt;EventSnippetDto&gt;</returns>
+        public ApiResponse<List<EventSnippetDto>> GetAllEventsWithHttpInfo(string startDate, string endDate = default(string), List<string> types = default(List<string>))
         {
+            // verify the required parameter 'startDate' is set
+            if (startDate == null)
+            {
+                throw new FactSet.SDK.IRNNotes.Client.ApiException(400, "Missing required parameter 'startDate' when calling EventsApi->GetAllEvents");
+            }
+
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -269,26 +353,42 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // to determine the Accept header
             string[] _accepts = new string[] {
-                "application/json"
+                "text/plain",
+                "application/json",
+                "text/json"
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
-            localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+            if (types != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("multi", "types", types));
+            }
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -300,13 +400,122 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
+            localVarRequestOptions.ResponseTypeDictionary = GetAllEventsResponseTypeDictionary;
+
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<RecordEventSummaryDto>>("/v1/notes/{noteId}/events", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<
+            List<EventSnippetDto>>("/v1/events", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAllEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get all the record events in the specified date range filtered on the given types 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;EventSnippetDto&gt;</returns>
+        public async System.Threading.Tasks.Task<List<EventSnippetDto>>GetAllEventsAsync(string startDate, string endDate = default(string), List<string> types = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var localVarResponse = await GetAllEventsWithHttpInfoAsync(startDate, endDate, types, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all the record events in the specified date range filtered on the given types 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">StartDate</param>
+        /// <param name="endDate">EndDate (optional)</param>
+        /// <param name="types">Set of event types to filter on (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;EventSnippetDto&gt;)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<EventSnippetDto>>> GetAllEventsWithHttpInfoAsync(string startDate, string endDate = default(string), List<string> types = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'startDate' is set
+            if (startDate == null)
+            {
+                throw new FactSet.SDK.IRNNotes.Client.ApiException(400, "Missing required parameter 'startDate' when calling EventsApi->GetAllEvents");
+            }
+
+
+            FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+            if (types != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToMultiMap("multi", "types", types));
+            }
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = GetAllEventsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<EventSnippetDto>>("/v1/events", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                Exception _exception = this.ExceptionFactory("GetAllEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -317,11 +526,91 @@ namespace FactSet.SDK.IRNNotes.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="noteId">Note Id</param>
+        /// <returns>List<RecordEventSummaryDto></returns>
+        public List<RecordEventSummaryDto> GetEvents(Guid noteId)
+        {
+            var localVarResponse = GetEventsWithHttpInfo(noteId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all the record events that belong to a note 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="noteId">Note Id</param>
+        /// <returns>ApiResponse of List&lt;RecordEventSummaryDto&gt;</returns>
+        public ApiResponse<List<RecordEventSummaryDto>> GetEventsWithHttpInfo(Guid noteId)
+        {
+            FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = GetEventsResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<RecordEventSummaryDto>>("/v1/notes/{noteId}/events", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEvents", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get all the record events that belong to a note 
+        /// </summary>
+        /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecordEventSummaryDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<RecordEventSummaryDto>> GetEventsAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<RecordEventSummaryDto>>GetEventsAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<List<RecordEventSummaryDto>> localVarResponse = await GetEventsWithHttpInfoAsync(noteId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEventsWithHttpInfoAsync(noteId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -332,7 +621,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="noteId">Note Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecordEventSummaryDto&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<List<RecordEventSummaryDto>>> GetEventsWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<RecordEventSummaryDto>>> GetEventsWithHttpInfoAsync(Guid noteId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -345,24 +635,29 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -374,14 +669,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEventsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<RecordEventSummaryDto>>("/v1/notes/{noteId}/events", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -396,7 +695,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <returns>NoteEventDto</returns>
         public NoteEventDto GetRecordEvent(Guid noteId, Guid recordEventId)
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<NoteEventDto> localVarResponse = GetRecordEventWithHttpInfo(noteId, recordEventId);
+            var localVarResponse = GetRecordEventWithHttpInfo(noteId, recordEventId);
             return localVarResponse.Data;
         }
 
@@ -407,7 +706,7 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="noteId">Note Id</param>
         /// <param name="recordEventId">Record Event Id</param>
         /// <returns>ApiResponse of NoteEventDto</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<NoteEventDto> GetRecordEventWithHttpInfo(Guid noteId, Guid recordEventId)
+        public ApiResponse<NoteEventDto> GetRecordEventWithHttpInfo(Guid noteId, Guid recordEventId)
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -420,23 +719,29 @@ namespace FactSet.SDK.IRNNotes.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
             localVarRequestOptions.PathParameters.Add("recordEventId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(recordEventId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -448,15 +753,19 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<NoteEventDto>("/v1/notes/{noteId}/events/{recordEventId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRecordEventResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            NoteEventDto>("/v1/notes/{noteId}/events/{recordEventId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecordEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -468,9 +777,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="recordEventId">Record Event Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NoteEventDto</returns>
-        public async System.Threading.Tasks.Task<NoteEventDto> GetRecordEventAsync(Guid noteId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NoteEventDto>GetRecordEventAsync(Guid noteId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<NoteEventDto> localVarResponse = await GetRecordEventWithHttpInfoAsync(noteId, recordEventId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecordEventWithHttpInfoAsync(noteId, recordEventId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -482,7 +791,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <param name="recordEventId">Record Event Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NoteEventDto)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<NoteEventDto>> GetRecordEventWithHttpInfoAsync(Guid noteId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NoteEventDto>> GetRecordEventWithHttpInfoAsync(Guid noteId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -495,25 +805,30 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("noteId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(noteId)); // path parameter
             localVarRequestOptions.PathParameters.Add("recordEventId", FactSet.SDK.IRNNotes.Client.ClientUtils.ParameterToString(recordEventId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -525,14 +840,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRecordEventResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<NoteEventDto>("/v1/notes/{noteId}/events/{recordEventId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecordEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

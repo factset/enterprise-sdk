@@ -43,6 +43,8 @@ public class UniverseMetaResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private UniverseMeta data;
 
+  public UniverseMetaResponse() { 
+  }
 
   public UniverseMetaResponse data(UniverseMeta data) {
     this.data = data;

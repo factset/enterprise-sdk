@@ -48,6 +48,8 @@ public class InlineResponse20054DataInterestRateCurrentAccruedInterest implement
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse20054DataInterestRateCurrentAccruedInterest() { 
+  }
 
   public InlineResponse20054DataInterestRateCurrentAccruedInterest absolute(BigDecimal absolute) {
     this.absolute = absolute;

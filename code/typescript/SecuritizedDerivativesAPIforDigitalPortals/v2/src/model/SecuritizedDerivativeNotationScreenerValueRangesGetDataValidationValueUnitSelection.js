@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUni
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelection model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelection
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationValueUnitSelection {
     /**

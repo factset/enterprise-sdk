@@ -55,6 +55,8 @@ public class EventsAudioMetaPagination implements Serializable {
   public static final String JSON_PROPERTY_OFFSET = "offset";
   private Integer offset;
 
+  public EventsAudioMetaPagination() { 
+  }
 
   public EventsAudioMetaPagination total(Integer total) {
     this.total = total;

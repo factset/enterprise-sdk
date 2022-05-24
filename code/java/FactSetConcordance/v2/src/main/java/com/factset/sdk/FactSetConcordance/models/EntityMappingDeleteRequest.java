@@ -46,6 +46,18 @@ public class EntityMappingDeleteRequest implements Serializable {
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
   private java.util.List<String> clientId = new java.util.ArrayList<>();
 
+  public EntityMappingDeleteRequest() { 
+  }
+
+  @JsonCreator
+  public EntityMappingDeleteRequest(
+    @JsonProperty(value=JSON_PROPERTY_UNIVERSE_ID, required=true) Integer universeId, 
+    @JsonProperty(value=JSON_PROPERTY_CLIENT_ID, required=true) java.util.List<String> clientId
+  ) {
+    this();
+    this.universeId = universeId;
+    this.clientId = clientId;
+  }
 
   public EntityMappingDeleteRequest universeId(Integer universeId) {
     this.universeId = universeId;

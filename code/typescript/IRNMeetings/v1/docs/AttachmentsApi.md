@@ -4,8 +4,8 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAttachment**](AttachmentsApi.md#createAttachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for an existing meeting
-[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a meeting
+[**createAttachment**](AttachmentsApi.md#createAttachment) | **POST** /v1/meetings/{meetingId}/attachments | Create an attachment for a existing meeting
+[**downloadAttachment**](AttachmentsApi.md#downloadAttachment) | **GET** /v1/meetings/{meetingId}/attachments/{attachmentId}/download | Download an attachment from a Meeting
 [**getAttachments**](AttachmentsApi.md#getAttachments) | **GET** /v1/meetings/{meetingId}/attachments | Get all the attachments belonging to a meeting
 [**softDeleteMeetingAttachment**](AttachmentsApi.md#softDeleteMeetingAttachment) | **DELETE** /v1/meetings/{meetingId}/attachments/{attachmentId} | Delete attachment from meeting
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > NewItemDto createAttachment(meetingId, file)
 
-Create an attachment for an existing meeting
+Create an attachment for a existing meeting
 
 ### Example
 
@@ -49,6 +49,7 @@ const file = "/path/to/file"; // File |
 // Call api endpoint
 apiInstance.createAttachment(meetingId, file).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -86,7 +87,7 @@ Name | Type | Description  | Notes
 
 > downloadAttachment(meetingId, attachmentId)
 
-Download an attachment from a meeting
+Download an attachment from a Meeting
 
 ### Example
 
@@ -189,6 +190,7 @@ const meetingId = "meetingId_example"; // String | Meeting Id
 // Call api endpoint
 apiInstance.getAttachments(meetingId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

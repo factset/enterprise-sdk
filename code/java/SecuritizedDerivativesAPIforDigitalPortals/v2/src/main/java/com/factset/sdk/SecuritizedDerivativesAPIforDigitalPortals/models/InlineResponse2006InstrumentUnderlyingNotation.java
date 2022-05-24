@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentUnderlyingNotation implements Serializa
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse2006InstrumentUnderlyingNotationInstrument instrument;
 
+  public InlineResponse2006InstrumentUnderlyingNotation() { 
+  }
 
   public InlineResponse2006InstrumentUnderlyingNotation id(String id) {
     this.id = id;

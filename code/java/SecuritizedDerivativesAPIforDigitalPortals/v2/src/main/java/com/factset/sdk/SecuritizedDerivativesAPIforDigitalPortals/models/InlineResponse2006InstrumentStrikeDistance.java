@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentStrikeDistance implements Serializable 
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006InstrumentStrikeDistance() { 
+  }
 
   public InlineResponse2006InstrumentStrikeDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

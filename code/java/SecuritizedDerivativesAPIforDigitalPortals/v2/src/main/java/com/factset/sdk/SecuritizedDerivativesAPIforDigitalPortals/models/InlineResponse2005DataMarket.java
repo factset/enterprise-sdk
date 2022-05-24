@@ -51,6 +51,8 @@ public class InlineResponse2005DataMarket implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataMarket() { 
+  }
 
   public InlineResponse2005DataMarket id(BigDecimal id) {
     this.id = id;

@@ -61,7 +61,6 @@ src/main/java/com/factset/sdk/Symbology/ApiClient.java
 src/main/java/com/factset/sdk/Symbology/ApiException.java
 src/main/java/com/factset/sdk/Symbology/ApiResponse.java
 src/main/java/com/factset/sdk/Symbology/Configuration.java
-src/main/java/com/factset/sdk/Symbology/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/Symbology/JSON.java
 src/main/java/com/factset/sdk/Symbology/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/Symbology/Pair.java

@@ -50,6 +50,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getDcsDetail(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -123,6 +124,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getDcsSummary(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -193,6 +195,7 @@ const id = FDS; // String | Company ticker
 // Call api endpoint
 apiInstance.getSourceOfCapital(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

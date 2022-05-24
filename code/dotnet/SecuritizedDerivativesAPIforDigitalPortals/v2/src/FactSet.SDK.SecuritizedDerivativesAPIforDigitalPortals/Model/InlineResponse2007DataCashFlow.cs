@@ -78,7 +78,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataCashFlow {\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  PaymentDate: ").Append(PaymentDate).Append("\n");
@@ -115,8 +115,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataCashFlow input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Currency == input.Currency ||
@@ -150,13 +151,21 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.PaymentDate != null)
-                    hashCode = hashCode * 59 + this.PaymentDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaymentDate.GetHashCode();
+                }
                 if (this.Absolute != null)
-                    hashCode = hashCode * 59 + this.Absolute.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Absolute.GetHashCode();
+                }
                 if (this.Relative != null)
-                    hashCode = hashCode * 59 + this.Relative.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Relative.GetHashCode();
+                }
                 return hashCode;
             }
         }

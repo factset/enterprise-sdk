@@ -54,6 +54,8 @@ public class InlineResponse2003DataPrices implements Serializable {
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse2003DataPricesValueUnit valueUnit;
 
+  public InlineResponse2003DataPrices() { 
+  }
 
   public InlineResponse2003DataPrices ask(InlineResponse2003DataPricesAsk ask) {
     this.ask = ask;

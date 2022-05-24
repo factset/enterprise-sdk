@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetGeoRev.Configuration;
 import com.factset.sdk.FactSetGeoRev.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetGeoRev.models.ErrorResponse;
 import com.factset.sdk.FactSetGeoRev.models.RegionRequest;
@@ -23,6 +26,28 @@ public class RegionsApi {
   public RegionsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getRegionsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRegionsResponseTypeMap.put(200, new GenericType<RegionResponse>(){});
+    getRegionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRegionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRegionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRegionsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRegionsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getRegionsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRegionsForListResponseTypeMap.put(200, new GenericType<RegionResponse>(){});
+    getRegionsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRegionsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRegionsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRegionsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRegionsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -129,11 +154,17 @@ public class RegionsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RegionResponse> localVarReturnType = new GenericType<RegionResponse>() {};
 
-    return apiClient.invokeAPI("RegionsApi.getRegions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RegionResponse
+      
+    > apiResponse = apiClient.invokeAPI("RegionsApi.getRegions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRegionsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets the revenue details for the requested Regions. Use for large lists of company ids.
@@ -206,10 +237,16 @@ public class RegionsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RegionResponse> localVarReturnType = new GenericType<RegionResponse>() {};
 
-    return apiClient.invokeAPI("RegionsApi.getRegionsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RegionResponse
+      
+    > apiResponse = apiClient.invokeAPI("RegionsApi.getRegionsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRegionsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

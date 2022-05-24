@@ -59,6 +59,16 @@ public class EntityUniverseRequest implements Serializable {
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
   private java.util.List<String> clientId = null;
 
+  public EntityUniverseRequest() { 
+  }
+
+  @JsonCreator
+  public EntityUniverseRequest(
+    @JsonProperty(value=JSON_PROPERTY_UNIVERSE_ID, required=true) Integer universeId
+  ) {
+    this();
+    this.universeId = universeId;
+  }
 
   public EntityUniverseRequest universeId(Integer universeId) {
     this.universeId = universeId;

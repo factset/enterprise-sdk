@@ -48,6 +48,16 @@ public class InlineObject3 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private NewsArticleListMeta meta;
 
+  public InlineObject3() { 
+  }
+
+  @JsonCreator
+  public InlineObject3(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) NewsArticleListByInstrumentData data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public InlineObject3 data(NewsArticleListByInstrumentData data) {
     this.data = data;

@@ -2,14 +2,14 @@
 
 # InlineResponse2003Data
 
-ETP exchange allocation data.
+ETP currency allocation data.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reportDate** | **LocalDate** | Reporting date for the allocations. |  [optional]
-**exchanges** | [**java.util.Set&lt;InlineResponse2003DataExchanges&gt;**](InlineResponse2003DataExchanges.md) | List of allocations by exchange. |  [optional]
+**currencies** | [**java.util.Set&lt;InlineResponse2003DataCurrencies&gt;**](InlineResponse2003DataCurrencies.md) | List of allocations by currency. |  [optional]
 
 
 ## Implemented Interfaces

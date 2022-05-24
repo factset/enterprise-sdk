@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// Returns.
+    /// InlineResponse20017Data
     /// </summary>
     [DataContract(Name = "inline_response_200_17_data")]
     public partial class InlineResponse20017Data : IEquatable<InlineResponse20017Data>, IValidatableObject
@@ -34,63 +34,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20017Data" /> class.
         /// </summary>
-        /// <param name="return1M">1 month performance. This data is available for the US regions..</param>
-        /// <param name="return3M">3 month performance. This data is available for the US regions..</param>
-        /// <param name="returnYTD">YTD performance. This data is available for the US regions..</param>
-        /// <param name="return1Y">1 year performance. This data is available for the US regions..</param>
-        /// <param name="return3Y">3 year performance. This data is available for the US regions..</param>
-        /// <param name="return5Y">5 year performance. This data is available for the US regions..</param>
-        public InlineResponse20017Data(decimal return1M = default(decimal), decimal return3M = default(decimal), decimal returnYTD = default(decimal), decimal return1Y = default(decimal), decimal return3Y = default(decimal), decimal return5Y = default(decimal))
+        /// <param name="focusCategory">ETP class focus category..</param>
+        public InlineResponse20017Data(string focusCategory = default(string))
         {
-            this.Return1M = return1M;
-            this.Return3M = return3M;
-            this.ReturnYTD = returnYTD;
-            this.Return1Y = return1Y;
-            this.Return3Y = return3Y;
-            this.Return5Y = return5Y;
+            this.FocusCategory = focusCategory;
         }
 
         /// <summary>
-        /// 1 month performance. This data is available for the US regions.
+        /// ETP class focus category.
         /// </summary>
-        /// <value>1 month performance. This data is available for the US regions.</value>
-        [DataMember(Name = "return1M", EmitDefaultValue = false)]
-        public decimal Return1M { get; set; }
-
-        /// <summary>
-        /// 3 month performance. This data is available for the US regions.
-        /// </summary>
-        /// <value>3 month performance. This data is available for the US regions.</value>
-        [DataMember(Name = "return3M", EmitDefaultValue = false)]
-        public decimal Return3M { get; set; }
-
-        /// <summary>
-        /// YTD performance. This data is available for the US regions.
-        /// </summary>
-        /// <value>YTD performance. This data is available for the US regions.</value>
-        [DataMember(Name = "returnYTD", EmitDefaultValue = false)]
-        public decimal ReturnYTD { get; set; }
-
-        /// <summary>
-        /// 1 year performance. This data is available for the US regions.
-        /// </summary>
-        /// <value>1 year performance. This data is available for the US regions.</value>
-        [DataMember(Name = "return1Y", EmitDefaultValue = false)]
-        public decimal Return1Y { get; set; }
-
-        /// <summary>
-        /// 3 year performance. This data is available for the US regions.
-        /// </summary>
-        /// <value>3 year performance. This data is available for the US regions.</value>
-        [DataMember(Name = "return3Y", EmitDefaultValue = false)]
-        public decimal Return3Y { get; set; }
-
-        /// <summary>
-        /// 5 year performance. This data is available for the US regions.
-        /// </summary>
-        /// <value>5 year performance. This data is available for the US regions.</value>
-        [DataMember(Name = "return5Y", EmitDefaultValue = false)]
-        public decimal Return5Y { get; set; }
+        /// <value>ETP class focus category.</value>
+        [DataMember(Name = "focusCategory", EmitDefaultValue = false)]
+        public string FocusCategory { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,14 +53,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20017Data {\n");
-            sb.Append("  Return1M: ").Append(Return1M).Append("\n");
-            sb.Append("  Return3M: ").Append(Return3M).Append("\n");
-            sb.Append("  ReturnYTD: ").Append(ReturnYTD).Append("\n");
-            sb.Append("  Return1Y: ").Append(Return1Y).Append("\n");
-            sb.Append("  Return3Y: ").Append(Return3Y).Append("\n");
-            sb.Append("  Return5Y: ").Append(Return5Y).Append("\n");
+            sb.Append("  FocusCategory: ").Append(FocusCategory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,32 +87,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20017Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.Return1M == input.Return1M ||
-                    this.Return1M.Equals(input.Return1M)
-                ) && 
-                (
-                    this.Return3M == input.Return3M ||
-                    this.Return3M.Equals(input.Return3M)
-                ) && 
-                (
-                    this.ReturnYTD == input.ReturnYTD ||
-                    this.ReturnYTD.Equals(input.ReturnYTD)
-                ) && 
-                (
-                    this.Return1Y == input.Return1Y ||
-                    this.Return1Y.Equals(input.Return1Y)
-                ) && 
-                (
-                    this.Return3Y == input.Return3Y ||
-                    this.Return3Y.Equals(input.Return3Y)
-                ) && 
-                (
-                    this.Return5Y == input.Return5Y ||
-                    this.Return5Y.Equals(input.Return5Y)
+                    this.FocusCategory == input.FocusCategory ||
+                    (this.FocusCategory != null &&
+                    this.FocusCategory.Equals(input.FocusCategory))
                 );
         }
 
@@ -175,12 +107,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Return1M.GetHashCode();
-                hashCode = hashCode * 59 + this.Return3M.GetHashCode();
-                hashCode = hashCode * 59 + this.ReturnYTD.GetHashCode();
-                hashCode = hashCode * 59 + this.Return1Y.GetHashCode();
-                hashCode = hashCode * 59 + this.Return3Y.GetHashCode();
-                hashCode = hashCode * 59 + this.Return5Y.GetHashCode();
+                if (this.FocusCategory != null)
+                {
+                    hashCode = (hashCode * 59) + this.FocusCategory.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -154,7 +154,7 @@ namespace FactSet.SDK.FactSetOwnership.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FundHolding {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -199,8 +199,9 @@ namespace FactSet.SDK.FactSetOwnership.Model
         public bool Equals(FundHolding input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -271,26 +272,44 @@ namespace FactSet.SDK.FactSetOwnership.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                hashCode = hashCode * 59 + this.AdjHolding.GetHashCode();
-                hashCode = hashCode * 59 + this.AdjMarketValue.GetHashCode();
-                hashCode = hashCode * 59 + this.WeightClose.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AdjHolding.GetHashCode();
+                hashCode = (hashCode * 59) + this.AdjMarketValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.WeightClose.GetHashCode();
                 if (this.IssueType != null)
-                    hashCode = hashCode * 59 + this.IssueType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IssueType.GetHashCode();
+                }
                 if (this.FsymSecurityId != null)
-                    hashCode = hashCode * 59 + this.FsymSecurityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymSecurityId.GetHashCode();
+                }
                 if (this.FsymRegionalId != null)
-                    hashCode = hashCode * 59 + this.FsymRegionalId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymRegionalId.GetHashCode();
+                }
                 if (this.SecurityName != null)
-                    hashCode = hashCode * 59 + this.SecurityName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecurityName.GetHashCode();
+                }
                 if (this.SecurityTicker != null)
-                    hashCode = hashCode * 59 + this.SecurityTicker.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecurityTicker.GetHashCode();
+                }
                 return hashCode;
             }
         }

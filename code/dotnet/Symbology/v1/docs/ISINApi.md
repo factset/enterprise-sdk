@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **isinHistoryTranslationRequest** | [**IsinHistoryTranslationRequest**](IsinHistoryTranslationRequest.md)| Request Body for ISIN History | 
 
 ### Return type
-
 [**IsinHistoryTranslationResponse**](IsinHistoryTranslationResponse.md)
 
 ### Authorization
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
  **isinTranslationRequest** | [**IsinTranslationRequest**](IsinTranslationRequest.md)| Request Body for ISIN Symbology Translation | 
 
 ### Return type
-
 [**IsinTranslationResponse**](IsinTranslationResponse.md)
 
 ### Authorization
@@ -267,7 +265,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;. | 
 
 ### Return type
-
 [**IsinHistoryTranslationResponse**](IsinHistoryTranslationResponse.md)
 
 ### Authorization
@@ -363,7 +360,6 @@ Name | Type | Description  | Notes
  **asOfDate** | **string**| As-Of date for historical symbol request in YYYY-MM-DD format. | [optional] 
 
 ### Return type
-
 [**IsinTranslationResponse**](IsinTranslationResponse.md)
 
 ### Authorization

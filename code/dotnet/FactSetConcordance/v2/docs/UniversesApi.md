@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
  **universeId** | **int**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* | 
 
 ### Return type
-
 [**EntityUniverseStatisticsResponse**](EntityUniverseStatisticsResponse.md)
 
 ### Authorization
@@ -169,7 +168,6 @@ Name | Type | Description  | Notes
  **createUniverseRequest** | [**CreateUniverseRequest**](CreateUniverseRequest.md)| A request to create a user&#39;s universe | 
 
 ### Return type
-
 [**UniverseMetaResponse**](UniverseMetaResponse.md)
 
 ### Authorization
@@ -264,7 +262,6 @@ Name | Type | Description  | Notes
  **universeId** | **int?**| Universe identifier. *To create a universe, use the &#x60;/universe&#39; endpoint.* | [optional] 
 
 ### Return type
-
 [**UniversesResponse**](UniversesResponse.md)
 
 ### Authorization
@@ -354,7 +351,6 @@ Name | Type | Description  | Notes
  **updateUniverseRequest** | [**UpdateUniverseRequest**](UpdateUniverseRequest.md)| A request to update a user&#39;s universe | 
 
 ### Return type
-
 [**UniverseMetaResponse**](UniverseMetaResponse.md)
 
 ### Authorization

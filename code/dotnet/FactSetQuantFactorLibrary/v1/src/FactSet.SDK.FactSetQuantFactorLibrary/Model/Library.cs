@@ -108,7 +108,7 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Library {\n");
             sb.Append("  Factor: ").Append(Factor).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -148,8 +148,9 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
         public bool Equals(Library input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Factor == input.Factor ||
@@ -198,19 +199,33 @@ namespace FactSet.SDK.FactSetQuantFactorLibrary.Model
             {
                 int hashCode = 41;
                 if (this.Factor != null)
-                    hashCode = hashCode * 59 + this.Factor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Factor.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.FactorGroup != null)
-                    hashCode = hashCode * 59 + this.FactorGroup.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactorGroup.GetHashCode();
+                }
                 if (this.SdfName != null)
-                    hashCode = hashCode * 59 + this.SdfName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SdfName.GetHashCode();
+                }
                 if (this.Formula != null)
-                    hashCode = hashCode * 59 + this.Formula.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Formula.GetHashCode();
+                }
                 if (this.Tags != null)
-                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
                 if (this.Format != null)
-                    hashCode = hashCode * 59 + this.Format.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Format.GetHashCode();
+                }
                 return hashCode;
             }
         }

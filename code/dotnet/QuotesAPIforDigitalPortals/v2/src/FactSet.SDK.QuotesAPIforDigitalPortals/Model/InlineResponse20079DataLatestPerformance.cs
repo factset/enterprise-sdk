@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20079DataLatestPerformance {\n");
             sb.Append("  Intraday: ").Append(Intraday).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20079DataLatestPerformance input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Intraday == input.Intraday ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Intraday != null)
-                    hashCode = hashCode * 59 + this.Intraday.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Intraday.GetHashCode();
+                }
                 return hashCode;
             }
         }

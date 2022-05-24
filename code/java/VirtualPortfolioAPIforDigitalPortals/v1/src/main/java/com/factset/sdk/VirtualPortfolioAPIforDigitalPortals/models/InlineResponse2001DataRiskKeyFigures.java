@@ -48,6 +48,8 @@ public class InlineResponse2001DataRiskKeyFigures implements Serializable {
   public static final String JSON_PROPERTY_VALUE_AT_RISK = "valueAtRisk";
   private BigDecimal valueAtRisk;
 
+  public InlineResponse2001DataRiskKeyFigures() { 
+  }
 
   public InlineResponse2001DataRiskKeyFigures volatility(BigDecimal volatility) {
     this.volatility = volatility;

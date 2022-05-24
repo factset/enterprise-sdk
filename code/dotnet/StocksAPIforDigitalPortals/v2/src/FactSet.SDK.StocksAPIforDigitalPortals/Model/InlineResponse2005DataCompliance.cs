@@ -53,7 +53,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataCompliance {\n");
             sb.Append("  France: ").Append(France).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataCompliance input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.France == input.France ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.France != null)
-                    hashCode = hashCode * 59 + this.France.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.France.GetHashCode();
+                }
                 return hashCode;
             }
         }

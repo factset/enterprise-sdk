@@ -48,6 +48,8 @@ public class InlineResponse2004DataYieldToMaturity implements Serializable {
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataYieldToMaturity() { 
+  }
 
   public InlineResponse2004DataYieldToMaturity minimum(BigDecimal minimum) {
     this.minimum = minimum;

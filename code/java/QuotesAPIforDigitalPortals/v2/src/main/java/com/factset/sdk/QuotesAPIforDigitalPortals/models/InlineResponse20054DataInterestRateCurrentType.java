@@ -48,6 +48,8 @@ public class InlineResponse20054DataInterestRateCurrentType implements Serializa
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20054DataInterestRateCurrentType() { 
+  }
 
   public InlineResponse20054DataInterestRateCurrentType id(BigDecimal id) {
     this.id = id;

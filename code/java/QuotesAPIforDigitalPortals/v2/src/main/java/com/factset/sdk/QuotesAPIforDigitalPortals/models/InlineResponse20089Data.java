@@ -76,6 +76,8 @@ public class InlineResponse20089Data implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private InlineResponse20089TradingValue tradingValue;
 
+  public InlineResponse20089Data() { 
+  }
 
   public InlineResponse20089Data id(String id) {
     this.id = id;

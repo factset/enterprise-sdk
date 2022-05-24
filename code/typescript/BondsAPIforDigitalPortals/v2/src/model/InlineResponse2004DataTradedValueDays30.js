@@ -18,7 +18,7 @@ import InlineResponse2004DataTradedValueDays30Sum from './InlineResponse2004Data
 /**
  * The InlineResponse2004DataTradedValueDays30 model module.
  * @module model/InlineResponse2004DataTradedValueDays30
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataTradedValueDays30 {
     /**

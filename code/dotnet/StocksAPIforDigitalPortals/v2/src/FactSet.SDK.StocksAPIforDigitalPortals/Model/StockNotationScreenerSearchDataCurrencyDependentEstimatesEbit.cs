@@ -52,7 +52,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit {\n");
             sb.Append("  Mean: ").Append(Mean).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbit input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Mean == input.Mean ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Mean != null)
-                    hashCode = hashCode * 59 + this.Mean.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Mean.GetHashCode();
+                }
                 return hashCode;
             }
         }

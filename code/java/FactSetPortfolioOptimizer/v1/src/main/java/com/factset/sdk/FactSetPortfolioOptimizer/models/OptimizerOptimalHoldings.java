@@ -101,6 +101,8 @@ public class OptimizerOptimalHoldings implements Serializable {
   public static final String JSON_PROPERTY_EXCLUDEZERO = "excludezero";
   private Boolean excludezero;
 
+  public OptimizerOptimalHoldings() { 
+  }
 
   public OptimizerOptimalHoldings identifiertype(IdentifiertypeEnum identifiertype) {
     this.identifiertype = identifiertype;

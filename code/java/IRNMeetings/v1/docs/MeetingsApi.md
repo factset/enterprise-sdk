@@ -26,14 +26,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.MeetingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,20 +42,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         MeetingsApi apiInstance = new MeetingsApi(defaultClient);
         CreateMeetingDto createMeetingDto = new CreateMeetingDto(); // CreateMeetingDto | Note: The organizer property is deprecated in favor of organizerId
         try {
             NewItemDto result = apiInstance.createMeeting(createMeetingDto);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling MeetingsApi#createMeeting");
             System.err.println("Status code: " + e.getCode());
@@ -110,14 +110,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.MeetingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -127,19 +126,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         MeetingsApi apiInstance = new MeetingsApi(defaultClient);
         java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | 
         try {
             apiInstance.deleteMeeting(meetingId);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling MeetingsApi#deleteMeeting");
             System.err.println("Status code: " + e.getCode());
@@ -194,14 +194,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.MeetingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -211,20 +210,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         MeetingsApi apiInstance = new MeetingsApi(defaultClient);
         java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | Meeting Id
         try {
             MeetingDto result = apiInstance.getMeeting(meetingId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling MeetingsApi#getMeeting");
             System.err.println("Status code: " + e.getCode());
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ## getMeetings
 
-> java.util.List&lt;MeetingSummaryDto&gt; getMeetings(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted)
+> java.util.List<MeetingSummaryDto> getMeetings(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted)
 
 Get all the meetings in the specified date range filtered on the given identifiers
 
@@ -278,14 +278,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.MeetingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -295,14 +294,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         MeetingsApi apiInstance = new MeetingsApi(defaultClient);
         String start = "start_example"; // String | StartDate
@@ -314,6 +313,7 @@ public class Example {
         try {
             java.util.List<MeetingSummaryDto> result = apiInstance.getMeetings(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling MeetingsApi#getMeetings");
             System.err.println("Status code: " + e.getCode());
@@ -371,14 +371,13 @@ import com.factset.sdk.IRNMeetings.ApiClient;
 import com.factset.sdk.IRNMeetings.ApiException;
 import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.auth.*;
-import com.factset.sdk.IRNMeetings.model.*;
+import com.factset.sdk.IRNMeetings.models.*;
 import com.factset.sdk.IRNMeetings.api.MeetingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -388,20 +387,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         MeetingsApi apiInstance = new MeetingsApi(defaultClient);
         java.util.UUID meetingId = new java.util.UUID(); // java.util.UUID | Meeting Id
         UpdateMeetingDto updateMeetingDto = new UpdateMeetingDto(); // UpdateMeetingDto | Meeting details to update. Note: The organizer property is deprecated in favor of organizerId
         try {
             apiInstance.updateMeeting(meetingId, updateMeetingDto);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling MeetingsApi#updateMeeting");
             System.err.println("Status code: " + e.getCode());
@@ -437,7 +437,7 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Success |  -  |
+| **204** | No Content |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **0** | Error |  -  |

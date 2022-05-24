@@ -59,6 +59,8 @@ public class InlineResponse20062Data implements Serializable {
   public static final String JSON_PROPERTY_COSTS_AND_CHARGES = "costsAndCharges";
   private InlineResponse20062DataCostsAndCharges costsAndCharges;
 
+  public InlineResponse20062Data() { 
+  }
 
   public InlineResponse20062Data general(InlineResponse20062DataGeneral general) {
     this.general = general;

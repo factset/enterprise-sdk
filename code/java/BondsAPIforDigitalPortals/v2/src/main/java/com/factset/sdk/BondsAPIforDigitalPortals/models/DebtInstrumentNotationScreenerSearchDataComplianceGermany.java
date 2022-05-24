@@ -43,6 +43,8 @@ public class DebtInstrumentNotationScreenerSearchDataComplianceGermany implement
   public static final String JSON_PROPERTY_TRUSTEE_ELIGIBLE = "trusteeEligible";
   private Boolean trusteeEligible;
 
+  public DebtInstrumentNotationScreenerSearchDataComplianceGermany() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataComplianceGermany trusteeEligible(Boolean trusteeEligible) {
     this.trusteeEligible = trusteeEligible;

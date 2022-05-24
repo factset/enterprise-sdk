@@ -54,6 +54,8 @@ public class InlineResponse2005DataCouponTriggerLevel implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private InlineResponse2005DataCapCashFlow cashFlow;
 
+  public InlineResponse2005DataCouponTriggerLevel() { 
+  }
 
   public InlineResponse2005DataCouponTriggerLevel value(InlineResponse2005DataCouponTriggerLevelValue value) {
     this.value = value;

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda implemen
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda() { 
+  }
 
   public StockNotationScreenerSearchDataRatiosEnterpriseValueEbitda minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

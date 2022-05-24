@@ -54,6 +54,8 @@ public class InlineResponse2004Meta implements Serializable {
   public static final String JSON_PROPERTY_PARTIAL = "partial";
   private PartialOutputObject partial;
 
+  public InlineResponse2004Meta() { 
+  }
 
   public InlineResponse2004Meta status(StatusObject status) {
     this.status = status;

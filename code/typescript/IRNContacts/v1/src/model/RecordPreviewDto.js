@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecordPreviewDto model module.
  * @module model/RecordPreviewDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RecordPreviewDto {
     /**
@@ -47,17 +47,17 @@ class RecordPreviewDto {
         if (data) {
             obj = obj || new RecordPreviewDto();
 
-            if (data.hasOwnProperty('noteGuid')) {
-                obj['noteGuid'] = ApiClient.convertToType(data['noteGuid'], 'String');
+            if (data.hasOwnProperty('NoteGuid')) {
+                obj['NoteGuid'] = ApiClient.convertToType(data['NoteGuid'], 'String');
             }
-            if (data.hasOwnProperty('meetingGuid')) {
-                obj['meetingGuid'] = ApiClient.convertToType(data['meetingGuid'], 'String');
+            if (data.hasOwnProperty('MeetingGuid')) {
+                obj['MeetingGuid'] = ApiClient.convertToType(data['MeetingGuid'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            if (data.hasOwnProperty('Title')) {
+                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
-                obj['date'] = ApiClient.convertToType(data['date'], 'Date');
+            if (data.hasOwnProperty('Date')) {
+                obj['Date'] = ApiClient.convertToType(data['Date'], 'Date');
             }
         }
         return obj;
@@ -67,24 +67,24 @@ class RecordPreviewDto {
 }
 
 /**
- * @member {String} noteGuid
+ * @member {String} NoteGuid
  */
-RecordPreviewDto.prototype['noteGuid'] = undefined;
+RecordPreviewDto.prototype['NoteGuid'] = undefined;
 
 /**
- * @member {String} meetingGuid
+ * @member {String} MeetingGuid
  */
-RecordPreviewDto.prototype['meetingGuid'] = undefined;
+RecordPreviewDto.prototype['MeetingGuid'] = undefined;
 
 /**
- * @member {String} title
+ * @member {String} Title
  */
-RecordPreviewDto.prototype['title'] = undefined;
+RecordPreviewDto.prototype['Title'] = undefined;
 
 /**
- * @member {Date} date
+ * @member {Date} Date
  */
-RecordPreviewDto.prototype['date'] = undefined;
+RecordPreviewDto.prototype['Date'] = undefined;
 
 
 

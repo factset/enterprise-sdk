@@ -48,6 +48,8 @@ public class InlineObject8 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private BasicValueUnitListMeta meta;
 
+  public InlineObject8() { 
+  }
 
   public InlineObject8 data(BasicValueUnitCurrencyMainListData data) {
     this.data = data;

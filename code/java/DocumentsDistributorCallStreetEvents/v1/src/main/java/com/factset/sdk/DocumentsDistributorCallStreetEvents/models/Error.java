@@ -42,6 +42,8 @@ public class Error implements Serializable {
   public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
   private String errorMessage;
 
+  public Error() { 
+  }
 
   public Error errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;

@@ -54,6 +54,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getBenchmarkConstituents(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const benchmarkConstituentsRequest = new factsetbenchmarks.BenchmarkConstituents
 // Call api endpoint
 apiInstance.getBenchmarkConstituentsForList(benchmarkConstituentsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -202,6 +204,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFIBenchmarkConstituents(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -275,6 +278,7 @@ const fixedIncomeBenchmarkConstituentsRequest = new factsetbenchmarks.FixedIncom
 // Call api endpoint
 apiInstance.getFIBenchmarkConstituentsForList(fixedIncomeBenchmarkConstituentsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

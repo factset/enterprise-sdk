@@ -64,6 +64,16 @@ public class StockNotationScreenerSearchDataCurrencyDependentKeyFigures implemen
   public static final String JSON_PROPERTY_PER_SHARE = "perShare";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresPerShare perShare;
 
+  public StockNotationScreenerSearchDataCurrencyDependentKeyFigures() { 
+  }
+
+  @JsonCreator
+  public StockNotationScreenerSearchDataCurrencyDependentKeyFigures(
+    @JsonProperty(value=JSON_PROPERTY_CURRENCY, required=true) StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency currency
+  ) {
+    this();
+    this.currency = currency;
+  }
 
   public StockNotationScreenerSearchDataCurrencyDependentKeyFigures currency(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresCurrency currency) {
     this.currency = currency;

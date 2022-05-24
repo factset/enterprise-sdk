@@ -24,8 +24,8 @@ from fds.sdk.IRNMeetings.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNMeetings.exceptions import ApiAttributeError
 
 
@@ -77,6 +77,7 @@ class UpdateMeetingDto(ModelNormal):
             'min_length': 0,
         },
         ('related_symbols',): {
+            'max_items': 100,
         },
     }
 
@@ -96,10 +97,10 @@ class UpdateMeetingDto(ModelNormal):
         """
         lazy_import()
         return {
-            'title': (str, none_type,),  # noqa: E501
-            'identifier': (str, none_type,),  # noqa: E501
-            'start': (str, none_type,),  # noqa: E501
-            'end': (str, none_type,),  # noqa: E501
+            'title': (str,),  # noqa: E501
+            'identifier': (str,),  # noqa: E501
+            'start': (str,),  # noqa: E501
+            'end': (str,),  # noqa: E501
             'locations': ([str], none_type,),  # noqa: E501
             'organizer': (str, none_type,),  # noqa: E501
             'organizer_id': (str,),  # noqa: E501
@@ -147,10 +148,10 @@ class UpdateMeetingDto(ModelNormal):
         """UpdateMeetingDto - a model defined in OpenAPI
 
         Args:
-            title (str, none_type):
-            identifier (str, none_type):
-            start (str, none_type):
-            end (str, none_type):
+            title (str):
+            identifier (str):
+            start (str):
+            end (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,10 +250,10 @@ class UpdateMeetingDto(ModelNormal):
         """UpdateMeetingDto - a model defined in OpenAPI
 
         Args:
-            title (str, none_type):
-            identifier (str, none_type):
-            start (str, none_type):
-            end (str, none_type):
+            title (str):
+            identifier (str):
+            start (str):
+            end (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

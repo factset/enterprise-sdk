@@ -43,6 +43,8 @@ public class InlineResponse20050DataNotationInstrument implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public InlineResponse20050DataNotationInstrument() { 
+  }
 
   public InlineResponse20050DataNotationInstrument id(String id) {
     this.id = id;

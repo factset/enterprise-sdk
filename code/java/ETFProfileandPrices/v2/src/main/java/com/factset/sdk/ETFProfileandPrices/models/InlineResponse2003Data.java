@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2003DataExchanges;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2003DataCurrencies;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,19 +25,19 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * ETP exchange allocation data.
+ * ETP currency allocation data.
  */
-@ApiModel(description = "ETP exchange allocation data.")
+@ApiModel(description = "ETP currency allocation data.")
 @JsonPropertyOrder({
   InlineResponse2003Data.JSON_PROPERTY_REPORT_DATE,
-  InlineResponse2003Data.JSON_PROPERTY_EXCHANGES
+  InlineResponse2003Data.JSON_PROPERTY_CURRENCIES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2003Data implements Serializable {
@@ -46,9 +46,11 @@ public class InlineResponse2003Data implements Serializable {
   public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
   private LocalDate reportDate;
 
-  public static final String JSON_PROPERTY_EXCHANGES = "exchanges";
-  private java.util.Set<InlineResponse2003DataExchanges> exchanges = null;
+  public static final String JSON_PROPERTY_CURRENCIES = "currencies";
+  private java.util.Set<InlineResponse2003DataCurrencies> currencies = null;
 
+  public InlineResponse2003Data() { 
+  }
 
   public InlineResponse2003Data reportDate(LocalDate reportDate) {
     this.reportDate = reportDate;
@@ -76,37 +78,37 @@ public class InlineResponse2003Data implements Serializable {
   }
 
 
-  public InlineResponse2003Data exchanges(java.util.Set<InlineResponse2003DataExchanges> exchanges) {
-    this.exchanges = exchanges;
+  public InlineResponse2003Data currencies(java.util.Set<InlineResponse2003DataCurrencies> currencies) {
+    this.currencies = currencies;
     return this;
   }
 
-  public InlineResponse2003Data addExchangesItem(InlineResponse2003DataExchanges exchangesItem) {
-    if (this.exchanges == null) {
-      this.exchanges = new java.util.LinkedHashSet<>();
+  public InlineResponse2003Data addCurrenciesItem(InlineResponse2003DataCurrencies currenciesItem) {
+    if (this.currencies == null) {
+      this.currencies = new java.util.LinkedHashSet<>();
     }
-    this.exchanges.add(exchangesItem);
+    this.currencies.add(currenciesItem);
     return this;
   }
 
    /**
-   * List of allocations by exchange.
-   * @return exchanges
+   * List of allocations by currency.
+   * @return currencies
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of allocations by exchange.")
-  @JsonProperty(JSON_PROPERTY_EXCHANGES)
+  @ApiModelProperty(value = "List of allocations by currency.")
+  @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.Set<InlineResponse2003DataExchanges> getExchanges() {
-    return exchanges;
+  public java.util.Set<InlineResponse2003DataCurrencies> getCurrencies() {
+    return currencies;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXCHANGES)
+  @JsonProperty(JSON_PROPERTY_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExchanges(java.util.Set<InlineResponse2003DataExchanges> exchanges) {
-    this.exchanges = exchanges;
+  public void setCurrencies(java.util.Set<InlineResponse2003DataCurrencies> currencies) {
+    this.currencies = currencies;
   }
 
 
@@ -123,12 +125,12 @@ public class InlineResponse2003Data implements Serializable {
     }
     InlineResponse2003Data inlineResponse2003Data = (InlineResponse2003Data) o;
     return Objects.equals(this.reportDate, inlineResponse2003Data.reportDate) &&
-        Objects.equals(this.exchanges, inlineResponse2003Data.exchanges);
+        Objects.equals(this.currencies, inlineResponse2003Data.currencies);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reportDate, exchanges);
+    return Objects.hash(reportDate, currencies);
   }
 
   @Override
@@ -136,7 +138,7 @@ public class InlineResponse2003Data implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2003Data {\n");
     sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
-    sb.append("    exchanges: ").append(toIndentedString(exchanges)).append("\n");
+    sb.append("    currencies: ").append(toIndentedString(currencies)).append("\n");
     sb.append("}");
     return sb.toString();
   }

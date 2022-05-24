@@ -50,6 +50,7 @@ const tickerHistoryTranslationRequest = new symbology.TickerHistoryTranslationRe
 // Call api endpoint
 apiInstance.batchTickerHistory(tickerHistoryTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const tickerTranslationRequest = new symbology.TickerTranslationRequest(); // Ti
 // Call api endpoint
 apiInstance.batchTranslateTicker(tickerTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -196,6 +198,7 @@ const opts = {
 // Call api endpoint
 apiInstance.tickerHistory(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -272,6 +275,7 @@ const opts = {
 // Call api endpoint
 apiInstance.translateTicker(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

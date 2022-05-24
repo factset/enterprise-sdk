@@ -34,14 +34,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -51,14 +50,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         String id = "id_example"; // String | Identifier of the notation.
@@ -68,6 +67,7 @@ public class Example {
         try {
             InlineResponse20081 result = apiInstance.getPricesBidAskGet(id, quality, attributes, subscriptionMinimumInterval);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesBidAskGet");
             System.err.println("Status code: " + e.getCode());
@@ -124,14 +124,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -141,14 +140,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of notations.
@@ -158,6 +157,7 @@ public class Example {
         try {
             InlineResponse20082 result = apiInstance.getPricesBidAskList(ids, quality, sameQuality, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesBidAskList");
             System.err.println("Status code: " + e.getCode());
@@ -217,14 +217,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -234,14 +233,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         String id = "id_example"; // String | Identifier of the notation.
@@ -251,6 +250,7 @@ public class Example {
         try {
             InlineResponse20079 result = apiInstance.getPricesGet(id, quality, attributes, subscriptionMinimumInterval);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesGet");
             System.err.println("Status code: " + e.getCode());
@@ -307,14 +307,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -324,14 +323,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of notations.
@@ -341,6 +340,7 @@ public class Example {
         try {
             InlineResponse20080 result = apiInstance.getPricesList(ids, quality, sameQuality, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesList");
             System.err.println("Status code: " + e.getCode());
@@ -397,14 +397,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -414,14 +413,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         String id = "id_example"; // String | Identifier of the notation.
@@ -430,6 +429,7 @@ public class Example {
         try {
             InlineResponse20083 result = apiInstance.getPricesOrderbookAggregatedGet(id, quality, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesOrderbookAggregatedGet");
             System.err.println("Status code: " + e.getCode());
@@ -485,14 +485,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -502,14 +501,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         String id = "id_example"; // String | Identifier of the notation.
@@ -518,6 +517,7 @@ public class Example {
         try {
             InlineResponse20084 result = apiInstance.getPricesOrderbookFullGet(id, quality, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesOrderbookFullGet");
             System.err.println("Status code: " + e.getCode());
@@ -573,14 +573,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -590,20 +589,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         java.util.Set<String> attributes = Arrays.asList(); // java.util.Set<String> | Limit the attributes returned in the response to the specified set.
         try {
             InlineResponse20086 result = apiInstance.getPricesTradingScheduleEventTypeList(attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesTradingScheduleEventTypeList");
             System.err.println("Status code: " + e.getCode());
@@ -657,14 +657,13 @@ import com.factset.sdk.QuotesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.QuotesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.QuotesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.QuotesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.QuotesAPIforDigitalPortals.model.*;
+import com.factset.sdk.QuotesAPIforDigitalPortals.models.*;
 import com.factset.sdk.QuotesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -674,20 +673,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         InlineObject21 body = new InlineObject21(); // InlineObject21 | 
         try {
             InlineResponse20085 result = apiInstance.postPricesTradingScheduleEventList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#postPricesTradingScheduleEventList");
             System.err.println("Status code: " + e.getCode());

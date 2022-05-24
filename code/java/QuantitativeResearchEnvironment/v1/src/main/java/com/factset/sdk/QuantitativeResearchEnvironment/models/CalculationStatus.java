@@ -83,6 +83,8 @@ public class CalculationStatus implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  public CalculationStatus() { 
+  }
 
   public CalculationStatus id(String id) {
     this.id = id;

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRatiosPriceBookValue implements Seri
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataRatiosPriceBookValue() { 
+  }
 
   public StockNotationScreenerSearchDataRatiosPriceBookValue minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

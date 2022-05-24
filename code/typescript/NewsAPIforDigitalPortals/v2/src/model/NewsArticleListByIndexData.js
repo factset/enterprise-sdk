@@ -17,7 +17,7 @@ import NewsArticleListDataFilter from './NewsArticleListDataFilter';
 /**
  * The NewsArticleListByIndexData model module.
  * @module model/NewsArticleListByIndexData
- * @version 0.9.1
+ * @version 0.10.0
  */
 class NewsArticleListByIndexData {
     /**

@@ -80,7 +80,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003Sensitivities {\n");
             sb.Append("  BasePointValue: ").Append(BasePointValue).Append("\n");
             sb.Append("  ModifiedDuration: ").Append(ModifiedDuration).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003Sensitivities input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.BasePointValue == input.BasePointValue ||
@@ -147,10 +148,10 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.BasePointValue.GetHashCode();
-                hashCode = hashCode * 59 + this.ModifiedDuration.GetHashCode();
-                hashCode = hashCode * 59 + this.Elasticity.GetHashCode();
-                hashCode = hashCode * 59 + this.Convexity.GetHashCode();
+                hashCode = (hashCode * 59) + this.BasePointValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.ModifiedDuration.GetHashCode();
+                hashCode = (hashCode * 59) + this.Elasticity.GetHashCode();
+                hashCode = (hashCode * 59) + this.Convexity.GetHashCode();
                 return hashCode;
             }
         }

@@ -19,7 +19,7 @@ import OptimizerTradesList from './OptimizerTradesList';
 /**
  * The OptimizerOutputTypes model module.
  * @module model/OptimizerOutputTypes
- * @version 0.8.1
+ * @version 0.8.2
  */
 class OptimizerOutputTypes {
     /**

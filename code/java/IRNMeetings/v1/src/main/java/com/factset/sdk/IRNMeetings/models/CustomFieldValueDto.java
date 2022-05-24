@@ -58,6 +58,8 @@ public class CustomFieldValueDto implements Serializable {
   public static final String JSON_PROPERTY_CONTACT_VALUES = "contactValues";
   private JsonNullable<java.util.List<java.util.UUID>> contactValues = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
+  public CustomFieldValueDto() { 
+  }
 
   public CustomFieldValueDto code(String code) {
     this.code = JsonNullable.<String>of(code);

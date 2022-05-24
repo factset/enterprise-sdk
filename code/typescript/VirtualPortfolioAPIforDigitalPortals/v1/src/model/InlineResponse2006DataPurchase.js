@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2006DataPurchase model module.
  * @module model/InlineResponse2006DataPurchase
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2006DataPurchase {
     /**

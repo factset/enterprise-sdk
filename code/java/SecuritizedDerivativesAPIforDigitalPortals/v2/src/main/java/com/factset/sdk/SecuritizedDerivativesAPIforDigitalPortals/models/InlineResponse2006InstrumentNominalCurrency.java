@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentNominalCurrency implements Serializable
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private String isoCode;
 
+  public InlineResponse2006InstrumentNominalCurrency() { 
+  }
 
   public InlineResponse2006InstrumentNominalCurrency id(BigDecimal id) {
     this.id = id;

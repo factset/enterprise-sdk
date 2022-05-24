@@ -47,6 +47,7 @@ const id = "'R.1000'"; // String | Benchmark Identifier
 // Call api endpoint
 apiInstance.getSPARBenchmarkById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

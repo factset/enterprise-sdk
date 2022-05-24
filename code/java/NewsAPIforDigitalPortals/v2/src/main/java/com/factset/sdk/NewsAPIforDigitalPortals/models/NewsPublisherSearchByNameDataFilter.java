@@ -49,6 +49,8 @@ public class NewsPublisherSearchByNameDataFilter implements Serializable {
   public static final String JSON_PROPERTY_DELIVERY = "delivery";
   private NewsPublisherSearchByNameDataFilterDelivery delivery;
 
+  public NewsPublisherSearchByNameDataFilter() { 
+  }
 
   public NewsPublisherSearchByNameDataFilter distributor(NewsPublisherSearchByNameDataFilterDistributor distributor) {
     this.distributor = distributor;

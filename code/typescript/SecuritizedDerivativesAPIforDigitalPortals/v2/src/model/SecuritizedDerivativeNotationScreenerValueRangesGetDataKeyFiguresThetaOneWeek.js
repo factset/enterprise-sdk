@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOne
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeek model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeek
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeek {
     /**

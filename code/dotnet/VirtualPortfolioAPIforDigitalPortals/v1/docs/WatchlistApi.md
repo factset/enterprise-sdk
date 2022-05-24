@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject9**](InlineObject9.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2012**](InlineResponse2012.md)
 
 ### Authorization
@@ -172,7 +171,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject10**](InlineObject10.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -263,7 +261,6 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 4 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-
 [**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
@@ -352,7 +349,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject11**](InlineObject11.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -441,7 +437,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject12**](InlineObject12.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2013**](InlineResponse2013.md)
 
 ### Authorization
@@ -530,7 +525,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject13**](InlineObject13.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -593,7 +587,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new WatchlistApi(config);
-            var id = id_example;  // string | Identifier of the watchlist.
+            var id = "id_example";  // string | Identifier of the watchlist.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
@@ -623,7 +617,6 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-
 [**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
@@ -712,7 +705,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject14**](InlineObject14.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization

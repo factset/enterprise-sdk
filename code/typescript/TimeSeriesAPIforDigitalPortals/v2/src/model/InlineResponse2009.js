@@ -18,7 +18,7 @@ import InlineResponse2009Data from './InlineResponse2009Data';
 /**
  * The InlineResponse2009 model module.
  * @module model/InlineResponse2009
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2009 {
     /**

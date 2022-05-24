@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataIndustryClassification implements Se
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private StockNotationScreenerSearchDataIndustryClassificationExclude exclude;
 
+  public StockNotationScreenerSearchDataIndustryClassification() { 
+  }
 
   public StockNotationScreenerSearchDataIndustryClassification restrict(StockNotationScreenerSearchDataIndustryClassificationRestrict restrict) {
     this.restrict = restrict;

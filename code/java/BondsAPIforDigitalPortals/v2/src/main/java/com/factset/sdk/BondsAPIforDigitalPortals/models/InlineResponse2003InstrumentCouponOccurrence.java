@@ -85,6 +85,8 @@ public class InlineResponse2003InstrumentCouponOccurrence implements Serializabl
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private InlineResponse2003InstrumentCouponOccurrenceFrequency frequency;
 
+  public InlineResponse2003InstrumentCouponOccurrence() { 
+  }
 
   public InlineResponse2003InstrumentCouponOccurrence type(TypeEnum type) {
     this.type = type;

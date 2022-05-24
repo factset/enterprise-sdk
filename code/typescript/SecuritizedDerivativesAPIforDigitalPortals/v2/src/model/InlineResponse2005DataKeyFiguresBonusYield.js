@@ -19,7 +19,7 @@ import InlineResponse2005DataKeyFiguresBonusYieldRelative from './InlineResponse
 /**
  * The InlineResponse2005DataKeyFiguresBonusYield model module.
  * @module model/InlineResponse2005DataKeyFiguresBonusYield
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKeyFiguresBonusYield {
     /**

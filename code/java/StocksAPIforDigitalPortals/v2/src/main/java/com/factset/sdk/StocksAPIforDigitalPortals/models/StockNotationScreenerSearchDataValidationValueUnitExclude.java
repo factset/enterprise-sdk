@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataValidationValueUnitExclude implement
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public StockNotationScreenerSearchDataValidationValueUnitExclude() { 
+  }
 
   public StockNotationScreenerSearchDataValidationValueUnitExclude ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

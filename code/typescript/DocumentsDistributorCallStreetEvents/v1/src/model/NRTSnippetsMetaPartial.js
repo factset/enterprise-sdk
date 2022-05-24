@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NRTSnippetsMetaPartial model module.
  * @module model/NRTSnippetsMetaPartial
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSnippetsMetaPartial {
     /**

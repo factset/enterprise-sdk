@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TeamConfigDto model module.
  * @module model/TeamConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class TeamConfigDto {
     /**
@@ -47,20 +47,20 @@ class TeamConfigDto {
         if (data) {
             obj = obj || new TeamConfigDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('Code')) {
+                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
             }
-            if (data.hasOwnProperty('defaultSubjectId')) {
-                obj['defaultSubjectId'] = ApiClient.convertToType(data['defaultSubjectId'], 'String');
+            if (data.hasOwnProperty('DefaultSubjectId')) {
+                obj['DefaultSubjectId'] = ApiClient.convertToType(data['DefaultSubjectId'], 'String');
             }
-            if (data.hasOwnProperty('userIds')) {
-                obj['userIds'] = ApiClient.convertToType(data['userIds'], ['String']);
+            if (data.hasOwnProperty('UserIds')) {
+                obj['UserIds'] = ApiClient.convertToType(data['UserIds'], ['String']);
             }
         }
         return obj;
@@ -70,29 +70,29 @@ class TeamConfigDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-TeamConfigDto.prototype['id'] = undefined;
+TeamConfigDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-TeamConfigDto.prototype['name'] = undefined;
+TeamConfigDto.prototype['Name'] = undefined;
 
 /**
- * @member {String} code
+ * @member {String} Code
  */
-TeamConfigDto.prototype['code'] = undefined;
+TeamConfigDto.prototype['Code'] = undefined;
 
 /**
- * @member {String} defaultSubjectId
+ * @member {String} DefaultSubjectId
  */
-TeamConfigDto.prototype['defaultSubjectId'] = undefined;
+TeamConfigDto.prototype['DefaultSubjectId'] = undefined;
 
 /**
- * @member {Array.<String>} userIds
+ * @member {Array.<String>} UserIds
  */
-TeamConfigDto.prototype['userIds'] = undefined;
+TeamConfigDto.prototype['UserIds'] = undefined;
 
 
 

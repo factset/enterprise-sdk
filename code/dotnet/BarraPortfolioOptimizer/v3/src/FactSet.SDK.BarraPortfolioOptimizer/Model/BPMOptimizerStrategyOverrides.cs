@@ -80,7 +80,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BPMOptimizerStrategyOverrides {\n");
             sb.Append("  Constraints: ").Append(Constraints).Append("\n");
             sb.Append("  Alpha: ").Append(Alpha).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         public bool Equals(BPMOptimizerStrategyOverrides input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Constraints == input.Constraints ||
@@ -153,13 +154,21 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Constraints != null)
-                    hashCode = hashCode * 59 + this.Constraints.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Constraints.GetHashCode();
+                }
                 if (this.Alpha != null)
-                    hashCode = hashCode * 59 + this.Alpha.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Alpha.GetHashCode();
+                }
                 if (this.Tax != null)
-                    hashCode = hashCode * 59 + this.Tax.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tax.GetHashCode();
+                }
                 if (this.TransactionCost != null)
-                    hashCode = hashCode * 59 + this.TransactionCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransactionCost.GetHashCode();
+                }
                 return hashCode;
             }
         }

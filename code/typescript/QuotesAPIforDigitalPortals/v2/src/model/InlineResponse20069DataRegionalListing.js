@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20069DataRegionalListing model module.
  * @module model/InlineResponse20069DataRegionalListing
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20069DataRegionalListing {
     /**

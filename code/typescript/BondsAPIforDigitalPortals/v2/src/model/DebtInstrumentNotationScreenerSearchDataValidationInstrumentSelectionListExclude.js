@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidationInstrumentSelectionListExclude model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidationInstrumentSelectionListExclude
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataValidationInstrumentSelectionListExclude {
     /**

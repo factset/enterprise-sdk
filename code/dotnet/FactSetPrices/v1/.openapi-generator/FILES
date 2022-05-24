@@ -29,7 +29,6 @@ docs/MarketValue.md
 docs/MarketValueApi.md
 docs/MarketValueRequest.md
 docs/MarketValueResponse.md
-docs/ModelReturn.md
 docs/Period.md
 docs/Price.md
 docs/PriceType.md
@@ -42,6 +41,7 @@ docs/ReferenceApi.md
 docs/References.md
 docs/ReferencesRequest.md
 docs/ReferencesResponse.md
+docs/Return.md
 docs/ReturnsApi.md
 docs/ReturnsRequest.md
 docs/ReturnsResponse.md
@@ -109,7 +109,6 @@ src/FactSet.SDK.FactSetPrices/Model/HighLowResponse.cs
 src/FactSet.SDK.FactSetPrices/Model/MarketValue.cs
 src/FactSet.SDK.FactSetPrices/Model/MarketValueRequest.cs
 src/FactSet.SDK.FactSetPrices/Model/MarketValueResponse.cs
-src/FactSet.SDK.FactSetPrices/Model/ModelReturn.cs
 src/FactSet.SDK.FactSetPrices/Model/Period.cs
 src/FactSet.SDK.FactSetPrices/Model/Price.cs
 src/FactSet.SDK.FactSetPrices/Model/PriceType.cs
@@ -120,6 +119,7 @@ src/FactSet.SDK.FactSetPrices/Model/PricesResponse.cs
 src/FactSet.SDK.FactSetPrices/Model/References.cs
 src/FactSet.SDK.FactSetPrices/Model/ReferencesRequest.cs
 src/FactSet.SDK.FactSetPrices/Model/ReferencesResponse.cs
+src/FactSet.SDK.FactSetPrices/Model/Return.cs
 src/FactSet.SDK.FactSetPrices/Model/ReturnsRequest.cs
 src/FactSet.SDK.FactSetPrices/Model/ReturnsResponse.cs
 src/FactSet.SDK.FactSetPrices/Model/ReturnsSnapshot.cs

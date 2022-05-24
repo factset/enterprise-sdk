@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.PAEngine.JSON;
@@ -94,6 +94,8 @@ public class CalculationStatusSummary implements Serializable {
   public static final String JSON_PROPERTY_LAST_POLL_TIME = "lastPollTime";
   private OffsetDateTime lastPollTime;
 
+  public CalculationStatusSummary() { 
+  }
 
   public CalculationStatusSummary status(StatusEnum status) {
     this.status = status;

@@ -44,6 +44,8 @@ public class NotationSearchByTextDataValidationValueUnit implements Serializable
   public static final String JSON_PROPERTY_SELECTION = "selection";
   private NotationSearchByTextDataValidationValueUnitSelection selection;
 
+  public NotationSearchByTextDataValidationValueUnit() { 
+  }
 
   public NotationSearchByTextDataValidationValueUnit selection(NotationSearchByTextDataValidationValueUnitSelection selection) {
     this.selection = selection;

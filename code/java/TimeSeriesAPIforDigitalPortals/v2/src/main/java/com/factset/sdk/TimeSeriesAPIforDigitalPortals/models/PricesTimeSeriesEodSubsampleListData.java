@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.JSON;
@@ -139,6 +139,18 @@ public class PricesTimeSeriesEodSubsampleListData implements Serializable {
   public static final String JSON_PROPERTY_ADJUSTMENTS = "adjustments";
   private VendorChartIQTimeSeriesEodListDataAdjustments adjustments;
 
+  public PricesTimeSeriesEodSubsampleListData() { 
+  }
+
+  @JsonCreator
+  public PricesTimeSeriesEodSubsampleListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_INTERVALS, required=true) java.util.List<LocalDate> intervals
+  ) {
+    this();
+    this.id = id;
+    this.intervals = intervals;
+  }
 
   public PricesTimeSeriesEodSubsampleListData id(String id) {
     this.id = id;

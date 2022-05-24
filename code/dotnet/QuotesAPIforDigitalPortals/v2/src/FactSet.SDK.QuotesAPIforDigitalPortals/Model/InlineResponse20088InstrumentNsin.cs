@@ -71,7 +71,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20088InstrumentNsin {\n");
             sb.Append("  Wkn: ").Append(Wkn).Append("\n");
             sb.Append("  Valor: ").Append(Valor).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20088InstrumentNsin input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Wkn == input.Wkn ||
@@ -137,11 +138,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Wkn != null)
-                    hashCode = hashCode * 59 + this.Wkn.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Wkn.GetHashCode();
+                }
                 if (this.Valor != null)
-                    hashCode = hashCode * 59 + this.Valor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Valor.GetHashCode();
+                }
                 if (this.Cusip != null)
-                    hashCode = hashCode * 59 + this.Cusip.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cusip.GetHashCode();
+                }
                 return hashCode;
             }
         }

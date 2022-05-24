@@ -39,40 +39,32 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_history_api.JobHistoryApi(api_client)
+
     ids = ["0DPHLH-E","07MZV9-E"] # [str] | List of FactSet Person Entity identifier.
-    status = "ALL" # str | Select only Jobs with a certain status primary, active, or inactive. (optional) if omitted the server will use the default value of "ALL"
-    level = "DETAIL" # str | Select the level of detail only main Jobs or include other Jobs at a company. (optional) if omitted the server will use the default value of "DETAIL"
-    type = "ALL" # str | Select only Jobs of a certain type board member or employee. (optional) if omitted the server will use the default value of "ALL"
+    status = "ALL" # str | Select only Jobs with a certain status primary, active, or inactive. (optional) (default to "ALL")
+    level = "DETAIL" # str | Select the level of detail only main Jobs or include other Jobs at a company. (optional) (default to "DETAIL")
+    type = "ALL" # str | Select only Jobs of a certain type board member or employee. (optional) (default to "ALL")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Returns the Job history of the person.
-        api_response = api_instance.get_people_jobs(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetPeople.ApiException as e:
-        print("Exception when calling JobHistoryApi->get_people_jobs: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Returns the Job history of the person.
         api_response = api_instance.get_people_jobs(ids, status=status, level=level, type=type)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling JobHistoryApi->get_people_jobs: %s\n" % e)
 ```
@@ -146,21 +138,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetPeople.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetPeople.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_history_api.JobHistoryApi(api_client)
+
     people_jobs_request = PeopleJobsRequest(
         ids=Ids(["0DPHLH-E"]),
         status=Status("ALL"),
@@ -168,11 +161,11 @@ with fds.sdk.FactSetPeople.ApiClient(configuration) as api_client:
         type=Type("ALL"),
     ) # PeopleJobsRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the Job history for the large list of people.
         api_response = api_instance.get_people_jobs_for_list(people_jobs_request)
         pprint(api_response)
+
     except fds.sdk.FactSetPeople.ApiException as e:
         print("Exception when calling JobHistoryApi->get_people_jobs_for_list: %s\n" % e)
 ```

@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -46,50 +46,64 @@ import com.factset.sdk.IRNConfiguration.JSON;
   SubjectConfigDto.JSON_PROPERTY_CODE,
   SubjectConfigDto.JSON_PROPERTY_IS_HIDDEN,
   SubjectConfigDto.JSON_PROPERTY_IDENTIFIER_TYPE,
+  SubjectConfigDto.JSON_PROPERTY_IDENTIFIER_TYPES,
+  SubjectConfigDto.JSON_PROPERTY_TYPE,
   SubjectConfigDto.JSON_PROPERTY_CUSTOM_FIELD_IDS,
   SubjectConfigDto.JSON_PROPERTY_APPROVAL_PROCESS_CONFIG,
   SubjectConfigDto.JSON_PROPERTY_COMMENTARY_CONFIG,
   SubjectConfigDto.JSON_PROPERTY_NEWS_HEADLINE_FORMAT,
   SubjectConfigDto.JSON_PROPERTY_EMAIL_HEADLINE_FORMAT,
-  SubjectConfigDto.JSON_PROPERTY_RATING_CONFIG
+  SubjectConfigDto.JSON_PROPERTY_RATING_CONFIG,
+  SubjectConfigDto.JSON_PROPERTY_NOTE_LENGTH_LIMIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubjectConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
   private Boolean isHidden;
 
-  public static final String JSON_PROPERTY_IDENTIFIER_TYPE = "identifierType";
+  public static final String JSON_PROPERTY_IDENTIFIER_TYPE = "IdentifierType";
   private JsonNullable<String> identifierType = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_IDS = "customFieldIds";
+  public static final String JSON_PROPERTY_IDENTIFIER_TYPES = "IdentifierTypes";
+  private JsonNullable<java.util.List<String>> identifierTypes = JsonNullable.<java.util.List<String>>undefined();
+
+  public static final String JSON_PROPERTY_TYPE = "Type";
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_IDS = "CustomFieldIds";
   private JsonNullable<java.util.List<java.util.UUID>> customFieldIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_APPROVAL_PROCESS_CONFIG = "approvalProcessConfig";
+  public static final String JSON_PROPERTY_APPROVAL_PROCESS_CONFIG = "ApprovalProcessConfig";
   private ApprovalProcessConfigDto approvalProcessConfig;
 
-  public static final String JSON_PROPERTY_COMMENTARY_CONFIG = "commentaryConfig";
+  public static final String JSON_PROPERTY_COMMENTARY_CONFIG = "CommentaryConfig";
   private CommentaryConfigDto commentaryConfig;
 
-  public static final String JSON_PROPERTY_NEWS_HEADLINE_FORMAT = "newsHeadlineFormat";
+  public static final String JSON_PROPERTY_NEWS_HEADLINE_FORMAT = "NewsHeadlineFormat";
   private JsonNullable<java.util.List<HeadlineFormatConfigDto>> newsHeadlineFormat = JsonNullable.<java.util.List<HeadlineFormatConfigDto>>undefined();
 
-  public static final String JSON_PROPERTY_EMAIL_HEADLINE_FORMAT = "emailHeadlineFormat";
+  public static final String JSON_PROPERTY_EMAIL_HEADLINE_FORMAT = "EmailHeadlineFormat";
   private JsonNullable<java.util.List<HeadlineFormatConfigDto>> emailHeadlineFormat = JsonNullable.<java.util.List<HeadlineFormatConfigDto>>undefined();
 
-  public static final String JSON_PROPERTY_RATING_CONFIG = "ratingConfig";
+  public static final String JSON_PROPERTY_RATING_CONFIG = "RatingConfig";
   private RatingConfigDto ratingConfig;
 
+  public static final String JSON_PROPERTY_NOTE_LENGTH_LIMIT = "NoteLengthLimit";
+  private JsonNullable<Integer> noteLengthLimit = JsonNullable.<Integer>undefined();
+
+  public SubjectConfigDto() { 
+  }
 
   public SubjectConfigDto id(java.util.UUID id) {
     this.id = id;
@@ -242,6 +256,86 @@ public class SubjectConfigDto implements Serializable {
 
   public void setIdentifierType(String identifierType) {
     this.identifierType = JsonNullable.<String>of(identifierType);
+  }
+
+
+  public SubjectConfigDto identifierTypes(java.util.List<String> identifierTypes) {
+    this.identifierTypes = JsonNullable.<java.util.List<String>>of(identifierTypes);
+    return this;
+  }
+
+  public SubjectConfigDto addIdentifierTypesItem(String identifierTypesItem) {
+    if (this.identifierTypes == null || !this.identifierTypes.isPresent()) {
+      this.identifierTypes = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
+    }
+    try {
+      this.identifierTypes.get().add(identifierTypesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get identifierTypes
+   * @return identifierTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public java.util.List<String> getIdentifierTypes() {
+        return identifierTypes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<java.util.List<String>> getIdentifierTypes_JsonNullable() {
+    return identifierTypes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER_TYPES)
+  public void setIdentifierTypes_JsonNullable(JsonNullable<java.util.List<String>> identifierTypes) {
+    this.identifierTypes = identifierTypes;
+  }
+
+  public void setIdentifierTypes(java.util.List<String> identifierTypes) {
+    this.identifierTypes = JsonNullable.<java.util.List<String>>of(identifierTypes);
+  }
+
+
+  public SubjectConfigDto type(String type) {
+    this.type = JsonNullable.<String>of(type);
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getType() {
+        return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
+    this.type = type;
+  }
+
+  public void setType(String type) {
+    this.type = JsonNullable.<String>of(type);
   }
 
 
@@ -461,6 +555,40 @@ public class SubjectConfigDto implements Serializable {
   }
 
 
+  public SubjectConfigDto noteLengthLimit(Integer noteLengthLimit) {
+    this.noteLengthLimit = JsonNullable.<Integer>of(noteLengthLimit);
+    return this;
+  }
+
+   /**
+   * Get noteLengthLimit
+   * @return noteLengthLimit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Integer getNoteLengthLimit() {
+        return noteLengthLimit.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NOTE_LENGTH_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getNoteLengthLimit_JsonNullable() {
+    return noteLengthLimit;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NOTE_LENGTH_LIMIT)
+  public void setNoteLengthLimit_JsonNullable(JsonNullable<Integer> noteLengthLimit) {
+    this.noteLengthLimit = noteLengthLimit;
+  }
+
+  public void setNoteLengthLimit(Integer noteLengthLimit) {
+    this.noteLengthLimit = JsonNullable.<Integer>of(noteLengthLimit);
+  }
+
+
   /**
    * Return true if this SubjectConfigDto object is equal to o.
    */
@@ -478,12 +606,15 @@ public class SubjectConfigDto implements Serializable {
         equalsNullable(this.code, subjectConfigDto.code) &&
         Objects.equals(this.isHidden, subjectConfigDto.isHidden) &&
         equalsNullable(this.identifierType, subjectConfigDto.identifierType) &&
+        equalsNullable(this.identifierTypes, subjectConfigDto.identifierTypes) &&
+        equalsNullable(this.type, subjectConfigDto.type) &&
         equalsNullable(this.customFieldIds, subjectConfigDto.customFieldIds) &&
         Objects.equals(this.approvalProcessConfig, subjectConfigDto.approvalProcessConfig) &&
         Objects.equals(this.commentaryConfig, subjectConfigDto.commentaryConfig) &&
         equalsNullable(this.newsHeadlineFormat, subjectConfigDto.newsHeadlineFormat) &&
         equalsNullable(this.emailHeadlineFormat, subjectConfigDto.emailHeadlineFormat) &&
-        Objects.equals(this.ratingConfig, subjectConfigDto.ratingConfig);
+        Objects.equals(this.ratingConfig, subjectConfigDto.ratingConfig) &&
+        equalsNullable(this.noteLengthLimit, subjectConfigDto.noteLengthLimit);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -492,7 +623,7 @@ public class SubjectConfigDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(code), isHidden, hashCodeNullable(identifierType), hashCodeNullable(customFieldIds), approvalProcessConfig, commentaryConfig, hashCodeNullable(newsHeadlineFormat), hashCodeNullable(emailHeadlineFormat), ratingConfig);
+    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(code), isHidden, hashCodeNullable(identifierType), hashCodeNullable(identifierTypes), hashCodeNullable(type), hashCodeNullable(customFieldIds), approvalProcessConfig, commentaryConfig, hashCodeNullable(newsHeadlineFormat), hashCodeNullable(emailHeadlineFormat), ratingConfig, hashCodeNullable(noteLengthLimit));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -511,12 +642,15 @@ public class SubjectConfigDto implements Serializable {
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
     sb.append("    identifierType: ").append(toIndentedString(identifierType)).append("\n");
+    sb.append("    identifierTypes: ").append(toIndentedString(identifierTypes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    customFieldIds: ").append(toIndentedString(customFieldIds)).append("\n");
     sb.append("    approvalProcessConfig: ").append(toIndentedString(approvalProcessConfig)).append("\n");
     sb.append("    commentaryConfig: ").append(toIndentedString(commentaryConfig)).append("\n");
     sb.append("    newsHeadlineFormat: ").append(toIndentedString(newsHeadlineFormat)).append("\n");
     sb.append("    emailHeadlineFormat: ").append(toIndentedString(emailHeadlineFormat)).append("\n");
     sb.append("    ratingConfig: ").append(toIndentedString(ratingConfig)).append("\n");
+    sb.append("    noteLengthLimit: ").append(toIndentedString(noteLengthLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

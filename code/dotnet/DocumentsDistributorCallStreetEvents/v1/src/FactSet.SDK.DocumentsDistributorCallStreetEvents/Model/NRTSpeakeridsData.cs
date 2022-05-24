@@ -37,7 +37,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <param name="audioSourceId">The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSource ids..</param>
         /// <param name="speakerStartOffset">The number of seconds into the call when a speaker starts / is speaking.</param>
         /// <param name="speakerId">A unique identifier for a speaker.</param>
-        /// <param name="cosineScore">The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set.</param>
+        /// <param name="cosineScore">The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set.</param>
         public NRTSpeakeridsData(int audioSourceId = default(int), decimal speakerStartOffset = default(decimal), string speakerId = default(string), decimal cosineScore = default(decimal))
         {
             this.AudioSourceId = audioSourceId;
@@ -68,9 +68,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public string SpeakerId { get; set; }
 
         /// <summary>
-        /// The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set
+        /// The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set
         /// </summary>
-        /// <value>The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Negative and null cosine scores are eliminated from the speakerid result set as they are the predictions due to either music or silence in the call  Only the Speakerids with the highest cosineScore are rendered in the result set</value>
+        /// <value>The cosine similarity score (Confidence score)  for a particular speaker.  A score &gt; 0.5 while a key-speaker is speaking can be considered as a high confidence in the predicted speaker  Only the Speakerids with the highest cosineScore are rendered in the result set</value>
         [DataMember(Name = "cosineScore", EmitDefaultValue = false)]
         public decimal CosineScore { get; set; }
 
@@ -80,7 +80,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NRTSpeakeridsData {\n");
             sb.Append("  AudioSourceId: ").Append(AudioSourceId).Append("\n");
             sb.Append("  SpeakerStartOffset: ").Append(SpeakerStartOffset).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(NRTSpeakeridsData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AudioSourceId == input.AudioSourceId ||
@@ -148,11 +149,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.AudioSourceId.GetHashCode();
-                hashCode = hashCode * 59 + this.SpeakerStartOffset.GetHashCode();
+                hashCode = (hashCode * 59) + this.AudioSourceId.GetHashCode();
+                hashCode = (hashCode * 59) + this.SpeakerStartOffset.GetHashCode();
                 if (this.SpeakerId != null)
-                    hashCode = hashCode * 59 + this.SpeakerId.GetHashCode();
-                hashCode = hashCode * 59 + this.CosineScore.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SpeakerId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CosineScore.GetHashCode();
                 return hashCode;
             }
         }

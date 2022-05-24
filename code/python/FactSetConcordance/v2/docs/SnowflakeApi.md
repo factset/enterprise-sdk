@@ -38,30 +38,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = snowflake_api.SnowflakeApi(api_client)
+
     snowflake_entity_match_request = SnowflakeEntityMatchRequest(
         data=[0,"FactSet","US","CT","www.factset.com",1],
     ) # SnowflakeEntityMatchRequest | A request to match an entity name and its attributes within Snowflake.
 
-    # example passing only required values which don't have defaults set
     try:
         # Perform an entity search and return a snowflake-friendly response. Up to 25 Names per request.
         api_response = api_instance.get_snowflake_entity_match_for_list(snowflake_entity_match_request)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling SnowflakeApi->get_snowflake_entity_match_for_list: %s\n" % e)
 ```

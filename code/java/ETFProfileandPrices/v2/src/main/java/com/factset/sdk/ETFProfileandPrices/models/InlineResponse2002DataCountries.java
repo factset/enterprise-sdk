@@ -47,6 +47,8 @@ public class InlineResponse2002DataCountries implements Serializable {
   public static final String JSON_PROPERTY_WEIGHT = "weight";
   private BigDecimal weight;
 
+  public InlineResponse2002DataCountries() { 
+  }
 
   public InlineResponse2002DataCountries country(String country) {
     this.country = country;

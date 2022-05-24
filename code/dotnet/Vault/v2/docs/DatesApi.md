@@ -50,10 +50,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DatesApi(config);
-            var enddate = enddate_example;  // string | End Date (default to "-1AY")
-            var componentid = componentid_example;  // string | Vault Component Id (default to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935")
-            var account = account_example;  // string | Account (default to "Client:Foo/Bar/myaccount.acct")
-            var startdate = startdate_example;  // string | Start Date (optional)  (default to "-3AY")
+            var enddate = "\"-1AY\"";  // string | End Date (default to "-1AY")
+            var componentid = "\"7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935\"";  // string | Vault Component Id (default to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935")
+            var account = "\"Client:Foo/Bar/myaccount.acct\"";  // string | Account (default to "Client:Foo/Bar/myaccount.acct")
+            var startdate = "\"-3AY\"";  // string | Start Date (optional)  (default to "-3AY")
 
             try
             {
@@ -82,7 +82,6 @@ Name | Type | Description  | Notes
  **startdate** | **string**| Start Date | [optional] [default to &quot;-3AY&quot;]
 
 ### Return type
-
 [**DateParametersSummary**](DateParametersSummary.md)
 
 ### Authorization

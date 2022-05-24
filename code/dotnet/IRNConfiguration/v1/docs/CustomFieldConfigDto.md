@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **UsePreviousValue** | **bool** |  | [optional] 
 **IsMandatory** | **bool** |  | [optional] 
 **IsHidden** | **bool** |  | [optional] 
+**IsFilePath** | **bool** |  | [optional] 
 **FormulaConfig** | [**FormulaConfigDto**](FormulaConfigDto.md) |  | [optional] 
 **NumericConfig** | [**NumericConfigDto**](NumericConfigDto.md) |  | [optional] 
 **IntegerConfig** | [**IntegerConfigDto**](IntegerConfigDto.md) |  | [optional] 

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetConcordance.models.EntityMatchRequest;
 import com.factset.sdk.FactSetConcordance.models.EntityMatchesResponse;
@@ -23,6 +26,28 @@ public class EntityMatchApi {
   public EntityMatchApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEntityMatchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityMatchResponseTypeMap.put(200, new GenericType<EntityMatchesResponse>(){});
+    getEntityMatchResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityMatchResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityMatchResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityMatchResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityMatchResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getEntityMatchForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEntityMatchForListResponseTypeMap.put(200, new GenericType<EntityMatchesResponse>(){});
+    getEntityMatchForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getEntityMatchForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getEntityMatchForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getEntityMatchForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getEntityMatchForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -138,11 +163,17 @@ public class EntityMatchApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityMatchesResponse> localVarReturnType = new GenericType<EntityMatchesResponse>() {};
 
-    return apiClient.invokeAPI("EntityMatchApi.getEntityMatch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityMatchesResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityMatchApi.getEntityMatch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityMatchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
@@ -215,10 +246,16 @@ public class EntityMatchApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<EntityMatchesResponse> localVarReturnType = new GenericType<EntityMatchesResponse>() {};
 
-    return apiClient.invokeAPI("EntityMatchApi.getEntityMatchForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        EntityMatchesResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityMatchApi.getEntityMatchForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEntityMatchForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

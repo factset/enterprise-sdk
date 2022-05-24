@@ -48,6 +48,16 @@ public class NewsArticleListByInstrumentData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private NewsArticleListDataFilter filter;
 
+  public NewsArticleListByInstrumentData() { 
+  }
+
+  @JsonCreator
+  public NewsArticleListByInstrumentData(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.Set<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public NewsArticleListByInstrumentData ids(java.util.Set<String> ids) {
     this.ids = ids;

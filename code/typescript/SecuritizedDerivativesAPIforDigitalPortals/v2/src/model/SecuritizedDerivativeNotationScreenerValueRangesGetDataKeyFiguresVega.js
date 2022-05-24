@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresVegaUnad
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresVega model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresVega
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresVega {
     /**

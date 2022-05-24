@@ -134,7 +134,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationSearchByTextDataText {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
@@ -169,8 +169,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationSearchByTextDataText input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Attributes == input.Attributes ||
@@ -192,9 +193,11 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
                 if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -207,13 +210,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Value (string) maxLength
-            if(this.Value != null && this.Value.Length > 50)
+            if (this.Value != null && this.Value.Length > 50)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 50.", new [] { "Value" });
             }
 
             // Value (string) minLength
-            if(this.Value != null && this.Value.Length < 2)
+            if (this.Value != null && this.Value.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be greater than 2.", new [] { "Value" });
             }

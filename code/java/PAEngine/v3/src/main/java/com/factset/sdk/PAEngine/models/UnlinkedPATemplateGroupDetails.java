@@ -34,7 +34,8 @@ import com.factset.sdk.PAEngine.JSON;
  */
 @JsonPropertyOrder({
   UnlinkedPATemplateGroupDetails.JSON_PROPERTY_NAME,
-  UnlinkedPATemplateGroupDetails.JSON_PROPERTY_ID
+  UnlinkedPATemplateGroupDetails.JSON_PROPERTY_ID,
+  UnlinkedPATemplateGroupDetails.JSON_PROPERTY_FREQUENCY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UnlinkedPATemplateGroupDetails implements Serializable {
@@ -46,6 +47,11 @@ public class UnlinkedPATemplateGroupDetails implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_FREQUENCY = "frequency";
+  private String frequency;
+
+  public UnlinkedPATemplateGroupDetails() { 
+  }
 
   public UnlinkedPATemplateGroupDetails name(String name) {
     this.name = name;
@@ -99,6 +105,32 @@ public class UnlinkedPATemplateGroupDetails implements Serializable {
   }
 
 
+  public UnlinkedPATemplateGroupDetails frequency(String frequency) {
+    this.frequency = frequency;
+    return this;
+  }
+
+   /**
+   * Grouping frequency
+   * @return frequency
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Grouping frequency")
+  @JsonProperty(JSON_PROPERTY_FREQUENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFrequency() {
+    return frequency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FREQUENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFrequency(String frequency) {
+    this.frequency = frequency;
+  }
+
+
   /**
    * Return true if this UnlinkedPATemplateGroupDetails object is equal to o.
    */
@@ -112,12 +144,13 @@ public class UnlinkedPATemplateGroupDetails implements Serializable {
     }
     UnlinkedPATemplateGroupDetails unlinkedPATemplateGroupDetails = (UnlinkedPATemplateGroupDetails) o;
     return Objects.equals(this.name, unlinkedPATemplateGroupDetails.name) &&
-        Objects.equals(this.id, unlinkedPATemplateGroupDetails.id);
+        Objects.equals(this.id, unlinkedPATemplateGroupDetails.id) &&
+        Objects.equals(this.frequency, unlinkedPATemplateGroupDetails.frequency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, id);
+    return Objects.hash(name, id, frequency);
   }
 
   @Override
@@ -126,6 +159,7 @@ public class UnlinkedPATemplateGroupDetails implements Serializable {
     sb.append("class UnlinkedPATemplateGroupDetails {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
     sb.append("}");
     return sb.toString();
   }

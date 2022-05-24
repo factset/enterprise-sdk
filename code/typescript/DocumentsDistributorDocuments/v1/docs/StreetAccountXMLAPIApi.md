@@ -49,6 +49,7 @@ const jobID = "jobID_example"; // String | jobID returned by the request-files e
 // Call api endpoint
 apiInstance.asynchStreetaccountV1CheckStatusGet(jobID).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -120,6 +121,7 @@ const jobID = "jobID_example"; // String | jobID returned by the request-files e
 // Call api endpoint
 apiInstance.asynchStreetaccountV1GetFilesGet(jobID).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -158,7 +160,7 @@ Name | Type | Description  | Notes
 
 Returns the jobID
 
-Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
 
 ### Example
 
@@ -192,6 +194,7 @@ const endDate = new Date("2013-10-20"); // Date | The date until which the data 
 // Call api endpoint
 apiInstance.asynchStreetaccountV1RequestFilesGet(startDate, endDate).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

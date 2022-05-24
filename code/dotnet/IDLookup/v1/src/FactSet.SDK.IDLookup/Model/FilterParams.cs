@@ -62,7 +62,7 @@ namespace FactSet.SDK.IDLookup.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FilterParams {\n");
             sb.Append("  Include: ").Append(Include).Append("\n");
             sb.Append("  Exclude: ").Append(Exclude).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.IDLookup.Model
         public bool Equals(FilterParams input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Include == input.Include ||
@@ -124,9 +125,13 @@ namespace FactSet.SDK.IDLookup.Model
             {
                 int hashCode = 41;
                 if (this.Include != null)
-                    hashCode = hashCode * 59 + this.Include.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Include.GetHashCode();
+                }
                 if (this.Exclude != null)
-                    hashCode = hashCode * 59 + this.Exclude.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Exclude.GetHashCode();
+                }
                 return hashCode;
             }
         }

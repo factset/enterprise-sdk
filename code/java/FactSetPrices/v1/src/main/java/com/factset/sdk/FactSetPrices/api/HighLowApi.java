@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.HighLowRequest;
@@ -23,6 +26,28 @@ public class HighLowApi {
   public HighLowApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getHighLowResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getHighLowResponseTypeMap.put(200, new GenericType<HighLowResponse>(){});
+    getHighLowResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getHighLowResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getHighLowResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getHighLowResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getHighLowResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getHighLowForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getHighLowForListResponseTypeMap.put(200, new GenericType<HighLowResponse>(){});
+    getHighLowForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getHighLowForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getHighLowForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getHighLowForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getHighLowForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -132,11 +157,17 @@ public class HighLowApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<HighLowResponse> localVarReturnType = new GenericType<HighLowResponse>() {};
 
-    return apiClient.invokeAPI("HighLowApi.getHighLow", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        HighLowResponse
+      
+    > apiResponse = apiClient.invokeAPI("HighLowApi.getHighLow", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getHighLowResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Requests the price high and price low of securities for a list of &#x60;ids&#x60; as of given date, period and frequency.
@@ -209,10 +240,16 @@ public class HighLowApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<HighLowResponse> localVarReturnType = new GenericType<HighLowResponse>() {};
 
-    return apiClient.invokeAPI("HighLowApi.getHighLowForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        HighLowResponse
+      
+    > apiResponse = apiClient.invokeAPI("HighLowApi.getHighLowForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getHighLowForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

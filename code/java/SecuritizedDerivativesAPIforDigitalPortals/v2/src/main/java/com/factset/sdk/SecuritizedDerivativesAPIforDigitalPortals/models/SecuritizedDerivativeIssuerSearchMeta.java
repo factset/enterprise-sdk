@@ -43,6 +43,8 @@ public class SecuritizedDerivativeIssuerSearchMeta implements Serializable {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private java.util.Set<String> attributes = null;
 
+  public SecuritizedDerivativeIssuerSearchMeta() { 
+  }
 
   public SecuritizedDerivativeIssuerSearchMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

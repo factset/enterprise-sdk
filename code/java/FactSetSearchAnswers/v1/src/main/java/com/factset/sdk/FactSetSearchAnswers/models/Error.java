@@ -64,6 +64,20 @@ public class Error implements Serializable {
   public static final String JSON_PROPERTY_SOURCE = "source";
   private ErrorSource source;
 
+  public Error() { 
+  }
+
+  @JsonCreator
+  public Error(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_CODE, required=true) String code, 
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+  ) {
+    this();
+    this.id = id;
+    this.code = code;
+    this.title = title;
+  }
 
   public Error id(String id) {
     this.id = id;

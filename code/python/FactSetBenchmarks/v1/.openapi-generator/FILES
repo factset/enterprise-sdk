@@ -24,6 +24,7 @@ docs/FixedIncomeBenchmarkConstituent.md
 docs/FixedIncomeBenchmarkConstituentsRequest.md
 docs/FixedIncomeBenchmarkConstituentsResponse.md
 docs/Frequency.md
+docs/HedgeType.md
 docs/HelperApi.md
 docs/IndexHistory.md
 docs/IndexHistoryRequest.md
@@ -66,6 +67,7 @@ fds/sdk/FactSetBenchmarks/model/fixed_income_benchmark_constituent.py
 fds/sdk/FactSetBenchmarks/model/fixed_income_benchmark_constituents_request.py
 fds/sdk/FactSetBenchmarks/model/fixed_income_benchmark_constituents_response.py
 fds/sdk/FactSetBenchmarks/model/frequency.py
+fds/sdk/FactSetBenchmarks/model/hedge_type.py
 fds/sdk/FactSetBenchmarks/model/index_history.py
 fds/sdk/FactSetBenchmarks/model/index_history_request.py
 fds/sdk/FactSetBenchmarks/model/index_history_response.py

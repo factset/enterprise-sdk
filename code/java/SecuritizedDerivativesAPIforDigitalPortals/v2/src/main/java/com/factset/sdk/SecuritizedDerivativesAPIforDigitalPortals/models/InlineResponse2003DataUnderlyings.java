@@ -57,6 +57,8 @@ public class InlineResponse2003DataUnderlyings implements Serializable {
   public static final String JSON_PROPERTY_VALUE_UNIT = "valueUnit";
   private InlineResponse2003DataValueUnit valueUnit;
 
+  public InlineResponse2003DataUnderlyings() { 
+  }
 
   public InlineResponse2003DataUnderlyings name(String name) {
     this.name = name;

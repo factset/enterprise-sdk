@@ -44,6 +44,8 @@ public class InlineResponse2005DataTradingValue implements Serializable {
   public static final String JSON_PROPERTY_AVERAGE = "average";
   private InlineResponse2005DataTradingValueAverage average;
 
+  public InlineResponse2005DataTradingValue() { 
+  }
 
   public InlineResponse2005DataTradingValue average(InlineResponse2005DataTradingValueAverage average) {
     this.average = average;

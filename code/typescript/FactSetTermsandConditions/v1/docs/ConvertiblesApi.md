@@ -52,6 +52,7 @@ const ids = ["30231GBJ","88579EAA"]; // [String] | List of Fixed Income Security
 // Call api endpoint
 apiInstance.getConvertibleDetails(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -123,6 +124,7 @@ const termsAndConditionsScalarRequest = new factsettermsandconditions.TermsAndCo
 // Call api endpoint
 apiInstance.getConvertibleDetailsForList(termsAndConditionsScalarRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -194,6 +196,7 @@ const ids = ["30231GBJ","88579EAA"]; // [String] | List of Fixed Income Security
 // Call api endpoint
 apiInstance.getConvertibleHistory(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -265,6 +268,7 @@ const termsAndConditionsScalarRequest = new factsettermsandconditions.TermsAndCo
 // Call api endpoint
 apiInstance.getConvertibleHistoryForList(termsAndConditionsScalarRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -336,6 +340,7 @@ const ids = ["30231GBJ","88579EAA"]; // [String] | List of Fixed Income Security
 // Call api endpoint
 apiInstance.getConvertibleTriggers(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -407,6 +412,7 @@ const termsAndConditionsScalarRequest = new factsettermsandconditions.TermsAndCo
 // Call api endpoint
 apiInstance.getConvertibleTriggersForList(termsAndConditionsScalarRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

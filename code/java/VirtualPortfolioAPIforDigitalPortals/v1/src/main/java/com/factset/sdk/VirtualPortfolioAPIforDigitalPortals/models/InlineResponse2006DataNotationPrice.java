@@ -48,6 +48,8 @@ public class InlineResponse2006DataNotationPrice implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private BigDecimal value;
 
+  public InlineResponse2006DataNotationPrice() { 
+  }
 
   public InlineResponse2006DataNotationPrice time(String time) {
     this.time = time;

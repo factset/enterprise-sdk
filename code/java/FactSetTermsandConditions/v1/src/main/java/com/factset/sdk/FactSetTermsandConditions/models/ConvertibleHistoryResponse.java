@@ -43,6 +43,8 @@ public class ConvertibleHistoryResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ConvertibleHistory> data = null;
 
+  public ConvertibleHistoryResponse() { 
+  }
 
   public ConvertibleHistoryResponse data(java.util.List<ConvertibleHistory> data) {
     this.data = data;

@@ -1,0 +1,18 @@
+# FactSet.SDK.ProcuretoPayAPISCIM.Model.ServiceProviderConfig
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Schemas** | **List&lt;string&gt;** |  | [optional] 
+**DocumentationUri** | **string** | An HTTP-addressable URL pointing to the service provider&#39;s human-consumable help documentation. | [optional] [readonly] 
+**Patch** | [**ServiceProviderConfigPatch**](ServiceProviderConfigPatch.md) |  | 
+**Bulk** | [**ServiceProviderConfigBulk**](ServiceProviderConfigBulk.md) |  | 
+**Filter** | [**ServiceProviderConfigFilter**](ServiceProviderConfigFilter.md) |  | 
+**ChangePassword** | [**ServiceProviderConfigChangePassword**](ServiceProviderConfigChangePassword.md) |  | 
+**Sort** | [**ServiceProviderConfigSort**](ServiceProviderConfigSort.md) |  | 
+**Etag** | [**ServiceProviderConfigEtag**](ServiceProviderConfigEtag.md) |  | 
+**AuthenticationSchemes** | [**ServiceProviderConfigAuthenticationSchemes**](ServiceProviderConfigAuthenticationSchemes.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

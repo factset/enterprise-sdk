@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create templated PA component
 
-This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -46,11 +46,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TemplatedPAComponentsApi();
-const templatedPAComponentParametersRoot = {"data":{"directory":"Personal:TemplatedPAComponents/","parentTemplateId":"01234567890123456789012345678901","description":"This is a templated PA component","componentData":{"accounts":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"MSCI_USA:984000","holdingsmode":"B&H"}],"benchmarks":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"DJGX:AMERICAS","holdingsmode":"B&H"}],"groups":[{"id":"5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA"}],"columns":[{"id":"BD1720474AB8A80BDD79777F5B9CA594F4151C0554E30F9C916BA73BFAFC1FE0","statistics":["eb9d6d91416e4224bacadc261787e56f"]}],"currencyisocode":"USD","componentdetail":"GROUPS"}}}; // TemplatedPAComponentParametersRoot | Request Parameters
+const templatedPAComponentParametersRoot = {"data":{"directory":"Personal:TemplatedPAComponents/","parentTemplateId":"01234567890123456789012345678901","description":"This is a templated PA component","componentData":{"accounts":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"MSCI_USA:984000","holdingsmode":"B&H"}],"benchmarks":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"DJGX:AMERICAS","holdingsmode":"B&H"}],"groups":[{"id":"5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA","frequency":"BeginningOfPeriod"}],"columns":[{"id":"BD1720474AB8A80BDD79777F5B9CA594F4151C0554E30F9C916BA73BFAFC1FE0","statistics":["eb9d6d91416e4224bacadc261787e56f"]}],"datasources":{"portfoliopricingsources":[{"id":"39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"}],"benchmarkpricingsources":[{"id":"9BB2A3142C450AF54A7486C1D37A210A64474B2499A1E4A30E19801B9FC55E8C"}],"useportfoliopricingsourcesforbenchmark":false},"currencyisocode":"USD","componentdetail":"GROUPS"}}}; // TemplatedPAComponentParametersRoot | Request Parameters
 
 // Call api endpoint
 apiInstance.createTemplatedPAComponents(templatedPAComponentParametersRoot).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -192,6 +193,7 @@ const id = "'01234567890123456789012345678901'"; // String | Unique identifier f
 // Call api endpoint
 apiInstance.getTemplatedPAComponentById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -263,6 +265,7 @@ const directory = "'Personal:TemplatedPAComponents/'"; // String | Get templated
 // Call api endpoint
 apiInstance.getTemplatedPAComponentsInPath(directory).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -301,7 +304,7 @@ Name | Type | Description  | Notes
 
 Update templated PA component
 
-This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
 
 ### Example
 
@@ -330,11 +333,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new TemplatedPAComponentsApi();
 const id = "'01234567890123456789012345678901'"; // String | Unique identifier for a templated PA component
-const templatedPAComponentUpdateParametersRoot = {"data":{"parentTemplateId":"01234567890123456789012345678901","description":"This is a templated PA component","componentData":{"accounts":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"MSCI_USA:984000","holdingsmode":"B&H"}],"benchmarks":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"DJGX:AMERICAS","holdingsmode":"B&H"}],"groups":[{"id":"5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA"}],"columns":[{"id":"BD1720474AB8A80BDD79777F5B9CA594F4151C0554E30F9C916BA73BFAFC1FE0","statistics":["eb9d6d91416e4224bacadc261787e56f"]}],"currencyisocode":"USD","componentdetail":"GROUPS"}}}; // TemplatedPAComponentUpdateParametersRoot | Request Parameters
+const templatedPAComponentUpdateParametersRoot = {"data":{"parentTemplateId":"01234567890123456789012345678901","description":"This is a templated PA component","componentData":{"accounts":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"MSCI_USA:984000","holdingsmode":"B&H"}],"benchmarks":[{"id":"SPN:SP50","holdingsmode":"B&H"},{"id":"DJGX:AMERICAS","holdingsmode":"B&H"}],"groups":[{"id":"5BCFFD17598FAEBD88EB4934EFB5FEF53849867D607ECEF232CD42D3369BBBCA","frequency":"BeginningOfPeriod"}],"columns":[{"id":"BD1720474AB8A80BDD79777F5B9CA594F4151C0554E30F9C916BA73BFAFC1FE0","statistics":["eb9d6d91416e4224bacadc261787e56f"]}],"datasources":{"portfoliopricingsources":[{"id":"39A1C0C7BD46731552B29D913804EC5F3ED91E6B991AF298DEC88CCA2A9FC6B3"}],"benchmarkpricingsources":[{"id":"9BB2A3142C450AF54A7486C1D37A210A64474B2499A1E4A30E19801B9FC55E8C"}],"useportfoliopricingsourcesforbenchmark":false},"currencyisocode":"USD","componentdetail":"GROUPS"}}}; // TemplatedPAComponentUpdateParametersRoot | Request Parameters
 
 // Call api endpoint
 apiInstance.updateTemplatedPAComponents(id, templatedPAComponentUpdateParametersRoot).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

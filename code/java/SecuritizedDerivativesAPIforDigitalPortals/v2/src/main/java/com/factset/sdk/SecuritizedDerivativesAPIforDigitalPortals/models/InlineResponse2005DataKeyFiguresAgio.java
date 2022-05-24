@@ -54,6 +54,8 @@ public class InlineResponse2005DataKeyFiguresAgio implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private InlineResponse2005DataKeyFiguresAgioAnnualized annualized;
 
+  public InlineResponse2005DataKeyFiguresAgio() { 
+  }
 
   public InlineResponse2005DataKeyFiguresAgio absolute(InlineResponse2005DataKeyFiguresAgioAbsolute absolute) {
     this.absolute = absolute;

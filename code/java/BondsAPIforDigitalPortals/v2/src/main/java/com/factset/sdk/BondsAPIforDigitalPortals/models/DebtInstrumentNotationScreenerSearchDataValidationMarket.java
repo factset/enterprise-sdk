@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataValidationMarket implements
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private DebtInstrumentNotationScreenerSearchDataValidationMarketPriority priority;
 
+  public DebtInstrumentNotationScreenerSearchDataValidationMarket() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataValidationMarket selection(DebtInstrumentNotationScreenerSearchDataValidationMarketSelection selection) {
     this.selection = selection;

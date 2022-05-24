@@ -47,6 +47,8 @@ public class ErrorResponse implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private java.util.Map<String, String> meta = null;
 
+  public ErrorResponse() { 
+  }
 
   public ErrorResponse errors(java.util.List<ErrorObject> errors) {
     this.errors = errors;

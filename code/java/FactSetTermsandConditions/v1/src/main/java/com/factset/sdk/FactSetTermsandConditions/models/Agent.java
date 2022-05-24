@@ -63,6 +63,20 @@ public class Agent implements Serializable {
   public static final String JSON_PROPERTY_AGENT_TYPE = "agentType";
   private String agentType;
 
+  public Agent() { 
+  }
+
+  @JsonCreator
+  public Agent(
+    @JsonProperty(value=JSON_PROPERTY_REQUEST_ID, required=true) String requestId, 
+    @JsonProperty(value=JSON_PROPERTY_FSYM_ID, required=true) String fsymId, 
+    @JsonProperty(value=JSON_PROPERTY_AGENT_ENTITY_ID, required=true) String agentEntityId
+  ) {
+    this();
+    this.requestId = requestId;
+    this.fsymId = fsymId;
+    this.agentEntityId = agentEntityId;
+  }
 
   public Agent requestId(String requestId) {
     this.requestId = requestId;

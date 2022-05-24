@@ -27,14 +27,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.DataItemsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -44,14 +43,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DataItemsApi apiInstance = new DataItemsApi(defaultClient);
         String category = "FINANCIAL_STATEMENT"; // String | Filters the list of Estimate metrics by major category -   * **FINANCIAL_STATEMENT** = Includes Balance Sheet, Cash Flow, and Income Statement.   * **INDUSTRY_METRICS** = Industry specific metrics.   * **OTHER** = Target Price 
@@ -59,6 +58,7 @@ public class Example {
         try {
             MetricsResponse result = apiInstance.getEstimateMetrics(category, subcategory);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DataItemsApi#getEstimateMetrics");
             System.err.println("Status code: " + e.getCode());
@@ -120,14 +120,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.DataItemsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -137,20 +136,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DataItemsApi apiInstance = new DataItemsApi(defaultClient);
         MetricsRequest metricsRequest = new MetricsRequest(); // MetricsRequest | Request object for requesting estimates data
         try {
             MetricsResponse result = apiInstance.getEstimateMetricsForList(metricsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DataItemsApi#getEstimateMetricsForList");
             System.err.println("Status code: " + e.getCode());

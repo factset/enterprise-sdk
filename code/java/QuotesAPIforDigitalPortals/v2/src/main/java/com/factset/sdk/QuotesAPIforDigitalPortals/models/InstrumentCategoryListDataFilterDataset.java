@@ -44,6 +44,8 @@ public class InstrumentCategoryListDataFilterDataset implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public InstrumentCategoryListDataFilterDataset() { 
+  }
 
   public InstrumentCategoryListDataFilterDataset id(BigDecimal id) {
     this.id = id;

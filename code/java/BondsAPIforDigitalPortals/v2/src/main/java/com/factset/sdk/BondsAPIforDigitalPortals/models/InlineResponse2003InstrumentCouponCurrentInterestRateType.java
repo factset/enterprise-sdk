@@ -48,6 +48,8 @@ public class InlineResponse2003InstrumentCouponCurrentInterestRateType implement
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2003InstrumentCouponCurrentInterestRateType() { 
+  }
 
   public InlineResponse2003InstrumentCouponCurrentInterestRateType id(BigDecimal id) {
     this.id = id;

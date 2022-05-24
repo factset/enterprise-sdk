@@ -84,6 +84,8 @@ public class InlineResponse20056Status implements Serializable {
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   private String identifier;
 
+  public InlineResponse20056Status() { 
+  }
 
   public InlineResponse20056Status code(CodeEnum code) {
     this.code = code;

@@ -37,30 +37,38 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <param name="id">id.</param>
         /// <param name="fileName">fileName.</param>
         /// <param name="mimeType">mimeType.</param>
-        public AttachmentSummaryDto(Guid id = default(Guid), string fileName = default(string), string mimeType = default(string))
+        /// <param name="size">size.</param>
+        public AttachmentSummaryDto(Guid id = default(Guid), string fileName = default(string), string mimeType = default(string), long? size = default(long?))
         {
             this.Id = id;
             this.FileName = fileName;
             this.MimeType = mimeType;
+            this.Size = size;
         }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "Id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
-        [DataMember(Name = "fileName", EmitDefaultValue = true)]
+        [DataMember(Name = "FileName", EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets MimeType
         /// </summary>
-        [DataMember(Name = "mimeType", EmitDefaultValue = true)]
+        [DataMember(Name = "MimeType", EmitDefaultValue = true)]
         public string MimeType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Size
+        /// </summary>
+        [DataMember(Name = "Size", EmitDefaultValue = true)]
+        public long? Size { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,11 +76,12 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AttachmentSummaryDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  MimeType: ").Append(MimeType).Append("\n");
+            sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,8 +113,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(AttachmentSummaryDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -121,6 +131,11 @@ namespace FactSet.SDK.IRNNotes.Model
                     this.MimeType == input.MimeType ||
                     (this.MimeType != null &&
                     this.MimeType.Equals(input.MimeType))
+                ) && 
+                (
+                    this.Size == input.Size ||
+                    (this.Size != null &&
+                    this.Size.Equals(input.Size))
                 );
         }
 
@@ -134,11 +149,21 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.FileName != null)
-                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
+                }
                 if (this.MimeType != null)
-                    hashCode = hashCode * 59 + this.MimeType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MimeType.GetHashCode();
+                }
+                if (this.Size != null)
+                {
+                    hashCode = (hashCode * 59) + this.Size.GetHashCode();
+                }
                 return hashCode;
             }
         }

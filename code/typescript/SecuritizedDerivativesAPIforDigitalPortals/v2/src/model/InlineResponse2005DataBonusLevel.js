@@ -18,7 +18,7 @@ import InlineResponse2005DataBonusLevelValue from './InlineResponse2005DataBonus
 /**
  * The InlineResponse2005DataBonusLevel model module.
  * @module model/InlineResponse2005DataBonusLevel
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataBonusLevel {
     /**

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRatiosDividendYield implements Seria
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataEbitMarginMaximum maximum;
 
+  public StockNotationScreenerSearchDataRatiosDividendYield() { 
+  }
 
   public StockNotationScreenerSearchDataRatiosDividendYield minimum(StockNotationScreenerSearchDataEbitMarginMinimum minimum) {
     this.minimum = minimum;

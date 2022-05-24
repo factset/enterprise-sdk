@@ -43,6 +43,8 @@ public class EntityDecisionsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntityMatch> data = null;
 
+  public EntityDecisionsResponse() { 
+  }
 
   public EntityDecisionsResponse data(java.util.List<EntityMatch> data) {
     this.data = data;

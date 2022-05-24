@@ -124,6 +124,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFigures i
   public static final String JSON_PROPERTY_PARITY = "parity";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresParity parity;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFigures() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFigures bonusYield(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBonusYield bonusYield) {
     this.bonusYield = bonusYield;

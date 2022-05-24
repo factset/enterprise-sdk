@@ -86,7 +86,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany {\n");
             sb.Append("  PensionScheme: ").Append(PensionScheme).Append("\n");
             sb.Append("}\n");
@@ -120,8 +120,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfileGermany input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PensionScheme == input.PensionScheme ||
@@ -138,7 +139,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.PensionScheme.GetHashCode();
+                hashCode = (hashCode * 59) + this.PensionScheme.GetHashCode();
                 return hashCode;
             }
         }

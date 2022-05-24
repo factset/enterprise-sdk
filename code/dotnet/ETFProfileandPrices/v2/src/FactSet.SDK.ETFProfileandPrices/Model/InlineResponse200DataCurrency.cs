@@ -62,7 +62,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataCurrency {\n");
             sb.Append("  Listing: ").Append(Listing).Append("\n");
             sb.Append("  Fund: ").Append(Fund).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataCurrency input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Listing == input.Listing ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             {
                 int hashCode = 41;
                 if (this.Listing != null)
-                    hashCode = hashCode * 59 + this.Listing.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Listing.GetHashCode();
+                }
                 if (this.Fund != null)
-                    hashCode = hashCode * 59 + this.Fund.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Fund.GetHashCode();
+                }
                 return hashCode;
             }
         }

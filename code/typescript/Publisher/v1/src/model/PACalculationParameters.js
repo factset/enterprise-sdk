@@ -20,7 +20,7 @@ import PAIdentifier from './PAIdentifier';
 /**
  * The PACalculationParameters model module.
  * @module model/PACalculationParameters
- * @version 0.8.1
+ * @version 0.8.2
  */
 class PACalculationParameters {
     /**

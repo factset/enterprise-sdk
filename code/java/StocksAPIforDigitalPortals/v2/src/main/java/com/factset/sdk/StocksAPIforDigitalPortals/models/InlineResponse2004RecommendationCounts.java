@@ -44,6 +44,8 @@ public class InlineResponse2004RecommendationCounts implements Serializable {
   public static final String JSON_PROPERTY_TOTAL = "total";
   private BigDecimal total;
 
+  public InlineResponse2004RecommendationCounts() { 
+  }
 
   public InlineResponse2004RecommendationCounts total(BigDecimal total) {
     this.total = total;

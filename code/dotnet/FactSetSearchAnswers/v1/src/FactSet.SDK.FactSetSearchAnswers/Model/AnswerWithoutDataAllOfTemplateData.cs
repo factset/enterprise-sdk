@@ -53,7 +53,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AnswerWithoutDataAllOfTemplateData {\n");
             sb.Append("  Fdc3Context: ").Append(Fdc3Context).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(AnswerWithoutDataAllOfTemplateData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Fdc3Context == input.Fdc3Context ||
@@ -107,7 +108,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Fdc3Context != null)
-                    hashCode = hashCode * 59 + this.Fdc3Context.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Fdc3Context.GetHashCode();
+                }
                 return hashCode;
             }
         }

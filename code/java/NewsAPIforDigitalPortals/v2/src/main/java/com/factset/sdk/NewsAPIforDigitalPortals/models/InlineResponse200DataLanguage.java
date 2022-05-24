@@ -48,6 +48,8 @@ public class InlineResponse200DataLanguage implements Serializable {
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  public InlineResponse200DataLanguage() { 
+  }
 
   public InlineResponse200DataLanguage id(BigDecimal id) {
     this.id = id;

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.MarketValueRequest;
@@ -23,6 +26,28 @@ public class MarketValueApi {
   public MarketValueApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getMarketValueResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getMarketValueResponseTypeMap.put(200, new GenericType<MarketValueResponse>(){});
+    getMarketValueResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getMarketValueResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getMarketValueResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getMarketValueResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getMarketValueResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getMarketValueForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getMarketValueForListResponseTypeMap.put(200, new GenericType<MarketValueResponse>(){});
+    getMarketValueForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getMarketValueForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getMarketValueForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getMarketValueForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getMarketValueForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -129,11 +154,17 @@ public class MarketValueApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MarketValueResponse> localVarReturnType = new GenericType<MarketValueResponse>() {};
 
-    return apiClient.invokeAPI("MarketValueApi.getMarketValue", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MarketValueResponse
+      
+    > apiResponse = apiClient.invokeAPI("MarketValueApi.getMarketValue", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getMarketValueResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Requests the market value for a list of &#x60;ids&#x60; as of given date range.
@@ -206,10 +237,16 @@ public class MarketValueApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MarketValueResponse> localVarReturnType = new GenericType<MarketValueResponse>() {};
 
-    return apiClient.invokeAPI("MarketValueApi.getMarketValueForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MarketValueResponse
+      
+    > apiResponse = apiClient.invokeAPI("MarketValueApi.getMarketValueForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getMarketValueForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -48,6 +48,8 @@ public class InlineResponse2004DataCategorization implements Serializable {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private java.util.List<InlineResponse2004DataCategories> categories = null;
 
+  public InlineResponse2004DataCategorization() { 
+  }
 
   public InlineResponse2004DataCategorization level(InlineResponse2004DataLevel level) {
     this.level = level;

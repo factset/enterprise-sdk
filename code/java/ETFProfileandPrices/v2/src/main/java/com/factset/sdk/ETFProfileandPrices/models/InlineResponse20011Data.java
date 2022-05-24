@@ -24,48 +24,293 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * InlineResponse20011Data
+ * Portfolio statistics.
  */
+@ApiModel(description = "Portfolio statistics.")
 @JsonPropertyOrder({
-  InlineResponse20011Data.JSON_PROPERTY_NAME
+  InlineResponse20011Data.JSON_PROPERTY_AS_OF_DATE,
+  InlineResponse20011Data.JSON_PROPERTY_NUMBER_HOLDINGS,
+  InlineResponse20011Data.JSON_PROPERTY_CONCENTRATION,
+  InlineResponse20011Data.JSON_PROPERTY_DIVIDEND_YIELD,
+  InlineResponse20011Data.JSON_PROPERTY_PRICE_EARNINGS_RATIO,
+  InlineResponse20011Data.JSON_PROPERTY_PRICE_BOOK_RATIO,
+  InlineResponse20011Data.JSON_PROPERTY_MARKET_CAPITALIZATION,
+  InlineResponse20011Data.JSON_PROPERTY_TIME_TO_MATURITY,
+  InlineResponse20011Data.JSON_PROPERTY_CREDIT_RATING
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20011Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_AS_OF_DATE = "asOfDate";
+  private LocalDate asOfDate;
 
+  public static final String JSON_PROPERTY_NUMBER_HOLDINGS = "numberHoldings";
+  private BigDecimal numberHoldings;
 
-  public InlineResponse20011Data name(String name) {
-    this.name = name;
+  public static final String JSON_PROPERTY_CONCENTRATION = "concentration";
+  private String concentration;
+
+  public static final String JSON_PROPERTY_DIVIDEND_YIELD = "dividendYield";
+  private BigDecimal dividendYield;
+
+  public static final String JSON_PROPERTY_PRICE_EARNINGS_RATIO = "priceEarningsRatio";
+  private BigDecimal priceEarningsRatio;
+
+  public static final String JSON_PROPERTY_PRICE_BOOK_RATIO = "priceBookRatio";
+  private BigDecimal priceBookRatio;
+
+  public static final String JSON_PROPERTY_MARKET_CAPITALIZATION = "marketCapitalization";
+  private BigDecimal marketCapitalization;
+
+  public static final String JSON_PROPERTY_TIME_TO_MATURITY = "timeToMaturity";
+  private BigDecimal timeToMaturity;
+
+  public static final String JSON_PROPERTY_CREDIT_RATING = "creditRating";
+  private String creditRating;
+
+  public InlineResponse20011Data() { 
+  }
+
+  public InlineResponse20011Data asOfDate(LocalDate asOfDate) {
+    this.asOfDate = asOfDate;
     return this;
   }
 
    /**
-   * Name of the geography.
-   * @return name
+   * Date the analytics data was published. Available for the regions: US, Europe, and Canada.
+   * @return asOfDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the geography.")
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @ApiModelProperty(value = "Date the analytics data was published. Available for the regions: US, Europe, and Canada.")
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public LocalDate getAsOfDate() {
+    return asOfDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+  public void setAsOfDate(LocalDate asOfDate) {
+    this.asOfDate = asOfDate;
+  }
+
+
+  public InlineResponse20011Data numberHoldings(BigDecimal numberHoldings) {
+    this.numberHoldings = numberHoldings;
+    return this;
+  }
+
+   /**
+   * A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.
+   * @return numberHoldings
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.")
+  @JsonProperty(JSON_PROPERTY_NUMBER_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getNumberHoldings() {
+    return numberHoldings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NUMBER_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNumberHoldings(BigDecimal numberHoldings) {
+    this.numberHoldings = numberHoldings;
+  }
+
+
+  public InlineResponse20011Data concentration(String concentration) {
+    this.concentration = concentration;
+    return this;
+  }
+
+   /**
+   * A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.
+   * @return concentration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.")
+  @JsonProperty(JSON_PROPERTY_CONCENTRATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getConcentration() {
+    return concentration;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CONCENTRATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setConcentration(String concentration) {
+    this.concentration = concentration;
+  }
+
+
+  public InlineResponse20011Data dividendYield(BigDecimal dividendYield) {
+    this.dividendYield = dividendYield;
+    return this;
+  }
+
+   /**
+   * The annualized weighted average of the current dividend yield of the portfolio&#39;s holdings, gross of fees. Available for the regions: US.
+   * @return dividendYield
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The annualized weighted average of the current dividend yield of the portfolio's holdings, gross of fees. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_DIVIDEND_YIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getDividendYield() {
+    return dividendYield;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DIVIDEND_YIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDividendYield(BigDecimal dividendYield) {
+    this.dividendYield = dividendYield;
+  }
+
+
+  public InlineResponse20011Data priceEarningsRatio(BigDecimal priceEarningsRatio) {
+    this.priceEarningsRatio = priceEarningsRatio;
+    return this;
+  }
+
+   /**
+   * Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.
+   * @return priceEarningsRatio
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS_RATIO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getPriceEarningsRatio() {
+    return priceEarningsRatio;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PRICE_EARNINGS_RATIO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPriceEarningsRatio(BigDecimal priceEarningsRatio) {
+    this.priceEarningsRatio = priceEarningsRatio;
+  }
+
+
+  public InlineResponse20011Data priceBookRatio(BigDecimal priceBookRatio) {
+    this.priceBookRatio = priceBookRatio;
+    return this;
+  }
+
+   /**
+   * Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.
+   * @return priceBookRatio
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_PRICE_BOOK_RATIO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getPriceBookRatio() {
+    return priceBookRatio;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PRICE_BOOK_RATIO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPriceBookRatio(BigDecimal priceBookRatio) {
+    this.priceBookRatio = priceBookRatio;
+  }
+
+
+  public InlineResponse20011Data marketCapitalization(BigDecimal marketCapitalization) {
+    this.marketCapitalization = marketCapitalization;
+    return this;
+  }
+
+   /**
+   * The weighted average market capitalization of the stocks in the fund&#39;s portfolio (USD). Available for regions: US.
+   * @return marketCapitalization
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The weighted average market capitalization of the stocks in the fund's portfolio (USD). Available for regions: US.")
+  @JsonProperty(JSON_PROPERTY_MARKET_CAPITALIZATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getMarketCapitalization() {
+    return marketCapitalization;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MARKET_CAPITALIZATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMarketCapitalization(BigDecimal marketCapitalization) {
+    this.marketCapitalization = marketCapitalization;
+  }
+
+
+  public InlineResponse20011Data timeToMaturity(BigDecimal timeToMaturity) {
+    this.timeToMaturity = timeToMaturity;
+    return this;
+  }
+
+   /**
+   * The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.
+   * @return timeToMaturity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_TIME_TO_MATURITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getTimeToMaturity() {
+    return timeToMaturity;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TIME_TO_MATURITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimeToMaturity(BigDecimal timeToMaturity) {
+    this.timeToMaturity = timeToMaturity;
+  }
+
+
+  public InlineResponse20011Data creditRating(String creditRating) {
+    this.creditRating = creditRating;
+    return this;
+  }
+
+   /**
+   * Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody&#39;s and Standard &amp; Poor&#39;s) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.
+   * @return creditRating
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody's and Standard & Poor's) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.")
+  @JsonProperty(JSON_PROPERTY_CREDIT_RATING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCreditRating() {
+    return creditRating;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREDIT_RATING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreditRating(String creditRating) {
+    this.creditRating = creditRating;
   }
 
 
@@ -81,19 +326,35 @@ public class InlineResponse20011Data implements Serializable {
       return false;
     }
     InlineResponse20011Data inlineResponse20011Data = (InlineResponse20011Data) o;
-    return Objects.equals(this.name, inlineResponse20011Data.name);
+    return Objects.equals(this.asOfDate, inlineResponse20011Data.asOfDate) &&
+        Objects.equals(this.numberHoldings, inlineResponse20011Data.numberHoldings) &&
+        Objects.equals(this.concentration, inlineResponse20011Data.concentration) &&
+        Objects.equals(this.dividendYield, inlineResponse20011Data.dividendYield) &&
+        Objects.equals(this.priceEarningsRatio, inlineResponse20011Data.priceEarningsRatio) &&
+        Objects.equals(this.priceBookRatio, inlineResponse20011Data.priceBookRatio) &&
+        Objects.equals(this.marketCapitalization, inlineResponse20011Data.marketCapitalization) &&
+        Objects.equals(this.timeToMaturity, inlineResponse20011Data.timeToMaturity) &&
+        Objects.equals(this.creditRating, inlineResponse20011Data.creditRating);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(asOfDate, numberHoldings, concentration, dividendYield, priceEarningsRatio, priceBookRatio, marketCapitalization, timeToMaturity, creditRating);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20011Data {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    asOfDate: ").append(toIndentedString(asOfDate)).append("\n");
+    sb.append("    numberHoldings: ").append(toIndentedString(numberHoldings)).append("\n");
+    sb.append("    concentration: ").append(toIndentedString(concentration)).append("\n");
+    sb.append("    dividendYield: ").append(toIndentedString(dividendYield)).append("\n");
+    sb.append("    priceEarningsRatio: ").append(toIndentedString(priceEarningsRatio)).append("\n");
+    sb.append("    priceBookRatio: ").append(toIndentedString(priceBookRatio)).append("\n");
+    sb.append("    marketCapitalization: ").append(toIndentedString(marketCapitalization)).append("\n");
+    sb.append("    timeToMaturity: ").append(toIndentedString(timeToMaturity)).append("\n");
+    sb.append("    creditRating: ").append(toIndentedString(creditRating)).append("\n");
     sb.append("}");
     return sb.toString();
   }

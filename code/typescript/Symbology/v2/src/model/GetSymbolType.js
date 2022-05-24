@@ -97,10 +97,17 @@ export default class GetSymbolType {
 
     
         /**
-         * value: "CRN"
+         * value: "JCN"
          * @const
          */
-        "CRN" = "CRN";
+        "JCN" = "JCN";
+
+    
+        /**
+         * value: "UKCH"
+         * @const
+         */
+        "UKCH" = "UKCH";
 
     
         /**

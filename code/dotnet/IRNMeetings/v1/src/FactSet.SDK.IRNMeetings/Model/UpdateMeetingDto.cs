@@ -92,25 +92,25 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Identifier
         /// </summary>
-        [DataMember(Name = "identifier", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "identifier", IsRequired = true, EmitDefaultValue = false)]
         public string Identifier { get; set; }
 
         /// <summary>
         /// Gets or Sets Start
         /// </summary>
-        [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "start", IsRequired = true, EmitDefaultValue = false)]
         public string Start { get; set; }
 
         /// <summary>
         /// Gets or Sets End
         /// </summary>
-        [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "end", IsRequired = true, EmitDefaultValue = false)]
         public string End { get; set; }
 
         /// <summary>
@@ -123,6 +123,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// Gets or Sets Organizer
         /// </summary>
         [DataMember(Name = "organizer", EmitDefaultValue = true)]
+        [Obsolete]
         public string Organizer { get; set; }
 
         /// <summary>
@@ -185,7 +186,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateMeetingDto {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
@@ -233,8 +234,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(UpdateMeetingDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Title == input.Title ||
@@ -326,33 +328,59 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.Identifier != null)
-                    hashCode = hashCode * 59 + this.Identifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Identifier.GetHashCode();
+                }
                 if (this.Start != null)
-                    hashCode = hashCode * 59 + this.Start.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
+                }
                 if (this.End != null)
-                    hashCode = hashCode * 59 + this.End.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.End.GetHashCode();
+                }
                 if (this.Locations != null)
-                    hashCode = hashCode * 59 + this.Locations.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Locations.GetHashCode();
+                }
                 if (this.Organizer != null)
-                    hashCode = hashCode * 59 + this.Organizer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Organizer.GetHashCode();
+                }
                 if (this.OrganizerId != null)
-                    hashCode = hashCode * 59 + this.OrganizerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OrganizerId.GetHashCode();
+                }
                 if (this.Attendees != null)
-                    hashCode = hashCode * 59 + this.Attendees.GetHashCode();
-                hashCode = hashCode * 59 + this.AlertAttendees.GetHashCode();
-                hashCode = hashCode * 59 + this.AlertAuthor.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attendees.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AlertAttendees.GetHashCode();
+                hashCode = (hashCode * 59) + this.AlertAuthor.GetHashCode();
                 if (this.RelatedRecords != null)
-                    hashCode = hashCode * 59 + this.RelatedRecords.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedRecords.GetHashCode();
+                }
                 if (this.RelatedContacts != null)
-                    hashCode = hashCode * 59 + this.RelatedContacts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedContacts.GetHashCode();
+                }
                 if (this.RelatedSymbols != null)
-                    hashCode = hashCode * 59 + this.RelatedSymbols.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedSymbols.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.CustomFieldValues != null)
-                    hashCode = hashCode * 59 + this.CustomFieldValues.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CustomFieldValues.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -365,25 +393,25 @@ namespace FactSet.SDK.IRNMeetings.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Title (string) maxLength
-            if(this.Title != null && this.Title.Length > 255)
+            if (this.Title != null && this.Title.Length > 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
             }
 
             // Title (string) minLength
-            if(this.Title != null && this.Title.Length < 0)
+            if (this.Title != null && this.Title.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
             }
 
             // Organizer (string) maxLength
-            if(this.Organizer != null && this.Organizer.Length > 255)
+            if (this.Organizer != null && this.Organizer.Length > 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organizer, length must be less than 255.", new [] { "Organizer" });
             }
 
             // Organizer (string) minLength
-            if(this.Organizer != null && this.Organizer.Length < 0)
+            if (this.Organizer != null && this.Organizer.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Organizer, length must be greater than 0.", new [] { "Organizer" });
             }

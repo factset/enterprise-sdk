@@ -48,6 +48,8 @@ public class InlineResponse20072DataTradingVolume implements Serializable {
   public static final String JSON_PROPERTY_SUM = "sum";
   private BigDecimal sum;
 
+  public InlineResponse20072DataTradingVolume() { 
+  }
 
   public InlineResponse20072DataTradingVolume average(BigDecimal average) {
     this.average = average;

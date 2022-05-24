@@ -166,7 +166,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PricesTimeSeriesEodSubsampleGetData {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -204,8 +204,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public bool Equals(PricesTimeSeriesEodSubsampleGetData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -242,13 +243,19 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Interval != null)
-                    hashCode = hashCode * 59 + this.Interval.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Interval.GetHashCode();
+                }
                 if (this.Adjustments != null)
-                    hashCode = hashCode * 59 + this.Adjustments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Adjustments.GetHashCode();
+                }
                 return hashCode;
             }
         }

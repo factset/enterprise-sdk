@@ -20,7 +20,7 @@ import SPARAccountsRoot from '../model/SPARAccountsRoot';
 /**
 * Accounts service.
 * @module api/AccountsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class AccountsApi {
 
@@ -63,7 +63,10 @@ export default class AccountsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = AccountDirectoriesRoot;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v3/accounts/{path}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class AccountsApi {
      * Get accounts and sub-directories in a directory
      * This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
      * @param {String} path The directory to get the accounts and sub-directories in
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AccountDirectoriesRoot}
+     * @return { Promise.< module:model/AccountDirectoriesRoot > } a Promise, with data of type {@link module:model/AccountDirectoriesRoot }
      */
     getAccounts(path) {
       return this.getAccountsWithHttpInfo(path)
@@ -111,7 +114,10 @@ export default class AccountsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SPARAccountsRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/spar/v3/accounts/{accountPath}/returns-type', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class AccountsApi {
      * Get SPAR account returns type details
      * This endpoint returns the returns type of account associated with an account
      * @param {String} accountPath URL encoded account path
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SPARAccountsRoot}
+     * @return { Promise.< module:model/SPARAccountsRoot > } a Promise, with data of type {@link module:model/SPARAccountsRoot }
      */
     getSPARReturnsType(accountPath) {
       return this.getSPARReturnsTypeWithHttpInfo(accountPath)
@@ -134,3 +140,8 @@ export default class AccountsApi {
 
 
 }
+
+
+
+
+

@@ -78,6 +78,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataExercise implem
   public static final String JSON_PROPERTY_RIGHT = "right";
   private RightEnum right;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataExercise() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataExercise right(RightEnum right) {
     this.right = right;

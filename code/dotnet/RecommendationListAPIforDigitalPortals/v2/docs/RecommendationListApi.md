@@ -1,6 +1,6 @@
 # FactSet.SDK.RecommendationListAPIforDigitalPortals.Api.RecommendationListApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -55,9 +55,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var id = 8.14;  // decimal | Identifier of the list.
+            var id = 8.14D;  // decimal | Identifier of the list.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -85,7 +85,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -148,9 +147,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var idRevision = 8.14;  // decimal | Identifier of the revision.
+            var idRevision = 8.14D;  // decimal | Identifier of the revision.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -178,7 +177,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
@@ -241,9 +239,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var id = 8.14;  // decimal | Identifier of the revision.
+            var id = 8.14D;  // decimal | Identifier of the revision.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -271,7 +269,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -334,10 +331,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var idNotation = idNotation_example;  // string | Restrict the search to revisions containing an element associated with the identified notation. (optional) 
-            var idInstrument = idInstrument_example;  // string | Restrict the search to revisions pointing to the identified instrument. (optional) 
+            var idNotation = "idNotation_example";  // string | Restrict the search to revisions containing an element associated with the identified notation. (optional) 
+            var idInstrument = "idInstrument_example";  // string | Restrict the search to revisions pointing to the identified instrument. (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -366,7 +363,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
@@ -429,10 +425,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new RecommendationListApi(config);
-            var name = name_example;  // string | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. (optional) 
+            var name = "name_example";  // string | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. (optional) 
             var onlyActive = true;  // bool? | Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -461,7 +457,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -550,7 +545,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization

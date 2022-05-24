@@ -48,6 +48,8 @@ public class StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceC
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMinimum() { 
+  }
 
   public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMinimum value(BigDecimal value) {
     this.value = value;

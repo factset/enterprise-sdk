@@ -20,7 +20,7 @@ import OptimizerStrategy from './OptimizerStrategy';
 /**
  * The AxiomaEquityOptimizationParameters model module.
  * @module model/AxiomaEquityOptimizationParameters
- * @version 0.8.1
+ * @version 0.8.2
  */
 class AxiomaEquityOptimizationParameters {
     /**

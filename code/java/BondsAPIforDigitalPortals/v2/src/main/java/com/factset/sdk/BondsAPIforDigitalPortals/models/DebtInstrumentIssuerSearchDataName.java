@@ -43,6 +43,8 @@ public class DebtInstrumentIssuerSearchDataName implements Serializable {
   public static final String JSON_PROPERTY_SEARCH_VALUE = "searchValue";
   private String searchValue;
 
+  public DebtInstrumentIssuerSearchDataName() { 
+  }
 
   public DebtInstrumentIssuerSearchDataName searchValue(String searchValue) {
     this.searchValue = searchValue;

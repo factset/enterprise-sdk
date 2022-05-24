@@ -18,7 +18,7 @@ import InlineResponse200Meta from './InlineResponse200Meta';
 /**
  * The InlineResponse20016 model module.
  * @module model/InlineResponse20016
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20016 {
     /**
@@ -50,7 +50,7 @@ class InlineResponse20016 {
             obj = obj || new InlineResponse20016();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = InlineResponse20016Data.constructFromObject(data['data']);
+                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20016Data]);
             }
             if (data.hasOwnProperty('meta')) {
                 obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
@@ -63,7 +63,8 @@ class InlineResponse20016 {
 }
 
 /**
- * @member {module:model/InlineResponse20016Data} data
+ * List of ETP class broad categories.
+ * @member {Array.<module:model/InlineResponse20016Data>} data
  */
 InlineResponse20016.prototype['data'] = undefined;
 

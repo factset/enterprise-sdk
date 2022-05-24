@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// Price.
+    /// InlineResponse20016Data
     /// </summary>
     [DataContract(Name = "inline_response_200_16_data")]
     public partial class InlineResponse20016Data : IEquatable<InlineResponse20016Data>, IValidatableObject
@@ -34,25 +34,18 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20016Data" /> class.
         /// </summary>
-        /// <param name="nav">nav.</param>
-        /// <param name="sharesOutstanding">sharesOutstanding.</param>
-        public InlineResponse20016Data(InlineResponse20016DataNav nav = default(InlineResponse20016DataNav), InlineResponse20016DataSharesOutstanding sharesOutstanding = default(InlineResponse20016DataSharesOutstanding))
+        /// <param name="broadCategory">ETP class broad category..</param>
+        public InlineResponse20016Data(string broadCategory = default(string))
         {
-            this.Nav = nav;
-            this.SharesOutstanding = sharesOutstanding;
+            this.BroadCategory = broadCategory;
         }
 
         /// <summary>
-        /// Gets or Sets Nav
+        /// ETP class broad category.
         /// </summary>
-        [DataMember(Name = "nav", EmitDefaultValue = false)]
-        public InlineResponse20016DataNav Nav { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SharesOutstanding
-        /// </summary>
-        [DataMember(Name = "sharesOutstanding", EmitDefaultValue = false)]
-        public InlineResponse20016DataSharesOutstanding SharesOutstanding { get; set; }
+        /// <value>ETP class broad category.</value>
+        [DataMember(Name = "broadCategory", EmitDefaultValue = false)]
+        public string BroadCategory { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,10 +53,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20016Data {\n");
-            sb.Append("  Nav: ").Append(Nav).Append("\n");
-            sb.Append("  SharesOutstanding: ").Append(SharesOutstanding).Append("\n");
+            sb.Append("  BroadCategory: ").Append(BroadCategory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,18 +87,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20016Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.Nav == input.Nav ||
-                    (this.Nav != null &&
-                    this.Nav.Equals(input.Nav))
-                ) && 
-                (
-                    this.SharesOutstanding == input.SharesOutstanding ||
-                    (this.SharesOutstanding != null &&
-                    this.SharesOutstanding.Equals(input.SharesOutstanding))
+                    this.BroadCategory == input.BroadCategory ||
+                    (this.BroadCategory != null &&
+                    this.BroadCategory.Equals(input.BroadCategory))
                 );
         }
 
@@ -119,10 +107,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Nav != null)
-                    hashCode = hashCode * 59 + this.Nav.GetHashCode();
-                if (this.SharesOutstanding != null)
-                    hashCode = hashCode * 59 + this.SharesOutstanding.GetHashCode();
+                if (this.BroadCategory != null)
+                {
+                    hashCode = (hashCode * 59) + this.BroadCategory.GetHashCode();
+                }
                 return hashCode;
             }
         }

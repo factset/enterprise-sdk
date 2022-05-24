@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.RatingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RatingsApi apiInstance = new RatingsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
@@ -62,6 +61,7 @@ public class Example {
         try {
             ConsensusRatingsResponse result = apiInstance.getConsensusRatings(ids, startDate, endDate, frequency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RatingsApi#getConsensusRatings");
             System.err.println("Status code: " + e.getCode());
@@ -124,14 +124,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.RatingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -141,20 +140,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RatingsApi apiInstance = new RatingsApi(defaultClient);
         ConsensusRatingsRequest consensusRatingsRequest = new ConsensusRatingsRequest(); // ConsensusRatingsRequest | Request object for Estimate Data Items.
         try {
             ConsensusRatingsResponse result = apiInstance.getConsensusRatingsForList(consensusRatingsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RatingsApi#getConsensusRatingsForList");
             System.err.println("Status code: " + e.getCode());
@@ -215,14 +215,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.RatingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -232,14 +231,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RatingsApi apiInstance = new RatingsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  3000 per request*</p> * Make Note - id limit of 3000 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. * 
@@ -248,6 +247,7 @@ public class Example {
         try {
             DetailRatingsResponse result = apiInstance.getDetailRatings(ids, startDate, endDate);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RatingsApi#getDetailRatings");
             System.err.println("Status code: " + e.getCode());
@@ -310,14 +310,13 @@ import com.factset.sdk.FactSetEstimates.ApiClient;
 import com.factset.sdk.FactSetEstimates.ApiException;
 import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.auth.*;
-import com.factset.sdk.FactSetEstimates.model.*;
+import com.factset.sdk.FactSetEstimates.models.*;
 import com.factset.sdk.FactSetEstimates.api.RatingsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -327,20 +326,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RatingsApi apiInstance = new RatingsApi(defaultClient);
         DetailRatingsRequest detailRatingsRequest = new DetailRatingsRequest(); // DetailRatingsRequest | Request object for Detail Reatings Data Items.
         try {
             DetailRatingsResponse result = apiInstance.getDetailRatingsForList(detailRatingsRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RatingsApi#getDetailRatingsForList");
             System.err.println("Status code: " + e.getCode());

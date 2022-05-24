@@ -48,6 +48,8 @@ public class InlineResponse2005DataKeyFiguresVegaUnadjusted implements Serializa
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataKeyFiguresVegaUnadjusted() { 
+  }
 
   public InlineResponse2005DataKeyFiguresVegaUnadjusted minimum(BigDecimal minimum) {
     this.minimum = minimum;

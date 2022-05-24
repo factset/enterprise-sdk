@@ -48,6 +48,8 @@ public class InlineResponse2007DataRangeLowerLevel implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2007DataRangeLowerLevel() { 
+  }
 
   public InlineResponse2007DataRangeLowerLevel absolute(BigDecimal absolute) {
     this.absolute = absolute;

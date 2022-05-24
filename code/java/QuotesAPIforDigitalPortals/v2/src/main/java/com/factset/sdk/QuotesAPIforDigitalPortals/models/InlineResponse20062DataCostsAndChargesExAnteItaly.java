@@ -49,6 +49,8 @@ public class InlineResponse20062DataCostsAndChargesExAnteItaly implements Serial
   public static final String JSON_PROPERTY_ONE_OFF_MAXIMUM_FIXED_EXIT_COST = "oneOffMaximumFixedExitCost";
   private InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedExitCost oneOffMaximumFixedExitCost;
 
+  public InlineResponse20062DataCostsAndChargesExAnteItaly() { 
+  }
 
   public InlineResponse20062DataCostsAndChargesExAnteItaly oneOffMaximumFixedEntryCost(InlineResponse20062DataCostsAndChargesExAnteItalyOneOffMaximumFixedEntryCost oneOffMaximumFixedEntryCost) {
     this.oneOffMaximumFixedEntryCost = oneOffMaximumFixedEntryCost;

@@ -12,12 +12,15 @@ Name | Type | Description | Notes
 **code** | **String** |  |  [optional]
 **isHidden** | **Boolean** |  |  [optional]
 **identifierType** | **String** |  |  [optional]
+**identifierTypes** | **java.util.List&lt;String&gt;** |  |  [optional]
+**type** | **String** |  |  [optional]
 **customFieldIds** | **java.util.List&lt;java.util.UUID&gt;** |  |  [optional]
 **approvalProcessConfig** | [**ApprovalProcessConfigDto**](ApprovalProcessConfigDto.md) |  |  [optional]
 **commentaryConfig** | [**CommentaryConfigDto**](CommentaryConfigDto.md) |  |  [optional]
 **newsHeadlineFormat** | [**java.util.List&lt;HeadlineFormatConfigDto&gt;**](HeadlineFormatConfigDto.md) |  |  [optional]
 **emailHeadlineFormat** | [**java.util.List&lt;HeadlineFormatConfigDto&gt;**](HeadlineFormatConfigDto.md) |  |  [optional]
 **ratingConfig** | [**RatingConfigDto**](RatingConfigDto.md) |  |  [optional]
+**noteLengthLimit** | **Integer** |  |  [optional]
 
 
 ## Implemented Interfaces

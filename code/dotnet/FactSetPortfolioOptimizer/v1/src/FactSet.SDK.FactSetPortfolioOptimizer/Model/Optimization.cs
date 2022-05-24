@@ -72,7 +72,7 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Optimization {\n");
             sb.Append("  Riskmodeldate: ").Append(Riskmodeldate).Append("\n");
             sb.Append("  Backtestdate: ").Append(Backtestdate).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
         public bool Equals(Optimization input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Riskmodeldate == input.Riskmodeldate ||
@@ -138,11 +139,17 @@ namespace FactSet.SDK.FactSetPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Riskmodeldate != null)
-                    hashCode = hashCode * 59 + this.Riskmodeldate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Riskmodeldate.GetHashCode();
+                }
                 if (this.Backtestdate != null)
-                    hashCode = hashCode * 59 + this.Backtestdate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Backtestdate.GetHashCode();
+                }
                 if (this.Cashflow != null)
-                    hashCode = hashCode * 59 + this.Cashflow.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cashflow.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -70,6 +70,8 @@ public class NRTCalls400ResponseDetailsValidParameters implements Serializable {
   public static final String JSON_PROPERTY_ENTITY_ID = "entityId";
   private java.util.List<String> entityId = null;
 
+  public NRTCalls400ResponseDetailsValidParameters() { 
+  }
 
   public NRTCalls400ResponseDetailsValidParameters sort(java.util.List<String> sort) {
     this.sort = sort;

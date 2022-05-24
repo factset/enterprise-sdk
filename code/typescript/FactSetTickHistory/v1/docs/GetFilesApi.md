@@ -49,6 +49,7 @@ const opts = {
 // Call api endpoint
 apiInstance.v1GetFilesGet(requestId, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

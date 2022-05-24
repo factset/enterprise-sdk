@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.RolloverResponse;
@@ -22,6 +25,28 @@ public class DatabaseRolloverApi {
   public DatabaseRolloverApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getDatabaseRolloverResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDatabaseRolloverResponseTypeMap.put(200, new GenericType<RolloverResponse>(){});
+    getDatabaseRolloverResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getDatabaseRolloverForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDatabaseRolloverForListResponseTypeMap.put(200, new GenericType<RolloverResponse>(){});
+    getDatabaseRolloverForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getDatabaseRolloverForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -105,11 +130,17 @@ public class DatabaseRolloverApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RolloverResponse> localVarReturnType = new GenericType<RolloverResponse>() {};
 
-    return apiClient.invokeAPI("DatabaseRolloverApi.getDatabaseRollover", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RolloverResponse
+      
+    > apiResponse = apiClient.invokeAPI("DatabaseRolloverApi.getDatabaseRollover", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDatabaseRolloverResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets the latest relative rollover date for the database.
@@ -175,10 +206,16 @@ public class DatabaseRolloverApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<RolloverResponse> localVarReturnType = new GenericType<RolloverResponse>() {};
 
-    return apiClient.invokeAPI("DatabaseRolloverApi.getDatabaseRolloverForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        RolloverResponse
+      
+    > apiResponse = apiClient.invokeAPI("DatabaseRolloverApi.getDatabaseRolloverForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDatabaseRolloverForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

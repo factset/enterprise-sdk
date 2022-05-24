@@ -48,6 +48,8 @@ public class InlineResponse2003InstrumentCategorizationLevel2 implements Seriali
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2003InstrumentCategorizationLevel2() { 
+  }
 
   public InlineResponse2003InstrumentCategorizationLevel2 id(BigDecimal id) {
     this.id = id;

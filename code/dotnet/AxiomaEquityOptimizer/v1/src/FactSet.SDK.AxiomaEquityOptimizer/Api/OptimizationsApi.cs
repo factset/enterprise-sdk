@@ -36,7 +36,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void CancelAxiomaOptimizationById(string id);
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void GetAxiomaOptimizationById(string id);
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void RunAxiomaOptimization(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters));
 
         /// <summary>
@@ -187,6 +187,24 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
     {
         private FactSet.SDK.AxiomaEquityOptimizer.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CancelAxiomaOptimizationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAxiomaOptimizationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> RunAxiomaOptimizationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimizationsApi"/> class.
         /// </summary>
@@ -294,7 +312,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void CancelAxiomaOptimizationById(string id)
         {
             CancelAxiomaOptimizationByIdWithHttpInfo(id);
@@ -306,11 +324,13 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.AxiomaEquityOptimizer.Client.ApiResponse<Object> CancelAxiomaOptimizationByIdWithHttpInfo(string id)
+        public ApiResponse<Object> CancelAxiomaOptimizationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling OptimizationsApi->CancelAxiomaOptimizationById");
+            }
 
             FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions();
 
@@ -322,22 +342,28 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -349,15 +375,19 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CancelAxiomaOptimizationByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelAxiomaOptimizationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -380,11 +410,14 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.AxiomaEquityOptimizer.Client.ApiResponse<Object>> CancelAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CancelAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling OptimizationsApi->CancelAxiomaOptimizationById");
+            }
 
 
             FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions();
@@ -396,24 +429,29 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -425,14 +463,18 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CancelAxiomaOptimizationByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelAxiomaOptimizationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -443,7 +485,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void GetAxiomaOptimizationById(string id)
         {
             GetAxiomaOptimizationByIdWithHttpInfo(id);
@@ -455,11 +497,13 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.AxiomaEquityOptimizer.Client.ApiResponse<Object> GetAxiomaOptimizationByIdWithHttpInfo(string id)
+        public ApiResponse<Object> GetAxiomaOptimizationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling OptimizationsApi->GetAxiomaOptimizationById");
+            }
 
             FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions();
 
@@ -471,22 +515,28 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -498,15 +548,19 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAxiomaOptimizationByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAxiomaOptimizationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -529,11 +583,14 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.AxiomaEquityOptimizer.Client.ApiResponse<Object>> GetAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling OptimizationsApi->GetAxiomaOptimizationById");
+            }
 
 
             FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions();
@@ -545,24 +602,29 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -574,14 +636,18 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAxiomaOptimizationByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAxiomaOptimizationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -592,7 +658,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void RunAxiomaOptimization(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
         {
             RunAxiomaOptimizationWithHttpInfo(axiomaEquityOptimizationParameters);
@@ -604,7 +670,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// <exception cref="FactSet.SDK.AxiomaEquityOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.AxiomaEquityOptimizer.Client.ApiResponse<Object> RunAxiomaOptimizationWithHttpInfo(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
+        public ApiResponse<Object> RunAxiomaOptimizationWithHttpInfo(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
         {
             FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions();
 
@@ -617,22 +683,28 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = axiomaEquityOptimizationParameters;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -644,15 +716,19 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/analytics/engines/axp/v1/optimizations", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = RunAxiomaOptimizationResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            Object>("/analytics/engines/axp/v1/optimizations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RunAxiomaOptimization", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -675,7 +751,8 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.AxiomaEquityOptimizer.Client.ApiResponse<Object>> RunAxiomaOptimizationWithHttpInfoAsync(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RunAxiomaOptimizationWithHttpInfoAsync(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.AxiomaEquityOptimizer.Client.RequestOptions();
@@ -688,24 +765,29 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = axiomaEquityOptimizationParameters;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.AxiomaEquityOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -717,14 +799,18 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = RunAxiomaOptimizationResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/axp/v1/optimizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RunAxiomaOptimization", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

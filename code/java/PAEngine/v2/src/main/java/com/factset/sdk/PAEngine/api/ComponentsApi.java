@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.ComponentSummary;
 import com.factset.sdk.PAEngine.models.PAComponent;
@@ -22,6 +25,18 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAComponentByIdResponseTypeMap.put(200, new GenericType<PAComponent>(){});
+  }
+  private static final Map<Integer, GenericType> getPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAComponentsResponseTypeMap.put(200, new GenericType<java.util.Map<String, ComponentSummary>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,17 +134,23 @@ public class ComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PAComponent> localVarReturnType = new GenericType<PAComponent>() {};
 
-    return apiClient.invokeAPI("ComponentsApi.getPAComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PAComponent
+      
+    > apiResponse = apiClient.invokeAPI("ComponentsApi.getPAComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAComponentByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get PA components
    * This endpoint returns the list of PA components in a given PA document.
    * @param document Document Name (required)
-   * @return java.util.Map&lt;String, ComponentSummary&gt;
+   * @return java.util.Map<String, ComponentSummary>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -153,7 +174,7 @@ public class ComponentsApi {
    * Get PA components
    * This endpoint returns the list of PA components in a given PA document.
    * @param document Document Name (required)
-   * @return ApiResponse&lt;java.util.Map&lt;String, ComponentSummary&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, ComponentSummary>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -203,10 +224,16 @@ public class ComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, ComponentSummary>> localVarReturnType = new GenericType<java.util.Map<String, ComponentSummary>>() {};
 
-    return apiClient.invokeAPI("ComponentsApi.getPAComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, ComponentSummary>
+      
+    > apiResponse = apiClient.invokeAPI("ComponentsApi.getPAComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAComponentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean i
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean() { 
+  }
 
   public StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

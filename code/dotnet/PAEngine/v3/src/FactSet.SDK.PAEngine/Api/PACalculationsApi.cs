@@ -36,7 +36,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void CancelCalculationById(string id);
 
         /// <summary>
@@ -118,54 +118,54 @@ namespace FactSet.SDK.PAEngine.Api
         /// Create and Run PA calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        CalculationStatusRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
+        /// <returns>PACalculationsApi.PostAndCalculateResponseWrapper</returns>
+        PACalculationsApi.PostAndCalculateResponseWrapper PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
 
         /// <summary>
         /// Create and Run PA calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
+        /// <returns>ApiResponse of PACalculationsApi.PostAndCalculateResponseWrapper</returns>
+        ApiResponse<PACalculationsApi.PostAndCalculateResponseWrapper> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
         /// <summary>
         /// Create or Update PA calculation and run it.
         /// </summary>
         /// <remarks>
-        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        CalculationStatusRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
+        /// <returns>PACalculationsApi.PutAndCalculateResponseWrapper</returns>
+        PACalculationsApi.PutAndCalculateResponseWrapper PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
 
         /// <summary>
         /// Create or Update PA calculation and run it.
         /// </summary>
         /// <remarks>
-        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
+        /// <returns>ApiResponse of PACalculationsApi.PutAndCalculateResponseWrapper</returns>
+        ApiResponse<PACalculationsApi.PutAndCalculateResponseWrapper> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot));
         #endregion Synchronous Operations
     }
 
@@ -273,7 +273,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// Create and Run PA calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
@@ -281,26 +281,26 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PACalculationsApi.PostAndCalculateResponseWrapper> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create and Run PA calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PACalculationsApi.PostAndCalculateResponseWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.PostAndCalculateResponseWrapper>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create or Update PA calculation and run it.
         /// </summary>
         /// <remarks>
-        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
@@ -309,13 +309,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PACalculationsApi.PutAndCalculateResponseWrapper> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create or Update PA calculation and run it.
         /// </summary>
         /// <remarks>
-        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </remarks>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
@@ -323,8 +323,8 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PACalculationsApi.PutAndCalculateResponseWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.PutAndCalculateResponseWrapper>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -342,6 +342,288 @@ namespace FactSet.SDK.PAEngine.Api
     public partial class PACalculationsApi : IPACalculationsApi
     {
         private FactSet.SDK.PAEngine.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CancelCalculationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCalculationParametersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(PACalculationParametersRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCalculationStatusByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CalculationStatusRoot) },
+            { (HttpStatusCode)202, typeof(CalculationStatusRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetCalculationUnitResultByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ObjectRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostAndCalculateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CalculationStatusRoot) },
+            { (HttpStatusCode)201, typeof(ObjectRoot) },
+            { (HttpStatusCode)202, typeof(CalculationStatusRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PutAndCalculateResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CalculationStatusRoot) },
+            { (HttpStatusCode)201, typeof(ObjectRoot) },
+            { (HttpStatusCode)202, typeof(CalculationStatusRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)409, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+        /// <summary>
+        /// Wrapper to support POST /analytics/engines/pa/v3/calculations returning different types
+        /// per status code.
+        ///
+        /// <list>
+        /// <item>
+        /// <description>
+        /// 200 : CalculationStatusRoot<br />
+        /// Expected response, if the calculation has one unit and is completed with an error.
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 201 : ObjectRoot<br />
+        /// Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 202 : CalculationStatusRoot<br />
+        /// Expected response, contains the poll URL in the Location header.
+        /// </description>
+        /// </item>
+        /// </list>
+        ///
+        /// <example>
+        /// <code>
+        /// PostAndCalculateResponseWrapper response = ...;
+        /// switch (response.statusCode)
+        /// {
+        ///   case 200:
+        ///     CalculationStatusRoot data200 = response.getResponse200();
+        ///     break;
+        ///   case 201:
+        ///     ObjectRoot data201 = response.getResponse201();
+        ///     break;
+        ///   case 202:
+        ///     CalculationStatusRoot data202 = response.getResponse202();
+        ///     break;
+        ///  }
+        /// </code>
+        /// </example>
+        /// </summary>
+        public class PostAndCalculateResponseWrapper {
+
+            /// <summary>This constructor initializes the new PostAndCalculateResponseWrapper to
+            /// (<paramref name="statusCode"/>,<paramref name="response"/>).
+            /// </summary>
+            /// <param name="statusCode">Http status code of the response</param>
+            /// <param name="response">Raw response</param>
+            public PostAndCalculateResponseWrapper(HttpStatusCode statusCode, object response)
+            {
+                StatusCode = statusCode;
+                Response = response;
+            }
+
+            /// <summary>
+            /// Http status code of the response
+            /// </summary>
+            public HttpStatusCode StatusCode { get; }
+
+            /// <summary>
+            /// Raw Object response
+            /// </summary>
+            public object Response { get; }
+
+            
+            /// <summary>
+            /// Expected response, if the calculation has one unit and is completed with an error.
+            /// </summary>
+            public CalculationStatusRoot Response200
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 200)
+                    {
+                        throw new FactSet.SDK.PAEngine.Client.ApiException(500, "Invalid response getter called. Response200 can't return a " + StatusCode + " response");
+                    }
+                    return (CalculationStatusRoot) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.
+            /// </summary>
+            public ObjectRoot Response201
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 201)
+                    {
+                        throw new FactSet.SDK.PAEngine.Client.ApiException(500, "Invalid response getter called. Response201 can't return a " + StatusCode + " response");
+                    }
+                    return (ObjectRoot) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Expected response, contains the poll URL in the Location header.
+            /// </summary>
+            public CalculationStatusRoot Response202
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 202)
+                    {
+                        throw new FactSet.SDK.PAEngine.Client.ApiException(500, "Invalid response getter called. Response202 can't return a " + StatusCode + " response");
+                    }
+                    return (CalculationStatusRoot) Response;
+                }
+            }
+            
+        }
+
+
+        /// <summary>
+        /// Wrapper to support PUT /analytics/engines/pa/v3/calculations/{id} returning different types
+        /// per status code.
+        ///
+        /// <list>
+        /// <item>
+        /// <description>
+        /// 200 : CalculationStatusRoot<br />
+        /// Expected response, if the calculation has one unit and is completed with an error.
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 201 : ObjectRoot<br />
+        /// Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 202 : CalculationStatusRoot<br />
+        /// Expected response, contains the poll URL in the Location header.
+        /// </description>
+        /// </item>
+        /// </list>
+        ///
+        /// <example>
+        /// <code>
+        /// PutAndCalculateResponseWrapper response = ...;
+        /// switch (response.statusCode)
+        /// {
+        ///   case 200:
+        ///     CalculationStatusRoot data200 = response.getResponse200();
+        ///     break;
+        ///   case 201:
+        ///     ObjectRoot data201 = response.getResponse201();
+        ///     break;
+        ///   case 202:
+        ///     CalculationStatusRoot data202 = response.getResponse202();
+        ///     break;
+        ///  }
+        /// </code>
+        /// </example>
+        /// </summary>
+        public class PutAndCalculateResponseWrapper {
+
+            /// <summary>This constructor initializes the new PutAndCalculateResponseWrapper to
+            /// (<paramref name="statusCode"/>,<paramref name="response"/>).
+            /// </summary>
+            /// <param name="statusCode">Http status code of the response</param>
+            /// <param name="response">Raw response</param>
+            public PutAndCalculateResponseWrapper(HttpStatusCode statusCode, object response)
+            {
+                StatusCode = statusCode;
+                Response = response;
+            }
+
+            /// <summary>
+            /// Http status code of the response
+            /// </summary>
+            public HttpStatusCode StatusCode { get; }
+
+            /// <summary>
+            /// Raw Object response
+            /// </summary>
+            public object Response { get; }
+
+            
+            /// <summary>
+            /// Expected response, if the calculation has one unit and is completed with an error.
+            /// </summary>
+            public CalculationStatusRoot Response200
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 200)
+                    {
+                        throw new FactSet.SDK.PAEngine.Client.ApiException(500, "Invalid response getter called. Response200 can't return a " + StatusCode + " response");
+                    }
+                    return (CalculationStatusRoot) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters.
+            /// </summary>
+            public ObjectRoot Response201
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 201)
+                    {
+                        throw new FactSet.SDK.PAEngine.Client.ApiException(500, "Invalid response getter called. Response201 can't return a " + StatusCode + " response");
+                    }
+                    return (ObjectRoot) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Expected response, contains the poll URL in the Location header.
+            /// </summary>
+            public CalculationStatusRoot Response202
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 202)
+                    {
+                        throw new FactSet.SDK.PAEngine.Client.ApiException(500, "Invalid response getter called. Response202 can't return a " + StatusCode + " response");
+                    }
+                    return (CalculationStatusRoot) Response;
+                }
+            }
+            
+        }
+
+
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PACalculationsApi"/> class.
@@ -450,7 +732,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void CancelCalculationById(string id)
         {
             CancelCalculationByIdWithHttpInfo(id);
@@ -462,11 +744,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id)
+        public ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->CancelCalculationById");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -481,22 +765,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -508,15 +798,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CancelCalculationByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelCalculationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -539,11 +833,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->CancelCalculationById");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -558,24 +855,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "text/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -587,14 +889,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CancelCalculationByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelCalculationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -608,7 +914,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>PACalculationParametersRoot</returns>
         public PACalculationParametersRoot GetCalculationParameters(string id)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<PACalculationParametersRoot> localVarResponse = GetCalculationParametersWithHttpInfo(id);
+            var localVarResponse = GetCalculationParametersWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -618,11 +924,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <returns>ApiResponse of PACalculationParametersRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<PACalculationParametersRoot> GetCalculationParametersWithHttpInfo(string id)
+        public ApiResponse<PACalculationParametersRoot> GetCalculationParametersWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->GetCalculationParameters");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -635,22 +943,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -662,15 +976,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PACalculationParametersRoot>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCalculationParametersResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            PACalculationParametersRoot>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalculationParameters", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -681,9 +999,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PACalculationParametersRoot</returns>
-        public async System.Threading.Tasks.Task<PACalculationParametersRoot> GetCalculationParametersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PACalculationParametersRoot>GetCalculationParametersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<PACalculationParametersRoot> localVarResponse = await GetCalculationParametersWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCalculationParametersWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -694,11 +1012,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PACalculationParametersRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<PACalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PACalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->GetCalculationParameters");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -711,24 +1032,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -740,14 +1066,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCalculationParametersResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<PACalculationParametersRoot>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalculationParameters", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -761,7 +1091,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>CalculationStatusRoot</returns>
         public CalculationStatusRoot GetCalculationStatusById(string id)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> localVarResponse = GetCalculationStatusByIdWithHttpInfo(id);
+            var localVarResponse = GetCalculationStatusByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -771,11 +1101,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> GetCalculationStatusByIdWithHttpInfo(string id)
+        public ApiResponse<CalculationStatusRoot> GetCalculationStatusByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->GetCalculationStatusById");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -788,22 +1120,28 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -815,15 +1153,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CalculationStatusRoot>("/analytics/engines/pa/v3/calculations/{id}/status", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCalculationStatusByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CalculationStatusRoot>("/analytics/engines/pa/v3/calculations/{id}/status", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalculationStatusById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -834,9 +1176,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> GetCalculationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalculationStatusRoot>GetCalculationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await GetCalculationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCalculationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -847,11 +1189,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->GetCalculationStatusById");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -864,24 +1209,29 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -893,14 +1243,18 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCalculationStatusByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CalculationStatusRoot>("/analytics/engines/pa/v3/calculations/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalculationStatusById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -915,7 +1269,7 @@ namespace FactSet.SDK.PAEngine.Api
         /// <returns>ObjectRoot</returns>
         public ObjectRoot GetCalculationUnitResultById(string id, string unitId)
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<ObjectRoot> localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId);
+            var localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId);
             return localVarResponse.Data;
         }
 
@@ -926,15 +1280,19 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="id">from url, provided from the location header in the Get PA calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get PA calculation status by id endpoint</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<ObjectRoot> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId)
+        public ApiResponse<ObjectRoot> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->GetCalculationUnitResultById");
+            }
 
             // verify the required parameter 'unitId' is set
             if (unitId == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'unitId' when calling PACalculationsApi->GetCalculationUnitResultById");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -948,23 +1306,29 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.PathParameters.Add("unitId", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(unitId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -976,15 +1340,19 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectRoot>("/analytics/engines/pa/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetCalculationUnitResultByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ObjectRoot>("/analytics/engines/pa/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalculationUnitResultById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -996,9 +1364,9 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="unitId">from url, provided from the location header in the Get PA calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectRoot>GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<ObjectRoot> localVarResponse = await GetCalculationUnitResultByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCalculationUnitResultByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1010,15 +1378,20 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="unitId">from url, provided from the location header in the Get PA calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->GetCalculationUnitResultById");
+            }
 
             // verify the required parameter 'unitId' is set
             if (unitId == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'unitId' when calling PACalculationsApi->GetCalculationUnitResultById");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -1032,25 +1405,30 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/x-protobuf"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.PathParameters.Add("unitId", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(unitId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1062,42 +1440,46 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetCalculationUnitResultByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/pa/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCalculationUnitResultById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        public CalculationStatusRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
+        /// <returns>PACalculationsApi.PostAndCalculateResponseWrapper</returns>
+        public PACalculationsApi.PostAndCalculateResponseWrapper PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PostAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
+            var localVarResponse = PostAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
+        public ApiResponse<PACalculationsApi.PostAndCalculateResponseWrapper> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
         {
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -1112,10 +1494,16 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xFactSetApiLongRunningDeadline != null)
             {
@@ -1129,13 +1517,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1147,20 +1535,25 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CalculationStatusRoot>("/analytics/engines/pa/v3/calculations", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostAndCalculateResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            Object>("/analytics/engines/pa/v3/calculations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostAndCalculate", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
-            return localVarResponse;
+            var postandcalculateResponse = new PostAndCalculateResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PostAndCalculateResponseWrapper>(localVarResponse.StatusCode, postandcalculateResponse);
         }
 
         /// <summary>
-        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
@@ -1168,14 +1561,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PACalculationsApi.PostAndCalculateResponseWrapper>PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PostAndCalculateWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostAndCalculateWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
+        /// Create and Run PA calculation This endpoint runs the PA calculation specified in the POST body parameters.  It can take one or more calculation units as input.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
@@ -1183,7 +1576,8 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.PostAndCalculateResponseWrapper>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -1198,12 +1592,17 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/x-protobuf"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xFactSetApiLongRunningDeadline != null)
             {
@@ -1217,13 +1616,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1235,36 +1634,41 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostAndCalculateResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CalculationStatusRoot>("/analytics/engines/pa/v3/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/pa/v3/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostAndCalculate", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
-            return localVarResponse;
+            var postandcalculateResponse = new PostAndCalculateResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PostAndCalculateResponseWrapper>(localVarResponse.StatusCode, postandcalculateResponse);
         }
 
         /// <summary>
-        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        public CalculationStatusRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
+        /// <returns>PACalculationsApi.PutAndCalculateResponseWrapper</returns>
+        public PACalculationsApi.PutAndCalculateResponseWrapper PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PutAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
+            var localVarResponse = PutAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
@@ -1272,11 +1676,13 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
+        public ApiResponse<PACalculationsApi.PutAndCalculateResponseWrapper> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->PutAndCalculate");
+            }
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
 
@@ -1291,10 +1697,16 @@ namespace FactSet.SDK.PAEngine.Api
             };
 
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             if (xFactSetApiLongRunningDeadline != null)
@@ -1309,13 +1721,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1327,20 +1739,25 @@ namespace FactSet.SDK.PAEngine.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<CalculationStatusRoot>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PutAndCalculateResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            Object>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutAndCalculate", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
-            return localVarResponse;
+            var putandcalculateResponse = new PutAndCalculateResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PutAndCalculateResponseWrapper>(localVarResponse.StatusCode, putandcalculateResponse);
         }
 
         /// <summary>
-        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
@@ -1349,14 +1766,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PACalculationsApi.PutAndCalculateResponseWrapper>PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PutAndCalculateWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PutAndCalculateWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, pACalculationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.
+        /// Create or Update PA calculation and run it. This endpoint updates and run the PA calculation specified in the PUT body parameters. This also allows creating new PA calculations with custom ids.  It can take one or more calculation units as input.    Remarks:    * Any settings in PUT body will act as a one-time override over the settings saved in the PA template.    *   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding       the default frequency of the Beginning of Period to whatever we pass in the request body.        *   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
         /// </summary>
         /// <exception cref="FactSet.SDK.PAEngine.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run PA calculation endpoint</param>
@@ -1365,11 +1782,14 @@ namespace FactSet.SDK.PAEngine.Api
         /// <param name="pACalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PAEngine.Client.ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<PACalculationsApi.PutAndCalculateResponseWrapper>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PACalculationParametersRoot pACalculationParametersRoot = default(PACalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PAEngine.Client.ApiException(400, "Missing required parameter 'id' when calling PACalculationsApi->PutAndCalculate");
+            }
 
 
             FactSet.SDK.PAEngine.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PAEngine.Client.RequestOptions();
@@ -1384,12 +1804,17 @@ namespace FactSet.SDK.PAEngine.Api
                 "application/x-protobuf"
             };
 
-
             var localVarContentType = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PAEngine.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.PAEngine.Client.ClientUtils.ParameterToString(id)); // path parameter
             if (xFactSetApiLongRunningDeadline != null)
@@ -1404,13 +1829,13 @@ namespace FactSet.SDK.PAEngine.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PAEngine.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1422,17 +1847,22 @@ namespace FactSet.SDK.PAEngine.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PutAndCalculateResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<CalculationStatusRoot>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/analytics/engines/pa/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutAndCalculate", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
-            return localVarResponse;
+            var putandcalculateResponse = new PutAndCalculateResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PutAndCalculateResponseWrapper>(localVarResponse.StatusCode, putandcalculateResponse);
         }
 
     }

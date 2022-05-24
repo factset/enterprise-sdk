@@ -24,8 +24,8 @@ from fds.sdk.IRNNotes.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNNotes.exceptions import ApiAttributeError
 
 
@@ -86,9 +86,9 @@ class RecordEventSummaryDto(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'created_at': 'createdAt',  # noqa: E501
+        'id': 'Id',  # noqa: E501
+        'type': 'Type',  # noqa: E501
+        'created_at': 'CreatedAt',  # noqa: E501
     }
 
     read_only_vars = {

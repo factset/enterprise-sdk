@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -41,27 +41,45 @@ import com.factset.sdk.IRNConfiguration.JSON;
   SubjectSummaryDto.JSON_PROPERTY_NAME,
   SubjectSummaryDto.JSON_PROPERTY_CODE,
   SubjectSummaryDto.JSON_PROPERTY_IDENTIFIER_TYPE,
-  SubjectSummaryDto.JSON_PROPERTY_IS_HIDDEN
+  SubjectSummaryDto.JSON_PROPERTY_IDENTIFIER_TYPES,
+  SubjectSummaryDto.JSON_PROPERTY_TYPE,
+  SubjectSummaryDto.JSON_PROPERTY_IS_HIDDEN,
+  SubjectSummaryDto.JSON_PROPERTY_CUSTOM_FIELD_IDS,
+  SubjectSummaryDto.JSON_PROPERTY_NOTE_LENGTH_LIMIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SubjectSummaryDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_CODE = "code";
+  public static final String JSON_PROPERTY_CODE = "Code";
   private JsonNullable<String> code = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IDENTIFIER_TYPE = "identifierType";
+  public static final String JSON_PROPERTY_IDENTIFIER_TYPE = "IdentifierType";
   private JsonNullable<String> identifierType = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_HIDDEN = "isHidden";
+  public static final String JSON_PROPERTY_IDENTIFIER_TYPES = "IdentifierTypes";
+  private JsonNullable<java.util.List<String>> identifierTypes = JsonNullable.<java.util.List<String>>undefined();
+
+  public static final String JSON_PROPERTY_TYPE = "Type";
+  private JsonNullable<String> type = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
   private Boolean isHidden;
 
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_IDS = "CustomFieldIds";
+  private JsonNullable<java.util.List<java.util.UUID>> customFieldIds = JsonNullable.<java.util.List<java.util.UUID>>undefined();
+
+  public static final String JSON_PROPERTY_NOTE_LENGTH_LIMIT = "NoteLengthLimit";
+  private JsonNullable<Integer> noteLengthLimit = JsonNullable.<Integer>undefined();
+
+  public SubjectSummaryDto() { 
+  }
 
   public SubjectSummaryDto id(java.util.UUID id) {
     this.id = id;
@@ -191,6 +209,86 @@ public class SubjectSummaryDto implements Serializable {
   }
 
 
+  public SubjectSummaryDto identifierTypes(java.util.List<String> identifierTypes) {
+    this.identifierTypes = JsonNullable.<java.util.List<String>>of(identifierTypes);
+    return this;
+  }
+
+  public SubjectSummaryDto addIdentifierTypesItem(String identifierTypesItem) {
+    if (this.identifierTypes == null || !this.identifierTypes.isPresent()) {
+      this.identifierTypes = JsonNullable.<java.util.List<String>>of(new java.util.ArrayList<>());
+    }
+    try {
+      this.identifierTypes.get().add(identifierTypesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get identifierTypes
+   * @return identifierTypes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public java.util.List<String> getIdentifierTypes() {
+        return identifierTypes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<java.util.List<String>> getIdentifierTypes_JsonNullable() {
+    return identifierTypes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER_TYPES)
+  public void setIdentifierTypes_JsonNullable(JsonNullable<java.util.List<String>> identifierTypes) {
+    this.identifierTypes = identifierTypes;
+  }
+
+  public void setIdentifierTypes(java.util.List<String> identifierTypes) {
+    this.identifierTypes = JsonNullable.<java.util.List<String>>of(identifierTypes);
+  }
+
+
+  public SubjectSummaryDto type(String type) {
+    this.type = JsonNullable.<String>of(type);
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getType() {
+        return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<String> type) {
+    this.type = type;
+  }
+
+  public void setType(String type) {
+    this.type = JsonNullable.<String>of(type);
+  }
+
+
   public SubjectSummaryDto isHidden(Boolean isHidden) {
     this.isHidden = isHidden;
     return this;
@@ -217,6 +315,86 @@ public class SubjectSummaryDto implements Serializable {
   }
 
 
+  public SubjectSummaryDto customFieldIds(java.util.List<java.util.UUID> customFieldIds) {
+    this.customFieldIds = JsonNullable.<java.util.List<java.util.UUID>>of(customFieldIds);
+    return this;
+  }
+
+  public SubjectSummaryDto addCustomFieldIdsItem(java.util.UUID customFieldIdsItem) {
+    if (this.customFieldIds == null || !this.customFieldIds.isPresent()) {
+      this.customFieldIds = JsonNullable.<java.util.List<java.util.UUID>>of(new java.util.ArrayList<>());
+    }
+    try {
+      this.customFieldIds.get().add(customFieldIdsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get customFieldIds
+   * @return customFieldIds
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public java.util.List<java.util.UUID> getCustomFieldIds() {
+        return customFieldIds.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELD_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<java.util.List<java.util.UUID>> getCustomFieldIds_JsonNullable() {
+    return customFieldIds;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELD_IDS)
+  public void setCustomFieldIds_JsonNullable(JsonNullable<java.util.List<java.util.UUID>> customFieldIds) {
+    this.customFieldIds = customFieldIds;
+  }
+
+  public void setCustomFieldIds(java.util.List<java.util.UUID> customFieldIds) {
+    this.customFieldIds = JsonNullable.<java.util.List<java.util.UUID>>of(customFieldIds);
+  }
+
+
+  public SubjectSummaryDto noteLengthLimit(Integer noteLengthLimit) {
+    this.noteLengthLimit = JsonNullable.<Integer>of(noteLengthLimit);
+    return this;
+  }
+
+   /**
+   * Get noteLengthLimit
+   * @return noteLengthLimit
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Integer getNoteLengthLimit() {
+        return noteLengthLimit.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NOTE_LENGTH_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getNoteLengthLimit_JsonNullable() {
+    return noteLengthLimit;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NOTE_LENGTH_LIMIT)
+  public void setNoteLengthLimit_JsonNullable(JsonNullable<Integer> noteLengthLimit) {
+    this.noteLengthLimit = noteLengthLimit;
+  }
+
+  public void setNoteLengthLimit(Integer noteLengthLimit) {
+    this.noteLengthLimit = JsonNullable.<Integer>of(noteLengthLimit);
+  }
+
+
   /**
    * Return true if this SubjectSummaryDto object is equal to o.
    */
@@ -233,7 +411,11 @@ public class SubjectSummaryDto implements Serializable {
         equalsNullable(this.name, subjectSummaryDto.name) &&
         equalsNullable(this.code, subjectSummaryDto.code) &&
         equalsNullable(this.identifierType, subjectSummaryDto.identifierType) &&
-        Objects.equals(this.isHidden, subjectSummaryDto.isHidden);
+        equalsNullable(this.identifierTypes, subjectSummaryDto.identifierTypes) &&
+        equalsNullable(this.type, subjectSummaryDto.type) &&
+        Objects.equals(this.isHidden, subjectSummaryDto.isHidden) &&
+        equalsNullable(this.customFieldIds, subjectSummaryDto.customFieldIds) &&
+        equalsNullable(this.noteLengthLimit, subjectSummaryDto.noteLengthLimit);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +424,7 @@ public class SubjectSummaryDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(code), hashCodeNullable(identifierType), isHidden);
+    return Objects.hash(id, hashCodeNullable(name), hashCodeNullable(code), hashCodeNullable(identifierType), hashCodeNullable(identifierTypes), hashCodeNullable(type), isHidden, hashCodeNullable(customFieldIds), hashCodeNullable(noteLengthLimit));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -260,7 +442,11 @@ public class SubjectSummaryDto implements Serializable {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    identifierType: ").append(toIndentedString(identifierType)).append("\n");
+    sb.append("    identifierTypes: ").append(toIndentedString(identifierTypes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
+    sb.append("    customFieldIds: ").append(toIndentedString(customFieldIds)).append("\n");
+    sb.append("    noteLengthLimit: ").append(toIndentedString(noteLengthLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

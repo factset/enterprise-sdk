@@ -51,6 +51,8 @@ public class IncludeExcludeObject implements Serializable {
   public static final String JSON_PROPERTY_VALUES = "values";
   private java.util.List<Object> values = null;
 
+  public IncludeExcludeObject() { 
+  }
 
   public IncludeExcludeObject field(String field) {
     this.field = field;

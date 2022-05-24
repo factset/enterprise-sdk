@@ -48,6 +48,8 @@ public class StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCap
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum() { 
+  }
 
   public StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum value(BigDecimal value) {
     this.value = value;

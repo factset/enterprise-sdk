@@ -54,6 +54,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getOwnershipHoldings(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const fundHoldingsRequest = new factsetownership.FundHoldingsRequest(); // FundH
 // Call api endpoint
 apiInstance.postOwnershipHoldings(fundHoldingsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

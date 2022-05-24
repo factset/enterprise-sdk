@@ -50,6 +50,8 @@ public class ComponentSummary implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
+  public ComponentSummary() { 
+  }
 
   public ComponentSummary name(String name) {
     this.name = name;

@@ -346,7 +346,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile {\n");
             sb.Append("  Preservation: ").Append(Preservation).Append("\n");
             sb.Append("  Growth: ").Append(Growth).Append("\n");
@@ -387,8 +387,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketClientObjectivesAndNeedsReturnProfile input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Preservation == input.Preservation ||
@@ -434,15 +435,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Preservation.GetHashCode();
-                hashCode = hashCode * 59 + this.Growth.GetHashCode();
-                hashCode = hashCode * 59 + this.Income.GetHashCode();
-                hashCode = hashCode * 59 + this.Financing.GetHashCode();
-                hashCode = hashCode * 59 + this.Hedging.GetHashCode();
-                hashCode = hashCode * 59 + this.OptionOrLeveraged.GetHashCode();
-                hashCode = hashCode * 59 + this.Other.GetHashCode();
+                hashCode = (hashCode * 59) + this.Preservation.GetHashCode();
+                hashCode = (hashCode * 59) + this.Growth.GetHashCode();
+                hashCode = (hashCode * 59) + this.Income.GetHashCode();
+                hashCode = (hashCode * 59) + this.Financing.GetHashCode();
+                hashCode = (hashCode * 59) + this.Hedging.GetHashCode();
+                hashCode = (hashCode * 59) + this.OptionOrLeveraged.GetHashCode();
+                hashCode = (hashCode * 59) + this.Other.GetHashCode();
                 if (this.Germany != null)
-                    hashCode = hashCode * 59 + this.Germany.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Germany.GetHashCode();
+                }
                 return hashCode;
             }
         }

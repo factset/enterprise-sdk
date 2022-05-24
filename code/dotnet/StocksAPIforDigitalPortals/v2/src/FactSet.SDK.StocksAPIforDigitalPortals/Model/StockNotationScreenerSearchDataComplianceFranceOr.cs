@@ -53,7 +53,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataComplianceFranceOr {\n");
             sb.Append("  And: ").Append(And).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataComplianceFranceOr input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.And == input.And ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.And != null)
-                    hashCode = hashCode * 59 + this.And.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.And.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -42,6 +42,8 @@ public class NRTSnippetsMetaPartial implements Serializable {
   public static final String JSON_PROPERTY_IS_PARTIAL = "isPartial";
   private Boolean isPartial;
 
+  public NRTSnippetsMetaPartial() { 
+  }
 
   public NRTSnippetsMetaPartial isPartial(Boolean isPartial) {
     this.isPartial = isPartial;

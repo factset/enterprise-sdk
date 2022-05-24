@@ -43,6 +43,8 @@ public class CurrencySymbol implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY_SYMBOL = "currencySymbol";
   private CurrencySymbolCurrencySymbol currencySymbol;
 
+  public CurrencySymbol() { 
+  }
 
   public CurrencySymbol currencySymbol(CurrencySymbolCurrencySymbol currencySymbol) {
     this.currencySymbol = currencySymbol;

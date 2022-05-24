@@ -42,6 +42,8 @@ public class Currency implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public Currency() { 
+  }
 
   public Currency name(String name) {
     this.name = name;

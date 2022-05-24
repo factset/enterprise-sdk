@@ -7,6 +7,9 @@ import com.factset.sdk.IntradayTickHistory.Configuration;
 import com.factset.sdk.IntradayTickHistory.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IntradayTickHistory.models.TickhistoryResponse;
 
@@ -21,6 +24,17 @@ public class TradesAtTimeApi {
   public TradesAtTimeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> tickHistoryTradesattimeGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    tickHistoryTradesattimeGetResponseTypeMap.put(200, new GenericType<TickhistoryResponse>(){});
+    tickHistoryTradesattimeGetResponseTypeMap.put(401, new GenericType<Object>(){});
+    tickHistoryTradesattimeGetResponseTypeMap.put(403, new GenericType<Object>(){});
+    tickHistoryTradesattimeGetResponseTypeMap.put(405, new GenericType<Object>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,10 +134,16 @@ public class TradesAtTimeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TickhistoryResponse> localVarReturnType = new GenericType<TickhistoryResponse>() {};
 
-    return apiClient.invokeAPI("TradesAtTimeApi.tickHistoryTradesattimeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TickhistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("TradesAtTimeApi.tickHistoryTradesattimeGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, tickHistoryTradesattimeGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

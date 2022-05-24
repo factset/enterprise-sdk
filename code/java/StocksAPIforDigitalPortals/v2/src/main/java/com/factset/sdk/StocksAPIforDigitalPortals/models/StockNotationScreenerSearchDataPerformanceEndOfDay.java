@@ -84,6 +84,8 @@ public class StockNotationScreenerSearchDataPerformanceEndOfDay implements Seria
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
   private StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate yearToDate;
 
+  public StockNotationScreenerSearchDataPerformanceEndOfDay() { 
+  }
 
   public StockNotationScreenerSearchDataPerformanceEndOfDay day1(StockNotationScreenerSearchDataPerformanceEndOfDayDay1 day1) {
     this.day1 = day1;

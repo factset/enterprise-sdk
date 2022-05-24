@@ -505,7 +505,6 @@ src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/ApiClient.java
 src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/ApiException.java
 src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/ApiResponse.java
 src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/Configuration.java
-src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/JSON.java
 src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/QuotesAPIforDigitalPortals/Pair.java

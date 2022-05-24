@@ -49,7 +49,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Meeting Id
+            var meetingId = "meetingId_example";  // Guid | Meeting ID
 
             try
             {
@@ -72,10 +72,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **Guid**| Meeting Id | 
+ **meetingId** | **Guid**| Meeting ID | 
 
 ### Return type
-
 [**List&lt;RecordEventSummaryDto&gt;**](RecordEventSummaryDto.md)
 
 ### Authorization
@@ -138,8 +137,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsApi(config);
-            var meetingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Meeting Id
-            var recordEventId = 38400000-8cf0-11bd-b23e-10b96e4ef00d;  // Guid | Record Event Id
+            var meetingId = "meetingId_example";  // Guid | Meeting Id
+            var recordEventId = "recordEventId_example";  // Guid | Record Event Id
 
             try
             {
@@ -166,7 +165,6 @@ Name | Type | Description  | Notes
  **recordEventId** | **Guid**| Record Event Id | 
 
 ### Return type
-
 [**MeetingEventDto**](MeetingEventDto.md)
 
 ### Authorization

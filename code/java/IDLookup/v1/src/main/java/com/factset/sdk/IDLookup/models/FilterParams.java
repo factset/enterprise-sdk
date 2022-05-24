@@ -48,6 +48,8 @@ public class FilterParams implements Serializable {
   public static final String JSON_PROPERTY_EXCLUDE = "exclude";
   private java.util.List<IncludeExcludeObject> exclude = null;
 
+  public FilterParams() { 
+  }
 
   public FilterParams include(java.util.List<IncludeExcludeObject> include) {
     this.include = include;

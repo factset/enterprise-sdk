@@ -18,7 +18,7 @@ import NewsArticleListMeta from './NewsArticleListMeta';
 /**
  * The InlineObject1 model module.
  * @module model/InlineObject1
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineObject1 {
     /**

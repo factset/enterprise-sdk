@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.QuotesAPIforDigitalPortals.JSON;
@@ -77,6 +77,8 @@ public class InlineResponse20072Data implements Serializable {
   public static final String JSON_PROPERTY_VOLATILITY = "volatility";
   private BigDecimal volatility;
 
+  public InlineResponse20072Data() { 
+  }
 
   public InlineResponse20072Data referenceDate(LocalDate referenceDate) {
     this.referenceDate = referenceDate;

@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.Publisher",
-  "packageVersion": "0.8.1",
+  "packageVersion": "0.8.2",
   "packageGuid": "{a44bd0b4-26ee-549b-8a7b-33eb206231cf}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/Publisher/0.8.1",
+  "httpUserAgent": "fds-sdk/dotnet/Publisher/0.8.2",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

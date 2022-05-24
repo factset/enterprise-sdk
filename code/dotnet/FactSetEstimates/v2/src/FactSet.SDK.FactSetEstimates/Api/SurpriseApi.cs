@@ -171,6 +171,33 @@ namespace FactSet.SDK.FactSetEstimates.Api
     {
         private FactSet.SDK.FactSetEstimates.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetSurpriseResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SurpriseResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetSurpriseForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(SurpriseResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SurpriseApi"/> class.
         /// </summary>
@@ -288,7 +315,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>SurpriseResponse</returns>
         public SurpriseResponse GetSurprise(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse> localVarResponse = GetSurpriseWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, statistic, currency);
+            var localVarResponse = GetSurpriseWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, statistic, currency);
             return localVarResponse.Data;
         }
 
@@ -305,15 +332,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="statistic">Statistic for consensus calculation. (optional, default to MEAN)</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of SurpriseResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse> GetSurpriseWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string))
+        public ApiResponse<SurpriseResponse> GetSurpriseWithHttpInfo(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling SurpriseApi->GetSurprise");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'metrics' when calling SurpriseApi->GetSurprise");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -326,10 +357,16 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
@@ -360,13 +397,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -378,15 +415,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<SurpriseResponse>("/factset-estimates/v2/surprise", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSurpriseResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            SurpriseResponse>("/factset-estimates/v2/surprise", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSurprise", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -404,9 +445,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SurpriseResponse</returns>
-        public async System.Threading.Tasks.Task<SurpriseResponse> GetSurpriseAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SurpriseResponse>GetSurpriseAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse> localVarResponse = await GetSurpriseWithHttpInfoAsync(ids, metrics, startDate, endDate, frequency, periodicity, statistic, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSurpriseWithHttpInfoAsync(ids, metrics, startDate, endDate, frequency, periodicity, statistic, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -424,15 +465,20 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SurpriseResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse>> GetSurpriseWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SurpriseResponse>> GetSurpriseWithHttpInfoAsync(List<string> ids, List<string> metrics, string startDate = default(string), string endDate = default(string), string frequency = default(string), string periodicity = default(string), string statistic = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'ids' when calling SurpriseApi->GetSurprise");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'metrics' when calling SurpriseApi->GetSurprise");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -445,12 +491,17 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetEstimates.Client.ClientUtils.ParameterToMultiMap("csv", "metrics", metrics));
@@ -481,13 +532,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -499,14 +550,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSurpriseResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<SurpriseResponse>("/factset-estimates/v2/surprise", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSurprise", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -520,7 +575,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <returns>SurpriseResponse</returns>
         public SurpriseResponse GetSurpriseForList(SurpriseRequest surpriseRequest)
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse> localVarResponse = GetSurpriseForListWithHttpInfo(surpriseRequest);
+            var localVarResponse = GetSurpriseForListWithHttpInfo(surpriseRequest);
             return localVarResponse.Data;
         }
 
@@ -530,11 +585,13 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="surpriseRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <returns>ApiResponse of SurpriseResponse</returns>
-        public FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse> GetSurpriseForListWithHttpInfo(SurpriseRequest surpriseRequest)
+        public ApiResponse<SurpriseResponse> GetSurpriseForListWithHttpInfo(SurpriseRequest surpriseRequest)
         {
             // verify the required parameter 'surpriseRequest' is set
             if (surpriseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'surpriseRequest' when calling SurpriseApi->GetSurpriseForList");
+            }
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
 
@@ -548,22 +605,28 @@ namespace FactSet.SDK.FactSetEstimates.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = surpriseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -575,15 +638,19 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<SurpriseResponse>("/factset-estimates/v2/surprise", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetSurpriseForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            SurpriseResponse>("/factset-estimates/v2/surprise", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSurpriseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -594,9 +661,9 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="surpriseRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SurpriseResponse</returns>
-        public async System.Threading.Tasks.Task<SurpriseResponse> GetSurpriseForListAsync(SurpriseRequest surpriseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SurpriseResponse>GetSurpriseForListAsync(SurpriseRequest surpriseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse> localVarResponse = await GetSurpriseForListWithHttpInfoAsync(surpriseRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSurpriseForListWithHttpInfoAsync(surpriseRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -607,11 +674,14 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// <param name="surpriseRequest">Request object for &#x60;Security&#x60; prices.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SurpriseResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetEstimates.Client.ApiResponse<SurpriseResponse>> GetSurpriseForListWithHttpInfoAsync(SurpriseRequest surpriseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<SurpriseResponse>> GetSurpriseForListWithHttpInfoAsync(SurpriseRequest surpriseRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'surpriseRequest' is set
             if (surpriseRequest == null)
+            {
                 throw new FactSet.SDK.FactSetEstimates.Client.ApiException(400, "Missing required parameter 'surpriseRequest' when calling SurpriseApi->GetSurpriseForList");
+            }
 
 
             FactSet.SDK.FactSetEstimates.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetEstimates.Client.RequestOptions();
@@ -625,24 +695,29 @@ namespace FactSet.SDK.FactSetEstimates.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetEstimates.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = surpriseRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetEstimates.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -654,14 +729,18 @@ namespace FactSet.SDK.FactSetEstimates.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetSurpriseForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<SurpriseResponse>("/factset-estimates/v2/surprise", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSurpriseForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -27,6 +27,7 @@ docs/Metric.md
 docs/MetricsRequest.md
 docs/MetricsResponse.md
 docs/Periodicity.md
+docs/PeriodicityDetail.md
 docs/PeriodicitySurprise.md
 docs/RatingsApi.md
 docs/RollingConsensusRequest.md
@@ -87,6 +88,7 @@ src/FactSet.SDK.FactSetEstimates/Model/Metric.cs
 src/FactSet.SDK.FactSetEstimates/Model/MetricsRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/MetricsResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/Periodicity.cs
+src/FactSet.SDK.FactSetEstimates/Model/PeriodicityDetail.cs
 src/FactSet.SDK.FactSetEstimates/Model/PeriodicitySurprise.cs
 src/FactSet.SDK.FactSetEstimates/Model/RollingConsensusRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/RollingDetailRequest.cs

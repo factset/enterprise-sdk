@@ -68,7 +68,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006InstrumentCategorizationDdv {\n");
             sb.Append("  Level1: ").Append(Level1).Append("\n");
             sb.Append("  Level2: ").Append(Level2).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006InstrumentCategorizationDdv input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Level1 == input.Level1 ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Level1 != null)
-                    hashCode = hashCode * 59 + this.Level1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level1.GetHashCode();
+                }
                 if (this.Level2 != null)
-                    hashCode = hashCode * 59 + this.Level2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level2.GetHashCode();
+                }
                 if (this.Level3 != null)
-                    hashCode = hashCode * 59 + this.Level3.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level3.GetHashCode();
+                }
                 return hashCode;
             }
         }

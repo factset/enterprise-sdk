@@ -48,6 +48,8 @@ public class InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUni
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  public InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit() { 
+  }
 
   public InlineResponse20062DataCostsAndChargesExAnteOneOffEntryCostValueUnit id(BigDecimal id) {
     this.id = id;

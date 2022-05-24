@@ -36,7 +36,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void CancelOptimizationById(string id);
 
         /// <summary>
@@ -122,8 +122,8 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ObjectRoot</returns>
-        ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
+        /// <returns>NPOOptimizerApi.PostAndOptimizeResponseWrapper</returns>
+        NPOOptimizerApi.PostAndOptimizeResponseWrapper PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
 
         /// <summary>
         /// Create and Run NPO optimization
@@ -135,8 +135,8 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ApiResponse of ObjectRoot</returns>
-        ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
+        /// <returns>ApiResponse of NPOOptimizerApi.PostAndOptimizeResponseWrapper</returns>
+        ApiResponse<NPOOptimizerApi.PostAndOptimizeResponseWrapper> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
         /// <summary>
         /// Create or Update NPO optimization and run it.
         /// </summary>
@@ -148,8 +148,8 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ObjectRoot</returns>
-        ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
+        /// <returns>NPOOptimizerApi.PutAndOptimizeResponseWrapper</returns>
+        NPOOptimizerApi.PutAndOptimizeResponseWrapper PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
 
         /// <summary>
         /// Create or Update NPO optimization and run it.
@@ -162,8 +162,8 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ApiResponse of ObjectRoot</returns>
-        ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
+        /// <returns>ApiResponse of NPOOptimizerApi.PutAndOptimizeResponseWrapper</returns>
+        ApiResponse<NPOOptimizerApi.PutAndOptimizeResponseWrapper> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot));
         #endregion Synchronous Operations
     }
 
@@ -277,7 +277,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NPOOptimizerApi.PostAndOptimizeResponseWrapper> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create and Run NPO optimization
@@ -290,8 +290,8 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (NPOOptimizerApi.PostAndOptimizeResponseWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NPOOptimizerApi.PostAndOptimizeResponseWrapper>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create or Update NPO optimization and run it.
         /// </summary>
@@ -305,7 +305,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<NPOOptimizerApi.PutAndOptimizeResponseWrapper> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create or Update NPO optimization and run it.
@@ -319,8 +319,8 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (NPOOptimizerApi.PutAndOptimizeResponseWrapper)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NPOOptimizerApi.PutAndOptimizeResponseWrapper>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -338,6 +338,235 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
     public partial class NPOOptimizerApi : INPOOptimizerApi
     {
         private FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CancelOptimizationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetOptimizationParametersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(NPOOptimizationParametersRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetOptimizationResultResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ObjectRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetOptimizationStatusByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(ObjectRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostAndOptimizeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(ObjectRoot) },
+            { (HttpStatusCode)202, typeof(CalculationInfoRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PutAndOptimizeResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(ObjectRoot) },
+            { (HttpStatusCode)202, typeof(CalculationInfoRoot) },
+            { (HttpStatusCode)400, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)404, typeof(ClientErrorResponse) },
+            { (HttpStatusCode)409, typeof(ClientErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+        /// <summary>
+        /// Wrapper to support POST /analytics/engines/npo/v3/optimizations returning different types
+        /// per status code.
+        ///
+        /// <list>
+        /// <item>
+        /// <description>
+        /// 201 : ObjectRoot<br />
+        /// Expected response, returns json if optimization is completed in a short span.
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 202 : CalculationInfoRoot<br />
+        /// Expected response, contains the poll URL in the Location header.
+        /// </description>
+        /// </item>
+        /// </list>
+        ///
+        /// <example>
+        /// <code>
+        /// PostAndOptimizeResponseWrapper response = ...;
+        /// switch (response.statusCode)
+        /// {
+        ///   case 201:
+        ///     ObjectRoot data201 = response.getResponse201();
+        ///     break;
+        ///   case 202:
+        ///     CalculationInfoRoot data202 = response.getResponse202();
+        ///     break;
+        ///  }
+        /// </code>
+        /// </example>
+        /// </summary>
+        public class PostAndOptimizeResponseWrapper {
+
+            /// <summary>This constructor initializes the new PostAndOptimizeResponseWrapper to
+            /// (<paramref name="statusCode"/>,<paramref name="response"/>).
+            /// </summary>
+            /// <param name="statusCode">Http status code of the response</param>
+            /// <param name="response">Raw response</param>
+            public PostAndOptimizeResponseWrapper(HttpStatusCode statusCode, object response)
+            {
+                StatusCode = statusCode;
+                Response = response;
+            }
+
+            /// <summary>
+            /// Http status code of the response
+            /// </summary>
+            public HttpStatusCode StatusCode { get; }
+
+            /// <summary>
+            /// Raw Object response
+            /// </summary>
+            public object Response { get; }
+
+            
+            /// <summary>
+            /// Expected response, returns json if optimization is completed in a short span.
+            /// </summary>
+            public ObjectRoot Response201
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 201)
+                    {
+                        throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(500, "Invalid response getter called. Response201 can't return a " + StatusCode + " response");
+                    }
+                    return (ObjectRoot) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Expected response, contains the poll URL in the Location header.
+            /// </summary>
+            public CalculationInfoRoot Response202
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 202)
+                    {
+                        throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(500, "Invalid response getter called. Response202 can't return a " + StatusCode + " response");
+                    }
+                    return (CalculationInfoRoot) Response;
+                }
+            }
+            
+        }
+
+
+        /// <summary>
+        /// Wrapper to support PUT /analytics/engines/npo/v3/optimizations/{id} returning different types
+        /// per status code.
+        ///
+        /// <list>
+        /// <item>
+        /// <description>
+        /// 201 : ObjectRoot<br />
+        /// Expected response, returns json if optimization is completed in a short span.
+        /// </description>
+        /// </item>
+        /// 
+        /// <item>
+        /// <description>
+        /// 202 : CalculationInfoRoot<br />
+        /// Expected response, contains the poll URL in the Location header.
+        /// </description>
+        /// </item>
+        /// </list>
+        ///
+        /// <example>
+        /// <code>
+        /// PutAndOptimizeResponseWrapper response = ...;
+        /// switch (response.statusCode)
+        /// {
+        ///   case 201:
+        ///     ObjectRoot data201 = response.getResponse201();
+        ///     break;
+        ///   case 202:
+        ///     CalculationInfoRoot data202 = response.getResponse202();
+        ///     break;
+        ///  }
+        /// </code>
+        /// </example>
+        /// </summary>
+        public class PutAndOptimizeResponseWrapper {
+
+            /// <summary>This constructor initializes the new PutAndOptimizeResponseWrapper to
+            /// (<paramref name="statusCode"/>,<paramref name="response"/>).
+            /// </summary>
+            /// <param name="statusCode">Http status code of the response</param>
+            /// <param name="response">Raw response</param>
+            public PutAndOptimizeResponseWrapper(HttpStatusCode statusCode, object response)
+            {
+                StatusCode = statusCode;
+                Response = response;
+            }
+
+            /// <summary>
+            /// Http status code of the response
+            /// </summary>
+            public HttpStatusCode StatusCode { get; }
+
+            /// <summary>
+            /// Raw Object response
+            /// </summary>
+            public object Response { get; }
+
+            
+            /// <summary>
+            /// Expected response, returns json if optimization is completed in a short span.
+            /// </summary>
+            public ObjectRoot Response201
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 201)
+                    {
+                        throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(500, "Invalid response getter called. Response201 can't return a " + StatusCode + " response");
+                    }
+                    return (ObjectRoot) Response;
+                }
+            }
+            
+            /// <summary>
+            /// Expected response, contains the poll URL in the Location header.
+            /// </summary>
+            public CalculationInfoRoot Response202
+            {
+                get
+                {
+                    if (StatusCode != (HttpStatusCode) 202)
+                    {
+                        throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(500, "Invalid response getter called. Response202 can't return a " + StatusCode + " response");
+                    }
+                    return (CalculationInfoRoot) Response;
+                }
+            }
+            
+        }
+
+
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NPOOptimizerApi"/> class.
@@ -446,7 +675,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void CancelOptimizationById(string id)
         {
             CancelOptimizationByIdWithHttpInfo(id);
@@ -458,11 +687,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <exception cref="FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<Object> CancelOptimizationByIdWithHttpInfo(string id)
+        public ApiResponse<Object> CancelOptimizationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->CancelOptimizationById");
+            }
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
 
@@ -477,22 +708,28 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -504,15 +741,19 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CancelOptimizationByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelOptimizationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -535,11 +776,14 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<Object>> CancelOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CancelOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->CancelOptimizationById");
+            }
 
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
@@ -554,24 +798,29 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 "text/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -583,14 +832,18 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CancelOptimizationByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelOptimizationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -604,7 +857,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <returns>NPOOptimizationParametersRoot</returns>
         public NPOOptimizationParametersRoot GetOptimizationParameters(string id)
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<NPOOptimizationParametersRoot> localVarResponse = GetOptimizationParametersWithHttpInfo(id);
+            var localVarResponse = GetOptimizationParametersWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -614,11 +867,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <exception cref="FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <returns>ApiResponse of NPOOptimizationParametersRoot</returns>
-        public FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<NPOOptimizationParametersRoot> GetOptimizationParametersWithHttpInfo(string id)
+        public ApiResponse<NPOOptimizationParametersRoot> GetOptimizationParametersWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->GetOptimizationParameters");
+            }
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
 
@@ -631,22 +886,28 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -658,15 +919,19 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<NPOOptimizationParametersRoot>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetOptimizationParametersResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            NPOOptimizationParametersRoot>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOptimizationParameters", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -677,9 +942,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NPOOptimizationParametersRoot</returns>
-        public async System.Threading.Tasks.Task<NPOOptimizationParametersRoot> GetOptimizationParametersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NPOOptimizationParametersRoot>GetOptimizationParametersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<NPOOptimizationParametersRoot> localVarResponse = await GetOptimizationParametersWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetOptimizationParametersWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -690,11 +955,14 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NPOOptimizationParametersRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<NPOOptimizationParametersRoot>> GetOptimizationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NPOOptimizationParametersRoot>> GetOptimizationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->GetOptimizationParameters");
+            }
 
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
@@ -707,24 +975,29 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -736,14 +1009,18 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetOptimizationParametersResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<NPOOptimizationParametersRoot>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOptimizationParameters", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -757,7 +1034,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <returns>ObjectRoot</returns>
         public ObjectRoot GetOptimizationResult(string id)
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = GetOptimizationResultWithHttpInfo(id);
+            var localVarResponse = GetOptimizationResultWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -767,11 +1044,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <exception cref="FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get NPO optimization status by id endpoint</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> GetOptimizationResultWithHttpInfo(string id)
+        public ApiResponse<ObjectRoot> GetOptimizationResultWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->GetOptimizationResult");
+            }
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
 
@@ -784,22 +1063,28 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -811,15 +1096,19 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}/result", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetOptimizationResultResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}/result", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOptimizationResult", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -830,9 +1119,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Get NPO optimization status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetOptimizationResultAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectRoot>GetOptimizationResultAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = await GetOptimizationResultWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetOptimizationResultWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -843,11 +1132,14 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Get NPO optimization status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->GetOptimizationResult");
+            }
 
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
@@ -860,24 +1152,29 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -889,14 +1186,18 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetOptimizationResultResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}/result", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOptimizationResult", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -910,7 +1211,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <returns>ObjectRoot</returns>
         public ObjectRoot GetOptimizationStatusById(string id)
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = GetOptimizationStatusByIdWithHttpInfo(id);
+            var localVarResponse = GetOptimizationStatusByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -920,11 +1221,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <exception cref="FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> GetOptimizationStatusByIdWithHttpInfo(string id)
+        public ApiResponse<ObjectRoot> GetOptimizationStatusByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->GetOptimizationStatusById");
+            }
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
 
@@ -937,22 +1240,28 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -964,15 +1273,19 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}/status", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetOptimizationStatusByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}/status", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOptimizationStatusById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -983,9 +1296,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetOptimizationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectRoot>GetOptimizationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = await GetOptimizationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetOptimizationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -996,11 +1309,14 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="id">from url, provided from the location header in the Create and Run NPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot>> GetOptimizationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetOptimizationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->GetOptimizationStatusById");
+            }
 
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
@@ -1013,24 +1329,29 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1042,14 +1363,18 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetOptimizationStatusByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOptimizationStatusById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1062,10 +1387,10 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ObjectRoot</returns>
-        public ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
+        /// <returns>NPOOptimizerApi.PostAndOptimizeResponseWrapper</returns>
+        public NPOOptimizerApi.PostAndOptimizeResponseWrapper PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = PostAndOptimizeWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot);
+            var localVarResponse = PostAndOptimizeWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -1077,7 +1402,7 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
+        public ApiResponse<NPOOptimizerApi.PostAndOptimizeResponseWrapper> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
         {
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
 
@@ -1091,10 +1416,16 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xFactSetApiLongRunningDeadline != null)
             {
@@ -1108,13 +1439,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1126,16 +1457,21 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ObjectRoot>("/analytics/engines/npo/v3/optimizations", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostAndOptimizeResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            Object>("/analytics/engines/npo/v3/optimizations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostAndOptimize", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
-            return localVarResponse;
+            var postandoptimizeResponse = new PostAndOptimizeResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PostAndOptimizeResponseWrapper>(localVarResponse.StatusCode, postandoptimizeResponse);
         }
 
         /// <summary>
@@ -1147,9 +1483,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NPOOptimizerApi.PostAndOptimizeResponseWrapper>PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = await PostAndOptimizeWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostAndOptimizeWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1162,7 +1498,8 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NPOOptimizerApi.PostAndOptimizeResponseWrapper>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
@@ -1176,12 +1513,17 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xFactSetApiLongRunningDeadline != null)
             {
@@ -1195,13 +1537,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1213,17 +1555,22 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostAndOptimizeResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<ObjectRoot>("/analytics/engines/npo/v3/optimizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/npo/v3/optimizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostAndOptimize", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
-            return localVarResponse;
+            var postandoptimizeResponse = new PostAndOptimizeResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PostAndOptimizeResponseWrapper>(localVarResponse.StatusCode, postandoptimizeResponse);
         }
 
         /// <summary>
@@ -1234,10 +1581,10 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ObjectRoot</returns>
-        public ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
+        /// <returns>NPOOptimizerApi.PutAndOptimizeResponseWrapper</returns>
+        public NPOOptimizerApi.PutAndOptimizeResponseWrapper PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = PutAndOptimizeWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot);
+            var localVarResponse = PutAndOptimizeWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -1250,11 +1597,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
+        public ApiResponse<NPOOptimizerApi.PutAndOptimizeResponseWrapper> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->PutAndOptimize");
+            }
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
 
@@ -1268,10 +1617,16 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             };
 
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
             if (xFactSetApiLongRunningDeadline != null)
@@ -1286,13 +1641,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1304,16 +1659,21 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PutAndOptimizeResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            Object>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutAndOptimize", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
-            return localVarResponse;
+            var putandoptimizeResponse = new PutAndOptimizeResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PutAndOptimizeResponseWrapper>(localVarResponse.StatusCode, putandoptimizeResponse);
         }
 
         /// <summary>
@@ -1326,9 +1686,9 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NPOOptimizerApi.PutAndOptimizeResponseWrapper>PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot> localVarResponse = await PutAndOptimizeWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PutAndOptimizeWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1342,11 +1702,14 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
         /// <param name="nPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NPOOptimizerApi.PutAndOptimizeResponseWrapper>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), NPOOptimizationParametersRoot nPOOptimizationParametersRoot = default(NPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ApiException(400, "Missing required parameter 'id' when calling NPOOptimizerApi->PutAndOptimize");
+            }
 
 
             FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.NorthfieldPortfolioOptimizer.Client.RequestOptions();
@@ -1360,12 +1723,17 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.ParameterToString(id)); // path parameter
             if (xFactSetApiLongRunningDeadline != null)
@@ -1380,13 +1748,13 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.NorthfieldPortfolioOptimizer.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1398,17 +1766,22 @@ namespace FactSet.SDK.NorthfieldPortfolioOptimizer.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PutAndOptimizeResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<ObjectRoot>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/analytics/engines/npo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PutAndOptimize", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
-            return localVarResponse;
+            var putandoptimizeResponse = new PutAndOptimizeResponseWrapper(localVarResponse.StatusCode, localVarResponse.Data);
+            return new ApiResponse<PutAndOptimizeResponseWrapper>(localVarResponse.StatusCode, putandoptimizeResponse);
         }
 
     }

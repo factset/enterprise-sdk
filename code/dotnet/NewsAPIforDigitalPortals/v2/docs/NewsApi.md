@@ -1,6 +1,6 @@
 # FactSet.SDK.NewsAPIforDigitalPortals.Api.NewsApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -64,10 +64,10 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var code = code_example;  // string | Identifier of a news article.
-            var includeMedia = true;  // bool? | If true, media references are included if available. (optional)  (default to false)
+            var code = "code_example";  // string | Identifier of a news article.
+            var includeMedia = false;  // bool? | If true, media references are included if available. (optional)  (default to false)
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -96,7 +96,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -159,9 +158,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14;  // decimal | Identifier of a news article type.
+            var id = 8.14D;  // decimal | Identifier of a news article type.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -189,7 +188,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -253,7 +251,7 @@ namespace Example
 
             var apiInstance = new NewsApi(config);
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -280,7 +278,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
@@ -343,7 +340,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14;  // decimal | Identifier of a distributor.
+            var id = 8.14D;  // decimal | Identifier of a distributor.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -371,7 +368,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
@@ -464,7 +460,6 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-
 [**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
@@ -527,7 +522,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14;  // decimal | Identifier of a publisher.
+            var id = 8.14D;  // decimal | Identifier of a publisher.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -555,7 +550,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
@@ -621,8 +615,8 @@ namespace Example
             var ids = new List<decimal>(); // List<decimal> | Identifiers of publishers. (optional) 
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
-            var paginationOffset = 8.14;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
-            var paginationLimit = 8.14;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
+            var paginationOffset = 0.0MD;  // decimal? | Non-negative number of entries to skip, or 0 (default). (optional)  (default to 0.0M)
+            var paginationLimit = 20.0MD;  // decimal? | Non-negative maximum number of entries to return. (optional)  (default to 20.0M)
 
             try
             {
@@ -652,7 +646,6 @@ Name | Type | Description  | Notes
  **paginationLimit** | **decimal?**| Non-negative maximum number of entries to return. | [optional] [default to 20.0M]
 
 ### Return type
-
 [**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
@@ -715,7 +708,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new NewsApi(config);
-            var id = 8.14;  // decimal | Identifier of a distributor.
+            var id = 8.14D;  // decimal | Identifier of a distributor.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
             var sort = new List<string>(); // List<string> | Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. (optional) 
 
@@ -745,7 +738,6 @@ Name | Type | Description  | Notes
  **sort** | [**List&lt;string&gt;**](string.md)| Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 1 (possibly prefixed) attribute name(s) is allowed. | [optional] 
 
 ### Return type
-
 [**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
@@ -834,7 +826,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -923,7 +914,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -1012,7 +1002,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -1101,7 +1090,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -1190,7 +1178,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject4**](InlineObject4.md)|  | 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -1279,7 +1266,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject5**](InlineObject5.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -1368,7 +1354,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
-
 [**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization

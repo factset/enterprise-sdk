@@ -17,7 +17,7 @@ import OptimizerAccountOverrides from './OptimizerAccountOverrides';
 /**
  * The OptimizerAccount model module.
  * @module model/OptimizerAccount
- * @version 0.8.1
+ * @version 0.8.2
  */
 class OptimizerAccount {
     /**

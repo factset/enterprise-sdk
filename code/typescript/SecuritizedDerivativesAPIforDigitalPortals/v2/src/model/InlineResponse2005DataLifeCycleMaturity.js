@@ -19,7 +19,7 @@ import InlineResponse2005DataLifeCycleMaturityRemainingTermDays from './InlineRe
 /**
  * The InlineResponse2005DataLifeCycleMaturity model module.
  * @module model/InlineResponse2005DataLifeCycleMaturity
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataLifeCycleMaturity {
     /**

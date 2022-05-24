@@ -78,6 +78,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataObservation1
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataObservation1() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataObservation1 type(TypeEnum type) {
     this.type = type;

@@ -29,14 +29,13 @@ import com.factset.sdk.OFDB.ApiClient;
 import com.factset.sdk.OFDB.ApiException;
 import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.auth.*;
-import com.factset.sdk.OFDB.model.*;
+import com.factset.sdk.OFDB.models.*;
 import com.factset.sdk.OFDB.api.ModifyApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,14 +45,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
@@ -61,6 +60,7 @@ public class Example {
         try {
             Object result = apiInstance.v1DatabasePathDatesDateDelete(path, date);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModifyApi#v1DatabasePathDatesDateDelete");
             System.err.println("Status code: " + e.getCode());
@@ -122,14 +122,13 @@ import com.factset.sdk.OFDB.ApiClient;
 import com.factset.sdk.OFDB.ApiException;
 import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.auth.*;
-import com.factset.sdk.OFDB.model.*;
+import com.factset.sdk.OFDB.models.*;
 import com.factset.sdk.OFDB.api.ModifyApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -139,14 +138,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
@@ -155,6 +154,7 @@ public class Example {
         try {
             SuccessPostResponse result = apiInstance.v1DatabasePathDatesDatePut(path, date, inlineObject3);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModifyApi#v1DatabasePathDatesDatePut");
             System.err.println("Status code: " + e.getCode());
@@ -218,14 +218,13 @@ import com.factset.sdk.OFDB.ApiClient;
 import com.factset.sdk.OFDB.ApiException;
 import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.auth.*;
-import com.factset.sdk.OFDB.model.*;
+import com.factset.sdk.OFDB.models.*;
 import com.factset.sdk.OFDB.api.ModifyApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -235,14 +234,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
@@ -251,6 +250,7 @@ public class Example {
         try {
             Object result = apiInstance.v1DatabasePathDatesDateSymbolsSymbolDelete(path, date, symbol);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModifyApi#v1DatabasePathDatesDateSymbolsSymbolDelete");
             System.err.println("Status code: " + e.getCode());
@@ -313,14 +313,13 @@ import com.factset.sdk.OFDB.ApiClient;
 import com.factset.sdk.OFDB.ApiException;
 import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.auth.*;
-import com.factset.sdk.OFDB.model.*;
+import com.factset.sdk.OFDB.models.*;
 import com.factset.sdk.OFDB.api.ModifyApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -330,14 +329,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
@@ -347,6 +346,7 @@ public class Example {
         try {
             SuccessPostResponse result = apiInstance.v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModifyApi#v1DatabasePathDatesDateSymbolsSymbolPut");
             System.err.println("Status code: " + e.getCode());
@@ -410,14 +410,13 @@ import com.factset.sdk.OFDB.ApiClient;
 import com.factset.sdk.OFDB.ApiException;
 import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.auth.*;
-import com.factset.sdk.OFDB.model.*;
+import com.factset.sdk.OFDB.models.*;
 import com.factset.sdk.OFDB.api.ModifyApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -427,14 +426,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
@@ -442,6 +441,7 @@ public class Example {
         try {
             Object result = apiInstance.v1DatabasePathSymbolsSymbolDelete(path, symbol);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModifyApi#v1DatabasePathSymbolsSymbolDelete");
             System.err.println("Status code: " + e.getCode());
@@ -503,14 +503,13 @@ import com.factset.sdk.OFDB.ApiClient;
 import com.factset.sdk.OFDB.ApiException;
 import com.factset.sdk.OFDB.Configuration;
 import com.factset.sdk.OFDB.auth.*;
-import com.factset.sdk.OFDB.model.*;
+import com.factset.sdk.OFDB.models.*;
 import com.factset.sdk.OFDB.api.ModifyApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -520,14 +519,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModifyApi apiInstance = new ModifyApi(defaultClient);
         String path = "path_example"; // String | Encode database path
@@ -536,6 +535,7 @@ public class Example {
         try {
             SuccessPostResponse result = apiInstance.v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModifyApi#v1DatabasePathSymbolsSymbolPut");
             System.err.println("Status code: " + e.getCode());

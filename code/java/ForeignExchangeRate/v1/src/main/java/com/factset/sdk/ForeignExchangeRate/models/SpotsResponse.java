@@ -43,6 +43,8 @@ public class SpotsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Spot> data = null;
 
+  public SpotsResponse() { 
+  }
 
   public SpotsResponse data(java.util.List<Spot> data) {
     this.data = data;

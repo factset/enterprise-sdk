@@ -42,6 +42,8 @@ public class InlineResponse2011Data implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public InlineResponse2011Data() { 
+  }
 
   public InlineResponse2011Data id(String id) {
     this.id = id;

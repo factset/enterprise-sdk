@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntitySecurities service.
 * @module api/EntitySecuritiesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EntitySecuritiesApi {
 
@@ -67,7 +67,10 @@ export default class EntitySecuritiesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EntitySecuritiesResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/entity-securities', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -81,7 +84,7 @@ export default class EntitySecuritiesApi {
      * @param {Array.<String>} ids The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>   *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,       which may lead to exceeding this request line limit of 8KB, its       advised for any requests with large request lines to be requested through       the respective \\\"POST\\\" method.</p>* 
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.securityType Controls the response to return all related equity listings (EQ), all debt instruments (FI), or both all equity and all debt (ALL). (default to 'EQ')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntitySecuritiesResponse}
+     * @return { Promise.< module:model/EntitySecuritiesResponse > } a Promise, with data of type {@link module:model/EntitySecuritiesResponse }
      */
     getEntitySecurities(ids, opts) {
       return this.getEntitySecuritiesWithHttpInfo(ids, opts)
@@ -116,7 +119,10 @@ export default class EntitySecuritiesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntitySecuritiesResponse;
+
       return this.apiClient.callApi(
         '/factset-entity/v1/entity-securities', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -128,7 +134,7 @@ export default class EntitySecuritiesApi {
      * Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.
      * Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity. 
      * @param {module:model/EntitySecuritiesRequest} entitySecuritiesRequest Request Body to request a list of Entity Security objects.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntitySecuritiesResponse}
+     * @return { Promise.< module:model/EntitySecuritiesResponse > } a Promise, with data of type {@link module:model/EntitySecuritiesResponse }
      */
     postEntitySecurities(entitySecuritiesRequest) {
       return this.postEntitySecuritiesWithHttpInfo(entitySecuritiesRequest)
@@ -139,3 +145,8 @@ export default class EntitySecuritiesApi {
 
 
 }
+
+
+
+
+

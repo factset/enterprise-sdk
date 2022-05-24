@@ -109,6 +109,8 @@ public class Metric implements Serializable {
   public static final String JSON_PROPERTY_DATA_TYPE = "dataType";
   private String dataType;
 
+  public Metric() { 
+  }
 
   public Metric metric(String metric) {
     this.metric = metric;

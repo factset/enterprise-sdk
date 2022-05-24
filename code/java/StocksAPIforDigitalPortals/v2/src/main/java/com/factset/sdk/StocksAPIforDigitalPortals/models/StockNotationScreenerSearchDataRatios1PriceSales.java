@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataRatios1PriceSales implements Seriali
   public static final String JSON_PROPERTY_MEAN = "mean";
   private StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean mean;
 
+  public StockNotationScreenerSearchDataRatios1PriceSales() { 
+  }
 
   public StockNotationScreenerSearchDataRatios1PriceSales mean(StockNotationScreenerSearchDataCurrencyDependentEstimatesEbitMean mean) {
     this.mean = mean;

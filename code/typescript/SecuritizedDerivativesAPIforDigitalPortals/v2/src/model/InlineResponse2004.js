@@ -18,7 +18,7 @@ import InlineResponse2004Meta from './InlineResponse2004Meta';
 /**
  * The InlineResponse2004 model module.
  * @module model/InlineResponse2004
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004 {
     /**

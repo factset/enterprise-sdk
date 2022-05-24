@@ -76,7 +76,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001DataProfitLoss {\n");
             sb.Append("  Realized: ").Append(Realized).Append("\n");
             sb.Append("  Potential: ").Append(Potential).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2001DataProfitLoss input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Realized == input.Realized ||
@@ -148,13 +149,21 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Realized != null)
-                    hashCode = hashCode * 59 + this.Realized.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Realized.GetHashCode();
+                }
                 if (this.Potential != null)
-                    hashCode = hashCode * 59 + this.Potential.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Potential.GetHashCode();
+                }
                 if (this.Total != null)
-                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                }
                 if (this.Today != null)
-                    hashCode = hashCode * 59 + this.Today.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Today.GetHashCode();
+                }
                 return hashCode;
             }
         }

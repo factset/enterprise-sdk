@@ -70,7 +70,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationCrossReferenceListByISINData {\n");
             sb.Append("  Isin: ").Append(Isin).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationCrossReferenceListByISINData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Isin == input.Isin ||
@@ -130,9 +131,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Isin != null)
-                    hashCode = hashCode * 59 + this.Isin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Isin.GetHashCode();
+                }
                 if (this.Filter != null)
-                    hashCode = hashCode * 59 + this.Filter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
                 return hashCode;
             }
         }

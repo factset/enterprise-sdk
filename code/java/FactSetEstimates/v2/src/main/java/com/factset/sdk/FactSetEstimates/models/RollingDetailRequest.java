@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.FactSetEstimates.models.Frequency;
-import com.factset.sdk.FactSetEstimates.models.Periodicity;
+import com.factset.sdk.FactSetEstimates.models.PeriodicityDetail;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -73,7 +73,7 @@ public class RollingDetailRequest implements Serializable {
   private Integer relativeFiscalEnd;
 
   public static final String JSON_PROPERTY_PERIODICITY = "periodicity";
-  private Periodicity periodicity = Periodicity.ANN;
+  private PeriodicityDetail periodicity = PeriodicityDetail.ANN;
 
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private java.util.List<String> metrics = new java.util.ArrayList<>();
@@ -81,6 +81,18 @@ public class RollingDetailRequest implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public RollingDetailRequest() { 
+  }
+
+  @JsonCreator
+  public RollingDetailRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids, 
+    @JsonProperty(value=JSON_PROPERTY_METRICS, required=true) java.util.List<String> metrics
+  ) {
+    this();
+    this.ids = ids;
+    this.metrics = metrics;
+  }
 
   public RollingDetailRequest ids(java.util.List<String> ids) {
     this.ids = ids;
@@ -269,7 +281,7 @@ public class RollingDetailRequest implements Serializable {
   }
 
 
-  public RollingDetailRequest periodicity(Periodicity periodicity) {
+  public RollingDetailRequest periodicity(PeriodicityDetail periodicity) {
     this.periodicity = periodicity;
     return this;
   }
@@ -283,14 +295,14 @@ public class RollingDetailRequest implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERIODICITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Periodicity getPeriodicity() {
+  public PeriodicityDetail getPeriodicity() {
     return periodicity;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERIODICITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriodicity(Periodicity periodicity) {
+  public void setPeriodicity(PeriodicityDetail periodicity) {
     this.periodicity = periodicity;
   }
 

@@ -130,7 +130,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationStatus {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
@@ -169,8 +169,9 @@ namespace FactSet.SDK.SPAREngine.Model
         public bool Equals(CalculationStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -215,16 +216,24 @@ namespace FactSet.SDK.SPAREngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.Units.GetHashCode();
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                hashCode = (hashCode * 59) + this.Units.GetHashCode();
                 if (this.Pa != null)
-                    hashCode = hashCode * 59 + this.Pa.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pa.GetHashCode();
+                }
                 if (this.Spar != null)
-                    hashCode = hashCode * 59 + this.Spar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Spar.GetHashCode();
+                }
                 if (this.Vault != null)
-                    hashCode = hashCode * 59 + this.Vault.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Vault.GetHashCode();
+                }
                 if (this.Pub != null)
-                    hashCode = hashCode * 59 + this.Pub.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pub.GetHashCode();
+                }
                 return hashCode;
             }
         }

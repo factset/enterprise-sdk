@@ -88,6 +88,8 @@ public class InlineResponse2002Data implements Serializable {
   public static final String JSON_PROPERTY_SUBSAMPLES = "subsamples";
   private java.util.List<java.util.List<BigDecimal>> subsamples = null;
 
+  public InlineResponse2002Data() { 
+  }
 
   public InlineResponse2002Data range(InlineResponse200DataRange range) {
     this.range = range;

@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFactors(ids, factors, startDate, endDate, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const factorsRequest = new factsetquantfactorlibrary.FactorsRequest(); // Factor
 // Call api endpoint
 apiInstance.getFactorsForList(factorsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

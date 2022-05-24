@@ -44,6 +44,8 @@ public class NotationSearchByTextDataTradingValue implements Serializable {
   public static final String JSON_PROPERTY_AVERAGE = "average";
   private NotationSearchByTextDataTradingValueAverage average;
 
+  public NotationSearchByTextDataTradingValue() { 
+  }
 
   public NotationSearchByTextDataTradingValue average(NotationSearchByTextDataTradingValueAverage average) {
     this.average = average;

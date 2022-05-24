@@ -48,6 +48,8 @@ public class StockNotationScreenerSearchDataEbitMarginMinimum implements Seriali
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public StockNotationScreenerSearchDataEbitMarginMinimum() { 
+  }
 
   public StockNotationScreenerSearchDataEbitMarginMinimum value(BigDecimal value) {
     this.value = value;

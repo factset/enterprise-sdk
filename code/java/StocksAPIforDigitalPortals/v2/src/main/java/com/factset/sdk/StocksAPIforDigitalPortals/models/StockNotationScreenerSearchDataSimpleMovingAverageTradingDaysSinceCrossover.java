@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceC
   public static final String JSON_PROPERTY_SMA50VS200 = "sma50vs200";
   private StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200 sma50vs200;
 
+  public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossover() { 
+  }
 
   public StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossover sma20vs50(StockNotationScreenerSearchDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50 sma20vs50) {
     this.sma20vs50 = sma20vs50;

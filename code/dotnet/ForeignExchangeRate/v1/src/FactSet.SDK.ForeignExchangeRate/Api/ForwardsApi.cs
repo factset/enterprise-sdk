@@ -159,6 +159,33 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
     {
         private FactSet.SDK.ForeignExchangeRate.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFXForwardsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ForwardsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFXForwardsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(ForwardsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ForwardsApi"/> class.
         /// </summary>
@@ -273,7 +300,7 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <returns>ForwardsResponse</returns>
         public ForwardsResponse GetFXForwards(List<string> ids, string forwardPeriod = default(string), string startDate = default(string), string endDate = default(string), string frequency = default(string))
         {
-            FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse> localVarResponse = GetFXForwardsWithHttpInfo(ids, forwardPeriod, startDate, endDate, frequency);
+            var localVarResponse = GetFXForwardsWithHttpInfo(ids, forwardPeriod, startDate, endDate, frequency);
             return localVarResponse.Data;
         }
 
@@ -287,11 +314,13 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <param name="endDate">The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available.  (optional)</param>
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)</param>
         /// <returns>ApiResponse of ForwardsResponse</returns>
-        public FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse> GetFXForwardsWithHttpInfo(List<string> ids, string forwardPeriod = default(string), string startDate = default(string), string endDate = default(string), string frequency = default(string))
+        public ApiResponse<ForwardsResponse> GetFXForwardsWithHttpInfo(List<string> ids, string forwardPeriod = default(string), string startDate = default(string), string endDate = default(string), string frequency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.ForeignExchangeRate.Client.ApiException(400, "Missing required parameter 'ids' when calling ForwardsApi->GetFXForwards");
+            }
 
             FactSet.SDK.ForeignExchangeRate.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ForeignExchangeRate.Client.RequestOptions();
 
@@ -304,10 +333,16 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
             };
 
             var localVarContentType = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (forwardPeriod != null)
@@ -329,13 +364,13 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -347,15 +382,19 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<ForwardsResponse>("/foreign-exchange/v1/forwards", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFXForwardsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            ForwardsResponse>("/foreign-exchange/v1/forwards", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFXForwards", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -370,9 +409,9 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ForwardsResponse</returns>
-        public async System.Threading.Tasks.Task<ForwardsResponse> GetFXForwardsAsync(List<string> ids, string forwardPeriod = default(string), string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ForwardsResponse>GetFXForwardsAsync(List<string> ids, string forwardPeriod = default(string), string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse> localVarResponse = await GetFXForwardsWithHttpInfoAsync(ids, forwardPeriod, startDate, endDate, frequency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFXForwardsWithHttpInfoAsync(ids, forwardPeriod, startDate, endDate, frequency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -387,11 +426,14 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <param name="frequency">Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ForwardsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse>> GetFXForwardsWithHttpInfoAsync(List<string> ids, string forwardPeriod = default(string), string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ForwardsResponse>> GetFXForwardsWithHttpInfoAsync(List<string> ids, string forwardPeriod = default(string), string startDate = default(string), string endDate = default(string), string frequency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.ForeignExchangeRate.Client.ApiException(400, "Missing required parameter 'ids' when calling ForwardsApi->GetFXForwards");
+            }
 
 
             FactSet.SDK.ForeignExchangeRate.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ForeignExchangeRate.Client.RequestOptions();
@@ -404,12 +446,17 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (forwardPeriod != null)
@@ -431,13 +478,13 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -449,14 +496,18 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFXForwardsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<ForwardsResponse>("/foreign-exchange/v1/forwards", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFXForwards", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -470,7 +521,7 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <returns>ForwardsResponse</returns>
         public ForwardsResponse GetFXForwardsForList(ForwardsRequest forwardsRequest)
         {
-            FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse> localVarResponse = GetFXForwardsForListWithHttpInfo(forwardsRequest);
+            var localVarResponse = GetFXForwardsForListWithHttpInfo(forwardsRequest);
             return localVarResponse.Data;
         }
 
@@ -480,11 +531,13 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <exception cref="FactSet.SDK.ForeignExchangeRate.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardsRequest">Request object for FX Forwards.</param>
         /// <returns>ApiResponse of ForwardsResponse</returns>
-        public FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse> GetFXForwardsForListWithHttpInfo(ForwardsRequest forwardsRequest)
+        public ApiResponse<ForwardsResponse> GetFXForwardsForListWithHttpInfo(ForwardsRequest forwardsRequest)
         {
             // verify the required parameter 'forwardsRequest' is set
             if (forwardsRequest == null)
+            {
                 throw new FactSet.SDK.ForeignExchangeRate.Client.ApiException(400, "Missing required parameter 'forwardsRequest' when calling ForwardsApi->GetFXForwardsForList");
+            }
 
             FactSet.SDK.ForeignExchangeRate.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ForeignExchangeRate.Client.RequestOptions();
 
@@ -498,22 +551,28 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
             };
 
             var localVarContentType = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = forwardsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -525,15 +584,19 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<ForwardsResponse>("/foreign-exchange/v1/forwards", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFXForwardsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            ForwardsResponse>("/foreign-exchange/v1/forwards", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFXForwardsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -544,9 +607,9 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <param name="forwardsRequest">Request object for FX Forwards.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ForwardsResponse</returns>
-        public async System.Threading.Tasks.Task<ForwardsResponse> GetFXForwardsForListAsync(ForwardsRequest forwardsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ForwardsResponse>GetFXForwardsForListAsync(ForwardsRequest forwardsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse> localVarResponse = await GetFXForwardsForListWithHttpInfoAsync(forwardsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFXForwardsForListWithHttpInfoAsync(forwardsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -557,11 +620,14 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
         /// <param name="forwardsRequest">Request object for FX Forwards.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ForwardsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.ForeignExchangeRate.Client.ApiResponse<ForwardsResponse>> GetFXForwardsForListWithHttpInfoAsync(ForwardsRequest forwardsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<ForwardsResponse>> GetFXForwardsForListWithHttpInfoAsync(ForwardsRequest forwardsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'forwardsRequest' is set
             if (forwardsRequest == null)
+            {
                 throw new FactSet.SDK.ForeignExchangeRate.Client.ApiException(400, "Missing required parameter 'forwardsRequest' when calling ForwardsApi->GetFXForwardsForList");
+            }
 
 
             FactSet.SDK.ForeignExchangeRate.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.ForeignExchangeRate.Client.RequestOptions();
@@ -575,24 +641,29 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = forwardsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.ForeignExchangeRate.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -604,14 +675,18 @@ namespace FactSet.SDK.ForeignExchangeRate.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFXForwardsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<ForwardsResponse>("/foreign-exchange/v1/forwards", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFXForwardsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

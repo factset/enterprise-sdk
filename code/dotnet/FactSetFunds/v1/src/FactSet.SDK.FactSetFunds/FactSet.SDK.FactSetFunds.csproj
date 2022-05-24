@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>FactSet.SDK.FactSetFunds</AssemblyName>
     <PackageId>FactSet.SDK.FactSetFunds</PackageId>
@@ -12,7 +12,7 @@
     <Description>FactSet Funds client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.FactSetFunds</RootNamespace>
-    <Version>0.9.1</Version>
+    <Version>0.20.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.FactSetFunds.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>
@@ -22,11 +22,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FactSet.SDK.Utils" Version="0.10.0" />
+    <PackageReference Include="FactSet.SDK.Utils" Version="1.*" />
     <PackageReference Include="JsonSubTypes" Version="1.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="106.15.0" />
-    <PackageReference Include="Polly" Version="7.2.1" />
+    <PackageReference Include="Polly" Version="7.2.2" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <None Include="../../README.md" Pack="true" PackagePath="\" />
   </ItemGroup>

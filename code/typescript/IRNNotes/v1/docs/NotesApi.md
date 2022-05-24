@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createNote
 
-> NewItemDto createNote(opts)
+> NewItemDto createNote(createNoteDto, opts)
 
 Create a note
 
@@ -44,15 +44,16 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new NotesApi();
+const createNoteDto = new irnnotes.CreateNoteDto(); // CreateNoteDto | 
 const opts = {
   'xIRNContributorUsername': "xIRNContributorUsername_example", // String | 
-  'xIRNContributorSerial': "xIRNContributorSerial_example", // String | 
-  'createNoteDto': new irnnotes.CreateNoteDto() // CreateNoteDto | 
+  'xIRNContributorSerial': "xIRNContributorSerial_example" // String | 
 };
 
 // Call api endpoint
-apiInstance.createNote(opts).then(
+apiInstance.createNote(createNoteDto, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -69,9 +70,9 @@ apiInstance.createNote(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **createNoteDto** | [**CreateNoteDto**](CreateNoteDto.md)|  | 
  **xIRNContributorUsername** | **String**|  | [optional] 
  **xIRNContributorSerial** | **String**|  | [optional] 
- **createNoteDto** | [**CreateNoteDto**](CreateNoteDto.md)|  | [optional] 
 
 ### Return type
 
@@ -192,6 +193,7 @@ const noteId = "noteId_example"; // String | Note Id
 // Call api endpoint
 apiInstance.getNote(noteId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -267,6 +269,7 @@ const opts = {
   'limit': 56, // Number | Limit on the number of notes retrieved
   'offset': 56, // Number | Fetch notes after the offset
   'modifiedSince': "modifiedSince_example", // String | Only return notes which have been modified or created since a particular time
+  'states': ["null"], // [String] | Set of states to filter on
   'filterOnRelatedSymbols': false, // Boolean | Include notes whose related symbols match the identifier filter
   'xIRNIncludeDeleted': false // Boolean | 
 };
@@ -274,6 +277,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNotes(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -300,6 +304,7 @@ Name | Type | Description  | Notes
  **limit** | **Number**| Limit on the number of notes retrieved | [optional] 
  **offset** | **Number**| Fetch notes after the offset | [optional] 
  **modifiedSince** | **String**| Only return notes which have been modified or created since a particular time | [optional] 
+ **states** | [**[String]**](String.md)| Set of states to filter on | [optional] 
  **filterOnRelatedSymbols** | **Boolean**| Include notes whose related symbols match the identifier filter | [optional] [default to false]
  **xIRNIncludeDeleted** | **Boolean**|  | [optional] [default to false]
 

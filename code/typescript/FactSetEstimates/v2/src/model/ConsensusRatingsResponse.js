@@ -17,7 +17,7 @@ import ConsensusRatings from './ConsensusRatings';
 /**
  * The ConsensusRatingsResponse model module.
  * @module model/ConsensusRatingsResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ConsensusRatingsResponse {
     /**

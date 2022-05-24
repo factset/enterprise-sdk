@@ -48,6 +48,8 @@ public class InlineResponse2003InstrumentIssueVolumeCurrency implements Serializ
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private String isoCode;
 
+  public InlineResponse2003InstrumentIssueVolumeCurrency() { 
+  }
 
   public InlineResponse2003InstrumentIssueVolumeCurrency id(BigDecimal id) {
     this.id = id;

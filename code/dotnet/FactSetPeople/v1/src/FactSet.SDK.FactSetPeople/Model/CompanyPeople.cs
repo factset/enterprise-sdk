@@ -153,7 +153,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CompanyPeople {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -198,8 +198,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(CompanyPeople input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -273,29 +274,53 @@ namespace FactSet.SDK.FactSetPeople.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Email != null)
-                    hashCode = hashCode * 59 + this.Email.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Email.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.JobFunction1 != null)
-                    hashCode = hashCode * 59 + this.JobFunction1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobFunction1.GetHashCode();
+                }
                 if (this.JobFunction2 != null)
-                    hashCode = hashCode * 59 + this.JobFunction2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobFunction2.GetHashCode();
+                }
                 if (this.JobFunction3 != null)
-                    hashCode = hashCode * 59 + this.JobFunction3.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobFunction3.GetHashCode();
+                }
                 if (this.JobFunction4 != null)
-                    hashCode = hashCode * 59 + this.JobFunction4.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobFunction4.GetHashCode();
+                }
                 if (this.MainPhone != null)
-                    hashCode = hashCode * 59 + this.MainPhone.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MainPhone.GetHashCode();
+                }
                 if (this.PersonId != null)
-                    hashCode = hashCode * 59 + this.PersonId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PersonId.GetHashCode();
+                }
                 if (this.Phone != null)
-                    hashCode = hashCode * 59 + this.Phone.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Phone.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 return hashCode;
             }
         }

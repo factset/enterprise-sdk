@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AccountDirectories from './model/AccountDirectories';
 import AccountDirectoriesRoot from './model/AccountDirectoriesRoot';
@@ -54,14 +53,18 @@ import LinkedPATemplateUpdateParameters from './model/LinkedPATemplateUpdatePara
 import LinkedPATemplateUpdateParametersRoot from './model/LinkedPATemplateUpdateParametersRoot';
 import ObjectRoot from './model/ObjectRoot';
 import PACalculationColumn from './model/PACalculationColumn';
+import PACalculationDataSources from './model/PACalculationDataSources';
 import PACalculationGroup from './model/PACalculationGroup';
 import PACalculationParameters from './model/PACalculationParameters';
 import PACalculationParametersRoot from './model/PACalculationParametersRoot';
+import PACalculationPricingSource from './model/PACalculationPricingSource';
 import PAComponent from './model/PAComponent';
 import PAComponentData from './model/PAComponentData';
 import PAComponentRoot from './model/PAComponentRoot';
 import PADateParameters from './model/PADateParameters';
 import PAIdentifier from './model/PAIdentifier';
+import PAPricingSource from './model/PAPricingSource';
+import PAPricingSourceRoot from './model/PAPricingSourceRoot';
 import TemplateContentTypes from './model/TemplateContentTypes';
 import TemplatedPAComponent from './model/TemplatedPAComponent';
 import TemplatedPAComponentParameters from './model/TemplatedPAComponentParameters';
@@ -89,6 +92,7 @@ import UnlinkedPATemplateSummary from './model/UnlinkedPATemplateSummary';
 import UnlinkedPATemplateSummaryRoot from './model/UnlinkedPATemplateSummaryRoot';
 import UnlinkedPATemplateUpdateParameters from './model/UnlinkedPATemplateUpdateParameters';
 import UnlinkedPATemplateUpdateParametersRoot from './model/UnlinkedPATemplateUpdateParametersRoot';
+
 import AccountsApi from './api/AccountsApi';
 import ColumnStatisticsApi from './api/ColumnStatisticsApi';
 import ColumnsApi from './api/ColumnsApi';
@@ -100,6 +104,9 @@ import FrequenciesApi from './api/FrequenciesApi';
 import GroupsApi from './api/GroupsApi';
 import LinkedPATemplatesApi from './api/LinkedPATemplatesApi';
 import PACalculationsApi from './api/PACalculationsApi';
+import PostAndCalculateResponseWrapper from './api/PACalculationsApi';
+import PutAndCalculateResponseWrapper from './api/PACalculationsApi';
+import PricingSourcesApi from './api/PricingSourcesApi';
 import TemplatedPAComponentsApi from './api/TemplatedPAComponentsApi';
 import UnlinkedPATemplatesApi from './api/UnlinkedPATemplatesApi';
 
@@ -133,7 +140,7 @@ import UnlinkedPATemplatesApi from './api/UnlinkedPATemplatesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -389,6 +396,12 @@ export {
     PACalculationColumn,
 
     /**
+     * The PACalculationDataSources model constructor.
+     * @property {module:model/PACalculationDataSources}
+     */
+    PACalculationDataSources,
+
+    /**
      * The PACalculationGroup model constructor.
      * @property {module:model/PACalculationGroup}
      */
@@ -405,6 +418,12 @@ export {
      * @property {module:model/PACalculationParametersRoot}
      */
     PACalculationParametersRoot,
+
+    /**
+     * The PACalculationPricingSource model constructor.
+     * @property {module:model/PACalculationPricingSource}
+     */
+    PACalculationPricingSource,
 
     /**
      * The PAComponent model constructor.
@@ -435,6 +454,18 @@ export {
      * @property {module:model/PAIdentifier}
      */
     PAIdentifier,
+
+    /**
+     * The PAPricingSource model constructor.
+     * @property {module:model/PAPricingSource}
+     */
+    PAPricingSource,
+
+    /**
+     * The PAPricingSourceRoot model constructor.
+     * @property {module:model/PAPricingSourceRoot}
+     */
+    PAPricingSourceRoot,
 
     /**
      * The TemplateContentTypes model constructor.
@@ -665,6 +696,24 @@ export {
     PACalculationsApi,
 
     /**
+    * The PostAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PostAndCalculateResponseWrapper,
+
+    /**
+    * The PutAndCalculate response wrapper.
+    * @property {module:GetCalculationStatusByIdResponseWrapper}
+    */
+    PutAndCalculateResponseWrapper,
+
+    /**
+    * The PricingSourcesApi service constructor.
+    * @property {module:api/PricingSourcesApi}
+    */
+    PricingSourcesApi,
+
+    /**
     * The TemplatedPAComponentsApi service constructor.
     * @property {module:api/TemplatedPAComponentsApi}
     */
@@ -674,5 +723,6 @@ export {
     * The UnlinkedPATemplatesApi service constructor.
     * @property {module:api/UnlinkedPATemplatesApi}
     */
-    UnlinkedPATemplatesApi
+    UnlinkedPATemplatesApi,
+
 };

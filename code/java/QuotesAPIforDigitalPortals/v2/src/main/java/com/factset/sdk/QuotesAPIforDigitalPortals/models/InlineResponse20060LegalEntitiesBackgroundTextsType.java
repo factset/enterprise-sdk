@@ -48,6 +48,8 @@ public class InlineResponse20060LegalEntitiesBackgroundTextsType implements Seri
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20060LegalEntitiesBackgroundTextsType() { 
+  }
 
   public InlineResponse20060LegalEntitiesBackgroundTextsType id(BigDecimal id) {
     this.id = id;

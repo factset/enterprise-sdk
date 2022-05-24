@@ -59,6 +59,18 @@ public class Fdc3Instrument implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private InstrumentID id;
 
+  public Fdc3Instrument() { 
+  }
+
+  @JsonCreator
+  public Fdc3Instrument(
+    @JsonProperty(value=JSON_PROPERTY_TYPE, required=true) String type, 
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name
+  ) {
+    this();
+    this.type = type;
+    this.name = name;
+  }
 
   public Fdc3Instrument type(String type) {
     this.type = type;

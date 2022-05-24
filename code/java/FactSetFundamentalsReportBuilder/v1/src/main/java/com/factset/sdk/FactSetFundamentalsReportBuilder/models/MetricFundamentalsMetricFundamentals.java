@@ -43,6 +43,8 @@ public class MetricFundamentalsMetricFundamentals implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
+  public MetricFundamentalsMetricFundamentals() { 
+  }
 
   public MetricFundamentalsMetricFundamentals value(String value) {
     this.value = value;

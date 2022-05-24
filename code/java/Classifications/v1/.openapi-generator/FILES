@@ -27,7 +27,6 @@ src/main/java/com/factset/sdk/Classifications/ApiClient.java
 src/main/java/com/factset/sdk/Classifications/ApiException.java
 src/main/java/com/factset/sdk/Classifications/ApiResponse.java
 src/main/java/com/factset/sdk/Classifications/Configuration.java
-src/main/java/com/factset/sdk/Classifications/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/Classifications/JSON.java
 src/main/java/com/factset/sdk/Classifications/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/Classifications/Pair.java

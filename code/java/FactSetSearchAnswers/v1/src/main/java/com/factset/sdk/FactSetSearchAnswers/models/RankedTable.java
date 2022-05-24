@@ -47,6 +47,8 @@ public class RankedTable implements Serializable {
   public static final String JSON_PROPERTY_ROWS = "rows";
   private java.util.List<RankedTableRow> rows = null;
 
+  public RankedTable() { 
+  }
 
   public RankedTable headers(java.util.List<String> headers) {
     this.headers = headers;

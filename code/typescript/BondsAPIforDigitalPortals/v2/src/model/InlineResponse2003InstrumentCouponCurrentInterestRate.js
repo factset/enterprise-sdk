@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentCouponCurrentInterestRateType from './InlineR
 /**
  * The InlineResponse2003InstrumentCouponCurrentInterestRate model module.
  * @module model/InlineResponse2003InstrumentCouponCurrentInterestRate
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentCouponCurrentInterestRate {
     /**

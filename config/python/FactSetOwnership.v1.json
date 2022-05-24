@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.FactSetOwnership",
   "projectName": "fds.sdk.FactSetOwnership",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "FactSet Ownership client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetOwnership/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetOwnership/0.9.1",
+  "httpUserAgent": "fds-sdk/python/FactSetOwnership/0.20.0",
   "files": {
     "LICENSE": {}
   }

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConfigurationAccount model module.
  * @module model/ConfigurationAccount
- * @version 0.8.1
+ * @version 0.8.2
  */
 class ConfigurationAccount {
     /**

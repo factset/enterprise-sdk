@@ -18,7 +18,7 @@ import AxiomaEquityOptimizationParameters from '../model/AxiomaEquityOptimizatio
 /**
 * Optimizations service.
 * @module api/OptimizationsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class OptimizationsApi {
 
@@ -61,7 +61,10 @@ export default class OptimizationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = [];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/axp/v1/optimizations/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -73,7 +76,7 @@ export default class OptimizationsApi {
      * Cancel Axioma optimization by id
      * This is the endpoint to cancel a previously submitted optimization. Instead of doing a GET on the polling URL, cancel the request by doing a DELETE.
      * @param {String} id from url, provided from the location header in the Run Optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     cancelAxiomaOptimizationById(id) {
       return this.cancelAxiomaOptimizationByIdWithHttpInfo(id)
@@ -109,7 +112,10 @@ export default class OptimizationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = [];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/axp/v1/optimizations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -121,7 +127,7 @@ export default class OptimizationsApi {
      * Get Axioma optimization by id
      * This is the endpoint to check on the progress of a previously requested optimization.  If the optimization has finished computing, the body of the response will contain result in JSON.  Otherwise, the optimization is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.
      * @param {String} id from url, provided from the location header in the Run Optimization endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     getAxiomaOptimizationById(id) {
       return this.getAxiomaOptimizationByIdWithHttpInfo(id)
@@ -154,7 +160,10 @@ export default class OptimizationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = [];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/axp/v1/optimizations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -167,7 +176,7 @@ export default class OptimizationsApi {
      * This endpoint runs Axioma optimization specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the optimization.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
      * @param {Object} opts Optional parameters
      * @param {module:model/AxiomaEquityOptimizationParameters} opts.axiomaEquityOptimizationParameters 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     runAxiomaOptimization(opts) {
       return this.runAxiomaOptimizationWithHttpInfo(opts)
@@ -178,3 +187,8 @@ export default class OptimizationsApi {
 
 
 }
+
+
+
+
+

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse20014Data]**](InlineResponse20014Data.md) | Growth of TenK data. | [optional] 
-**meta** | [**InlineResponse2001Meta**](InlineResponse2001Meta.md) |  | [optional] 
+**data** | [**InlineResponse20014Data**](InlineResponse20014Data.md) |  | [optional] 
+**meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

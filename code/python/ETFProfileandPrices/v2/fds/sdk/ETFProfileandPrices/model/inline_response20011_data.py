@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -81,7 +81,15 @@ class InlineResponse20011Data(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
+            'as_of_date': (date,),  # noqa: E501
+            'number_holdings': (float,),  # noqa: E501
+            'concentration': (str,),  # noqa: E501
+            'dividend_yield': (float,),  # noqa: E501
+            'price_earnings_ratio': (float,),  # noqa: E501
+            'price_book_ratio': (float,),  # noqa: E501
+            'market_capitalization': (float,),  # noqa: E501
+            'time_to_maturity': (float,),  # noqa: E501
+            'credit_rating': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,7 +98,15 @@ class InlineResponse20011Data(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
+        'as_of_date': 'asOfDate',  # noqa: E501
+        'number_holdings': 'numberHoldings',  # noqa: E501
+        'concentration': 'concentration',  # noqa: E501
+        'dividend_yield': 'dividendYield',  # noqa: E501
+        'price_earnings_ratio': 'priceEarningsRatio',  # noqa: E501
+        'price_book_ratio': 'priceBookRatio',  # noqa: E501
+        'market_capitalization': 'marketCapitalization',  # noqa: E501
+        'time_to_maturity': 'timeToMaturity',  # noqa: E501
+        'credit_rating': 'creditRating',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,7 +150,15 @@ class InlineResponse20011Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): Name of the geography.. [optional]  # noqa: E501
+            as_of_date (date): Date the analytics data was published. Available for the regions: US, Europe, and Canada.. [optional]  # noqa: E501
+            number_holdings (float): A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.. [optional]  # noqa: E501
+            concentration (str): A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.. [optional]  # noqa: E501
+            dividend_yield (float): The annualized weighted average of the current dividend yield of the portfolio's holdings, gross of fees. Available for the regions: US.. [optional]  # noqa: E501
+            price_earnings_ratio (float): Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.. [optional]  # noqa: E501
+            price_book_ratio (float): Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.. [optional]  # noqa: E501
+            market_capitalization (float): The weighted average market capitalization of the stocks in the fund's portfolio (USD). Available for regions: US.. [optional]  # noqa: E501
+            time_to_maturity (float): The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.. [optional]  # noqa: E501
+            credit_rating (str): Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody's and Standard & Poor's) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -216,7 +240,15 @@ class InlineResponse20011Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): Name of the geography.. [optional]  # noqa: E501
+            as_of_date (date): Date the analytics data was published. Available for the regions: US, Europe, and Canada.. [optional]  # noqa: E501
+            number_holdings (float): A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Outputs are Low, Medium or High. Available for regions: US.. [optional]  # noqa: E501
+            concentration (str): A measure of portfolio diversification, calculated by summing the squared weights of each fund constituent. Low concentration implies high diversification, and vice versa. Possible values are Low, Medium or High. Available for regions: US.. [optional]  # noqa: E501
+            dividend_yield (float): The annualized weighted average of the current dividend yield of the portfolio's holdings, gross of fees. Available for the regions: US.. [optional]  # noqa: E501
+            price_earnings_ratio (float): Weighted average ratio of prices of a fund’s stocks values to their trailing earnings of underlying stocks. Aggregate prices are scaled by the sum of individual earnings, including negative earnings. Available for the regions: US.. [optional]  # noqa: E501
+            price_book_ratio (float): Weighted average ratio of prices of a fund’s stocks to the book value of underlying stocks. Aggregate prices are scaled by the sum of individual book values. Available for the regions: US.. [optional]  # noqa: E501
+            market_capitalization (float): The weighted average market capitalization of the stocks in the fund's portfolio (USD). Available for regions: US.. [optional]  # noqa: E501
+            time_to_maturity (float): The weighted average of remaining time until maturity for all bonds in the portfolio, measured in (possibly fractional) years. Available for the regions: US.. [optional]  # noqa: E501
+            credit_rating (str): Average credit rating for the portfolio, determined by mapping ratings from credit agencies (Fitch, Moody's and Standard & Poor's) to numerical likelihood of default for each bond in the portfolio and then finding the weighted average default probability, then mapping back to an agency credit rating. Accounts for the nonlinear probability of default when aggregating agency ratings. FactSet has developed a numeric equivalent system that allows math functions such as averaging and comparisons across sources (using greater than, equal to, or less than operators), to facilitate easier evaluation. Available for the regions: US.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

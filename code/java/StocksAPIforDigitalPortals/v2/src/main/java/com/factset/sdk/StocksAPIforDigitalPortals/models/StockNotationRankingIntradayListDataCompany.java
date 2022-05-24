@@ -44,6 +44,8 @@ public class StockNotationRankingIntradayListDataCompany implements Serializable
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private StockNotationRankingIntradayListDataCompanyCountry country;
 
+  public StockNotationRankingIntradayListDataCompany() { 
+  }
 
   public StockNotationRankingIntradayListDataCompany country(StockNotationRankingIntradayListDataCompanyCountry country) {
     this.country = country;

@@ -43,6 +43,8 @@ public class EntityUniverseStatisticsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<UniverseStatistics> data = null;
 
+  public EntityUniverseStatisticsResponse() { 
+  }
 
   public EntityUniverseStatisticsResponse data(java.util.List<UniverseStatistics> data) {
     this.data = data;

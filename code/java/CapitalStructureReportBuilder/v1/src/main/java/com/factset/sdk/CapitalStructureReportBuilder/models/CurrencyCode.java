@@ -43,6 +43,8 @@ public class CurrencyCode implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
   private CurrencyCodeCurrencyCode currencyCode;
 
+  public CurrencyCode() { 
+  }
 
   public CurrencyCode currencyCode(CurrencyCodeCurrencyCode currencyCode) {
     this.currencyCode = currencyCode;

@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,7 +17,7 @@ import ContactCustomFieldOptionValueDto from './ContactCustomFieldOptionValueDto
 /**
  * The ContactCustomFieldValueDto model module.
  * @module model/ContactCustomFieldValueDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactCustomFieldValueDto {
     /**
@@ -48,14 +48,14 @@ class ContactCustomFieldValueDto {
         if (data) {
             obj = obj || new ContactCustomFieldValueDto();
 
-            if (data.hasOwnProperty('fieldCode')) {
-                obj['fieldCode'] = ApiClient.convertToType(data['fieldCode'], 'String');
+            if (data.hasOwnProperty('FieldCode')) {
+                obj['FieldCode'] = ApiClient.convertToType(data['FieldCode'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
-                obj['value'] = ApiClient.convertToType(data['value'], 'String');
+            if (data.hasOwnProperty('Value')) {
+                obj['Value'] = ApiClient.convertToType(data['Value'], 'String');
             }
-            if (data.hasOwnProperty('optionValues')) {
-                obj['optionValues'] = ApiClient.convertToType(data['optionValues'], [ContactCustomFieldOptionValueDto]);
+            if (data.hasOwnProperty('OptionValues')) {
+                obj['OptionValues'] = ApiClient.convertToType(data['OptionValues'], [ContactCustomFieldOptionValueDto]);
             }
         }
         return obj;
@@ -65,19 +65,19 @@ class ContactCustomFieldValueDto {
 }
 
 /**
- * @member {String} fieldCode
+ * @member {String} FieldCode
  */
-ContactCustomFieldValueDto.prototype['fieldCode'] = undefined;
+ContactCustomFieldValueDto.prototype['FieldCode'] = undefined;
 
 /**
- * @member {String} value
+ * @member {String} Value
  */
-ContactCustomFieldValueDto.prototype['value'] = undefined;
+ContactCustomFieldValueDto.prototype['Value'] = undefined;
 
 /**
- * @member {Array.<module:model/ContactCustomFieldOptionValueDto>} optionValues
+ * @member {Array.<module:model/ContactCustomFieldOptionValueDto>} OptionValues
  */
-ContactCustomFieldValueDto.prototype['optionValues'] = undefined;
+ContactCustomFieldValueDto.prototype['OptionValues'] = undefined;
 
 
 

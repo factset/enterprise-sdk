@@ -69,7 +69,7 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimizerOutputTypes {\n");
             sb.Append("  Trades: ").Append(Trades).Append("\n");
             sb.Append("  Optimal: ").Append(Optimal).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
         public bool Equals(OptimizerOutputTypes input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Trades == input.Trades ||
@@ -135,11 +136,17 @@ namespace FactSet.SDK.AxiomaFixedIncomeOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Trades != null)
-                    hashCode = hashCode * 59 + this.Trades.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Trades.GetHashCode();
+                }
                 if (this.Optimal != null)
-                    hashCode = hashCode * 59 + this.Optimal.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Optimal.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 return hashCode;
             }
         }

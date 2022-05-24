@@ -48,7 +48,6 @@ src/main/java/com/factset/sdk/CapitalStructureReportBuilder/ApiClient.java
 src/main/java/com/factset/sdk/CapitalStructureReportBuilder/ApiException.java
 src/main/java/com/factset/sdk/CapitalStructureReportBuilder/ApiResponse.java
 src/main/java/com/factset/sdk/CapitalStructureReportBuilder/Configuration.java
-src/main/java/com/factset/sdk/CapitalStructureReportBuilder/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/CapitalStructureReportBuilder/JSON.java
 src/main/java/com/factset/sdk/CapitalStructureReportBuilder/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/CapitalStructureReportBuilder/Pair.java

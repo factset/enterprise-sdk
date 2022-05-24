@@ -48,6 +48,8 @@ public class InlineResponse2004TradingValueAverage implements Serializable {
   public static final String JSON_PROPERTY_DAYS30 = "days30";
   private BigDecimal days30;
 
+  public InlineResponse2004TradingValueAverage() { 
+  }
 
   public InlineResponse2004TradingValueAverage days5(BigDecimal days5) {
     this.days5 = days5;

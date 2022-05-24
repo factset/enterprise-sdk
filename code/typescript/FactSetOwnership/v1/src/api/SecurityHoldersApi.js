@@ -20,7 +20,7 @@ import SecurityHoldersResponse from '../model/SecurityHoldersResponse';
 /**
 * SecurityHolders service.
 * @module api/SecurityHoldersApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class SecurityHoldersApi {
 
@@ -73,7 +73,10 @@ export default class SecurityHoldersApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SecurityHoldersResponse;
+
       return this.apiClient.callApi(
         '/factset-ownership/v1/security-holders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -90,7 +93,7 @@ export default class SecurityHoldersApi {
      * @param {String} opts.topn Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (default to 'ALL')
      * @param {String} opts.date Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close.
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SecurityHoldersResponse}
+     * @return { Promise.< module:model/SecurityHoldersResponse > } a Promise, with data of type {@link module:model/SecurityHoldersResponse }
      */
     getSecurityHolders(ids, opts) {
       return this.getSecurityHoldersWithHttpInfo(ids, opts)
@@ -125,7 +128,10 @@ export default class SecurityHoldersApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SecurityHoldersResponse;
+
       return this.apiClient.callApi(
         '/factset-ownership/v1/security-holders', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -137,7 +143,7 @@ export default class SecurityHoldersApi {
      * Get security ownership data for a list of requested securities.
      * Gets security ownership details and activity for the requested security identifiers. The services allows filtering by \"Topn\" holders and by holder \"type\", such as Institutions, Insiders, and Stakeholders. 
      * @param {module:model/SecurityHoldersRequest} securityHoldersRequest Requesting Security Holders for a list of Fund Identifiers.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SecurityHoldersResponse}
+     * @return { Promise.< module:model/SecurityHoldersResponse > } a Promise, with data of type {@link module:model/SecurityHoldersResponse }
      */
     postSecurityHolders(securityHoldersRequest) {
       return this.postSecurityHoldersWithHttpInfo(securityHoldersRequest)
@@ -148,3 +154,8 @@ export default class SecurityHoldersApi {
 
 
 }
+
+
+
+
+

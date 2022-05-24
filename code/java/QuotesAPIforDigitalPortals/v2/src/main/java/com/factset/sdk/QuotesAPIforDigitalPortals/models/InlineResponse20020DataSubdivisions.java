@@ -48,6 +48,8 @@ public class InlineResponse20020DataSubdivisions implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20020DataSubdivisions() { 
+  }
 
   public InlineResponse20020DataSubdivisions id(BigDecimal id) {
     this.id = id;

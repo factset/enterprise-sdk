@@ -1,0 +1,16 @@
+# factsetownershipreportbuilder.MetadataEntry
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**fsymId** | [**FsymIdFsymId**](FsymIdFsymId.md) |  | [optional] 
+**currencyCode** | [**CurrencyCodeCurrencyCode**](CurrencyCodeCurrencyCode.md) |  | [optional] 
+**currencySymbol** | [**CurrencySymbolCurrencySymbol**](CurrencySymbolCurrencySymbol.md) |  | [optional] 
+**category** | [**CategoryCategory**](CategoryCategory.md) |  | [optional] 
+**valueType** | [**ValueTypeValueType**](ValueTypeValueType.md) |  | [optional] 
+**scale** | [**ScaleScale**](ScaleScale.md) |  | [optional] 
+**description** | [**DescriptionDescription**](DescriptionDescription.md) |  | [optional] 
+**frequency** | [**FrequencyFrequency**](FrequencyFrequency.md) |  | [optional] 
+
+

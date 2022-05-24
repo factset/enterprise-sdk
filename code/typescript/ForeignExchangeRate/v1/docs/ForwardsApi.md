@@ -54,6 +54,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getFXForwards(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const forwardsRequest = new foreignexchangerate.ForwardsRequest(); // ForwardsRe
 // Call api endpoint
 apiInstance.getFXForwardsForList(forwardsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -913,6 +913,7 @@ paths:
       summary: Create and Run NPO optimization
       tags:
       - NPO Optimizer
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/npo/v3/optimizations/{id}:
@@ -1861,6 +1862,7 @@ paths:
       summary: Create or Update NPO optimization and run it.
       tags:
       - NPO Optimizer
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/npo/v3/optimizations/{id}/status:

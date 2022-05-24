@@ -250,6 +250,31 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
     {
         private FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetAlertingPricesBasicAlertGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse200) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAlertingPricesBasicAlertListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2001) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAlertingPricesBasicTriggerGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2002) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostAlertingPricesBasicTriggerListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(InlineResponse2003) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AlertingApi"/> class.
         /// </summary>
@@ -361,7 +386,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 GetAlertingPricesBasicAlertGet(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = GetAlertingPricesBasicAlertGetWithHttpInfo(id, attributes);
+            var localVarResponse = GetAlertingPricesBasicAlertGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -372,11 +397,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the alert.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> GetAlertingPricesBasicAlertGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse200> GetAlertingPricesBasicAlertGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling AlertingApi->GetAlertingPricesBasicAlertGet");
+            }
 
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
 
@@ -389,10 +416,16 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -402,13 +435,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -420,15 +453,19 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse200>("/alerting/prices/basic/alert/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAlertingPricesBasicAlertGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse200>("/alerting/prices/basic/alert/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAlertingPricesBasicAlertGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -440,9 +477,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetAlertingPricesBasicAlertGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse200>GetAlertingPricesBasicAlertGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse200> localVarResponse = await GetAlertingPricesBasicAlertGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAlertingPricesBasicAlertGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -454,11 +491,14 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse200>> GetAlertingPricesBasicAlertGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetAlertingPricesBasicAlertGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling AlertingApi->GetAlertingPricesBasicAlertGet");
+            }
 
 
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
@@ -471,12 +511,17 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -486,13 +531,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -504,14 +549,18 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAlertingPricesBasicAlertGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/alerting/prices/basic/alert/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAlertingPricesBasicAlertGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -528,7 +577,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 GetAlertingPricesBasicAlertList(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = GetAlertingPricesBasicAlertListWithHttpInfo(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit);
+            var localVarResponse = GetAlertingPricesBasicAlertListWithHttpInfo(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit);
             return localVarResponse.Data;
         }
 
@@ -541,7 +590,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="paginationCursor">Starting point as returned in the attributes &#x60;pagination.next&#x60; or &#x60;pagination.previous&#x60; by a prior invocation of this endpoint, or undefined (default). (optional)</param>
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> GetAlertingPricesBasicAlertListWithHttpInfo(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?))
+        public ApiResponse<InlineResponse2001> GetAlertingPricesBasicAlertListWithHttpInfo(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?))
         {
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
 
@@ -554,10 +603,16 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -578,13 +633,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -596,15 +651,19 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2001>("/alerting/prices/basic/alert/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAlertingPricesBasicAlertListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2001>("/alerting/prices/basic/alert/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAlertingPricesBasicAlertList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -618,9 +677,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetAlertingPricesBasicAlertListAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2001>GetAlertingPricesBasicAlertListAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetAlertingPricesBasicAlertListWithHttpInfoAsync(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAlertingPricesBasicAlertListWithHttpInfoAsync(attributes, subscriptionMinimumInterval, paginationCursor, paginationLimit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -634,7 +693,8 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="paginationLimit">Non-negative maximum number of entries to return. (optional, default to 20.0M)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2001>> GetAlertingPricesBasicAlertListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetAlertingPricesBasicAlertListWithHttpInfoAsync(List<string> attributes = default(List<string>), decimal? subscriptionMinimumInterval = default(decimal?), string paginationCursor = default(string), decimal? paginationLimit = default(decimal?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
@@ -647,12 +707,17 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (attributes != null)
             {
@@ -673,13 +738,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -691,14 +756,18 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAlertingPricesBasicAlertListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/alerting/prices/basic/alert/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAlertingPricesBasicAlertList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -713,7 +782,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetAlertingPricesBasicTriggerGet(string id, List<string> attributes = default(List<string>))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = GetAlertingPricesBasicTriggerGetWithHttpInfo(id, attributes);
+            var localVarResponse = GetAlertingPricesBasicTriggerGetWithHttpInfo(id, attributes);
             return localVarResponse.Data;
         }
 
@@ -724,11 +793,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="id">Identifier of the trigger.</param>
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> GetAlertingPricesBasicTriggerGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
+        public ApiResponse<InlineResponse2002> GetAlertingPricesBasicTriggerGetWithHttpInfo(string id, List<string> attributes = default(List<string>))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling AlertingApi->GetAlertingPricesBasicTriggerGet");
+            }
 
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
 
@@ -741,10 +812,16 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -754,13 +831,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -772,15 +849,19 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<InlineResponse2002>("/alerting/prices/basic/trigger/get", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAlertingPricesBasicTriggerGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            InlineResponse2002>("/alerting/prices/basic/trigger/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAlertingPricesBasicTriggerGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -792,9 +873,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetAlertingPricesBasicTriggerGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2002>GetAlertingPricesBasicTriggerGetAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetAlertingPricesBasicTriggerGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAlertingPricesBasicTriggerGetWithHttpInfoAsync(id, attributes, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -806,11 +887,14 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="attributes">Limit the attributes returned in the response to the specified set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2002>> GetAlertingPricesBasicTriggerGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetAlertingPricesBasicTriggerGetWithHttpInfoAsync(string id, List<string> attributes = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiException(400, "Missing required parameter 'id' when calling AlertingApi->GetAlertingPricesBasicTriggerGet");
+            }
 
 
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
@@ -823,12 +907,17 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.ParameterToMultiMap("", "id", id));
             if (attributes != null)
@@ -838,13 +927,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -856,14 +945,18 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAlertingPricesBasicTriggerGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/alerting/prices/basic/trigger/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAlertingPricesBasicTriggerGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -877,7 +970,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 PostAlertingPricesBasicTriggerList(InlineObject body = default(InlineObject))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = PostAlertingPricesBasicTriggerListWithHttpInfo(body);
+            var localVarResponse = PostAlertingPricesBasicTriggerListWithHttpInfo(body);
             return localVarResponse.Data;
         }
 
@@ -887,7 +980,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <exception cref="FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"> (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> PostAlertingPricesBasicTriggerListWithHttpInfo(InlineObject body = default(InlineObject))
+        public ApiResponse<InlineResponse2003> PostAlertingPricesBasicTriggerListWithHttpInfo(InlineObject body = default(InlineObject))
         {
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
 
@@ -901,22 +994,28 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             };
 
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -928,15 +1027,19 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<InlineResponse2003>("/alerting/prices/basic/trigger/list", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostAlertingPricesBasicTriggerListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            InlineResponse2003>("/alerting/prices/basic/trigger/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostAlertingPricesBasicTriggerList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -947,9 +1050,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> PostAlertingPricesBasicTriggerListAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<InlineResponse2003>PostAlertingPricesBasicTriggerListAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003> localVarResponse = await PostAlertingPricesBasicTriggerListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostAlertingPricesBasicTriggerListWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -960,7 +1063,8 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ApiResponse<InlineResponse2003>> PostAlertingPricesBasicTriggerListWithHttpInfoAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PostAlertingPricesBasicTriggerListWithHttpInfoAsync(InlineObject body = default(InlineObject), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.RequestOptions();
@@ -974,24 +1078,29 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = body;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.PriceAlertingAPIforDigitalPortals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1003,14 +1112,18 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostAlertingPricesBasicTriggerListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse2003>("/alerting/prices/basic/trigger/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostAlertingPricesBasicTriggerList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

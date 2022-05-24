@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerSearchMeta from './SecuritizedDeriva
 /**
  * The InlineObject3 model module.
  * @module model/InlineObject3
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineObject3 {
     /**

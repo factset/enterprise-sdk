@@ -7,6 +7,9 @@ import com.factset.sdk.Vault.Configuration;
 import com.factset.sdk.Vault.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Vault.models.ClientErrorResponse;
 import com.factset.sdk.Vault.models.DocumentDirectoriesRoot;
@@ -22,6 +25,16 @@ public class DocumentsApi {
   public DocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getVaultDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getVaultDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
+    getVaultDocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getVaultDocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,10 +132,16 @@ public class DocumentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DocumentDirectoriesRoot> localVarReturnType = new GenericType<DocumentDirectoriesRoot>() {};
 
-    return apiClient.invokeAPI("DocumentsApi.getVaultDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DocumentDirectoriesRoot
+      
+    > apiResponse = apiClient.invokeAPI("DocumentsApi.getVaultDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getVaultDocumentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

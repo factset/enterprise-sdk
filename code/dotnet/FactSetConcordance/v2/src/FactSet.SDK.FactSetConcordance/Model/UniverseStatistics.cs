@@ -85,7 +85,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UniverseStatistics {\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
             sb.Append("  MappedCount: ").Append(MappedCount).Append("\n");
@@ -123,8 +123,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(UniverseStatistics input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TotalCount == input.TotalCount ||
@@ -157,11 +158,11 @@ namespace FactSet.SDK.FactSetConcordance.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TotalCount.GetHashCode();
-                hashCode = hashCode * 59 + this.MappedCount.GetHashCode();
-                hashCode = hashCode * 59 + this.UnmappedCount.GetHashCode();
-                hashCode = hashCode * 59 + this.IndeterminateCount.GetHashCode();
-                hashCode = hashCode * 59 + this.UniverseId.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.MappedCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.UnmappedCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.IndeterminateCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
                 return hashCode;
             }
         }

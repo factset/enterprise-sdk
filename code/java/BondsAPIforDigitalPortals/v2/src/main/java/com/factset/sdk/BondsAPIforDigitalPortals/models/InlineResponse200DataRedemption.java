@@ -49,6 +49,8 @@ public class InlineResponse200DataRedemption implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private InlineResponse200DataRedemptionCurrency currency;
 
+  public InlineResponse200DataRedemption() { 
+  }
 
   public InlineResponse200DataRedemption price(InlineResponse200DataRedemptionPrice price) {
     this.price = price;

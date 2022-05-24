@@ -48,6 +48,8 @@ public class InlineResponse20051DataInterestRateType implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20051DataInterestRateType() { 
+  }
 
   public InlineResponse20051DataInterestRateType id(BigDecimal id) {
     this.id = id;

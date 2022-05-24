@@ -21,7 +21,7 @@ import EtfReferenceDataResponse from '../model/EtfReferenceDataResponse';
 /**
 * Reference service.
 * @module api/ReferenceApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ReferenceApi {
 
@@ -70,7 +70,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EtfReferenceDataResponse;
+
       return this.apiClient.callApi(
         '/factset-etf/v1/reference', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -85,7 +88,7 @@ export default class ReferenceApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.metrics List of individdual data items for Exchange Traded Funds. By default only the fsymId and requestId are returned. To fetch a list of all available data items, use the **_/metrics** endpoint. 
      * @param {Array.<module:model/Category>} opts.categories Groupings of `metrics` data items. Supply a list of categories below to return collections of data items in response. |category|description| |---|---| |BENCHMARK_DETAILS|Details surrounding the underlying Benchmark Id and Segment Banchmark| |CLASSIFICATION|FactSet Fund Classification Codes and Names, across Asset Class, Broad  Geography, Fund Categories, Focus, Niche, and more.| |COSTS_FEES|Expenses and Fees such as capital gains, expense ratio, management fees, and more.| |COUNTERPARTY|Credit and Swap Counterparty details| |CREATE_REDEEM|Creation and Redemption Sizes| |DESCRIPTIVE|General Descriptive information such as name, objectives, issuer details, launch dates, website, and more.| |DISTRIBUTIONS|Dividend Dates, Dividend Treatmetns, Min/Max Cap Gains| |DOCUMENTATION|Details surrounding reporting information.| |GEARING|Leverage factors, inverse flags, and more.| |HEDGE|Hedging Information| |RISK|CIFSC Risk Ratings| |SERVICE_PROVIDERS|Distributors, issuers, and Advisor details| |STATUS|Actively Managed Flags| |STRATEGY|Segment Codes, selection criteria, strategy codes, weighting schemes, and lending details.| |STRUCTURE|ETF Type, backing codes, synthetic types, ucits compliance, legal structures, and more.| |TAX|Tax Types, distribution takes, K1 Flags, and more.| 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EtfReferenceDataResponse}
+     * @return { Promise.< module:model/EtfReferenceDataResponse > } a Promise, with data of type {@link module:model/EtfReferenceDataResponse }
      */
     getEtfReferenceData(ids, opts) {
       return this.getEtfReferenceDataWithHttpInfo(ids, opts)
@@ -120,7 +123,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EtfReferenceDataResponse;
+
       return this.apiClient.callApi(
         '/factset-etf/v1/reference', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -132,7 +138,7 @@ export default class ReferenceApi {
      * Fetch Reference Data for a large list of ETF securities.
      * Returns reference data items for a list of Exchange Traded Funds. 
      * @param {module:model/EtfReferenceDataRequest} etfReferenceDataRequest Request object for Exchange Traded Funds
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EtfReferenceDataResponse}
+     * @return { Promise.< module:model/EtfReferenceDataResponse > } a Promise, with data of type {@link module:model/EtfReferenceDataResponse }
      */
     getEtfReferenceDataForList(etfReferenceDataRequest) {
       return this.getEtfReferenceDataForListWithHttpInfo(etfReferenceDataRequest)
@@ -143,3 +149,8 @@ export default class ReferenceApi {
 
 
 }
+
+
+
+
+

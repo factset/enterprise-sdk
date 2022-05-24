@@ -90,6 +90,8 @@ public class CategoryCategory implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private ValueEnum value;
 
+  public CategoryCategory() { 
+  }
 
   public CategoryCategory value(ValueEnum value) {
     this.value = value;

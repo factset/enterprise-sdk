@@ -52,7 +52,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataRecommendationCounts {\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataRecommendationCounts input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Total == input.Total ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Total != null)
-                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -43,6 +43,8 @@ public class CouponSchedulesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<CouponSchedules> data = null;
 
+  public CouponSchedulesResponse() { 
+  }
 
   public CouponSchedulesResponse data(java.util.List<CouponSchedules> data) {
     this.data = data;

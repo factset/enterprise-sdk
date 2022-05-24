@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataComplianceFrance implements Serializ
   public static final String JSON_PROPERTY_OR = "or";
   private java.util.Set<StockNotationScreenerSearchDataComplianceFranceOr> or = null;
 
+  public StockNotationScreenerSearchDataComplianceFrance() { 
+  }
 
   public StockNotationScreenerSearchDataComplianceFrance or(java.util.Set<StockNotationScreenerSearchDataComplianceFranceOr> or) {
     this.or = or;

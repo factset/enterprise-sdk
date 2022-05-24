@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## getCategoryList
 
-> java.util.List&lt;String&gt; getCategoryList()
+> java.util.List<String> getCategoryList()
 
 Get a list of chart categories
 
@@ -24,14 +24,13 @@ import com.factset.sdk.ChartGenerationService.ApiClient;
 import com.factset.sdk.ChartGenerationService.ApiException;
 import com.factset.sdk.ChartGenerationService.Configuration;
 import com.factset.sdk.ChartGenerationService.auth.*;
-import com.factset.sdk.ChartGenerationService.model.*;
+import com.factset.sdk.ChartGenerationService.models.*;
 import com.factset.sdk.ChartGenerationService.api.ChartTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -41,19 +40,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ChartTemplatesApi apiInstance = new ChartTemplatesApi(defaultClient);
         try {
             java.util.List<String> result = apiInstance.getCategoryList();
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ChartTemplatesApi#getCategoryList");
             System.err.println("Status code: " + e.getCode());
@@ -91,7 +91,7 @@ This endpoint does not need any parameter.
 
 ## getChartList
 
-> java.util.List&lt;Object&gt; getChartList(categories, type)
+> java.util.List<Object> getChartList(categories, type)
 
 Get a list of chart templates that can be used for getting the image from the service.
 
@@ -105,14 +105,13 @@ import com.factset.sdk.ChartGenerationService.ApiClient;
 import com.factset.sdk.ChartGenerationService.ApiException;
 import com.factset.sdk.ChartGenerationService.Configuration;
 import com.factset.sdk.ChartGenerationService.auth.*;
-import com.factset.sdk.ChartGenerationService.model.*;
+import com.factset.sdk.ChartGenerationService.models.*;
 import com.factset.sdk.ChartGenerationService.api.ChartTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -122,14 +121,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ChartTemplatesApi apiInstance = new ChartTemplatesApi(defaultClient);
         String categories = "categories_example"; // String | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out.
@@ -137,6 +136,7 @@ public class Example {
         try {
             java.util.List<Object> result = apiInstance.getChartList(categories, type);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ChartTemplatesApi#getChartList");
             System.err.println("Status code: " + e.getCode());
@@ -191,14 +191,13 @@ import com.factset.sdk.ChartGenerationService.ApiClient;
 import com.factset.sdk.ChartGenerationService.ApiException;
 import com.factset.sdk.ChartGenerationService.Configuration;
 import com.factset.sdk.ChartGenerationService.auth.*;
-import com.factset.sdk.ChartGenerationService.model.*;
+import com.factset.sdk.ChartGenerationService.models.*;
 import com.factset.sdk.ChartGenerationService.api.ChartTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -208,14 +207,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ChartTemplatesApi apiInstance = new ChartTemplatesApi(defaultClient);
         String chart = "Equity/RSI"; // String | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
@@ -236,6 +235,7 @@ public class Example {
         try {
             String result = apiInstance.images(chart, ids, sd, ed, width, height, freq, ccy, split, spin, cal, title, fontSize, type, gridLines);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ChartTemplatesApi#images");
             System.err.println("Status code: " + e.getCode());

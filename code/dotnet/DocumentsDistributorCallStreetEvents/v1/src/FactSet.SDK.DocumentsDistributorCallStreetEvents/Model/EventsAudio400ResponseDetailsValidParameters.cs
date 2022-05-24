@@ -132,7 +132,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EventsAudio400ResponseDetailsValidParameters {\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  PaginationLimit: ").Append(PaginationLimit).Append("\n");
@@ -176,8 +176,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(EventsAudio400ResponseDetailsValidParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sort == input.Sort ||
@@ -257,27 +258,49 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             {
                 int hashCode = 41;
                 if (this.Sort != null)
-                    hashCode = hashCode * 59 + this.Sort.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sort.GetHashCode();
+                }
                 if (this.PaginationLimit != null)
-                    hashCode = hashCode * 59 + this.PaginationLimit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationLimit.GetHashCode();
+                }
                 if (this.PaginationOffset != null)
-                    hashCode = hashCode * 59 + this.PaginationOffset.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationOffset.GetHashCode();
+                }
                 if (this.ReportId != null)
-                    hashCode = hashCode * 59 + this.ReportId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReportId.GetHashCode();
+                }
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.SourceCode != null)
-                    hashCode = hashCode * 59 + this.SourceCode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SourceCode.GetHashCode();
+                }
                 if (this.FileName != null)
-                    hashCode = hashCode * 59 + this.FileName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FileName.GetHashCode();
+                }
                 if (this.Trimmed != null)
-                    hashCode = hashCode * 59 + this.Trimmed.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Trimmed.GetHashCode();
+                }
                 if (this.UploadTime != null)
-                    hashCode = hashCode * 59 + this.UploadTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UploadTime.GetHashCode();
+                }
                 return hashCode;
             }
         }

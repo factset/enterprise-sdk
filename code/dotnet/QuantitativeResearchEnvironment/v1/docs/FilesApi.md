@@ -51,9 +51,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FilesApi(config);
-            var server = server_example;  // string | The server to upload the file to. Either `interactive` or `batch`.
-            var file = file_example;  // string | The file name to upload the file to. Existing directory can be specified.
-            var body = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+            var server = "server_example";  // string | The server to upload the file to. Either `interactive` or `batch`.
+            var file = "file_example";  // string | The file name to upload the file to. Existing directory can be specified.
+            var body = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
@@ -81,7 +81,6 @@ Name | Type | Description  | Notes
  **body** | **System.IO.Stream****System.IO.Stream**|  | [optional] 
 
 ### Return type
-
 [**FileUploadStatus**](FileUploadStatus.md)
 
 ### Authorization
@@ -146,7 +145,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new FilesApi(config);
-            var id = id_example;  // string | From url, provided by location header or response body in the upload start endpoint
+            var id = "id_example";  // string | From url, provided by location header or response body in the upload start endpoint
 
             try
             {
@@ -172,7 +171,6 @@ Name | Type | Description  | Notes
  **id** | **string**| From url, provided by location header or response body in the upload start endpoint | 
 
 ### Return type
-
 [**FileUploadStatus**](FileUploadStatus.md)
 
 ### Authorization

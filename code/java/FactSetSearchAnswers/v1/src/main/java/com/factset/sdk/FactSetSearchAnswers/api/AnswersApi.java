@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetSearchAnswers.Configuration;
 import com.factset.sdk.FactSetSearchAnswers.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetSearchAnswers.models.AdaptiveCardAnswerSuccessResponse;
 import com.factset.sdk.FactSetSearchAnswers.models.AnswerFailureResponse;
@@ -23,6 +26,24 @@ public class AnswersApi {
   public AnswersApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> searchForAdaptiveCardAnswerResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    searchForAdaptiveCardAnswerResponseTypeMap.put(200, new GenericType<AdaptiveCardAnswerSuccessResponse>(){});
+    searchForAdaptiveCardAnswerResponseTypeMap.put(400, new GenericType<AnswerFailureResponse>(){});
+    searchForAdaptiveCardAnswerResponseTypeMap.put(401, new GenericType<AnswerFailureResponse>(){});
+    searchForAdaptiveCardAnswerResponseTypeMap.put(500, new GenericType<AnswerFailureResponse>(){});
+  }
+  private static final Map<Integer, GenericType> searchForDataAnswerResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    searchForDataAnswerResponseTypeMap.put(200, new GenericType<DataAnswerSuccessResponse>(){});
+    searchForDataAnswerResponseTypeMap.put(400, new GenericType<AnswerFailureResponse>(){});
+    searchForDataAnswerResponseTypeMap.put(401, new GenericType<AnswerFailureResponse>(){});
+    searchForDataAnswerResponseTypeMap.put(500, new GenericType<AnswerFailureResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -116,11 +137,17 @@ public class AnswersApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AdaptiveCardAnswerSuccessResponse> localVarReturnType = new GenericType<AdaptiveCardAnswerSuccessResponse>() {};
 
-    return apiClient.invokeAPI("AnswersApi.searchForAdaptiveCardAnswer", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AdaptiveCardAnswerSuccessResponse
+      
+    > apiResponse = apiClient.invokeAPI("AnswersApi.searchForAdaptiveCardAnswer", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, searchForAdaptiveCardAnswerResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Fetch FactSet answer in data format
@@ -190,10 +217,16 @@ public class AnswersApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DataAnswerSuccessResponse> localVarReturnType = new GenericType<DataAnswerSuccessResponse>() {};
 
-    return apiClient.invokeAPI("AnswersApi.searchForDataAnswer", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DataAnswerSuccessResponse
+      
+    > apiResponse = apiClient.invokeAPI("AnswersApi.searchForDataAnswer", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, searchForDataAnswerResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

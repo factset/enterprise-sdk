@@ -51,6 +51,16 @@ public class ColumnSummaryRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public ColumnSummaryRoot() { 
+  }
+
+  @JsonCreator
+  public ColumnSummaryRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, ColumnSummary> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public ColumnSummaryRoot data(java.util.Map<String, ColumnSummary> data) {
     this.data = data;

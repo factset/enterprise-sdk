@@ -17,7 +17,7 @@ import Rollover from './Rollover';
 /**
  * The RolloverResponse model module.
  * @module model/RolloverResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RolloverResponse {
     /**

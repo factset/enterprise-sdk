@@ -17,7 +17,7 @@ import Return from './Return';
 /**
  * The ReturnsResponse model module.
  * @module model/ReturnsResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ReturnsResponse {
     /**

@@ -47,6 +47,16 @@ public class VaultConfigurationSummaryRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public VaultConfigurationSummaryRoot() { 
+  }
+
+  @JsonCreator
+  public VaultConfigurationSummaryRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, VaultConfigurationSummary> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public VaultConfigurationSummaryRoot data(java.util.Map<String, VaultConfigurationSummary> data) {
     this.data = data;

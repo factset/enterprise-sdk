@@ -24,8 +24,8 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
@@ -81,13 +81,11 @@ class InlineResponse20022Data(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'nav_date': (date,),  # noqa: E501
-            'nav': (float,),  # noqa: E501
-            'nav_change': (float,),  # noqa: E501
-            'nav_change_percent': (float,),  # noqa: E501
-            'fund_flows': (float,),  # noqa: E501
-            'shares_outstanding': (float,),  # noqa: E501
-            'aum': (float,),  # noqa: E501
+            'flows1_d': (float,),  # noqa: E501
+            'flows1_w': (float,),  # noqa: E501
+            'flows1_m': (float,),  # noqa: E501
+            'flows_ytd': (float,),  # noqa: E501
+            'flows1_y': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -96,13 +94,11 @@ class InlineResponse20022Data(ModelNormal):
 
 
     attribute_map = {
-        'nav_date': 'navDate',  # noqa: E501
-        'nav': 'nav',  # noqa: E501
-        'nav_change': 'navChange',  # noqa: E501
-        'nav_change_percent': 'navChangePercent',  # noqa: E501
-        'fund_flows': 'fundFlows',  # noqa: E501
-        'shares_outstanding': 'sharesOutstanding',  # noqa: E501
-        'aum': 'aum',  # noqa: E501
+        'flows1_d': 'flows1D',  # noqa: E501
+        'flows1_w': 'flows1W',  # noqa: E501
+        'flows1_m': 'flows1M',  # noqa: E501
+        'flows_ytd': 'flowsYTD',  # noqa: E501
+        'flows1_y': 'flows1Y',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,13 +142,11 @@ class InlineResponse20022Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            nav_date (date): Historice NAV date value.. [optional]  # noqa: E501
-            nav (float): Returns historic Net Asset Value of the ETP.. [optional]  # noqa: E501
-            nav_change (float): Absolute change in NAV value.. [optional]  # noqa: E501
-            nav_change_percent (float): Related change in the NAV value.. [optional]  # noqa: E501
-            fund_flows (float): This value returns factset's ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close.. [optional]  # noqa: E501
-            shares_outstanding (float): Returns the historic share Outstanding values of the ETP.. [optional]  # noqa: E501
-            aum (float): Returns the historic Total Asset Value of the ETP.. [optional]  # noqa: E501
+            flows1_d (float): One-day fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows1_w (float): One-week fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows1_m (float): One-month fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows_ytd (float): Year-to-date fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows1_y (float): One-year fund flows. This data is available for all the regions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,13 +228,11 @@ class InlineResponse20022Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            nav_date (date): Historice NAV date value.. [optional]  # noqa: E501
-            nav (float): Returns historic Net Asset Value of the ETP.. [optional]  # noqa: E501
-            nav_change (float): Absolute change in NAV value.. [optional]  # noqa: E501
-            nav_change_percent (float): Related change in the NAV value.. [optional]  # noqa: E501
-            fund_flows (float): This value returns factset's ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close.. [optional]  # noqa: E501
-            shares_outstanding (float): Returns the historic share Outstanding values of the ETP.. [optional]  # noqa: E501
-            aum (float): Returns the historic Total Asset Value of the ETP.. [optional]  # noqa: E501
+            flows1_d (float): One-day fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows1_w (float): One-week fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows1_m (float): One-month fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows_ytd (float): Year-to-date fund flows. This data is available for all the regions.. [optional]  # noqa: E501
+            flows1_y (float): One-year fund flows. This data is available for all the regions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

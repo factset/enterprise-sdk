@@ -167,6 +167,33 @@ namespace FactSet.SDK.FactSetFundamentals.Api
     {
         private FactSet.SDK.FactSetFundamentals.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundamentalsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFdsFundamentalsForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundamentalsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FactSetFundamentalsApi"/> class.
         /// </summary>
@@ -283,7 +310,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>FundamentalsResponse</returns>
         public FundamentalsResponse GetFdsFundamentals(List<string> ids, List<string> metrics, string periodicity = default(string), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), string restated = default(string))
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse> localVarResponse = GetFdsFundamentalsWithHttpInfo(ids, metrics, periodicity, fiscalPeriodStart, fiscalPeriodEnd, currency, restated);
+            var localVarResponse = GetFdsFundamentalsWithHttpInfo(ids, metrics, periodicity, fiscalPeriodStart, fiscalPeriodEnd, currency, restated);
             return localVarResponse.Data;
         }
 
@@ -299,15 +326,19 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="currency">Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to &quot;LOCAL&quot;)</param>
         /// <param name="restated">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
         /// <returns>ApiResponse of FundamentalsResponse</returns>
-        public FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse> GetFdsFundamentalsWithHttpInfo(List<string> ids, List<string> metrics, string periodicity = default(string), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), string restated = default(string))
+        public ApiResponse<FundamentalsResponse> GetFdsFundamentalsWithHttpInfo(List<string> ids, List<string> metrics, string periodicity = default(string), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), string restated = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetFundamentalsApi->GetFdsFundamentals");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'metrics' when calling FactSetFundamentalsApi->GetFdsFundamentals");
+            }
 
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
 
@@ -320,10 +351,16 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (periodicity != null)
@@ -350,13 +387,13 @@ namespace FactSet.SDK.FactSetFundamentals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -368,15 +405,19 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FundamentalsResponse>("/factset-fundamentals/v1/fundamentals", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FundamentalsResponse>("/factset-fundamentals/v1/fundamentals", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentals", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -393,9 +434,9 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="restated">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundamentalsResponse</returns>
-        public async System.Threading.Tasks.Task<FundamentalsResponse> GetFdsFundamentalsAsync(List<string> ids, List<string> metrics, string periodicity = default(string), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), string restated = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundamentalsResponse>GetFdsFundamentalsAsync(List<string> ids, List<string> metrics, string periodicity = default(string), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), string restated = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse> localVarResponse = await GetFdsFundamentalsWithHttpInfoAsync(ids, metrics, periodicity, fiscalPeriodStart, fiscalPeriodEnd, currency, restated, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFdsFundamentalsWithHttpInfoAsync(ids, metrics, periodicity, fiscalPeriodStart, fiscalPeriodEnd, currency, restated, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -412,15 +453,20 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="restated">Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  (optional, default to RP)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundamentalsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse>> GetFdsFundamentalsWithHttpInfoAsync(List<string> ids, List<string> metrics, string periodicity = default(string), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), string restated = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundamentalsResponse>> GetFdsFundamentalsWithHttpInfoAsync(List<string> ids, List<string> metrics, string periodicity = default(string), string fiscalPeriodStart = default(string), string fiscalPeriodEnd = default(string), string currency = default(string), string restated = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'ids' when calling FactSetFundamentalsApi->GetFdsFundamentals");
+            }
 
             // verify the required parameter 'metrics' is set
             if (metrics == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'metrics' when calling FactSetFundamentalsApi->GetFdsFundamentals");
+            }
 
 
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
@@ -433,12 +479,17 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetFundamentals.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (periodicity != null)
@@ -465,13 +516,13 @@ namespace FactSet.SDK.FactSetFundamentals.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -483,14 +534,18 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FundamentalsResponse>("/factset-fundamentals/v1/fundamentals", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentals", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -504,7 +559,7 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <returns>FundamentalsResponse</returns>
         public FundamentalsResponse GetFdsFundamentalsForList(FundamentalsRequest fundamentalsRequest)
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse> localVarResponse = GetFdsFundamentalsForListWithHttpInfo(fundamentalsRequest);
+            var localVarResponse = GetFdsFundamentalsForListWithHttpInfo(fundamentalsRequest);
             return localVarResponse.Data;
         }
 
@@ -514,11 +569,13 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <exception cref="FactSet.SDK.FactSetFundamentals.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fundamentalsRequest">Request object for requesting fundamentals data</param>
         /// <returns>ApiResponse of FundamentalsResponse</returns>
-        public FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse> GetFdsFundamentalsForListWithHttpInfo(FundamentalsRequest fundamentalsRequest)
+        public ApiResponse<FundamentalsResponse> GetFdsFundamentalsForListWithHttpInfo(FundamentalsRequest fundamentalsRequest)
         {
             // verify the required parameter 'fundamentalsRequest' is set
             if (fundamentalsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'fundamentalsRequest' when calling FactSetFundamentalsApi->GetFdsFundamentalsForList");
+            }
 
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
 
@@ -532,22 +589,28 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundamentalsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -559,15 +622,19 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FundamentalsResponse>("/factset-fundamentals/v1/fundamentals", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FundamentalsResponse>("/factset-fundamentals/v1/fundamentals", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentalsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -578,9 +645,9 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="fundamentalsRequest">Request object for requesting fundamentals data</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundamentalsResponse</returns>
-        public async System.Threading.Tasks.Task<FundamentalsResponse> GetFdsFundamentalsForListAsync(FundamentalsRequest fundamentalsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundamentalsResponse>GetFdsFundamentalsForListAsync(FundamentalsRequest fundamentalsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse> localVarResponse = await GetFdsFundamentalsForListWithHttpInfoAsync(fundamentalsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFdsFundamentalsForListWithHttpInfoAsync(fundamentalsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -591,11 +658,14 @@ namespace FactSet.SDK.FactSetFundamentals.Api
         /// <param name="fundamentalsRequest">Request object for requesting fundamentals data</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundamentalsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetFundamentals.Client.ApiResponse<FundamentalsResponse>> GetFdsFundamentalsForListWithHttpInfoAsync(FundamentalsRequest fundamentalsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundamentalsResponse>> GetFdsFundamentalsForListWithHttpInfoAsync(FundamentalsRequest fundamentalsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'fundamentalsRequest' is set
             if (fundamentalsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetFundamentals.Client.ApiException(400, "Missing required parameter 'fundamentalsRequest' when calling FactSetFundamentalsApi->GetFdsFundamentalsForList");
+            }
 
 
             FactSet.SDK.FactSetFundamentals.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetFundamentals.Client.RequestOptions();
@@ -609,24 +679,29 @@ namespace FactSet.SDK.FactSetFundamentals.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetFundamentals.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundamentalsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetFundamentals.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -638,14 +713,18 @@ namespace FactSet.SDK.FactSetFundamentals.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFdsFundamentalsForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FundamentalsResponse>("/factset-fundamentals/v1/fundamentals", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFdsFundamentalsForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -48,6 +48,7 @@ const bloombergTranslationRequest = new symbology.BloombergTranslationRequest();
 // Call api endpoint
 apiInstance.batchTranslateBloomberg(bloombergTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const ids = ["GOOGL-US"]; // [String] | Requested market securities or entities.
 // Call api endpoint
 apiInstance.translateBloomberg(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

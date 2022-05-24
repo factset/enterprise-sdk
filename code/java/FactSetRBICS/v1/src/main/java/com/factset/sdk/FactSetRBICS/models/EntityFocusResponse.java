@@ -44,6 +44,8 @@ public class EntityFocusResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntityFocus> data = null;
 
+  public EntityFocusResponse() { 
+  }
 
   public EntityFocusResponse data(java.util.List<EntityFocus> data) {
     this.data = data;

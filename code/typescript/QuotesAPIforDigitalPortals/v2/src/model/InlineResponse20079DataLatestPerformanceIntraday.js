@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20079DataLatestPerformanceIntraday model module.
  * @module model/InlineResponse20079DataLatestPerformanceIntraday
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20079DataLatestPerformanceIntraday {
     /**

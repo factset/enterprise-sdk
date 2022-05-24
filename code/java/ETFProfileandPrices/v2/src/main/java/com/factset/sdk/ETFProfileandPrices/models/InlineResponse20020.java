@@ -43,34 +43,44 @@ public class InlineResponse20020 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private InlineResponse20020Data data;
+  private java.util.Set<InlineResponse20020Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
 
+  public InlineResponse20020() { 
+  }
 
-  public InlineResponse20020 data(InlineResponse20020Data data) {
+  public InlineResponse20020 data(java.util.Set<InlineResponse20020Data> data) {
     this.data = data;
     return this;
   }
 
+  public InlineResponse20020 addDataItem(InlineResponse20020Data dataItem) {
+    if (this.data == null) {
+      this.data = new java.util.LinkedHashSet<>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
    /**
-   * Get data
+   * Competitor&#39;s data.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Competitor's data.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20020Data getData() {
+  public java.util.Set<InlineResponse20020Data> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(InlineResponse20020Data data) {
+  public void setData(java.util.Set<InlineResponse20020Data> data) {
     this.data = data;
   }
 

@@ -29,7 +29,18 @@ import InlineResponse2002 from '../model/InlineResponse2002';
 import InlineResponse20020 from '../model/InlineResponse20020';
 import InlineResponse20021 from '../model/InlineResponse20021';
 import InlineResponse20022 from '../model/InlineResponse20022';
+import InlineResponse20023 from '../model/InlineResponse20023';
+import InlineResponse20024 from '../model/InlineResponse20024';
+import InlineResponse20025 from '../model/InlineResponse20025';
+import InlineResponse20026 from '../model/InlineResponse20026';
+import InlineResponse20027 from '../model/InlineResponse20027';
+import InlineResponse20028 from '../model/InlineResponse20028';
+import InlineResponse20029 from '../model/InlineResponse20029';
 import InlineResponse2003 from '../model/InlineResponse2003';
+import InlineResponse20030 from '../model/InlineResponse20030';
+import InlineResponse20031 from '../model/InlineResponse20031';
+import InlineResponse20032 from '../model/InlineResponse20032';
+import InlineResponse20033 from '../model/InlineResponse20033';
 import InlineResponse2004 from '../model/InlineResponse2004';
 import InlineResponse2005 from '../model/InlineResponse2005';
 import InlineResponse2006 from '../model/InlineResponse2006';
@@ -40,7 +51,7 @@ import InlineResponse2009 from '../model/InlineResponse2009';
 /**
 * Factset service.
 * @module api/FactsetApi
-* @version 0.9.1
+* @version 0.10.0
 */
 export default class FactsetApi {
 
@@ -67,12 +78,12 @@ export default class FactsetApi {
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2001} and HTTP response
      */
-    factsetEtfAllocationAssetListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfAllocationAssetListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfAllocationAssetListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationAssetListBySymbol");
       }
 
       let pathParams = {
@@ -91,7 +102,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/factset/etf/allocation/asset/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -107,10 +121,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
-    factsetEtfAllocationAssetListBySymbolGet(symbol, opts) {
-      return this.factsetEtfAllocationAssetListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfAllocationAssetListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationAssetListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -127,12 +141,12 @@ export default class FactsetApi {
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2002} and HTTP response
      */
-    factsetEtfAllocationCountryListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfAllocationCountryListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfAllocationCountryListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationCountryListBySymbol");
       }
 
       let pathParams = {
@@ -151,7 +165,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/factset/etf/allocation/country/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -167,10 +184,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
-    factsetEtfAllocationCountryListBySymbolGet(symbol, opts) {
-      return this.factsetEtfAllocationCountryListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfAllocationCountryListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationCountryListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -178,8 +195,8 @@ export default class FactsetApi {
 
 
     /**
-     * This endpoint returns selected ETP's exchange allocations.
-     * This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.
+     * This endpoint returns selected ETP's currency allocations.
+     * This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
@@ -187,12 +204,12 @@ export default class FactsetApi {
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
-    factsetEtfAllocationExchangeListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfAllocationCurrencyListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfAllocationExchangeListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationCurrencyListBySymbol");
       }
 
       let pathParams = {
@@ -211,7 +228,136 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
+      return this.apiClient.callApi(
+        '/factset/etf/allocation/currency/listBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * This endpoint returns selected ETP's currency allocations.
+     * This endpoint returns selected ETP's allocations grouped by currency. The response will be sorted by weight in descending order.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
+     */
+    getFactsetEtfAllocationCurrencyListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationCurrencyListBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List of allocations classified by a holding's economic development status.
+     * List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
+     */
+    getFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationEconomicDevelopmentListBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
+        '_paginationOffset': opts['paginationOffset'],
+        '_paginationLimit': opts['paginationLimit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2004;
+
+      return this.apiClient.callApi(
+        '/factset/etf/allocation/economicDevelopment/listBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List of allocations classified by a holding's economic development status.
+     * List of allocations classified by a holding's economic development status (e.g. developed market, frontier market, emerging market).
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
+     */
+    getFactsetEtfAllocationEconomicDevelopmentListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationEconomicDevelopmentListBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * This endpoint returns selected ETP's exchange allocations.
+     * This endpoint returns selected ETP's allocations grouped by exchanges. The response will be sorted by weight in descending order.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
+     */
+    getFactsetEtfAllocationExchangeListBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationExchangeListBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
+        '_paginationOffset': opts['paginationOffset'],
+        '_paginationLimit': opts['paginationLimit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2005;
+
       return this.apiClient.callApi(
         '/factset/etf/allocation/exchange/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -227,10 +373,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2005 > } a Promise, with data of type {@link module:model/InlineResponse2005 }
      */
-    factsetEtfAllocationExchangeListBySymbolGet(symbol, opts) {
-      return this.factsetEtfAllocationExchangeListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfAllocationExchangeListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationExchangeListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -238,21 +384,21 @@ export default class FactsetApi {
 
 
     /**
-     * This endpoint returns selected ETP's region allocations.
-     * This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.
+     * This endpoint returns selected ETP's industry allocations.
+     * This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
      */
-    factsetEtfAllocationRegionListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfAllocationIndustryListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfAllocationRegionListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationIndustryListBySymbol");
       }
 
       let pathParams = {
@@ -271,7 +417,136 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2004;
+
+
+      let returnType = InlineResponse2006;
+
+      return this.apiClient.callApi(
+        '/factset/etf/allocation/industry/listBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * This endpoint returns selected ETP's industry allocations.
+     * This endpoint returns selected ETP's allocations grouped by industry. The response will be sorted by weight in descending order.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return { Promise.< module:model/InlineResponse2006 > } a Promise, with data of type {@link module:model/InlineResponse2006 }
+     */
+    getFactsetEtfAllocationIndustryListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationIndustryListBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List of allocations classified by a holding's total market capitalization.
+     * List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
+     */
+    getFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationMarketCapitalizationListBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
+        '_paginationOffset': opts['paginationOffset'],
+        '_paginationLimit': opts['paginationLimit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2007;
+
+      return this.apiClient.callApi(
+        '/factset/etf/allocation/marketCapitalization/listBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * List of allocations classified by a holding's total market capitalization.
+     * List of allocations classified by a holding's total market capitalization (e.g. Small Cap, Mid Cap, Large Cap). Response will be sorted by weight in descending order.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return { Promise.< module:model/InlineResponse2007 > } a Promise, with data of type {@link module:model/InlineResponse2007 }
+     */
+    getFactsetEtfAllocationMarketCapitalizationListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationMarketCapitalizationListBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * This endpoint returns selected ETP's region allocations.
+     * This endpoint returns selected ETP's allocations grouped by region names. The response will be sorted by weight in descending order.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
+     */
+    getFactsetEtfAllocationRegionListBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationRegionListBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
+        '_paginationOffset': opts['paginationOffset'],
+        '_paginationLimit': opts['paginationLimit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse2008;
+
       return this.apiClient.callApi(
         '/factset/etf/allocation/region/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -287,10 +562,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2008 > } a Promise, with data of type {@link module:model/InlineResponse2008 }
      */
-    factsetEtfAllocationRegionListBySymbolGet(symbol, opts) {
-      return this.factsetEtfAllocationRegionListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfAllocationRegionListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationRegionListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -305,14 +580,14 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
      */
-    factsetEtfAllocationSectorListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfAllocationSectorListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfAllocationSectorListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAllocationSectorListBySymbol");
       }
 
       let pathParams = {
@@ -331,7 +606,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2005;
+
+
+      let returnType = InlineResponse2009;
+
       return this.apiClient.callApi(
         '/factset/etf/allocation/sector/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -347,10 +625,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2005}
+     * @return { Promise.< module:model/InlineResponse2009 > } a Promise, with data of type {@link module:model/InlineResponse2009 }
      */
-    factsetEtfAllocationSectorListBySymbolGet(symbol, opts) {
-      return this.factsetEtfAllocationSectorListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfAllocationSectorListBySymbol(symbol, opts) {
+      return this.getFactsetEtfAllocationSectorListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -358,19 +636,19 @@ export default class FactsetApi {
 
 
     /**
-     * Retrieve basic characteristic information for a specified ETP.
-     * An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
-     * @param {String} symbol Market symbol of ETF defined by FactSet.
+     * FactSet proprietary analytics datapoints for ETPs.
+     * FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20010} and HTTP response
      */
-    factsetEtfCharacteristicsGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfAnalyticsGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfCharacteristicsGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAnalyticsGetBySymbol");
       }
 
       let pathParams = {
@@ -387,7 +665,238 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2006;
+
+
+      let returnType = InlineResponse20010;
+
+      return this.apiClient.callApi(
+        '/factset/etf/analytics/getBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * FactSet proprietary analytics datapoints for ETPs.
+     * FactSet's proprietary analytical datapoints include ETP attributes specific to lending, corporate actions, and benchmarks.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20010 > } a Promise, with data of type {@link module:model/InlineResponse20010 }
+     */
+    getFactsetEtfAnalyticsGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfAnalyticsGetBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * FactSet's portfolio statistics for ETPs.
+     * FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20011} and HTTP response
+     */
+    getFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20011;
+
+      return this.apiClient.callApi(
+        '/factset/etf/analytics/holdings/statistics/getBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * FactSet's portfolio statistics for ETPs.
+     * FactSet calculates several proprietary portfolio statistics for ETPs including average maturity, credit quality, price/book ratio, price/earnings ratio, and dividend yield.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20011 > } a Promise, with data of type {@link module:model/InlineResponse20011 }
+     */
+    getFactsetEtfAnalyticsHoldingsStatisticsGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfAnalyticsHoldingsStatisticsGetBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * FactSet proprietary ETP rankings.
+     * FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20012} and HTTP response
+     */
+    getFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAnalyticsScoreGetBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20012;
+
+      return this.apiClient.callApi(
+        '/factset/etf/analytics/score/getBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * FactSet proprietary ETP rankings.
+     * FactSet calculates various proprietary fund rankings including unique scores, fund grades, segment averages, and recommendations.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20012 > } a Promise, with data of type {@link module:model/InlineResponse20012 }
+     */
+    getFactsetEtfAnalyticsScoreGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfAnalyticsScoreGetBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Trade statistics for specific ETP.
+     * Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20013} and HTTP response
+     */
+    getFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfAnalyticsTradeGetBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20013;
+
+      return this.apiClient.callApi(
+        '/factset/etf/analytics/trade/getBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Trade statistics for specific ETP.
+     * Various metrics of an ETP's liquidity including creation metrics, premium/discount, spread, and tracking error statistics.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20013 > } a Promise, with data of type {@link module:model/InlineResponse20013 }
+     */
+    getFactsetEtfAnalyticsTradeGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfAnalyticsTradeGetBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retrieve basic characteristic information for a specified ETP.
+     * An ETP has many unique characteristics specific to its composition that differentiate it from other products. This includes details on leverage, hedging, derivatives, and service providers.
+     * @param {String} symbol Market symbol of ETF defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20014} and HTTP response
+     */
+    getFactsetEtfCharacteristicsGetBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfCharacteristicsGetBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20014;
+
       return this.apiClient.callApi(
         '/factset/etf/characteristics/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -401,10 +910,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETF defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2006}
+     * @return { Promise.< module:model/InlineResponse20014 > } a Promise, with data of type {@link module:model/InlineResponse20014 }
      */
-    factsetEtfCharacteristicsGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfCharacteristicsGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfCharacteristicsGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfCharacteristicsGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -416,9 +925,9 @@ export default class FactsetApi {
      * List of ETP class broad categories.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2008} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20016} and HTTP response
      */
-    factsetEtfClassCategoryBroadListGetWithHttpInfo(opts) {
+    getFactsetEtfClassCategoryBroadListWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -435,7 +944,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2008;
+
+
+      let returnType = InlineResponse20016;
+
       return this.apiClient.callApi(
         '/factset/etf/class/category/broad/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -448,10 +960,10 @@ export default class FactsetApi {
      * List of ETP class broad categories.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2008}
+     * @return { Promise.< module:model/InlineResponse20016 > } a Promise, with data of type {@link module:model/InlineResponse20016 }
      */
-    factsetEtfClassCategoryBroadListGet(opts) {
-      return this.factsetEtfClassCategoryBroadListGetWithHttpInfo(opts)
+    getFactsetEtfClassCategoryBroadList(opts) {
+      return this.getFactsetEtfClassCategoryBroadListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -465,9 +977,9 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2009} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20017} and HTTP response
      */
-    factsetEtfClassCategoryFocusListGetWithHttpInfo(opts) {
+    getFactsetEtfClassCategoryFocusListWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -486,7 +998,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2009;
+
+
+      let returnType = InlineResponse20017;
+
       return this.apiClient.callApi(
         '/factset/etf/class/category/focus/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -501,10 +1016,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2009}
+     * @return { Promise.< module:model/InlineResponse20017 > } a Promise, with data of type {@link module:model/InlineResponse20017 }
      */
-    factsetEtfClassCategoryFocusListGet(opts) {
-      return this.factsetEtfClassCategoryFocusListGetWithHttpInfo(opts)
+    getFactsetEtfClassCategoryFocusList(opts) {
+      return this.getFactsetEtfClassCategoryFocusListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -518,9 +1033,9 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20010} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20018} and HTTP response
      */
-    factsetEtfClassCategoryNicheListGetWithHttpInfo(opts) {
+    getFactsetEtfClassCategoryNicheListWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -539,7 +1054,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20010;
+
+
+      let returnType = InlineResponse20018;
+
       return this.apiClient.callApi(
         '/factset/etf/class/category/niche/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -554,10 +1072,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20010}
+     * @return { Promise.< module:model/InlineResponse20018 > } a Promise, with data of type {@link module:model/InlineResponse20018 }
      */
-    factsetEtfClassCategoryNicheListGet(opts) {
-      return this.factsetEtfClassCategoryNicheListGetWithHttpInfo(opts)
+    getFactsetEtfClassCategoryNicheList(opts) {
+      return this.getFactsetEtfClassCategoryNicheListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -569,9 +1087,9 @@ export default class FactsetApi {
      * List of ETP class geographies.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20011} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20019} and HTTP response
      */
-    factsetEtfClassGeographyListGetWithHttpInfo(opts) {
+    getFactsetEtfClassGeographyListWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -588,7 +1106,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20011;
+
+
+      let returnType = InlineResponse20019;
+
       return this.apiClient.callApi(
         '/factset/etf/class/geography/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -601,10 +1122,10 @@ export default class FactsetApi {
      * List of ETP class geographies.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20011}
+     * @return { Promise.< module:model/InlineResponse20019 > } a Promise, with data of type {@link module:model/InlineResponse20019 }
      */
-    factsetEtfClassGeographyListGet(opts) {
-      return this.factsetEtfClassGeographyListGetWithHttpInfo(opts)
+    getFactsetEtfClassGeographyList(opts) {
+      return this.getFactsetEtfClassGeographyListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -617,14 +1138,14 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2007} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20015} and HTTP response
      */
-    factsetEtfClassGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfClassGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfClassGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfClassGetBySymbol");
       }
 
       let pathParams = {
@@ -641,7 +1162,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse2007;
+
+
+      let returnType = InlineResponse20015;
+
       return this.apiClient.callApi(
         '/factset/etf/class/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -655,10 +1179,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2007}
+     * @return { Promise.< module:model/InlineResponse20015 > } a Promise, with data of type {@link module:model/InlineResponse20015 }
      */
-    factsetEtfClassGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfClassGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfClassGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfClassGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -666,19 +1190,19 @@ export default class FactsetApi {
 
 
     /**
-     * Retrieve an ETP's current distribution details.
-     * Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
-     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * FactSet's proprietary list of competing companies.
+     * FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20012} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20020} and HTTP response
      */
-    factsetEtfDistributionGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfCompetitorsListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfDistributionGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfCompetitorsListBySymbol");
       }
 
       let pathParams = {
@@ -695,7 +1219,67 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20012;
+
+
+      let returnType = InlineResponse20020;
+
+      return this.apiClient.callApi(
+        '/factset/etf/competitors/listBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * FactSet's proprietary list of competing companies.
+     * FactSet defines and maintains a proprietary list of competing companies based on a number of attributes specific to a fund.
+     * @param {String} symbol Ticker-region of a security as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20020 > } a Promise, with data of type {@link module:model/InlineResponse20020 }
+     */
+    getFactsetEtfCompetitorsListBySymbol(symbol, opts) {
+      return this.getFactsetEtfCompetitorsListBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retrieve an ETP's current distribution details.
+     * Retrieve distribution-related details for a specific ETP including dividend and capital gain distribution details.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20021} and HTTP response
+     */
+    getFactsetEtfDistributionGetBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfDistributionGetBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20021;
+
       return this.apiClient.callApi(
         '/factset/etf/distribution/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -709,10 +1293,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20012}
+     * @return { Promise.< module:model/InlineResponse20021 > } a Promise, with data of type {@link module:model/InlineResponse20021 }
      */
-    factsetEtfDistributionGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfDistributionGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfDistributionGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfDistributionGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -725,14 +1309,14 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20013} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20022} and HTTP response
      */
-    factsetEtfFundFlowsGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfFundFlowsGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfFundFlowsGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfFundFlowsGetBySymbol");
       }
 
       let pathParams = {
@@ -749,7 +1333,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20013;
+
+
+      let returnType = InlineResponse20022;
+
       return this.apiClient.callApi(
         '/factset/etf/fundFlows/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -763,10 +1350,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20013}
+     * @return { Promise.< module:model/InlineResponse20022 > } a Promise, with data of type {@link module:model/InlineResponse20022 }
      */
-    factsetEtfFundFlowsGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfFundFlowsGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfFundFlowsGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfFundFlowsGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -781,12 +1368,12 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
      */
-    factsetEtfGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfGetBySymbol");
       }
 
       let pathParams = {
@@ -803,7 +1390,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/factset/etf/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -817,10 +1407,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
-    factsetEtfGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -834,17 +1424,18 @@ export default class FactsetApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.timePeriod Historice NAV date value.
      * @param {module:model/String} opts.calculationType Historice NAV date value.
+     * @param {module:model/String} opts.alignment Indicates the reference point for growth of 10k data.
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20014} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20023} and HTTP response
      */
-    factsetEtfGrowthOfTenKListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfGrowthOfTenKListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfGrowthOfTenKListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfGrowthOfTenKListBySymbol");
       }
 
       let pathParams = {
@@ -853,6 +1444,7 @@ export default class FactsetApi {
         'symbol': symbol,
         'timePeriod': opts['timePeriod'],
         'calculationType': opts['calculationType'],
+        'alignment': opts['alignment'],
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
         '_paginationOffset': opts['paginationOffset'],
         '_paginationLimit': opts['paginationLimit']
@@ -865,7 +1457,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20014;
+
+
+      let returnType = InlineResponse20023;
+
       return this.apiClient.callApi(
         '/factset/etf/growthOfTenK/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -880,13 +1475,14 @@ export default class FactsetApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.timePeriod Historice NAV date value.
      * @param {module:model/String} opts.calculationType Historice NAV date value.
+     * @param {module:model/String} opts.alignment Indicates the reference point for growth of 10k data.
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20014}
+     * @return { Promise.< module:model/InlineResponse20023 > } a Promise, with data of type {@link module:model/InlineResponse20023 }
      */
-    factsetEtfGrowthOfTenKListBySymbolGet(symbol, opts) {
-      return this.factsetEtfGrowthOfTenKListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfGrowthOfTenKListBySymbol(symbol, opts) {
+      return this.getFactsetEtfGrowthOfTenKListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -901,14 +1497,14 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20015} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20024} and HTTP response
      */
-    factsetEtfHoldingsListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfHoldingsListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfHoldingsListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfHoldingsListBySymbol");
       }
 
       let pathParams = {
@@ -927,7 +1523,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20015;
+
+
+      let returnType = InlineResponse20024;
+
       return this.apiClient.callApi(
         '/factset/etf/holdings/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -943,10 +1542,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20015}
+     * @return { Promise.< module:model/InlineResponse20024 > } a Promise, with data of type {@link module:model/InlineResponse20024 }
      */
-    factsetEtfHoldingsListBySymbolGet(symbol, opts) {
-      return this.factsetEtfHoldingsListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfHoldingsListBySymbol(symbol, opts) {
+      return this.getFactsetEtfHoldingsListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -954,19 +1553,19 @@ export default class FactsetApi {
 
 
     /**
-     * Retrieve historical ETP NAV values.
-     * Retrieve an ETP's historical NAV and shares outstanding for a specified time range.
-     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * Market aggregate data for ETPs.
+     * Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
+     * @param {String} symbol Ticker-region of an ETP as defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20016} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20025} and HTTP response
      */
-    factsetEtfPriceGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfMarketAggregatesGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfPriceGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfMarketAggregatesGetBySymbol");
       }
 
       let pathParams = {
@@ -983,7 +1582,136 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20016;
+
+
+      let returnType = InlineResponse20025;
+
+      return this.apiClient.callApi(
+        '/factset/etf/marketAggregates/getBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Market aggregate data for ETPs.
+     * Market Aggregates combines FactSet Estimates, FactSet Fundamentals, and FactSet Prices data to derive ratios and per share values on an aggregate level. The resulting index values can be used to identify market trends and compare a combination of portfolios, benchmarks, and individual securities.
+     * @param {String} symbol Ticker-region of an ETP as defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return { Promise.< module:model/InlineResponse20025 > } a Promise, with data of type {@link module:model/InlineResponse20025 }
+     */
+    getFactsetEtfMarketAggregatesGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfMarketAggregatesGetBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Summary of ETP premium discount data.
+     * Summary of ETP premium discount data.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.timePeriod Time frame of the data. (default to 'YTD')
+     * @param {module:model/String} opts.alignment Indicates the reference point for the historical NAV and price values. (default to 'quarter-end')
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20026} and HTTP response
+     */
+    getFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfPremiumDiscountSummaryListBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        'timePeriod': opts['timePeriod'],
+        'alignment': opts['alignment'],
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
+        '_paginationOffset': opts['paginationOffset'],
+        '_paginationLimit': opts['paginationLimit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20026;
+
+      return this.apiClient.callApi(
+        '/factset/etf/premiumDiscount/summary/listBySymbol', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Summary of ETP premium discount data.
+     * Summary of ETP premium discount data.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/String} opts.timePeriod Time frame of the data. (default to 'YTD')
+     * @param {module:model/String} opts.alignment Indicates the reference point for the historical NAV and price values. (default to 'quarter-end')
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
+     * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
+     * @return { Promise.< module:model/InlineResponse20026 > } a Promise, with data of type {@link module:model/InlineResponse20026 }
+     */
+    getFactsetEtfPremiumDiscountSummaryListBySymbol(symbol, opts) {
+      return this.getFactsetEtfPremiumDiscountSummaryListBySymbolWithHttpInfo(symbol, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retrieve historical ETP NAV values.
+     * Retrieve an ETP's historical NAV and shares outstanding for a specified time range.
+     * @param {String} symbol Market symbol of ETP defined by FactSet.
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20027} and HTTP response
+     */
+    getFactsetEtfPriceGetBySymbolWithHttpInfo(symbol, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'symbol' is set
+      if (symbol === undefined || symbol === null) {
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfPriceGetBySymbol");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'symbol': symbol,
+        '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv')
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+
+
+      let returnType = InlineResponse20027;
+
       return this.apiClient.callApi(
         '/factset/etf/price/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -997,10 +1725,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20016}
+     * @return { Promise.< module:model/InlineResponse20027 > } a Promise, with data of type {@link module:model/InlineResponse20027 }
      */
-    factsetEtfPriceGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfPriceGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfPriceGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfPriceGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1009,19 +1737,19 @@ export default class FactsetApi {
 
     /**
      * Retrieve total return data for a specified ETP.
-     * An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+     * An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.returnType Return type. (default to 'price')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20017} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20028} and HTTP response
      */
-    factsetEtfReturnsGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfReturnsGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfReturnsGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfReturnsGetBySymbol");
       }
 
       let pathParams = {
@@ -1039,7 +1767,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20017;
+
+
+      let returnType = InlineResponse20028;
+
       return this.apiClient.callApi(
         '/factset/etf/returns/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1049,15 +1780,15 @@ export default class FactsetApi {
 
     /**
      * Retrieve total return data for a specified ETP.
-     * An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return market price is used to calcualte price returns. Total return nav is used to calcualte nav returns.
+     * An ETP's total return data can be returned for various time frames including 1-month, 3-month, YTD, 1-year, 3-year, and 5-year. Total return calculations include price performance plus reinvested and compounded distributions. Market price is used to calcualte market returns. Portfolio nav is used to calcualte nav returns.
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.returnType Return type. (default to 'price')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20017}
+     * @return { Promise.< module:model/InlineResponse20028 > } a Promise, with data of type {@link module:model/InlineResponse20028 }
      */
-    factsetEtfReturnsGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfReturnsGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfReturnsGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfReturnsGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1070,14 +1801,14 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20018} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20029} and HTTP response
      */
-    factsetEtfStrategyGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfStrategyGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfStrategyGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfStrategyGetBySymbol");
       }
 
       let pathParams = {
@@ -1094,7 +1825,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20018;
+
+
+      let returnType = InlineResponse20029;
+
       return this.apiClient.callApi(
         '/factset/etf/strategy/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1108,10 +1842,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20018}
+     * @return { Promise.< module:model/InlineResponse20029 > } a Promise, with data of type {@link module:model/InlineResponse20029 }
      */
-    factsetEtfStrategyGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfStrategyGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfStrategyGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfStrategyGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1125,9 +1859,9 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20019} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20030} and HTTP response
      */
-    factsetEtfStrategySegmentListGetWithHttpInfo(opts) {
+    getFactsetEtfStrategySegmentListWithHttpInfo(opts) {
       opts = opts || {};
       let postBody = null;
 
@@ -1146,7 +1880,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20019;
+
+
+      let returnType = InlineResponse20030;
+
       return this.apiClient.callApi(
         '/factset/etf/strategy/segment/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1161,10 +1898,10 @@ export default class FactsetApi {
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20019}
+     * @return { Promise.< module:model/InlineResponse20030 > } a Promise, with data of type {@link module:model/InlineResponse20030 }
      */
-    factsetEtfStrategySegmentListGet(opts) {
-      return this.factsetEtfStrategySegmentListGetWithHttpInfo(opts)
+    getFactsetEtfStrategySegmentList(opts) {
+      return this.getFactsetEtfStrategySegmentListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1177,14 +1914,14 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20020} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20031} and HTTP response
      */
-    factsetEtfStructureGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfStructureGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfStructureGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfStructureGetBySymbol");
       }
 
       let pathParams = {
@@ -1201,7 +1938,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20020;
+
+
+      let returnType = InlineResponse20031;
+
       return this.apiClient.callApi(
         '/factset/etf/structure/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1215,10 +1955,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20020}
+     * @return { Promise.< module:model/InlineResponse20031 > } a Promise, with data of type {@link module:model/InlineResponse20031 }
      */
-    factsetEtfStructureGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfStructureGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfStructureGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfStructureGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1231,14 +1971,14 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20021} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20032} and HTTP response
      */
-    factsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfTaxesAndFeesUsGetBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfTaxesAndFeesUsGetBySymbol");
       }
 
       let pathParams = {
@@ -1255,7 +1995,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20021;
+
+
+      let returnType = InlineResponse20032;
+
       return this.apiClient.callApi(
         '/factset/etf/taxesAndFees/us/getBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1269,10 +2012,10 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20021}
+     * @return { Promise.< module:model/InlineResponse20032 > } a Promise, with data of type {@link module:model/InlineResponse20032 }
      */
-    factsetEtfTaxesAndFeesUsGetBySymbolGet(symbol, opts) {
-      return this.factsetEtfTaxesAndFeesUsGetBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfTaxesAndFeesUsGetBySymbol(symbol, opts) {
+      return this.getFactsetEtfTaxesAndFeesUsGetBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1285,17 +2028,18 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.timePeriod Time frame of the data. (default to '1Y')
+     * @param {module:model/String} opts.alignment Indicates the reference point for the time series data.
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20022} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse20033} and HTTP response
      */
-    factsetEtfTimeSeriesListBySymbolGetWithHttpInfo(symbol, opts) {
+    getFactsetEtfTimeSeriesListBySymbolWithHttpInfo(symbol, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'symbol' is set
       if (symbol === undefined || symbol === null) {
-        throw new Error("Missing the required parameter 'symbol' when calling factsetEtfTimeSeriesListBySymbolGet");
+        throw new Error("Missing the required parameter 'symbol' when calling getFactsetEtfTimeSeriesListBySymbol");
       }
 
       let pathParams = {
@@ -1303,6 +2047,7 @@ export default class FactsetApi {
       let queryParams = {
         'symbol': symbol,
         'timePeriod': opts['timePeriod'],
+        'alignment': opts['alignment'],
         '_attributes': this.apiClient.buildCollectionParam(opts['attributes'], 'csv'),
         '_paginationOffset': opts['paginationOffset'],
         '_paginationLimit': opts['paginationLimit']
@@ -1315,7 +2060,10 @@ export default class FactsetApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = InlineResponse20022;
+
+
+      let returnType = InlineResponse20033;
+
       return this.apiClient.callApi(
         '/factset/etf/timeSeries/listBySymbol', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1329,13 +2077,14 @@ export default class FactsetApi {
      * @param {String} symbol Market symbol of ETP defined by FactSet.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.timePeriod Time frame of the data. (default to '1Y')
+     * @param {module:model/String} opts.alignment Indicates the reference point for the time series data.
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20022}
+     * @return { Promise.< module:model/InlineResponse20033 > } a Promise, with data of type {@link module:model/InlineResponse20033 }
      */
-    factsetEtfTimeSeriesListBySymbolGet(symbol, opts) {
-      return this.factsetEtfTimeSeriesListBySymbolGetWithHttpInfo(symbol, opts)
+    getFactsetEtfTimeSeriesListBySymbol(symbol, opts) {
+      return this.getFactsetEtfTimeSeriesListBySymbolWithHttpInfo(symbol, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1343,3 +2092,8 @@ export default class FactsetApi {
 
 
 }
+
+
+
+
+

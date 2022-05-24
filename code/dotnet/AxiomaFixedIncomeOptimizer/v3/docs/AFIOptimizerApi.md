@@ -55,7 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
             try
             {
@@ -80,7 +80,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run AFI optimization endpoint | 
 
 ### Return type
-
 void (empty response body)
 
 ### Authorization
@@ -149,7 +148,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
             try
             {
@@ -175,7 +174,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run AFI optimization endpoint | 
 
 ### Return type
-
 [**AFIOptimizationParametersRoot**](AFIOptimizationParametersRoot.md)
 
 ### Authorization
@@ -244,7 +242,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Get AFI optimization status by id endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Get AFI optimization status by id endpoint
 
             try
             {
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Get AFI optimization status by id endpoint | 
 
 ### Return type
-
 [**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
@@ -339,7 +336,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
 
             try
             {
@@ -365,7 +362,6 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run AFI optimization endpoint | 
 
 ### Return type
-
 [**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
@@ -436,14 +432,26 @@ namespace Example
 
             var apiInstance = new AFIOptimizerApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var aFIOptimizationParametersRoot = new AFIOptimizationParametersRoot(); // AFIOptimizationParametersRoot | Optimization Parameters (optional) 
 
             try
             {
                 // Create and Run AFI optimization
-                ObjectRoot result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, aFIOptimizationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                AFIOptimizerApi.PostAndOptimizeResponseWrapper result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, aFIOptimizationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -465,8 +473,7 @@ Name | Type | Description  | Notes
  **aFIOptimizationParametersRoot** | [**AFIOptimizationParametersRoot**](AFIOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 
 ### Return type
-
-[**ObjectRoot**](ObjectRoot.md)
+PostAndOptimizeResponseWrapper
 
 ### Authorization
 
@@ -537,16 +544,28 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AFIOptimizerApi(config);
-            var id = id_example;  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
+            var id = "id_example";  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
+            var cacheControl = "cacheControl_example";  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var aFIOptimizationParametersRoot = new AFIOptimizationParametersRoot(); // AFIOptimizationParametersRoot | Optimization Parameters (optional) 
 
             try
             {
                 // Create or Update AFI optimization and run it.
-                ObjectRoot result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, aFIOptimizationParametersRoot);
-                Console.WriteLine(result.ToJson());
+                AFIOptimizerApi.PutAndOptimizeResponseWrapper result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, aFIOptimizationParametersRoot);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)201:
+                        Console.WriteLine(result.Response201);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -569,8 +588,7 @@ Name | Type | Description  | Notes
  **aFIOptimizationParametersRoot** | [**AFIOptimizationParametersRoot**](AFIOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 
 ### Return type
-
-[**ObjectRoot**](ObjectRoot.md)
+PutAndOptimizeResponseWrapper
 
 ### Authorization
 

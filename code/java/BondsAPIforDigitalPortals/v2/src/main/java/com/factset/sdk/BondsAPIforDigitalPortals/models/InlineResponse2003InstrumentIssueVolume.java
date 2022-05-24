@@ -44,6 +44,8 @@ public class InlineResponse2003InstrumentIssueVolume implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private InlineResponse2003InstrumentIssueVolumeCurrency currency;
 
+  public InlineResponse2003InstrumentIssueVolume() { 
+  }
 
   public InlineResponse2003InstrumentIssueVolume currency(InlineResponse2003InstrumentIssueVolumeCurrency currency) {
     this.currency = currency;

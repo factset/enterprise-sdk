@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * EntityFocus service.
 * @module api/EntityFocusApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class EntityFocusApi {
 
@@ -71,7 +71,10 @@ export default class EntityFocusApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EntityFocusResponse;
+
       return this.apiClient.callApi(
         '/factset-rbics/v1/entity-focus', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -87,7 +90,7 @@ export default class EntityFocusApi {
      * @param {String} opts.date Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
      * @param {Array.<Number>} opts.levels List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.**
      * @param {Boolean} opts.includeNames Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (default to true)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityFocusResponse}
+     * @return { Promise.< module:model/EntityFocusResponse > } a Promise, with data of type {@link module:model/EntityFocusResponse }
      */
     getRbicsEntityFocus(ids, opts) {
       return this.getRbicsEntityFocusWithHttpInfo(ids, opts)
@@ -122,7 +125,10 @@ export default class EntityFocusApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = EntityFocusResponse;
+
       return this.apiClient.callApi(
         '/factset-rbics/v1/entity-focus', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -134,7 +140,7 @@ export default class EntityFocusApi {
      * Get RBICS classification for the Focus industry
      * Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified. 
      * @param {module:model/EntityFocusRequest} entityFocusRequest Request Body to request a list of RBICS Entity Focus objects.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityFocusResponse}
+     * @return { Promise.< module:model/EntityFocusResponse > } a Promise, with data of type {@link module:model/EntityFocusResponse }
      */
     getRbicsEntityFocusForList(entityFocusRequest) {
       return this.getRbicsEntityFocusForListWithHttpInfo(entityFocusRequest)
@@ -145,3 +151,8 @@ export default class EntityFocusApi {
 
 
 }
+
+
+
+
+

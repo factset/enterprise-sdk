@@ -43,6 +43,8 @@ public class PortfolioTransactionCreateDataParentTransaction implements Serializ
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public PortfolioTransactionCreateDataParentTransaction() { 
+  }
 
   public PortfolioTransactionCreateDataParentTransaction id(String id) {
     this.id = id;

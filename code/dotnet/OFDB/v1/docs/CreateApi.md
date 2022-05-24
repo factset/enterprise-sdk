@@ -78,7 +78,6 @@ Name | Type | Description  | Notes
  **databaseSchema** | [**DatabaseSchema**](DatabaseSchema.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
@@ -148,7 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateApi(config);
-            var path = path_example;  // string | Encode database path
+            var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
             var inlineObject4 = new InlineObject4(); // InlineObject4 | 
 
@@ -177,7 +176,6 @@ Name | Type | Description  | Notes
  **inlineObject4** | [**InlineObject4**](InlineObject4.md)|  | 
 
 ### Return type
-
 [**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
@@ -247,7 +245,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateApi(config);
-            var path = path_example;  // string | Encode database path
+            var path = "path_example";  // string | Encode database path
             var inlineObject2 = new InlineObject2(); // InlineObject2 | 
 
             try
@@ -274,7 +272,6 @@ Name | Type | Description  | Notes
  **inlineObject2** | [**InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
-
 [**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
@@ -345,7 +342,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new CreateApi(config);
-            var path = path_example;  // string | Encode database path
+            var path = "path_example";  // string | Encode database path
             var inlineObject = new InlineObject(); // InlineObject | 
 
             try
@@ -372,7 +369,6 @@ Name | Type | Description  | Notes
  **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
-
 [**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization

@@ -24,16 +24,16 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response2001_meta import InlineResponse2001Meta
     from fds.sdk.ETFProfileandPrices.model.inline_response20022_data import InlineResponse20022Data
-    globals()['InlineResponse2001Meta'] = InlineResponse2001Meta
+    from fds.sdk.ETFProfileandPrices.model.inline_response200_meta import InlineResponse200Meta
     globals()['InlineResponse20022Data'] = InlineResponse20022Data
+    globals()['InlineResponse200Meta'] = InlineResponse200Meta
 
 
 class InlineResponse20022(ModelNormal):
@@ -64,8 +64,6 @@ class InlineResponse20022(ModelNormal):
     }
 
     validations = {
-        ('data',): {
-        },
     }
 
     @cached_property
@@ -91,8 +89,8 @@ class InlineResponse20022(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([InlineResponse20022Data],),  # noqa: E501
-            'meta': (InlineResponse2001Meta,),  # noqa: E501
+            'data': (InlineResponse20022Data,),  # noqa: E501
+            'meta': (InlineResponse200Meta,),  # noqa: E501
         }
 
     @cached_property
@@ -146,8 +144,8 @@ class InlineResponse20022(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20022Data]): Time series.. [optional]  # noqa: E501
-            meta (InlineResponse2001Meta): [optional]  # noqa: E501
+            data (InlineResponse20022Data): [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,8 +227,8 @@ class InlineResponse20022(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            data ([InlineResponse20022Data]): Time series.. [optional]  # noqa: E501
-            meta (InlineResponse2001Meta): [optional]  # noqa: E501
+            data (InlineResponse20022Data): [optional]  # noqa: E501
+            meta (InlineResponse200Meta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -43,6 +43,8 @@ public class CovenantDetailsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<CovenantDetail> data = null;
 
+  public CovenantDetailsResponse() { 
+  }
 
   public CovenantDetailsResponse data(java.util.List<CovenantDetail> data) {
     this.data = data;

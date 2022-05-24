@@ -47,6 +47,8 @@ public class InlineResponse2007 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse201Meta meta;
 
+  public InlineResponse2007() { 
+  }
 
   public InlineResponse2007 data(Object data) {
     this.data = data;

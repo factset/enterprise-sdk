@@ -7,7 +7,7 @@ info:
     \ for a given list of securities. Beginning first with GICS Direct, the service\
     \ will then expand to offering NAICS, SIC, RBICS, and more. \n"
   title: Classifications API
-  version: 1.0.0
+  version: 1.0.1
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -22,12 +22,12 @@ paths:
   /classifications/v1/gics:
     get:
       description: |
-        Gets the The **Global Industry Classification Standard ("GICS")** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&P GICS](http://us.spindices.com/resource-center/index-policies/) home pages. Coverage includes over 37,000 securities.
+        Gets the **Global Industry Classification Standard ("GICS")** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&P GICS](https://www.spglobal.com/spdji/en/landing/topic/gics/) home pages. Coverage includes over 37,000 securities.
         *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.*
       operationId: getGics
       parameters:
       - description: |
-          The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+          The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
         explode: false
         in: query
         name: ids
@@ -35,7 +35,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 3000
+          maxItems: 1000
           minItems: 1
           type: array
         style: form
@@ -178,8 +178,8 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Gets the The **Global Industry Classification Standard ("GICS")** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&P GICS](http://us.spindices.com/resource-center/index-policies/) home pages. Coverage includes over 37,000 secutries.
-        *Licencing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.*
+        Gets the **Global Industry Classification Standard ("GICS")** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&P GICS](https://www.spglobal.com/spdji/en/landing/topic/gics/) home pages. Coverage includes over 37,000 securities.
+        *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.*
       operationId: postGics
       requestBody:
         content:
@@ -457,7 +457,7 @@ components:
   parameters:
     ids:
       description: |
-        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
       explode: false
       in: query
       name: ids
@@ -465,7 +465,7 @@ components:
       schema:
         items:
           type: string
-        maxItems: 3000
+        maxItems: 1000
         minItems: 1
         type: array
       style: form
@@ -607,12 +607,12 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
           example:
           - AAPL-US
           items:
             type: string
-          maxItems: 3000
+          maxItems: 1000
           minItems: 1
           title: Security Ids
           type: array
@@ -643,9 +643,9 @@ components:
           gicsSectorName: Communications Services
           requestId: SPY-US
           fsymId: 0FPWZZ-E
-          gicsSubInudstryNumber: "50203010"
           gicsIndustryGroupNumber: "5020"
           gicsIndustryNumber: "502030"
+          gicsSubIndustryNumber: "50203010"
           gicsIndustryName: Interactive Media & Services
           gicsSubIndustryName: Interactive Media & Services
         - date: 2020-10-30T00:00:00.000+0000
@@ -654,9 +654,9 @@ components:
           gicsSectorName: Communications Services
           requestId: SPY-US
           fsymId: 0FPWZZ-E
-          gicsSubInudstryNumber: "50203010"
           gicsIndustryGroupNumber: "5020"
           gicsIndustryNumber: "502030"
+          gicsSubIndustryNumber: "50203010"
           gicsIndustryName: Interactive Media & Services
           gicsSubIndustryName: Interactive Media & Services
       properties:
@@ -676,9 +676,9 @@ components:
         gicsSectorName: Communications Services
         requestId: SPY-US
         fsymId: 0FPWZZ-E
-        gicsSubInudstryNumber: "50203010"
         gicsIndustryGroupNumber: "5020"
         gicsIndustryNumber: "502030"
+        gicsSubIndustryNumber: "50203010"
         gicsIndustryName: Interactive Media & Services
         gicsSubIndustryName: Interactive Media & Services
       properties:
@@ -722,7 +722,7 @@ components:
           description: GICS Sub-Industry Name in Proper Format.
           example: Interactive Media & Services
           type: string
-        gicsSubInudstryNumber:
+        gicsSubIndustryNumber:
           description: GICS Industry Number.
           example: "50203010"
           type: string
@@ -734,12 +734,12 @@ components:
       type: object
     ids:
       description: |
-        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  3000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
       example:
       - AAPL-US
       items:
         type: string
-      maxItems: 3000
+      maxItems: 1000
       minItems: 1
       title: Security Ids
       type: array

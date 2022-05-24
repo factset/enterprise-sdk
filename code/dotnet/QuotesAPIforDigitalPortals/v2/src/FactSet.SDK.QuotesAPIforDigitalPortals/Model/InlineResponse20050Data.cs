@@ -113,7 +113,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20050Data {\n");
             sb.Append("  TypeComposite: ").Append(TypeComposite).Append("\n");
             sb.Append("  ActiveManagement: ").Append(ActiveManagement).Append("\n");
@@ -150,8 +150,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20050Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TypeComposite == input.TypeComposite ||
@@ -182,11 +183,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TypeComposite.GetHashCode();
-                hashCode = hashCode * 59 + this.ActiveManagement.GetHashCode();
-                hashCode = hashCode * 59 + this.ManagementFee.GetHashCode();
+                hashCode = (hashCode * 59) + this.TypeComposite.GetHashCode();
+                hashCode = (hashCode * 59) + this.ActiveManagement.GetHashCode();
+                hashCode = (hashCode * 59) + this.ManagementFee.GetHashCode();
                 if (this.Components != null)
-                    hashCode = hashCode * 59 + this.Components.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Components.GetHashCode();
+                }
                 return hashCode;
             }
         }

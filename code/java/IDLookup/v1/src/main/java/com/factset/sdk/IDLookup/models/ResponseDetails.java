@@ -54,6 +54,8 @@ public class ResponseDetails implements Serializable {
   public static final String JSON_PROPERTY_ENTITY_ID = "entity_id";
   private String entityId;
 
+  public ResponseDetails() { 
+  }
 
   public ResponseDetails index(String index) {
     this.index = index;

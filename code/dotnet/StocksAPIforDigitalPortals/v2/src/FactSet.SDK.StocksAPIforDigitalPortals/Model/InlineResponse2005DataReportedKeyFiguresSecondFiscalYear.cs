@@ -124,7 +124,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataReportedKeyFiguresSecondFiscalYear {\n");
             sb.Append("  FiscalYear: ").Append(FiscalYear).Append("\n");
             sb.Append("  CurrencyDependentKeyFigures: ").Append(CurrencyDependentKeyFigures).Append("\n");
@@ -167,8 +167,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataReportedKeyFiguresSecondFiscalYear input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FiscalYear == input.FiscalYear ||
@@ -232,25 +233,45 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.FiscalYear != null)
-                    hashCode = hashCode * 59 + this.FiscalYear.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FiscalYear.GetHashCode();
+                }
                 if (this.CurrencyDependentKeyFigures != null)
-                    hashCode = hashCode * 59 + this.CurrencyDependentKeyFigures.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CurrencyDependentKeyFigures.GetHashCode();
+                }
                 if (this.EbitMargin != null)
-                    hashCode = hashCode * 59 + this.EbitMargin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EbitMargin.GetHashCode();
+                }
                 if (this.EbitdaMargin != null)
-                    hashCode = hashCode * 59 + this.EbitdaMargin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EbitdaMargin.GetHashCode();
+                }
                 if (this.NetIncomeMargin != null)
-                    hashCode = hashCode * 59 + this.NetIncomeMargin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.NetIncomeMargin.GetHashCode();
+                }
                 if (this.GrossIncomeMargin != null)
-                    hashCode = hashCode * 59 + this.GrossIncomeMargin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.GrossIncomeMargin.GetHashCode();
+                }
                 if (this.OperatingMargin != null)
-                    hashCode = hashCode * 59 + this.OperatingMargin.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OperatingMargin.GetHashCode();
+                }
                 if (this.ReturnOnAssets != null)
-                    hashCode = hashCode * 59 + this.ReturnOnAssets.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReturnOnAssets.GetHashCode();
+                }
                 if (this.ReturnOnEquity != null)
-                    hashCode = hashCode * 59 + this.ReturnOnEquity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReturnOnEquity.GetHashCode();
+                }
                 if (this.Ratios != null)
-                    hashCode = hashCode * 59 + this.Ratios.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ratios.GetHashCode();
+                }
                 return hashCode;
             }
         }

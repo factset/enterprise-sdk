@@ -17,7 +17,7 @@ import InlineResponse2007DataObservationPeriod from './InlineResponse2007DataObs
 /**
  * The InlineResponse2007DataObservation model module.
  * @module model/InlineResponse2007DataObservation
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataObservation {
     /**

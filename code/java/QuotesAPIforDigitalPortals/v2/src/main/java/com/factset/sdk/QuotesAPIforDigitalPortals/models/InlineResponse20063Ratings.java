@@ -58,6 +58,8 @@ public class InlineResponse20063Ratings implements Serializable {
   public static final String JSON_PROPERTY_CHANGE = "change";
   private BigDecimal change;
 
+  public InlineResponse20063Ratings() { 
+  }
 
   public InlineResponse20063Ratings system(InlineResponse20063System system) {
     this.system = system;

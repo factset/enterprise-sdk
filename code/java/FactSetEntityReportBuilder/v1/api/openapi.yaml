@@ -1,0 +1,1014 @@
+openapi: 3.0.3
+info:
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Entity Report Builder
+  version: 1.0.0
+externalDocs:
+  description: Read more about STACH 2.0's row organized schema
+  url: https://factset.github.io/stachschema/#/v2/RowOrganized
+servers:
+- url: https://api.factset.com/report/entity/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- name: Entity Structure
+paths:
+  /structure:
+    get:
+      description: Returns full entity tree for table and tree display
+      operationId: getEntityStructureStructure
+      parameters:
+      - description: Company ticker
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          example: FDS
+          type: string
+        style: form
+      - description: |
+          The schema that the data is returned as. The following are descriptions for the accepted values:
+          - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
+          - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
+          - tree - Entities are represented as tree nodes returned in a flat structure, where each parent node contains a children attribute pointing to its child nodes
+        explode: true
+        in: query
+        name: schema
+        required: false
+        schema:
+          default: table_parent_child_columns
+          enum:
+          - table_group_level
+          - table_parent_child_columns
+          - tree
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                groupLevelResponse:
+                  $ref: '#/components/examples/groupLevelResponse'
+                parentChildColumnsResponse:
+                  $ref: '#/components/examples/parentChildColumnsResponse'
+                treeResponse:
+                  $ref: '#/components/examples/treeResponse'
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Expected response
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Supported-Versions:
+              description: Supported API major versions
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                idRequiredParameterError:
+                  $ref: '#/components/examples/idRequiredParameterError'
+                idInvalidParameterError:
+                  $ref: '#/components/examples/idInvalidParameterError'
+                schemaInvalidParameterError:
+                  $ref: '#/components/examples/schemaInvalidParameterError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. For further assistance, file an issue under "Workflow
+            & Throttling - 400 or 429 Response" using `Report Issue` at the top of
+            this page, including the X-DataDirect-Request-Key from the header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Supported-Versions:
+              description: Supported API versions (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+            Api-Version:
+              description: API version (semantic versioning)
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication. Ensure you are logged in
+            and have successfully generated an API KEY for the IP range you are connecting
+            from. For further assistance, file an issue under "Connectivty - 401 or
+            403 Responses" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "403":
+          content:
+            application/json:
+              examples:
+                notAuthorized:
+                  $ref: '#/components/examples/notAuthorized'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: User is forbidden access with current credentials. Reach out
+            to your local FactSet Account Manager for assistance, or file an issue
+            under "Connectivty - 401 or 403 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/endpointNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not found. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Too many requests - this API is rate-limited to 20 requests
+            per second. For further assistance, file an issue under "Workflow & Throttling
+            - 400 or 429 Response" using `Report Issue` at the top of this page, including
+            the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                genericServerError:
+                  $ref: '#/components/examples/genericServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Server error. For further assistance, file an issue under "Performance
+            - 404 and 500 Responses" using `Report Issue` at the top of this page,
+            including the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "503":
+          description: Service unavailable. Typically a timeout, or result of a rejected
+            request to prevent service overload. For further assistance, file an issue
+            under "Performance - 404 and 500 Responses" using `Report Issue` at the
+            top of this page, including the X-DataDirect-Request-Key from the header
+            to assist in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet request ID
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Entity structure
+      tags:
+      - Entity Structure
+      x-accepts: application/json
+components:
+  examples:
+    groupLevelResponse:
+      description: Subset of rows and columns for an example STACH 2.0 row organized
+        package format table group level response
+      summary: (sample table group level response)
+      value:
+        data:
+          version: "2.0"
+          tables:
+            main:
+              definition:
+                columns:
+                - id: entityID
+                  type: string
+                  isDimension: true
+                - id: name
+                  type: string
+                - id: country
+                  type: string
+                - id: entityType
+                  type: string
+              headersDefinition:
+                columns:
+                - id: entityTableHeader
+                  type: string
+                  isDimension: true
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - ID
+                  - Name
+                  - Country
+                  - Entity Type
+                  headerCellDetails:
+                    "0":
+                      source: HEADERS
+                      columnIndex: 0
+                    "1":
+                      source: HEADERS
+                      columnIndex: 0
+                    "2":
+                      source: HEADERS
+                      columnIndex: 0
+                    "3":
+                      source: HEADERS
+                      columnIndex: 0
+                - cells:
+                  - 0016YD-E
+                  - FactSet Research Systems, Inc.
+                  - United States
+                  - PUB
+                - cells:
+                  - 003S32-E
+                  - P.A.N. Securities LP
+                  - United States
+                  - SUB
+                  cellDetails:
+                    "0":
+                      groupLevel: "1"
+                - cells:
+                  - 007F37-E
+                  - Portware LLC
+                  - United States
+                  - SUB
+                  cellDetails:
+                    "0":
+                      groupLevel: "1"
+                - cells:
+                  - 0CK25T-E
+                  - Aritas Group, Inc. /Technology & Analytical Business/
+                  - United States
+                  - COR
+                  cellDetails:
+                    "0":
+                      groupLevel: "2"
+                - cells:
+                  - 0DV5KG-E
+                  - Long Ridge Portware Holdings, Inc.
+                  - United States
+                  - EXT
+                  cellDetails:
+                    "0":
+                      groupLevel: "2"
+                - cells:
+                  - 0GV04X-E
+                  - Portware India Pvt Ltd.
+                  - India
+                  - SUB
+                  cellDetails:
+                    "0":
+                      groupLevel: "2"
+                - cells:
+                  - 0GV04Y-E
+                  - Portware International LLC
+                  - United States
+                  - SUB
+                  cellDetails:
+                    "0":
+                      groupLevel: "2"
+                - cells:
+                  - 0G910J-E
+                  - Portware International LLC (United Kingdom)
+                  - United Kingdom
+                  - SUB
+                  cellDetails:
+                    "0":
+                      groupLevel: "3"
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+          schema: table_group_level
+    parentChildColumnsResponse:
+      description: Subset of rows and columns for an example STACH 2.0 row organized
+        package format table parent child columns response
+      summary: (sample table parent child columns response)
+      value:
+        data:
+          version: "2.0"
+          tables:
+            main:
+              definition:
+                columns:
+                - id: entityLevel0
+                  type: string
+                  isDimension: true
+                - id: entityLevel1
+                  type: string
+                  isDimension: true
+                  parentId: entityLevel0
+                - id: entityLevel2
+                  type: string
+                  isDimension: true
+                  parentId: entityLevel1
+                - id: entityLevel3
+                  type: string
+                  isDimension: true
+                  parentId: entityLevel2
+                - id: name
+                  type: string
+                - id: country
+                  type: string
+                - id: entityType
+                  type: string
+              headersDefinition:
+                columns:
+                - id: entityTableHeader
+                  type: string
+                  isDimension: true
+              data:
+                rows:
+                - rowType: Header
+                  cells:
+                  - null
+                  - null
+                  - null
+                  - null
+                  - Name
+                  - Country
+                  - Entity Type
+                  headerCellDetails:
+                    "0":
+                      source: HEADERS
+                      columnIndex: 0
+                    "1":
+                      source: HEADERS
+                      columnIndex: 0
+                    "2":
+                      source: HEADERS
+                      columnIndex: 0
+                    "3":
+                      source: HEADERS
+                      columnIndex: 0
+                    "4":
+                      source: HEADERS
+                      columnIndex: 0
+                    "5":
+                      source: HEADERS
+                      columnIndex: 0
+                    "6":
+                      source: HEADERS
+                      columnIndex: 0
+                - cells:
+                  - 0016YD-E
+                  - null
+                  - null
+                  - null
+                  - FactSet Research Systems, Inc.
+                  - United States
+                  - PUB
+                - cells:
+                  - 0016YD-E
+                  - 003S32-E
+                  - null
+                  - null
+                  - P.A.N. Securities LP
+                  - United States
+                  - SUB
+                - cells:
+                  - 0016YD-E
+                  - 007F37-E
+                  - null
+                  - null
+                  - Portware LLC
+                  - United States
+                  - SUB
+                - cells:
+                  - 0016YD-E
+                  - 007F37-E
+                  - 0CK25T-E
+                  - null
+                  - Aritas Group, Inc. /Technology & Analytical Business/
+                  - United States
+                  - COR
+                - cells:
+                  - 0016YD-E
+                  - 007F37-E
+                  - 0DV5KG-E
+                  - null
+                  - Long Ridge Portware Holdings, Inc.
+                  - United States
+                  - EXT
+                - cells:
+                  - 0016YD-E
+                  - 007F37-E
+                  - 0GV04X-E
+                  - null
+                  - Portware India Pvt Ltd.
+                  - India
+                  - SUB
+                - cells:
+                  - 0016YD-E
+                  - 007F37-E
+                  - 0GV04Y-E
+                  - null
+                  - Portware International LLC
+                  - United States
+                  - SUB
+                - cells:
+                  - 0016YD-E
+                  - 007F37-E
+                  - 0GV04Y-E
+                  - 0G910J-E
+                  - Portware International LLC (United Kingdom)
+                  - United Kingdom
+                  - SUB
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+          schema: table_parent_child_columns
+    treeResponse:
+      description: Subset of rows and columns for an example response
+      summary: (sample tree response)
+      value:
+        data:
+          root: 0016YD-E
+          "0016YD-E":
+            name: FactSet Research Systems, Inc.
+            country: United States
+            entityType: PUB
+            parent: null
+            children:
+            - 003S32-E
+            - 007F37-E
+            - 007FCX-E
+          "003S32-E":
+            name: P.A.N. Securities LP
+            country: United States
+            entityType: SUB
+            parent: 0016YD-E
+          "007F37-E":
+            name: Portware LLC
+            country: United States
+            entityType: SUB
+            parent: 0016YD-E
+            children:
+            - 0CK25T-E
+            - 0DV5KG-E
+            - 0GV04X-E
+            - 0GV04Y-E
+            - 0MLMTB-E
+          "0CK25T-E":
+            name: Aritas Group, Inc. /Technology & Analytical Business/
+            country: United States
+            entityType: COR
+            parent: 007F37-E
+          "0DV5KG-E":
+            name: Long Ridge Portware Holdings, Inc.
+            country: United States
+            entityType: EXT
+            parent: 007F37-E
+          "0GV04X-E":
+            name: Portware India Pvt Ltd.
+            country: India
+            entityType: SUB
+            parent: 007F37-E
+          "0GV04Y-E":
+            name: Portware International LLC
+            country: United States
+            entityType: SUB
+            parent: 007F37-E
+            children:
+            - 0G910J-E
+            - 0GV051-E
+          "0G910J-E":
+            name: Portware International LLC (United Kingdom)
+            country: United Kingdom
+            entityType: SUB
+            parent: 0GV04Y-E
+          "0GV051-E":
+            name: Portware International LLC (Hong Kong Branch)
+            country: Hong Kong
+            entityType: SUB
+            parent: 0GV04Y-E
+          "0MLMTB-E":
+            name: Portware Singapore
+            country: Singapore
+            entityType: SUB
+            parent: 007F37-E
+          "007FCX-E":
+            name: Code Red, Inc.
+            country: United States
+            entityType: SUB
+            parent: 0016YD-E
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+          schema: tree
+    genericServerError:
+      summary: generic server error
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: genericServerError
+          title: Unexpected error processing request
+    parameterError:
+      summary: generic parameter error
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: Missing or invalid parameters
+    parameterErrorMissing:
+      summary: missing required parameter
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Missing required parameter(s): ''id'''
+    notAuthorized:
+      summary: not authorized
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: notAuthorized
+          title: User is forbidden access with current credentials. For access, contact
+            your FactSet sales representative
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: endpointNotFound
+          title: The requested endpoint does not exist.
+    idRequiredParameterError:
+      summary: missing id parameter
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Missing required parameter(s): ''id'''
+    idInvalidParameterError:
+      summary: invalid id parameter
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Invalid parameter(s): ''id'''
+    schemaInvalidParameterError:
+      summary: invalid schema parameter
+      value:
+        errors:
+        - id: 39314614-e607-465a-ba95-5bb79c362e23
+          code: parameterError
+          title: 'Invalid parameter: ''schema'''
+  parameters:
+    idParameter:
+      description: Company ticker
+      explode: true
+      in: query
+      name: id
+      required: true
+      schema:
+        example: FDS
+        type: string
+      style: form
+    schemaParameter:
+      description: |
+        The schema that the data is returned as. The following are descriptions for the accepted values:
+        - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata
+        - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns
+        - tree - Entities are represented as tree nodes returned in a flat structure, where each parent node contains a children attribute pointing to its child nodes
+      explode: true
+      in: query
+      name: schema
+      required: false
+      schema:
+        default: table_parent_child_columns
+        enum:
+        - table_group_level
+        - table_parent_child_columns
+        - tree
+        type: string
+      style: form
+  responses:
+    "200OK":
+      content:
+        application/json:
+          examples:
+            groupLevelResponse:
+              $ref: '#/components/examples/groupLevelResponse'
+            parentChildColumnsResponse:
+              $ref: '#/components/examples/parentChildColumnsResponse'
+            treeResponse:
+              $ref: '#/components/examples/treeResponse'
+          schema:
+            $ref: '#/components/schemas/Response'
+      description: Expected response
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Supported-Versions:
+          description: Supported API major versions
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Version:
+          description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "400BadRequest":
+      content:
+        application/json:
+          examples:
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
+            idInvalidParameterError:
+              $ref: '#/components/examples/idInvalidParameterError'
+            schemaInvalidParameterError:
+              $ref: '#/components/examples/schemaInvalidParameterError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. For further assistance, file an issue under "Workflow
+        & Throttling - 400 or 429 Response" using `Report Issue` at the top of this
+        page, including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Supported-Versions:
+          description: Supported API versions (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+        Api-Version:
+          description: API version (semantic versioning)
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "401Unauthorized":
+      description: Missing or invalid authentication. Ensure you are logged in and
+        have successfully generated an API KEY for the IP range you are connecting
+        from. For further assistance, file an issue under "Connectivty - 401 or 403
+        Responses" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key
+        from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "403Forbidden":
+      content:
+        application/json:
+          examples:
+            notAuthorized:
+              $ref: '#/components/examples/notAuthorized'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: User is forbidden access with current credentials. Reach out to
+        your local FactSet Account Manager for assistance, or file an issue under
+        "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of this
+        page, including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "404NotFound":
+      content:
+        application/json:
+          examples:
+            endpointNotFound:
+              $ref: '#/components/examples/endpointNotFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Not found. For further assistance, file an issue under "Performance
+        - 404 and 500 Responses" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "429TooManyRequests":
+      description: Too many requests - this API is rate-limited to 20 requests per
+        second. For further assistance, file an issue under "Workflow & Throttling
+        - 400 or 429 Response" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "500InternalServerError":
+      content:
+        application/json:
+          examples:
+            genericServerError:
+              $ref: '#/components/examples/genericServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Server error. For further assistance, file an issue under "Performance
+        - 404 and 500 Responses" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+    "503ServiceUnavailable":
+      description: Service unavailable. Typically a timeout, or result of a rejected
+        request to prevent service overload. For further assistance, file an issue
+        under "Performance - 404 and 500 Responses" using `Report Issue` at the top
+        of this page, including the X-DataDirect-Request-Key from the header to assist
+        in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          description: FactSet request ID
+          explode: false
+          schema:
+            type: string
+          style: simple
+  schemas:
+    Response:
+      example:
+        data: ""
+        meta:
+          key: meta
+      properties:
+        data:
+          description: Returns a STACH 2.0 row organized package
+          title: STACH
+        meta:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    Meta:
+      additionalProperties:
+        type: string
+      type: object
+    ErrorResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+        meta:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    ErrorObject:
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+        detail:
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+      type: object
+    MetadataEntry:
+      description: |
+        Restricted metadata entries. Restricts the possible key in the following STACH schema:
+        - RowOrganizedPackage.CellDetail.CellMetadataEntry
+        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
+        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
+        - RowOrganizedPackage.Row.RowMetadataEntry
+        - RowOrganizedPackage.TableData.TableMetadataEntry
+        And sets restrictions on the possible values for a MetadataItem.
+      oneOf:
+      - $ref: '#/components/schemas/currencyCode'
+      - $ref: '#/components/schemas/currencySymbol'
+      - $ref: '#/components/schemas/category'
+      - $ref: '#/components/schemas/valueType'
+      - $ref: '#/components/schemas/scale'
+      - $ref: '#/components/schemas/description'
+      - $ref: '#/components/schemas/frequency'
+      type: object
+    currencyCode:
+      properties:
+        currencyCode:
+          $ref: '#/components/schemas/currencyCode_currencyCode'
+      type: object
+    currencySymbol:
+      properties:
+        currencySymbol:
+          $ref: '#/components/schemas/currencySymbol_currencySymbol'
+      type: object
+    category:
+      properties:
+        category:
+          $ref: '#/components/schemas/category_category'
+      type: object
+    valueType:
+      properties:
+        valueType:
+          $ref: '#/components/schemas/valueType_valueType'
+      type: object
+    scale:
+      properties:
+        scale:
+          $ref: '#/components/schemas/scale_scale'
+      type: object
+    description:
+      properties:
+        description:
+          $ref: '#/components/schemas/description_description'
+      type: object
+    frequency:
+      properties:
+        frequency:
+          $ref: '#/components/schemas/frequency_frequency'
+      type: object
+    ErrorObject_links:
+      properties:
+        about:
+          type: string
+      type: object
+    ErrorObject_source:
+      properties:
+        parameter:
+          type: string
+      type: object
+    currencyCode_currencyCode:
+      description: Code for data currency
+      properties:
+        value:
+          type: string
+      type: object
+    currencySymbol_currencySymbol:
+      description: Symbol for data currency
+      properties:
+        value:
+          type: string
+      type: object
+    category_category:
+      description: |
+        Describes data based on source or kind of value
+        - ACTUAL - Historical data collected directly from a press release or a median consensus from brokers after a report date.
+        - ESTIMATE - Forward looking average of broker estimates within a specific time horizon.
+        - GUIDANCE - Forward looking indication or estimate of future performance issued by the company itself.
+        - DETAIL - Indicates data that is more granular and may be secondary in focus.
+        - MAIN - Indicates data is of more impactful or higher importance and may want to be emphasized.
+        - SECTION - Indicates data that is used in sectioning rows in group level STACH format.
+      properties:
+        value:
+          enum:
+          - ACTUAL
+          - ESTIMATE
+          - GUIDANCE
+          - EXCLUDED
+          - CHANGE
+          - DETAIL
+          - MAIN
+          - SECTION
+          type: string
+      type: object
+    valueType_valueType:
+      description: Describes how to interpret numbers
+      properties:
+        value:
+          enum:
+          - PERCENTAGE
+          - RATIO
+          - TREND
+          - RANGE
+          type: string
+      type: object
+    scale_scale:
+      description: |
+        Integer power of 10 to which numbers have been scaled. For example: 6 implies millions.
+        Default is 0.
+      properties:
+        value:
+          type: integer
+      type: object
+    description_description:
+      description: Text describing the data
+      properties:
+        value:
+          type: string
+      type: object
+    frequency_frequency:
+      description: |
+        String with frequency of a data series. Allowed values:
+        - "D" (daily)
+        - "W" (weekly)
+        - "AW" (actual weekly)
+        - "M" (monthly)
+        - "AM" (actual monthly)
+        - "Q" (quarterly)
+        - "FQ" (fiscal quarterly)
+        - "CQ" (calendar quarterly)
+        - "AQ" (actual quarterly)
+        - "Y" (yearly)
+        - "FY" (fiscal yearly)
+        - "CY" (calendar yearly)
+        - "AY" (actual yearly)
+        - "MTD" (month-to-date)
+        - "QTD" (quarter-to-date)
+        - "YTD" (year-to-date)
+        - "FYTD" (fiscal-year-to-date)
+        - "CYTD" (calendar-year-to-date)
+      properties:
+        value:
+          enum:
+          - D
+          - W
+          - AW
+          - M
+          - AM
+          - Q
+          - FQ
+          - CQ
+          - AQ
+          - "Y"
+          - FY
+          - CY
+          - AY
+          - MTD
+          - QTD
+          - YTD
+          - FYTD
+          - CYTD
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -1,0 +1,24 @@
+{
+  "packageName": "FactSet.SDK.TimeSeriesAPIforDigitalPortals",
+  "packageVersion": "0.10.0",
+  "packageGuid": "{e62766aa-cedd-5116-b48f-011be0b1ba33}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Time Series API for Digital Portals client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Time Series API for Digital Portals",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/TimeSeriesAPIforDigitalPortals/0.10.0",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}

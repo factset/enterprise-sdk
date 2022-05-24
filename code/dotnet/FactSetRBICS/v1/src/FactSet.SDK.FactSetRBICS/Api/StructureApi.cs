@@ -155,6 +155,33 @@ namespace FactSet.SDK.FactSetRBICS.Api
     {
         private FactSet.SDK.FactSetRBICS.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetRbicsStructureResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(StructureResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRbicsStructureForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(StructureResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="StructureApi"/> class.
         /// </summary>
@@ -268,7 +295,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <returns>StructureResponse</returns>
         public StructureResponse GetRbicsStructure(List<string> rbicsIds = default(List<string>), int? level = default(int?), bool? includeNames = default(bool?), string date = default(string))
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse> localVarResponse = GetRbicsStructureWithHttpInfo(rbicsIds, level, includeNames, date);
+            var localVarResponse = GetRbicsStructureWithHttpInfo(rbicsIds, level, includeNames, date);
             return localVarResponse.Data;
         }
 
@@ -281,7 +308,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="includeNames">Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. (optional, default to true)</param>
         /// <param name="date">Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)</param>
         /// <returns>ApiResponse of StructureResponse</returns>
-        public FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse> GetRbicsStructureWithHttpInfo(List<string> rbicsIds = default(List<string>), int? level = default(int?), bool? includeNames = default(bool?), string date = default(string))
+        public ApiResponse<StructureResponse> GetRbicsStructureWithHttpInfo(List<string> rbicsIds = default(List<string>), int? level = default(int?), bool? includeNames = default(bool?), string date = default(string))
         {
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
 
@@ -294,10 +321,16 @@ namespace FactSet.SDK.FactSetRBICS.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (rbicsIds != null)
             {
@@ -318,13 +351,13 @@ namespace FactSet.SDK.FactSetRBICS.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -336,15 +369,19 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<StructureResponse>("/factset-rbics/v1/structure", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsStructureResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            StructureResponse>("/factset-rbics/v1/structure", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -358,9 +395,9 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="date">Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StructureResponse</returns>
-        public async System.Threading.Tasks.Task<StructureResponse> GetRbicsStructureAsync(List<string> rbicsIds = default(List<string>), int? level = default(int?), bool? includeNames = default(bool?), string date = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StructureResponse>GetRbicsStructureAsync(List<string> rbicsIds = default(List<string>), int? level = default(int?), bool? includeNames = default(bool?), string date = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse> localVarResponse = await GetRbicsStructureWithHttpInfoAsync(rbicsIds, level, includeNames, date, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRbicsStructureWithHttpInfoAsync(rbicsIds, level, includeNames, date, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -374,7 +411,8 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="date">Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StructureResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse>> GetRbicsStructureWithHttpInfoAsync(List<string> rbicsIds = default(List<string>), int? level = default(int?), bool? includeNames = default(bool?), string date = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<StructureResponse>> GetRbicsStructureWithHttpInfoAsync(List<string> rbicsIds = default(List<string>), int? level = default(int?), bool? includeNames = default(bool?), string date = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
@@ -387,12 +425,17 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (rbicsIds != null)
             {
@@ -413,13 +456,13 @@ namespace FactSet.SDK.FactSetRBICS.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -431,14 +474,18 @@ namespace FactSet.SDK.FactSetRBICS.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsStructureResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<StructureResponse>("/factset-rbics/v1/structure", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsStructure", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -452,7 +499,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <returns>StructureResponse</returns>
         public StructureResponse GetRbicsStructureForList(StructureRequest structureRequest)
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse> localVarResponse = GetRbicsStructureForListWithHttpInfo(structureRequest);
+            var localVarResponse = GetRbicsStructureForListWithHttpInfo(structureRequest);
             return localVarResponse.Data;
         }
 
@@ -462,11 +509,13 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="structureRequest">Request Body to request a list of RBICS Structure objects.</param>
         /// <returns>ApiResponse of StructureResponse</returns>
-        public FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse> GetRbicsStructureForListWithHttpInfo(StructureRequest structureRequest)
+        public ApiResponse<StructureResponse> GetRbicsStructureForListWithHttpInfo(StructureRequest structureRequest)
         {
             // verify the required parameter 'structureRequest' is set
             if (structureRequest == null)
+            {
                 throw new FactSet.SDK.FactSetRBICS.Client.ApiException(400, "Missing required parameter 'structureRequest' when calling StructureApi->GetRbicsStructureForList");
+            }
 
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
 
@@ -480,22 +529,28 @@ namespace FactSet.SDK.FactSetRBICS.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = structureRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -507,15 +562,19 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<StructureResponse>("/factset-rbics/v1/structure", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsStructureForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            StructureResponse>("/factset-rbics/v1/structure", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsStructureForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -526,9 +585,9 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="structureRequest">Request Body to request a list of RBICS Structure objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of StructureResponse</returns>
-        public async System.Threading.Tasks.Task<StructureResponse> GetRbicsStructureForListAsync(StructureRequest structureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<StructureResponse>GetRbicsStructureForListAsync(StructureRequest structureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse> localVarResponse = await GetRbicsStructureForListWithHttpInfoAsync(structureRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRbicsStructureForListWithHttpInfoAsync(structureRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -539,11 +598,14 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="structureRequest">Request Body to request a list of RBICS Structure objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (StructureResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetRBICS.Client.ApiResponse<StructureResponse>> GetRbicsStructureForListWithHttpInfoAsync(StructureRequest structureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<StructureResponse>> GetRbicsStructureForListWithHttpInfoAsync(StructureRequest structureRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'structureRequest' is set
             if (structureRequest == null)
+            {
                 throw new FactSet.SDK.FactSetRBICS.Client.ApiException(400, "Missing required parameter 'structureRequest' when calling StructureApi->GetRbicsStructureForList");
+            }
 
 
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
@@ -557,24 +619,29 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = structureRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -586,14 +653,18 @@ namespace FactSet.SDK.FactSetRBICS.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsStructureForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<StructureResponse>("/factset-rbics/v1/structure", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsStructureForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -49,6 +49,8 @@ public class InlineResponse2003InstrumentCoupon implements Serializable {
   public static final String JSON_PROPERTY_CURRENT_INTEREST_RATE = "currentInterestRate";
   private InlineResponse2003InstrumentCouponCurrentInterestRate currentInterestRate;
 
+  public InlineResponse2003InstrumentCoupon() { 
+  }
 
   public InlineResponse2003InstrumentCoupon occurrence(InlineResponse2003InstrumentCouponOccurrence occurrence) {
     this.occurrence = occurrence;

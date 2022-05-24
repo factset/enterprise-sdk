@@ -21,7 +21,7 @@ import InlineResponse2005DataRangeKnockOutUpper from './InlineResponse2005DataRa
 /**
  * The InlineResponse2005DataRangeKnockOut model module.
  * @module model/InlineResponse2005DataRangeKnockOut
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataRangeKnockOut {
     /**

@@ -50,6 +50,7 @@ const opts = {
 // Call api endpoint
 apiInstance.tickHistoryLasttradeGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

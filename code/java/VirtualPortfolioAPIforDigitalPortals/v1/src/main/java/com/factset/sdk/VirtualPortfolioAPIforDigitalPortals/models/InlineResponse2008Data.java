@@ -115,6 +115,8 @@ public class InlineResponse2008Data implements Serializable {
   public static final String JSON_PROPERTY_EXCHANGE_RATE = "exchangeRate";
   private BigDecimal exchangeRate;
 
+  public InlineResponse2008Data() { 
+  }
 
   public InlineResponse2008Data id(String id) {
     this.id = id;

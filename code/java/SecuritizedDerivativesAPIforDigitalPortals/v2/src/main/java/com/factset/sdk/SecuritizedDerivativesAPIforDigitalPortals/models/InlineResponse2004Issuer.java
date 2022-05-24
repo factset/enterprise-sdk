@@ -53,6 +53,8 @@ public class InlineResponse2004Issuer implements Serializable {
   public static final String JSON_PROPERTY_GROUP = "group";
   private InlineResponse200DataIssuerGroup group;
 
+  public InlineResponse2004Issuer() { 
+  }
 
   public InlineResponse2004Issuer id(BigDecimal id) {
     this.id = id;

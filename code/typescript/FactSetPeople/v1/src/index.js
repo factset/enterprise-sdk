@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CompanyCompensation from './model/CompanyCompensation';
 import CompanyCompensationRequest from './model/CompanyCompensationRequest';
@@ -39,6 +38,7 @@ import Position from './model/Position';
 import Profile from './model/Profile';
 import Status from './model/Status';
 import Type from './model/Type';
+
 import CompanyApi from './api/CompanyApi';
 import JobHistoryApi from './api/JobHistoryApi';
 import ProfilesApi from './api/ProfilesApi';
@@ -73,7 +73,7 @@ import ProfilesApi from './api/ProfilesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -254,5 +254,6 @@ export {
     * The ProfilesApi service constructor.
     * @property {module:api/ProfilesApi}
     */
-    ProfilesApi
+    ProfilesApi,
+
 };

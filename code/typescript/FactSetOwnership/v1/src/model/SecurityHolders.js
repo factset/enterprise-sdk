@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecurityHolders model module.
  * @module model/SecurityHolders
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SecurityHolders {
     /**

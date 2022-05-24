@@ -50,7 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DocumentsApi(config);
-            var path = path_example;  // string | The directory to get the documents in (default to "")
+            var path = "\"\"";  // string | The directory to get the documents in (default to "")
 
             try
             {
@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
  **path** | **string**| The directory to get the documents in | [default to &quot;&quot;]
 
 ### Return type
-
 [**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization

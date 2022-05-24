@@ -48,6 +48,8 @@ public class InlineResponse20046Data implements Serializable {
   public static final String JSON_PROPERTY_TYPE = "type";
   private InlineResponse20046Type type;
 
+  public InlineResponse20046Data() { 
+  }
 
   public InlineResponse20046Data notation(InlineResponse20046Notation notation) {
     this.notation = notation;

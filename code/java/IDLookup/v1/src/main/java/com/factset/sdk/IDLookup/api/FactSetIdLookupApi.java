@@ -7,6 +7,9 @@ import com.factset.sdk.IDLookup.Configuration;
 import com.factset.sdk.IDLookup.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IDLookup.models.ErrorResponse;
 import com.factset.sdk.IDLookup.models.LookupRequest;
@@ -23,6 +26,18 @@ public class FactSetIdLookupApi {
   public FactSetIdLookupApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> searchCompanynameResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    searchCompanynameResponseTypeMap.put(200, new GenericType<LookupResponse>(){});
+    searchCompanynameResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    searchCompanynameResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    searchCompanynameResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    searchCompanynameResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -111,10 +126,16 @@ public class FactSetIdLookupApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<LookupResponse> localVarReturnType = new GenericType<LookupResponse>() {};
 
-    return apiClient.invokeAPI("FactSetIdLookupApi.searchCompanyname", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        LookupResponse
+      
+    > apiResponse = apiClient.invokeAPI("FactSetIdLookupApi.searchCompanyname", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, searchCompanynameResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

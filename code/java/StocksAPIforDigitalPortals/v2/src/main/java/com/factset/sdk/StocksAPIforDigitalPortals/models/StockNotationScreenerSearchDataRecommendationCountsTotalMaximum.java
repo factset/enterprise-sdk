@@ -48,6 +48,8 @@ public class StockNotationScreenerSearchDataRecommendationCountsTotalMaximum imp
   public static final String JSON_PROPERTY_INCLUSIVE = "inclusive";
   private Boolean inclusive = true;
 
+  public StockNotationScreenerSearchDataRecommendationCountsTotalMaximum() { 
+  }
 
   public StockNotationScreenerSearchDataRecommendationCountsTotalMaximum value(BigDecimal value) {
     this.value = value;

@@ -48,6 +48,8 @@ public class InlineResponse2004DataIssuer implements Serializable {
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private java.util.List<InlineResponse2004DataIssuerJuristicPerson> country = null;
 
+  public InlineResponse2004DataIssuer() { 
+  }
 
   public InlineResponse2004DataIssuer juristicPerson(java.util.List<InlineResponse2004DataIssuerJuristicPerson> juristicPerson) {
     this.juristicPerson = juristicPerson;

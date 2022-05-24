@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataCapitalProtection model module.
  * @module model/InlineResponse2005DataCapitalProtection
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataCapitalProtection {
     /**

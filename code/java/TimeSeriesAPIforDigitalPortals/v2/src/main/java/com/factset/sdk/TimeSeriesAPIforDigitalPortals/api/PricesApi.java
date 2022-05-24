@@ -7,6 +7,9 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.InlineObject4;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.InlineObject5;
@@ -31,6 +34,34 @@ public class PricesApi {
   public PricesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPricesTimeSeriesIntradaySubsampleGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPricesTimeSeriesIntradaySubsampleGetResponseTypeMap.put(200, new GenericType<InlineResponse2009>(){});
+  }
+  private static final Map<Integer, GenericType> postPricesTimeSeriesEodListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postPricesTimeSeriesEodListResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+  }
+  private static final Map<Integer, GenericType> postPricesTimeSeriesEodSubsampleGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postPricesTimeSeriesEodSubsampleGetResponseTypeMap.put(200, new GenericType<InlineResponse2006>(){});
+  }
+  private static final Map<Integer, GenericType> postPricesTimeSeriesEodSubsampleListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postPricesTimeSeriesEodSubsampleListResponseTypeMap.put(200, new GenericType<InlineResponse2007>(){});
+  }
+  private static final Map<Integer, GenericType> postPricesTimeSeriesIntradayListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postPricesTimeSeriesIntradayListResponseTypeMap.put(200, new GenericType<InlineResponse2008>(){});
+  }
+  private static final Map<Integer, GenericType> postPricesTimeSeriesIntradaySubsampleListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postPricesTimeSeriesIntradaySubsampleListResponseTypeMap.put(200, new GenericType<InlineResponse20010>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -132,11 +163,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2009> localVarReturnType = new GenericType<InlineResponse2009>() {};
 
-    return apiClient.invokeAPI("PricesApi.getPricesTimeSeriesIntradaySubsampleGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2009
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.getPricesTimeSeriesIntradaySubsampleGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPricesTimeSeriesIntradaySubsampleGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day time series data for a notation.
@@ -199,11 +236,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2005> localVarReturnType = new GenericType<InlineResponse2005>() {};
 
-    return apiClient.invokeAPI("PricesApi.postPricesTimeSeriesEodList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2005
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.postPricesTimeSeriesEodList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postPricesTimeSeriesEodListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Single subsample end-of-day data for a notation.
@@ -266,11 +309,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2006> localVarReturnType = new GenericType<InlineResponse2006>() {};
 
-    return apiClient.invokeAPI("PricesApi.postPricesTimeSeriesEodSubsampleGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2006
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.postPricesTimeSeriesEodSubsampleGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postPricesTimeSeriesEodSubsampleGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Subsampled end-of-day time series data for a notation.
@@ -333,11 +382,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2007> localVarReturnType = new GenericType<InlineResponse2007>() {};
 
-    return apiClient.invokeAPI("PricesApi.postPricesTimeSeriesEodSubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2007
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.postPricesTimeSeriesEodSubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postPricesTimeSeriesEodSubsampleListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Intraday time series data for a notation.
@@ -400,11 +455,17 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2008> localVarReturnType = new GenericType<InlineResponse2008>() {};
 
-    return apiClient.invokeAPI("PricesApi.postPricesTimeSeriesIntradayList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2008
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.postPricesTimeSeriesIntradayList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postPricesTimeSeriesIntradayListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Subsampled intraday time series data for a notation.
@@ -467,10 +528,16 @@ public class PricesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse20010> localVarReturnType = new GenericType<InlineResponse20010>() {};
 
-    return apiClient.invokeAPI("PricesApi.postPricesTimeSeriesIntradaySubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse20010
+      
+    > apiResponse = apiClient.invokeAPI("PricesApi.postPricesTimeSeriesIntradaySubsampleList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postPricesTimeSeriesIntradaySubsampleListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -43,6 +43,16 @@ public class CurrencyRoot implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.Map<String, Currency> data = new java.util.HashMap<>();
 
+  public CurrencyRoot() { 
+  }
+
+  @JsonCreator
+  public CurrencyRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, Currency> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public CurrencyRoot data(java.util.Map<String, Currency> data) {
     this.data = data;

@@ -21,7 +21,7 @@ import TemplateWithLinks from './TemplateWithLinks';
 /**
  * The TableTableTemplate model module.
  * @module model/TableTableTemplate
- * @version 0.9.1
+ * @version 0.20.0
  */
 class TableTableTemplate {
     /**

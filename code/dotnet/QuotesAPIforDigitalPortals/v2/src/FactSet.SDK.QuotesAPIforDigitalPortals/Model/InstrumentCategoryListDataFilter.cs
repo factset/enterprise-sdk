@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InstrumentCategoryListDataFilter {\n");
             sb.Append("  Dataset: ").Append(Dataset).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InstrumentCategoryListDataFilter input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Dataset == input.Dataset ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Dataset != null)
-                    hashCode = hashCode * 59 + this.Dataset.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dataset.GetHashCode();
+                }
                 return hashCode;
             }
         }

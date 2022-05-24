@@ -13,12 +13,12 @@
 
 import ApiClient from '../ApiClient';
 import InlineResponse20014Data from './InlineResponse20014Data';
-import InlineResponse2001Meta from './InlineResponse2001Meta';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse20014 model module.
  * @module model/InlineResponse20014
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20014 {
     /**
@@ -50,10 +50,10 @@ class InlineResponse20014 {
             obj = obj || new InlineResponse20014();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20014Data]);
+                obj['data'] = InlineResponse20014Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -63,13 +63,12 @@ class InlineResponse20014 {
 }
 
 /**
- * Growth of TenK data.
- * @member {Array.<module:model/InlineResponse20014Data>} data
+ * @member {module:model/InlineResponse20014Data} data
  */
 InlineResponse20014.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse20014.prototype['meta'] = undefined;
 

@@ -48,6 +48,8 @@ public class InlineObject10 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private InstrumentBackgroundTextTypeListMeta meta;
 
+  public InlineObject10() { 
+  }
 
   public InlineObject10 data(InstrumentBenchmarkListData data) {
     this.data = data;

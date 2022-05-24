@@ -58,6 +58,8 @@ public class InlineResponse2006InstrumentLockIn implements Serializable {
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private BigDecimal cashFlow;
 
+  public InlineResponse2006InstrumentLockIn() { 
+  }
 
   public InlineResponse2006InstrumentLockIn observation(InlineResponse2006InstrumentKnockOutObservation observation) {
     this.observation = observation;

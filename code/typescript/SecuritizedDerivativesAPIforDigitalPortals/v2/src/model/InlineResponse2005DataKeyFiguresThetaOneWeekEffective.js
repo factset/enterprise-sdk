@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataKeyFiguresThetaOneWeekEffective model module.
  * @module model/InlineResponse2005DataKeyFiguresThetaOneWeekEffective
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataKeyFiguresThetaOneWeekEffective {
     /**

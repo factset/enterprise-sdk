@@ -47,6 +47,16 @@ public class FrequencyRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private Object meta;
 
+  public FrequencyRoot() { 
+  }
+
+  @JsonCreator
+  public FrequencyRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, Frequency> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public FrequencyRoot data(java.util.Map<String, Frequency> data) {
     this.data = data;

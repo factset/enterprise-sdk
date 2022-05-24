@@ -47,7 +47,6 @@ src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/ApiClient.java
 src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/ApiException.java
 src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/ApiResponse.java
 src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/Configuration.java
-src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/JSON.java
 src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/NorthfieldPortfolioOptimizer/Pair.java

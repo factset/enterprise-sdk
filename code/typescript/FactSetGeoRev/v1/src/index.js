@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Country from './model/Country';
 import CountryRequest from './model/CountryRequest';
@@ -22,6 +21,7 @@ import Frequency from './model/Frequency';
 import Region from './model/Region';
 import RegionRequest from './model/RegionRequest';
 import RegionResponse from './model/RegionResponse';
+
 import CountriesApi from './api/CountriesApi';
 import RegionsApi from './api/RegionsApi';
 
@@ -55,7 +55,7 @@ import RegionsApi from './api/RegionsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -128,5 +128,6 @@ export {
     * The RegionsApi service constructor.
     * @property {module:api/RegionsApi}
     */
-    RegionsApi
+    RegionsApi,
+
 };

@@ -77,7 +77,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationSearchByTextDataValidation {\n");
             sb.Append("  OnlyActive: ").Append(OnlyActive).Append("\n");
             sb.Append("  Prices: ").Append(Prices).Append("\n");
@@ -114,8 +114,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationSearchByTextDataValidation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.OnlyActive == input.OnlyActive ||
@@ -147,13 +148,19 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.OnlyActive.GetHashCode();
+                hashCode = (hashCode * 59) + this.OnlyActive.GetHashCode();
                 if (this.Prices != null)
-                    hashCode = hashCode * 59 + this.Prices.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Prices.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Ofdb model module.
  * @module model/Ofdb
- * @version 0.9.1
+ * @version 0.9.2
  */
 class Ofdb {
     /**

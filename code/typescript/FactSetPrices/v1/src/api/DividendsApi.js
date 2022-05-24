@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Dividends service.
 * @module api/DividendsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class DividendsApi {
 
@@ -73,7 +73,10 @@ export default class DividendsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = DividendsResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/dividends', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -90,7 +93,7 @@ export default class DividendsApi {
      * @param {String} opts.endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint. 
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
      * @param {module:model/String} opts.adjust Controls the split, spinoff, and dividend adjustments for the prices. <p>For more information, visit [Online Assistant Page 614](https://oa.apps.factset.com/pages/614)</p>   * **SPLIT** = Split ONLY Adjusted. This is used by default.   * **SPINOFF** = Splits & Spinoff Adjusted.   * **DIVADJ** = Splits, Spinoffs, and Dividends adjusted.   * **UNSPLIT** = No Adjustments.  (default to 'SPLIT')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DividendsResponse}
+     * @return { Promise.< module:model/DividendsResponse > } a Promise, with data of type {@link module:model/DividendsResponse }
      */
     getSecurityDividends(ids, opts) {
       return this.getSecurityDividendsWithHttpInfo(ids, opts)
@@ -125,7 +128,10 @@ export default class DividendsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = DividendsResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/dividends', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -137,7 +143,7 @@ export default class DividendsApi {
      * Requests dividend information for a given date range and list of securities
      * Get the dividend amounts, dates, types, and flags over a specified date range
      * @param {module:model/DividendsRequest} dividendsRequest Request object for `Security` dividends.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DividendsResponse}
+     * @return { Promise.< module:model/DividendsResponse > } a Promise, with data of type {@link module:model/DividendsResponse }
      */
     getSecurityDividendsForList(dividendsRequest) {
       return this.getSecurityDividendsForListWithHttpInfo(dividendsRequest)
@@ -148,3 +154,8 @@ export default class DividendsApi {
 
 
 }
+
+
+
+
+

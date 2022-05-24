@@ -64,6 +64,16 @@ public class RegionRequest implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public RegionRequest() { 
+  }
+
+  @JsonCreator
+  public RegionRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public RegionRequest ids(java.util.List<String> ids) {
     this.ids = ids;

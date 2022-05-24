@@ -58,6 +58,8 @@ public class ReturnsRange implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public ReturnsRange() { 
+  }
 
   public ReturnsRange fsymId(String fsymId) {
     this.fsymId = fsymId;

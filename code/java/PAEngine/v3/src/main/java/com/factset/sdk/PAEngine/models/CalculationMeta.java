@@ -216,6 +216,8 @@ public class CalculationMeta implements Serializable {
   public static final String JSON_PROPERTY_FORMAT = "format";
   private FormatEnum format = FormatEnum.JSONSTACH;
 
+  public CalculationMeta() { 
+  }
 
   public CalculationMeta contentorganization(ContentorganizationEnum contentorganization) {
     this.contentorganization = contentorganization;

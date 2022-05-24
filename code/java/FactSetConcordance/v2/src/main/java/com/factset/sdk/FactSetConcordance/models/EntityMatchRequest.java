@@ -68,6 +68,16 @@ public class EntityMatchRequest implements Serializable {
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
   private Integer universeId;
 
+  public EntityMatchRequest() { 
+  }
+
+  @JsonCreator
+  public EntityMatchRequest(
+    @JsonProperty(value=JSON_PROPERTY_INPUT, required=true) java.util.List<EntityMatchRequestInput> input
+  ) {
+    this();
+    this.input = input;
+  }
 
   public EntityMatchRequest input(java.util.List<EntityMatchRequestInput> input) {
     this.input = input;

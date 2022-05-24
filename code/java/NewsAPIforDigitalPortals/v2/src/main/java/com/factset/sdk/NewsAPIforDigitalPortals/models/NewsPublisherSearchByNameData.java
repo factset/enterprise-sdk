@@ -89,6 +89,18 @@ public class NewsPublisherSearchByNameData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private NewsPublisherSearchByNameDataFilter filter;
 
+  public NewsPublisherSearchByNameData() { 
+  }
+
+  @JsonCreator
+  public NewsPublisherSearchByNameData(
+    @JsonProperty(value=JSON_PROPERTY_SEARCH_VALUE, required=true) String searchValue, 
+    @JsonProperty(value=JSON_PROPERTY_MATCH_TYPE, required=true) MatchTypeEnum matchType
+  ) {
+    this();
+    this.searchValue = searchValue;
+    this.matchType = matchType;
+  }
 
   public NewsPublisherSearchByNameData searchValue(String searchValue) {
     this.searchValue = searchValue;

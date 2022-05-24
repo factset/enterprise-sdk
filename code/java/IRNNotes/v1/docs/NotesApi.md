@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createNote
 
-> NewItemDto createNote(xIRNContributorUsername, xIRNContributorSerial, createNoteDto)
+> NewItemDto createNote(createNoteDto, xIRNContributorUsername, xIRNContributorSerial)
 
 Create a note
 
@@ -26,14 +26,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.NotesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,22 +42,23 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NotesApi apiInstance = new NotesApi(defaultClient);
+        CreateNoteDto createNoteDto = new CreateNoteDto(); // CreateNoteDto | 
         String xIRNContributorUsername = "xIRNContributorUsername_example"; // String | 
         String xIRNContributorSerial = "xIRNContributorSerial_example"; // String | 
-        CreateNoteDto createNoteDto = new CreateNoteDto(); // CreateNoteDto | 
         try {
-            NewItemDto result = apiInstance.createNote(xIRNContributorUsername, xIRNContributorSerial, createNoteDto);
+            NewItemDto result = apiInstance.createNote(createNoteDto, xIRNContributorUsername, xIRNContributorSerial);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NotesApi#createNote");
             System.err.println("Status code: " + e.getCode());
@@ -75,9 +75,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **createNoteDto** | [**CreateNoteDto**](CreateNoteDto.md)|  |
  **xIRNContributorUsername** | **String**|  | [optional]
  **xIRNContributorSerial** | **String**|  | [optional]
- **createNoteDto** | [**CreateNoteDto**](CreateNoteDto.md)|  | [optional]
 
 ### Return type
 
@@ -113,14 +113,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.NotesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -130,19 +129,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NotesApi apiInstance = new NotesApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | 
         try {
             apiInstance.deleteNote(noteId);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NotesApi#deleteNote");
             System.err.println("Status code: " + e.getCode());
@@ -197,14 +197,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.NotesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -214,20 +213,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NotesApi apiInstance = new NotesApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
         try {
             NoteDto result = apiInstance.getNote(noteId);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NotesApi#getNote");
             System.err.println("Status code: " + e.getCode());
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ## getNotes
 
-> java.util.List&lt;NoteSummaryDto&gt; getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, filterOnRelatedSymbols, xIRNIncludeDeleted)
+> java.util.List<NoteSummaryDto> getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted)
 
 Get all the notes in the specified date range filtered on the given identifiers
 
@@ -281,14 +281,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.NotesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -298,14 +297,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NotesApi apiInstance = new NotesApi(defaultClient);
         String start = "start_example"; // String | StartDate
@@ -318,11 +317,13 @@ public class Example {
         Integer limit = 56; // Integer | Limit on the number of notes retrieved
         Integer offset = 56; // Integer | Fetch notes after the offset
         String modifiedSince = "modifiedSince_example"; // String | Only return notes which have been modified or created since a particular time
+        java.util.List<String> states = Arrays.asList(); // java.util.List<String> | Set of states to filter on
         Boolean filterOnRelatedSymbols = false; // Boolean | Include notes whose related symbols match the identifier filter
         Boolean xIRNIncludeDeleted = false; // Boolean | 
         try {
-            java.util.List<NoteSummaryDto> result = apiInstance.getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, filterOnRelatedSymbols, xIRNIncludeDeleted);
+            java.util.List<NoteSummaryDto> result = apiInstance.getNotes(start, end, identifiers, authors, subjects, recommendations, sentiments, limit, offset, modifiedSince, states, filterOnRelatedSymbols, xIRNIncludeDeleted);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NotesApi#getNotes");
             System.err.println("Status code: " + e.getCode());
@@ -349,6 +350,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| Limit on the number of notes retrieved | [optional]
  **offset** | **Integer**| Fetch notes after the offset | [optional]
  **modifiedSince** | **String**| Only return notes which have been modified or created since a particular time | [optional]
+ **states** | **List&lt;String&gt;**| Set of states to filter on | [optional]
  **filterOnRelatedSymbols** | **Boolean**| Include notes whose related symbols match the identifier filter | [optional] [default to false]
  **xIRNIncludeDeleted** | **Boolean**|  | [optional] [default to false]
 
@@ -386,14 +388,13 @@ import com.factset.sdk.IRNNotes.ApiClient;
 import com.factset.sdk.IRNNotes.ApiException;
 import com.factset.sdk.IRNNotes.Configuration;
 import com.factset.sdk.IRNNotes.auth.*;
-import com.factset.sdk.IRNNotes.model.*;
+import com.factset.sdk.IRNNotes.models.*;
 import com.factset.sdk.IRNNotes.api.NotesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -403,20 +404,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         NotesApi apiInstance = new NotesApi(defaultClient);
         java.util.UUID noteId = new java.util.UUID(); // java.util.UUID | Note Id
         UpdateNoteDto updateNoteDto = new UpdateNoteDto(); // UpdateNoteDto | Note details to update
         try {
             apiInstance.updateNote(noteId, updateNoteDto);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling NotesApi#updateNote");
             System.err.println("Status code: " + e.getCode());

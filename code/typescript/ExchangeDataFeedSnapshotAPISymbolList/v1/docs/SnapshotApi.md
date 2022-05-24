@@ -56,6 +56,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getDFSnapshot(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -141,6 +142,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postDFSnapshot(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

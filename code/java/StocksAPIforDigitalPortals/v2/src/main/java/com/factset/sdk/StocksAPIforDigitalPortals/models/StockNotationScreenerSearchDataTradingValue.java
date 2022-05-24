@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataTradingValue implements Serializable
   public static final String JSON_PROPERTY_AVERAGE = "average";
   private StockNotationScreenerSearchDataTradingValueAverage average;
 
+  public StockNotationScreenerSearchDataTradingValue() { 
+  }
 
   public StockNotationScreenerSearchDataTradingValue average(StockNotationScreenerSearchDataTradingValueAverage average) {
     this.average = average;

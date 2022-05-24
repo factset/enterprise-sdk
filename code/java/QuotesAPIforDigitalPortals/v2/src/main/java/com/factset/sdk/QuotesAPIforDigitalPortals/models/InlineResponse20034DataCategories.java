@@ -69,6 +69,8 @@ public class InlineResponse20034DataCategories implements Serializable {
   public static final String JSON_PROPERTY_PARENT = "parent";
   private InlineResponse20034DataParent parent;
 
+  public InlineResponse20034DataCategories() { 
+  }
 
   public InlineResponse20034DataCategories id(BigDecimal id) {
     this.id = id;

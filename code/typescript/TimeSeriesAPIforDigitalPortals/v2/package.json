@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-timeseriesapifordigitalportals",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Time Series API for Digital Portals client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -15,7 +15,7 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@factset/sdk-utils": "^0.10.0",
+    "@factset/sdk-utils": "^1.0.0",
     "superagent": "^7.1.1"
   },
   "devDependencies": {

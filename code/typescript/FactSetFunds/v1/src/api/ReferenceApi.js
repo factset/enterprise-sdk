@@ -30,7 +30,7 @@ import SummariesResponse from '../model/SummariesResponse';
 /**
 * Reference service.
 * @module api/ReferenceApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class ReferenceApi {
 
@@ -73,7 +73,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = BenchmarkDetailsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/benchmark-details', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -85,7 +88,7 @@ export default class ReferenceApi {
      * Get the Fund's Primary and Segment Benchmark Details
      * Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be then used in the [Benchmarks API](https://developer.factset.com/api-catalog/factset-benchmarks-api) to fetch index-level prices, returns, constituents data. 
      * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BenchmarkDetailsResponse}
+     * @return { Promise.< module:model/BenchmarkDetailsResponse > } a Promise, with data of type {@link module:model/BenchmarkDetailsResponse }
      */
     getFundsBenchmarkDetails(ids) {
       return this.getFundsBenchmarkDetailsWithHttpInfo(ids)
@@ -120,7 +123,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = BenchmarkDetailsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/benchmark-details', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -132,7 +138,7 @@ export default class ReferenceApi {
      * Get the Fund's Primary and Segment Benchmark details for large list of ids.
      * Fetch the Fund's Benchmark and Segement Benchmark ids. These ids can be then used in the [Benchmarks API](https://developer.factset.com/api-catalog/factset-benchmarks-api) to fetch index-level prices, returns, constituents data. 
      * @param {module:model/BenchmarkDetailsRequest} benchmarkDetailsRequest The Benchmark Details request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/BenchmarkDetailsResponse}
+     * @return { Promise.< module:model/BenchmarkDetailsResponse > } a Promise, with data of type {@link module:model/BenchmarkDetailsResponse }
      */
     getFundsBenchmarkDetailsForList(benchmarkDetailsRequest) {
       return this.getFundsBenchmarkDetailsForListWithHttpInfo(benchmarkDetailsRequest)
@@ -168,7 +174,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ClassificationsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/classifications', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -180,7 +189,7 @@ export default class ReferenceApi {
      * Get basic Fund Classifications
      * Fetch basic fund classification data, such as Asset Class, Category, Focus, Niche, Region, and more.<p> FactSet Mutual Funds Reference uses FactSet's proprietary Fund Classification System, which categorizes funds using a rules-based system that is derived from seven core classifications. This system evaluates the asset class, economic development level, and geographical region as described in each fund's prospectus and marketing materials. Fund exposure details are presented on successively granular levels- category, then focus, and then niche. Moreover, FactSet Fund Reference captures over 40 unique data points for U.S. mutual funds. All data items are grouped in one of two levels, either as a Fund or as a Share Class.</p><p>For more details regarding FactSet's Fund Classification, visit Online Assistant [21436](https://my.apps.factset.com/oa/pages/21436) or download - [FactSet Fund Classification System Rules & Methodology](https://my.apps.factset.com/oa/cms/oaAttachment/4547a2f4-5df5-4ec9-a0d3-7d51610dd637/26837)</p><p> |Classification Type|Description| |---|---| |Asset Class|The asset class of the fund (e.g. Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives) based on the fund’s mandate.| |Category|The 1st of 3 asset-class-specific, hierarchical exposure tiers; the broadest category the fund falls under within its asset class (e.g., Size & Style, Sector, Precious Metals, Absolute Returns); based on the fund’s mandate.| |Focus|The 2nd of 3 asset-class-specific, hierarchical exposure tiers; the fund's classification within its category (e.g. Small Cap, Energy, Palladium, Long/Short); based on the fund’s mandate.| |Niche|The 3rd of 3 asset-class-specific, hierarchical exposure tiers; The fund's classification within its Focus. Most granular tier of exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage); based on the fund’s mandate.| |Economic Development Level|The country development level of the fund (Developed, Emerging, Frontier, or Blended) based on the fund’s mandate.| |Region|The broad regional exposure of the fund (e.g., Latin America, Asia-Pacific, Global) based on the fund’s mandate.| |Specific Geography|The specific geographic exposure of the fund (e.g., Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund’s mandate.| </p> 
      * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ClassificationsResponse}
+     * @return { Promise.< module:model/ClassificationsResponse > } a Promise, with data of type {@link module:model/ClassificationsResponse }
      */
     getFundsClassifications(ids) {
       return this.getFundsClassificationsWithHttpInfo(ids)
@@ -215,7 +224,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ClassificationsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/classifications', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -227,7 +239,7 @@ export default class ReferenceApi {
      * Get basic Fund Classifications for a large list of ids.
      * Fetch basic fund classification data, such as Asset Class, Category, Focus, Niche, Region, and more.<p> FactSet Mutual Funds Reference uses FactSet's proprietary Fund Classification System, which categorizes funds using a rules-based system that is derived from seven core classifications. This system evaluates the asset class, economic development level, and geographical region as described in each fund's prospectus and marketing materials. Fund exposure details are presented on successively granular levels- category, then focus, and then niche. Moreover, FactSet Fund Reference captures over 40 unique data points for U.S. mutual funds. All data items are grouped in one of two levels, either as a Fund or as a Share Class.</p><p>For more details regarding FactSet's Fund Classification, visit Online Assistant [21436](https://my.apps.factset.com/oa/pages/21436) or download - [FactSet Fund Classification System Rules & Methodology](https://my.apps.factset.com/oa/cms/oaAttachment/4547a2f4-5df5-4ec9-a0d3-7d51610dd637/26837)</p><p> |Classification Type|Description| |---|---| |Asset Class|The asset class of the fund (e.g. Equity, Fixed Income, Currency, Commodities, Asset Allocation, or Alternatives) based on the fund’s mandate.| |Category|The 1st of 3 asset-class-specific, hierarchical exposure tiers; the broadest category the fund falls under within its asset class (e.g., Size & Style, Sector, Precious Metals, Absolute Returns); based on the fund’s mandate.| |Focus|The 2nd of 3 asset-class-specific, hierarchical exposure tiers; the fund's classification within its category (e.g. Small Cap, Energy, Palladium, Long/Short); based on the fund’s mandate.| |Niche|The 3rd of 3 asset-class-specific, hierarchical exposure tiers; The fund's classification within its Focus. Most granular tier of exposure sort (e.g., Growth, Coal, Physically held, Merger Arbitrage); based on the fund’s mandate.| |Economic Development Level|The country development level of the fund (Developed, Emerging, Frontier, or Blended) based on the fund’s mandate.| |Region|The broad regional exposure of the fund (e.g., Latin America, Asia-Pacific, Global) based on the fund’s mandate.| |Specific Geography|The specific geographic exposure of the fund (e.g., Developed Europe, Chile, Asia-Pacific Ex-Japan) based on the fund’s mandate.| </p> 
      * @param {module:model/ClassificationsRequest} classificationsRequest The Classifications request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ClassificationsResponse}
+     * @return { Promise.< module:model/ClassificationsResponse > } a Promise, with data of type {@link module:model/ClassificationsResponse }
      */
     getFundsClassificationsForList(classificationsRequest) {
       return this.getFundsClassificationsForListWithHttpInfo(classificationsRequest)
@@ -269,7 +281,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CostsFeesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/costs-fees', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -284,7 +299,7 @@ export default class ReferenceApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.date The date requested in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period. 
      * @param {String} opts.currency Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (default to 'LOCAL')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CostsFeesResponse}
+     * @return { Promise.< module:model/CostsFeesResponse > } a Promise, with data of type {@link module:model/CostsFeesResponse }
      */
     getFundsCostsFees(ids, opts) {
       return this.getFundsCostsFeesWithHttpInfo(ids, opts)
@@ -319,7 +334,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CostsFeesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/costs-fees', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -331,7 +349,7 @@ export default class ReferenceApi {
      * Get the Fund's Costs, Investment minimums and Risk, and Fees for large list of ids.
      * Fetch the Fund's Costs, Investment minimums and Risk, and Fees. Data Items include Expense Ratios, investment minimums and maximums, swing prices, entry and exit expenses, and more. 
      * @param {module:model/CostsFeesRequest} costsFeesRequest The Costs and Fees request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CostsFeesResponse}
+     * @return { Promise.< module:model/CostsFeesResponse > } a Promise, with data of type {@link module:model/CostsFeesResponse }
      */
     getFundsCostsFeesForList(costsFeesRequest) {
       return this.getFundsCostsFeesForListWithHttpInfo(costsFeesRequest)
@@ -367,7 +385,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = ManagersResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/managers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -379,7 +400,7 @@ export default class ReferenceApi {
      * Get a list of Fund Managers and related details for a list of ids.
      * Fetch basic Fund manager details, such as Title, Phone, Job Id and Name. NOTE - A subscription to FactSet's Ownership product is required to access formulas in this Asset Managers subcategory. 
      * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ManagersResponse}
+     * @return { Promise.< module:model/ManagersResponse > } a Promise, with data of type {@link module:model/ManagersResponse }
      */
     getFundsManagers(ids) {
       return this.getFundsManagersWithHttpInfo(ids)
@@ -414,7 +435,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = ManagersResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/managers', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -426,7 +450,7 @@ export default class ReferenceApi {
      * Get a list of Fund Managers and related details for a large list of ids.
      * Fetch basic Fund manager details, such as Title, Phone, Job Id and Name.  
      * @param {module:model/ManagersRequest} managersRequest The Funds Managers request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ManagersResponse}
+     * @return { Promise.< module:model/ManagersResponse > } a Promise, with data of type {@link module:model/ManagersResponse }
      */
     getFundsManagersForList(managersRequest) {
       return this.getFundsManagersForListWithHttpInfo(managersRequest)
@@ -462,7 +486,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SummariesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -474,7 +501,7 @@ export default class ReferenceApi {
      * Get basic reference summary data for a Fund.
      * Fetch basic reference data for the requested fund(s), including countryDomicile, shrClass, shrClassInceptDate, etc.  
      * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SummariesResponse}
+     * @return { Promise.< module:model/SummariesResponse > } a Promise, with data of type {@link module:model/SummariesResponse }
      */
     getFundsSummary(ids) {
       return this.getFundsSummaryWithHttpInfo(ids)
@@ -509,7 +536,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SummariesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/summary', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -521,7 +551,7 @@ export default class ReferenceApi {
      * Get basic reference data for a large list of Fund ids.
      * Fetch basic reference data for the requested fund(s), including countryDomicile, shrClass, shrClassInceptDate, etc.  
      * @param {module:model/SummariesRequest} summariesRequest The Funds Summary request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SummariesResponse}
+     * @return { Promise.< module:model/SummariesResponse > } a Promise, with data of type {@link module:model/SummariesResponse }
      */
     getFundsSummaryForList(summariesRequest) {
       return this.getFundsSummaryForListWithHttpInfo(summariesRequest)
@@ -557,7 +587,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = RelatedFundsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/related-funds', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -569,7 +602,7 @@ export default class ReferenceApi {
      * Get a list of Related Funds for a list of Fund ids.
      * Fetch the five related fund share classes. Fund share classes can be related if they belong to the same Fund Classification segment, have the same share class type, have the same legal structure, and have the same country of primary exchange. Beyond the baseline criteria, the five most relevant funds are determined based on whether they follow the same benchmark, have the same maturity, and have the same selection strategy as the specified share class. 
      * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RelatedFundsResponse}
+     * @return { Promise.< module:model/RelatedFundsResponse > } a Promise, with data of type {@link module:model/RelatedFundsResponse }
      */
     getRelatedFunds(ids) {
       return this.getRelatedFundsWithHttpInfo(ids)
@@ -604,7 +637,10 @@ export default class ReferenceApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = RelatedFundsResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/related-funds', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -616,7 +652,7 @@ export default class ReferenceApi {
      * Get a list of Related Funds for a large list of Fund ids.
      * Fetch the five related fund share classes. Fund share classes can be related if they belong to the same Fund Classification segment, have the same share class type, have the same legal structure, and have the same country of primary exchange. Beyond the baseline criteria, the five most relevant funds are determined based on whether they follow the same benchmark, have the same maturity, and have the same selection strategy as the specified share class. 
      * @param {module:model/RelatedFundsRequest} relatedFundsRequest The Related Funds request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RelatedFundsResponse}
+     * @return { Promise.< module:model/RelatedFundsResponse > } a Promise, with data of type {@link module:model/RelatedFundsResponse }
      */
     getRelatedFundsForList(relatedFundsRequest) {
       return this.getRelatedFundsForListWithHttpInfo(relatedFundsRequest)
@@ -627,3 +663,8 @@ export default class ReferenceApi {
 
 
 }
+
+
+
+
+

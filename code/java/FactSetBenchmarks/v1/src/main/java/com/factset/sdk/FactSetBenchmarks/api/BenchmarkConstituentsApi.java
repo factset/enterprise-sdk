@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetBenchmarks.Configuration;
 import com.factset.sdk.FactSetBenchmarks.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetBenchmarks.models.BenchmarkConstituentsRequest;
 import com.factset.sdk.FactSetBenchmarks.models.BenchmarkConstituentsResponse;
@@ -25,6 +28,46 @@ public class BenchmarkConstituentsApi {
   public BenchmarkConstituentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getBenchmarkConstituentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getBenchmarkConstituentsResponseTypeMap.put(200, new GenericType<BenchmarkConstituentsResponse>(){});
+    getBenchmarkConstituentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getBenchmarkConstituentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getBenchmarkConstituentsForListResponseTypeMap.put(200, new GenericType<BenchmarkConstituentsResponse>(){});
+    getBenchmarkConstituentsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getBenchmarkConstituentsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFIBenchmarkConstituentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFIBenchmarkConstituentsResponseTypeMap.put(200, new GenericType<FixedIncomeBenchmarkConstituentsResponse>(){});
+    getFIBenchmarkConstituentsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFIBenchmarkConstituentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFIBenchmarkConstituentsForListResponseTypeMap.put(200, new GenericType<FixedIncomeBenchmarkConstituentsResponse>(){});
+    getFIBenchmarkConstituentsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFIBenchmarkConstituentsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -122,11 +165,17 @@ public class BenchmarkConstituentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkConstituentsResponse> localVarReturnType = new GenericType<BenchmarkConstituentsResponse>() {};
 
-    return apiClient.invokeAPI("BenchmarkConstituentsApi.getBenchmarkConstituents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkConstituentsResponse
+      
+    > apiResponse = apiClient.invokeAPI("BenchmarkConstituentsApi.getBenchmarkConstituents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getBenchmarkConstituentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
@@ -199,11 +248,17 @@ public class BenchmarkConstituentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<BenchmarkConstituentsResponse> localVarReturnType = new GenericType<BenchmarkConstituentsResponse>() {};
 
-    return apiClient.invokeAPI("BenchmarkConstituentsApi.getBenchmarkConstituentsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        BenchmarkConstituentsResponse
+      
+    > apiResponse = apiClient.invokeAPI("BenchmarkConstituentsApi.getBenchmarkConstituentsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getBenchmarkConstituentsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value.
@@ -283,11 +338,17 @@ public class BenchmarkConstituentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FixedIncomeBenchmarkConstituentsResponse> localVarReturnType = new GenericType<FixedIncomeBenchmarkConstituentsResponse>() {};
 
-    return apiClient.invokeAPI("BenchmarkConstituentsApi.getFIBenchmarkConstituents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FixedIncomeBenchmarkConstituentsResponse
+      
+    > apiResponse = apiClient.invokeAPI("BenchmarkConstituentsApi.getFIBenchmarkConstituents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFIBenchmarkConstituentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.
@@ -360,10 +421,16 @@ public class BenchmarkConstituentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FixedIncomeBenchmarkConstituentsResponse> localVarReturnType = new GenericType<FixedIncomeBenchmarkConstituentsResponse>() {};
 
-    return apiClient.invokeAPI("BenchmarkConstituentsApi.getFIBenchmarkConstituentsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FixedIncomeBenchmarkConstituentsResponse
+      
+    > apiResponse = apiClient.invokeAPI("BenchmarkConstituentsApi.getFIBenchmarkConstituentsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFIBenchmarkConstituentsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

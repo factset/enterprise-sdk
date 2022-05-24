@@ -60,7 +60,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20067Fsym {\n");
             sb.Append("  Listing: ").Append(Listing).Append("\n");
             sb.Append("  Regional: ").Append(Regional).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20067Fsym input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Listing == input.Listing ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Listing != null)
-                    hashCode = hashCode * 59 + this.Listing.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Listing.GetHashCode();
+                }
                 if (this.Regional != null)
-                    hashCode = hashCode * 59 + this.Regional.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Regional.GetHashCode();
+                }
                 return hashCode;
             }
         }

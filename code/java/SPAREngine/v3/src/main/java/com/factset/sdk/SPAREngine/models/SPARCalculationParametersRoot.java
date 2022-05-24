@@ -48,6 +48,8 @@ public class SPARCalculationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private CalculationMeta meta;
 
+  public SPARCalculationParametersRoot() { 
+  }
 
   public SPARCalculationParametersRoot data(java.util.Map<String, SPARCalculationParameters> data) {
     this.data = data;

@@ -75,6 +75,8 @@ public class UnauthorizedResponse implements Serializable {
   public static final String JSON_PROPERTY_ERROR = "error";
   private ErrorEnum error;
 
+  public UnauthorizedResponse() { 
+  }
 
   public UnauthorizedResponse error(ErrorEnum error) {
     this.error = error;

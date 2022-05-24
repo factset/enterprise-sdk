@@ -48,6 +48,8 @@ public class InlineResponse200DataTradingAverage implements Serializable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private BigDecimal value;
 
+  public InlineResponse200DataTradingAverage() { 
+  }
 
   public InlineResponse200DataTradingAverage volume(BigDecimal volume) {
     this.volume = volume;

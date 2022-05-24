@@ -55,6 +55,8 @@ public class InlineResponse20014Data implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  public InlineResponse20014Data() { 
+  }
 
   public InlineResponse20014Data id(BigDecimal id) {
     this.id = id;

@@ -16,14 +16,14 @@ import ApiClient from '../ApiClient';
 /**
  * The PartialOutputObject model module.
  * @module model/PartialOutputObject
- * @version 0.9.1
+ * @version 0.10.0
  */
 class PartialOutputObject {
     /**
      * Constructs a new <code>PartialOutputObject</code>.
      * Object denoting that the endpoint response is possibly incomplete.
      * @alias module:model/PartialOutputObject
-     * @param isPartial {Boolean} Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
+     * @param isPartial {Boolean} Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If `true`, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
      */
     constructor(isPartial) { 
         
@@ -61,7 +61,7 @@ class PartialOutputObject {
 }
 
 /**
- * Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If true, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
+ * Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If `true`, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable.
  * @member {Boolean} isPartial
  */
 PartialOutputObject.prototype['isPartial'] = undefined;

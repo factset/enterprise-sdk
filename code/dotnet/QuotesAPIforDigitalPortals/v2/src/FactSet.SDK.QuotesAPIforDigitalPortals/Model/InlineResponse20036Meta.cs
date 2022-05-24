@@ -68,7 +68,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20036Meta {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Pagination: ").Append(Pagination).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20036Meta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Status == input.Status ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 if (this.Pagination != null)
-                    hashCode = hashCode * 59 + this.Pagination.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pagination.GetHashCode();
+                }
                 if (this.Partial != null)
-                    hashCode = hashCode * 59 + this.Partial.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Partial.GetHashCode();
+                }
                 return hashCode;
             }
         }

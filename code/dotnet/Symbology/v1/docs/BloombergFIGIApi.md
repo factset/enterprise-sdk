@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **bloombergTranslationRequest** | [**BloombergTranslationRequest**](BloombergTranslationRequest.md)| Request Body for Bloomberg FIGIs. | 
 
 ### Return type
-
 [**BloombergTranslationResponse**](BloombergTranslationResponse.md)
 
 ### Authorization
@@ -171,7 +170,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#x60;. | 
 
 ### Return type
-
 [**BloombergTranslationResponse**](BloombergTranslationResponse.md)
 
 ### Authorization

@@ -20,7 +20,7 @@ import FundamentalsResponse from '../model/FundamentalsResponse';
 /**
 * FactSetFundamentals service.
 * @module api/FactSetFundamentalsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FactSetFundamentalsApi {
 
@@ -81,7 +81,10 @@ export default class FactSetFundamentalsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = FundamentalsResponse;
+
       return this.apiClient.callApi(
         '/factset-fundamentals/v1/fundamentals', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -100,7 +103,7 @@ export default class FactSetFundamentalsApi {
      * @param {String} opts.fiscalPeriodEnd Fiscal period end expressed YYYY-MM-DD.  Calendar date that will fall back to most recent completed period during resolution. 
      * @param {String} opts.currency Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (default to 'LOCAL')
      * @param {module:model/String} opts.restated Update Status Flag:   * **RP** = Include preliminary data,   * **RF** = Only final data  (default to 'RP')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundamentalsResponse}
+     * @return { Promise.< module:model/FundamentalsResponse > } a Promise, with data of type {@link module:model/FundamentalsResponse }
      */
     getFdsFundamentals(ids, metrics, opts) {
       return this.getFdsFundamentalsWithHttpInfo(ids, metrics, opts)
@@ -135,7 +138,10 @@ export default class FactSetFundamentalsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = FundamentalsResponse;
+
       return this.apiClient.callApi(
         '/factset-fundamentals/v1/fundamentals', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -147,7 +153,7 @@ export default class FactSetFundamentalsApi {
      * Returns the Company Fundamental Data.
      * Retrieves FactSet Fundamental standardized data for an individual security. Use the /metrics endpoint to retrieve a full list of valid metrics or data items.   
      * @param {module:model/FundamentalsRequest} fundamentalsRequest Request object for requesting fundamentals data
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/FundamentalsResponse}
+     * @return { Promise.< module:model/FundamentalsResponse > } a Promise, with data of type {@link module:model/FundamentalsResponse }
      */
     getFdsFundamentalsForList(fundamentalsRequest) {
       return this.getFdsFundamentalsForListWithHttpInfo(fundamentalsRequest)
@@ -158,3 +164,8 @@ export default class FactSetFundamentalsApi {
 
 
 }
+
+
+
+
+

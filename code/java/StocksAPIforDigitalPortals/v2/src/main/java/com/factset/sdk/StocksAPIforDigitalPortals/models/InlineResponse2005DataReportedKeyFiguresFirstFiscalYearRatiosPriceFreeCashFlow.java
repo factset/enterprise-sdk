@@ -48,6 +48,8 @@ public class InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosPriceF
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosPriceFreeCashFlow() { 
+  }
 
   public InlineResponse2005DataReportedKeyFiguresFirstFiscalYearRatiosPriceFreeCashFlow minimum(BigDecimal minimum) {
     this.minimum = minimum;

@@ -17,7 +17,7 @@ import PAComponent from './PAComponent';
 /**
  * The PAComponentRoot model module.
  * @module model/PAComponentRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PAComponentRoot {
     /**

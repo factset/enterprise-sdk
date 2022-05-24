@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataTradingValueAverageDays5 implements 
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMaximum maximum;
 
+  public StockNotationScreenerSearchDataTradingValueAverageDays5() { 
+  }
 
   public StockNotationScreenerSearchDataTradingValueAverageDays5 minimum(StockNotationScreenerSearchDataCurrencyDependentKeyFiguresMarketCapitalizationMinimum minimum) {
     this.minimum = minimum;

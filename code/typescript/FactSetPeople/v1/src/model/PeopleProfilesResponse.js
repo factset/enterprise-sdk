@@ -17,7 +17,7 @@ import Profile from './Profile';
 /**
  * The PeopleProfilesResponse model module.
  * @module model/PeopleProfilesResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class PeopleProfilesResponse {
     /**

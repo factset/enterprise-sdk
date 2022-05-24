@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactPhoneSaveDto model module.
  * @module model/ContactPhoneSaveDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactPhoneSaveDto {
     /**
@@ -47,17 +47,17 @@ class ContactPhoneSaveDto {
         if (data) {
             obj = obj || new ContactPhoneSaveDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('number')) {
-                obj['number'] = ApiClient.convertToType(data['number'], 'String');
+            if (data.hasOwnProperty('Number')) {
+                obj['Number'] = ApiClient.convertToType(data['Number'], 'String');
             }
-            if (data.hasOwnProperty('typeId')) {
-                obj['typeId'] = ApiClient.convertToType(data['typeId'], 'String');
+            if (data.hasOwnProperty('TypeId')) {
+                obj['TypeId'] = ApiClient.convertToType(data['TypeId'], 'String');
             }
-            if (data.hasOwnProperty('isPrimary')) {
-                obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
+            if (data.hasOwnProperty('IsPrimary')) {
+                obj['IsPrimary'] = ApiClient.convertToType(data['IsPrimary'], 'Boolean');
             }
         }
         return obj;
@@ -67,24 +67,24 @@ class ContactPhoneSaveDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-ContactPhoneSaveDto.prototype['id'] = undefined;
+ContactPhoneSaveDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} number
+ * @member {String} Number
  */
-ContactPhoneSaveDto.prototype['number'] = undefined;
+ContactPhoneSaveDto.prototype['Number'] = undefined;
 
 /**
- * @member {String} typeId
+ * @member {String} TypeId
  */
-ContactPhoneSaveDto.prototype['typeId'] = undefined;
+ContactPhoneSaveDto.prototype['TypeId'] = undefined;
 
 /**
- * @member {Boolean} isPrimary
+ * @member {Boolean} IsPrimary
  */
-ContactPhoneSaveDto.prototype['isPrimary'] = undefined;
+ContactPhoneSaveDto.prototype['IsPrimary'] = undefined;
 
 
 

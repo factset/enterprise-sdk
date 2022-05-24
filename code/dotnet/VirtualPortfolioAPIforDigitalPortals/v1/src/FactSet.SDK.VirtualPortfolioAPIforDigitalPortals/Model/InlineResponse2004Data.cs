@@ -61,7 +61,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004Data {\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Keyfigures: ").Append(Keyfigures).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Currency == input.Currency ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.Keyfigures != null)
-                    hashCode = hashCode * 59 + this.Keyfigures.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Keyfigures.GetHashCode();
+                }
                 return hashCode;
             }
         }

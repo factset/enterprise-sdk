@@ -87,7 +87,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  | 
 
 ### Return type
-
 [**BenchmarkDetailsResponse**](BenchmarkDetailsResponse.md)
 
 ### Authorization
@@ -181,7 +180,6 @@ Name | Type | Description  | Notes
  **benchmarkDetailsRequest** | [**BenchmarkDetailsRequest**](BenchmarkDetailsRequest.md)| The Benchmark Details request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**BenchmarkDetailsResponse**](BenchmarkDetailsResponse.md)
 
 ### Authorization
@@ -275,7 +273,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  | 
 
 ### Return type
-
 [**ClassificationsResponse**](ClassificationsResponse.md)
 
 ### Authorization
@@ -369,7 +366,6 @@ Name | Type | Description  | Notes
  **classificationsRequest** | [**ClassificationsRequest**](ClassificationsRequest.md)| The Classifications request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**ClassificationsResponse**](ClassificationsResponse.md)
 
 ### Authorization
@@ -467,7 +463,6 @@ Name | Type | Description  | Notes
  **currency** | **string**| Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. | [optional] [default to &quot;LOCAL&quot;]
 
 ### Return type
-
 [**CostsFeesResponse**](CostsFeesResponse.md)
 
 ### Authorization
@@ -561,7 +556,6 @@ Name | Type | Description  | Notes
  **costsFeesRequest** | [**CostsFeesRequest**](CostsFeesRequest.md)| The Costs and Fees request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**CostsFeesResponse**](CostsFeesResponse.md)
 
 ### Authorization
@@ -655,7 +649,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  | 
 
 ### Return type
-
 [**ManagersResponse**](ManagersResponse.md)
 
 ### Authorization
@@ -749,7 +742,6 @@ Name | Type | Description  | Notes
  **managersRequest** | [**ManagersRequest**](ManagersRequest.md)| The Funds Managers request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**ManagersResponse**](ManagersResponse.md)
 
 ### Authorization
@@ -843,7 +835,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  | 
 
 ### Return type
-
 [**SummariesResponse**](SummariesResponse.md)
 
 ### Authorization
@@ -937,7 +928,6 @@ Name | Type | Description  | Notes
  **summariesRequest** | [**SummariesRequest**](SummariesRequest.md)| The Funds Summary request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**SummariesResponse**](SummariesResponse.md)
 
 ### Authorization
@@ -1031,7 +1021,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  | 
 
 ### Return type
-
 [**RelatedFundsResponse**](RelatedFundsResponse.md)
 
 ### Authorization
@@ -1125,7 +1114,6 @@ Name | Type | Description  | Notes
  **relatedFundsRequest** | [**RelatedFundsRequest**](RelatedFundsRequest.md)| The Related Funds request body, allowing the user to specify a list of ids. | 
 
 ### Return type
-
 [**RelatedFundsResponse**](RelatedFundsResponse.md)
 
 ### Authorization

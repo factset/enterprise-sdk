@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -50,6 +50,6 @@ public class RFC3339DateFormat extends DateFormat {
 
   @Override
   public Object clone() {
-    return this;
+    return super.clone();
   }
 }

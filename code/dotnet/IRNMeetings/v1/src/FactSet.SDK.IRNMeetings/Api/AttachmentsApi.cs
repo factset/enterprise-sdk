@@ -28,7 +28,7 @@ namespace FactSet.SDK.IRNMeetings.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create an attachment for an existing meeting
+        /// Create an attachment for a existing meeting
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
@@ -37,7 +37,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         NewItemDto CreateAttachment(Guid meetingId, System.IO.Stream file);
 
         /// <summary>
-        /// Create an attachment for an existing meeting
+        /// Create an attachment for a existing meeting
         /// </summary>
         /// <remarks>
         /// 
@@ -48,16 +48,16 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <returns>ApiResponse of NewItemDto</returns>
         ApiResponse<NewItemDto> CreateAttachmentWithHttpInfo(Guid meetingId, System.IO.Stream file);
         /// <summary>
-        /// Download an attachment from a meeting
+        /// Download an attachment from a Meeting
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
         /// <param name="attachmentId"></param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void DownloadAttachment(Guid meetingId, Guid attachmentId);
 
         /// <summary>
-        /// Download an attachment from a meeting
+        /// Download an attachment from a Meeting
         /// </summary>
         /// <remarks>
         /// 
@@ -72,7 +72,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
-        /// <returns>List&lt;AttachmentSummaryDto&gt;</returns>
+        /// <returns>List<AttachmentSummaryDto></returns>
         List<AttachmentSummaryDto> GetAttachments(Guid meetingId);
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
-        /// <returns>ApiResponse of List&lt;AttachmentSummaryDto&gt;</returns>
+        /// <returns>ApiResponse of List<AttachmentSummaryDto></returns>
         ApiResponse<List<AttachmentSummaryDto>> GetAttachmentsWithHttpInfo(Guid meetingId);
         /// <summary>
         /// Delete attachment from meeting
@@ -91,7 +91,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="attachmentId">Attachment Id</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void SoftDeleteMeetingAttachment(Guid meetingId, Guid attachmentId);
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace FactSet.SDK.IRNMeetings.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create an attachment for an existing meeting
+        /// Create an attachment for a existing meeting
         /// </summary>
         /// <remarks>
         /// 
@@ -128,7 +128,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         System.Threading.Tasks.Task<NewItemDto> CreateAttachmentAsync(Guid meetingId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create an attachment for an existing meeting
+        /// Create an attachment for a existing meeting
         /// </summary>
         /// <remarks>
         /// 
@@ -140,7 +140,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
         System.Threading.Tasks.Task<ApiResponse<NewItemDto>> CreateAttachmentWithHttpInfoAsync(Guid meetingId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Download an attachment from a meeting
+        /// Download an attachment from a Meeting
         /// </summary>
         /// <remarks>
         /// 
@@ -153,7 +153,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         System.Threading.Tasks.Task DownloadAttachmentAsync(Guid meetingId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Download an attachment from a meeting
+        /// Download an attachment from a Meeting
         /// </summary>
         /// <remarks>
         /// 
@@ -185,7 +185,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;AttachmentSummaryDto&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<AttachmentSummaryDto>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AttachmentSummaryDto>>> GetAttachmentsWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete attachment from meeting
@@ -229,6 +229,33 @@ namespace FactSet.SDK.IRNMeetings.Api
     public partial class AttachmentsApi : IAttachmentsApi
     {
         private FactSet.SDK.IRNMeetings.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CreateAttachmentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(NewItemDto) },
+            { (HttpStatusCode)400, typeof(ProblemDetails) },
+            { (HttpStatusCode)0, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> DownloadAttachmentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetAttachmentsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<AttachmentSummaryDto>) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
+            { (HttpStatusCode)0, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> SoftDeleteMeetingAttachmentResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AttachmentsApi"/> class.
@@ -333,7 +360,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         }
 
         /// <summary>
-        /// Create an attachment for an existing meeting 
+        /// Create an attachment for a existing meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
@@ -341,22 +368,24 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <returns>NewItemDto</returns>
         public NewItemDto CreateAttachment(Guid meetingId, System.IO.Stream file)
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto> localVarResponse = CreateAttachmentWithHttpInfo(meetingId, file);
+            var localVarResponse = CreateAttachmentWithHttpInfo(meetingId, file);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create an attachment for an existing meeting 
+        /// Create an attachment for a existing meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="file"></param>
         /// <returns>ApiResponse of NewItemDto</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto> CreateAttachmentWithHttpInfo(Guid meetingId, System.IO.Stream file)
+        public ApiResponse<NewItemDto> CreateAttachmentWithHttpInfo(Guid meetingId, System.IO.Stream file)
         {
             // verify the required parameter 'file' is set
             if (file == null)
+            {
                 throw new FactSet.SDK.IRNMeetings.Client.ApiException(400, "Missing required parameter 'file' when calling AttachmentsApi->CreateAttachment");
+            }
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -370,23 +399,29 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -398,45 +433,52 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<NewItemDto>("/v1/meetings/{meetingId}/attachments", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CreateAttachmentResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            NewItemDto>("/v1/meetings/{meetingId}/attachments", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateAttachment", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Create an attachment for an existing meeting 
+        /// Create an attachment for a existing meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
-        public async System.Threading.Tasks.Task<NewItemDto> CreateAttachmentAsync(Guid meetingId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NewItemDto>CreateAttachmentAsync(Guid meetingId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto> localVarResponse = await CreateAttachmentWithHttpInfoAsync(meetingId, file, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateAttachmentWithHttpInfoAsync(meetingId, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create an attachment for an existing meeting 
+        /// Create an attachment for a existing meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="file"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto>> CreateAttachmentWithHttpInfoAsync(Guid meetingId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NewItemDto>> CreateAttachmentWithHttpInfoAsync(Guid meetingId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'file' is set
             if (file == null)
+            {
                 throw new FactSet.SDK.IRNMeetings.Client.ApiException(400, "Missing required parameter 'file' when calling AttachmentsApi->CreateAttachment");
+            }
 
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -450,25 +492,30 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.FileParameters.Add("file", file);
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -480,39 +527,43 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CreateAttachmentResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<NewItemDto>("/v1/meetings/{meetingId}/attachments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateAttachment", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
         }
 
         /// <summary>
-        /// Download an attachment from a meeting 
+        /// Download an attachment from a Meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
         /// <param name="attachmentId"></param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void DownloadAttachment(Guid meetingId, Guid attachmentId)
         {
             DownloadAttachmentWithHttpInfo(meetingId, attachmentId);
         }
 
         /// <summary>
-        /// Download an attachment from a meeting 
+        /// Download an attachment from a Meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
         /// <param name="attachmentId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<Object> DownloadAttachmentWithHttpInfo(Guid meetingId, Guid attachmentId)
+        public ApiResponse<Object> DownloadAttachmentWithHttpInfo(Guid meetingId, Guid attachmentId)
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -525,23 +576,29 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.PathParameters.Add("attachmentId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(attachmentId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -553,20 +610,24 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/meetings/{meetingId}/attachments/{attachmentId}/download", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = DownloadAttachmentResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Object>("/v1/meetings/{meetingId}/attachments/{attachmentId}/download", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DownloadAttachment", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
         /// <summary>
-        /// Download an attachment from a meeting 
+        /// Download an attachment from a Meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
@@ -579,14 +640,15 @@ namespace FactSet.SDK.IRNMeetings.Api
         }
 
         /// <summary>
-        /// Download an attachment from a meeting 
+        /// Download an attachment from a Meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
         /// <param name="attachmentId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<Object>> DownloadAttachmentWithHttpInfoAsync(Guid meetingId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DownloadAttachmentWithHttpInfoAsync(Guid meetingId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -599,25 +661,30 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.PathParameters.Add("attachmentId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(attachmentId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -629,14 +696,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = DownloadAttachmentResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/meetings/{meetingId}/attachments/{attachmentId}/download", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DownloadAttachment", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -647,10 +718,10 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
-        /// <returns>List&lt;AttachmentSummaryDto&gt;</returns>
+        /// <returns>List<AttachmentSummaryDto></returns>
         public List<AttachmentSummaryDto> GetAttachments(Guid meetingId)
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<List<AttachmentSummaryDto>> localVarResponse = GetAttachmentsWithHttpInfo(meetingId);
+            var localVarResponse = GetAttachmentsWithHttpInfo(meetingId);
             return localVarResponse.Data;
         }
 
@@ -660,7 +731,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <returns>ApiResponse of List&lt;AttachmentSummaryDto&gt;</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<List<AttachmentSummaryDto>> GetAttachmentsWithHttpInfo(Guid meetingId)
+        public ApiResponse<List<AttachmentSummaryDto>> GetAttachmentsWithHttpInfo(Guid meetingId)
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -673,22 +744,28 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -700,15 +777,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<AttachmentSummaryDto>>("/v1/meetings/{meetingId}/attachments", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetAttachmentsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<AttachmentSummaryDto>>("/v1/meetings/{meetingId}/attachments", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAttachments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -719,9 +800,9 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AttachmentSummaryDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<AttachmentSummaryDto>> GetAttachmentsAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<AttachmentSummaryDto>>GetAttachmentsAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<List<AttachmentSummaryDto>> localVarResponse = await GetAttachmentsWithHttpInfoAsync(meetingId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAttachmentsWithHttpInfoAsync(meetingId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -732,7 +813,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AttachmentSummaryDto&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<List<AttachmentSummaryDto>>> GetAttachmentsWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<AttachmentSummaryDto>>> GetAttachmentsWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -745,24 +827,29 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -774,14 +861,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetAttachmentsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<AttachmentSummaryDto>>("/v1/meetings/{meetingId}/attachments", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAttachments", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -793,7 +884,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="attachmentId">Attachment Id</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void SoftDeleteMeetingAttachment(Guid meetingId, Guid attachmentId)
         {
             SoftDeleteMeetingAttachmentWithHttpInfo(meetingId, attachmentId);
@@ -806,7 +897,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="attachmentId">Attachment Id</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<Object> SoftDeleteMeetingAttachmentWithHttpInfo(Guid meetingId, Guid attachmentId)
+        public ApiResponse<Object> SoftDeleteMeetingAttachmentWithHttpInfo(Guid meetingId, Guid attachmentId)
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -819,23 +910,29 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.PathParameters.Add("attachmentId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(attachmentId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -847,15 +944,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/v1/meetings/{meetingId}/attachments/{attachmentId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = SoftDeleteMeetingAttachmentResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/v1/meetings/{meetingId}/attachments/{attachmentId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SoftDeleteMeetingAttachment", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -880,7 +981,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="attachmentId">Attachment Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<Object>> SoftDeleteMeetingAttachmentWithHttpInfoAsync(Guid meetingId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SoftDeleteMeetingAttachmentWithHttpInfoAsync(Guid meetingId, Guid attachmentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -893,25 +995,30 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.PathParameters.Add("attachmentId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(attachmentId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -923,14 +1030,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = SoftDeleteMeetingAttachmentResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/meetings/{meetingId}/attachments/{attachmentId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SoftDeleteMeetingAttachment", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

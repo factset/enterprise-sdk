@@ -39,28 +39,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = helper_api.HelperApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Fund's current status and database availability
         api_response = api_instance.get_statuses(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling HelperApi->get_statuses: %s\n" % e)
 ```
@@ -131,30 +132,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = helper_api.HelperApi(api_client)
+
     statuses_request = StatusesRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # StatusesRequest | The Statuses request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Fund's current status and database availability for large list of ids.
         api_response = api_instance.get_statuses_for_list(statuses_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling HelperApi->get_statuses_for_list: %s\n" % e)
 ```

@@ -64,6 +64,8 @@ public class InlineResponse2005DataLifeCycle implements Serializable {
   public static final String JSON_PROPERTY_REPAYMENT = "repayment";
   private InlineResponse2005DataLifeCycleRepayment repayment;
 
+  public InlineResponse2005DataLifeCycle() { 
+  }
 
   public InlineResponse2005DataLifeCycle issue(InlineResponse2005DataLifeCycleIssue issue) {
     this.issue = issue;

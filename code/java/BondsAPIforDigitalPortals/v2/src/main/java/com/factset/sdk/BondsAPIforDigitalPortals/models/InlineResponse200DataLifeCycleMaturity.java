@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.BondsAPIforDigitalPortals.JSON;
@@ -52,6 +52,8 @@ public class InlineResponse200DataLifeCycleMaturity implements Serializable {
   public static final String JSON_PROPERTY_IS_CALLABLE = "isCallable";
   private Boolean isCallable;
 
+  public InlineResponse200DataLifeCycleMaturity() { 
+  }
 
   public InlineResponse200DataLifeCycleMaturity date(LocalDate date) {
     this.date = date;

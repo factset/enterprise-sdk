@@ -38,38 +38,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.CapitalStructureReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.CapitalStructureReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
+
     id = "FDS" # str | Company ticker
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Debt Capital Structure (DCS)
-        api_response = api_instance.get_dcs_detail(id)
-        pprint(api_response)
-    except fds.sdk.CapitalStructureReportBuilder.ApiException as e:
-        print("Exception when calling CapitalStructureApi->get_dcs_detail: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Debt Capital Structure (DCS)
         api_response = api_instance.get_dcs_detail(id, schema=schema)
         pprint(api_response)
+
     except fds.sdk.CapitalStructureReportBuilder.ApiException as e:
         print("Exception when calling CapitalStructureApi->get_dcs_detail: %s\n" % e)
 ```
@@ -140,38 +132,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.CapitalStructureReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.CapitalStructureReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
+
     id = "FDS" # str | Company ticker
-    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) if omitted the server will use the default value of "table_parent_child_columns"
+    schema = "table_parent_child_columns" # str | The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (optional) (default to "table_parent_child_columns")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Debt Capital Structure (DCS) Summary
-        api_response = api_instance.get_dcs_summary(id)
-        pprint(api_response)
-    except fds.sdk.CapitalStructureReportBuilder.ApiException as e:
-        print("Exception when calling CapitalStructureApi->get_dcs_summary: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Debt Capital Structure (DCS) Summary
         api_response = api_instance.get_dcs_summary(id, schema=schema)
         pprint(api_response)
+
     except fds.sdk.CapitalStructureReportBuilder.ApiException as e:
         print("Exception when calling CapitalStructureApi->get_dcs_summary: %s\n" % e)
 ```
@@ -242,28 +226,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.CapitalStructureReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.CapitalStructureReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.CapitalStructureReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = capital_structure_api.CapitalStructureApi(api_client)
+
     id = "FDS" # str | Company ticker
 
-    # example passing only required values which don't have defaults set
     try:
         # Source of Capital
         api_response = api_instance.get_source_of_capital(id)
         pprint(api_response)
+
     except fds.sdk.CapitalStructureReportBuilder.ApiException as e:
         print("Exception when calling CapitalStructureApi->get_source_of_capital: %s\n" % e)
 ```

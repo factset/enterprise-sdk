@@ -51,6 +51,8 @@ public class SPARBenchmark implements Serializable {
   public static final String JSON_PROPERTY_IDENTIFIERS = "identifiers";
   private java.util.List<SPARIdentifier> identifiers = null;
 
+  public SPARBenchmark() { 
+  }
 
   public SPARBenchmark id(String id) {
     this.id = id;

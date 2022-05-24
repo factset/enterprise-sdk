@@ -29,14 +29,13 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiClient;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiException;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.auth.*;
-import com.factset.sdk.AxiomaFixedIncomeOptimizer.model.*;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.*;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,19 +45,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AfiOptimizerApi apiInstance = new AfiOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run AFI optimization endpoint
         try {
             apiInstance.cancelOptimizationById(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AfiOptimizerApi#cancelOptimizationById");
             System.err.println("Status code: " + e.getCode());
@@ -118,14 +118,13 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiClient;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiException;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.auth.*;
-import com.factset.sdk.AxiomaFixedIncomeOptimizer.model.*;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.*;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,20 +134,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AfiOptimizerApi apiInstance = new AfiOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run AFI optimization endpoint
         try {
             AFIOptimizationParametersRoot result = apiInstance.getOptimizationParameters(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AfiOptimizerApi#getOptimizationParameters");
             System.err.println("Status code: " + e.getCode());
@@ -208,14 +208,13 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiClient;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiException;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.auth.*;
-import com.factset.sdk.AxiomaFixedIncomeOptimizer.model.*;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.*;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -225,20 +224,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AfiOptimizerApi apiInstance = new AfiOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Get AFI optimization status by id endpoint
         try {
             ObjectRoot result = apiInstance.getOptimizationResult(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AfiOptimizerApi#getOptimizationResult");
             System.err.println("Status code: " + e.getCode());
@@ -300,14 +300,13 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiClient;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiException;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.auth.*;
-import com.factset.sdk.AxiomaFixedIncomeOptimizer.model.*;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.*;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -317,20 +316,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AfiOptimizerApi apiInstance = new AfiOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run AFI optimization endpoint
         try {
             ObjectRoot result = apiInstance.getOptimizationStatusById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AfiOptimizerApi#getOptimizationStatusById");
             System.err.println("Status code: " + e.getCode());
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 ## postAndOptimize
 
-> ObjectRoot postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot)
+> PostAndOptimizeResponseWrapper postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot)
 
 Create and Run AFI optimization
 
@@ -395,14 +395,14 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiClient;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiException;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.auth.*;
-import com.factset.sdk.AxiomaFixedIncomeOptimizer.model.*;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.*;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi.PostAndOptimizeResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -412,22 +412,31 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AfiOptimizerApi apiInstance = new AfiOptimizerApi(defaultClient);
         Integer xFactSetApiLongRunningDeadline = 56; // Integer | Long running deadline in seconds.
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         AFIOptimizationParametersRoot afIOptimizationParametersRoot = new AFIOptimizationParametersRoot(); // AFIOptimizationParametersRoot | Optimization Parameters
         try {
-            ObjectRoot result = apiInstance.postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot);
-            System.out.println(result);
+            PostAndOptimizeResponseWrapper result = apiInstance.postAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationInfoRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AfiOptimizerApi#postAndOptimize");
             System.err.println("Status code: " + e.getCode());
@@ -450,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+PostAndOptimizeResponseWrapper
 
 ### Authorization
 
@@ -478,7 +487,7 @@ Name | Type | Description  | Notes
 
 ## putAndOptimize
 
-> ObjectRoot putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot)
+> PutAndOptimizeResponseWrapper putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot)
 
 Create or Update AFI optimization and run it.
 
@@ -492,14 +501,14 @@ import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiClient;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.ApiException;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.Configuration;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.auth.*;
-import com.factset.sdk.AxiomaFixedIncomeOptimizer.model.*;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.models.*;
 import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi;
+import com.factset.sdk.AxiomaFixedIncomeOptimizer.api.AfiOptimizerApi.PutAndOptimizeResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -509,14 +518,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         AfiOptimizerApi apiInstance = new AfiOptimizerApi(defaultClient);
         String id = "id_example"; // String | from url, provided from the location header in the Create and Run AFI optimization endpoint
@@ -524,8 +533,17 @@ public class Example {
         String cacheControl = "cacheControl_example"; // String | Standard HTTP header.  Accepts max-stale.
         AFIOptimizationParametersRoot afIOptimizationParametersRoot = new AFIOptimizationParametersRoot(); // AFIOptimizationParametersRoot | Optimization Parameters
         try {
-            ObjectRoot result = apiInstance.putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot);
-            System.out.println(result);
+            PutAndOptimizeResponseWrapper result = apiInstance.putAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, afIOptimizationParametersRoot);
+            switch(result.getStatusCode()) {
+            
+                case 201:
+                    System.out.println(result.getResponse201()); // ObjectRoot
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // CalculationInfoRoot
+            
+            }
+
         } catch (ApiException e) {
             System.err.println("Exception when calling AfiOptimizerApi#putAndOptimize");
             System.err.println("Status code: " + e.getCode());
@@ -549,7 +567,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+PutAndOptimizeResponseWrapper
 
 ### Authorization
 

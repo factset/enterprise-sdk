@@ -62,7 +62,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear {\n");
             sb.Append("  YearEnd: ").Append(YearEnd).Append("\n");
             sb.Append("  Year: ").Append(Year).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004ReportedKeyFiguresFirstFiscalYearFiscalYear input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.YearEnd == input.YearEnd ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.YearEnd.GetHashCode();
-                hashCode = hashCode * 59 + this.Year.GetHashCode();
+                hashCode = (hashCode * 59) + this.YearEnd.GetHashCode();
+                hashCode = (hashCode * 59) + this.Year.GetHashCode();
                 return hashCode;
             }
         }

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200Dates model module.
  * @module model/InlineResponse200Dates
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse200Dates {
     /**

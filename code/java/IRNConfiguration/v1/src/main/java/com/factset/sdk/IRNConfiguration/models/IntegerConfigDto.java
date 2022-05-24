@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -43,9 +43,11 @@ import com.factset.sdk.IRNConfiguration.JSON;
 public class IntegerConfigDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_SPLIT_TYPE = "splitType";
+  public static final String JSON_PROPERTY_SPLIT_TYPE = "SplitType";
   private JsonNullable<String> splitType = JsonNullable.<String>undefined();
 
+  public IntegerConfigDto() { 
+  }
 
   public IntegerConfigDto splitType(String splitType) {
     this.splitType = JsonNullable.<String>of(splitType);

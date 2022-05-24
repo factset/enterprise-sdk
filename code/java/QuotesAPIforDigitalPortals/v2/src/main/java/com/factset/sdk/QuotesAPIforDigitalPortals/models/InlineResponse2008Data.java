@@ -71,6 +71,8 @@ public class InlineResponse2008Data implements Serializable {
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private InlineResponse2008DataTimezone timezone;
 
+  public InlineResponse2008Data() { 
+  }
 
   public InlineResponse2008Data name(String name) {
     this.name = name;

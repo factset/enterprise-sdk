@@ -24,16 +24,10 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
-
-def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response20016_data_nav import InlineResponse20016DataNav
-    from fds.sdk.ETFProfileandPrices.model.inline_response20016_data_shares_outstanding import InlineResponse20016DataSharesOutstanding
-    globals()['InlineResponse20016DataNav'] = InlineResponse20016DataNav
-    globals()['InlineResponse20016DataSharesOutstanding'] = InlineResponse20016DataSharesOutstanding
 
 
 class InlineResponse20016Data(ModelNormal):
@@ -72,7 +66,6 @@ class InlineResponse20016Data(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -87,10 +80,8 @@ class InlineResponse20016Data(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'nav': (InlineResponse20016DataNav,),  # noqa: E501
-            'shares_outstanding': (InlineResponse20016DataSharesOutstanding,),  # noqa: E501
+            'broad_category': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,8 +90,7 @@ class InlineResponse20016Data(ModelNormal):
 
 
     attribute_map = {
-        'nav': 'nav',  # noqa: E501
-        'shares_outstanding': 'sharesOutstanding',  # noqa: E501
+        'broad_category': 'broadCategory',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,8 +134,7 @@ class InlineResponse20016Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            nav (InlineResponse20016DataNav): [optional]  # noqa: E501
-            shares_outstanding (InlineResponse20016DataSharesOutstanding): [optional]  # noqa: E501
+            broad_category (str): ETP class broad category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,8 +216,7 @@ class InlineResponse20016Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            nav (InlineResponse20016DataNav): [optional]  # noqa: E501
-            shares_outstanding (InlineResponse20016DataSharesOutstanding): [optional]  # noqa: E501
+            broad_category (str): ETP class broad category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

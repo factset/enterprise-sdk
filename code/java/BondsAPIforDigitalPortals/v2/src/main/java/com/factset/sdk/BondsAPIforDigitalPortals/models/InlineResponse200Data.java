@@ -101,6 +101,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_GERMANY = "germany";
   private InlineResponse200DataGermany germany;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data isin(String isin) {
     this.isin = isin;

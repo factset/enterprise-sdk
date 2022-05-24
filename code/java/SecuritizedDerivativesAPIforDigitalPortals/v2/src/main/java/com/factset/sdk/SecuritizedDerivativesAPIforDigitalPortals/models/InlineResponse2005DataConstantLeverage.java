@@ -47,6 +47,8 @@ public class InlineResponse2005DataConstantLeverage implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataConstantLeverage() { 
+  }
 
   public InlineResponse2005DataConstantLeverage value(BigDecimal value) {
     this.value = value;

@@ -54,6 +54,8 @@ public class RequestFileErrorDetails implements Serializable {
   public static final String JSON_PROPERTY_END_DATE = "endDate";
   private java.util.List<String> endDate = null;
 
+  public RequestFileErrorDetails() { 
+  }
 
   public RequestFileErrorDetails permissionError(java.util.List<String> permissionError) {
     this.permissionError = permissionError;

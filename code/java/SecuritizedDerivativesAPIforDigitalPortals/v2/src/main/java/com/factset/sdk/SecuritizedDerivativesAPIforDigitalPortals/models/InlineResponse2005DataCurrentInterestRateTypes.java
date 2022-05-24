@@ -82,6 +82,8 @@ public class InlineResponse2005DataCurrentInterestRateTypes implements Serializa
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataCurrentInterestRateTypes() { 
+  }
 
   public InlineResponse2005DataCurrentInterestRateTypes value(ValueEnum value) {
     this.value = value;

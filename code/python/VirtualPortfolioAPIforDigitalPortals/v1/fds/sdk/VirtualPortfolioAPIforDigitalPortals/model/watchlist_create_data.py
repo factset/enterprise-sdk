@@ -24,8 +24,8 @@ from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model_utils import (  # noqa: 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -62,7 +62,7 @@ class WatchlistCreateData(ModelNormal):
             'max_length': 100,
             'min_length': 1,
             'regex': {
-                'pattern': r'^[\u0020-\u002e\u0030-\u003a\u003d\u003f-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$',  # noqa: E501
+                'pattern': r'^[u0020-\u002e\u0030-\u003a\u003d\u003f-\u005d\u005f\u0061-\u007e\u00c0-\u00ff\u20ac]*$/',  # noqa: E501
             },
         },
     }

@@ -56,6 +56,18 @@ public class WatchlistPositionModifyData implements Serializable {
   public static final String JSON_PROPERTY_ADDITIONAL_DATA = "additionalData";
   private String additionalData;
 
+  public WatchlistPositionModifyData() { 
+  }
+
+  @JsonCreator
+  public WatchlistPositionModifyData(
+    @JsonProperty(value=JSON_PROPERTY_NAME, required=true) String name, 
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) BigDecimal id
+  ) {
+    this();
+    this.name = name;
+    this.id = id;
+  }
 
   public WatchlistPositionModifyData name(String name) {
     this.name = name;

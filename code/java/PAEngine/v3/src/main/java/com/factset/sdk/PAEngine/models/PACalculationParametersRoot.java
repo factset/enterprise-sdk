@@ -48,6 +48,8 @@ public class PACalculationParametersRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private CalculationMeta meta;
 
+  public PACalculationParametersRoot() { 
+  }
 
   public PACalculationParametersRoot data(java.util.Map<String, PACalculationParameters> data) {
     this.data = data;

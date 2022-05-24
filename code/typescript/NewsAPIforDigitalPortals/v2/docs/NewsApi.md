@@ -1,6 +1,6 @@
 # newsapifordigitalportals.NewsApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -66,6 +66,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsArticleGet(code, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -144,6 +145,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsArticleTypeGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -220,6 +222,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsArticleTypeList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -295,6 +298,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsDistributorGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -371,6 +375,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsDistributorList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -447,6 +452,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsPublisherGet(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -525,6 +531,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsPublisherList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -604,6 +611,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getNewsPublisherListByDistributor(id, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -679,6 +687,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postNewsArticleList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -750,6 +759,7 @@ const body = new newsapifordigitalportals.InlineObject1(); // InlineObject1 |
 // Call api endpoint
 apiInstance.postNewsArticleListByChain(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -821,6 +831,7 @@ const body = new newsapifordigitalportals.InlineObject2(); // InlineObject2 |
 // Call api endpoint
 apiInstance.postNewsArticleListByIndex(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -892,6 +903,7 @@ const body = new newsapifordigitalportals.InlineObject3(); // InlineObject3 |
 // Call api endpoint
 apiInstance.postNewsArticleListByInstrument(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -963,6 +975,7 @@ const body = new newsapifordigitalportals.InlineObject4(); // InlineObject4 |
 // Call api endpoint
 apiInstance.postNewsArticleListByMediaKind(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -1036,6 +1049,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postNewsArticleSearchByText(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -1107,6 +1121,7 @@ const body = new newsapifordigitalportals.InlineObject6(); // InlineObject6 |
 // Call api endpoint
 apiInstance.postNewsPublisherSearchByName(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

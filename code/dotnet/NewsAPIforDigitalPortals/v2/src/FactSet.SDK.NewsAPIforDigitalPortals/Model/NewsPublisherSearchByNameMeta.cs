@@ -95,7 +95,7 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NewsPublisherSearchByNameMeta {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
@@ -130,8 +130,9 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
         public bool Equals(NewsPublisherSearchByNameMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Attributes == input.Attributes ||
@@ -155,8 +156,10 @@ namespace FactSet.SDK.NewsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Attributes != null)
-                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
-                hashCode = hashCode * 59 + this.Sort.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Sort.GetHashCode();
                 return hashCode;
             }
         }

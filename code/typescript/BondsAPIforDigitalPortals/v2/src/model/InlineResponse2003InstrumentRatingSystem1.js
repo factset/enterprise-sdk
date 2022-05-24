@@ -17,7 +17,7 @@ import InlineResponse2003InstrumentRatingSystem1Rating from './InlineResponse200
 /**
  * The InlineResponse2003InstrumentRatingSystem1 model module.
  * @module model/InlineResponse2003InstrumentRatingSystem1
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2003InstrumentRatingSystem1 {
     /**

@@ -50,7 +50,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="periodicity">periodicity.</param>
         /// <param name="metrics">Requested metrics. Use the metrics endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). (required).</param>
         /// <param name="currency">Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470)..</param>
-        public RollingDetailRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), Periodicity periodicity = default(Periodicity), List<string> metrics = default(List<string>), string currency = default(string))
+        public RollingDetailRequest(List<string> ids = default(List<string>), string startDate = default(string), string endDate = default(string), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = default(int), int relativeFiscalEnd = default(int), PeriodicityDetail periodicity = default(PeriodicityDetail), List<string> metrics = default(List<string>), string currency = default(string))
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -124,7 +124,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// Gets or Sets Periodicity
         /// </summary>
         [DataMember(Name = "periodicity", EmitDefaultValue = false)]
-        public Periodicity Periodicity { get; set; }
+        public PeriodicityDetail Periodicity { get; set; }
 
         /// <summary>
         /// Requested metrics. Use the metrics endpoint for a list of estimate items. Note, the number of metrics you are allowed to supply is limited to 1 for now. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
@@ -146,7 +146,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class RollingDetailRequest {\n");
             sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
@@ -189,8 +189,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(RollingDetailRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ids == input.Ids ||
@@ -253,22 +254,36 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.Ids != null)
-                    hashCode = hashCode * 59 + this.Ids.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
+                }
                 if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
                 if (this.EndDate != null)
-                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
                 if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
-                hashCode = hashCode * 59 + this.IncludeAll.GetHashCode();
-                hashCode = hashCode * 59 + this.RelativeFiscalStart.GetHashCode();
-                hashCode = hashCode * 59 + this.RelativeFiscalEnd.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IncludeAll.GetHashCode();
+                hashCode = (hashCode * 59) + this.RelativeFiscalStart.GetHashCode();
+                hashCode = (hashCode * 59) + this.RelativeFiscalEnd.GetHashCode();
                 if (this.Periodicity != null)
-                    hashCode = hashCode * 59 + this.Periodicity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Periodicity.GetHashCode();
+                }
                 if (this.Metrics != null)
-                    hashCode = hashCode * 59 + this.Metrics.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Metrics.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 return hashCode;
             }
         }

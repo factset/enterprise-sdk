@@ -119,7 +119,7 @@ namespace FactSet.SDK.ChartGenerationService.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ChartInput {\n");
             sb.Append("  In: ").Append(In).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -158,8 +158,9 @@ namespace FactSet.SDK.ChartGenerationService.Model
         public bool Equals(ChartInput input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.In == input.In ||
@@ -200,16 +201,24 @@ namespace FactSet.SDK.ChartGenerationService.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.In.GetHashCode();
+                hashCode = (hashCode * 59) + this.In.GetHashCode();
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                hashCode = hashCode * 59 + this.Required.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Required.GetHashCode();
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 if (this.Example != null)
-                    hashCode = hashCode * 59 + this.Example.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Example.GetHashCode();
+                }
                 return hashCode;
             }
         }

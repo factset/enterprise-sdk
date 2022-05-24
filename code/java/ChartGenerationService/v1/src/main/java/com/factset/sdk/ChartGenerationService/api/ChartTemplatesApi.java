@@ -7,11 +7,16 @@ import com.factset.sdk.ChartGenerationService.Configuration;
 import com.factset.sdk.ChartGenerationService.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import java.math.BigDecimal;
 import com.factset.sdk.ChartGenerationService.models.CategoriesErrorResponse;
+import com.factset.sdk.ChartGenerationService.models.ChartList;
 import com.factset.sdk.ChartGenerationService.models.ChartListErrorResponse;
 import com.factset.sdk.ChartGenerationService.models.ErrorResponse;
+import java.io.File;
 import com.factset.sdk.ChartGenerationService.models.UnauthorizedResponse;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -25,6 +30,26 @@ public class ChartTemplatesApi {
   public ChartTemplatesApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getCategoryListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCategoryListResponseTypeMap.put(200, new GenericType<java.util.List<String>>(){});
+    getCategoryListResponseTypeMap.put(400, new GenericType<CategoriesErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getChartListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getChartListResponseTypeMap.put(200, new GenericType<java.util.List<Object>>(){});
+    getChartListResponseTypeMap.put(400, new GenericType<ChartListErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> imagesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    imagesResponseTypeMap.put(200, new GenericType<String>(){});
+    imagesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    imagesResponseTypeMap.put(401, new GenericType<UnauthorizedResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -47,7 +72,7 @@ public class ChartTemplatesApi {
   /**
    * Get a list of chart categories
    * 
-   * @return java.util.List&lt;String&gt;
+   * @return java.util.List<String>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -63,7 +88,7 @@ public class ChartTemplatesApi {
   /**
    * Get a list of chart categories
    * 
-   * @return ApiResponse&lt;java.util.List&lt;String&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<String>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -100,18 +125,24 @@ public class ChartTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<String>> localVarReturnType = new GenericType<java.util.List<String>>() {};
 
-    return apiClient.invokeAPI("ChartTemplatesApi.getCategoryList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<String>
+      
+    > apiResponse = apiClient.invokeAPI("ChartTemplatesApi.getCategoryList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCategoryListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get a list of chart templates that can be used for getting the image from the service.
    * You can get all the charts present or can just get the information by categories. The response includes the name of the chart, description, tags and any additional input specific to that chart. Use the information from this response to determine what charts you want and get its image from /images endpoint. Additionally you can also get back a auto generated PDF for the categories you requested for.
    * @param categories A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)
    * @param type return type of the response (optional)
-   * @return java.util.List&lt;Object&gt;
+   * @return java.util.List<Object>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -129,7 +160,7 @@ public class ChartTemplatesApi {
    * You can get all the charts present or can just get the information by categories. The response includes the name of the chart, description, tags and any additional input specific to that chart. Use the information from this response to determine what charts you want and get its image from /images endpoint. Additionally you can also get back a auto generated PDF for the categories you requested for.
    * @param categories A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)
    * @param type return type of the response (optional)
-   * @return ApiResponse&lt;java.util.List&lt;Object&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<Object>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -168,11 +199,17 @@ public class ChartTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<Object>> localVarReturnType = new GenericType<java.util.List<Object>>() {};
 
-    return apiClient.invokeAPI("ChartTemplatesApi.getChartList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<Object>
+      
+    > apiResponse = apiClient.invokeAPI("ChartTemplatesApi.getChartList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getChartListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get chart image back in PNG or JPEG formats
@@ -282,10 +319,16 @@ public class ChartTemplatesApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
 
-    return apiClient.invokeAPI("ChartTemplatesApi.images", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        String
+      
+    > apiResponse = apiClient.invokeAPI("ChartTemplatesApi.images", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, imagesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

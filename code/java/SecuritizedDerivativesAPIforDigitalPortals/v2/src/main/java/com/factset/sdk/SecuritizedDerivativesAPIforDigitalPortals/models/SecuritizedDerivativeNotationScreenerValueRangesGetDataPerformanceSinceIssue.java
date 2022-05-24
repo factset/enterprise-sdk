@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceS
   public static final String JSON_PROPERTY_BID = "bid";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueBid bid;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssue() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssue ask(SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceSinceIssueAsk ask) {
     this.ask = ask;

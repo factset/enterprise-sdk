@@ -51,6 +51,16 @@ public class TemplatedPAComponentSummaryRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private JsonNullable<Object> meta = JsonNullable.<Object>of(null);
 
+  public TemplatedPAComponentSummaryRoot() { 
+  }
+
+  @JsonCreator
+  public TemplatedPAComponentSummaryRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.Map<String, TemplatedPAComponentSummary> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public TemplatedPAComponentSummaryRoot data(java.util.Map<String, TemplatedPAComponentSummary> data) {
     this.data = data;

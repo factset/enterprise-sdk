@@ -17,7 +17,7 @@ import ReturnType from './ReturnType';
 /**
  * The SPARAccounts model module.
  * @module model/SPARAccounts
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SPARAccounts {
     /**

@@ -17,7 +17,7 @@ import BasicBackgroundTextTypeListDataFilter from './BasicBackgroundTextTypeList
 /**
  * The BasicBackgroundTextTypeListData model module.
  * @module model/BasicBackgroundTextTypeListData
- * @version 0.9.1
+ * @version 0.9.2
  */
 class BasicBackgroundTextTypeListData {
     /**

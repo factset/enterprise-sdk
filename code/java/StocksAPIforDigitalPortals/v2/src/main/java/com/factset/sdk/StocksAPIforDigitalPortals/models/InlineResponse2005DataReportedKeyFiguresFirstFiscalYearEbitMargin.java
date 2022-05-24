@@ -48,6 +48,8 @@ public class InlineResponse2005DataReportedKeyFiguresFirstFiscalYearEbitMargin i
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataReportedKeyFiguresFirstFiscalYearEbitMargin() { 
+  }
 
   public InlineResponse2005DataReportedKeyFiguresFirstFiscalYearEbitMargin minimum(BigDecimal minimum) {
     this.minimum = minimum;

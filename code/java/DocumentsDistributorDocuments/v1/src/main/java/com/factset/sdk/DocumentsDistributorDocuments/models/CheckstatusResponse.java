@@ -1,6 +1,6 @@
 /*
  * Documents Distributor - Documents API
- * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. The API also provides relevant metadata such as document source, company identifiers and form type around each filings document. Filings providers currently include EDGAR and SYMEX WebDisclosure.      StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.   Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
+ * Documents APIs that provide filings such as Global Filings and XML files such as StreetAccount    Global Filings API provides the capability to search and download filings documents from various exchanges around the world. This API will provide access to the full history and the ability to search by date and dataset(source). It does not provide real-time updates to the filings documents. Filings providers currently include EDGAR       Note: The real-time updates to the filing documents will be available within week to ten days and per request able to query up to 8 days of data               StreetAccount XML API provides access to historical StreetAccount (SA) news. SA provides a summary for various corporate and market news written by journalist with background in financial markets.    The API delivers SA stories in XML format based on user-specified date input parameters. When the API request is completed, output files will be made available back to the users through a secure URL. This API has three endpoints (1) Request Files (2) Check Status (3) Get Files.      This API only supports adhoc requests to retrieve historical files and does not support real-time files and if require real-time push should consider the other three methods (pushed via SFTP, to QNT account, or users Azure Storage)   Both historical and real-time Street Account news is also delivered via SFTP, to users QNT account, or users Azure Storage.  Files delivered contain both metadata and content body in each file. This eliminates the need to make multiple requests through multiple services to get all the information.  
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.DocumentsDistributorDocuments.JSON;
@@ -35,7 +36,10 @@ import com.factset.sdk.DocumentsDistributorDocuments.JSON;
 @JsonPropertyOrder({
   CheckstatusResponse.JSON_PROPERTY_JOB_I_D,
   CheckstatusResponse.JSON_PROPERTY_STATUS,
-  CheckstatusResponse.JSON_PROPERTY_PERCENT_DONE
+  CheckstatusResponse.JSON_PROPERTY_PERCENT_DONE,
+  CheckstatusResponse.JSON_PROPERTY_START_DATE,
+  CheckstatusResponse.JSON_PROPERTY_END_DATE,
+  CheckstatusResponse.JSON_PROPERTY_PART
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CheckstatusResponse implements Serializable {
@@ -50,6 +54,17 @@ public class CheckstatusResponse implements Serializable {
   public static final String JSON_PROPERTY_PERCENT_DONE = "percentDone";
   private Integer percentDone;
 
+  public static final String JSON_PROPERTY_START_DATE = "startDate";
+  private LocalDate startDate;
+
+  public static final String JSON_PROPERTY_END_DATE = "endDate";
+  private LocalDate endDate;
+
+  public static final String JSON_PROPERTY_PART = "part";
+  private Integer part;
+
+  public CheckstatusResponse() { 
+  }
 
   public CheckstatusResponse jobID(String jobID) {
     this.jobID = jobID;
@@ -129,6 +144,84 @@ public class CheckstatusResponse implements Serializable {
   }
 
 
+  public CheckstatusResponse startDate(LocalDate startDate) {
+    this.startDate = startDate;
+    return this;
+  }
+
+   /**
+   * The date from which the data is required in YYYY-MM-DDTHH:MM:SSZ format
+   * @return startDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date from which the data is required in YYYY-MM-DDTHH:MM:SSZ format")
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LocalDate getStartDate() {
+    return startDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStartDate(LocalDate startDate) {
+    this.startDate = startDate;
+  }
+
+
+  public CheckstatusResponse endDate(LocalDate endDate) {
+    this.endDate = endDate;
+    return this;
+  }
+
+   /**
+   * The date until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ format
+   * @return endDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date until which the data is fetched in YYYY-MM-DDTHH:MM:SSZ format")
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LocalDate getEndDate() {
+    return endDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_END_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEndDate(LocalDate endDate) {
+    this.endDate = endDate;
+  }
+
+
+  public CheckstatusResponse part(Integer part) {
+    this.part = part;
+    return this;
+  }
+
+   /**
+   * Returns the part number of the jobID
+   * @return part
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Returns the part number of the jobID")
+  @JsonProperty(JSON_PROPERTY_PART)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getPart() {
+    return part;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PART)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPart(Integer part) {
+    this.part = part;
+  }
+
+
   /**
    * Return true if this checkstatusResponse object is equal to o.
    */
@@ -143,12 +236,15 @@ public class CheckstatusResponse implements Serializable {
     CheckstatusResponse checkstatusResponse = (CheckstatusResponse) o;
     return Objects.equals(this.jobID, checkstatusResponse.jobID) &&
         Objects.equals(this.status, checkstatusResponse.status) &&
-        Objects.equals(this.percentDone, checkstatusResponse.percentDone);
+        Objects.equals(this.percentDone, checkstatusResponse.percentDone) &&
+        Objects.equals(this.startDate, checkstatusResponse.startDate) &&
+        Objects.equals(this.endDate, checkstatusResponse.endDate) &&
+        Objects.equals(this.part, checkstatusResponse.part);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobID, status, percentDone);
+    return Objects.hash(jobID, status, percentDone, startDate, endDate, part);
   }
 
   @Override
@@ -158,6 +254,9 @@ public class CheckstatusResponse implements Serializable {
     sb.append("    jobID: ").append(toIndentedString(jobID)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    percentDone: ").append(toIndentedString(percentDone)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    part: ").append(toIndentedString(part)).append("\n");
     sb.append("}");
     return sb.toString();
   }

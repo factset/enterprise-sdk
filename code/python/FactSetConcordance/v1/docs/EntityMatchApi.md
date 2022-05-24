@@ -39,21 +39,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match_api.EntityMatchApi(api_client)
+
     name = "FactSet" # str | Name of Entity to match.
     client_id = "abc-123" # str | A unique identifer supplied by the user. The clientId is recorded to the user's mapped universe.  (optional)
     country = "US" # str | ISO2 country code corresponding to the entity name that is used when evaluating candidates for a match. For a list of ISO2 Country codes, visit [OA 8754](https://my.apps.factset.com/oa/pages/8754). (optional)
@@ -71,22 +72,13 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     exclude_entity_sub_type = [
         "HF",
     ] # [str] | Two-character FactSet entity subtype code used to filter candidates in order to determine the final match result. Candidates with an entity subtype specified will not be considered for the final match result. Multiple types can be entered separated by commas. |Entity Subtype Code|Entity Subtype Description|Entity Subtype Code|Entity Subtype Description| |---|---|---|---| |AR|Arbitrage|IC|Investment Company| |BM|Bank Investment Division|IN|Insurance Company| |BR|Broker|MF|Mutual Fund Manager| |CP|Corporate|ML|Master Ltd Part| |CU|Custodial|MM|Market Maker| |FF|Fund of Funds Manager|PB|Private Banking/Wealth Mgmt| |FH|Fund of Hedge Funds Manager|PF|Pension Fund Manager| |FO|Foundation/Endowment Manager|PP|Real Estate Manager| |FS|Fund Distributor|RE|Research Firm| |FU|Fund|SB|Subsidiary Branch| |FY|Family Office|ST|Stock Borrowing/Lending| |GV|Govt (Fed/Local/Agency)|SV|Sovereign Wealth Manager| |HF|Hedge Fund Manager|VC|Venture Capital/Pvt Equity| |IA|Investment Adviser| |IB|Investment Banking|  (optional)
-    include_parent = False # bool | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional) if omitted the server will use the default value of False
+    include_parent = False # bool | Flag to include parent entities in the list of candidates. This parameter does not influence the match result. (optional) (default to False)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Entity Candidates and Matches for a single name and attributes.
-        api_response = api_instance.get_entity_match(name)
-        pprint(api_response)
-    except fds.sdk.FactSetConcordance.ApiException as e:
-        print("Exception when calling EntityMatchApi->get_entity_match: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Entity Candidates and Matches for a single name and attributes.
         api_response = api_instance.get_entity_match(name, client_id=client_id, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling EntityMatchApi->get_entity_match: %s\n" % e)
 ```
@@ -166,21 +158,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetConcordance.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetConcordance.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = entity_match_api.EntityMatchApi(api_client)
+
     entity_match_request = EntityMatchRequest(
         input=[
             EntityMatchRequestInput(
@@ -206,11 +199,11 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         include_parent=False,
     ) # EntityMatchRequest | A request to match a Entity.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a list of Entity Candidates and Matches for a requested list of up to 25 names and attributes.
         api_response = api_instance.get_entity_match_for_list(entity_match_request)
         pprint(api_response)
+
     except fds.sdk.FactSetConcordance.ApiException as e:
         print("Exception when calling EntityMatchApi->get_entity_match_for_list: %s\n" % e)
 ```

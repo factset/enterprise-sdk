@@ -48,6 +48,7 @@ const id = "'782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53'";
 // Call api endpoint
 apiInstance.getPAComponentById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const document = "'Client:Foo'"; // String | Document Name
 // Call api endpoint
 apiInstance.getPAComponents(document).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

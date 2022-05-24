@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.IRNMeetings.models.AttendeeDto;
+import com.factset.sdk.IRNMeetings.models.CustomFieldValueDto;
 import com.factset.sdk.IRNMeetings.models.LocationDto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -51,7 +52,8 @@ import com.factset.sdk.IRNMeetings.JSON;
   MeetingSummaryDto.JSON_PROPERTY_ATTACHMENT_IDS,
   MeetingSummaryDto.JSON_PROPERTY_RELATED_SYMBOLS,
   MeetingSummaryDto.JSON_PROPERTY_LOCATIONS,
-  MeetingSummaryDto.JSON_PROPERTY_ATTENDEES
+  MeetingSummaryDto.JSON_PROPERTY_ATTENDEES,
+  MeetingSummaryDto.JSON_PROPERTY_CUSTOM_FIELD_VALUES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MeetingSummaryDto implements Serializable {
@@ -96,6 +98,11 @@ public class MeetingSummaryDto implements Serializable {
   public static final String JSON_PROPERTY_ATTENDEES = "attendees";
   private JsonNullable<java.util.List<AttendeeDto>> attendees = JsonNullable.<java.util.List<AttendeeDto>>undefined();
 
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
+  private JsonNullable<java.util.List<CustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<CustomFieldValueDto>>undefined();
+
+  public MeetingSummaryDto() { 
+  }
 
   public MeetingSummaryDto id(java.util.UUID id) {
     this.id = id;
@@ -327,7 +334,9 @@ public class MeetingSummaryDto implements Serializable {
    /**
    * Get organizer
    * @return organizer
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
@@ -563,6 +572,52 @@ public class MeetingSummaryDto implements Serializable {
   }
 
 
+  public MeetingSummaryDto customFieldValues(java.util.List<CustomFieldValueDto> customFieldValues) {
+    this.customFieldValues = JsonNullable.<java.util.List<CustomFieldValueDto>>of(customFieldValues);
+    return this;
+  }
+
+  public MeetingSummaryDto addCustomFieldValuesItem(CustomFieldValueDto customFieldValuesItem) {
+    if (this.customFieldValues == null || !this.customFieldValues.isPresent()) {
+      this.customFieldValues = JsonNullable.<java.util.List<CustomFieldValueDto>>of(new java.util.ArrayList<>());
+    }
+    try {
+      this.customFieldValues.get().add(customFieldValuesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * Get customFieldValues
+   * @return customFieldValues
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public java.util.List<CustomFieldValueDto> getCustomFieldValues() {
+        return customFieldValues.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELD_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<java.util.List<CustomFieldValueDto>> getCustomFieldValues_JsonNullable() {
+    return customFieldValues;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_FIELD_VALUES)
+  public void setCustomFieldValues_JsonNullable(JsonNullable<java.util.List<CustomFieldValueDto>> customFieldValues) {
+    this.customFieldValues = customFieldValues;
+  }
+
+  public void setCustomFieldValues(java.util.List<CustomFieldValueDto> customFieldValues) {
+    this.customFieldValues = JsonNullable.<java.util.List<CustomFieldValueDto>>of(customFieldValues);
+  }
+
+
   /**
    * Return true if this MeetingSummaryDto object is equal to o.
    */
@@ -587,7 +642,8 @@ public class MeetingSummaryDto implements Serializable {
         equalsNullable(this.attachmentIds, meetingSummaryDto.attachmentIds) &&
         equalsNullable(this.relatedSymbols, meetingSummaryDto.relatedSymbols) &&
         equalsNullable(this.locations, meetingSummaryDto.locations) &&
-        equalsNullable(this.attendees, meetingSummaryDto.attendees);
+        equalsNullable(this.attendees, meetingSummaryDto.attendees) &&
+        equalsNullable(this.customFieldValues, meetingSummaryDto.customFieldValues);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -596,7 +652,7 @@ public class MeetingSummaryDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(start), hashCodeNullable(end), hashCodeNullable(createdAt), authorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(organizer), organizerId, hashCodeNullable(attachmentIds), hashCodeNullable(relatedSymbols), hashCodeNullable(locations), hashCodeNullable(attendees));
+    return Objects.hash(id, hashCodeNullable(start), hashCodeNullable(end), hashCodeNullable(createdAt), authorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(organizer), organizerId, hashCodeNullable(attachmentIds), hashCodeNullable(relatedSymbols), hashCodeNullable(locations), hashCodeNullable(attendees), hashCodeNullable(customFieldValues));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -623,6 +679,7 @@ public class MeetingSummaryDto implements Serializable {
     sb.append("    relatedSymbols: ").append(toIndentedString(relatedSymbols)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
     sb.append("    attendees: ").append(toIndentedString(attendees)).append("\n");
+    sb.append("    customFieldValues: ").append(toIndentedString(customFieldValues)).append("\n");
     sb.append("}");
     return sb.toString();
   }

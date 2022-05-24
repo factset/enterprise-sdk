@@ -72,7 +72,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataLifeCycleMaturity {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  IsPerpetual: ").Append(IsPerpetual).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse200DataLifeCycleMaturity input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Date == input.Date ||
@@ -136,9 +137,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                hashCode = hashCode * 59 + this.IsPerpetual.GetHashCode();
-                hashCode = hashCode * 59 + this.IsCallable.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsPerpetual.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsCallable.GetHashCode();
                 return hashCode;
             }
         }

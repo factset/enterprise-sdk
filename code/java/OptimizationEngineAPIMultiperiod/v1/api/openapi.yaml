@@ -1,0 +1,2087 @@
+openapi: 3.0.1
+info:
+  description: ""
+  title: fpo_mp_input
+  version: "1"
+servers:
+- url: /
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+paths:
+  /mpo/v1/optimizeFPO:
+    post:
+      requestBody:
+        content:
+          application/x-protobuf:
+            schema:
+              $ref: '#/components/schemas/optimizer.inputs.MultiPeriodInput'
+        description: Multiperiod protobuf input
+        required: false
+      responses:
+        "200":
+          content:
+            application/x-protobuf:
+              schema:
+                $ref: '#/components/schemas/optimizer.outputs.MultiPeriodOutput'
+          description: Multiperiod protobuf output
+      x-codegen-request-body-name: MultiPeriodInput
+      x-contentType: application/x-protobuf
+      x-accepts: application/x-protobuf
+components:
+  schemas:
+    VAR.DistributionType:
+      description: "0 - eMonteCarlo \n1 - eExtremeEventSimulation \n2 - eHistorical\
+        \ \n3 - eFactorStressTest \n4 - eExtremeEventStressTest \n5 - eStressTestPerSe\
+        \ \n6 - eFactorExposure "
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      type: number
+    VAR.StatusIndicator:
+      description: "0 - eSuccess \n1 - eFailure "
+      enum:
+      - 0
+      - 1
+      type: number
+    VAR.DistributionDescription:
+      properties:
+        riskModel:
+          type: string
+        factorGroup:
+          type: string
+        factors:
+          items:
+            type: string
+          type: array
+        distributionType:
+          $ref: '#/components/schemas/VAR.DistributionType'
+        reportDate:
+          format: int32
+          type: integer
+        reportCurrency:
+          type: string
+        horizonInTradingDays:
+          format: float
+          type: number
+        returnDates:
+          description: Only possibly defined for historical distributions
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    VAR.SimulatedReturns:
+      properties:
+        entity:
+          type: string
+        returns:
+          items:
+            format: float
+            type: number
+          type: array
+      type: object
+    VAR.DistributionStatus:
+      properties:
+        indicator:
+          $ref: '#/components/schemas/VAR.StatusIndicator'
+        message:
+          type: string
+      type: object
+    VAR.DistributionDataMessage:
+      properties:
+        description:
+          $ref: '#/components/schemas/VAR.DistributionDescription'
+        securitySimulations:
+          items:
+            $ref: '#/components/schemas/VAR.SimulatedReturns'
+          type: array
+        status:
+          $ref: '#/components/schemas/VAR.DistributionStatus'
+      type: object
+    optimizer.inputs.MultiPeriodInput:
+      properties:
+        strategy:
+          $ref: '#/components/schemas/optimizer.inputs.MultiPeriodStrategy'
+        universe:
+          $ref: '#/components/schemas/optimizer.inputs.TotalUniverse'
+        portfolios:
+          $ref: '#/components/schemas/optimizer.inputs.Portfolios'
+        riskmodels:
+          $ref: '#/components/schemas/optimizer.inputs.MultiPeriodRiskModels'
+        lookup_tables:
+          $ref: '#/components/schemas/optimizer.inputs.LookupTables'
+        output_statistics:
+          type: boolean
+      type: object
+    optimizer.inputs.MPFrontierInput:
+      properties:
+        input:
+          $ref: '#/components/schemas/optimizer.inputs.MultiPeriodInput'
+        frontier:
+          $ref: '#/components/schemas/optimizer.inputs.FrontierSettings'
+      type: object
+    optimizer.inputs.MultiPeriodStrategy:
+      properties:
+        objective:
+          $ref: '#/components/schemas/optimizer.inputs.MultiPeriodObjective'
+        constraints:
+          $ref: '#/components/schemas/optimizer.inputs.MultiPeriodConstraints'
+        transaction_cost:
+          $ref: '#/components/schemas/optimizer.inputs.TransactionCost'
+        options:
+          $ref: '#/components/schemas/optimizer.inputs.MultiPeriodOptions'
+        expected_return:
+          $ref: '#/components/schemas/optimizer.inputs.ExpectedReturn'
+      type: object
+    optimizer.inputs.MultiPeriodConstraints:
+      properties:
+        expected_returns:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPExpectedReturnConstraint'
+          type: array
+        diversification:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPDiversificationConstraint'
+          type: array
+        factor_exposures:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPFactorExposureConstraint'
+          type: array
+        general_linear:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPGeneralLinearConstraint'
+          type: array
+        holding_threshold:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPHoldingsThresholdConstraint'
+          type: array
+        leverage:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPLeverageConstraint'
+          type: array
+        num_of_assets:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPNumberofAssetsConstraint'
+          type: array
+        sensitivity:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPSensitivityConstraint'
+          type: array
+        weight_constraint:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPHoldingsWeightConstraint'
+          type: array
+        number_of_buys:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPNumberOfBuysConstraint'
+          type: array
+        number_of_sells:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPNumberOfSellsConstraint'
+          type: array
+        round_lots:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPRoundlotsConstraint'
+          type: array
+        trade_threshold:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPTradeThresholdConstraint'
+          type: array
+        trading_turnover:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPTurnoverConstraint'
+          type: array
+        risk_contribution:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPRiskContributionConstraint'
+          type: array
+        risk_volatility:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPRiskVolatilityConstraint'
+          type: array
+        tail_risk:
+          description: MultiPeriod-Specific
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPLimitTailRiskConstraint'
+          type: array
+        target_probability:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPTargetProbabilityConstraint'
+          type: array
+      type: object
+    optimizer.inputs.MPExpectedReturnConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.ExpectedReturnConstraint'
+        constraint_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        annualization_factor:
+          format: double
+          type: number
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPDiversificationConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.DiversificationConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPFactorExposureConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.FactorExposureConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPGeneralLinearConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.GeneralLinearConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPHoldingsThresholdConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.HoldingsThresholdConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPLeverageConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.LeverageConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPNumberofAssetsConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.NumberofAssetsConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPSensitivityConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.SensitivityConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPHoldingsWeightConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.HoldingsWeightConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPNumberOfBuysConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.NumberOfBuysConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPNumberOfSellsConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.NumberOfSellsConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPRoundlotsConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.RoundlotsConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPTradeThresholdConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.TradeThresholdConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPTransactionCostConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.TransactionCostConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPTurnoverConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.TurnoverConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPRiskContributionConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.RiskContributionConstraint'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.MPRiskVolatilityConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.RiskVolatilityConstraint'
+        constraint_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPLimitTailRiskConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.LimitTailRiskConstraint'
+        constraint_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.LimitTailRiskConstraint:
+      properties:
+        name:
+          type: string
+        risk_measure:
+          $ref: '#/components/schemas/optimizer.inputs.TailRiskMeasure.Enum'
+        max_risk:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        confidence_level:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        active_risk:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.MPTargetProbabilityConstraint:
+      properties:
+        constraint:
+          $ref: '#/components/schemas/optimizer.inputs.TargetProbabilityConstraint'
+        constraint_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.TargetProbabilityConstraint:
+      properties:
+        name:
+          type: string
+        threshold_min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        threshold_max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        min_probability:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max_probability:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.EFPOConstraintWeightType:
+      type: object
+    optimizer.inputs.EFPOConstraintAssetType:
+      type: object
+    optimizer.inputs.EConstraintReturnType:
+      type: object
+    optimizer.inputs.EConstraintRiskRelativeInterpretationType:
+      type: object
+    optimizer.inputs.EConstraintGroupType:
+      type: object
+    optimizer.inputs.EConstraintTurnoverType:
+      type: object
+    optimizer.inputs.EConstraintValueType:
+      type: object
+    optimizer.inputs.ELeverageValueType:
+      type: object
+    optimizer.inputs.EConstraintLevel:
+      type: object
+    optimizer.inputs.EConstraintPenaltyType:
+      type: object
+    optimizer.inputs.EConstraintRiskType:
+      type: object
+    optimizer.inputs.EConstraintUnitType:
+      type: object
+    optimizer.inputs.EWeightingMethodType:
+      description: 'ToDo :: follow-up for what unit type the optimizer expects,'
+      type: object
+    optimizer.inputs.ConstraintGroup:
+      properties:
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        id:
+          type: string
+        nested_groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        group_lookup_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.FactorExposureAttributes:
+      properties:
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+      type: object
+    optimizer.inputs.Penalty:
+      properties:
+        enabled:
+          type: boolean
+        penalty_type:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintPenaltyType.Enum'
+        penalty_value:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max_violation:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+      type: object
+    optimizer.inputs.Constraints:
+      properties:
+        expected_returns:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ExpectedReturnConstraint'
+          type: array
+        diversification:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.DiversificationConstraint'
+          type: array
+        factor_exposures:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.FactorExposureConstraint'
+          type: array
+        general_linear:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.GeneralLinearConstraint'
+          type: array
+        holding_threshold:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.HoldingsThresholdConstraint'
+          type: array
+        leverage:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.LeverageConstraint'
+          type: array
+        num_of_assets:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.NumberofAssetsConstraint'
+          type: array
+        sensitivity:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.SensitivityConstraint'
+          type: array
+        weight_constraint:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.HoldingsWeightConstraint'
+          type: array
+        number_of_buys:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.NumberOfBuysConstraint'
+          type: array
+        number_of_sells:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.NumberOfSellsConstraint'
+          type: array
+        round_lots:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.RoundlotsConstraint'
+          type: array
+        trade_threshold:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.TradeThresholdConstraint'
+          type: array
+        transaction_cost:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.TransactionCostConstraint'
+          type: array
+        trading_turnover:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.TurnoverConstraint'
+          type: array
+        risk_etl:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.LimitRiskETLConstraint'
+          type: array
+        risk_contribution:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.RiskContributionConstraint'
+          type: array
+        risk_volatility:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.RiskVolatilityConstraint'
+          type: array
+        limit_trade_constraint:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.TradingLimitTradeConstraint'
+          type: array
+      type: object
+    optimizer.inputs.ExpectedReturnConstraint:
+      description: "1"
+      properties:
+        name:
+          type: string
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        return_value:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        use_strategy_return_value:
+          type: boolean
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        return_type:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintReturnType.Enum'
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.DiversificationConstraint:
+      description: "2"
+      properties:
+        name:
+          type: string
+        asset_value:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max_percent:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        unit:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintUnitType.Enum'
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.FactorExposureConstraint:
+      description: "3"
+      properties:
+        name:
+          type: string
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+        factors:
+          $ref: '#/components/schemas/optimizer.inputs.FactorExposureAttributes'
+        hierarchy:
+          format: int32
+          type: integer
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+      type: object
+    optimizer.inputs.GeneralLinearConstraint:
+      description: "4"
+      properties:
+        name:
+          type: string
+        security_attribute:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        weighting_method:
+          $ref: '#/components/schemas/optimizer.inputs.EWeightingMethodType.Enum'
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.HoldingsThresholdConstraint:
+      description: "5"
+      properties:
+        name:
+          type: string
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        unit:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintUnitType.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.LeverageConstraint:
+      description: "6"
+      properties:
+        name:
+          type: string
+        value:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        value_type:
+          $ref: '#/components/schemas/optimizer.inputs.ELeverageValueType.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+      type: object
+    optimizer.inputs.NumberofAssetsConstraint:
+      description: "7"
+      properties:
+        name:
+          type: string
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.SensitivityConstraint:
+      description: "8"
+      properties:
+        name:
+          type: string
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        sensitivity_attribute:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+        hierarchy:
+          format: int32
+          type: integer
+        unit:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintUnitType.Enum'
+      type: object
+    optimizer.inputs.HoldingsWeightConstraint:
+      description: "9"
+      properties:
+        name:
+          type: string
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        unit:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintUnitType.Enum'
+        weight_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintWeightType.Enum'
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+        hierarchy:
+          format: int32
+          type: integer
+        apply_only_to_direct:
+          type: boolean
+      type: object
+    optimizer.inputs.NumberOfBuysConstraint:
+      description: "10"
+      properties:
+        name:
+          type: string
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.NumberOfSellsConstraint:
+      description: "11"
+      properties:
+        name:
+          type: string
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.RoundlotsConstraint:
+      description: "12"
+      properties:
+        name:
+          type: string
+        asset_level:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        general_value:
+          format: double
+          type: number
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.TradeThresholdConstraint:
+      description: "13"
+      properties:
+        name:
+          type: string
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        unit:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintUnitType.Enum'
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.TransactionCostConstraint:
+      description: "14"
+      properties:
+        name:
+          type: string
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        unit:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintUnitType.Enum'
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.TurnoverConstraint:
+      description: "15"
+      properties:
+        name:
+          type: string
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        value_type:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintValueType.Enum'
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        turnover_type:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintTurnoverType.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.TradingLimitTradeConstraint:
+      description: "19"
+      properties:
+        name:
+          type: string
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        unit:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintUnitType.Enum'
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.LimitRiskETLConstraint:
+      description: "16"
+      properties:
+        name:
+          type: string
+        max_etl:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        confidence_level:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        active_etl:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.RiskContributionConstraint:
+      description: "17"
+      properties:
+        name:
+          type: string
+        max_percent:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        custom_asset:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        asset_type:
+          $ref: '#/components/schemas/optimizer.inputs.EFPOConstraintAssetType.Enum'
+        risk_type:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintRiskType.Enum'
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.RiskVolatilityConstraint:
+      description: "18"
+      properties:
+        name:
+          type: string
+        max_value_of_risk:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        level:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintLevel.Enum'
+        penalty:
+          $ref: '#/components/schemas/optimizer.inputs.Penalty'
+        groups:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ConstraintGroup'
+          type: array
+        risk_type:
+          $ref: '#/components/schemas/optimizer.inputs.EConstraintRiskType.Enum'
+        active_risk:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+        hierarchy:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.EValueType:
+      type: object
+    optimizer.inputs.Value:
+      properties:
+        value_type:
+          $ref: '#/components/schemas/optimizer.inputs.EValueType.Enum'
+        raw_value:
+          format: double
+          type: number
+        ref_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.BoundSource:
+      type: object
+    optimizer.inputs.OnPeriods:
+      properties:
+        periods:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    optimizer.inputs.AcrossPeriods:
+      properties:
+        start_period:
+          format: int32
+          type: integer
+        end_period:
+          format: int32
+          type: integer
+        rolling:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods.RollingPeriods'
+      type: object
+    optimizer.inputs.RollingMethod:
+      type: object
+    optimizer.inputs.TailRiskMeasure:
+      type: object
+    optimizer.inputs.MultiPeriodObjective:
+      properties:
+        factor_exposure:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPFactorExposureTerm'
+          type: array
+        volatility:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPVolatilityTerm'
+          type: array
+        general_linear:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPGeneralLinearTerm'
+          type: array
+        expected_return:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPExpectedReturnTerm'
+          type: array
+        sensitivity:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPSensitivityTerm'
+          type: array
+        objective_ratio:
+          $ref: '#/components/schemas/optimizer.inputs.MPObjectiveRatioTerm'
+        tail_risk:
+          description: MultiPeriod-Specific
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPTailRiskTerm'
+          type: array
+        target_probability:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.MPTargetProbabilityTerm'
+          type: array
+      type: object
+    optimizer.inputs.MPFactorExposureTerm:
+      properties:
+        term:
+          $ref: '#/components/schemas/optimizer.inputs.FactorExposureTerm'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPVolatilityTerm:
+      properties:
+        term:
+          $ref: '#/components/schemas/optimizer.inputs.VolatilityTerm'
+        term_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPGeneralLinearTerm:
+      properties:
+        term:
+          $ref: '#/components/schemas/optimizer.inputs.GeneralLinearTerm'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPExpectedReturnTerm:
+      properties:
+        term:
+          $ref: '#/components/schemas/optimizer.inputs.ExpectedReturnTerm'
+        term_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        annualization_factor:
+          format: double
+          type: number
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPSensitivityTerm:
+      properties:
+        term:
+          $ref: '#/components/schemas/optimizer.inputs.SensitivityTerm'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPObjectiveRatioTerm:
+      properties:
+        sharpe_ratio:
+          $ref: '#/components/schemas/optimizer.inputs.SharpeRatioTerm'
+        starr:
+          $ref: '#/components/schemas/optimizer.inputs.STARRTerm'
+        diversification_ratio:
+          $ref: '#/components/schemas/optimizer.inputs.DiversificationRatioTerm'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.MPTargetProbabilityTerm:
+      properties:
+        term:
+          $ref: '#/components/schemas/optimizer.inputs.TargetProbabilityTerm'
+        constrain_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.TargetProbabilityTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        threshold_min:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        threshold_max:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+      type: object
+    optimizer.inputs.MPTailRiskTerm:
+      properties:
+        term:
+          $ref: '#/components/schemas/optimizer.inputs.TailRiskTerm'
+        term_on:
+          $ref: '#/components/schemas/optimizer.inputs.BoundSource.Enum'
+        on_periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+        across_periods:
+          $ref: '#/components/schemas/optimizer.inputs.AcrossPeriods'
+      type: object
+    optimizer.inputs.TailRiskTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        risk_measure:
+          $ref: '#/components/schemas/optimizer.inputs.TailRiskMeasure.Enum'
+        confidence_level:
+          format: double
+          type: number
+        use_centered_etl:
+          type: boolean
+        active_risk:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.EObjectiveTermDirection:
+      type: object
+    optimizer.inputs.EAggregationMethod:
+      type: object
+    optimizer.inputs.EObjectiveRiskType:
+      type: object
+    optimizer.inputs.Objective:
+      description: ToDo :Note to circle back to this when we have more info on factors
+      properties:
+        factor_exposure:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.FactorExposureTerm'
+          type: array
+        expected_tail_loss:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ExpectedTailLossTerm'
+          type: array
+        volatility:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.VolatilityTerm'
+          type: array
+        drawdown:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.DrawdownTerm'
+          type: array
+        general_linear:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.GeneralLinearTerm'
+          type: array
+        expected_return:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ExpectedReturnTerm'
+          type: array
+        sensitivity:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.SensitivityTerm'
+          type: array
+        sharpe_ratio:
+          $ref: '#/components/schemas/optimizer.inputs.SharpeRatioTerm'
+        starr:
+          $ref: '#/components/schemas/optimizer.inputs.STARRTerm'
+        diversification_ratio:
+          $ref: '#/components/schemas/optimizer.inputs.DiversificationRatioTerm'
+        null_risk_parity:
+          description: This is true when there is no risk_parity
+          type: boolean
+        risk_parity:
+          $ref: '#/components/schemas/optimizer.inputs.RiskParityTerm'
+        transaction_cost:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.TransactionCostTerm'
+          type: array
+      type: object
+    optimizer.inputs.FactorExposureTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        factors:
+          items:
+            type: string
+          type: array
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.ExpectedTailLossTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        confidence_level:
+          format: double
+          type: number
+        use_centered_etl:
+          type: boolean
+        active_risk:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.VolatilityTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        risk_type:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveRiskType.Enum'
+        factors:
+          items:
+            type: string
+          type: array
+        active_risk:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.DrawdownTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        confidence_level:
+          format: double
+          type: number
+      type: object
+    optimizer.inputs.GeneralLinearTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        attribute:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        method:
+          $ref: '#/components/schemas/optimizer.inputs.EAggregationMethod.Enum'
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.ExpectedReturnTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        return_values:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        use_alpha:
+          type: boolean
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.TransactionCostTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+      type: object
+    optimizer.inputs.SensitivityTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        sensitivity_attribute:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        rel_to_benchmark:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.SharpeRatioTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        risk_free_rate:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        active_risk:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.STARRTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        risk_free_rate:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+        confidence_level:
+          format: double
+          type: number
+        use_centered_etl:
+          type: boolean
+        active_risk:
+          type: boolean
+        benchmark_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.DiversificationRatioTerm:
+      properties:
+        name:
+          type: string
+        multiplier:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        direction:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveTermDirection.Enum'
+      type: object
+    optimizer.inputs.RiskParityTerm:
+      properties:
+        name:
+          type: string
+        risk_type:
+          $ref: '#/components/schemas/optimizer.inputs.EObjectiveRiskType.Enum'
+      type: object
+    optimizer.inputs.MultiPeriodOptions:
+      properties:
+        options:
+          $ref: '#/components/schemas/optimizer.inputs.Options'
+        weight_rebalance_periods:
+          items:
+            format: int32
+            type: integer
+          type: array
+        total_periods_count:
+          format: int32
+          type: integer
+        initial_point_randomization_count:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.Options:
+      properties:
+        maxRunTime:
+          format: int32
+          type: integer
+        ConvergenceTolerance:
+          format: double
+          type: number
+        cash_flow_formula:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        convert_weights_to_cash_for_ip:
+          type: boolean
+        convert_weights_to_cash_for_bmk:
+          type: boolean
+        composite_asset_lookthrough_level:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.ETransactionCostUnitType:
+      description: |-
+        ToDo :: follow-up for what unit type the optimizer expects,
+        and we can populate it accordingly in the request?
+      type: object
+    optimizer.inputs.TransactionCost:
+      properties:
+        unit_type:
+          $ref: '#/components/schemas/optimizer.inputs.ETransactionCostUnitType.Enum'
+        buy_cost:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        sell_cost:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+      type: object
+    optimizer.inputs.EAlphaUnitType:
+      type: object
+    optimizer.inputs.ExpectedReturn:
+      properties:
+        alpha:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+        alpha_unit:
+          $ref: '#/components/schemas/optimizer.inputs.EAlphaUnitType.Enum'
+      type: object
+    optimizer.inputs.MultiPeriodRiskModels:
+      properties:
+        risk_models:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.RiskModelForPeriods'
+          type: array
+      type: object
+    optimizer.inputs.RiskModelForPeriods:
+      description: Must have *one* model for each period
+      properties:
+        risk_model:
+          $ref: '#/components/schemas/optimizer.inputs.RiskModel'
+        periods:
+          $ref: '#/components/schemas/optimizer.inputs.OnPeriods'
+      type: object
+    optimizer.inputs.RiskModel:
+      properties:
+        simulated_risk_model:
+          $ref: '#/components/schemas/optimizer.inputs.SimulatedRiskModel'
+        quant_risk_model:
+          $ref: '#/components/schemas/optimizer.inputs.QuantRiskModel'
+        raw_model:
+          $ref: '#/components/schemas/optimizer.inputs.RawRiskModel'
+      type: object
+    optimizer.inputs.QuantRiskModel:
+      properties:
+        raw_data:
+          $ref: '#/components/schemas/optimizer.inputs.QuantRiskModelRawData'
+        request_info:
+          $ref: '#/components/schemas/optimizer.inputs.QuantRiskRequestInfo'
+      type: object
+    optimizer.inputs.QuantRiskRequestInfo:
+      properties:
+        service_url:
+          description: POST
+          type: string
+        json_post_body:
+          type: string
+        lima_header:
+          type: string
+        pickup_base_url:
+          type: string
+      type: object
+    optimizer.inputs.QuantRiskModelRawData:
+      properties:
+        labels:
+          $ref: '#/components/schemas/optimizer.inputs.Labels'
+        RawAssetCovarianceMatrix:
+          $ref: '#/components/schemas/optimizer.inputs.SparseMatrix'
+        RawFactorExposure:
+          $ref: '#/components/schemas/optimizer.inputs.SparseMatrix'
+        RawFactorCovarianceMatrix:
+          $ref: '#/components/schemas/optimizer.inputs.DenseMatrix'
+        RiskModelCoverageFlag:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    optimizer.inputs.Labels:
+      description: Labeling and index information to be able to reconstruct the calculated
+        data results to the provided inputs from the request.
+      properties:
+        factor:
+          $ref: '#/components/schemas/optimizer.inputs.Factor'
+        security:
+          $ref: '#/components/schemas/optimizer.inputs.Security'
+      type: object
+    optimizer.inputs.Factor:
+      description: Labels relevant to calculation-levels with 'Factor' in the name
+      properties:
+        ids:
+          items:
+            type: string
+          type: array
+        names:
+          items:
+            type: string
+          type: array
+      type: object
+    optimizer.inputs.Security:
+      description: Labels relevant to calculation-levels with 'Security' in the name
+      properties:
+        ids:
+          items:
+            type: string
+          type: array
+      type: object
+    optimizer.inputs.SparseMatrix:
+      description: Represents a sparse matrix in the CSR format
+      properties:
+        rows:
+          format: int32
+          type: integer
+        columns:
+          format: int32
+          type: integer
+        indexPointer:
+          items:
+            format: int32
+            type: integer
+          type: array
+        indices:
+          items:
+            format: int32
+            type: integer
+          type: array
+        value:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    optimizer.inputs.DenseMatrix:
+      description: Represents a dense matrix
+      properties:
+        value:
+          description: 2D array of doubles
+          items:
+            $ref: '#/components/schemas/google.protobuf.ListValue'
+          type: array
+      type: object
+    optimizer.inputs.SimulatedRiskModel:
+      properties:
+        raw_data:
+          $ref: '#/components/schemas/VAR.DistributionDataMessage'
+        request_info:
+          $ref: '#/components/schemas/optimizer.inputs.SimulatedRiskRequestInfo'
+      type: object
+    optimizer.inputs.SimulatedRiskRequestInfo:
+      properties:
+        url:
+          description: GET
+          type: string
+        lima_header:
+          type: string
+      type: object
+    optimizer.inputs.RawRiskModel:
+      properties:
+        simulations:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.RawRiskModel.Simulations'
+          type: array
+      type: object
+    optimizer.inputs.TotalUniverse:
+      properties:
+        assets:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.Asset'
+          type: array
+        composite_assets:
+          $ref: '#/components/schemas/optimizer.inputs.CompositeAsset'
+        derivatives:
+          $ref: '#/components/schemas/optimizer.inputs.Derivative'
+      type: object
+    optimizer.inputs.Asset:
+      properties:
+        symbol:
+          type: string
+        price:
+          format: double
+          type: number
+      type: object
+    optimizer.inputs.AssetPrice:
+      properties:
+        source:
+          $ref: '#/components/schemas/optimizer.inputs.AssetPrice.EPriceSource'
+        price_override:
+          format: double
+          type: number
+      type: object
+    optimizer.inputs.CompositeConstituent:
+      properties:
+        univ_index:
+          format: int32
+          type: integer
+        weight:
+          format: double
+          type: number
+        price:
+          $ref: '#/components/schemas/optimizer.inputs.AssetPrice'
+      type: object
+    optimizer.inputs.CompositeAsset:
+      properties:
+        constituents:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.CompositeConstituent'
+          type: array
+      type: object
+    optimizer.inputs.Derivative:
+      properties:
+        offset_index:
+          description: Index of the offset. E.g. CASH_USD_FUT for Futures or 2nd leg
+            for Forwards. -1 if no offset generated
+          format: int32
+          type: integer
+        future:
+          $ref: '#/components/schemas/optimizer.inputs.Derivative.Future'
+        forward:
+          description: Nothing else is needed for forwards.
+          type: boolean
+      type: object
+    optimizer.inputs.LookupTables:
+      properties:
+        groups:
+          description: tables to be referenced by index from the strategy.
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.GroupDefinition'
+          type: array
+        values:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.ValueReference'
+          type: array
+      type: object
+    optimizer.inputs.GroupDefinition:
+      description: |-
+        Contains the subset of assets associated with a
+        constraint group. (excluding Factor groups, as the
+        optimizer will be respondible for fetching the risk
+        model and expanding factor groups.
+      properties:
+        univ_indices:
+          items:
+            format: int32
+            type: integer
+          type: array
+      type: object
+    optimizer.inputs.ValueReference:
+      description: |-
+        Contains the results of an asset-level formula from FPO,
+        mapping the TotalUniverse asset index to resulting value.
+        The list of ValueReferences in the LookupTables should
+        provide results for ALL formulae referenced throughout
+        the FPO strategy. When the optimizer encounters a "reference"
+        value in the strategy, it will come here to resolve the
+        value for each asset within the scope of that reference.
+      properties:
+        asset_values:
+          format: double
+          type: number
+      type: object
+    optimizer.inputs.Portfolios:
+      properties:
+        initial:
+          $ref: '#/components/schemas/optimizer.inputs.Portfolio'
+        benchmarks:
+          description: index 0 is always the "Primary Benchmark"
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.Portfolio'
+          type: array
+        buylist:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.BuyListItem'
+          type: array
+        cash_univ_index:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.Portfolio:
+      properties:
+        holdings:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.PortfolioItem'
+          type: array
+      type: object
+    optimizer.inputs.PortfolioItem:
+      properties:
+        univ_index:
+          format: int32
+          type: integer
+        price:
+          $ref: '#/components/schemas/optimizer.inputs.AssetPrice'
+        shares:
+          format: double
+          type: number
+      type: object
+    optimizer.inputs.BuyListItem:
+      properties:
+        univ_index:
+          format: int32
+          type: integer
+        price:
+          $ref: '#/components/schemas/optimizer.inputs.AssetPrice'
+      type: object
+    optimizer.inputs.FrontierSettings:
+      properties:
+        constraint_name:
+          type: string
+        objective_term_name:
+          type: string
+        min:
+          $ref: '#/components/schemas/optimizer.inputs.Range'
+        max:
+          $ref: '#/components/schemas/optimizer.inputs.Range'
+      type: object
+    optimizer.inputs.Range:
+      properties:
+        points:
+          description: points determined by Engine
+          format: int32
+          type: integer
+        start_to_end:
+          $ref: '#/components/schemas/optimizer.inputs.StartEndRange'
+        specific_points:
+          $ref: '#/components/schemas/optimizer.inputs.SpecificPoints'
+      type: object
+    optimizer.inputs.StartEndRange:
+      properties:
+        start:
+          format: double
+          type: number
+        end:
+          format: double
+          type: number
+        points:
+          format: int32
+          type: integer
+      type: object
+    optimizer.inputs.SpecificPoints:
+      properties:
+        points:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    optimizer.outputs.MultiPeriodOutput:
+      properties:
+        periods:
+          items:
+            $ref: '#/components/schemas/optimizer.outputs.Periods'
+          type: array
+        raw_stats:
+          description: temporary
+          type: string
+      type: object
+    optimizer.outputs.Periods:
+      properties:
+        weights:
+          format: double
+          type: number
+      type: object
+    google.protobuf.Struct:
+      properties:
+        fields:
+          $ref: '#/components/schemas/optimizer.inputs.Value'
+      type: object
+    google.protobuf.Value:
+      properties:
+        nullValue:
+          $ref: '#/components/schemas/google.protobuf.NullValue'
+        numberValue:
+          format: double
+          type: number
+        stringValue:
+          type: string
+        boolValue:
+          type: boolean
+        structValue:
+          $ref: '#/components/schemas/google.protobuf.Struct'
+        listValue:
+          $ref: '#/components/schemas/google.protobuf.ListValue'
+      type: object
+    google.protobuf.NullValue:
+      description: '0 - NULL_VALUE '
+      enum:
+      - 0
+      type: number
+    google.protobuf.ListValue:
+      properties:
+        values:
+          items:
+            $ref: '#/components/schemas/optimizer.inputs.Value'
+          type: array
+      type: object
+    optimizer.inputs.EFPOConstraintWeightType.Enum:
+      description: "0 - ePercentOfPortfolioValue \n1 - ePercentOfExposure "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EFPOConstraintAssetType.Enum:
+      description: "0 - eAll \n1 - eCustom \n2 - eBuyList "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    optimizer.inputs.EConstraintReturnType.Enum:
+      description: "0 - eTarget \n1 - eMaximizeProbability "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EConstraintRiskRelativeInterpretationType.Enum:
+      description: "0 - eVolatilityDifference \n1 - eTrackingError "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EConstraintGroupType.Enum:
+      description: "0 - eTotal \n1 - eSelection \n2 - eSecurity "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    optimizer.inputs.EConstraintTurnoverType.Enum:
+      description: "0 - eTotal \n1 - eBuy \n2 - eSell "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    optimizer.inputs.EConstraintValueType.Enum:
+      description: "0 - eMarketValue \n1 - eExposureValue "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.ELeverageValueType.Enum:
+      description: "0 - eFixedValue \n1 - eMaximumValue "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EConstraintLevel.Enum:
+      description: "0 - ePortfolio \n1 - eGroup \n2 - eAsset "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    optimizer.inputs.EConstraintPenaltyType.Enum:
+      description: "0 - eLinear \n1 - eQuadratic \n2 - eScaledQuadratic "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    optimizer.inputs.EConstraintRiskType.Enum:
+      description: "0 - eStandardDevition \n1 - eVariance "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EConstraintUnitType.Enum:
+      description: "0 - eCurrency \n1 - ePercentage \n2 - eNumber "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    optimizer.inputs.EWeightingMethodType.Enum:
+      description: "0 - eWeights \n1 - eShares "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EValueType.Enum:
+      description: "0 - eNA \n1 - eRaw \n2 - eReference \n3 - eExpandRaw "
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      type: number
+    optimizer.inputs.BoundSource.Enum:
+      description: "0 - ePortfolioReturn \n1 - ePortfolioValue \n2 - eFundingRatio\
+        \ \n3 - eSurplusReturn \n4 - eDrawdownPercent \n5 - eDrawdownValue "
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      type: number
+    optimizer.inputs.AcrossPeriods.RollingPeriods:
+      properties:
+        frequency:
+          format: int32
+          type: integer
+        method:
+          $ref: '#/components/schemas/optimizer.inputs.RollingMethod.Enum'
+      type: object
+    optimizer.inputs.RollingMethod.Enum:
+      description: "0 - eValuePerPath \n1 - eAllValues \n2 - eMinPerStep \n3 - eMaxPerStep "
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      type: number
+    optimizer.inputs.TailRiskMeasure.Enum:
+      description: "0 - ETL \n1 - VaR "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EObjectiveTermDirection.Enum:
+      description: "0 - eMinimize \n1 - eMaximize "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EAggregationMethod.Enum:
+      description: "0 - eWeights \n1 - eQuantity "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EObjectiveRiskType.Enum:
+      description: "0 - eETL \n1 - eStandardDeviation \n2 - eVariance "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    optimizer.inputs.ETransactionCostUnitType.Enum:
+      description: "0 - ePercent \n1 - eCostPerShare "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.EAlphaUnitType.Enum:
+      description: "0 - ePercent \n1 - eAbsolute "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.RawRiskModel.Simulations:
+      properties:
+        id:
+          type: string
+        simulatedReturns:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    optimizer.inputs.AssetPrice.EPriceSource:
+      description: "0 - eTotalUniverse \n1 - eOverride "
+      enum:
+      - 0
+      - 1
+      type: number
+    optimizer.inputs.Derivative.Future:
+      properties:
+        contract_size:
+          format: double
+          type: number
+        method:
+          $ref: '#/components/schemas/optimizer.inputs.Derivative.Future.EComputationMethod.Enum'
+        using_pa_multiply:
+          type: boolean
+      type: object
+    optimizer.inputs.Derivative.Future.EComputationMethod:
+      type: object
+    optimizer.inputs.Derivative.Future.EComputationMethod.Enum:
+      description: "0 - eCost \n1 - eTotalCost \n2 - eMarkToMarket "
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+  securitySchemes:
+    FactSetApiKey:
+      scheme: basic
+      type: http
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+x-original-swagger-version: "2.0"
+

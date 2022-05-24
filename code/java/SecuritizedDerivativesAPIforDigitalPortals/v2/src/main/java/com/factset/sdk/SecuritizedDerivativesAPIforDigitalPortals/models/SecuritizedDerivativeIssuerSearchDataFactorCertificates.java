@@ -44,6 +44,8 @@ public class SecuritizedDerivativeIssuerSearchDataFactorCertificates implements 
   public static final String JSON_PROPERTY_EFFECTIVE_UNDERLYING = "effectiveUnderlying";
   private SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlying effectiveUnderlying;
 
+  public SecuritizedDerivativeIssuerSearchDataFactorCertificates() { 
+  }
 
   public SecuritizedDerivativeIssuerSearchDataFactorCertificates effectiveUnderlying(SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlying effectiveUnderlying) {
     this.effectiveUnderlying = effectiveUnderlying;

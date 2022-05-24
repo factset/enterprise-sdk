@@ -55,7 +55,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
-            var path = path_example;  // string | Encode database path
+            var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
 
             try
@@ -82,7 +82,6 @@ Name | Type | Description  | Notes
  **date** | **int**| Date in YYYYMMDD format | 
 
 ### Return type
-
 **Object**
 
 ### Authorization
@@ -152,7 +151,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
-            var path = path_example;  // string | Encode database path
+            var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
             var inlineObject3 = new InlineObject3(); // InlineObject3 | 
 
@@ -181,7 +180,6 @@ Name | Type | Description  | Notes
  **inlineObject3** | [**InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
-
 [**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
@@ -252,9 +250,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
-            var path = path_example;  // string | Encode database path
+            var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
-            var symbol = symbol_example;  // string | Symbol with in the ofdb
+            var symbol = "symbol_example";  // string | Symbol with in the ofdb
 
             try
             {
@@ -281,7 +279,6 @@ Name | Type | Description  | Notes
  **symbol** | **string**| Symbol with in the ofdb | 
 
 ### Return type
-
 **Object**
 
 ### Authorization
@@ -351,9 +348,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
-            var path = path_example;  // string | Encode database path
+            var path = "path_example";  // string | Encode database path
             var date = 56;  // int | Date in YYYYMMDD format
-            var symbol = symbol_example;  // string | Symbol with in the ofdb
+            var symbol = "symbol_example";  // string | Symbol with in the ofdb
             var inlineObject5 = new InlineObject5(); // InlineObject5 | 
 
             try
@@ -382,7 +379,6 @@ Name | Type | Description  | Notes
  **inlineObject5** | [**InlineObject5**](InlineObject5.md)|  | 
 
 ### Return type
-
 [**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization
@@ -452,8 +448,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
-            var path = path_example;  // string | Encode database path
-            var symbol = symbol_example;  // string | Symbol with in the ofdb
+            var path = "path_example";  // string | Encode database path
+            var symbol = "symbol_example";  // string | Symbol with in the ofdb
 
             try
             {
@@ -479,7 +475,6 @@ Name | Type | Description  | Notes
  **symbol** | **string**| Symbol with in the ofdb | 
 
 ### Return type
-
 **Object**
 
 ### Authorization
@@ -549,8 +544,8 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ModifyApi(config);
-            var path = path_example;  // string | Encode database path
-            var symbol = symbol_example;  // string | Symbol with in the ofdb
+            var path = "path_example";  // string | Encode database path
+            var symbol = "symbol_example";  // string | Symbol with in the ofdb
             var inlineObject1 = new InlineObject1(); // InlineObject1 | 
 
             try
@@ -578,7 +573,6 @@ Name | Type | Description  | Notes
  **inlineObject1** | [**InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
-
 [**SuccessPostResponse**](SuccessPostResponse.md)
 
 ### Authorization

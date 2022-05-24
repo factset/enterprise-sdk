@@ -43,6 +43,8 @@ public class SummariesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Summaries> data = null;
 
+  public SummariesResponse() { 
+  }
 
   public SummariesResponse data(java.util.List<Summaries> data) {
     this.data = data;

@@ -17,7 +17,7 @@ import Frequency from './Frequency';
 /**
  * The SpotsRequest model module.
  * @module model/SpotsRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SpotsRequest {
     /**

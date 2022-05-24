@@ -112,7 +112,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataUnderlyings {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ValueUnit: ").Append(ValueUnit).Append("\n");
@@ -153,8 +153,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataUnderlyings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -205,18 +206,28 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.ValueUnit != null)
-                    hashCode = hashCode * 59 + this.ValueUnit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueUnit.GetHashCode();
+                }
                 if (this.OperatingMIC != null)
-                    hashCode = hashCode * 59 + this.OperatingMIC.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OperatingMIC.GetHashCode();
+                }
                 if (this.Notation != null)
-                    hashCode = hashCode * 59 + this.Notation.GetHashCode();
-                hashCode = hashCode * 59 + this.CoverRatio.GetHashCode();
-                hashCode = hashCode * 59 + this.ReferenceLevel.GetHashCode();
-                hashCode = hashCode * 59 + this.ConstantLeverage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Notation.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CoverRatio.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReferenceLevel.GetHashCode();
+                hashCode = (hashCode * 59) + this.ConstantLeverage.GetHashCode();
                 if (this.CalculationLevel != null)
-                    hashCode = hashCode * 59 + this.CalculationLevel.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CalculationLevel.GetHashCode();
+                }
                 return hashCode;
             }
         }

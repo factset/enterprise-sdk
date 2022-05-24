@@ -50,15 +50,15 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new EventsAudioApi(config);
-            var sort = sort_example;  // string | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional)  (default to -startDate)
+            var sort = "-startDate";  // string | Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default. (optional)  (default to -startDate)
             var paginationLimit = 56;  // int? | Specifies the number of results to return per page. [ Min=0 ; Max=500 ] (optional) 
-            var startDate = 2013-10-20;  // DateTime? | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: -1 for yesterday)' (optional) 
+            var startDate = DateTime.Parse("2013-10-20");  // DateTime? | Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: -1 for yesterday)' (optional) 
             var paginationOffset = 56;  // int? | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results (optional) 
-            var endDate = 2013-10-20;  // DateTime? | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) (optional) 
+            var endDate = DateTime.Parse("2013-10-20");  // DateTime? | Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: YYYY-MM-DD or relative date: 0 for today) (optional) 
             var reportId = 56;  // int? | Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event (optional) 
-            var ids = ids_example;  // string | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier (optional) 
-            var sourceCode = sourceCode_example;  // string | This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay) (optional) 
-            var fileName = fileName_example;  // string | This parameter is used to filter the data on based on the file name. (optional) 
+            var ids = "ids_example";  // string | This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier (optional) 
+            var sourceCode = "P";  // string | This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code - * P = Phone * W = Webcast * V = Vendor * I = Webcast Replay * F = Flash - identical to webcast; can merge with \"W\" in the future * R = Replay (Phone Replay) (optional) 
+            var fileName = "fileName_example";  // string | This parameter is used to filter the data on based on the file name. (optional) 
             var trimmed = true;  // bool? | This parameters helps to search trimmed audio files (optional) 
             var uploadTime = 56;  // int? | This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime = -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime= -1  Maximum is 1 week/168 hours i.e., uploadTime=-168  While using uploadTime, the startDate and endDate parameters will be ignored (optional) 
 
@@ -96,7 +96,6 @@ Name | Type | Description  | Notes
  **uploadTime** | **int?**| This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime &#x3D; -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime&#x3D; -1  Maximum is 1 week/168 hours i.e., uploadTime&#x3D;-168  While using uploadTime, the startDate and endDate parameters will be ignored | [optional] 
 
 ### Return type
-
 [**EventsAudio**](EventsAudio.md)
 
 ### Authorization

@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactAddressDto model module.
  * @module model/ContactAddressDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactAddressDto {
     /**
@@ -47,23 +47,23 @@ class ContactAddressDto {
         if (data) {
             obj = obj || new ContactAddressDto();
 
-            if (data.hasOwnProperty('googleMapsPlaceId')) {
-                obj['googleMapsPlaceId'] = ApiClient.convertToType(data['googleMapsPlaceId'], 'String');
+            if (data.hasOwnProperty('GoogleMapsPlaceId')) {
+                obj['GoogleMapsPlaceId'] = ApiClient.convertToType(data['GoogleMapsPlaceId'], 'String');
             }
-            if (data.hasOwnProperty('formattedAddress')) {
-                obj['formattedAddress'] = ApiClient.convertToType(data['formattedAddress'], 'String');
+            if (data.hasOwnProperty('FormattedAddress')) {
+                obj['FormattedAddress'] = ApiClient.convertToType(data['FormattedAddress'], 'String');
             }
-            if (data.hasOwnProperty('city')) {
-                obj['city'] = ApiClient.convertToType(data['city'], 'String');
+            if (data.hasOwnProperty('City')) {
+                obj['City'] = ApiClient.convertToType(data['City'], 'String');
             }
-            if (data.hasOwnProperty('stateProvince')) {
-                obj['stateProvince'] = ApiClient.convertToType(data['stateProvince'], 'String');
+            if (data.hasOwnProperty('StateProvince')) {
+                obj['StateProvince'] = ApiClient.convertToType(data['StateProvince'], 'String');
             }
-            if (data.hasOwnProperty('postalCode')) {
-                obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
+            if (data.hasOwnProperty('PostalCode')) {
+                obj['PostalCode'] = ApiClient.convertToType(data['PostalCode'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
-                obj['country'] = ApiClient.convertToType(data['country'], 'String');
+            if (data.hasOwnProperty('Country')) {
+                obj['Country'] = ApiClient.convertToType(data['Country'], 'String');
             }
         }
         return obj;
@@ -73,34 +73,34 @@ class ContactAddressDto {
 }
 
 /**
- * @member {String} googleMapsPlaceId
+ * @member {String} GoogleMapsPlaceId
  */
-ContactAddressDto.prototype['googleMapsPlaceId'] = undefined;
+ContactAddressDto.prototype['GoogleMapsPlaceId'] = undefined;
 
 /**
- * @member {String} formattedAddress
+ * @member {String} FormattedAddress
  */
-ContactAddressDto.prototype['formattedAddress'] = undefined;
+ContactAddressDto.prototype['FormattedAddress'] = undefined;
 
 /**
- * @member {String} city
+ * @member {String} City
  */
-ContactAddressDto.prototype['city'] = undefined;
+ContactAddressDto.prototype['City'] = undefined;
 
 /**
- * @member {String} stateProvince
+ * @member {String} StateProvince
  */
-ContactAddressDto.prototype['stateProvince'] = undefined;
+ContactAddressDto.prototype['StateProvince'] = undefined;
 
 /**
- * @member {String} postalCode
+ * @member {String} PostalCode
  */
-ContactAddressDto.prototype['postalCode'] = undefined;
+ContactAddressDto.prototype['PostalCode'] = undefined;
 
 /**
- * @member {String} country
+ * @member {String} Country
  */
-ContactAddressDto.prototype['country'] = undefined;
+ContactAddressDto.prototype['Country'] = undefined;
 
 
 

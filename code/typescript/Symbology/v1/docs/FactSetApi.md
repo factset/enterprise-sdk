@@ -48,6 +48,7 @@ const factsetTranslationRequest = new symbology.FactsetTranslationRequest(); // 
 // Call api endpoint
 apiInstance.batchTranslateFactset(factsetTranslationRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const ids = ["GOOGL-US"]; // [String] | Requested market securities or entities.
 // Call api endpoint
 apiInstance.translateFactset(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

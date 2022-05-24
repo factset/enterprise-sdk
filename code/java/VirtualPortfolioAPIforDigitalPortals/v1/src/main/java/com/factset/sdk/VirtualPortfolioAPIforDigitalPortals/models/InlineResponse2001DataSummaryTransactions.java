@@ -54,6 +54,8 @@ public class InlineResponse2001DataSummaryTransactions implements Serializable {
   public static final String JSON_PROPERTY_SELL = "sell";
   private InlineResponse2001DataSummaryTransactionsSell sell;
 
+  public InlineResponse2001DataSummaryTransactions() { 
+  }
 
   public InlineResponse2001DataSummaryTransactions total(InlineResponse2001DataSummaryTransactionsTotal total) {
     this.total = total;

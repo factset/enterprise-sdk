@@ -138,6 +138,23 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
     {
         private FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetDocsDistributorAudioV1ListFilesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EventsAudio) },
+            { (HttpStatusCode)400, typeof(EventsAudio400Response) },
+            { (HttpStatusCode)401, typeof(Error) },
+            { (HttpStatusCode)403, typeof(Error) },
+            { (HttpStatusCode)500, typeof(Error) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EventsAudioApi"/> class.
         /// </summary>
@@ -258,7 +275,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <returns>EventsAudio</returns>
         public EventsAudio GetDocsDistributorAudioV1ListFiles(string sort = default(string), int? paginationLimit = default(int?), DateTime? startDate = default(DateTime?), int? paginationOffset = default(int?), DateTime? endDate = default(DateTime?), int? reportId = default(int?), string ids = default(string), string sourceCode = default(string), string fileName = default(string), bool? trimmed = default(bool?), int? uploadTime = default(int?))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<EventsAudio> localVarResponse = GetDocsDistributorAudioV1ListFilesWithHttpInfo(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime);
+            var localVarResponse = GetDocsDistributorAudioV1ListFilesWithHttpInfo(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime);
             return localVarResponse.Data;
         }
 
@@ -278,7 +295,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="trimmed">This parameters helps to search trimmed audio files (optional)</param>
         /// <param name="uploadTime">This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime &#x3D; -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime&#x3D; -1  Maximum is 1 week/168 hours i.e., uploadTime&#x3D;-168  While using uploadTime, the startDate and endDate parameters will be ignored (optional)</param>
         /// <returns>ApiResponse of EventsAudio</returns>
-        public FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<EventsAudio> GetDocsDistributorAudioV1ListFilesWithHttpInfo(string sort = default(string), int? paginationLimit = default(int?), DateTime? startDate = default(DateTime?), int? paginationOffset = default(int?), DateTime? endDate = default(DateTime?), int? reportId = default(int?), string ids = default(string), string sourceCode = default(string), string fileName = default(string), bool? trimmed = default(bool?), int? uploadTime = default(int?))
+        public ApiResponse<EventsAudio> GetDocsDistributorAudioV1ListFilesWithHttpInfo(string sort = default(string), int? paginationLimit = default(int?), DateTime? startDate = default(DateTime?), int? paginationOffset = default(int?), DateTime? endDate = default(DateTime?), int? reportId = default(int?), string ids = default(string), string sourceCode = default(string), string fileName = default(string), bool? trimmed = default(bool?), int? uploadTime = default(int?))
         {
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
 
@@ -291,10 +308,16 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             };
 
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (sort != null)
             {
@@ -343,13 +366,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -361,15 +384,19 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EventsAudio>("/docs-distributor/audio/v1/list-files", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetDocsDistributorAudioV1ListFilesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EventsAudio>("/docs-distributor/audio/v1/list-files", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDocsDistributorAudioV1ListFiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -390,9 +417,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="uploadTime">This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime &#x3D; -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime&#x3D; -1  Maximum is 1 week/168 hours i.e., uploadTime&#x3D;-168  While using uploadTime, the startDate and endDate parameters will be ignored (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventsAudio</returns>
-        public async System.Threading.Tasks.Task<EventsAudio> GetDocsDistributorAudioV1ListFilesAsync(string sort = default(string), int? paginationLimit = default(int?), DateTime? startDate = default(DateTime?), int? paginationOffset = default(int?), DateTime? endDate = default(DateTime?), int? reportId = default(int?), string ids = default(string), string sourceCode = default(string), string fileName = default(string), bool? trimmed = default(bool?), int? uploadTime = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventsAudio>GetDocsDistributorAudioV1ListFilesAsync(string sort = default(string), int? paginationLimit = default(int?), DateTime? startDate = default(DateTime?), int? paginationOffset = default(int?), DateTime? endDate = default(DateTime?), int? reportId = default(int?), string ids = default(string), string sourceCode = default(string), string fileName = default(string), bool? trimmed = default(bool?), int? uploadTime = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<EventsAudio> localVarResponse = await GetDocsDistributorAudioV1ListFilesWithHttpInfoAsync(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetDocsDistributorAudioV1ListFilesWithHttpInfoAsync(sort, paginationLimit, startDate, paginationOffset, endDate, reportId, ids, sourceCode, fileName, trimmed, uploadTime, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -413,7 +440,8 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
         /// <param name="uploadTime">This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime &#x3D; -15 (fetches audio files between 15 hours ago and now)  Minimum is 1 hour i.e., uploadTime&#x3D; -1  Maximum is 1 week/168 hours i.e., uploadTime&#x3D;-168  While using uploadTime, the startDate and endDate parameters will be ignored (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventsAudio)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ApiResponse<EventsAudio>> GetDocsDistributorAudioV1ListFilesWithHttpInfoAsync(string sort = default(string), int? paginationLimit = default(int?), DateTime? startDate = default(DateTime?), int? paginationOffset = default(int?), DateTime? endDate = default(DateTime?), int? reportId = default(int?), string ids = default(string), string sourceCode = default(string), string fileName = default(string), bool? trimmed = default(bool?), int? uploadTime = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EventsAudio>> GetDocsDistributorAudioV1ListFilesWithHttpInfoAsync(string sort = default(string), int? paginationLimit = default(int?), DateTime? startDate = default(DateTime?), int? paginationOffset = default(int?), DateTime? endDate = default(DateTime?), int? reportId = default(int?), string ids = default(string), string sourceCode = default(string), string fileName = default(string), bool? trimmed = default(bool?), int? uploadTime = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.RequestOptions();
@@ -426,12 +454,17 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (sort != null)
             {
@@ -480,13 +513,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.DocumentsDistributorCallStreetEvents.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -498,14 +531,18 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetDocsDistributorAudioV1ListFilesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EventsAudio>("/docs-distributor/audio/v1/list-files", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetDocsDistributorAudioV1ListFiles", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

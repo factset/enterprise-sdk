@@ -52,6 +52,8 @@ public class InlineResponse2006DataShares implements Serializable {
   public static final String JSON_PROPERTY_OPEN = "open";
   private BigDecimal open;
 
+  public InlineResponse2006DataShares() { 
+  }
 
   public InlineResponse2006DataShares bought(BigDecimal bought) {
     this.bought = bought;

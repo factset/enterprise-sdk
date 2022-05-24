@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBr
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEvenDistance distance;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEven() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEven breakEvenPoint(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresBreakEvenBreakEvenPoint breakEvenPoint) {
     this.breakEvenPoint = breakEvenPoint;

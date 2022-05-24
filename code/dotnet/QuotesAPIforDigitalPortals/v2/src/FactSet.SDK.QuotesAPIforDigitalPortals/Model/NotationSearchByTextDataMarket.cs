@@ -52,7 +52,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationSearchByTextDataMarket {\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationSearchByTextDataMarket input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Order == input.Order ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Order != null)
-                    hashCode = hashCode * 59 + this.Order.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Order.GetHashCode();
+                }
                 return hashCode;
             }
         }

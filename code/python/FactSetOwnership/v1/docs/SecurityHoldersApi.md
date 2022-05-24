@@ -39,41 +39,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetOwnership.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetOwnership.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = security_holders_api.SecurityHoldersApi(api_client)
+
     ids = ["FDS-US"] # [str] | Requested list of security identifiers. <p>***ids limit** =  1 per request*</p>.
-    holder_type = "F" # str | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional) if omitted the server will use the default value of "F"
-    topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) if omitted the server will use the default value of "ALL"
+    holder_type = "F" # str | Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** = Institutions   * **M** = Mutual Funds   * **S** =  Insiders/Stakeholders   * **FS** = Institutions/Insiders   * **B** = Beneficial Owners  (optional) (default to "F")
+    topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) (default to "ALL")
     date = "2019-12-31" # str | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
     currency = "USD" # str | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get security ownership data for requested security identifers.
-        api_response = api_instance.get_security_holders(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetOwnership.ApiException as e:
-        print("Exception when calling SecurityHoldersApi->get_security_holders: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get security ownership data for requested security identifers.
         api_response = api_instance.get_security_holders(ids, holder_type=holder_type, topn=topn, date=date, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetOwnership.ApiException as e:
         print("Exception when calling SecurityHoldersApi->get_security_holders: %s\n" % e)
 ```
@@ -148,21 +140,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetOwnership.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetOwnership.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = security_holders_api.SecurityHoldersApi(api_client)
+
     security_holders_request = SecurityHoldersRequest(
         ids=IdHolders(["FDS-US"]),
         holder_type=HolderType("F"),
@@ -171,11 +164,11 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
         currency="USD",
     ) # SecurityHoldersRequest | Requesting Security Holders for a list of Fund Identifiers.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get security ownership data for a list of requested securities.
         api_response = api_instance.post_security_holders(security_holders_request)
         pprint(api_response)
+
     except fds.sdk.FactSetOwnership.ApiException as e:
         print("Exception when calling SecurityHoldersApi->post_security_holders: %s\n" % e)
 ```

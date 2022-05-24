@@ -43,6 +43,8 @@ public class InlineResponse200DataBrand implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse200DataBrand() { 
+  }
 
   public InlineResponse200DataBrand name(String name) {
     this.name = name;

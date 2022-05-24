@@ -48,24 +48,26 @@ import com.factset.sdk.IRNNotes.JSON;
 public class RecordChangeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FIELD = "field";
+  public static final String JSON_PROPERTY_FIELD = "Field";
   private JsonNullable<String> field = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OPERATION = "operation";
+  public static final String JSON_PROPERTY_OPERATION = "Operation";
   private JsonNullable<String> operation = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OLD_VALUE = "oldValue";
+  public static final String JSON_PROPERTY_OLD_VALUE = "OldValue";
   private JsonNullable<String> oldValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_NEW_VALUE = "newValue";
+  public static final String JSON_PROPERTY_NEW_VALUE = "NewValue";
   private JsonNullable<String> newValue = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_OLD_LIST = "oldList";
+  public static final String JSON_PROPERTY_OLD_LIST = "OldList";
   private JsonNullable<java.util.List<String>> oldList = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_NEW_LIST = "newList";
+  public static final String JSON_PROPERTY_NEW_LIST = "NewList";
   private JsonNullable<java.util.List<String>> newList = JsonNullable.<java.util.List<String>>undefined();
 
+  public RecordChangeDto() { 
+  }
 
   public RecordChangeDto field(String field) {
     this.field = JsonNullable.<String>of(field);

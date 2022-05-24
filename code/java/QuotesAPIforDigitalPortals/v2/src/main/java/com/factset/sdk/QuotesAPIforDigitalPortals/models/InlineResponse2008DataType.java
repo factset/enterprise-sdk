@@ -48,6 +48,8 @@ public class InlineResponse2008DataType implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2008DataType() { 
+  }
 
   public InlineResponse2008DataType id(BigDecimal id) {
     this.id = id;

@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **date** | **string**| Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. | [optional] 
 
 ### Return type
-
 [**StructureResponse**](StructureResponse.md)
 
 ### Authorization
@@ -177,7 +176,6 @@ Name | Type | Description  | Notes
  **structureRequest** | [**StructureRequest**](StructureRequest.md)| Request Body to request a list of RBICS Structure objects. | 
 
 ### Return type
-
 [**StructureResponse**](StructureResponse.md)
 
 ### Authorization

@@ -49,6 +49,8 @@ public class InlineResponse2006InstrumentBonusLevel implements Serializable {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private InlineResponse2006InstrumentBonusLevelDistance distance;
 
+  public InlineResponse2006InstrumentBonusLevel() { 
+  }
 
   public InlineResponse2006InstrumentBonusLevel value(BigDecimal value) {
     this.value = value;

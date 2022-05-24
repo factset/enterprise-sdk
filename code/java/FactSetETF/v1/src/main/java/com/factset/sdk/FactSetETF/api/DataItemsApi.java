@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetETF.Configuration;
 import com.factset.sdk.FactSetETF.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetETF.models.Category;
 import com.factset.sdk.FactSetETF.models.MetricsResponse;
@@ -22,6 +25,14 @@ public class DataItemsApi {
   public DataItemsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getEtfMetricsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getEtfMetricsResponseTypeMap.put(200, new GenericType<MetricsResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -98,10 +109,16 @@ public class DataItemsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<MetricsResponse> localVarReturnType = new GenericType<MetricsResponse>() {};
 
-    return apiClient.invokeAPI("DataItemsApi.getEtfMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        MetricsResponse
+      
+    > apiResponse = apiClient.invokeAPI("DataItemsApi.getEtfMetrics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getEtfMetricsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

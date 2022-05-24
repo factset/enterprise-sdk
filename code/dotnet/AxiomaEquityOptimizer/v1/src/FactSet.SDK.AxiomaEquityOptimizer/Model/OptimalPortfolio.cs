@@ -144,7 +144,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimalPortfolio {\n");
             sb.Append("  Acctname: ").Append(Acctname).Append("\n");
             sb.Append("  Excludezero: ").Append(Excludezero).Append("\n");
@@ -182,8 +182,9 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         public bool Equals(OptimalPortfolio input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Acctname == input.Acctname ||
@@ -219,12 +220,16 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Acctname != null)
-                    hashCode = hashCode * 59 + this.Acctname.GetHashCode();
-                hashCode = hashCode * 59 + this.Excludezero.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Acctname.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Excludezero.GetHashCode();
                 if (this.Archivedate != null)
-                    hashCode = hashCode * 59 + this.Archivedate.GetHashCode();
-                hashCode = hashCode * 59 + this.Ifacctexists.GetHashCode();
-                hashCode = hashCode * 59 + this.Ifofdbdateexists.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Archivedate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Ifacctexists.GetHashCode();
+                hashCode = (hashCode * 59) + this.Ifofdbdateexists.GetHashCode();
                 return hashCode;
             }
         }

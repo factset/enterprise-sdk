@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.Column;
 import com.factset.sdk.PAEngine.models.ColumnSummary;
@@ -22,6 +25,18 @@ public class ColumnsApi {
   public ColumnsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPAColumnByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAColumnByIdResponseTypeMap.put(200, new GenericType<Column>(){});
+  }
+  private static final Map<Integer, GenericType> getPAColumnsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAColumnsResponseTypeMap.put(200, new GenericType<java.util.Map<String, ColumnSummary>>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,11 +134,17 @@ public class ColumnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<Column> localVarReturnType = new GenericType<Column>() {};
 
-    return apiClient.invokeAPI("ColumnsApi.getPAColumnById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        Column
+      
+    > apiResponse = apiClient.invokeAPI("ColumnsApi.getPAColumnById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAColumnByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get PA columns
@@ -131,7 +152,7 @@ public class ColumnsApi {
    * @param name  (optional, default to )
    * @param category  (optional, default to )
    * @param directory  (optional, default to )
-   * @return java.util.Map&lt;String, ColumnSummary&gt;
+   * @return java.util.Map<String, ColumnSummary>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -155,7 +176,7 @@ public class ColumnsApi {
    * @param name  (optional, default to )
    * @param category  (optional, default to )
    * @param directory  (optional, default to )
-   * @return ApiResponse&lt;java.util.Map&lt;String, ColumnSummary&gt;&gt;
+   * @return ApiResponse&lt;java.util.Map<String, ColumnSummary>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -200,10 +221,16 @@ public class ColumnsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.Map<String, ColumnSummary>> localVarReturnType = new GenericType<java.util.Map<String, ColumnSummary>>() {};
 
-    return apiClient.invokeAPI("ColumnsApi.getPAColumns", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.Map<String, ColumnSummary>
+      
+    > apiResponse = apiClient.invokeAPI("ColumnsApi.getPAColumns", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAColumnsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

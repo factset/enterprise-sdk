@@ -81,6 +81,8 @@ public class TickhistoryResponse implements Serializable {
   public static final String JSON_PROPERTY_VALUES = "Values";
   private BigDecimal values;
 
+  public TickhistoryResponse() { 
+  }
 
   public TickhistoryResponse requestedID(String requestedID) {
     this.requestedID = requestedID;

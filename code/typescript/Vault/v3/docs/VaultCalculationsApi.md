@@ -122,6 +122,7 @@ const id = "id_example"; // String | from url, provided from the location header
 // Call api endpoint
 apiInstance.getCalculationParameters(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -193,6 +194,7 @@ const id = "id_example"; // String | from url, provided from the location header
 // Call api endpoint
 apiInstance.getCalculationStatusById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -265,6 +267,7 @@ const unitId = "unitId_example"; // String | from url, provided from the locatio
 // Call api endpoint
 apiInstance.getCalculationUnitResultById(id, unitId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -341,8 +344,27 @@ const opts = {
 // Call api endpoint
 apiInstance.postAndCalculate(opts).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: PostAndCalculateResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // CalculationStatusRoot
+             console.log(data.getResponse200());
+             break;
+
+          case 201:
+             // ObjectRoot
+             console.log(data.getResponse201());
+             break;
+
+          case 202:
+             // CalculationStatusRoot
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -419,8 +441,27 @@ const opts = {
 // Call api endpoint
 apiInstance.putAndCalculate(id, opts).then(
   data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+
+      // data is a responsewrapper: PutAndCalculateResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // CalculationStatusRoot
+             console.log(data.getResponse200());
+             break;
+
+          case 201:
+             // ObjectRoot
+             console.log(data.getResponse201());
+             break;
+
+          case 202:
+             // CalculationStatusRoot
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

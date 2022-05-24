@@ -18,7 +18,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataDistanceRelative f
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataDistance model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataDistance
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataDistance {
     /**

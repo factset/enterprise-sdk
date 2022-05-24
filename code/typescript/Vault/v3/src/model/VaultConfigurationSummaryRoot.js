@@ -17,7 +17,7 @@ import VaultConfigurationSummary from './VaultConfigurationSummary';
 /**
  * The VaultConfigurationSummaryRoot model module.
  * @module model/VaultConfigurationSummaryRoot
- * @version 0.9.1
+ * @version 0.20.0
  */
 class VaultConfigurationSummaryRoot {
     /**

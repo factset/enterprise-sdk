@@ -48,6 +48,8 @@ public class InlineResponse2003DataBreakEvenDistance implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2003DataBreakEvenDistance() { 
+  }
 
   public InlineResponse2003DataBreakEvenDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

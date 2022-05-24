@@ -69,6 +69,18 @@ public class FundamentalsRequest implements Serializable {
   public static final String JSON_PROPERTY_RESTATED = "restated";
   private Restated restated = Restated.RP;
 
+  public FundamentalsRequest() { 
+  }
+
+  @JsonCreator
+  public FundamentalsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids, 
+    @JsonProperty(value=JSON_PROPERTY_METRICS, required=true) java.util.List<String> metrics
+  ) {
+    this();
+    this.ids = ids;
+    this.metrics = metrics;
+  }
 
   public FundamentalsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

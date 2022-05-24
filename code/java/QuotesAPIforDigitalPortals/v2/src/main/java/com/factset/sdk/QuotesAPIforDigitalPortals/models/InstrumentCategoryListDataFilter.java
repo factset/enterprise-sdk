@@ -44,6 +44,8 @@ public class InstrumentCategoryListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_DATASET = "dataset";
   private InstrumentCategoryListDataFilterDataset dataset;
 
+  public InstrumentCategoryListDataFilter() { 
+  }
 
   public InstrumentCategoryListDataFilter dataset(InstrumentCategoryListDataFilterDataset dataset) {
     this.dataset = dataset;

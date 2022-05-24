@@ -52,6 +52,8 @@ public class InlineResponse20050DataNotationOperatingMIC implements Serializable
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20050DataNotationOperatingMIC() { 
+  }
 
   public InlineResponse20050DataNotationOperatingMIC id(BigDecimal id) {
     this.id = id;

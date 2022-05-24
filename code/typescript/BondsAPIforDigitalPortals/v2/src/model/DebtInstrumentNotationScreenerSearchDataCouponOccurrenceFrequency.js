@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataCouponOccurrenceFrequency model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataCouponOccurrenceFrequency
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataCouponOccurrenceFrequency {
     /**

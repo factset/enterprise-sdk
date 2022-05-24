@@ -38,15 +38,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ChartGenerationService.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ChartGenerationService.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -54,11 +54,12 @@ with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chart_templates_api.ChartTemplatesApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+
     try:
         # Get a list of chart categories
         api_response = api_instance.get_category_list()
         pprint(api_response)
+
     except fds.sdk.ChartGenerationService.ApiException as e:
         print("Exception when calling ChartTemplatesApi->get_category_list: %s\n" % e)
 ```
@@ -121,30 +122,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ChartGenerationService.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ChartGenerationService.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chart_templates_api.ChartTemplatesApi(api_client)
+
     categories = "categories_example" # str | A comma delimited string of catgory names to limit the response to certain categories. If nothing is provided, all charts under every category would be listed out. (optional)
     type = "json" # str | return type of the response (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get a list of chart templates that can be used for getting the image from the service.
         api_response = api_instance.get_chart_list(categories=categories, type=type)
         pprint(api_response)
+
     except fds.sdk.ChartGenerationService.ApiException as e:
         print("Exception when calling ChartTemplatesApi->get_chart_list: %s\n" % e)
 ```
@@ -209,51 +210,43 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.ChartGenerationService.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.ChartGenerationService.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.ChartGenerationService.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chart_templates_api.ChartTemplatesApi(api_client)
+
     chart = "Equity/RSI" # str | Path to the saved chart. For any of the default charts, the option should be `categoryName + '/' + chartName`. For charts under the Client or Personal directories, the option should be `directoryName + ':/' + pathTotheChart`.  
     ids = "FDS,AAPL" # str | List of identifiers to be charted in a comma(,) separated string. Only the first one would be considered as primary and rest would be added as comps. Check the catalog for more information on which charts require a ticker. (optional)
     sd = "-1Y" # str | Option for overriding the startDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional)
     ed = "0" # str | Option for overriding the endDate of the chart. For absolute dates provide a string in `YYYYMMDD` format. We can also specify relative date options (optional)
-    width = 600 # int | Option for setting the width of the image (optional) if omitted the server will use the default value of 1056
-    height = 500 # int | Option for setting the height of the image (optional) if omitted the server will use the default value of 816
+    width = 600 # int | Option for setting the width of the image (optional) (default to 1056)
+    height = 500 # int | Option for setting the height of the image (optional) (default to 816)
     freq = "D" # str | A shorthand string for the overall frequency of the chart like `D` (daily), `W` (weekly), `Y` (yearly) and `Q` (Quarterly). This will default to frequency stored in the document. (optional)
     ccy = "USD" # str | Currency ISO code for the overall currency of the chart. The API doesn't allow per series currency at this point in time. (optional)
     split = "SPLIT" # str | Option to specify the splits adjustment (optional)
     spin = 1 # float | Numeric option to specify the spinOffs adjustment. Possible options include `0` (When we only want spits adjustment), `1` (spinOffs), `4` (spinOffs and cash dividends) and `9` (No adjustments) (optional)
-    cal = "local" # str | Option for the calendarType of the chart (optional) if omitted the server will use the default value of "local"
+    cal = "local" # str | Option for the calendarType of the chart (optional) (default to "local")
     title = "title_example" # str | Option to customize the title. If you don't customize the title, then it displays by default the security name. (optional)
     font_size = 10 # float | Option to adjust chart's fontSize (optional)
-    type = "png" # str | The type of image to be generated by the service (optional) if omitted the server will use the default value of "png"
-    grid_lines = False # bool | Option to toggle gridLines on/off on the chart (optional) if omitted the server will use the default value of True
+    type = "png" # str | The type of image to be generated by the service (optional) (default to "png")
+    grid_lines = False # bool | Option to toggle gridLines on/off on the chart (optional) (default to True)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get chart image back in PNG or JPEG formats
-        api_response = api_instance.images(chart)
-        pprint(api_response)
-    except fds.sdk.ChartGenerationService.ApiException as e:
-        print("Exception when calling ChartTemplatesApi->images: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get chart image back in PNG or JPEG formats
         api_response = api_instance.images(chart, ids=ids, sd=sd, ed=ed, width=width, height=height, freq=freq, ccy=ccy, split=split, spin=spin, cal=cal, title=title, font_size=font_size, type=type, grid_lines=grid_lines)
         pprint(api_response)
+
     except fds.sdk.ChartGenerationService.ApiException as e:
         print("Exception when calling ChartTemplatesApi->images: %s\n" % e)
 ```

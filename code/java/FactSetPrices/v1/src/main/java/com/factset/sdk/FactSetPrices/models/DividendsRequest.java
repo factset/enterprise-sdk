@@ -60,6 +60,16 @@ public class DividendsRequest implements Serializable {
   public static final String JSON_PROPERTY_ADJUST = "adjust";
   private Adjust adjust = Adjust.SPLIT;
 
+  public DividendsRequest() { 
+  }
+
+  @JsonCreator
+  public DividendsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public DividendsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

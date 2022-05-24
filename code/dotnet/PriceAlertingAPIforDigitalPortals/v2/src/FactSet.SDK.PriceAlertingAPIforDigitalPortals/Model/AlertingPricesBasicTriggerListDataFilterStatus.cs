@@ -80,7 +80,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AlertingPricesBasicTriggerListDataFilterStatus {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
@@ -114,8 +114,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         public bool Equals(AlertingPricesBasicTriggerListDataFilterStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Code == input.Code ||
@@ -132,7 +133,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Code.GetHashCode();
+                hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 return hashCode;
             }
         }

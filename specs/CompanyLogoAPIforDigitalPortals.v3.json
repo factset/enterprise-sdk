@@ -1,0 +1,458 @@
+{
+  "host": "api.factset.com",
+  "swagger": "2.0",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/company/logo/get": {
+      "get": {
+        "tags": [
+          "company"
+        ],
+        "operationId": "get/company/logo/get",
+        "x-supportsOffsetBasedPaging": false,
+        "x-supportsOffsetBasedPagingWithoutTotal": false,
+        "x-supportsCursorBasedPaging": false,
+        "x-supportsCursorBasedPagingWithoutTotal": false,
+        "x-supportsPush": false,
+        "x-requiresUser": false,
+        "x-requiresInternalClient": false,
+        "x-disallowUser": false,
+        "x-no-merge": false,
+        "x-maxSortParameterCount": 10,
+        "x-supportsPermissionDeniedResponse": false,
+        "summary": "List of URLs of company logos.",
+        "description": "List of URLs for transparent company logos in different sizes and formats.   The different sizes for the rectangular and square formats are: \n\n **Small**:\n * rectangular:  maximum width of 88 pixels and maximum height of 31 pixels.\n * square:  31 x 31 pixels.\n\n\n **Medium**: small logo scaled up by 200%.\n\n **Large**: small logo scaled up by 300%.\n\n **Vector**: can be rendered at any size.",
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "pattern": "^(([0-9A-Z]{6}-[SLR])|([0-9A-Z.]{1,47}-[A-Z]{2,4})|([0-9]{1,20}))$",
+            "maxLength": 50,
+            "exclusiveMaximum": false,
+            "minLength": 4,
+            "exclusiveMinimum": false,
+            "description": "Identifier that resolves to a company. "
+          },
+          {
+            "name": "identifierType",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "description": "The type of the identifier.",
+            "x-enum-description": [
+              "MDG identifier of an instrument.",
+              "FactSet market symbol of the notation, usually consisting of the ticker (e.g. \"FDS\" for FactSet Research Systems Inc.) and the three-character code of the exchange on which the listing is traded (example: FDS-NYS)."
+            ],
+            "enum": [
+              "idInstrument",
+              "tickerExchange"
+            ]
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "type": "string",
+            "description": "Format of the logos.",
+            "required": false,
+            "default": "rectangular",
+            "x-enum-description": [
+              "Logos in rectangular format",
+              "Logos in square format"
+            ],
+            "enum": [
+              "rectangular",
+              "square"
+            ]
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "exclusiveMaximum": false
+            },
+            "uniqueItems": true,
+            "maxItems": 50,
+            "collectionFormat": "csv",
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "description": "URLs of company logos. All URLs are publicly available via HTTPS and hosted by FactSet with a top-level domain `mdgms.com`. For possible values of the attribute `mimeType`, see endpoint `/basic/media/type/list` with parameter `filter.ids=1 (image)`.",
+                  "type": "object",
+                  "x-property-sort": [
+                    "small",
+                    "medium",
+                    "large",
+                    "vector"
+                  ],
+                  "properties": {
+                    "small": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "url",
+                        "mimeType"
+                      ],
+                      "description": "Small logo.",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "url",
+                          "description": "URL of the logo."
+                        },
+                        "mimeType": {
+                          "type": "string",
+                          "description": "MIME type of the logo."
+                        }
+                      }
+                    },
+                    "medium": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "url",
+                        "mimeType"
+                      ],
+                      "description": "Medium logo.",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "url",
+                          "description": "URL of the logo."
+                        },
+                        "mimeType": {
+                          "type": "string",
+                          "description": "MIME type of the logo."
+                        }
+                      }
+                    },
+                    "large": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "url",
+                        "mimeType"
+                      ],
+                      "description": "Large logo.",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "url",
+                          "description": "URL of the logo."
+                        },
+                        "mimeType": {
+                          "type": "string",
+                          "description": "MIME type of the logo."
+                        }
+                      }
+                    },
+                    "vector": {
+                      "type": "object",
+                      "x-property-sort": [
+                        "url",
+                        "mimeType"
+                      ],
+                      "description": "Vector logo.",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "url",
+                          "description": "URL of the logo."
+                        },
+                        "mimeType": {
+                          "type": "string",
+                          "description": "MIME type of the logo."
+                        }
+                      }
+                    }
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/definitions/StatusObject"
+                    }
+                  },
+                  "x-property-sort": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Company Logo API For Digital Portals",
+    "description": "Consume FactSet-collected company logos through an API that seamlessly integrates with company fundamentals and estimates data (listed equities data available via the stocks API), quotes, time series, and other Functional APIs.",
+    "version": "2"
+  },
+  "x-interface-version": 1,
+  "x-documenter-version": "5.38.1",
+  "x-api-version": "3.1.0",
+  "tags": [
+    {
+      "name": "company",
+      "description": "company endpoints"
+    }
+  ],
+  "responses": {
+    "ErrorResponse": {
+      "description": "Generic error response for all errors (400 ... 599 error codes)",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/definitions/ErrorMetaObject"
+          },
+          "errors": {
+            "$ref": "#/definitions/ErrorObject"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ErrorMetaObject": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/StatusObject"
+        }
+      }
+    },
+    "ErrorObject": {
+      "type": "array",
+      "description": "The errors member contains additional information about a failed request.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "string",
+            "description": "A human-readable, unstructured explanation specific to this occurrence of the failure."
+          },
+          "encryptedDetails": {
+            "type": "string",
+            "description": "Base64-encoded, internal details about the error, in addition to \"details\"."
+          },
+          "type": {
+            "type": "number",
+            "format": "int32",
+            "description": "Internal error type of the Foundation API protocol."
+          },
+          "attribute": {
+            "type": "array",
+            "description": "For a validation error, a reference to the request parameter that failed validation; otherwise, an empty array.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Element of the path denoting the request parameter."
+                },
+                "index": {
+                  "type": "number",
+                  "format": "int32",
+                  "description": "If the attribute \"name\" designates an array, index of the array element; otherwise the special value -1."
+                }
+              },
+              "x-property-sort": [
+                "name",
+                "index"
+              ]
+            }
+          }
+        },
+        "x-property-sort": [
+          "detail",
+          "encryptedDetails",
+          "type",
+          "attribute"
+        ]
+      }
+    },
+    "AttributesMember": {
+      "type": "array",
+      "description": "Limit the attributes returned in the response to the specified set.",
+      "items": {
+        "type": "string",
+        "maxLength": 100,
+        "exclusiveMaximum": false
+      },
+      "maxItems": 50,
+      "uniqueItems": true
+    },
+    "LanguageMember": {
+      "type": "string",
+      "format": "isoLanguage",
+      "description": "ISO 639-1 code of the language.",
+      "maxLength": 2,
+      "minLength": 2,
+      "exclusiveMinimum": false,
+      "exclusiveMaximum": false
+    },
+    "StatusObject": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "number",
+          "format": "int32",
+          "description": "The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1)."
+        }
+      },
+      "description": "The status member contains the status code of the response.",
+      "required": [
+        "code"
+      ]
+    },
+    "CursorBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the cursor-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of `total` is estimated."
+        },
+        "next": {
+          "type": "string",
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
+        },
+        "previous": {
+          "type": "string",
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal",
+        "next",
+        "previous"
+      ]
+    },
+    "CursorBasedPaginationOutputObjectWithoutTotal": {
+      "type": "object",
+      "description": "Pagination attributes for the cursor-based pagination strategy; a total element count is not supported.",
+      "properties": {
+        "next": {
+          "type": "string",
+          "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`."
+        },
+        "previous": {
+          "type": "string",
+          "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`."
+        }
+      },
+      "required": [
+        "next",
+        "previous"
+      ],
+      "x-property-sort": [
+        "next",
+        "previous"
+      ]
+    },
+    "OffsetBasedPaginationOutputObject": {
+      "type": "object",
+      "description": "Pagination attributes for the offset-based pagination strategy.",
+      "properties": {
+        "total": {
+          "type": "number",
+          "format": "int32",
+          "description": "Total number of entries in the result set."
+        },
+        "isEstimatedTotal": {
+          "type": "boolean",
+          "description": "Flag indicating that the value of \"total\" is estimated."
+        }
+      },
+      "required": [
+        "total",
+        "isEstimatedTotal"
+      ],
+      "x-property-sort": [
+        "total",
+        "isEstimatedTotal"
+      ]
+    },
+    "OffsetBasedPaginationOutputObjectWithoutTotal": {
+      "type": "object",
+      "description": "Pagination attributes for the offset-based pagination strategy; a total element count is not supported.",
+      "properties": {
+        "hasNext": {
+          "type": "boolean",
+          "description": "Flag indicating that a subsequent request with the same parameters, except that the parameter `pagination.offset` is incremented by `pagination.limit`, would yield additional results."
+        }
+      },
+      "required": [
+        "hasNext"
+      ],
+      "x-property-sort": [
+        "hasNext"
+      ]
+    },
+    "PartialOutputObject": {
+      "type": "object",
+      "properties": {
+        "isPartial": {
+          "type": "boolean",
+          "description": "Flag indicating that the response is a possibly incomplete array or an object containing a possibly incomplete array, due to hitting a processing time limit. If `true`, some matching results might be missing from the array, or elements for matching results might be incorrectly included (for example, when priority sorting would have removed the element). Depending on the use case, such a response may be unsuitable."
+        }
+      },
+      "description": "Object denoting that the endpoint response is possibly incomplete.",
+      "required": [
+        "isPartial"
+      ],
+      "x-property-sort": [
+        "isPartial"
+      ]
+    }
+  },
+  "basePath": "/wealth/v1",
+  "securityDefinitions": {
+    "FactSetApiKey": {
+      "type": "basic"
+    },
+    "FactSetOAuth2": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+      "scopes": {}
+    }
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ]
+}

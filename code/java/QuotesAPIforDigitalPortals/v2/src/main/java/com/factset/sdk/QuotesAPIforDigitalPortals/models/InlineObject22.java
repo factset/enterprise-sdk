@@ -48,6 +48,16 @@ public class InlineObject22 implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private NotationSearchByTextMeta meta;
 
+  public InlineObject22() { 
+  }
+
+  @JsonCreator
+  public InlineObject22(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) NotationSearchByTextData data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public InlineObject22 data(NotationSearchByTextData data) {
     this.data = data;

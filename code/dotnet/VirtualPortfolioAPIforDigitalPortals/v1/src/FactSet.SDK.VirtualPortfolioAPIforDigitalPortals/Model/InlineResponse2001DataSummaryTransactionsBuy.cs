@@ -62,7 +62,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001DataSummaryTransactionsBuy {\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  Turnover: ").Append(Turnover).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2001DataSummaryTransactionsBuy input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Number == input.Number ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Number.GetHashCode();
-                hashCode = hashCode * 59 + this.Turnover.GetHashCode();
+                hashCode = (hashCode * 59) + this.Number.GetHashCode();
+                hashCode = (hashCode * 59) + this.Turnover.GetHashCode();
                 return hashCode;
             }
         }

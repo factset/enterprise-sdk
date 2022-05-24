@@ -7,6 +7,9 @@ import com.factset.sdk.Publisher.Configuration;
 import com.factset.sdk.Publisher.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Publisher.models.AccountDirectories;
 
@@ -21,6 +24,14 @@ public class AccountsApi {
   public AccountsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getAccountsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAccountsResponseTypeMap.put(200, new GenericType<AccountDirectories>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -118,10 +129,16 @@ public class AccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AccountDirectories> localVarReturnType = new GenericType<AccountDirectories>() {};
 
-    return apiClient.invokeAPI("AccountsApi.getAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AccountDirectories
+      
+    > apiResponse = apiClient.invokeAPI("AccountsApi.getAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAccountsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

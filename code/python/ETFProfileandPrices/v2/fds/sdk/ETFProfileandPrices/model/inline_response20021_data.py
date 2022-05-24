@@ -24,16 +24,16 @@ from fds.sdk.ETFProfileandPrices.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.ETFProfileandPrices.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ETFProfileandPrices.model.inline_response20021_data_expense_ratio import InlineResponse20021DataExpenseRatio
-    from fds.sdk.ETFProfileandPrices.model.inline_response20021_data_max_capital_gains_rate import InlineResponse20021DataMaxCapitalGainsRate
-    globals()['InlineResponse20021DataExpenseRatio'] = InlineResponse20021DataExpenseRatio
-    globals()['InlineResponse20021DataMaxCapitalGainsRate'] = InlineResponse20021DataMaxCapitalGainsRate
+    from fds.sdk.ETFProfileandPrices.model.inline_response20021_data_capital_gains import InlineResponse20021DataCapitalGains
+    from fds.sdk.ETFProfileandPrices.model.inline_response20021_data_dividend import InlineResponse20021DataDividend
+    globals()['InlineResponse20021DataCapitalGains'] = InlineResponse20021DataCapitalGains
+    globals()['InlineResponse20021DataDividend'] = InlineResponse20021DataDividend
 
 
 class InlineResponse20021Data(ModelNormal):
@@ -89,20 +89,10 @@ class InlineResponse20021Data(ModelNormal):
         """
         lazy_import()
         return {
-            'max_capital_gains_rate': (InlineResponse20021DataMaxCapitalGainsRate,),  # noqa: E501
-            'dividend_treatment': (str,),  # noqa: E501
-            'distribute_k1': (str,),  # noqa: E501
-            'tax_type': (str,),  # noqa: E501
-            'tax_on_distributions': (str,),  # noqa: E501
-            'expense_ratio': (InlineResponse20021DataExpenseRatio,),  # noqa: E501
-            'potential_cost_increase_date': (date,),  # noqa: E501
-            'contract_advisory_fee': (float,),  # noqa: E501
-            'capital_gains': (float,),  # noqa: E501
-            'capital_gains_distirbutions3_y': (float,),  # noqa: E501
-            'management_expense_ratio': (float,),  # noqa: E501
-            'management_fee': (float,),  # noqa: E501
-            'trading_expense_ratio': (float,),  # noqa: E501
-            'fee_waiver': (str,),  # noqa: E501
+            'dividend': (InlineResponse20021DataDividend,),  # noqa: E501
+            'capital_gains': (InlineResponse20021DataCapitalGains,),  # noqa: E501
+            'total_distribution': (float,),  # noqa: E501
+            'distribution_yield': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -111,20 +101,10 @@ class InlineResponse20021Data(ModelNormal):
 
 
     attribute_map = {
-        'max_capital_gains_rate': 'maxCapitalGainsRate',  # noqa: E501
-        'dividend_treatment': 'dividendTreatment',  # noqa: E501
-        'distribute_k1': 'distributeK1',  # noqa: E501
-        'tax_type': 'taxType',  # noqa: E501
-        'tax_on_distributions': 'taxOnDistributions',  # noqa: E501
-        'expense_ratio': 'expenseRatio',  # noqa: E501
-        'potential_cost_increase_date': 'potentialCostIncreaseDate',  # noqa: E501
-        'contract_advisory_fee': 'contractAdvisoryFee',  # noqa: E501
+        'dividend': 'dividend',  # noqa: E501
         'capital_gains': 'capitalGains',  # noqa: E501
-        'capital_gains_distirbutions3_y': 'capitalGainsDistirbutions3Y',  # noqa: E501
-        'management_expense_ratio': 'managementExpenseRatio',  # noqa: E501
-        'management_fee': 'managementFee',  # noqa: E501
-        'trading_expense_ratio': 'tradingExpenseRatio',  # noqa: E501
-        'fee_waiver': 'feeWaiver',  # noqa: E501
+        'total_distribution': 'totalDistribution',  # noqa: E501
+        'distribution_yield': 'distributionYield',  # noqa: E501
     }
 
     read_only_vars = {
@@ -168,20 +148,10 @@ class InlineResponse20021Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            max_capital_gains_rate (InlineResponse20021DataMaxCapitalGainsRate): [optional]  # noqa: E501
-            dividend_treatment (str): Describes whether dividend income received by the ETP is distributed to ETP shareholders or capitalised (reinvested) into the ETP, text and standardized value available. This data is available for all the Canada and Europe regions.. [optional]  # noqa: E501
-            distribute_k1 (str): Flags ETPs that distribute K-1 tax forms. This data is available for the US regions.. [optional]  # noqa: E501
-            tax_type (str): Type of the tax applicable on the distribution. This data is available for the US regions.. [optional]  # noqa: E501
-            tax_on_distributions (str): Tax treatment of the ETP's regular distributions. This data is available for the US regions.. [optional]  # noqa: E501
-            expense_ratio (InlineResponse20021DataExpenseRatio): [optional]  # noqa: E501
-            potential_cost_increase_date (date): Expiration date of any fee waivers. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            contract_advisory_fee (float): The advisors fee excluding any additional costs or fees; A subset of the total expense ratio. This data is available for the Canada regions.. [optional]  # noqa: E501
-            capital_gains (float): Realized capital gains or losses reported on the ETP's most recent annual or semi-annual report. Gains must generally be paid out as a distribution at year-end, while losses can be banked to offset future gains. This data is available only for the US regions.. [optional]  # noqa: E501
-            capital_gains_distirbutions3_y (float): The average annual capital gains paid out to shareholders over the past 3 calendar years, measured as a percent of net asset value (NAV) on the final trading day of each previous year. This data is available for the US region only.. [optional]  # noqa: E501
-            management_expense_ratio (float): Total net annual cost associated with holding the ETP, expressed as a percentage.  This data is available for the Canada regions.. [optional]  # noqa: E501
-            management_fee (float): Annual fee collected by fund manager, expressed as a percentage. This data is available for the Canada region.. [optional]  # noqa: E501
-            trading_expense_ratio (float): Estimated annual costs associated with trading the underlying holdings. This data is available for the Canada region.. [optional]  # noqa: E501
-            fee_waiver (str): A reduction in annual ETP expenses, expressed as a percentage. This data is available for the Canada region.. [optional]  # noqa: E501
+            dividend (InlineResponse20021DataDividend): [optional]  # noqa: E501
+            capital_gains (InlineResponse20021DataCapitalGains): [optional]  # noqa: E501
+            total_distribution (float): Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.. [optional]  # noqa: E501
+            distribution_yield (float): Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,20 +233,10 @@ class InlineResponse20021Data(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            max_capital_gains_rate (InlineResponse20021DataMaxCapitalGainsRate): [optional]  # noqa: E501
-            dividend_treatment (str): Describes whether dividend income received by the ETP is distributed to ETP shareholders or capitalised (reinvested) into the ETP, text and standardized value available. This data is available for all the Canada and Europe regions.. [optional]  # noqa: E501
-            distribute_k1 (str): Flags ETPs that distribute K-1 tax forms. This data is available for the US regions.. [optional]  # noqa: E501
-            tax_type (str): Type of the tax applicable on the distribution. This data is available for the US regions.. [optional]  # noqa: E501
-            tax_on_distributions (str): Tax treatment of the ETP's regular distributions. This data is available for the US regions.. [optional]  # noqa: E501
-            expense_ratio (InlineResponse20021DataExpenseRatio): [optional]  # noqa: E501
-            potential_cost_increase_date (date): Expiration date of any fee waivers. This data is available for the US and Canada regions.. [optional]  # noqa: E501
-            contract_advisory_fee (float): The advisors fee excluding any additional costs or fees; A subset of the total expense ratio. This data is available for the Canada regions.. [optional]  # noqa: E501
-            capital_gains (float): Realized capital gains or losses reported on the ETP's most recent annual or semi-annual report. Gains must generally be paid out as a distribution at year-end, while losses can be banked to offset future gains. This data is available only for the US regions.. [optional]  # noqa: E501
-            capital_gains_distirbutions3_y (float): The average annual capital gains paid out to shareholders over the past 3 calendar years, measured as a percent of net asset value (NAV) on the final trading day of each previous year. This data is available for the US region only.. [optional]  # noqa: E501
-            management_expense_ratio (float): Total net annual cost associated with holding the ETP, expressed as a percentage.  This data is available for the Canada regions.. [optional]  # noqa: E501
-            management_fee (float): Annual fee collected by fund manager, expressed as a percentage. This data is available for the Canada region.. [optional]  # noqa: E501
-            trading_expense_ratio (float): Estimated annual costs associated with trading the underlying holdings. This data is available for the Canada region.. [optional]  # noqa: E501
-            fee_waiver (str): A reduction in annual ETP expenses, expressed as a percentage. This data is available for the Canada region.. [optional]  # noqa: E501
+            dividend (InlineResponse20021DataDividend): [optional]  # noqa: E501
+            capital_gains (InlineResponse20021DataCapitalGains): [optional]  # noqa: E501
+            total_distribution (float): Total Distribution on exDividend-date. Values are in the ETP's listing currency in the ISO 4217 format. This data is available for all regions. Please refer currency.listing in /factset/etf/getBySymbol for currency value.. [optional]  # noqa: E501
+            distribution_yield (float): Total 12-month distribution of the ETP multiplied by split factor then divided by its net asset value. Data is split adjusted. This data is available for the US regions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

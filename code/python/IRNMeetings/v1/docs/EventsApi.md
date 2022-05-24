@@ -37,28 +37,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
-    meeting_id = "meetingId_example" # str | Meeting Id
 
-    # example passing only required values which don't have defaults set
+    meeting_id = "meetingId_example" # str | Meeting ID
+
     try:
         # Get all the record events that belong to a meeting
         api_response = api_instance.get_events(meeting_id)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling EventsApi->get_events: %s\n" % e)
 ```
@@ -68,7 +69,7 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meeting_id** | **str**| Meeting Id |
+ **meeting_id** | **str**| Meeting ID |
 
 ### Return type
 
@@ -123,29 +124,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = events_api.EventsApi(api_client)
+
     meeting_id = "meetingId_example" # str | Meeting Id
     record_event_id = "recordEventId_example" # str | Record Event Id
 
-    # example passing only required values which don't have defaults set
     try:
         # Get details of a record event of a meeting
         api_response = api_instance.get_record_event(meeting_id, record_event_id)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling EventsApi->get_record_event: %s\n" % e)
 ```

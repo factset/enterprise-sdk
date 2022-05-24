@@ -51,6 +51,8 @@ public class InlineResponse2004DataCouponCurrentInterestRateType implements Seri
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2004DataCouponCurrentInterestRateType() { 
+  }
 
   public InlineResponse2004DataCouponCurrentInterestRateType id(BigDecimal id) {
     this.id = id;

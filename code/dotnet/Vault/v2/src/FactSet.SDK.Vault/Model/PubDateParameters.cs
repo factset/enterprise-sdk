@@ -72,7 +72,7 @@ namespace FactSet.SDK.Vault.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PubDateParameters {\n");
             sb.Append("  Startdate: ").Append(Startdate).Append("\n");
             sb.Append("  Enddate: ").Append(Enddate).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.Vault.Model
         public bool Equals(PubDateParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Startdate == input.Startdate ||
@@ -132,9 +133,13 @@ namespace FactSet.SDK.Vault.Model
             {
                 int hashCode = 41;
                 if (this.Startdate != null)
-                    hashCode = hashCode * 59 + this.Startdate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Startdate.GetHashCode();
+                }
                 if (this.Enddate != null)
-                    hashCode = hashCode * 59 + this.Enddate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Enddate.GetHashCode();
+                }
                 return hashCode;
             }
         }

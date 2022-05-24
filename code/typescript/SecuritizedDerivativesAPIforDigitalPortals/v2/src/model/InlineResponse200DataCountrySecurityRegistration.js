@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse200DataCountrySecurityRegistration model module.
  * @module model/InlineResponse200DataCountrySecurityRegistration
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataCountrySecurityRegistration {
     /**

@@ -12,12 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
-import NRTSnippetsSnippetData from './NRTSnippetsSnippetData';
+import NRTSnippetsTranscriptData from './NRTSnippetsTranscriptData';
 
 /**
  * The NRTSnippetsData model module.
  * @module model/NRTSnippetsData
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSnippetsData {
     /**
@@ -54,8 +54,8 @@ class NRTSnippetsData {
             if (data.hasOwnProperty('snippetEndTimestamp')) {
                 obj['snippetEndTimestamp'] = ApiClient.convertToType(data['snippetEndTimestamp'], 'String');
             }
-            if (data.hasOwnProperty('snippetData')) {
-                obj['snippetData'] = ApiClient.convertToType(data['snippetData'], [NRTSnippetsSnippetData]);
+            if (data.hasOwnProperty('transcriptData')) {
+                obj['transcriptData'] = ApiClient.convertToType(data['transcriptData'], [NRTSnippetsTranscriptData]);
             }
             if (data.hasOwnProperty('snippetSequence')) {
                 obj['snippetSequence'] = ApiClient.convertToType(data['snippetSequence'], 'Number');
@@ -83,9 +83,9 @@ NRTSnippetsData.prototype['reportId'] = undefined;
 NRTSnippetsData.prototype['snippetEndTimestamp'] = undefined;
 
 /**
- * @member {Array.<module:model/NRTSnippetsSnippetData>} snippetData
+ * @member {Array.<module:model/NRTSnippetsTranscriptData>} transcriptData
  */
-NRTSnippetsData.prototype['snippetData'] = undefined;
+NRTSnippetsData.prototype['transcriptData'] = undefined;
 
 /**
  * The sequence number of the snippet from the start of the current call 

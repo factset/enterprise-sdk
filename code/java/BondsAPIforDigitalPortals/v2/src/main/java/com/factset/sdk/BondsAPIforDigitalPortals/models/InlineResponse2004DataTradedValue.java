@@ -44,6 +44,8 @@ public class InlineResponse2004DataTradedValue implements Serializable {
   public static final String JSON_PROPERTY_DAYS30 = "days30";
   private InlineResponse2004DataTradedValueDays30 days30;
 
+  public InlineResponse2004DataTradedValue() { 
+  }
 
   public InlineResponse2004DataTradedValue days30(InlineResponse2004DataTradedValueDays30 days30) {
     this.days30 = days30;

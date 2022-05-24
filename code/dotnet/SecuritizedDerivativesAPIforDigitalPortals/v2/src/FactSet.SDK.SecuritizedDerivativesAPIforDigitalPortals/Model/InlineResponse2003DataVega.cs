@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003DataVega {\n");
             sb.Append("  Effective: ").Append(Effective).Append("\n");
             sb.Append("  Unadjusted: ").Append(Unadjusted).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003DataVega input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Effective == input.Effective ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Effective.GetHashCode();
-                hashCode = hashCode * 59 + this.Unadjusted.GetHashCode();
+                hashCode = (hashCode * 59) + this.Effective.GetHashCode();
+                hashCode = (hashCode * 59) + this.Unadjusted.GetHashCode();
                 return hashCode;
             }
         }

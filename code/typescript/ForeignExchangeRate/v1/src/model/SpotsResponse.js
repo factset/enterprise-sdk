@@ -17,7 +17,7 @@ import Spot from './Spot';
 /**
  * The SpotsResponse model module.
  * @module model/SpotsResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SpotsResponse {
     /**

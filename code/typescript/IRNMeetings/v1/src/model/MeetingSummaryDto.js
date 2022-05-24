@@ -13,12 +13,13 @@
 
 import ApiClient from '../ApiClient';
 import AttendeeDto from './AttendeeDto';
+import CustomFieldValueDto from './CustomFieldValueDto';
 import LocationDto from './LocationDto';
 
 /**
  * The MeetingSummaryDto model module.
  * @module model/MeetingSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class MeetingSummaryDto {
     /**
@@ -87,6 +88,9 @@ class MeetingSummaryDto {
             }
             if (data.hasOwnProperty('attendees')) {
                 obj['attendees'] = ApiClient.convertToType(data['attendees'], [AttendeeDto]);
+            }
+            if (data.hasOwnProperty('customFieldValues')) {
+                obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [CustomFieldValueDto]);
             }
         }
         return obj;
@@ -159,6 +163,11 @@ MeetingSummaryDto.prototype['locations'] = undefined;
  * @member {Array.<module:model/AttendeeDto>} attendees
  */
 MeetingSummaryDto.prototype['attendees'] = undefined;
+
+/**
+ * @member {Array.<module:model/CustomFieldValueDto>} customFieldValues
+ */
+MeetingSummaryDto.prototype['customFieldValues'] = undefined;
 
 
 

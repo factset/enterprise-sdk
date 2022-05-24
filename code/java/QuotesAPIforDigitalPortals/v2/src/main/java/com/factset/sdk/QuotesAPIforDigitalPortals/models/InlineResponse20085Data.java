@@ -49,6 +49,8 @@ public class InlineResponse20085Data implements Serializable {
   public static final String JSON_PROPERTY_EVENTS = "events";
   private java.util.List<InlineResponse20085DataEvents> events = null;
 
+  public InlineResponse20085Data() { 
+  }
 
   public InlineResponse20085Data range(InlineResponse20085DataRange range) {
     this.range = range;

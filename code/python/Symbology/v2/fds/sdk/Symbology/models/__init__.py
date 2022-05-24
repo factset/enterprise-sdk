@@ -26,6 +26,7 @@ from fds.sdk.Symbology.model.factset_translation_advanced_request import Factset
 from fds.sdk.Symbology.model.factset_translation_advanced_response import FactsetTranslationAdvancedResponse
 from fds.sdk.Symbology.model.factset_translation_request import FactsetTranslationRequest
 from fds.sdk.Symbology.model.factset_translation_response import FactsetTranslationResponse
+from fds.sdk.Symbology.model.get_advanced_ids import GetAdvancedIds
 from fds.sdk.Symbology.model.get_ids import GetIds
 from fds.sdk.Symbology.model.get_symbol_type import GetSymbolType
 from fds.sdk.Symbology.model.isin_history_translation import IsinHistoryTranslation

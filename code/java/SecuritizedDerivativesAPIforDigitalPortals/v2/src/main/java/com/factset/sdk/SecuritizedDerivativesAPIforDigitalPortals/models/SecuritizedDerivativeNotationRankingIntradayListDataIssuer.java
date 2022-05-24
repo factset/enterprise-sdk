@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationRankingIntradayListDataIssuer implemen
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public SecuritizedDerivativeNotationRankingIntradayListDataIssuer() { 
+  }
 
   public SecuritizedDerivativeNotationRankingIntradayListDataIssuer ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

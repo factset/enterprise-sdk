@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OptimalPortfolio model module.
  * @module model/OptimalPortfolio
- * @version 0.8.1
+ * @version 0.8.2
  */
 class OptimalPortfolio {
     /**

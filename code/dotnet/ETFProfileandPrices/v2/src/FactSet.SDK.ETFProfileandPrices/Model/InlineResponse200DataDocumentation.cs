@@ -62,7 +62,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataDocumentation {\n");
             sb.Append("  IsProspectusPosted: ").Append(IsProspectusPosted).Append("\n");
             sb.Append("  IsSaiPosted: ").Append(IsSaiPosted).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataDocumentation input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IsProspectusPosted == input.IsProspectusPosted ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IsProspectusPosted.GetHashCode();
-                hashCode = hashCode * 59 + this.IsSaiPosted.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsProspectusPosted.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsSaiPosted.GetHashCode();
                 return hashCode;
             }
         }

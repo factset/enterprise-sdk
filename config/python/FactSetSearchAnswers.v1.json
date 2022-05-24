@@ -1,13 +1,13 @@
 {
   "packageName": "fds.sdk.FactSetSearchAnswers",
   "projectName": "fds.sdk.FactSetSearchAnswers",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.20.0",
   "packageAuthor": "FactSet Research Systems",
   "packageLicense": "Apache-2.0",
   "packageDescription": "FactSet Search Answers client library for Python",
   "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FactSetSearchAnswers/v1",
-  "httpUserAgent": "fds-sdk/python/FactSetSearchAnswers/0.9.1",
+  "httpUserAgent": "fds-sdk/python/FactSetSearchAnswers/0.20.0",
   "files": {
     "LICENSE": {}
   }

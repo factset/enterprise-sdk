@@ -41,21 +41,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
+
     create_meeting_dto = CreateMeetingDto(
         author=UserSerialDto(
             username="username_example",
@@ -114,12 +115,11 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         ],
     ) # CreateMeetingDto | Note: The organizer property is deprecated in favor of organizerId (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a meeting
         api_response = api_instance.create_meeting(create_meeting_dto=create_meeting_dto)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling MeetingsApi->create_meeting: %s\n" % e)
 ```
@@ -183,24 +183,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
+
     meeting_id = "meetingId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a Meeting
         api_instance.delete_meeting(meeting_id)
@@ -269,28 +269,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
+
     meeting_id = "meetingId_example" # str | Meeting Id
 
-    # example passing only required values which don't have defaults set
     try:
         # Get details of a meeting
         api_response = api_instance.get_meeting(meeting_id)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling MeetingsApi->get_meeting: %s\n" % e)
 ```
@@ -355,21 +356,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
+
     start = "start_example" # str | StartDate (optional)
     end = "end_example" # str | EndDate (optional)
     identifiers = [
@@ -377,14 +379,13 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     ] # [str] | Set of identifiers to filter on (optional)
     limit = 1 # int | Limit on the number of meetings retrieved (optional)
     modified_since = "modifiedSince_example" # str | Only return meetings which have been modified or created since a particular time (optional)
-    x_irn_include_deleted = False # bool | Includes deleted meetings in results when set to true (optional) if omitted the server will use the default value of False
+    x_irn_include_deleted = False # bool | Includes deleted meetings in results when set to true (optional) (default to False)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get all the meetings in the specified date range filtered on the given identifiers
         api_response = api_instance.get_meetings(start=start, end=end, identifiers=identifiers, limit=limit, modified_since=modified_since, x_irn_include_deleted=x_irn_include_deleted)
         pprint(api_response)
+
     except fds.sdk.IRNMeetings.ApiException as e:
         print("Exception when calling MeetingsApi->get_meetings: %s\n" % e)
 ```
@@ -453,21 +454,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNMeetings.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNMeetings.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = meetings_api.MeetingsApi(api_client)
+
     meeting_id = "meetingId_example" # str | Meeting Id
     update_meeting_dto = UpdateMeetingDto(
         title="title_example",
@@ -523,15 +525,6 @@ with fds.sdk.IRNMeetings.ApiClient(configuration) as api_client:
         ],
     ) # UpdateMeetingDto | Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update meeting
-        api_instance.update_meeting(meeting_id)
-    except fds.sdk.IRNMeetings.ApiException as e:
-        print("Exception when calling MeetingsApi->update_meeting: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update meeting
         api_instance.update_meeting(meeting_id, update_meeting_dto=update_meeting_dto)
@@ -565,7 +558,7 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success |  -  |
+**204** | No Content |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
 **0** | Error |  -  |

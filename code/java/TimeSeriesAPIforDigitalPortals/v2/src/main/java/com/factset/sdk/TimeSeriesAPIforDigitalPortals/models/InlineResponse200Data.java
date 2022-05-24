@@ -88,6 +88,8 @@ public class InlineResponse200Data implements Serializable {
   public static final String JSON_PROPERTY_PRICES = "prices";
   private java.util.List<java.util.List<BigDecimal>> prices = null;
 
+  public InlineResponse200Data() { 
+  }
 
   public InlineResponse200Data range(InlineResponse200DataRange range) {
     this.range = range;

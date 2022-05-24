@@ -62,7 +62,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003Range {\n");
             sb.Append("  UpperLimit: ").Append(UpperLimit).Append("\n");
             sb.Append("  LowerLimit: ").Append(LowerLimit).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003Range input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UpperLimit == input.UpperLimit ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.UpperLimit != null)
-                    hashCode = hashCode * 59 + this.UpperLimit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpperLimit.GetHashCode();
+                }
                 if (this.LowerLimit != null)
-                    hashCode = hashCode * 59 + this.LowerLimit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LowerLimit.GetHashCode();
+                }
                 return hashCode;
             }
         }

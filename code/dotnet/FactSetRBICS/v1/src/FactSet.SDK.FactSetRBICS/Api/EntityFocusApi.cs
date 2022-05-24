@@ -155,6 +155,28 @@ namespace FactSet.SDK.FactSetRBICS.Api
     {
         private FactSet.SDK.FactSetRBICS.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetRbicsEntityFocusResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityFocusResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRbicsEntityFocusForListResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(EntityFocusResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityFocusApi"/> class.
         /// </summary>
@@ -268,7 +290,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <returns>EntityFocusResponse</returns>
         public EntityFocusResponse GetRbicsEntityFocus(List<string> ids, string date = default(string), List<int> levels = default(List<int>), bool? includeNames = default(bool?))
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse> localVarResponse = GetRbicsEntityFocusWithHttpInfo(ids, date, levels, includeNames);
+            var localVarResponse = GetRbicsEntityFocusWithHttpInfo(ids, date, levels, includeNames);
             return localVarResponse.Data;
         }
 
@@ -281,11 +303,13 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="levels">List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** (optional)</param>
         /// <param name="includeNames">Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. (optional, default to true)</param>
         /// <returns>ApiResponse of EntityFocusResponse</returns>
-        public FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse> GetRbicsEntityFocusWithHttpInfo(List<string> ids, string date = default(string), List<int> levels = default(List<int>), bool? includeNames = default(bool?))
+        public ApiResponse<EntityFocusResponse> GetRbicsEntityFocusWithHttpInfo(List<string> ids, string date = default(string), List<int> levels = default(List<int>), bool? includeNames = default(bool?))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetRBICS.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityFocusApi->GetRbicsEntityFocus");
+            }
 
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
 
@@ -298,10 +322,16 @@ namespace FactSet.SDK.FactSetRBICS.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetRBICS.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -319,13 +349,13 @@ namespace FactSet.SDK.FactSetRBICS.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -337,15 +367,19 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<EntityFocusResponse>("/factset-rbics/v1/entity-focus", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsEntityFocusResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            EntityFocusResponse>("/factset-rbics/v1/entity-focus", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsEntityFocus", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -359,9 +393,9 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="includeNames">Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityFocusResponse</returns>
-        public async System.Threading.Tasks.Task<EntityFocusResponse> GetRbicsEntityFocusAsync(List<string> ids, string date = default(string), List<int> levels = default(List<int>), bool? includeNames = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityFocusResponse>GetRbicsEntityFocusAsync(List<string> ids, string date = default(string), List<int> levels = default(List<int>), bool? includeNames = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse> localVarResponse = await GetRbicsEntityFocusWithHttpInfoAsync(ids, date, levels, includeNames, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRbicsEntityFocusWithHttpInfoAsync(ids, date, levels, includeNames, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -375,11 +409,14 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="includeNames">Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityFocusResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse>> GetRbicsEntityFocusWithHttpInfoAsync(List<string> ids, string date = default(string), List<int> levels = default(List<int>), bool? includeNames = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityFocusResponse>> GetRbicsEntityFocusWithHttpInfoAsync(List<string> ids, string date = default(string), List<int> levels = default(List<int>), bool? includeNames = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetRBICS.Client.ApiException(400, "Missing required parameter 'ids' when calling EntityFocusApi->GetRbicsEntityFocus");
+            }
 
 
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
@@ -392,12 +429,17 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetRBICS.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -415,13 +457,13 @@ namespace FactSet.SDK.FactSetRBICS.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -433,14 +475,18 @@ namespace FactSet.SDK.FactSetRBICS.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsEntityFocusResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<EntityFocusResponse>("/factset-rbics/v1/entity-focus", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsEntityFocus", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -454,7 +500,7 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <returns>EntityFocusResponse</returns>
         public EntityFocusResponse GetRbicsEntityFocusForList(EntityFocusRequest entityFocusRequest)
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse> localVarResponse = GetRbicsEntityFocusForListWithHttpInfo(entityFocusRequest);
+            var localVarResponse = GetRbicsEntityFocusForListWithHttpInfo(entityFocusRequest);
             return localVarResponse.Data;
         }
 
@@ -464,11 +510,13 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <exception cref="FactSet.SDK.FactSetRBICS.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
         /// <returns>ApiResponse of EntityFocusResponse</returns>
-        public FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse> GetRbicsEntityFocusForListWithHttpInfo(EntityFocusRequest entityFocusRequest)
+        public ApiResponse<EntityFocusResponse> GetRbicsEntityFocusForListWithHttpInfo(EntityFocusRequest entityFocusRequest)
         {
             // verify the required parameter 'entityFocusRequest' is set
             if (entityFocusRequest == null)
+            {
                 throw new FactSet.SDK.FactSetRBICS.Client.ApiException(400, "Missing required parameter 'entityFocusRequest' when calling EntityFocusApi->GetRbicsEntityFocusForList");
+            }
 
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
 
@@ -482,22 +530,28 @@ namespace FactSet.SDK.FactSetRBICS.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityFocusRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -509,15 +563,19 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<EntityFocusResponse>("/factset-rbics/v1/entity-focus", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsEntityFocusForListResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            EntityFocusResponse>("/factset-rbics/v1/entity-focus", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsEntityFocusForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -528,9 +586,9 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EntityFocusResponse</returns>
-        public async System.Threading.Tasks.Task<EntityFocusResponse> GetRbicsEntityFocusForListAsync(EntityFocusRequest entityFocusRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EntityFocusResponse>GetRbicsEntityFocusForListAsync(EntityFocusRequest entityFocusRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse> localVarResponse = await GetRbicsEntityFocusForListWithHttpInfoAsync(entityFocusRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRbicsEntityFocusForListWithHttpInfoAsync(entityFocusRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -541,11 +599,14 @@ namespace FactSet.SDK.FactSetRBICS.Api
         /// <param name="entityFocusRequest">Request Body to request a list of RBICS Entity Focus objects.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EntityFocusResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetRBICS.Client.ApiResponse<EntityFocusResponse>> GetRbicsEntityFocusForListWithHttpInfoAsync(EntityFocusRequest entityFocusRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<EntityFocusResponse>> GetRbicsEntityFocusForListWithHttpInfoAsync(EntityFocusRequest entityFocusRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'entityFocusRequest' is set
             if (entityFocusRequest == null)
+            {
                 throw new FactSet.SDK.FactSetRBICS.Client.ApiException(400, "Missing required parameter 'entityFocusRequest' when calling EntityFocusApi->GetRbicsEntityFocusForList");
+            }
 
 
             FactSet.SDK.FactSetRBICS.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetRBICS.Client.RequestOptions();
@@ -559,24 +620,29 @@ namespace FactSet.SDK.FactSetRBICS.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetRBICS.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = entityFocusRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetRBICS.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -588,14 +654,18 @@ namespace FactSet.SDK.FactSetRBICS.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRbicsEntityFocusForListResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<EntityFocusResponse>("/factset-rbics/v1/entity-focus", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRbicsEntityFocusForList", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

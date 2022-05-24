@@ -47,6 +47,8 @@ public class InlineResponse200DataSmall implements Serializable {
   public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
   private String mimeType;
 
+  public InlineResponse200DataSmall() { 
+  }
 
   public InlineResponse200DataSmall url(String url) {
     this.url = url;

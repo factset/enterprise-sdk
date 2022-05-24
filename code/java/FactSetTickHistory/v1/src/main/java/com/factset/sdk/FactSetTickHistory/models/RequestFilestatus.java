@@ -48,6 +48,8 @@ public class RequestFilestatus implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private RequestFileErrorDetails details;
 
+  public RequestFilestatus() { 
+  }
 
   public RequestFilestatus id(String id) {
     this.id = id;

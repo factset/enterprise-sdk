@@ -44,6 +44,8 @@ public class InlineResponse2004InstrumentIndustryClassification implements Seria
   public static final String JSON_PROPERTY_RBICS = "rbics";
   private InlineResponse2004InstrumentIndustryClassificationRbics rbics;
 
+  public InlineResponse2004InstrumentIndustryClassification() { 
+  }
 
   public InlineResponse2004InstrumentIndustryClassification rbics(InlineResponse2004InstrumentIndustryClassificationRbics rbics) {
     this.rbics = rbics;

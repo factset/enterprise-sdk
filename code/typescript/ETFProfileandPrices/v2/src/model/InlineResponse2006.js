@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2001Meta from './InlineResponse2001Meta';
 import InlineResponse2006Data from './InlineResponse2006Data';
-import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse2006 model module.
  * @module model/InlineResponse2006
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006 {
     /**
@@ -53,7 +53,7 @@ class InlineResponse2006 {
                 obj['data'] = InlineResponse2006Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -68,7 +68,7 @@ class InlineResponse2006 {
 InlineResponse2006.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse200Meta} meta
+ * @member {module:model/InlineResponse2001Meta} meta
  */
 InlineResponse2006.prototype['meta'] = undefined;
 

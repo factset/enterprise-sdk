@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPricesPrevious model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPricesPrevious
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataValidationPricesPrevious {
     /**

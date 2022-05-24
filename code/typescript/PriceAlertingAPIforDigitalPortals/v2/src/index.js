@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AlertingPricesBasicTriggerListData from './model/AlertingPricesBasicTriggerListData';
 import AlertingPricesBasicTriggerListDataFilter from './model/AlertingPricesBasicTriggerListDataFilter';
@@ -46,6 +45,7 @@ import OffsetBasedPaginationOutputObject from './model/OffsetBasedPaginationOutp
 import OffsetBasedPaginationOutputObjectWithoutTotal from './model/OffsetBasedPaginationOutputObjectWithoutTotal';
 import PartialOutputObject from './model/PartialOutputObject';
 import StatusObject from './model/StatusObject';
+
 import AlertingApi from './api/AlertingApi';
 
 
@@ -78,7 +78,7 @@ import AlertingApi from './api/AlertingApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.10.0
 */
 export {
     /**
@@ -289,5 +289,6 @@ export {
     * The AlertingApi service constructor.
     * @property {module:api/AlertingApi}
     */
-    AlertingApi
+    AlertingApi,
+
 };

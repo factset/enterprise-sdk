@@ -64,6 +64,8 @@ public class InlineResponse2005DataEstimatesFirstFiscalYear implements Serializa
   public static final String JSON_PROPERTY_RATIOS = "ratios";
   private InlineResponse2005DataEstimatesFirstFiscalYearRatios ratios;
 
+  public InlineResponse2005DataEstimatesFirstFiscalYear() { 
+  }
 
   public InlineResponse2005DataEstimatesFirstFiscalYear fiscalYear(InlineResponse2005DataEstimatesFirstFiscalYearFiscalYear fiscalYear) {
     this.fiscalYear = fiscalYear;

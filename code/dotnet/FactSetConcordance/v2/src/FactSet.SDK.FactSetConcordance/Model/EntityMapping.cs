@@ -171,7 +171,7 @@ namespace FactSet.SDK.FactSetConcordance.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EntityMapping {\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
             sb.Append("  EntityName: ").Append(EntityName).Append("\n");
@@ -215,8 +215,9 @@ namespace FactSet.SDK.FactSetConcordance.Model
         public bool Equals(EntityMapping input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.EntityId == input.EntityId ||
@@ -283,25 +284,43 @@ namespace FactSet.SDK.FactSetConcordance.Model
             {
                 int hashCode = 41;
                 if (this.EntityId != null)
-                    hashCode = hashCode * 59 + this.EntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityId.GetHashCode();
+                }
                 if (this.EntityName != null)
-                    hashCode = hashCode * 59 + this.EntityName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EntityName.GetHashCode();
+                }
                 if (this.ClientId != null)
-                    hashCode = hashCode * 59 + this.ClientId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientId.GetHashCode();
+                }
                 if (this.ClientName != null)
-                    hashCode = hashCode * 59 + this.ClientName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientName.GetHashCode();
+                }
                 if (this.ClientCountry != null)
-                    hashCode = hashCode * 59 + this.ClientCountry.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientCountry.GetHashCode();
+                }
                 if (this.ClientState != null)
-                    hashCode = hashCode * 59 + this.ClientState.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientState.GetHashCode();
+                }
                 if (this.ClientUrl != null)
-                    hashCode = hashCode * 59 + this.ClientUrl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ClientUrl.GetHashCode();
+                }
                 if (this.CreatedTime != null)
-                    hashCode = hashCode * 59 + this.CreatedTime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedTime.GetHashCode();
+                }
                 if (this.UpdatedTime != null)
-                    hashCode = hashCode * 59 + this.UpdatedTime.GetHashCode();
-                hashCode = hashCode * 59 + this.MapStatus.GetHashCode();
-                hashCode = hashCode * 59 + this.UniverseId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UpdatedTime.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MapStatus.GetHashCode();
+                hashCode = (hashCode * 59) + this.UniverseId.GetHashCode();
                 return hashCode;
             }
         }

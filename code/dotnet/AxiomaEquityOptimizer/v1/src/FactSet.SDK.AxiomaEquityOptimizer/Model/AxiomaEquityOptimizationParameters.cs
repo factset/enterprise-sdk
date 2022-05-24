@@ -90,7 +90,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AxiomaEquityOptimizationParameters {\n");
             sb.Append("  Strategy: ").Append(Strategy).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
@@ -127,8 +127,9 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         public bool Equals(AxiomaEquityOptimizationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Strategy == input.Strategy ||
@@ -162,13 +163,21 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Strategy != null)
-                    hashCode = hashCode * 59 + this.Strategy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Strategy.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Optimization != null)
-                    hashCode = hashCode * 59 + this.Optimization.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Optimization.GetHashCode();
+                }
                 if (this.Outputtypes != null)
-                    hashCode = hashCode * 59 + this.Outputtypes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Outputtypes.GetHashCode();
+                }
                 return hashCode;
             }
         }

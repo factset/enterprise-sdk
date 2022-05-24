@@ -52,6 +52,8 @@ import com.factset.sdk.IRNMeetings.JSON;
   MeetingDto.JSON_PROPERTY_ORGANIZER_ID,
   MeetingDto.JSON_PROPERTY_BODY,
   MeetingDto.JSON_PROPERTY_AVERAGE_RATING,
+  MeetingDto.JSON_PROPERTY_ALERT_ATTENDEES,
+  MeetingDto.JSON_PROPERTY_ALERT_AUTHOR,
   MeetingDto.JSON_PROPERTY_LOCATIONS,
   MeetingDto.JSON_PROPERTY_ATTENDEES,
   MeetingDto.JSON_PROPERTY_CUSTOM_FIELDS,
@@ -96,6 +98,12 @@ public class MeetingDto implements Serializable {
   public static final String JSON_PROPERTY_AVERAGE_RATING = "averageRating";
   private JsonNullable<Integer> averageRating = JsonNullable.<Integer>undefined();
 
+  public static final String JSON_PROPERTY_ALERT_ATTENDEES = "alertAttendees";
+  private Boolean alertAttendees;
+
+  public static final String JSON_PROPERTY_ALERT_AUTHOR = "alertAuthor";
+  private Boolean alertAuthor;
+
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
   private JsonNullable<java.util.List<LocationDto>> locations = JsonNullable.<java.util.List<LocationDto>>undefined();
 
@@ -114,6 +122,8 @@ public class MeetingDto implements Serializable {
   public static final String JSON_PROPERTY_RELATED_CONTACTS = "relatedContacts";
   private JsonNullable<java.util.List<java.util.UUID>> relatedContacts = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
+  public MeetingDto() { 
+  }
 
   public MeetingDto id(java.util.UUID id) {
     this.id = id;
@@ -345,7 +355,9 @@ public class MeetingDto implements Serializable {
    /**
    * Get organizer
    * @return organizer
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
@@ -462,6 +474,58 @@ public class MeetingDto implements Serializable {
 
   public void setAverageRating(Integer averageRating) {
     this.averageRating = JsonNullable.<Integer>of(averageRating);
+  }
+
+
+  public MeetingDto alertAttendees(Boolean alertAttendees) {
+    this.alertAttendees = alertAttendees;
+    return this;
+  }
+
+   /**
+   * Get alertAttendees
+   * @return alertAttendees
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ALERT_ATTENDEES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAlertAttendees() {
+    return alertAttendees;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALERT_ATTENDEES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAlertAttendees(Boolean alertAttendees) {
+    this.alertAttendees = alertAttendees;
+  }
+
+
+  public MeetingDto alertAuthor(Boolean alertAuthor) {
+    this.alertAuthor = alertAuthor;
+    return this;
+  }
+
+   /**
+   * Get alertAuthor
+   * @return alertAuthor
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ALERT_AUTHOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAlertAuthor() {
+    return alertAuthor;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALERT_AUTHOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAlertAuthor(Boolean alertAuthor) {
+    this.alertAuthor = alertAuthor;
   }
 
 
@@ -744,6 +808,8 @@ public class MeetingDto implements Serializable {
         Objects.equals(this.organizerId, meetingDto.organizerId) &&
         equalsNullable(this.body, meetingDto.body) &&
         equalsNullable(this.averageRating, meetingDto.averageRating) &&
+        Objects.equals(this.alertAttendees, meetingDto.alertAttendees) &&
+        Objects.equals(this.alertAuthor, meetingDto.alertAuthor) &&
         equalsNullable(this.locations, meetingDto.locations) &&
         equalsNullable(this.attendees, meetingDto.attendees) &&
         equalsNullable(this.customFields, meetingDto.customFields) &&
@@ -758,7 +824,7 @@ public class MeetingDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, hashCodeNullable(start), hashCodeNullable(end), hashCodeNullable(createdAt), authorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(organizer), organizerId, hashCodeNullable(body), hashCodeNullable(averageRating), hashCodeNullable(locations), hashCodeNullable(attendees), hashCodeNullable(customFields), hashCodeNullable(relatedSymbols), relatedRecords, hashCodeNullable(relatedContacts));
+    return Objects.hash(id, hashCodeNullable(start), hashCodeNullable(end), hashCodeNullable(createdAt), authorId, hashCodeNullable(title), hashCodeNullable(identifier), hashCodeNullable(organizer), organizerId, hashCodeNullable(body), hashCodeNullable(averageRating), alertAttendees, alertAuthor, hashCodeNullable(locations), hashCodeNullable(attendees), hashCodeNullable(customFields), hashCodeNullable(relatedSymbols), relatedRecords, hashCodeNullable(relatedContacts));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -783,6 +849,8 @@ public class MeetingDto implements Serializable {
     sb.append("    organizerId: ").append(toIndentedString(organizerId)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    averageRating: ").append(toIndentedString(averageRating)).append("\n");
+    sb.append("    alertAttendees: ").append(toIndentedString(alertAttendees)).append("\n");
+    sb.append("    alertAuthor: ").append(toIndentedString(alertAuthor)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
     sb.append("    attendees: ").append(toIndentedString(attendees)).append("\n");
     sb.append("    customFields: ").append(toIndentedString(customFields)).append("\n");

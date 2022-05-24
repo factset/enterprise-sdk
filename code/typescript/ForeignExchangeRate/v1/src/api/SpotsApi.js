@@ -20,7 +20,7 @@ import SpotsResponse from '../model/SpotsResponse';
 /**
 * Spots service.
 * @module api/SpotsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class SpotsApi {
 
@@ -71,7 +71,10 @@ export default class SpotsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SpotsResponse;
+
       return this.apiClient.callApi(
         '/foreign-exchange/v1/spots', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -87,7 +90,7 @@ export default class SpotsApi {
      * @param {String} opts.startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. 
      * @param {String} opts.endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available. 
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).    * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (default to 'D')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SpotsResponse}
+     * @return { Promise.< module:model/SpotsResponse > } a Promise, with data of type {@link module:model/SpotsResponse }
      */
     getSpots(ids, opts) {
       return this.getSpotsWithHttpInfo(ids, opts)
@@ -122,7 +125,10 @@ export default class SpotsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SpotsResponse;
+
       return this.apiClient.callApi(
         '/foreign-exchange/v1/spots', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -134,7 +140,7 @@ export default class SpotsApi {
      * Gets spots for a list of currency pairs
      * Gets FX Spot rates for a requested currency pair, date range, and frequency. The WM Company calculates daily standardized spot rates for global foreign exchange transactions, using rates provided by Reuters. These rates are recognized globally as the standard by banks, fund managers, and index compilers; increasingly these rates are also being used for benchmark currency trading. 
      * @param {module:model/SpotsRequest} spotsRequest Request object for Spots.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SpotsResponse}
+     * @return { Promise.< module:model/SpotsResponse > } a Promise, with data of type {@link module:model/SpotsResponse }
      */
     getSpotsForList(spotsRequest) {
       return this.getSpotsForListWithHttpInfo(spotsRequest)
@@ -145,3 +151,8 @@ export default class SpotsApi {
 
 
 }
+
+
+
+
+

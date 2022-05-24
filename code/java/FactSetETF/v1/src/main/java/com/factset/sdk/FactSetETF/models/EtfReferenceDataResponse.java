@@ -43,6 +43,8 @@ public class EtfReferenceDataResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EtfReferenceData> data = null;
 
+  public EtfReferenceDataResponse() { 
+  }
 
   public EtfReferenceDataResponse data(java.util.List<EtfReferenceData> data) {
     this.data = data;

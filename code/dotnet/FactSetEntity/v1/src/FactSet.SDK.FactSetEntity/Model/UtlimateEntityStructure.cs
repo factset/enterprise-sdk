@@ -117,7 +117,7 @@ namespace FactSet.SDK.FactSetEntity.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UtlimateEntityStructure {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  FsymEntityId: ").Append(FsymEntityId).Append("\n");
@@ -158,8 +158,9 @@ namespace FactSet.SDK.FactSetEntity.Model
         public bool Equals(UtlimateEntityStructure input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -211,19 +212,31 @@ namespace FactSet.SDK.FactSetEntity.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.FsymEntityId != null)
-                    hashCode = hashCode * 59 + this.FsymEntityId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymEntityId.GetHashCode();
+                }
                 if (this.UltimateParentId != null)
-                    hashCode = hashCode * 59 + this.UltimateParentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UltimateParentId.GetHashCode();
+                }
                 if (this.ParentEntityId != null)
-                    hashCode = hashCode * 59 + this.ParentEntityId.GetHashCode();
-                hashCode = hashCode * 59 + this.Level.GetHashCode();
-                hashCode = hashCode * 59 + this.Inactive.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentEntityId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                hashCode = (hashCode * 59) + this.Inactive.GetHashCode();
                 if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

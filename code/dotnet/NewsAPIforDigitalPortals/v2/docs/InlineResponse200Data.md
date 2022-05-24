@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Time** | **string** | Date and time of the news article. | [optional] 
 **Headline** | **string** | Headline of the news article represented as text with HTML entity encoding but without HTML tags. | [optional] 
+**Summary** | **string** | Textual summary of the body of the news article or &#x60;null&#x60; if no summary was provided by the news article distributor. | [optional] 
 **Body** | **string** | Text body of the news article. | [optional] 
 **Types** | [**List&lt;InlineResponse200DataTypes&gt;**](InlineResponse200DataTypes.md) | Types of news article. See endpoint &#x60;/news/article/type/list&#x60; for possible values. | [optional] 
 **Language** | [**InlineResponse200DataLanguage**](InlineResponse200DataLanguage.md) |  | [optional] 

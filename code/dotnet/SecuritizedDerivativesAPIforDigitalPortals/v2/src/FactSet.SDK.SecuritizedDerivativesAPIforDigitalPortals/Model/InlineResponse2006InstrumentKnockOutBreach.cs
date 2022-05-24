@@ -62,7 +62,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006InstrumentKnockOutBreach {\n");
             sb.Append("  Breached: ").Append(Breached).Append("\n");
             sb.Append("  Datetime: ").Append(Datetime).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006InstrumentKnockOutBreach input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Breached == input.Breached ||
@@ -120,9 +121,11 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Breached.GetHashCode();
+                hashCode = (hashCode * 59) + this.Breached.GetHashCode();
                 if (this.Datetime != null)
-                    hashCode = hashCode * 59 + this.Datetime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Datetime.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -17,7 +17,7 @@ import CalculationUnitStatus from './CalculationUnitStatus';
 /**
  * The CalculationStatus model module.
  * @module model/CalculationStatus
- * @version 0.8.1
+ * @version 0.8.2
  */
 class CalculationStatus {
     /**

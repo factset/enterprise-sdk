@@ -29,6 +29,7 @@ docs/Metrics.md
 docs/MetricsRequest.md
 docs/MetricsResponse.md
 docs/Periodicity.md
+docs/PeriodicityDetail.md
 docs/PeriodicitySurprise.md
 docs/RatingsApi.md
 docs/RollingConsensusRequest.md
@@ -81,6 +82,7 @@ fds/sdk/FactSetEstimates/model/metrics.py
 fds/sdk/FactSetEstimates/model/metrics_request.py
 fds/sdk/FactSetEstimates/model/metrics_response.py
 fds/sdk/FactSetEstimates/model/periodicity.py
+fds/sdk/FactSetEstimates/model/periodicity_detail.py
 fds/sdk/FactSetEstimates/model/periodicity_surprise.py
 fds/sdk/FactSetEstimates/model/rolling_consensus_request.py
 fds/sdk/FactSetEstimates/model/rolling_detail_request.py

@@ -17,7 +17,7 @@ import CompanyPeople from './CompanyPeople';
 /**
  * The CompanyPeopleResponse model module.
  * @module model/CompanyPeopleResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class CompanyPeopleResponse {
     /**

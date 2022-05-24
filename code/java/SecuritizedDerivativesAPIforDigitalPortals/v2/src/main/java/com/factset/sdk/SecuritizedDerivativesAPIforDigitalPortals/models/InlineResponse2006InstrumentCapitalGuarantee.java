@@ -53,6 +53,8 @@ public class InlineResponse2006InstrumentCapitalGuarantee implements Serializabl
   public static final String JSON_PROPERTY_CASH_FLOW = "cashFlow";
   private BigDecimal cashFlow;
 
+  public InlineResponse2006InstrumentCapitalGuarantee() { 
+  }
 
   public InlineResponse2006InstrumentCapitalGuarantee value(BigDecimal value) {
     this.value = value;

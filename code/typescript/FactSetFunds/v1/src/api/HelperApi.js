@@ -20,7 +20,7 @@ import StatusesResponse from '../model/StatusesResponse';
 /**
 * Helper service.
 * @module api/HelperApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class HelperApi {
 
@@ -63,7 +63,10 @@ export default class HelperApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = StatusesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class HelperApi {
      * Get Fund's current status and database availability
      * Get the funds active status, share class status, and database availability. Most common use is for coverage checks and id resolution checks. 
      * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StatusesResponse}
+     * @return { Promise.< module:model/StatusesResponse > } a Promise, with data of type {@link module:model/StatusesResponse }
      */
     getStatuses(ids) {
       return this.getStatusesWithHttpInfo(ids)
@@ -110,7 +113,10 @@ export default class HelperApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = StatusesResponse;
+
       return this.apiClient.callApi(
         '/factset-funds/v1/status', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -122,7 +128,7 @@ export default class HelperApi {
      * Get Fund's current status and database availability for large list of ids.
      * Get the funds active status, share class status, and database availability. Most common use is for coverage checks and id resolution checks. 
      * @param {module:model/StatusesRequest} statusesRequest The Statuses request body, allowing the user to specify a list of ids.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StatusesResponse}
+     * @return { Promise.< module:model/StatusesResponse > } a Promise, with data of type {@link module:model/StatusesResponse }
      */
     getStatusesForList(statusesRequest) {
       return this.getStatusesForListWithHttpInfo(statusesRequest)
@@ -133,3 +139,8 @@ export default class HelperApi {
 
 
 }
+
+
+
+
+

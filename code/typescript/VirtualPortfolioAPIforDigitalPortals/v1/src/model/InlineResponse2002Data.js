@@ -19,7 +19,7 @@ import InlineResponse2002Summary from './InlineResponse2002Summary';
 /**
  * The InlineResponse2002Data model module.
  * @module model/InlineResponse2002Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2002Data {
     /**

@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse200DataFsym from './InlineResponse200DataFsym';
 
 /**
  * The InlineResponse200DataInstruments model module.
  * @module model/InlineResponse200DataInstruments
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataInstruments {
     /**
@@ -50,6 +51,9 @@ class InlineResponse200DataInstruments {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse200DataFsym.constructFromObject(data['fsym']);
+            }
         }
         return obj;
     }
@@ -62,6 +66,11 @@ class InlineResponse200DataInstruments {
  * @member {String} id
  */
 InlineResponse200DataInstruments.prototype['id'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse200DataFsym} fsym
+ */
+InlineResponse200DataInstruments.prototype['fsym'] = undefined;
 
 
 

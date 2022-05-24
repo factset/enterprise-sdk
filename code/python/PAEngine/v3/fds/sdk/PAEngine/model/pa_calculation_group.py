@@ -25,8 +25,8 @@ from fds.sdk.PAEngine.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.PAEngine.exceptions import ApiAttributeError
 
 
@@ -77,6 +77,7 @@ class PACalculationGroup(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
+            'frequency': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -86,6 +87,7 @@ class PACalculationGroup(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'frequency': 'frequency',  # noqa: E501
     }
 
     read_only_vars = {
@@ -130,6 +132,7 @@ class PACalculationGroup(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): FactSet-defined or User-defined Group identifier.. [optional]  # noqa: E501
+            frequency (str): Grouping frequency. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -212,6 +215,7 @@ class PACalculationGroup(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): FactSet-defined or User-defined Group identifier.. [optional]  # noqa: E501
+            frequency (str): Grouping frequency. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

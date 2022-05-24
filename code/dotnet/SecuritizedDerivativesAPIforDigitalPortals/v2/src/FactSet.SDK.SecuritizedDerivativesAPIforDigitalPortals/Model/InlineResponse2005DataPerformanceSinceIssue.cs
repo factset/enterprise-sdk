@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataPerformanceSinceIssue {\n");
             sb.Append("  Ask: ").Append(Ask).Append("\n");
             sb.Append("  Bid: ").Append(Bid).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataPerformanceSinceIssue input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ask == input.Ask ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Ask != null)
-                    hashCode = hashCode * 59 + this.Ask.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ask.GetHashCode();
+                }
                 if (this.Bid != null)
-                    hashCode = hashCode * 59 + this.Bid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Bid.GetHashCode();
+                }
                 return hashCode;
             }
         }

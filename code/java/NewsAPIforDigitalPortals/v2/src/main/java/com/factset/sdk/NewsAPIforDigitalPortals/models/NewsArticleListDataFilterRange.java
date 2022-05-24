@@ -30,9 +30,9 @@ import com.factset.sdk.NewsAPIforDigitalPortals.JSON;
 
 
 /**
- * Time range for matching the news article&#39;s date. At most one of the attributes &#x60;start&#x60; or &#x60;end&#x60; may be null.
+ * Time range for matching the news article&#39;s date. At most one of the attributes &#x60;start&#x60; or &#x60;end&#x60; may be &#x60;null&#x60;.
  */
-@ApiModel(description = "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be null.")
+@ApiModel(description = "Time range for matching the news article's date. At most one of the attributes `start` or `end` may be `null`.")
 @JsonPropertyOrder({
   NewsArticleListDataFilterRange.JSON_PROPERTY_START,
   NewsArticleListDataFilterRange.JSON_PROPERTY_END
@@ -47,6 +47,18 @@ public class NewsArticleListDataFilterRange implements Serializable {
   public static final String JSON_PROPERTY_END = "end";
   private String end;
 
+  public NewsArticleListDataFilterRange() { 
+  }
+
+  @JsonCreator
+  public NewsArticleListDataFilterRange(
+    @JsonProperty(value=JSON_PROPERTY_START, required=true) String start, 
+    @JsonProperty(value=JSON_PROPERTY_END, required=true) String end
+  ) {
+    this();
+    this.start = start;
+    this.end = end;
+  }
 
   public NewsArticleListDataFilterRange start(String start) {
     this.start = start;

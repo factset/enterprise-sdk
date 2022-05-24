@@ -47,6 +47,16 @@ public class PubDateParameters implements Serializable {
   public static final String JSON_PROPERTY_ENDDATE = "enddate";
   private String enddate;
 
+  public PubDateParameters() { 
+  }
+
+  @JsonCreator
+  public PubDateParameters(
+    @JsonProperty(value=JSON_PROPERTY_ENDDATE, required=true) String enddate
+  ) {
+    this();
+    this.enddate = enddate;
+  }
 
   public PubDateParameters startdate(String startdate) {
     this.startdate = startdate;

@@ -81,7 +81,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConstraintAction {\n");
             sb.Append("  Item1: ").Append(Item1).Append("\n");
             sb.Append("  Item2: ").Append(Item2).Append("\n");
@@ -116,8 +116,9 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         public bool Equals(ConstraintAction input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Item1 == input.Item1 ||
@@ -140,8 +141,10 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Item1 != null)
-                    hashCode = hashCode * 59 + this.Item1.GetHashCode();
-                hashCode = hashCode * 59 + this.Item2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Item1.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Item2.GetHashCode();
                 return hashCode;
             }
         }

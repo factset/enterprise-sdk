@@ -20,7 +20,7 @@ import RedemptionPricesResponse from '../model/RedemptionPricesResponse';
 /**
 * Redemptions service.
 * @module api/RedemptionsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class RedemptionsApi {
 
@@ -69,7 +69,10 @@ export default class RedemptionsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = RedemptionPricesResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/redemption-prices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -82,7 +85,7 @@ export default class RedemptionsApi {
      * Returns Redemption Prices for the Fixed Income security. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
      * @param {module:model/String} categories Filters the list of Redemption Prices Categories -   * **CALL** = Call prices.   * **PUT** = Put prices.   * **SF** = Sinking Fund prices. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RedemptionPricesResponse}
+     * @return { Promise.< module:model/RedemptionPricesResponse > } a Promise, with data of type {@link module:model/RedemptionPricesResponse }
      */
     getFixedIncomeRedemptionPrices(ids, categories) {
       return this.getFixedIncomeRedemptionPricesWithHttpInfo(ids, categories)
@@ -117,7 +120,10 @@ export default class RedemptionsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = RedemptionPricesResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/redemption-prices', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -129,7 +135,7 @@ export default class RedemptionsApi {
      * Return Redemption Prices for a list of Fixed Income securities.
      * Returns Redemption Prices for a list of Fixed Income securities. 
      * @param {module:model/RedemptionPricesRequest} redemptionPricesRequest Request object for Fixed Income Redemption Prices.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RedemptionPricesResponse}
+     * @return { Promise.< module:model/RedemptionPricesResponse > } a Promise, with data of type {@link module:model/RedemptionPricesResponse }
      */
     getFixedIncomeRedemptionPricesForList(redemptionPricesRequest) {
       return this.getFixedIncomeRedemptionPricesForListWithHttpInfo(redemptionPricesRequest)
@@ -140,3 +146,8 @@ export default class RedemptionsApi {
 
 
 }
+
+
+
+
+

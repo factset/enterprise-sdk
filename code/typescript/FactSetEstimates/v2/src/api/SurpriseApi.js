@@ -20,7 +20,7 @@ import SurpriseResponse from '../model/SurpriseResponse';
 /**
 * Surprise service.
 * @module api/SurpriseApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class SurpriseApi {
 
@@ -83,7 +83,10 @@ export default class SurpriseApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = SurpriseResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/surprise', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -103,7 +106,7 @@ export default class SurpriseApi {
      * @param {module:model/String} opts.periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (default to 'ANN')
      * @param {module:model/String} opts.statistic Statistic for consensus calculation. (default to 'MEAN')
      * @param {String} opts.currency Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SurpriseResponse}
+     * @return { Promise.< module:model/SurpriseResponse > } a Promise, with data of type {@link module:model/SurpriseResponse }
      */
     getSurprise(ids, metrics, opts) {
       return this.getSurpriseWithHttpInfo(ids, metrics, opts)
@@ -138,7 +141,10 @@ export default class SurpriseApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = SurpriseResponse;
+
       return this.apiClient.callApi(
         '/factset-estimates/v2/surprise', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -150,7 +156,7 @@ export default class SurpriseApi {
      * Surprise estimates for rolling fiscal periods
      * Returns FactSet Estimates surprise data using rolling fiscal dates. 
      * @param {module:model/SurpriseRequest} surpriseRequest Request object for `Security` prices.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SurpriseResponse}
+     * @return { Promise.< module:model/SurpriseResponse > } a Promise, with data of type {@link module:model/SurpriseResponse }
      */
     getSurpriseForList(surpriseRequest) {
       return this.getSurpriseForListWithHttpInfo(surpriseRequest)
@@ -161,3 +167,8 @@ export default class SurpriseApi {
 
 
 }
+
+
+
+
+

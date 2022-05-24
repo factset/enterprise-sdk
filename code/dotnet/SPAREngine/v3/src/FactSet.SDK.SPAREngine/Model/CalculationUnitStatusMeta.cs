@@ -54,7 +54,7 @@ namespace FactSet.SDK.SPAREngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationUnitStatusMeta {\n");
             sb.Append("  Info: ").Append(Info).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.SDK.SPAREngine.Model
         public bool Equals(CalculationUnitStatusMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Info == input.Info ||
@@ -108,7 +109,9 @@ namespace FactSet.SDK.SPAREngine.Model
             {
                 int hashCode = 41;
                 if (this.Info != null)
-                    hashCode = hashCode * 59 + this.Info.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Info.GetHashCode();
+                }
                 return hashCode;
             }
         }

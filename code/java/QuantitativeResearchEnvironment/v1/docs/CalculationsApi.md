@@ -27,14 +27,13 @@ import com.factset.sdk.QuantitativeResearchEnvironment.ApiClient;
 import com.factset.sdk.QuantitativeResearchEnvironment.ApiException;
 import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.auth.*;
-import com.factset.sdk.QuantitativeResearchEnvironment.model.*;
+import com.factset.sdk.QuantitativeResearchEnvironment.models.*;
 import com.factset.sdk.QuantitativeResearchEnvironment.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -44,20 +43,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         String id = "id_example"; // String | From url, provided by location header or response body in the calculation start endpoint
         try {
             CalculationStatus result = apiInstance.analyticsQuantQreV1CalculationsIdGet(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#analyticsQuantQreV1CalculationsIdGet");
             System.err.println("Status code: " + e.getCode());
@@ -114,14 +114,13 @@ import com.factset.sdk.QuantitativeResearchEnvironment.ApiClient;
 import com.factset.sdk.QuantitativeResearchEnvironment.ApiException;
 import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.auth.*;
-import com.factset.sdk.QuantitativeResearchEnvironment.model.*;
+import com.factset.sdk.QuantitativeResearchEnvironment.models.*;
 import com.factset.sdk.QuantitativeResearchEnvironment.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -131,20 +130,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         String id = "id_example"; // String | From url, provided by location header or response body in the calculation start endpoint
         try {
             File result = apiInstance.analyticsQuantQreV1CalculationsIdLogGet(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#analyticsQuantQreV1CalculationsIdLogGet");
             System.err.println("Status code: " + e.getCode());
@@ -201,14 +201,13 @@ import com.factset.sdk.QuantitativeResearchEnvironment.ApiClient;
 import com.factset.sdk.QuantitativeResearchEnvironment.ApiException;
 import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.auth.*;
-import com.factset.sdk.QuantitativeResearchEnvironment.model.*;
+import com.factset.sdk.QuantitativeResearchEnvironment.models.*;
 import com.factset.sdk.QuantitativeResearchEnvironment.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -218,20 +217,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         String id = "id_example"; // String | From url, provided by location header or response body in the calculation start endpoint
         try {
             File result = apiInstance.analyticsQuantQreV1CalculationsIdOutputGet(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#analyticsQuantQreV1CalculationsIdOutputGet");
             System.err.println("Status code: " + e.getCode());
@@ -288,14 +288,13 @@ import com.factset.sdk.QuantitativeResearchEnvironment.ApiClient;
 import com.factset.sdk.QuantitativeResearchEnvironment.ApiException;
 import com.factset.sdk.QuantitativeResearchEnvironment.Configuration;
 import com.factset.sdk.QuantitativeResearchEnvironment.auth.*;
-import com.factset.sdk.QuantitativeResearchEnvironment.model.*;
+import com.factset.sdk.QuantitativeResearchEnvironment.models.*;
 import com.factset.sdk.QuantitativeResearchEnvironment.api.CalculationsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -305,20 +304,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CalculationsApi apiInstance = new CalculationsApi(defaultClient);
         Calculation calculation = new Calculation(); // Calculation | 
         try {
             CalculationStatus result = apiInstance.analyticsQuantQreV1CalculationsPost(calculation);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CalculationsApi#analyticsQuantQreV1CalculationsPost");
             System.err.println("Status code: " + e.getCode());

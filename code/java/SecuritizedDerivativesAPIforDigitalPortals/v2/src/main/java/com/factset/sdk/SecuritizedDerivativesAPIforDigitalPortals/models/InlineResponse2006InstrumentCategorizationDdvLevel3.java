@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentCategorizationDdvLevel3 implements Seri
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2006InstrumentCategorizationDdvLevel3() { 
+  }
 
   public InlineResponse2006InstrumentCategorizationDdvLevel3 id(BigDecimal id) {
     this.id = id;

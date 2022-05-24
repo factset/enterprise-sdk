@@ -18,7 +18,7 @@ import InlineResponse20054DataInterestRateCurrentType from './InlineResponse2005
 /**
  * The InlineResponse20054DataInterestRateCurrent model module.
  * @module model/InlineResponse20054DataInterestRateCurrent
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20054DataInterestRateCurrent {
     /**

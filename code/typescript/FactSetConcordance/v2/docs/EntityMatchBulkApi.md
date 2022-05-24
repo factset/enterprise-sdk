@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntityDecisions(taskId, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -139,6 +140,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -226,6 +228,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntityTaskStatus(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

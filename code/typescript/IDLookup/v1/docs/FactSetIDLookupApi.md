@@ -47,6 +47,7 @@ const lookupRequest = new idlookup.LookupRequest(); // LookupRequest | Post body
 // Call api endpoint
 apiInstance.searchCompanyname(lookupRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

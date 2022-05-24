@@ -24,7 +24,6 @@ src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/ApiClient.java
 src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/ApiException.java
 src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/ApiResponse.java
 src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/Configuration.java
-src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/JSON.java
 src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/QuantitativeResearchEnvironment/Pair.java

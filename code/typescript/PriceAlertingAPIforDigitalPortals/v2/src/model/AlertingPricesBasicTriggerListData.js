@@ -17,7 +17,7 @@ import AlertingPricesBasicTriggerListDataFilter from './AlertingPricesBasicTrigg
 /**
  * The AlertingPricesBasicTriggerListData model module.
  * @module model/AlertingPricesBasicTriggerListData
- * @version 0.9.1
+ * @version 0.10.0
  */
 class AlertingPricesBasicTriggerListData {
     /**

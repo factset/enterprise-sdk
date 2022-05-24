@@ -2570,6 +2570,7 @@ paths:
         response-type: CalculationStatusRoot
       - status-code: "201"
         response-type: ObjectRoot
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/vault/v3/calculations/{id}:
@@ -3616,6 +3617,7 @@ paths:
         response-type: CalculationStatusRoot
       - status-code: "201"
         response-type: ObjectRoot
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /analytics/engines/vault/v3/calculations/{id}/status:

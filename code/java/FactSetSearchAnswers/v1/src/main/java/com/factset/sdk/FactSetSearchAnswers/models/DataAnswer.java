@@ -42,6 +42,16 @@ public class DataAnswer implements Serializable {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private String template;
 
+  public DataAnswer() { 
+  }
+
+  @JsonCreator
+  public DataAnswer(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE, required=true) String template
+  ) {
+    this();
+    this.template = template;
+  }
 
   public DataAnswer template(String template) {
     this.template = template;

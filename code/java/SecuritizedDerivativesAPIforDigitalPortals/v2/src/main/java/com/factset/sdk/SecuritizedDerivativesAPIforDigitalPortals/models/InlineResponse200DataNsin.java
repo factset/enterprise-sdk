@@ -47,6 +47,8 @@ public class InlineResponse200DataNsin implements Serializable {
   public static final String JSON_PROPERTY_VALOR = "valor";
   private String valor;
 
+  public InlineResponse200DataNsin() { 
+  }
 
   public InlineResponse200DataNsin wkn(String wkn) {
     this.wkn = wkn;

@@ -42,6 +42,8 @@ public class PACalculationGroup implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public PACalculationGroup() { 
+  }
 
   public PACalculationGroup id(String id) {
     this.id = id;

@@ -66,6 +66,8 @@ public class RelatedFunds implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public RelatedFunds() { 
+  }
 
   public RelatedFunds fsymId(String fsymId) {
     this.fsymId = fsymId;

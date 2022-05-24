@@ -49,6 +49,8 @@ public class InlineResponse2005DataKeyFiguresThetaOneWeek implements Serializabl
   public static final String JSON_PROPERTY_UNADJUSTED = "unadjusted";
   private InlineResponse2005DataKeyFiguresThetaOneWeekUnadjusted unadjusted;
 
+  public InlineResponse2005DataKeyFiguresThetaOneWeek() { 
+  }
 
   public InlineResponse2005DataKeyFiguresThetaOneWeek effective(InlineResponse2005DataKeyFiguresThetaOneWeekEffective effective) {
     this.effective = effective;

@@ -7,6 +7,4 @@
 
 * `SEVENDAY` (value: `"SEVENDAY"`)
 
-* `LOCAL` (value: `"LOCAL"`)
-
 

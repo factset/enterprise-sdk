@@ -79,7 +79,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004Accumulated {\n");
             sb.Append("  NumberTrades: ").Append(NumberTrades).Append("\n");
             sb.Append("  TradingVolume: ").Append(TradingVolume).Append("\n");
@@ -116,8 +116,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004Accumulated input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.NumberTrades == input.NumberTrades ||
@@ -147,11 +148,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.NumberTrades.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingVolume.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberTrades.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 return hashCode;
             }
         }

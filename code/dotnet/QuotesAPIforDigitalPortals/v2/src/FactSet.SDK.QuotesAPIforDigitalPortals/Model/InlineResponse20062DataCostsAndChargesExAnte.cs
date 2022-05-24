@@ -140,7 +140,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataCostsAndChargesExAnte {\n");
             sb.Append("  OneOffEntryCost: ").Append(OneOffEntryCost).Append("\n");
             sb.Append("  Italy: ").Append(Italy).Append("\n");
@@ -185,8 +185,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataCostsAndChargesExAnte input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.OneOffEntryCost == input.OneOffEntryCost ||
@@ -260,29 +261,53 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.OneOffEntryCost != null)
-                    hashCode = hashCode * 59 + this.OneOffEntryCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffEntryCost.GetHashCode();
+                }
                 if (this.Italy != null)
-                    hashCode = hashCode * 59 + this.Italy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Italy.GetHashCode();
+                }
                 if (this.OneOffMaximumAcquiredEntryCost != null)
-                    hashCode = hashCode * 59 + this.OneOffMaximumAcquiredEntryCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffMaximumAcquiredEntryCost.GetHashCode();
+                }
                 if (this.OneOffMaximumExitCost != null)
-                    hashCode = hashCode * 59 + this.OneOffMaximumExitCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffMaximumExitCost.GetHashCode();
+                }
                 if (this.OneOffMaximumAcquiredExitCost != null)
-                    hashCode = hashCode * 59 + this.OneOffMaximumAcquiredExitCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffMaximumAcquiredExitCost.GetHashCode();
+                }
                 if (this.OneOffTypicalExitCost != null)
-                    hashCode = hashCode * 59 + this.OneOffTypicalExitCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffTypicalExitCost.GetHashCode();
+                }
                 if (this.OneOffPriorRHPExitCost != null)
-                    hashCode = hashCode * 59 + this.OneOffPriorRHPExitCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffPriorRHPExitCost.GetHashCode();
+                }
                 if (this.OngoingCosts != null)
-                    hashCode = hashCode * 59 + this.OngoingCosts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OngoingCosts.GetHashCode();
+                }
                 if (this.ManagementFee != null)
-                    hashCode = hashCode * 59 + this.ManagementFee.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ManagementFee.GetHashCode();
+                }
                 if (this.DistributionFee != null)
-                    hashCode = hashCode * 59 + this.DistributionFee.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.DistributionFee.GetHashCode();
+                }
                 if (this.TransactionCosts != null)
-                    hashCode = hashCode * 59 + this.TransactionCosts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransactionCosts.GetHashCode();
+                }
                 if (this.IncidentalCosts != null)
-                    hashCode = hashCode * 59 + this.IncidentalCosts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.IncidentalCosts.GetHashCode();
+                }
                 return hashCode;
             }
         }

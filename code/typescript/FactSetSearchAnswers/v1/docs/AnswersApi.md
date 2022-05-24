@@ -52,6 +52,7 @@ const opts = {
 // Call api endpoint
 apiInstance.searchForAdaptiveCardAnswer(query, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -125,6 +126,7 @@ const query = "query_example"; // String | Query for desired answer (e.g., \"fds
 // Call api endpoint
 apiInstance.searchForDataAnswer(query).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

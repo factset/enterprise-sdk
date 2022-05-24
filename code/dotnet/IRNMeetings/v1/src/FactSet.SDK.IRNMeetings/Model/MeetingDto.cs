@@ -45,13 +45,15 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <param name="organizerId">organizerId.</param>
         /// <param name="body">body.</param>
         /// <param name="averageRating">averageRating.</param>
+        /// <param name="alertAttendees">alertAttendees.</param>
+        /// <param name="alertAuthor">alertAuthor.</param>
         /// <param name="locations">locations.</param>
         /// <param name="attendees">attendees.</param>
         /// <param name="customFields">customFields.</param>
         /// <param name="relatedSymbols">relatedSymbols.</param>
         /// <param name="relatedRecords">relatedRecords.</param>
         /// <param name="relatedContacts">relatedContacts.</param>
-        public MeetingDto(Guid id = default(Guid), string start = default(string), string end = default(string), string createdAt = default(string), Guid authorId = default(Guid), string title = default(string), string identifier = default(string), string organizer = default(string), Guid organizerId = default(Guid), string body = default(string), int? averageRating = default(int?), List<LocationDto> locations = default(List<LocationDto>), List<AttendeeDto> attendees = default(List<AttendeeDto>), List<CustomFieldValueDto> customFields = default(List<CustomFieldValueDto>), List<string> relatedSymbols = default(List<string>), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<Guid> relatedContacts = default(List<Guid>))
+        public MeetingDto(Guid id = default(Guid), string start = default(string), string end = default(string), string createdAt = default(string), Guid authorId = default(Guid), string title = default(string), string identifier = default(string), string organizer = default(string), Guid organizerId = default(Guid), string body = default(string), int? averageRating = default(int?), bool alertAttendees = default(bool), bool alertAuthor = default(bool), List<LocationDto> locations = default(List<LocationDto>), List<AttendeeDto> attendees = default(List<AttendeeDto>), List<CustomFieldValueDto> customFields = default(List<CustomFieldValueDto>), List<string> relatedSymbols = default(List<string>), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<Guid> relatedContacts = default(List<Guid>))
         {
             this.Id = id;
             this.Start = start;
@@ -64,6 +66,8 @@ namespace FactSet.SDK.IRNMeetings.Model
             this.OrganizerId = organizerId;
             this.Body = body;
             this.AverageRating = averageRating;
+            this.AlertAttendees = alertAttendees;
+            this.AlertAuthor = alertAuthor;
             this.Locations = locations;
             this.Attendees = attendees;
             this.CustomFields = customFields;
@@ -118,6 +122,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// Gets or Sets Organizer
         /// </summary>
         [DataMember(Name = "organizer", EmitDefaultValue = true)]
+        [Obsolete]
         public string Organizer { get; set; }
 
         /// <summary>
@@ -137,6 +142,18 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// </summary>
         [DataMember(Name = "averageRating", EmitDefaultValue = true)]
         public int? AverageRating { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AlertAttendees
+        /// </summary>
+        [DataMember(Name = "alertAttendees", EmitDefaultValue = true)]
+        public bool AlertAttendees { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AlertAuthor
+        /// </summary>
+        [DataMember(Name = "alertAuthor", EmitDefaultValue = true)]
+        public bool AlertAuthor { get; set; }
 
         /// <summary>
         /// Gets or Sets Locations
@@ -180,7 +197,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MeetingDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
@@ -193,6 +210,8 @@ namespace FactSet.SDK.IRNMeetings.Model
             sb.Append("  OrganizerId: ").Append(OrganizerId).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  AverageRating: ").Append(AverageRating).Append("\n");
+            sb.Append("  AlertAttendees: ").Append(AlertAttendees).Append("\n");
+            sb.Append("  AlertAuthor: ").Append(AlertAuthor).Append("\n");
             sb.Append("  Locations: ").Append(Locations).Append("\n");
             sb.Append("  Attendees: ").Append(Attendees).Append("\n");
             sb.Append("  CustomFields: ").Append(CustomFields).Append("\n");
@@ -230,8 +249,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(MeetingDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -289,6 +309,14 @@ namespace FactSet.SDK.IRNMeetings.Model
                     this.AverageRating.Equals(input.AverageRating))
                 ) && 
                 (
+                    this.AlertAttendees == input.AlertAttendees ||
+                    this.AlertAttendees.Equals(input.AlertAttendees)
+                ) && 
+                (
+                    this.AlertAuthor == input.AlertAuthor ||
+                    this.AlertAuthor.Equals(input.AlertAuthor)
+                ) && 
+                (
                     this.Locations == input.Locations ||
                     this.Locations != null &&
                     input.Locations != null &&
@@ -335,39 +363,75 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Start != null)
-                    hashCode = hashCode * 59 + this.Start.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
+                }
                 if (this.End != null)
-                    hashCode = hashCode * 59 + this.End.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.End.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.Identifier != null)
-                    hashCode = hashCode * 59 + this.Identifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Identifier.GetHashCode();
+                }
                 if (this.Organizer != null)
-                    hashCode = hashCode * 59 + this.Organizer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Organizer.GetHashCode();
+                }
                 if (this.OrganizerId != null)
-                    hashCode = hashCode * 59 + this.OrganizerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OrganizerId.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.AverageRating != null)
-                    hashCode = hashCode * 59 + this.AverageRating.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AverageRating.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.AlertAttendees.GetHashCode();
+                hashCode = (hashCode * 59) + this.AlertAuthor.GetHashCode();
                 if (this.Locations != null)
-                    hashCode = hashCode * 59 + this.Locations.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Locations.GetHashCode();
+                }
                 if (this.Attendees != null)
-                    hashCode = hashCode * 59 + this.Attendees.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attendees.GetHashCode();
+                }
                 if (this.CustomFields != null)
-                    hashCode = hashCode * 59 + this.CustomFields.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CustomFields.GetHashCode();
+                }
                 if (this.RelatedSymbols != null)
-                    hashCode = hashCode * 59 + this.RelatedSymbols.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedSymbols.GetHashCode();
+                }
                 if (this.RelatedRecords != null)
-                    hashCode = hashCode * 59 + this.RelatedRecords.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedRecords.GetHashCode();
+                }
                 if (this.RelatedContacts != null)
-                    hashCode = hashCode * 59 + this.RelatedContacts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedContacts.GetHashCode();
+                }
                 return hashCode;
             }
         }

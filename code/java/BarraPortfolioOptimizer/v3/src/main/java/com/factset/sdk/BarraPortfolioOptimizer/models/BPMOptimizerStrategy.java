@@ -47,6 +47,16 @@ public class BPMOptimizerStrategy implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public BPMOptimizerStrategy() { 
+  }
+
+  @JsonCreator
+  public BPMOptimizerStrategy(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public BPMOptimizerStrategy overrides(BPMOptimizerStrategyOverrides overrides) {
     this.overrides = overrides;

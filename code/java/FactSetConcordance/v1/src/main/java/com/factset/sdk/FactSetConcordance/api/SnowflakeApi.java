@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetConcordance.Configuration;
 import com.factset.sdk.FactSetConcordance.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetConcordance.models.SnowflakeEntityMatchRequest;
 import com.factset.sdk.FactSetConcordance.models.SnowflakeEntityMatchResponse;
@@ -22,6 +25,18 @@ public class SnowflakeApi {
   public SnowflakeApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSnowflakeEntityMatchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSnowflakeEntityMatchResponseTypeMap.put(200, new GenericType<SnowflakeEntityMatchResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSnowflakeEntityMatchForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSnowflakeEntityMatchForListResponseTypeMap.put(200, new GenericType<SnowflakeEntityMatchResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -112,11 +127,17 @@ public class SnowflakeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SnowflakeEntityMatchResponse> localVarReturnType = new GenericType<SnowflakeEntityMatchResponse>() {};
 
-    return apiClient.invokeAPI("SnowflakeApi.getSnowflakeEntityMatch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SnowflakeEntityMatchResponse
+      
+    > apiResponse = apiClient.invokeAPI("SnowflakeApi.getSnowflakeEntityMatch", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSnowflakeEntityMatchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Perform an entity search and return a snowflake-friendly response. Up to 25 Names per request.
@@ -179,10 +200,16 @@ public class SnowflakeApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SnowflakeEntityMatchResponse> localVarReturnType = new GenericType<SnowflakeEntityMatchResponse>() {};
 
-    return apiClient.invokeAPI("SnowflakeApi.getSnowflakeEntityMatchForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SnowflakeEntityMatchResponse
+      
+    > apiResponse = apiClient.invokeAPI("SnowflakeApi.getSnowflakeEntityMatchForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSnowflakeEntityMatchForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

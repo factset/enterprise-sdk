@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetRBICS.Configuration;
 import com.factset.sdk.FactSetRBICS.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetRBICS.models.ErrorResponse;
 import com.factset.sdk.FactSetRBICS.models.StructureRequest;
@@ -23,6 +26,28 @@ public class StructureApi {
   public StructureApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getRbicsStructureResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsStructureResponseTypeMap.put(200, new GenericType<StructureResponse>(){});
+    getRbicsStructureResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRbicsStructureResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRbicsStructureResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRbicsStructureResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRbicsStructureResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getRbicsStructureForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsStructureForListResponseTypeMap.put(200, new GenericType<StructureResponse>(){});
+    getRbicsStructureForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRbicsStructureForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRbicsStructureForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRbicsStructureForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRbicsStructureForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -118,11 +143,17 @@ public class StructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<StructureResponse> localVarReturnType = new GenericType<StructureResponse>() {};
 
-    return apiClient.invokeAPI("StructureApi.getRbicsStructure", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        StructureResponse
+      
+    > apiResponse = apiClient.invokeAPI("StructureApi.getRbicsStructure", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRbicsStructureResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
@@ -195,10 +226,16 @@ public class StructureApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<StructureResponse> localVarReturnType = new GenericType<StructureResponse>() {};
 
-    return apiClient.invokeAPI("StructureApi.getRbicsStructureForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        StructureResponse
+      
+    > apiResponse = apiClient.invokeAPI("StructureApi.getRbicsStructureForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getRbicsStructureForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

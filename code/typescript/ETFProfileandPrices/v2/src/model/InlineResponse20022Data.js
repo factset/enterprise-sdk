@@ -16,11 +16,12 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20022Data model module.
  * @module model/InlineResponse20022Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20022Data {
     /**
      * Constructs a new <code>InlineResponse20022Data</code>.
+     * Fund flows (i.e., the amount invested or divested from a fund) based on the creation/redemption process. The data returned may not be related to overall volume or price movement. All fund flow inputs use transaction-day values to ensure that all assets under management (AUM) and flows are fully comparable and reflective of the same, verified market conditions. This data is available for all the regions.
      * @alias module:model/InlineResponse20022Data
      */
     constructor() { 
@@ -47,26 +48,20 @@ class InlineResponse20022Data {
         if (data) {
             obj = obj || new InlineResponse20022Data();
 
-            if (data.hasOwnProperty('navDate')) {
-                obj['navDate'] = ApiClient.convertToType(data['navDate'], 'Date');
+            if (data.hasOwnProperty('flows1D')) {
+                obj['flows1D'] = ApiClient.convertToType(data['flows1D'], 'Number');
             }
-            if (data.hasOwnProperty('nav')) {
-                obj['nav'] = ApiClient.convertToType(data['nav'], 'Number');
+            if (data.hasOwnProperty('flows1W')) {
+                obj['flows1W'] = ApiClient.convertToType(data['flows1W'], 'Number');
             }
-            if (data.hasOwnProperty('navChange')) {
-                obj['navChange'] = ApiClient.convertToType(data['navChange'], 'Number');
+            if (data.hasOwnProperty('flows1M')) {
+                obj['flows1M'] = ApiClient.convertToType(data['flows1M'], 'Number');
             }
-            if (data.hasOwnProperty('navChangePercent')) {
-                obj['navChangePercent'] = ApiClient.convertToType(data['navChangePercent'], 'Number');
+            if (data.hasOwnProperty('flowsYTD')) {
+                obj['flowsYTD'] = ApiClient.convertToType(data['flowsYTD'], 'Number');
             }
-            if (data.hasOwnProperty('fundFlows')) {
-                obj['fundFlows'] = ApiClient.convertToType(data['fundFlows'], 'Number');
-            }
-            if (data.hasOwnProperty('sharesOutstanding')) {
-                obj['sharesOutstanding'] = ApiClient.convertToType(data['sharesOutstanding'], 'Number');
-            }
-            if (data.hasOwnProperty('aum')) {
-                obj['aum'] = ApiClient.convertToType(data['aum'], 'Number');
+            if (data.hasOwnProperty('flows1Y')) {
+                obj['flows1Y'] = ApiClient.convertToType(data['flows1Y'], 'Number');
             }
         }
         return obj;
@@ -76,46 +71,34 @@ class InlineResponse20022Data {
 }
 
 /**
- * Historice NAV date value.
- * @member {Date} navDate
+ * One-day fund flows. This data is available for all the regions.
+ * @member {Number} flows1D
  */
-InlineResponse20022Data.prototype['navDate'] = undefined;
+InlineResponse20022Data.prototype['flows1D'] = undefined;
 
 /**
- * Returns historic Net Asset Value of the ETP.
- * @member {Number} nav
+ * One-week fund flows. This data is available for all the regions.
+ * @member {Number} flows1W
  */
-InlineResponse20022Data.prototype['nav'] = undefined;
+InlineResponse20022Data.prototype['flows1W'] = undefined;
 
 /**
- * Absolute change in NAV value.
- * @member {Number} navChange
+ * One-month fund flows. This data is available for all the regions.
+ * @member {Number} flows1M
  */
-InlineResponse20022Data.prototype['navChange'] = undefined;
+InlineResponse20022Data.prototype['flows1M'] = undefined;
 
 /**
- * Related change in the NAV value.
- * @member {Number} navChangePercent
+ * Year-to-date fund flows. This data is available for all the regions.
+ * @member {Number} flowsYTD
  */
-InlineResponse20022Data.prototype['navChangePercent'] = undefined;
+InlineResponse20022Data.prototype['flowsYTD'] = undefined;
 
 /**
- * This value returns factset's ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close.
- * @member {Number} fundFlows
+ * One-year fund flows. This data is available for all the regions.
+ * @member {Number} flows1Y
  */
-InlineResponse20022Data.prototype['fundFlows'] = undefined;
-
-/**
- * Returns the historic share Outstanding values of the ETP.
- * @member {Number} sharesOutstanding
- */
-InlineResponse20022Data.prototype['sharesOutstanding'] = undefined;
-
-/**
- * Returns the historic Total Asset Value of the ETP.
- * @member {Number} aum
- */
-InlineResponse20022Data.prototype['aum'] = undefined;
+InlineResponse20022Data.prototype['flows1Y'] = undefined;
 
 
 

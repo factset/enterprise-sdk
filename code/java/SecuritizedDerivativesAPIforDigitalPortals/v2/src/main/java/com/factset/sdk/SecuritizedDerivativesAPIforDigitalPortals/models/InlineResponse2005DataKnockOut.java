@@ -59,6 +59,8 @@ public class InlineResponse2005DataKnockOut implements Serializable {
   public static final String JSON_PROPERTY_BREACHED = "breached";
   private java.util.List<InlineResponse2005DataLifeCycleMaturityPerpetual> breached = null;
 
+  public InlineResponse2005DataKnockOut() { 
+  }
 
   public InlineResponse2005DataKnockOut observation(java.util.List<InlineResponse2005DataKnockOutObservation> observation) {
     this.observation = observation;

@@ -14,25 +14,24 @@ Method | HTTP request | Description
 
 Returns the requestId and status
 
-Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Shenzhen OR Shanghai - 300782-SHE, 300792-SHE</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
+Try it Out - references a Sandbox environment to simulate live reponses.</p> **In Sandbox** data available from 20210101 to 20210131. Current date data is not available.</p> PROD has data from 20120101 to current date &</p> **available IDs is limited to..**</p> US Equity - IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE - HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX, COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
 
 ### Example
 
 ```java
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 // Import classes:
 import com.factset.sdk.FactSetTickHistory.ApiClient;
 import com.factset.sdk.FactSetTickHistory.ApiException;
 import com.factset.sdk.FactSetTickHistory.Configuration;
 import com.factset.sdk.FactSetTickHistory.auth.*;
-import com.factset.sdk.FactSetTickHistory.model.*;
+import com.factset.sdk.FactSetTickHistory.models.*;
 import com.factset.sdk.FactSetTickHistory.api.RequestFilesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -42,14 +41,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         RequestFilesApi apiInstance = new RequestFilesApi(defaultClient);
         LocalDate startDate = LocalDate.parse("2021-01-01"); // LocalDate | The date for (or from which) the data is required</p> **In Sandbox, data available from 1st to 31st Jan'21 only**
@@ -60,6 +59,7 @@ public class Example {
         try {
             RequestFilesResponse result = apiInstance.v1RequestFilesGet(startDate, endDate, ticker, isoCode, fields);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling RequestFilesApi#v1RequestFilesGet");
             System.err.println("Status code: " + e.getCode());

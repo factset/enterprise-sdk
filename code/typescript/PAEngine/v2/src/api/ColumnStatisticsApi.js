@@ -18,7 +18,7 @@ import ColumnStatistic from '../model/ColumnStatistic';
 /**
 * ColumnStatistics service.
 * @module api/ColumnStatisticsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class ColumnStatisticsApi {
 
@@ -55,7 +55,10 @@ export default class ColumnStatisticsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': ColumnStatistic};
+
       return this.apiClient.callApi(
         '/analytics/lookups/v2/engines/pa/columnstatistics', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -66,7 +69,7 @@ export default class ColumnStatisticsApi {
     /**
      * Get PA column statistics
      * This endpoint lists all the column statistics that can be applied to a PA column.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: ColumnStatistic}>}
+     * @return { Promise.< Object.<String, module:model/{String: ColumnStatistic}> > } a Promise, with data of type {@link Object.<String, module:model/{String: ColumnStatistic}> }
      */
     getPAColumnStatistics() {
       return this.getPAColumnStatisticsWithHttpInfo()
@@ -77,3 +80,8 @@ export default class ColumnStatisticsApi {
 
 
 }
+
+
+
+
+

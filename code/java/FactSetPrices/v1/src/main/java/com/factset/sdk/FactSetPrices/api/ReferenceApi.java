@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPrices.Configuration;
 import com.factset.sdk.FactSetPrices.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.ReferencesRequest;
@@ -23,6 +26,28 @@ public class ReferenceApi {
   public ReferenceApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSecurityReferenceForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityReferenceForListResponseTypeMap.put(200, new GenericType<ReferencesResponse>(){});
+    getSecurityReferenceForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityReferenceForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityReferenceForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityReferenceForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityReferenceForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSecurityReferencesResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSecurityReferencesResponseTypeMap.put(200, new GenericType<ReferencesResponse>(){});
+    getSecurityReferencesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSecurityReferencesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSecurityReferencesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSecurityReferencesResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSecurityReferencesResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -113,11 +138,17 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReferencesResponse> localVarReturnType = new GenericType<ReferencesResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getSecurityReferenceForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReferencesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getSecurityReferenceForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityReferenceForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets security reference details for a list of securities
@@ -191,10 +222,16 @@ public class ReferenceApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ReferencesResponse> localVarReturnType = new GenericType<ReferencesResponse>() {};
 
-    return apiClient.invokeAPI("ReferenceApi.getSecurityReferences", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ReferencesResponse
+      
+    > apiResponse = apiClient.invokeAPI("ReferenceApi.getSecurityReferences", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSecurityReferencesResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

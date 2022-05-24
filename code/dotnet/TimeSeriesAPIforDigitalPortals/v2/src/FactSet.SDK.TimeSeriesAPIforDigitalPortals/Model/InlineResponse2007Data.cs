@@ -91,7 +91,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007Data {\n");
             sb.Append("  Range: ").Append(Range).Append("\n");
             sb.Append("  Quality: ").Append(Quality).Append("\n");
@@ -127,8 +127,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Range == input.Range ||
@@ -157,10 +158,14 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Range != null)
-                    hashCode = hashCode * 59 + this.Range.GetHashCode();
-                hashCode = hashCode * 59 + this.Quality.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Quality.GetHashCode();
                 if (this.Subsamples != null)
-                    hashCode = hashCode * 59 + this.Subsamples.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subsamples.GetHashCode();
+                }
                 return hashCode;
             }
         }

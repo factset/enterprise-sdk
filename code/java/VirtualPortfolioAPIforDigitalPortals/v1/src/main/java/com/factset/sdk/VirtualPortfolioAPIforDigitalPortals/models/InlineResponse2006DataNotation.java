@@ -48,6 +48,8 @@ public class InlineResponse2006DataNotation implements Serializable {
   public static final String JSON_PROPERTY_PRICE = "price";
   private InlineResponse2006DataNotationPrice price;
 
+  public InlineResponse2006DataNotation() { 
+  }
 
   public InlineResponse2006DataNotation id(String id) {
     this.id = id;

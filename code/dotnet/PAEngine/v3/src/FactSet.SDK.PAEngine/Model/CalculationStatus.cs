@@ -105,7 +105,7 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationStatus {\n");
             sb.Append("  Calculationid: ").Append(Calculationid).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -141,8 +141,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(CalculationStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Calculationid == input.Calculationid ||
@@ -171,10 +172,14 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Calculationid != null)
-                    hashCode = hashCode * 59 + this.Calculationid.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Calculationid.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Units != null)
-                    hashCode = hashCode * 59 + this.Units.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Units.GetHashCode();
+                }
                 return hashCode;
             }
         }

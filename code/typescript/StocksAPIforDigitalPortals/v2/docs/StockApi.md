@@ -60,6 +60,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getStockDividendTypeList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -137,6 +138,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getStockNotationKeyFiguresBenchmarkMonth1Get(id, idNotationBenchmark, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -216,6 +218,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getStockNotationKeyFiguresBenchmarkMonth3Get(id, idNotationBenchmark, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -295,6 +298,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getStockNotationKeyFiguresBenchmarkWeek1Get(id, idNotationBenchmark, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -374,6 +378,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getStockNotationKeyFiguresBenchmarkYear1Get(id, idNotationBenchmark, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -453,6 +458,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getStockNotationKeyFiguresBenchmarkYear3Get(id, idNotationBenchmark, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -532,6 +538,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getStockNotationKeyFiguresBenchmarkYear5Get(id, idNotationBenchmark, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -606,6 +613,7 @@ const body = new stocksapifordigitalportals.InlineObject(); // InlineObject |
 // Call api endpoint
 apiInstance.postStockDividendList(body).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -679,6 +687,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postStockNotationRankingIntradayList(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -752,6 +761,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postStockNotationScreenerSearch(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -825,6 +835,7 @@ const opts = {
 // Call api endpoint
 apiInstance.postStockNotationScreenerValueRangesGet(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

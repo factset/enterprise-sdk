@@ -64,6 +64,16 @@ public class EntityMatchRequest implements Serializable {
   public static final String JSON_PROPERTY_INCLUDE_PARENT = "includeParent";
   private Boolean includeParent = false;
 
+  public EntityMatchRequest() { 
+  }
+
+  @JsonCreator
+  public EntityMatchRequest(
+    @JsonProperty(value=JSON_PROPERTY_INPUT, required=true) java.util.List<EntityMatchRequestInput> input
+  ) {
+    this();
+    this.input = input;
+  }
 
   public EntityMatchRequest input(java.util.List<EntityMatchRequestInput> input) {
     this.input = input;

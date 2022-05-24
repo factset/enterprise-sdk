@@ -24,8 +24,8 @@ from fds.sdk.NewsAPIforDigitalPortals.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.NewsAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -33,12 +33,14 @@ def lazy_import():
     from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001_categories import InlineResponse2001Categories
     from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001_chain import InlineResponse2001Chain
     from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001_distributor import InlineResponse2001Distributor
+    from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001_instruments import InlineResponse2001Instruments
     from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001_language import InlineResponse2001Language
     from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001_publisher import InlineResponse2001Publisher
     from fds.sdk.NewsAPIforDigitalPortals.model.inline_response2001_types import InlineResponse2001Types
     globals()['InlineResponse2001Categories'] = InlineResponse2001Categories
     globals()['InlineResponse2001Chain'] = InlineResponse2001Chain
     globals()['InlineResponse2001Distributor'] = InlineResponse2001Distributor
+    globals()['InlineResponse2001Instruments'] = InlineResponse2001Instruments
     globals()['InlineResponse2001Language'] = InlineResponse2001Language
     globals()['InlineResponse2001Publisher'] = InlineResponse2001Publisher
     globals()['InlineResponse2001Types'] = InlineResponse2001Types
@@ -100,12 +102,14 @@ class InlineResponse2001Data(ModelNormal):
             'code': (str,),  # noqa: E501
             'time': (str,),  # noqa: E501
             'headline': (str,),  # noqa: E501
+            'summary': (str,),  # noqa: E501
             'types': ([InlineResponse2001Types],),  # noqa: E501
             'language': (InlineResponse2001Language,),  # noqa: E501
             'distributor': (InlineResponse2001Distributor,),  # noqa: E501
             'publisher': (InlineResponse2001Publisher,),  # noqa: E501
             'categories': ([InlineResponse2001Categories],),  # noqa: E501
             'chain': (InlineResponse2001Chain,),  # noqa: E501
+            'instruments': ([InlineResponse2001Instruments],),  # noqa: E501
         }
 
     @cached_property
@@ -117,12 +121,14 @@ class InlineResponse2001Data(ModelNormal):
         'code': 'code',  # noqa: E501
         'time': 'time',  # noqa: E501
         'headline': 'headline',  # noqa: E501
+        'summary': 'summary',  # noqa: E501
         'types': 'types',  # noqa: E501
         'language': 'language',  # noqa: E501
         'distributor': 'distributor',  # noqa: E501
         'publisher': 'publisher',  # noqa: E501
         'categories': 'categories',  # noqa: E501
         'chain': 'chain',  # noqa: E501
+        'instruments': 'instruments',  # noqa: E501
     }
 
     read_only_vars = {
@@ -169,12 +175,14 @@ class InlineResponse2001Data(ModelNormal):
             code (str): Identifier of the news article.. [optional]  # noqa: E501
             time (str): Date and time of the news article.. [optional]  # noqa: E501
             headline (str): Headline of the news article represented as text with HTML entity encoding but without HTML tags.. [optional]  # noqa: E501
+            summary (str): Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.. [optional]  # noqa: E501
             types ([InlineResponse2001Types]): Types of news article. See endpoint `/news/article/type/list` for possible values.. [optional]  # noqa: E501
             language (InlineResponse2001Language): [optional]  # noqa: E501
             distributor (InlineResponse2001Distributor): [optional]  # noqa: E501
             publisher (InlineResponse2001Publisher): [optional]  # noqa: E501
             categories ([InlineResponse2001Categories]): Categories related to the news article. See endpoint `/category/list` for possible values.. [optional]  # noqa: E501
             chain (InlineResponse2001Chain): [optional]  # noqa: E501
+            instruments ([InlineResponse2001Instruments]): Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,12 +267,14 @@ class InlineResponse2001Data(ModelNormal):
             code (str): Identifier of the news article.. [optional]  # noqa: E501
             time (str): Date and time of the news article.. [optional]  # noqa: E501
             headline (str): Headline of the news article represented as text with HTML entity encoding but without HTML tags.. [optional]  # noqa: E501
+            summary (str): Textual summary of the body of the news article or `null` if no summary was provided by the news article distributor.. [optional]  # noqa: E501
             types ([InlineResponse2001Types]): Types of news article. See endpoint `/news/article/type/list` for possible values.. [optional]  # noqa: E501
             language (InlineResponse2001Language): [optional]  # noqa: E501
             distributor (InlineResponse2001Distributor): [optional]  # noqa: E501
             publisher (InlineResponse2001Publisher): [optional]  # noqa: E501
             categories ([InlineResponse2001Categories]): Categories related to the news article. See endpoint `/category/list` for possible values.. [optional]  # noqa: E501
             chain (InlineResponse2001Chain): [optional]  # noqa: E501
+            instruments ([InlineResponse2001Instruments]): Set of stock instruments related to the article. The set is not updated in the course of corporate actions, e.g. when the related company obtains a new instrument after a spin-off.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -52,6 +52,7 @@ const opts = {
 // Call api endpoint
 apiInstance.analyticsQuantQreV1FilesServerFilePost(server, file, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -125,6 +126,7 @@ const id = "id_example"; // String | From url, provided by location header or re
 // Call api endpoint
 apiInstance.analyticsQuantQreV1FilesUploadsIdGet(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

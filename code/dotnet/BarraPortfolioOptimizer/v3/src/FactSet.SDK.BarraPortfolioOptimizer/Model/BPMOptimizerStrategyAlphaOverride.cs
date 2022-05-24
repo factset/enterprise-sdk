@@ -107,7 +107,7 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class BPMOptimizerStrategyAlphaOverride {\n");
             sb.Append("  Formula: ").Append(Formula).Append("\n");
             sb.Append("  ReturnType: ").Append(ReturnType).Append("\n");
@@ -143,8 +143,9 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
         public bool Equals(BPMOptimizerStrategyAlphaOverride input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Formula == input.Formula ||
@@ -172,10 +173,14 @@ namespace FactSet.SDK.BarraPortfolioOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Formula != null)
-                    hashCode = hashCode * 59 + this.Formula.GetHashCode();
-                hashCode = hashCode * 59 + this.ReturnType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Formula.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ReturnType.GetHashCode();
                 if (this.ReturnMultiplier != null)
-                    hashCode = hashCode * 59 + this.ReturnMultiplier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReturnMultiplier.GetHashCode();
+                }
                 return hashCode;
             }
         }

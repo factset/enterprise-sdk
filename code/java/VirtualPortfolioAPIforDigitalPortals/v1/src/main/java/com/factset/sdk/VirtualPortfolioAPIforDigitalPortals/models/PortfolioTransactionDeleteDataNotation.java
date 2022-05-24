@@ -43,6 +43,16 @@ public class PortfolioTransactionDeleteDataNotation implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public PortfolioTransactionDeleteDataNotation() { 
+  }
+
+  @JsonCreator
+  public PortfolioTransactionDeleteDataNotation(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public PortfolioTransactionDeleteDataNotation id(String id) {
     this.id = id;

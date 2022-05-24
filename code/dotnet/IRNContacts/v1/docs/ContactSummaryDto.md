@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Identifier** | **string** |  | [optional] 
 **FullName** | **string** |  | [optional] 
 **EmployerName** | **string** |  | [optional] 
+**EmployerIdentifier** | **string** |  | [optional] 
 **City** | **string** |  | [optional] 
 **StateProvince** | **string** |  | [optional] 
 **PostalCode** | **string** |  | [optional] 

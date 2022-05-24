@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -45,15 +45,17 @@ import com.factset.sdk.IRNContacts.JSON;
 public class PhoneNumberTypeDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_ID = "id";
+  public static final String JSON_PROPERTY_ID = "Id";
   private java.util.UUID id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
+  public static final String JSON_PROPERTY_NAME = "Name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_IS_STANDARD = "isStandard";
+  public static final String JSON_PROPERTY_IS_STANDARD = "IsStandard";
   private Boolean isStandard;
 
+  public PhoneNumberTypeDto() { 
+  }
 
   public PhoneNumberTypeDto id(java.util.UUID id) {
     this.id = id;

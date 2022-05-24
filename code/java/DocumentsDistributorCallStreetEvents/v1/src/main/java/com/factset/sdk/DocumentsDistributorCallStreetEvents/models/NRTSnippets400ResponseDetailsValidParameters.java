@@ -54,6 +54,8 @@ public class NRTSnippets400ResponseDetailsValidParameters implements Serializabl
   public static final String JSON_PROPERTY_REPORT_ID = "reportId";
   private java.util.List<String> reportId = null;
 
+  public NRTSnippets400ResponseDetailsValidParameters() { 
+  }
 
   public NRTSnippets400ResponseDetailsValidParameters paginationLimit(java.util.List<String> paginationLimit) {
     this.paginationLimit = paginationLimit;

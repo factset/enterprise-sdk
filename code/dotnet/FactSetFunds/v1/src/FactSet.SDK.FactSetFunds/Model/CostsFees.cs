@@ -218,7 +218,7 @@ namespace FactSet.SDK.FactSetFunds.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CostsFees {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  ManagementExpenses: ").Append(ManagementExpenses).Append("\n");
@@ -270,8 +270,9 @@ namespace FactSet.SDK.FactSetFunds.Model
         public bool Equals(CostsFees input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -366,29 +367,39 @@ namespace FactSet.SDK.FactSetFunds.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
-                hashCode = hashCode * 59 + this.ManagementExpenses.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ManagementExpenses.GetHashCode();
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                hashCode = hashCode * 59 + this.EntryExpense.GetHashCode();
-                hashCode = hashCode * 59 + this.ExitExpense.GetHashCode();
-                hashCode = hashCode * 59 + this.FrontExpensesMax.GetHashCode();
-                hashCode = hashCode * 59 + this.BackExpensesMax.GetHashCode();
-                hashCode = hashCode * 59 + this.ExpenseRatio.GetHashCode();
-                hashCode = hashCode * 59 + this.ExpenseRatioProspectus.GetHashCode();
-                hashCode = hashCode * 59 + this.InitInvestmentMin.GetHashCode();
-                hashCode = hashCode * 59 + this.InitInvestmentIra.GetHashCode();
-                hashCode = hashCode * 59 + this.SwingPrice.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EntryExpense.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExitExpense.GetHashCode();
+                hashCode = (hashCode * 59) + this.FrontExpensesMax.GetHashCode();
+                hashCode = (hashCode * 59) + this.BackExpensesMax.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExpenseRatio.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExpenseRatioProspectus.GetHashCode();
+                hashCode = (hashCode * 59) + this.InitInvestmentMin.GetHashCode();
+                hashCode = (hashCode * 59) + this.InitInvestmentIra.GetHashCode();
+                hashCode = (hashCode * 59) + this.SwingPrice.GetHashCode();
                 if (this.SwingPriceDate != null)
-                    hashCode = hashCode * 59 + this.SwingPriceDate.GetHashCode();
-                hashCode = hashCode * 59 + this.SriPriips.GetHashCode();
-                hashCode = hashCode * 59 + this.SrriUcits.GetHashCode();
-                hashCode = hashCode * 59 + this.PerformanceFee.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingExpenseRatio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SwingPriceDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.SriPriips.GetHashCode();
+                hashCode = (hashCode * 59) + this.SrriUcits.GetHashCode();
+                hashCode = (hashCode * 59) + this.PerformanceFee.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradingExpenseRatio.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

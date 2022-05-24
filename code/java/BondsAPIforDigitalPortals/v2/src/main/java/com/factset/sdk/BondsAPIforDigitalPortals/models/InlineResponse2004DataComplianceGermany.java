@@ -44,6 +44,8 @@ public class InlineResponse2004DataComplianceGermany implements Serializable {
   public static final String JSON_PROPERTY_TRUSTEE_ELIGIBLE = "trusteeEligible";
   private java.util.List<InlineResponse2004DataLifeCycleMaturityPerpetual> trusteeEligible = null;
 
+  public InlineResponse2004DataComplianceGermany() { 
+  }
 
   public InlineResponse2004DataComplianceGermany trusteeEligible(java.util.List<InlineResponse2004DataLifeCycleMaturityPerpetual> trusteeEligible) {
     this.trusteeEligible = trusteeEligible;

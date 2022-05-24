@@ -1,0 +1,14 @@
+{
+  "packageName": "fds.sdk.FundsAPIforDigitalPortals",
+  "projectName": "fds.sdk.FundsAPIforDigitalPortals",
+  "packageVersion": "0.10.0",
+  "packageAuthor": "FactSet Research Systems",
+  "packageLicense": "Apache-2.0",
+  "packageDescription": "Funds API for Digital Portals client library for Python",
+  "packageKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/python/FundsAPIforDigitalPortals/v2",
+  "httpUserAgent": "fds-sdk/python/FundsAPIforDigitalPortals/0.10.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

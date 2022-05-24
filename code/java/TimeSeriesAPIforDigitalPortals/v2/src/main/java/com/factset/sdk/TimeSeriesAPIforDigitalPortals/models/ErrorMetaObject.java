@@ -43,6 +43,8 @@ public class ErrorMetaObject implements Serializable {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusObject status;
 
+  public ErrorMetaObject() { 
+  }
 
   public ErrorMetaObject status(StatusObject status) {
     this.status = status;

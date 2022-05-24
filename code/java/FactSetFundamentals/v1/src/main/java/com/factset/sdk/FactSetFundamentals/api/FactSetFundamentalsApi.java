@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetFundamentals.Configuration;
 import com.factset.sdk.FactSetFundamentals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetFundamentals.models.ErrorResponse;
 import com.factset.sdk.FactSetFundamentals.models.FundamentalsRequest;
@@ -23,6 +26,28 @@ public class FactSetFundamentalsApi {
   public FactSetFundamentalsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFdsFundamentalsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFdsFundamentalsResponseTypeMap.put(200, new GenericType<FundamentalsResponse>(){});
+    getFdsFundamentalsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFdsFundamentalsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFdsFundamentalsForListResponseTypeMap.put(200, new GenericType<FundamentalsResponse>(){});
+    getFdsFundamentalsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFdsFundamentalsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -137,11 +162,17 @@ public class FactSetFundamentalsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundamentalsResponse> localVarReturnType = new GenericType<FundamentalsResponse>() {};
 
-    return apiClient.invokeAPI("FactSetFundamentalsApi.getFdsFundamentals", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundamentalsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FactSetFundamentalsApi.getFdsFundamentals", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFdsFundamentalsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the Company Fundamental Data.
@@ -214,10 +245,16 @@ public class FactSetFundamentalsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FundamentalsResponse> localVarReturnType = new GenericType<FundamentalsResponse>() {};
 
-    return apiClient.invokeAPI("FactSetFundamentalsApi.getFdsFundamentalsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FundamentalsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FactSetFundamentalsApi.getFdsFundamentalsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFdsFundamentalsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

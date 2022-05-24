@@ -131,7 +131,7 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class IssueSize {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
@@ -172,8 +172,9 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
         public bool Equals(IssueSize input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -224,18 +225,28 @@ namespace FactSet.SDK.FactSetTermsandConditions.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.OutAmtEffDate != null)
-                    hashCode = hashCode * 59 + this.OutAmtEffDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OutAmtEffDate.GetHashCode();
+                }
                 if (this.OutAmtCurrency != null)
-                    hashCode = hashCode * 59 + this.OutAmtCurrency.GetHashCode();
-                hashCode = hashCode * 59 + this.OutAmt.GetHashCode();
-                hashCode = hashCode * 59 + this.OutAmtChange.GetHashCode();
-                hashCode = hashCode * 59 + this.OutAmtChangePrice.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OutAmtCurrency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.OutAmt.GetHashCode();
+                hashCode = (hashCode * 59) + this.OutAmtChange.GetHashCode();
+                hashCode = (hashCode * 59) + this.OutAmtChangePrice.GetHashCode();
                 if (this.OutAmtChangeType != null)
-                    hashCode = hashCode * 59 + this.OutAmtChangeType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OutAmtChangeType.GetHashCode();
+                }
                 return hashCode;
             }
         }

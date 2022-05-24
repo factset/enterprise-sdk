@@ -59,6 +59,8 @@ public class UniverseStatistics implements Serializable {
   public static final String JSON_PROPERTY_UNIVERSE_ID = "universeId";
   private Integer universeId;
 
+  public UniverseStatistics() { 
+  }
 
   public UniverseStatistics totalCount(Integer totalCount) {
     this.totalCount = totalCount;

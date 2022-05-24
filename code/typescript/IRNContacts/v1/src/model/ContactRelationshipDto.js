@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -20,7 +20,7 @@ import RelationshipSymbolSummaryDto from './RelationshipSymbolSummaryDto';
 /**
  * The ContactRelationshipDto model module.
  * @module model/ContactRelationshipDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactRelationshipDto {
     /**
@@ -51,35 +51,35 @@ class ContactRelationshipDto {
         if (data) {
             obj = obj || new ContactRelationshipDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('relationshipCategory')) {
-                obj['relationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['relationshipCategory']);
+            if (data.hasOwnProperty('RelationshipCategory')) {
+                obj['RelationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['RelationshipCategory']);
             }
-            if (data.hasOwnProperty('relationship')) {
-                obj['relationship'] = RelationshipIdNameDto.constructFromObject(data['relationship']);
+            if (data.hasOwnProperty('Relationship')) {
+                obj['Relationship'] = RelationshipIdNameDto.constructFromObject(data['Relationship']);
             }
-            if (data.hasOwnProperty('contact')) {
-                obj['contact'] = ContactIdNameDto.constructFromObject(data['contact']);
+            if (data.hasOwnProperty('Contact')) {
+                obj['Contact'] = ContactIdNameDto.constructFromObject(data['Contact']);
             }
-            if (data.hasOwnProperty('symbol')) {
-                obj['symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['symbol']);
+            if (data.hasOwnProperty('Symbol')) {
+                obj['Symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['Symbol']);
             }
-            if (data.hasOwnProperty('isCurrent')) {
-                obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
+            if (data.hasOwnProperty('IsCurrent')) {
+                obj['IsCurrent'] = ApiClient.convertToType(data['IsCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('start')) {
-                obj['start'] = ApiClient.convertToType(data['start'], 'Date');
+            if (data.hasOwnProperty('Start')) {
+                obj['Start'] = ApiClient.convertToType(data['Start'], 'Date');
             }
-            if (data.hasOwnProperty('end')) {
-                obj['end'] = ApiClient.convertToType(data['end'], 'Date');
+            if (data.hasOwnProperty('End')) {
+                obj['End'] = ApiClient.convertToType(data['End'], 'Date');
             }
-            if (data.hasOwnProperty('title')) {
-                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            if (data.hasOwnProperty('Title')) {
+                obj['Title'] = ApiClient.convertToType(data['Title'], 'String');
             }
-            if (data.hasOwnProperty('comment')) {
-                obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
+            if (data.hasOwnProperty('Comment')) {
+                obj['Comment'] = ApiClient.convertToType(data['Comment'], 'String');
             }
         }
         return obj;
@@ -89,54 +89,54 @@ class ContactRelationshipDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-ContactRelationshipDto.prototype['id'] = undefined;
+ContactRelationshipDto.prototype['Id'] = undefined;
 
 /**
- * @member {module:model/RelationshipCategoryIdNameDto} relationshipCategory
+ * @member {module:model/RelationshipCategoryIdNameDto} RelationshipCategory
  */
-ContactRelationshipDto.prototype['relationshipCategory'] = undefined;
+ContactRelationshipDto.prototype['RelationshipCategory'] = undefined;
 
 /**
- * @member {module:model/RelationshipIdNameDto} relationship
+ * @member {module:model/RelationshipIdNameDto} Relationship
  */
-ContactRelationshipDto.prototype['relationship'] = undefined;
+ContactRelationshipDto.prototype['Relationship'] = undefined;
 
 /**
- * @member {module:model/ContactIdNameDto} contact
+ * @member {module:model/ContactIdNameDto} Contact
  */
-ContactRelationshipDto.prototype['contact'] = undefined;
+ContactRelationshipDto.prototype['Contact'] = undefined;
 
 /**
- * @member {module:model/RelationshipSymbolSummaryDto} symbol
+ * @member {module:model/RelationshipSymbolSummaryDto} Symbol
  */
-ContactRelationshipDto.prototype['symbol'] = undefined;
+ContactRelationshipDto.prototype['Symbol'] = undefined;
 
 /**
- * @member {Boolean} isCurrent
+ * @member {Boolean} IsCurrent
  */
-ContactRelationshipDto.prototype['isCurrent'] = undefined;
+ContactRelationshipDto.prototype['IsCurrent'] = undefined;
 
 /**
- * @member {Date} start
+ * @member {Date} Start
  */
-ContactRelationshipDto.prototype['start'] = undefined;
+ContactRelationshipDto.prototype['Start'] = undefined;
 
 /**
- * @member {Date} end
+ * @member {Date} End
  */
-ContactRelationshipDto.prototype['end'] = undefined;
+ContactRelationshipDto.prototype['End'] = undefined;
 
 /**
- * @member {String} title
+ * @member {String} Title
  */
-ContactRelationshipDto.prototype['title'] = undefined;
+ContactRelationshipDto.prototype['Title'] = undefined;
 
 /**
- * @member {String} comment
+ * @member {String} Comment
  */
-ContactRelationshipDto.prototype['comment'] = undefined;
+ContactRelationshipDto.prototype['Comment'] = undefined;
 
 
 

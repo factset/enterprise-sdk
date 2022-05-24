@@ -71,7 +71,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003FsymRegional {\n");
             sb.Append("  PermanentIdentifier: ").Append(PermanentIdentifier).Append("\n");
             sb.Append("  TickerRegion: ").Append(TickerRegion).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003FsymRegional input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PermanentIdentifier == input.PermanentIdentifier ||
@@ -136,10 +137,14 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.PermanentIdentifier != null)
-                    hashCode = hashCode * 59 + this.PermanentIdentifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PermanentIdentifier.GetHashCode();
+                }
                 if (this.TickerRegion != null)
-                    hashCode = hashCode * 59 + this.TickerRegion.GetHashCode();
-                hashCode = hashCode * 59 + this.IsPrimary.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TickerRegion.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsPrimary.GetHashCode();
                 return hashCode;
             }
         }

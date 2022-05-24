@@ -26,14 +26,13 @@ import com.factset.sdk.FactSetGeoRev.ApiClient;
 import com.factset.sdk.FactSetGeoRev.ApiException;
 import com.factset.sdk.FactSetGeoRev.Configuration;
 import com.factset.sdk.FactSetGeoRev.auth.*;
-import com.factset.sdk.FactSetGeoRev.model.*;
+import com.factset.sdk.FactSetGeoRev.models.*;
 import com.factset.sdk.FactSetGeoRev.api.CountriesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -43,14 +42,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CountriesApi apiInstance = new CountriesApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  300 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
@@ -62,6 +61,7 @@ public class Example {
         try {
             CountryResponse result = apiInstance.getCountries(ids, countryIds, startDate, endDate, frequency, currency);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CountriesApi#getCountries");
             System.err.println("Status code: " + e.getCode());
@@ -126,14 +126,13 @@ import com.factset.sdk.FactSetGeoRev.ApiClient;
 import com.factset.sdk.FactSetGeoRev.ApiException;
 import com.factset.sdk.FactSetGeoRev.Configuration;
 import com.factset.sdk.FactSetGeoRev.auth.*;
-import com.factset.sdk.FactSetGeoRev.model.*;
+import com.factset.sdk.FactSetGeoRev.models.*;
 import com.factset.sdk.FactSetGeoRev.api.CountriesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -143,20 +142,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CountriesApi apiInstance = new CountriesApi(defaultClient);
         CountryRequest countryRequest = new CountryRequest(); // CountryRequest | The Country request body, allowing the user to specify a list of ids, time range, and regionIds.
         try {
             CountryResponse result = apiInstance.getCountriesForList(countryRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CountriesApi#getCountriesForList");
             System.err.println("Status code: " + e.getCode());

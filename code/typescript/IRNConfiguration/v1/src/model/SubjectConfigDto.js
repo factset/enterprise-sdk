@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -20,7 +20,7 @@ import RatingConfigDto from './RatingConfigDto';
 /**
  * The SubjectConfigDto model module.
  * @module model/SubjectConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SubjectConfigDto {
     /**
@@ -51,38 +51,47 @@ class SubjectConfigDto {
         if (data) {
             obj = obj || new SubjectConfigDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
-                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            if (data.hasOwnProperty('Code')) {
+                obj['Code'] = ApiClient.convertToType(data['Code'], 'String');
             }
-            if (data.hasOwnProperty('isHidden')) {
-                obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
+            if (data.hasOwnProperty('IsHidden')) {
+                obj['IsHidden'] = ApiClient.convertToType(data['IsHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('identifierType')) {
-                obj['identifierType'] = ApiClient.convertToType(data['identifierType'], 'String');
+            if (data.hasOwnProperty('IdentifierType')) {
+                obj['IdentifierType'] = ApiClient.convertToType(data['IdentifierType'], 'String');
             }
-            if (data.hasOwnProperty('customFieldIds')) {
-                obj['customFieldIds'] = ApiClient.convertToType(data['customFieldIds'], ['String']);
+            if (data.hasOwnProperty('IdentifierTypes')) {
+                obj['IdentifierTypes'] = ApiClient.convertToType(data['IdentifierTypes'], ['String']);
             }
-            if (data.hasOwnProperty('approvalProcessConfig')) {
-                obj['approvalProcessConfig'] = ApprovalProcessConfigDto.constructFromObject(data['approvalProcessConfig']);
+            if (data.hasOwnProperty('Type')) {
+                obj['Type'] = ApiClient.convertToType(data['Type'], 'String');
             }
-            if (data.hasOwnProperty('commentaryConfig')) {
-                obj['commentaryConfig'] = CommentaryConfigDto.constructFromObject(data['commentaryConfig']);
+            if (data.hasOwnProperty('CustomFieldIds')) {
+                obj['CustomFieldIds'] = ApiClient.convertToType(data['CustomFieldIds'], ['String']);
             }
-            if (data.hasOwnProperty('newsHeadlineFormat')) {
-                obj['newsHeadlineFormat'] = ApiClient.convertToType(data['newsHeadlineFormat'], [HeadlineFormatConfigDto]);
+            if (data.hasOwnProperty('ApprovalProcessConfig')) {
+                obj['ApprovalProcessConfig'] = ApprovalProcessConfigDto.constructFromObject(data['ApprovalProcessConfig']);
             }
-            if (data.hasOwnProperty('emailHeadlineFormat')) {
-                obj['emailHeadlineFormat'] = ApiClient.convertToType(data['emailHeadlineFormat'], [HeadlineFormatConfigDto]);
+            if (data.hasOwnProperty('CommentaryConfig')) {
+                obj['CommentaryConfig'] = CommentaryConfigDto.constructFromObject(data['CommentaryConfig']);
             }
-            if (data.hasOwnProperty('ratingConfig')) {
-                obj['ratingConfig'] = RatingConfigDto.constructFromObject(data['ratingConfig']);
+            if (data.hasOwnProperty('NewsHeadlineFormat')) {
+                obj['NewsHeadlineFormat'] = ApiClient.convertToType(data['NewsHeadlineFormat'], [HeadlineFormatConfigDto]);
+            }
+            if (data.hasOwnProperty('EmailHeadlineFormat')) {
+                obj['EmailHeadlineFormat'] = ApiClient.convertToType(data['EmailHeadlineFormat'], [HeadlineFormatConfigDto]);
+            }
+            if (data.hasOwnProperty('RatingConfig')) {
+                obj['RatingConfig'] = RatingConfigDto.constructFromObject(data['RatingConfig']);
+            }
+            if (data.hasOwnProperty('NoteLengthLimit')) {
+                obj['NoteLengthLimit'] = ApiClient.convertToType(data['NoteLengthLimit'], 'Number');
             }
         }
         return obj;
@@ -92,59 +101,74 @@ class SubjectConfigDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-SubjectConfigDto.prototype['id'] = undefined;
+SubjectConfigDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-SubjectConfigDto.prototype['name'] = undefined;
+SubjectConfigDto.prototype['Name'] = undefined;
 
 /**
- * @member {String} code
+ * @member {String} Code
  */
-SubjectConfigDto.prototype['code'] = undefined;
+SubjectConfigDto.prototype['Code'] = undefined;
 
 /**
- * @member {Boolean} isHidden
+ * @member {Boolean} IsHidden
  */
-SubjectConfigDto.prototype['isHidden'] = undefined;
+SubjectConfigDto.prototype['IsHidden'] = undefined;
 
 /**
- * @member {String} identifierType
+ * @member {String} IdentifierType
  */
-SubjectConfigDto.prototype['identifierType'] = undefined;
+SubjectConfigDto.prototype['IdentifierType'] = undefined;
 
 /**
- * @member {Array.<String>} customFieldIds
+ * @member {Array.<String>} IdentifierTypes
  */
-SubjectConfigDto.prototype['customFieldIds'] = undefined;
+SubjectConfigDto.prototype['IdentifierTypes'] = undefined;
 
 /**
- * @member {module:model/ApprovalProcessConfigDto} approvalProcessConfig
+ * @member {String} Type
  */
-SubjectConfigDto.prototype['approvalProcessConfig'] = undefined;
+SubjectConfigDto.prototype['Type'] = undefined;
 
 /**
- * @member {module:model/CommentaryConfigDto} commentaryConfig
+ * @member {Array.<String>} CustomFieldIds
  */
-SubjectConfigDto.prototype['commentaryConfig'] = undefined;
+SubjectConfigDto.prototype['CustomFieldIds'] = undefined;
 
 /**
- * @member {Array.<module:model/HeadlineFormatConfigDto>} newsHeadlineFormat
+ * @member {module:model/ApprovalProcessConfigDto} ApprovalProcessConfig
  */
-SubjectConfigDto.prototype['newsHeadlineFormat'] = undefined;
+SubjectConfigDto.prototype['ApprovalProcessConfig'] = undefined;
 
 /**
- * @member {Array.<module:model/HeadlineFormatConfigDto>} emailHeadlineFormat
+ * @member {module:model/CommentaryConfigDto} CommentaryConfig
  */
-SubjectConfigDto.prototype['emailHeadlineFormat'] = undefined;
+SubjectConfigDto.prototype['CommentaryConfig'] = undefined;
 
 /**
- * @member {module:model/RatingConfigDto} ratingConfig
+ * @member {Array.<module:model/HeadlineFormatConfigDto>} NewsHeadlineFormat
  */
-SubjectConfigDto.prototype['ratingConfig'] = undefined;
+SubjectConfigDto.prototype['NewsHeadlineFormat'] = undefined;
+
+/**
+ * @member {Array.<module:model/HeadlineFormatConfigDto>} EmailHeadlineFormat
+ */
+SubjectConfigDto.prototype['EmailHeadlineFormat'] = undefined;
+
+/**
+ * @member {module:model/RatingConfigDto} RatingConfig
+ */
+SubjectConfigDto.prototype['RatingConfig'] = undefined;
+
+/**
+ * @member {Number} NoteLengthLimit
+ */
+SubjectConfigDto.prototype['NoteLengthLimit'] = undefined;
 
 
 

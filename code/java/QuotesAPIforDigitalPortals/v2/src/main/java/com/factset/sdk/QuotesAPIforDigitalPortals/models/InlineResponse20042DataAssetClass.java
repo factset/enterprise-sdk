@@ -48,6 +48,8 @@ public class InlineResponse20042DataAssetClass implements Serializable {
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
+  public InlineResponse20042DataAssetClass() { 
+  }
 
   public InlineResponse20042DataAssetClass id(BigDecimal id) {
     this.id = id;

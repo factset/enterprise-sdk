@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// InlineResponse2009Data
+    /// ETP sector allocation data.
     /// </summary>
     [DataContract(Name = "inline_response_200_9_data")]
     public partial class InlineResponse2009Data : IEquatable<InlineResponse2009Data>, IValidatableObject
@@ -34,18 +34,28 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2009Data" /> class.
         /// </summary>
-        /// <param name="focusCategory">ETP class focus category..</param>
-        public InlineResponse2009Data(string focusCategory = default(string))
+        /// <param name="reportDate">Reporting date for the allocations..</param>
+        /// <param name="sectors">List of allocations by sector..</param>
+        public InlineResponse2009Data(DateTime reportDate = default(DateTime), List<InlineResponse2009DataSectors> sectors = default(List<InlineResponse2009DataSectors>))
         {
-            this.FocusCategory = focusCategory;
+            this.ReportDate = reportDate;
+            this.Sectors = sectors;
         }
 
         /// <summary>
-        /// ETP class focus category.
+        /// Reporting date for the allocations.
         /// </summary>
-        /// <value>ETP class focus category.</value>
-        [DataMember(Name = "focusCategory", EmitDefaultValue = false)]
-        public string FocusCategory { get; set; }
+        /// <value>Reporting date for the allocations.</value>
+        [DataMember(Name = "reportDate", EmitDefaultValue = false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime ReportDate { get; set; }
+
+        /// <summary>
+        /// List of allocations by sector.
+        /// </summary>
+        /// <value>List of allocations by sector.</value>
+        [DataMember(Name = "sectors", EmitDefaultValue = false)]
+        public List<InlineResponse2009DataSectors> Sectors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,9 +63,10 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2009Data {\n");
-            sb.Append("  FocusCategory: ").Append(FocusCategory).Append("\n");
+            sb.Append("  ReportDate: ").Append(ReportDate).Append("\n");
+            sb.Append("  Sectors: ").Append(Sectors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,13 +98,20 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse2009Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.FocusCategory == input.FocusCategory ||
-                    (this.FocusCategory != null &&
-                    this.FocusCategory.Equals(input.FocusCategory))
+                    this.ReportDate == input.ReportDate ||
+                    (this.ReportDate != null &&
+                    this.ReportDate.Equals(input.ReportDate))
+                ) && 
+                (
+                    this.Sectors == input.Sectors ||
+                    this.Sectors != null &&
+                    input.Sectors != null &&
+                    this.Sectors.SequenceEqual(input.Sectors)
                 );
         }
 
@@ -106,8 +124,14 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FocusCategory != null)
-                    hashCode = hashCode * 59 + this.FocusCategory.GetHashCode();
+                if (this.ReportDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReportDate.GetHashCode();
+                }
+                if (this.Sectors != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sectors.GetHashCode();
+                }
                 return hashCode;
             }
         }

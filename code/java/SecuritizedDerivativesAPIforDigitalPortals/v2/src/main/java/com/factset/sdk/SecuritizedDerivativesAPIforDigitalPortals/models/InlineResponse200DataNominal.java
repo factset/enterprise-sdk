@@ -49,6 +49,8 @@ public class InlineResponse200DataNominal implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private InlineResponse200DataNominalCurrency currency;
 
+  public InlineResponse200DataNominal() { 
+  }
 
   public InlineResponse200DataNominal value(BigDecimal value) {
     this.value = value;

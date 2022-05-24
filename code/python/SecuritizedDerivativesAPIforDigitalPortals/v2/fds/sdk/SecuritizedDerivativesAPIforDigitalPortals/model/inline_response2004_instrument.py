@@ -24,13 +24,15 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response2004_instrument_fsym import InlineResponse2004InstrumentFsym
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.inline_response200_data_nsin import InlineResponse200DataNsin
+    globals()['InlineResponse2004InstrumentFsym'] = InlineResponse2004InstrumentFsym
     globals()['InlineResponse200DataNsin'] = InlineResponse200DataNsin
 
 
@@ -92,6 +94,7 @@ class InlineResponse2004Instrument(ModelNormal):
             'short_name': (str,),  # noqa: E501
             'isin': (str,),  # noqa: E501
             'nsin': (InlineResponse200DataNsin,),  # noqa: E501
+            'fsym': (InlineResponse2004InstrumentFsym,),  # noqa: E501
         }
 
     @cached_property
@@ -105,6 +108,7 @@ class InlineResponse2004Instrument(ModelNormal):
         'short_name': 'shortName',  # noqa: E501
         'isin': 'isin',  # noqa: E501
         'nsin': 'nsin',  # noqa: E501
+        'fsym': 'fsym',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,6 +157,7 @@ class InlineResponse2004Instrument(ModelNormal):
             short_name (str): Short name of the instrument.. [optional]  # noqa: E501
             isin (str): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
             nsin (InlineResponse200DataNsin): [optional]  # noqa: E501
+            fsym (InlineResponse2004InstrumentFsym): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,6 +244,7 @@ class InlineResponse2004Instrument(ModelNormal):
             short_name (str): Short name of the instrument.. [optional]  # noqa: E501
             isin (str): The International Securities Identification Number (ISIN) of the instrument. The ISIN is a 12-character code of digits and upper-case letters that uniquely identifies an instrument.. [optional]  # noqa: E501
             nsin (InlineResponse200DataNsin): [optional]  # noqa: E501
+            fsym (InlineResponse2004InstrumentFsym): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

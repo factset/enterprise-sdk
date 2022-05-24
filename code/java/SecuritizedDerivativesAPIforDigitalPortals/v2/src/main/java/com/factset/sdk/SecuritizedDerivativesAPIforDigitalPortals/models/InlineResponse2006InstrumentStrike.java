@@ -49,6 +49,8 @@ public class InlineResponse2006InstrumentStrike implements Serializable {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private InlineResponse2006InstrumentStrikeDistance distance;
 
+  public InlineResponse2006InstrumentStrike() { 
+  }
 
   public InlineResponse2006InstrumentStrike value(BigDecimal value) {
     this.value = value;

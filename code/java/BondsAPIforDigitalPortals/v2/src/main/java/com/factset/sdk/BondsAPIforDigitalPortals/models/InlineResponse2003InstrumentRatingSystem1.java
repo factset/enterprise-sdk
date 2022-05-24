@@ -44,6 +44,8 @@ public class InlineResponse2003InstrumentRatingSystem1 implements Serializable {
   public static final String JSON_PROPERTY_RATING = "rating";
   private InlineResponse2003InstrumentRatingSystem1Rating rating;
 
+  public InlineResponse2003InstrumentRatingSystem1() { 
+  }
 
   public InlineResponse2003InstrumentRatingSystem1 rating(InlineResponse2003InstrumentRatingSystem1Rating rating) {
     this.rating = rating;

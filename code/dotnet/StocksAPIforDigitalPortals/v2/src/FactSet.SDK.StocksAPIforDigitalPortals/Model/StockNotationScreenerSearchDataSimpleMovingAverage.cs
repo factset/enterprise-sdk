@@ -76,7 +76,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StockNotationScreenerSearchDataSimpleMovingAverage {\n");
             sb.Append("  Days20: ").Append(Days20).Append("\n");
             sb.Append("  Days50: ").Append(Days50).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(StockNotationScreenerSearchDataSimpleMovingAverage input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Days20 == input.Days20 ||
@@ -148,13 +149,21 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Days20 != null)
-                    hashCode = hashCode * 59 + this.Days20.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Days20.GetHashCode();
+                }
                 if (this.Days50 != null)
-                    hashCode = hashCode * 59 + this.Days50.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Days50.GetHashCode();
+                }
                 if (this.Days200 != null)
-                    hashCode = hashCode * 59 + this.Days200.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Days200.GetHashCode();
+                }
                 if (this.TradingDaysSinceCrossover != null)
-                    hashCode = hashCode * 59 + this.TradingDaysSinceCrossover.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingDaysSinceCrossover.GetHashCode();
+                }
                 return hashCode;
             }
         }

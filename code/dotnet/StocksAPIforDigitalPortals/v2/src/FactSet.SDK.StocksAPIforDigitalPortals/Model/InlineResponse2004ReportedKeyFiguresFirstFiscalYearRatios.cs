@@ -134,7 +134,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios {\n");
             sb.Append("  PriceSales: ").Append(PriceSales).Append("\n");
             sb.Append("  PriceEarnings: ").Append(PriceEarnings).Append("\n");
@@ -177,8 +177,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004ReportedKeyFiguresFirstFiscalYearRatios input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PriceSales == input.PriceSales ||
@@ -231,16 +232,16 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.PriceSales.GetHashCode();
-                hashCode = hashCode * 59 + this.PriceEarnings.GetHashCode();
-                hashCode = hashCode * 59 + this.PriceBookValue.GetHashCode();
-                hashCode = hashCode * 59 + this.PriceCashFlow.GetHashCode();
-                hashCode = hashCode * 59 + this.PriceFreeCashFlow.GetHashCode();
-                hashCode = hashCode * 59 + this.DividendYield.GetHashCode();
-                hashCode = hashCode * 59 + this.EnterpriseValueEbit.GetHashCode();
-                hashCode = hashCode * 59 + this.EnterpriseValueEbitda.GetHashCode();
-                hashCode = hashCode * 59 + this.EnterpriseValueSales.GetHashCode();
-                hashCode = hashCode * 59 + this.DebtEquity.GetHashCode();
+                hashCode = (hashCode * 59) + this.PriceSales.GetHashCode();
+                hashCode = (hashCode * 59) + this.PriceEarnings.GetHashCode();
+                hashCode = (hashCode * 59) + this.PriceBookValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.PriceCashFlow.GetHashCode();
+                hashCode = (hashCode * 59) + this.PriceFreeCashFlow.GetHashCode();
+                hashCode = (hashCode * 59) + this.DividendYield.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnterpriseValueEbit.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnterpriseValueEbitda.GetHashCode();
+                hashCode = (hashCode * 59) + this.EnterpriseValueSales.GetHashCode();
+                hashCode = (hashCode * 59) + this.DebtEquity.GetHashCode();
                 return hashCode;
             }
         }

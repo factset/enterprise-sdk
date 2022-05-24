@@ -1,6 +1,6 @@
 /*
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -37,14 +37,106 @@ import com.factset.sdk.IRNConfiguration.JSON;
  * SentimentSettingsDto
  */
 @JsonPropertyOrder({
+  SentimentSettingsDto.JSON_PROPERTY_IS_HIDDEN,
+  SentimentSettingsDto.JSON_PROPERTY_IS_MANDATORY,
+  SentimentSettingsDto.JSON_PROPERTY_USE_PREVIOUS,
   SentimentSettingsDto.JSON_PROPERTY_DEFAULT_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SentimentSettingsDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_DEFAULT_ID = "defaultId";
+  public static final String JSON_PROPERTY_IS_HIDDEN = "IsHidden";
+  private Boolean isHidden;
+
+  public static final String JSON_PROPERTY_IS_MANDATORY = "IsMandatory";
+  private Boolean isMandatory;
+
+  public static final String JSON_PROPERTY_USE_PREVIOUS = "UsePrevious";
+  private Boolean usePrevious;
+
+  public static final String JSON_PROPERTY_DEFAULT_ID = "DefaultId";
   private JsonNullable<java.util.UUID> defaultId = JsonNullable.<java.util.UUID>undefined();
+
+  public SentimentSettingsDto() { 
+  }
+
+  public SentimentSettingsDto isHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+    return this;
+  }
+
+   /**
+   * Get isHidden
+   * @return isHidden
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsHidden() {
+    return isHidden;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_HIDDEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+  }
+
+
+  public SentimentSettingsDto isMandatory(Boolean isMandatory) {
+    this.isMandatory = isMandatory;
+    return this;
+  }
+
+   /**
+   * Get isMandatory
+   * @return isMandatory
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_IS_MANDATORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIsMandatory() {
+    return isMandatory;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IS_MANDATORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIsMandatory(Boolean isMandatory) {
+    this.isMandatory = isMandatory;
+  }
+
+
+  public SentimentSettingsDto usePrevious(Boolean usePrevious) {
+    this.usePrevious = usePrevious;
+    return this;
+  }
+
+   /**
+   * Get usePrevious
+   * @return usePrevious
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_USE_PREVIOUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getUsePrevious() {
+    return usePrevious;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USE_PREVIOUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsePrevious(Boolean usePrevious) {
+    this.usePrevious = usePrevious;
+  }
 
 
   public SentimentSettingsDto defaultId(java.util.UUID defaultId) {
@@ -93,7 +185,10 @@ public class SentimentSettingsDto implements Serializable {
       return false;
     }
     SentimentSettingsDto sentimentSettingsDto = (SentimentSettingsDto) o;
-    return equalsNullable(this.defaultId, sentimentSettingsDto.defaultId);
+    return Objects.equals(this.isHidden, sentimentSettingsDto.isHidden) &&
+        Objects.equals(this.isMandatory, sentimentSettingsDto.isMandatory) &&
+        Objects.equals(this.usePrevious, sentimentSettingsDto.usePrevious) &&
+        equalsNullable(this.defaultId, sentimentSettingsDto.defaultId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -102,7 +197,7 @@ public class SentimentSettingsDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(defaultId));
+    return Objects.hash(isHidden, isMandatory, usePrevious, hashCodeNullable(defaultId));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -116,6 +211,9 @@ public class SentimentSettingsDto implements Serializable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SentimentSettingsDto {\n");
+    sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
+    sb.append("    isMandatory: ").append(toIndentedString(isMandatory)).append("\n");
+    sb.append("    usePrevious: ").append(toIndentedString(usePrevious)).append("\n");
     sb.append("    defaultId: ").append(toIndentedString(defaultId)).append("\n");
     sb.append("}");
     return sb.toString();

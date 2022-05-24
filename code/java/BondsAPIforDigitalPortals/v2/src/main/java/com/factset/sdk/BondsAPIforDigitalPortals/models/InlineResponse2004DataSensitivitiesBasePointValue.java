@@ -48,6 +48,8 @@ public class InlineResponse2004DataSensitivitiesBasePointValue implements Serial
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataSensitivitiesBasePointValue() { 
+  }
 
   public InlineResponse2004DataSensitivitiesBasePointValue minimum(BigDecimal minimum) {
     this.minimum = minimum;

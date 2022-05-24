@@ -1,6 +1,6 @@
 # DebtInstrumentApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,14 +28,13 @@ import com.factset.sdk.BondsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.BondsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.BondsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.BondsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.BondsAPIforDigitalPortals.model.*;
+import com.factset.sdk.BondsAPIforDigitalPortals.models.*;
 import com.factset.sdk.BondsAPIforDigitalPortals.api.DebtInstrumentApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,14 +44,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
         String id = "id_example"; // String | Identifier of the instrument.
@@ -61,6 +60,7 @@ public class Example {
         try {
             InlineResponse200 result = apiInstance.getDebtInstrumentGet(id, attributes, language);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DebtInstrumentApi#getDebtInstrumentGet");
             System.err.println("Status code: " + e.getCode());
@@ -116,14 +116,13 @@ import com.factset.sdk.BondsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.BondsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.BondsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.BondsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.BondsAPIforDigitalPortals.model.*;
+import com.factset.sdk.BondsAPIforDigitalPortals.models.*;
 import com.factset.sdk.BondsAPIforDigitalPortals.api.DebtInstrumentApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -133,14 +132,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
         String id = "id_example"; // String | Identifier of a notation.
@@ -148,6 +147,7 @@ public class Example {
         try {
             InlineResponse2002 result = apiInstance.getDebtInstrumentKeyFiguresNotationGet(id, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DebtInstrumentApi#getDebtInstrumentKeyFiguresNotationGet");
             System.err.println("Status code: " + e.getCode());
@@ -202,14 +202,13 @@ import com.factset.sdk.BondsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.BondsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.BondsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.BondsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.BondsAPIforDigitalPortals.model.*;
+import com.factset.sdk.BondsAPIforDigitalPortals.models.*;
 import com.factset.sdk.BondsAPIforDigitalPortals.api.DebtInstrumentApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -219,20 +218,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
         InlineObject body = new InlineObject(); // InlineObject | 
         try {
             InlineResponse2001 result = apiInstance.postDebtInstrumentIssuerSearch(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DebtInstrumentApi#postDebtInstrumentIssuerSearch");
             System.err.println("Status code: " + e.getCode());
@@ -286,14 +286,13 @@ import com.factset.sdk.BondsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.BondsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.BondsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.BondsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.BondsAPIforDigitalPortals.model.*;
+import com.factset.sdk.BondsAPIforDigitalPortals.models.*;
 import com.factset.sdk.BondsAPIforDigitalPortals.api.DebtInstrumentApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -303,20 +302,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
         InlineObject1 body = new InlineObject1(); // InlineObject1 | 
         try {
             InlineResponse2003 result = apiInstance.postDebtInstrumentNotationScreenerSearch(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DebtInstrumentApi#postDebtInstrumentNotationScreenerSearch");
             System.err.println("Status code: " + e.getCode());
@@ -370,14 +370,13 @@ import com.factset.sdk.BondsAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.BondsAPIforDigitalPortals.ApiException;
 import com.factset.sdk.BondsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.BondsAPIforDigitalPortals.auth.*;
-import com.factset.sdk.BondsAPIforDigitalPortals.model.*;
+import com.factset.sdk.BondsAPIforDigitalPortals.models.*;
 import com.factset.sdk.BondsAPIforDigitalPortals.api.DebtInstrumentApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -387,20 +386,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         DebtInstrumentApi apiInstance = new DebtInstrumentApi(defaultClient);
         InlineObject2 body = new InlineObject2(); // InlineObject2 | 
         try {
             InlineResponse2004 result = apiInstance.postDebtInstrumentNotationScreenerValueRangesGet(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling DebtInstrumentApi#postDebtInstrumentNotationScreenerValueRangesGet");
             System.err.println("Status code: " + e.getCode());

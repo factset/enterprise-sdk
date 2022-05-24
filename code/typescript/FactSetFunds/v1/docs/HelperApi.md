@@ -48,6 +48,7 @@ const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet I
 // Call api endpoint
 apiInstance.getStatuses(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -119,6 +120,7 @@ const statusesRequest = new factsetfunds.StatusesRequest(); // StatusesRequest |
 // Call api endpoint
 apiInstance.getStatusesForList(statusesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

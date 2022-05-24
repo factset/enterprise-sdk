@@ -55,6 +55,8 @@ public class InlineResponse20039DataLevels implements Serializable {
   public static final String JSON_PROPERTY_HAS_LEAF_CATEGORIES = "hasLeafCategories";
   private Boolean hasLeafCategories;
 
+  public InlineResponse20039DataLevels() { 
+  }
 
   public InlineResponse20039DataLevels id(BigDecimal id) {
     this.id = id;

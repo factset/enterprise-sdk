@@ -50,6 +50,7 @@ const entityMappingDeleteRequest = new factsetconcordance.EntityMappingDeleteReq
 // Call api endpoint
 apiInstance.getEntityMappingDeleteForList(entityMappingDeleteRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const entityMappingRequest = new factsetconcordance.EntityMappingRequest(); // E
 // Call api endpoint
 apiInstance.getEntityMappingForList(entityMappingRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -198,6 +200,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getEntityUniverse(universeId, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -273,6 +276,7 @@ const entityUniverseRequest = new factsetconcordance.EntityUniverseRequest(); //
 // Call api endpoint
 apiInstance.getEntityUniverseForList(entityUniverseRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

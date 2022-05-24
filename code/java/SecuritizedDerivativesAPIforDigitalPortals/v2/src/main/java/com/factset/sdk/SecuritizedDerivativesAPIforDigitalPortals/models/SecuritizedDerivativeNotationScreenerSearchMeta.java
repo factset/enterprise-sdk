@@ -595,6 +595,8 @@ public class SecuritizedDerivativeNotationScreenerSearchMeta implements Serializ
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private SecuritizedDerivativeNotationScreenerSearchMetaPagination pagination;
 
+  public SecuritizedDerivativeNotationScreenerSearchMeta() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerSearchMeta attributes(java.util.Set<String> attributes) {
     this.attributes = attributes;

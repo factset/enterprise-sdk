@@ -28,7 +28,7 @@ import InlineResponse2004 from '../model/InlineResponse2004';
 /**
 * Watchlist service.
 * @module api/WatchlistApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class WatchlistApi {
 
@@ -68,7 +68,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/watchlist/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -81,7 +84,7 @@ export default class WatchlistApi {
      * The endpoint creates a new watchlist.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     watchlistCreatePost(opts) {
       return this.watchlistCreatePostWithHttpInfo(opts)
@@ -114,7 +117,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2001;
+
       return this.apiClient.callApi(
         '/watchlist/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -127,7 +133,7 @@ export default class WatchlistApi {
      * The endpoint deletes a watchlist.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject1} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2001}
+     * @return { Promise.< module:model/InlineResponse2001 > } a Promise, with data of type {@link module:model/InlineResponse2001 }
      */
     watchlistDeletePost(opts) {
       return this.watchlistDeletePostWithHttpInfo(opts)
@@ -167,7 +173,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2002;
+
       return this.apiClient.callApi(
         '/watchlist/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -183,7 +192,7 @@ export default class WatchlistApi {
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2002}
+     * @return { Promise.< module:model/InlineResponse2002 > } a Promise, with data of type {@link module:model/InlineResponse2002 }
      */
     watchlistListGet(opts) {
       return this.watchlistListGetWithHttpInfo(opts)
@@ -216,7 +225,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/watchlist/modify', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -229,7 +241,7 @@ export default class WatchlistApi {
      * The endpoint renames a watchlist.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject2} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     watchlistModifyPost(opts) {
       return this.watchlistModifyPostWithHttpInfo(opts)
@@ -262,7 +274,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2003;
+
       return this.apiClient.callApi(
         '/watchlist/position/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -275,7 +290,7 @@ export default class WatchlistApi {
      * The endpoint adds a new position in a watchlist.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject3} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
+     * @return { Promise.< module:model/InlineResponse2003 > } a Promise, with data of type {@link module:model/InlineResponse2003 }
      */
     watchlistPositionCreatePost(opts) {
       return this.watchlistPositionCreatePostWithHttpInfo(opts)
@@ -308,7 +323,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/watchlist/position/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -321,7 +339,7 @@ export default class WatchlistApi {
      * The endpoint deletes a position in a watchlist.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject4} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     watchlistPositionDeletePost(opts) {
       return this.watchlistPositionDeletePostWithHttpInfo(opts)
@@ -367,7 +385,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse2004;
+
       return this.apiClient.callApi(
         '/watchlist/position/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -384,7 +405,7 @@ export default class WatchlistApi {
      * @param {Array.<module:model/String>} opts.sort Sortable attributes. The sort order is ascending unless it is prefixed with a minus sign, in which case it is descending. A list of at most 2 (possibly prefixed) attribute name(s) is allowed.
      * @param {Number} opts.paginationOffset Non-negative number of entries to skip, or 0 (default). (default to 0.0)
      * @param {Number} opts.paginationLimit Non-negative maximum number of entries to return. (default to 20.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
+     * @return { Promise.< module:model/InlineResponse2004 > } a Promise, with data of type {@link module:model/InlineResponse2004 }
      */
     watchlistPositionListGet(name, opts) {
       return this.watchlistPositionListGetWithHttpInfo(name, opts)
@@ -417,7 +438,10 @@ export default class WatchlistApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse200;
+
       return this.apiClient.callApi(
         '/watchlist/position/modify', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -430,7 +454,7 @@ export default class WatchlistApi {
      * The endpoint modifies a position in a watchlist. All properties except the position id are modifiable by the endpoint.
      * @param {Object} opts Optional parameters
      * @param {module:model/InlineObject5} opts.body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return { Promise.< module:model/InlineResponse200 > } a Promise, with data of type {@link module:model/InlineResponse200 }
      */
     watchlistPositionModifyPost(opts) {
       return this.watchlistPositionModifyPostWithHttpInfo(opts)
@@ -441,3 +465,8 @@ export default class WatchlistApi {
 
 
 }
+
+
+
+
+

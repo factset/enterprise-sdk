@@ -18,7 +18,7 @@ import FICalculationParameters from '../model/FICalculationParameters';
 /**
 * FICalculations service.
 * @module api/FICalculationsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class FICalculationsApi {
 
@@ -61,7 +61,10 @@ export default class FICalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = [];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/fi/v1/calculations/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -73,7 +76,7 @@ export default class FICalculationsApi {
      * Cancel FI calculation by id
      * This is the endpoint to cancel a previously submitted calculation.  Instead of doing a GET on the polling URL, cancel the request by doing a DELETE.
      * @param {String} id from url, provided from the location header in the Run FI Calculation endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     cancelFICalculationById(id) {
       return this.cancelFICalculationByIdWithHttpInfo(id)
@@ -109,7 +112,10 @@ export default class FICalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Object;
+
       return this.apiClient.callApi(
         '/analytics/engines/fi/v1/calculations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -121,7 +127,7 @@ export default class FICalculationsApi {
      * Get FI calculation by id
      * This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.  Otherwise, the calculation is still running and the X-FactSet-Api-PickUp-Progress header will contain a progress percentage.
      * @param {String} id from url, provided from the location header in the Run FI Calculation endpoint
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return { Promise.< Object > } a Promise, with data of type {@link Object }
      */
     getFICalculationById(id) {
       return this.getFICalculationByIdWithHttpInfo(id)
@@ -158,7 +164,10 @@ export default class FICalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = Object;
+
       return this.apiClient.callApi(
         '/analytics/engines/fi/v1/calculations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -173,7 +182,7 @@ export default class FICalculationsApi {
      * @param {String} opts.xFactSetContentOrganization FactSet content organization
      * @param {String} opts.xFactSetContentType FactSet content type
      * @param {module:model/FICalculationParameters} opts.fICalculationParameters 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     * @return { Promise.< Object > } a Promise, with data of type {@link Object }
      */
     runFICalculation(opts) {
       return this.runFICalculationWithHttpInfo(opts)
@@ -184,3 +193,8 @@ export default class FICalculationsApi {
 
 
 }
+
+
+
+
+

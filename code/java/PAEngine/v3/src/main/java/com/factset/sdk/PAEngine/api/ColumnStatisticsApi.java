@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.ColumnStatisticRoot;
 
@@ -21,6 +24,14 @@ public class ColumnStatisticsApi {
   public ColumnStatisticsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPAColumnStatisticsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAColumnStatisticsResponseTypeMap.put(200, new GenericType<ColumnStatisticRoot>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -106,10 +117,16 @@ public class ColumnStatisticsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ColumnStatisticRoot> localVarReturnType = new GenericType<ColumnStatisticRoot>() {};
 
-    return apiClient.invokeAPI("ColumnStatisticsApi.getPAColumnStatistics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ColumnStatisticRoot
+      
+    > apiResponse = apiClient.invokeAPI("ColumnStatisticsApi.getPAColumnStatistics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAColumnStatisticsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

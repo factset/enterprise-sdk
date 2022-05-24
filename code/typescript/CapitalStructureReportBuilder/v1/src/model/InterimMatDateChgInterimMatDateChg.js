@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InterimMatDateChgInterimMatDateChg model module.
  * @module model/InterimMatDateChgInterimMatDateChg
- * @version 0.9.1
+ * @version 0.20.0
  */
 class InterimMatDateChgInterimMatDateChg {
     /**

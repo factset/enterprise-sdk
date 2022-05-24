@@ -2,14 +2,16 @@
 
 # InlineResponse20014Data
 
+Characteristics.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**navDate** | **LocalDate** | Growth of the 10k calculation date |  [optional]
-**tenkValue** | **BigDecimal** | Growth of the 10k calculation value. |  [optional]
-**tenkPercentChange** | **BigDecimal** | Growth of the 10k calculation percent change. |  [optional]
+**gearing** | [**InlineResponse20014DataGearing**](InlineResponse20014DataGearing.md) |  |  [optional]
+**hedge** | [**InlineResponse20014DataHedge**](InlineResponse20014DataHedge.md) |  |  [optional]
+**counterParty** | [**InlineResponse20014DataCounterParty**](InlineResponse20014DataCounterParty.md) |  |  [optional]
+**serviceProvider** | [**InlineResponse20014DataServiceProvider**](InlineResponse20014DataServiceProvider.md) |  |  [optional]
 
 
 ## Implemented Interfaces

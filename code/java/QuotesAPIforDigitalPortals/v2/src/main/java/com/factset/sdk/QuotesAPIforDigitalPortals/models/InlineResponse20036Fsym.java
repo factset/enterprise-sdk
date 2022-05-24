@@ -44,6 +44,8 @@ public class InlineResponse20036Fsym implements Serializable {
   public static final String JSON_PROPERTY_SECURITY = "security";
   private InlineResponse20036FsymSecurity security;
 
+  public InlineResponse20036Fsym() { 
+  }
 
   public InlineResponse20036Fsym security(InlineResponse20036FsymSecurity security) {
     this.security = security;

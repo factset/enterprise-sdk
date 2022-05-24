@@ -18,7 +18,7 @@ import ErrorSource from './ErrorSource';
 /**
  * The Error model module.
  * @module model/Error
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Error {
     /**

@@ -69,7 +69,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004DataLifeCycle {\n");
             sb.Append("  Issue: ").Append(Issue).Append("\n");
             sb.Append("  Maturity: ").Append(Maturity).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004DataLifeCycle input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Issue == input.Issue ||
@@ -136,11 +137,17 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Issue != null)
-                    hashCode = hashCode * 59 + this.Issue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Issue.GetHashCode();
+                }
                 if (this.Maturity != null)
-                    hashCode = hashCode * 59 + this.Maturity.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Maturity.GetHashCode();
+                }
                 if (this.Callable != null)
-                    hashCode = hashCode * 59 + this.Callable.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Callable.GetHashCode();
+                }
                 return hashCode;
             }
         }

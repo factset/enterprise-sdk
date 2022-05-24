@@ -18,7 +18,7 @@ import NotationSearchByTextMeta from './NotationSearchByTextMeta';
 /**
  * The InlineObject22 model module.
  * @module model/InlineObject22
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject22 {
     /**

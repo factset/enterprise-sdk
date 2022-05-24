@@ -81,7 +81,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimizerAccountOverrides {\n");
             sb.Append("  Portfolio: ").Append(Portfolio).Append("\n");
             sb.Append("  Benchmark: ").Append(Benchmark).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         public bool Equals(OptimizerAccountOverrides input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Portfolio == input.Portfolio ||
@@ -153,13 +154,21 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Portfolio != null)
-                    hashCode = hashCode * 59 + this.Portfolio.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Portfolio.GetHashCode();
+                }
                 if (this.Benchmark != null)
-                    hashCode = hashCode * 59 + this.Benchmark.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Benchmark.GetHashCode();
+                }
                 if (this.RiskModelId != null)
-                    hashCode = hashCode * 59 + this.RiskModelId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RiskModelId.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 return hashCode;
             }
         }

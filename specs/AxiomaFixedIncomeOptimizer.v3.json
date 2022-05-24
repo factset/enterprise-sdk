@@ -425,7 +425,8 @@
             "status-code": "201",
             "response-type": "ObjectRoot"
           }
-        ]
+        ],
+        "x-factset-different-success-responses": true
       }
     },
     "/analytics/engines/afi/v3/optimizations/{id}": {
@@ -887,7 +888,8 @@
             "status-code": "201",
             "response-type": "ObjectRoot"
           }
-        ]
+        ],
+        "x-factset-different-success-responses": true
       },
       "get": {
         "tags": [

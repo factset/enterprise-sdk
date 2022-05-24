@@ -22,7 +22,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * CUSIP service.
 * @module api/CUSIPApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class CUSIPApi {
 
@@ -64,7 +64,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CusipHistoryTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/cusip-history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class CUSIPApi {
      * Retrieve the full history of CUSIP changes for the requested ID(s).
      * Return the full history of CUSIP changes for a given market security or FactSet Permanent Id. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system. 
      * @param {module:model/CusipHistoryTranslationRequest} cusipHistoryTranslationRequest Request Body for CUSIP History
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipHistoryTranslationResponse}
+     * @return { Promise.< module:model/CusipHistoryTranslationResponse > } a Promise, with data of type {@link module:model/CusipHistoryTranslationResponse }
      */
     batchCusipHistory(cusipHistoryTranslationRequest) {
       return this.batchCusipHistoryWithHttpInfo(cusipHistoryTranslationRequest)
@@ -111,7 +114,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CusipTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/cusip', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class CUSIPApi {
      * Translate market security symbols into CUSIP.
      * Translate market security symbols into CUSIP and FactSet Permanent Identifiers. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system. <p>This method is best for requesting **large universes** of `ids`.</p>
      * @param {module:model/CusipTranslationRequest} cusipTranslationRequest Request Body for CUSIP Symbology Translation
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipTranslationResponse}
+     * @return { Promise.< module:model/CusipTranslationResponse > } a Promise, with data of type {@link module:model/CusipTranslationResponse }
      */
     batchTranslateCusips(cusipTranslationRequest) {
       return this.batchTranslateCusipsWithHttpInfo(cusipTranslationRequest)
@@ -159,7 +165,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CusipHistoryTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/cusip-history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -171,7 +180,7 @@ export default class CUSIPApi {
      * Retrieve the full history of CUSIP changes for the requested ID(s).
      * Return the full history of CUSIP changes for a given market security or FactSet Permanent Id. Visit [OA 9094](https://my.apps.factset.com/oa/pages/9094) for more details regarding the CUSIP numbering system.  <p>*GET Method is limited by URL Length of 2,048 characters. If a large universe of symbols is requested, it's advised to use POST method to retrieve the same response model.*</P>
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipHistoryTranslationResponse}
+     * @return { Promise.< module:model/CusipHistoryTranslationResponse > } a Promise, with data of type {@link module:model/CusipHistoryTranslationResponse }
      */
     cusipHistory(ids) {
       return this.cusipHistoryWithHttpInfo(ids)
@@ -211,7 +220,10 @@ export default class CUSIPApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CusipTranslationResponse;
+
       return this.apiClient.callApi(
         '/symbology/v1/cusip', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -225,7 +237,7 @@ export default class CUSIPApi {
      * @param {Array.<String>} ids Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, `requestId`.
      * @param {Object} opts Optional parameters
      * @param {String} opts.asOfDate As-Of date for historical symbol request in YYYY-MM-DD format.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CusipTranslationResponse}
+     * @return { Promise.< module:model/CusipTranslationResponse > } a Promise, with data of type {@link module:model/CusipTranslationResponse }
      */
     translateCusip(ids, opts) {
       return this.translateCusipWithHttpInfo(ids, opts)
@@ -236,3 +248,8 @@ export default class CUSIPApi {
 
 
 }
+
+
+
+
+

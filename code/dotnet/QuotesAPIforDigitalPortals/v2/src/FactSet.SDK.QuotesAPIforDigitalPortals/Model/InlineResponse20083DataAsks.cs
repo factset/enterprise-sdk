@@ -89,7 +89,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20083DataAsks {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
@@ -127,8 +127,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20083DataAsks input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Type == input.Type ||
@@ -162,12 +163,14 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.Price.GetHashCode();
-                hashCode = hashCode * 59 + this.NumberOrders.GetHashCode();
-                hashCode = hashCode * 59 + this.Volume.GetHashCode();
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberOrders.GetHashCode();
+                hashCode = (hashCode * 59) + this.Volume.GetHashCode();
                 if (this.Time != null)
-                    hashCode = hashCode * 59 + this.Time.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Time.GetHashCode();
+                }
                 return hashCode;
             }
         }

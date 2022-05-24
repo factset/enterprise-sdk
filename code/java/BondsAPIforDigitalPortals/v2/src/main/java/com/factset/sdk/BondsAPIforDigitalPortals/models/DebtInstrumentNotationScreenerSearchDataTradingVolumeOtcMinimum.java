@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum imp
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum minimum(DebtInstrumentNotationScreenerSearchDataLifeCycleMaturityRestrictionRemainingTermYearsMinimum minimum) {
     this.minimum = minimum;

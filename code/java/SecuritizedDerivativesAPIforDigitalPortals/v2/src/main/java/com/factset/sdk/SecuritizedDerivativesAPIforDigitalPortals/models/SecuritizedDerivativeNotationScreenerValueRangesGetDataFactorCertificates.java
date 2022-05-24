@@ -88,6 +88,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertif
   public static final String JSON_PROPERTY_CONSTANT_LEVERAGE = "constantLeverage";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificatesConstantLeverage constantLeverage;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates effectiveUnderlying(SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEffectiveUnderlying effectiveUnderlying) {
     this.effectiveUnderlying = effectiveUnderlying;

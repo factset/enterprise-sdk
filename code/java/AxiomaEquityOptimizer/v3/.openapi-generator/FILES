@@ -46,7 +46,6 @@ src/main/java/com/factset/sdk/AxiomaEquityOptimizer/ApiClient.java
 src/main/java/com/factset/sdk/AxiomaEquityOptimizer/ApiException.java
 src/main/java/com/factset/sdk/AxiomaEquityOptimizer/ApiResponse.java
 src/main/java/com/factset/sdk/AxiomaEquityOptimizer/Configuration.java
-src/main/java/com/factset/sdk/AxiomaEquityOptimizer/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/AxiomaEquityOptimizer/JSON.java
 src/main/java/com/factset/sdk/AxiomaEquityOptimizer/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/AxiomaEquityOptimizer/Pair.java

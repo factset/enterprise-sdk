@@ -1,6 +1,6 @@
 # fds.sdk.RecommendationListAPIforDigitalPortals.RecommendationListApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -42,41 +42,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
+
     id = 3.14 # float | Identifier of the list.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Attributes of a single list.
-        api_response = api_instance.get_recommendation_list_get(id)
-        pprint(api_response)
-    except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling RecommendationListApi->get_recommendation_list_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Attributes of a single list.
         api_response = api_instance.get_recommendation_list_get(id, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
         print("Exception when calling RecommendationListApi->get_recommendation_list_get: %s\n" % e)
 ```
@@ -142,41 +134,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
+
     id_revision = 3.14 # float | Identifier of the revision.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List of elements of a given revision.
-        api_response = api_instance.get_recommendation_list_revision_element_list(id_revision)
-        pprint(api_response)
-    except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling RecommendationListApi->get_recommendation_list_revision_element_list: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List of elements of a given revision.
         api_response = api_instance.get_recommendation_list_revision_element_list(id_revision, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
         print("Exception when calling RecommendationListApi->get_recommendation_list_revision_element_list: %s\n" % e)
 ```
@@ -242,41 +226,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
+
     id = 3.14 # float | Identifier of the revision.
     attributes = [
         "_attributes_example",
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Attributes of a single revision.
-        api_response = api_instance.get_recommendation_list_revision_get(id)
-        pprint(api_response)
-    except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
-        print("Exception when calling RecommendationListApi->get_recommendation_list_revision_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Attributes of a single revision.
         api_response = api_instance.get_recommendation_list_revision_get(id, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
         print("Exception when calling RecommendationListApi->get_recommendation_list_revision_get: %s\n" % e)
 ```
@@ -342,21 +318,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
+
     id_notation = "idNotation_example" # str | Restrict the search to revisions containing an element associated with the identified notation. (optional)
     id_instrument = "idInstrument_example" # str | Restrict the search to revisions pointing to the identified instrument. (optional)
     attributes = [
@@ -364,12 +341,11 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for revisions of a recommendation list.
         api_response = api_instance.get_recommendation_list_revision_search(id_notation=id_notation, id_instrument=id_instrument, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
         print("Exception when calling RecommendationListApi->get_recommendation_list_revision_search: %s\n" % e)
 ```
@@ -436,21 +412,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
+
     name = "name_example" # str | Restricts the search to recommendation lists, which contain the provided string in their name attribute. The filter is a case-insensitive substring match. (optional)
     only_active = True # bool | Restrict the search to recommendation lists, which are currently active (e.g., current date is before the recommendation list's activeRange.end date). If set to false, recommendation lists will be returned regardless of their state. (optional)
     attributes = [
@@ -458,12 +435,11 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
     ] # [str] | Limit the attributes returned in the response to the specified set. (optional)
     language = "_language_example" # str | ISO 639-1 code of the language. (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Search for recommendation lists.
         api_response = api_instance.get_recommendation_list_search(name=name, only_active=only_active, attributes=attributes, language=language)
         pprint(api_response)
+
     except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
         print("Exception when calling RecommendationListApi->get_recommendation_list_search: %s\n" % e)
 ```
@@ -531,21 +507,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.RecommendationListAPIforDigitalPortals.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = recommendation_list_api.RecommendationListApi(api_client)
+
     body = InlineObject(
         data=RecommendationListRevisionListData(
             id_list=3.14,
@@ -565,11 +542,11 @@ with fds.sdk.RecommendationListAPIforDigitalPortals.ApiClient(configuration) as 
         ),
     ) # InlineObject | 
 
-    # example passing only required values which don't have defaults set
     try:
         # List of revisions of a recommendation list.
         api_response = api_instance.post_recommendation_list_revision_list(body)
         pprint(api_response)
+
     except fds.sdk.RecommendationListAPIforDigitalPortals.ApiException as e:
         print("Exception when calling RecommendationListApi->post_recommendation_list_revision_list: %s\n" % e)
 ```

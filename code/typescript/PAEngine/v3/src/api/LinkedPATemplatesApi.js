@@ -23,7 +23,7 @@ import LinkedPATemplateUpdateParametersRoot from '../model/LinkedPATemplateUpdat
 /**
 * LinkedPATemplates service.
 * @module api/LinkedPATemplatesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class LinkedPATemplatesApi {
 
@@ -42,7 +42,7 @@ export default class LinkedPATemplatesApi {
 
     /**
      * Create a linked PA template
-     * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+     * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
      * @param {module:model/LinkedPATemplateParametersRoot} linkedPATemplateParametersRoot Request Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LinkedPATemplatePostSummaryRoot} and HTTP response
      */
@@ -65,7 +65,10 @@ export default class LinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = LinkedPATemplatePostSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/linked-templates', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,9 +78,9 @@ export default class LinkedPATemplatesApi {
 
     /**
      * Create a linked PA template
-     * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+     * This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
      * @param {module:model/LinkedPATemplateParametersRoot} linkedPATemplateParametersRoot Request Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LinkedPATemplatePostSummaryRoot}
+     * @return { Promise.< module:model/LinkedPATemplatePostSummaryRoot > } a Promise, with data of type {@link module:model/LinkedPATemplatePostSummaryRoot }
      */
     createLinkedPATemplates(linkedPATemplateParametersRoot) {
       return this.createLinkedPATemplatesWithHttpInfo(linkedPATemplateParametersRoot)
@@ -113,7 +116,10 @@ export default class LinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['text/plain', 'application/json', 'text/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/linked-templates/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -125,7 +131,7 @@ export default class LinkedPATemplatesApi {
      * Delete a linked PA template.
      * This endpoint deletes an existing linked PA template.
      * @param {String} id Unique identifier for a linked PA template
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     deleteLinkedPATemplates(id) {
       return this.deleteLinkedPATemplatesWithHttpInfo(id)
@@ -163,7 +169,10 @@ export default class LinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = LinkedPATemplateSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/linked-templates', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -178,7 +187,7 @@ export default class LinkedPATemplatesApi {
      * @param {String} opts.directory Get linked PA templates in path. (default to 'Personal:LinkedPATemplates/')
      * @param {String} opts.documentDirectory Get linked PA templates for documents in document path
      * @param {String} opts.documentName Get linked PA templates for documents by document name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LinkedPATemplateSummaryRoot}
+     * @return { Promise.< module:model/LinkedPATemplateSummaryRoot > } a Promise, with data of type {@link module:model/LinkedPATemplateSummaryRoot }
      */
     getLinkedPATemplates(opts) {
       return this.getLinkedPATemplatesWithHttpInfo(opts)
@@ -214,7 +223,10 @@ export default class LinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = LinkedPATemplateRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/linked-templates/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -226,7 +238,7 @@ export default class LinkedPATemplatesApi {
      * Get linked PA template by id
      * This endpoint fetches the linked PA template settings.
      * @param {String} id Unique identifier for a linked PA template
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LinkedPATemplateRoot}
+     * @return { Promise.< module:model/LinkedPATemplateRoot > } a Promise, with data of type {@link module:model/LinkedPATemplateRoot }
      */
     getLinkedPATemplatesById(id) {
       return this.getLinkedPATemplatesByIdWithHttpInfo(id)
@@ -238,7 +250,7 @@ export default class LinkedPATemplatesApi {
 
     /**
      * Update a linked PA template
-     * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+     * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
      * @param {String} id Unique identifier for a linked PA template
      * @param {module:model/LinkedPATemplateUpdateParametersRoot} linkedPATemplateUpdateParametersRoot Request Parameters
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LinkedPATemplatePostSummaryRoot} and HTTP response
@@ -267,7 +279,10 @@ export default class LinkedPATemplatesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = LinkedPATemplatePostSummaryRoot;
+
       return this.apiClient.callApi(
         '/analytics/engines/pa/v3/linked-templates/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -277,10 +292,10 @@ export default class LinkedPATemplatesApi {
 
     /**
      * Update a linked PA template
-     * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+     * This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"datasources\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
      * @param {String} id Unique identifier for a linked PA template
      * @param {module:model/LinkedPATemplateUpdateParametersRoot} linkedPATemplateUpdateParametersRoot Request Parameters
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LinkedPATemplatePostSummaryRoot}
+     * @return { Promise.< module:model/LinkedPATemplatePostSummaryRoot > } a Promise, with data of type {@link module:model/LinkedPATemplatePostSummaryRoot }
      */
     updateLinkedPATemplates(id, linkedPATemplateUpdateParametersRoot) {
       return this.updateLinkedPATemplatesWithHttpInfo(id, linkedPATemplateUpdateParametersRoot)
@@ -291,3 +306,8 @@ export default class LinkedPATemplatesApi {
 
 
 }
+
+
+
+
+

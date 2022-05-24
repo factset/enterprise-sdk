@@ -52,6 +52,8 @@ public class InlineResponse20080Accumulated implements Serializable {
   public static final String JSON_PROPERTY_TRADING_VALUE = "tradingValue";
   private BigDecimal tradingValue;
 
+  public InlineResponse20080Accumulated() { 
+  }
 
   public InlineResponse20080Accumulated numberTrades(BigDecimal numberTrades) {
     this.numberTrades = numberTrades;

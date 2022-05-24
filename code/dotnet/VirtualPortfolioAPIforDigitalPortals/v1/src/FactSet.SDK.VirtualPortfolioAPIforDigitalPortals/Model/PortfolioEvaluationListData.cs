@@ -108,7 +108,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PortfolioEvaluationListData {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Range: ").Append(Range).Append("\n");
@@ -144,8 +144,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(PortfolioEvaluationListData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -173,10 +174,14 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Range != null)
-                    hashCode = hashCode * 59 + this.Range.GetHashCode();
-                hashCode = hashCode * 59 + this.Resolution.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Range.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Resolution.GetHashCode();
                 return hashCode;
             }
         }

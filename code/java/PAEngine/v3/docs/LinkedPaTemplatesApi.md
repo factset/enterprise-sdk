@@ -25,7 +25,7 @@ Remarks:
 *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. 
     If no mandatory fields are passed, then we can use the template as a component and skip the component creation.
     
-*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "dates", "currencyisocode" and "componentdetail".
+*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "datasources", "dates", "currencyisocode" and "componentdetail".
 
 *   We cannot override the Locked fields when creating the Component.
 
@@ -41,14 +41,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.LinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -58,20 +57,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         LinkedPaTemplatesApi apiInstance = new LinkedPaTemplatesApi(defaultClient);
         LinkedPATemplateParametersRoot linkedPATemplateParametersRoot = new LinkedPATemplateParametersRoot(); // LinkedPATemplateParametersRoot | Request Parameters
         try {
             LinkedPATemplatePostSummaryRoot result = apiInstance.createLinkedPATemplates(linkedPATemplateParametersRoot);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling LinkedPaTemplatesApi#createLinkedPATemplates");
             System.err.println("Status code: " + e.getCode());
@@ -133,14 +133,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.LinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -150,19 +149,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         LinkedPaTemplatesApi apiInstance = new LinkedPaTemplatesApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for a linked PA template
         try {
             apiInstance.deleteLinkedPATemplates(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling LinkedPaTemplatesApi#deleteLinkedPATemplates");
             System.err.println("Status code: " + e.getCode());
@@ -224,14 +224,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.LinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -241,14 +240,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         LinkedPaTemplatesApi apiInstance = new LinkedPaTemplatesApi(defaultClient);
         String directory = "Personal:LinkedPATemplates/"; // String | Get linked PA templates in path.
@@ -257,6 +256,7 @@ public class Example {
         try {
             LinkedPATemplateSummaryRoot result = apiInstance.getLinkedPATemplates(directory, documentDirectory, documentName);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling LinkedPaTemplatesApi#getLinkedPATemplates");
             System.err.println("Status code: " + e.getCode());
@@ -320,14 +320,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.LinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -337,20 +336,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         LinkedPaTemplatesApi apiInstance = new LinkedPaTemplatesApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for a linked PA template
         try {
             LinkedPATemplateRoot result = apiInstance.getLinkedPATemplatesById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling LinkedPaTemplatesApi#getLinkedPATemplatesById");
             System.err.println("Status code: " + e.getCode());
@@ -409,7 +409,7 @@ Remarks:
 *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. 
     If no mandatory fields are passed, then we can use the template as a component and skip the component creation.
     
-*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "dates", "currencyisocode" and "componentdetail".
+*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "datasources", "dates", "currencyisocode" and "componentdetail".
 
 *   We cannot override the Locked fields when creating the Component.
 
@@ -425,14 +425,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.LinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -442,14 +441,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         LinkedPaTemplatesApi apiInstance = new LinkedPaTemplatesApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for a linked PA template
@@ -457,6 +456,7 @@ public class Example {
         try {
             LinkedPATemplatePostSummaryRoot result = apiInstance.updateLinkedPATemplates(id, linkedPATemplateUpdateParametersRoot);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling LinkedPaTemplatesApi#updateLinkedPATemplates");
             System.err.println("Status code: " + e.getCode());

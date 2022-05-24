@@ -49,6 +49,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSp
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadRelative relative;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpread() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpread harmonized(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresSpreadHarmonized harmonized) {
     this.harmonized = harmonized;

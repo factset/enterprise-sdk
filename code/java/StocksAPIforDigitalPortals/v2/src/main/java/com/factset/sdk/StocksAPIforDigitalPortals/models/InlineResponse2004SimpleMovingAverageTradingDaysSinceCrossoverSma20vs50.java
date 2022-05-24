@@ -83,6 +83,8 @@ public class InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma20
   public static final String JSON_PROPERTY_DIRECTION = "direction";
   private DirectionEnum direction;
 
+  public InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma20vs50() { 
+  }
 
   public InlineResponse2004SimpleMovingAverageTradingDaysSinceCrossoverSma20vs50 numberDays(BigDecimal numberDays) {
     this.numberDays = numberDays;

@@ -48,6 +48,8 @@ public class InlineResponse2006InstrumentKnockOutDistance implements Serializabl
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2006InstrumentKnockOutDistance() { 
+  }
 
   public InlineResponse2006InstrumentKnockOutDistance absolute(BigDecimal absolute) {
     this.absolute = absolute;

@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetEstimates.Configuration;
 import com.factset.sdk.FactSetEstimates.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
 import com.factset.sdk.FactSetEstimates.models.SurpriseRequest;
@@ -23,6 +26,28 @@ public class SurpriseApi {
   public SurpriseApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getSurpriseResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSurpriseResponseTypeMap.put(200, new GenericType<SurpriseResponse>(){});
+    getSurpriseResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSurpriseResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSurpriseResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSurpriseResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSurpriseResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getSurpriseForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSurpriseForListResponseTypeMap.put(200, new GenericType<SurpriseResponse>(){});
+    getSurpriseForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSurpriseForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSurpriseForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSurpriseForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSurpriseForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -140,11 +165,17 @@ public class SurpriseApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SurpriseResponse> localVarReturnType = new GenericType<SurpriseResponse>() {};
 
-    return apiClient.invokeAPI("SurpriseApi.getSurprise", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SurpriseResponse
+      
+    > apiResponse = apiClient.invokeAPI("SurpriseApi.getSurprise", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSurpriseResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Surprise estimates for rolling fiscal periods
@@ -217,10 +248,16 @@ public class SurpriseApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<SurpriseResponse> localVarReturnType = new GenericType<SurpriseResponse>() {};
 
-    return apiClient.invokeAPI("SurpriseApi.getSurpriseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        SurpriseResponse
+      
+    > apiResponse = apiClient.invokeAPI("SurpriseApi.getSurpriseForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getSurpriseForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

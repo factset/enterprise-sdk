@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CursorBasedPaginationOutputObject from './model/CursorBasedPaginationOutputObject';
 import CursorBasedPaginationOutputObjectWithoutTotal from './model/CursorBasedPaginationOutputObjectWithoutTotal';
@@ -79,6 +78,7 @@ import VendorChartIQTimeSeriesEodSubsampleGetMeta from './model/VendorChartIQTim
 import VendorChartIQTimeSeriesEodSubsampleListData from './model/VendorChartIQTimeSeriesEodSubsampleListData';
 import VendorChartIQTimeSeriesIntradaySubsampleListData from './model/VendorChartIQTimeSeriesIntradaySubsampleListData';
 import VendorChartIQTimeSeriesIntradaySubsampleListDataRange from './model/VendorChartIQTimeSeriesIntradaySubsampleListDataRange';
+
 import PricesApi from './api/PricesApi';
 import VendorApi from './api/VendorApi';
 
@@ -112,7 +112,7 @@ import VendorApi from './api/VendorApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.9.2
 */
 export {
     /**
@@ -527,5 +527,6 @@ export {
     * The VendorApi service constructor.
     * @property {module:api/VendorApi}
     */
-    VendorApi
+    VendorApi,
+
 };

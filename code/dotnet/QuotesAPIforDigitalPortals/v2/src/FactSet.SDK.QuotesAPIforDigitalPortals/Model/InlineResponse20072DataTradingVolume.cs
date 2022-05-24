@@ -62,7 +62,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20072DataTradingVolume {\n");
             sb.Append("  Average: ").Append(Average).Append("\n");
             sb.Append("  Sum: ").Append(Sum).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20072DataTradingVolume input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Average == input.Average ||
@@ -119,8 +120,8 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Average.GetHashCode();
-                hashCode = hashCode * 59 + this.Sum.GetHashCode();
+                hashCode = (hashCode * 59) + this.Average.GetHashCode();
+                hashCode = (hashCode * 59) + this.Sum.GetHashCode();
                 return hashCode;
             }
         }

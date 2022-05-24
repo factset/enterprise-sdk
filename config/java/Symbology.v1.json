@@ -5,7 +5,7 @@
   "java8": true,
   "groupId": "com.factset.sdk",
   "artifactId": "symbology",
-  "artifactVersion": "0.8.1",
+  "artifactVersion": "0.8.2",
   "artifactUrl": "https://github.com/FactSet/enterprise-sdk",
   "artifactDescription": "Symbology client library for Java",
   "scmConnection": "scm:git:git@github.com:FactSet/enterprise-sdk.git",
@@ -24,8 +24,9 @@
   "hideGenerationTimestamp": true,
   "caseInsensitiveResponseHeaders": true,
   "library": "jersey2",
+  "dateLibrary": "java8",
   "servers":  false,
-  "httpUserAgent": "fds-sdk/java/Symbology/0.8.1",
+  "httpUserAgent": "fds-sdk/java/Symbology/0.8.2",
   "files": {
     "LICENSE": {},
     "auth/FactSetOAuth2ClientAuth.mustache": {
@@ -33,5 +34,6 @@
       "folder": "src/main/java/com/factset/sdk/Symbology/auth",
       "destinationFilename": "FactSetOAuth2ClientAuth.java"
     }
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

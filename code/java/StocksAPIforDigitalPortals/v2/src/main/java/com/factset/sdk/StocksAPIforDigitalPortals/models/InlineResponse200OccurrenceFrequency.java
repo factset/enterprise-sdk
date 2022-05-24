@@ -48,6 +48,8 @@ public class InlineResponse200OccurrenceFrequency implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse200OccurrenceFrequency() { 
+  }
 
   public InlineResponse200OccurrenceFrequency id(BigDecimal id) {
     this.id = id;

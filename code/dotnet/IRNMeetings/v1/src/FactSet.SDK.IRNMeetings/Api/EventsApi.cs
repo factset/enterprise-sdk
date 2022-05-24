@@ -31,8 +31,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// Get all the record events that belong to a meeting
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
-        /// <returns>List&lt;RecordEventSummaryDto&gt;</returns>
+        /// <param name="meetingId">Meeting ID</param>
+        /// <returns>List<RecordEventSummaryDto></returns>
         List<RecordEventSummaryDto> GetEvents(Guid meetingId);
 
         /// <summary>
@@ -42,8 +42,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
-        /// <returns>ApiResponse of List&lt;RecordEventSummaryDto&gt;</returns>
+        /// <param name="meetingId">Meeting ID</param>
+        /// <returns>ApiResponse of List<RecordEventSummaryDto></returns>
         ApiResponse<List<RecordEventSummaryDto>> GetEventsWithHttpInfo(Guid meetingId);
         /// <summary>
         /// Get details of a record event of a meeting
@@ -81,7 +81,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
+        /// <param name="meetingId">Meeting ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecordEventSummaryDto&gt;</returns>
         System.Threading.Tasks.Task<List<RecordEventSummaryDto>> GetEventsAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -93,9 +93,9 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// 
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
+        /// <param name="meetingId">Meeting ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;RecordEventSummaryDto&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<RecordEventSummaryDto>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<RecordEventSummaryDto>>> GetEventsWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get details of a record event of a meeting
@@ -139,6 +139,27 @@ namespace FactSet.SDK.IRNMeetings.Api
     public partial class EventsApi : IEventsApi
     {
         private FactSet.SDK.IRNMeetings.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetEventsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<RecordEventSummaryDto>) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
+            { (HttpStatusCode)0, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetRecordEventResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(MeetingEventDto) },
+            { (HttpStatusCode)403, typeof(ProblemDetails) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EventsApi"/> class.
@@ -246,11 +267,11 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// Get all the record events that belong to a meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
-        /// <returns>List&lt;RecordEventSummaryDto&gt;</returns>
+        /// <param name="meetingId">Meeting ID</param>
+        /// <returns>List<RecordEventSummaryDto></returns>
         public List<RecordEventSummaryDto> GetEvents(Guid meetingId)
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<List<RecordEventSummaryDto>> localVarResponse = GetEventsWithHttpInfo(meetingId);
+            var localVarResponse = GetEventsWithHttpInfo(meetingId);
             return localVarResponse.Data;
         }
 
@@ -258,9 +279,9 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// Get all the record events that belong to a meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
+        /// <param name="meetingId">Meeting ID</param>
         /// <returns>ApiResponse of List&lt;RecordEventSummaryDto&gt;</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<List<RecordEventSummaryDto>> GetEventsWithHttpInfo(Guid meetingId)
+        public ApiResponse<List<RecordEventSummaryDto>> GetEventsWithHttpInfo(Guid meetingId)
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -273,22 +294,28 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -300,15 +327,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<RecordEventSummaryDto>>("/v1/meetings/{meetingId}/events", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetEventsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<RecordEventSummaryDto>>("/v1/meetings/{meetingId}/events", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -316,12 +347,12 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// Get all the record events that belong to a meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
+        /// <param name="meetingId">Meeting ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;RecordEventSummaryDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<RecordEventSummaryDto>> GetEventsAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<RecordEventSummaryDto>>GetEventsAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<List<RecordEventSummaryDto>> localVarResponse = await GetEventsWithHttpInfoAsync(meetingId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetEventsWithHttpInfoAsync(meetingId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -329,10 +360,11 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// Get all the record events that belong to a meeting 
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="meetingId">Meeting Id</param>
+        /// <param name="meetingId">Meeting ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;RecordEventSummaryDto&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<List<RecordEventSummaryDto>>> GetEventsWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<RecordEventSummaryDto>>> GetEventsWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -345,24 +377,29 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -374,14 +411,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetEventsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<RecordEventSummaryDto>>("/v1/meetings/{meetingId}/events", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetEvents", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -396,7 +437,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <returns>MeetingEventDto</returns>
         public MeetingEventDto GetRecordEvent(Guid meetingId, Guid recordEventId)
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingEventDto> localVarResponse = GetRecordEventWithHttpInfo(meetingId, recordEventId);
+            var localVarResponse = GetRecordEventWithHttpInfo(meetingId, recordEventId);
             return localVarResponse.Data;
         }
 
@@ -407,7 +448,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="recordEventId">Record Event Id</param>
         /// <returns>ApiResponse of MeetingEventDto</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingEventDto> GetRecordEventWithHttpInfo(Guid meetingId, Guid recordEventId)
+        public ApiResponse<MeetingEventDto> GetRecordEventWithHttpInfo(Guid meetingId, Guid recordEventId)
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -420,23 +461,29 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.PathParameters.Add("recordEventId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(recordEventId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -448,15 +495,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MeetingEventDto>("/v1/meetings/{meetingId}/events/{recordEventId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetRecordEventResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            MeetingEventDto>("/v1/meetings/{meetingId}/events/{recordEventId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecordEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -468,9 +519,9 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="recordEventId">Record Event Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MeetingEventDto</returns>
-        public async System.Threading.Tasks.Task<MeetingEventDto> GetRecordEventAsync(Guid meetingId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MeetingEventDto>GetRecordEventAsync(Guid meetingId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingEventDto> localVarResponse = await GetRecordEventWithHttpInfoAsync(meetingId, recordEventId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRecordEventWithHttpInfoAsync(meetingId, recordEventId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -482,7 +533,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="recordEventId">Record Event Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MeetingEventDto)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingEventDto>> GetRecordEventWithHttpInfoAsync(Guid meetingId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingEventDto>> GetRecordEventWithHttpInfoAsync(Guid meetingId, Guid recordEventId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -495,25 +547,30 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.PathParameters.Add("recordEventId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(recordEventId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -525,14 +582,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetRecordEventResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<MeetingEventDto>("/v1/meetings/{meetingId}/events/{recordEventId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecordEvent", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

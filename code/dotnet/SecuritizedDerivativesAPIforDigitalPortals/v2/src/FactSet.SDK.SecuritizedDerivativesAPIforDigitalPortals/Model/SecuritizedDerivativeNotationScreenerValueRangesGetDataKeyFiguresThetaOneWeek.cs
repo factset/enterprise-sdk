@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeek {\n");
             sb.Append("  Effective: ").Append(Effective).Append("\n");
             sb.Append("  Unadjusted: ").Append(Unadjusted).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataKeyFiguresThetaOneWeek input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Effective == input.Effective ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Effective != null)
-                    hashCode = hashCode * 59 + this.Effective.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Effective.GetHashCode();
+                }
                 if (this.Unadjusted != null)
-                    hashCode = hashCode * 59 + this.Unadjusted.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Unadjusted.GetHashCode();
+                }
                 return hashCode;
             }
         }

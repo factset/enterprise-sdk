@@ -1,6 +1,6 @@
 # FactSet.SDK.BondsAPIforDigitalPortals.Api.DebtInstrumentApi
 
-All URIs are relative to *http://api.factset.com/wealth/v1*
+All URIs are relative to *https://api.factset.com/wealth/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -54,9 +54,9 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DebtInstrumentApi(config);
-            var id = id_example;  // string | Identifier of the instrument.
+            var id = "id_example";  // string | Identifier of the instrument.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
-            var language = language_example;  // string | ISO 639-1 code of the language. (optional) 
+            var language = "language_example";  // string | ISO 639-1 code of the language. (optional) 
 
             try
             {
@@ -84,7 +84,6 @@ Name | Type | Description  | Notes
  **language** | **string**| ISO 639-1 code of the language. | [optional] 
 
 ### Return type
-
 [**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
@@ -147,7 +146,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new DebtInstrumentApi(config);
-            var id = id_example;  // string | Identifier of a notation.
+            var id = "id_example";  // string | Identifier of a notation.
             var attributes = new List<string>(); // List<string> | Limit the attributes returned in the response to the specified set. (optional) 
 
             try
@@ -175,7 +174,6 @@ Name | Type | Description  | Notes
  **attributes** | [**List&lt;string&gt;**](string.md)| Limit the attributes returned in the response to the specified set. | [optional] 
 
 ### Return type
-
 [**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
@@ -264,7 +262,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
@@ -353,7 +350,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject1**](InlineObject1.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
@@ -442,7 +438,6 @@ Name | Type | Description  | Notes
  **body** | [**InlineObject2**](InlineObject2.md)|  | [optional] 
 
 ### Return type
-
 [**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization

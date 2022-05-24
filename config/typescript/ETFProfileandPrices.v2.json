@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-etfprofileandprices",
-  "projectVersion": "0.9.1",
+  "projectVersion": "0.10.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "ETF Profile and Prices client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "etfprofileandprices",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/ETFProfileandPrices/0.9.1",
+  "httpUserAgent": "fds-sdk/javascript/ETFProfileandPrices/0.10.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

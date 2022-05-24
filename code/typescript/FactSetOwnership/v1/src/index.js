@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AssetType from './model/AssetType';
 import ErrorResponse from './model/ErrorResponse';
@@ -23,6 +22,7 @@ import HolderType from './model/HolderType';
 import SecurityHolders from './model/SecurityHolders';
 import SecurityHoldersRequest from './model/SecurityHoldersRequest';
 import SecurityHoldersResponse from './model/SecurityHoldersResponse';
+
 import FundHoldingsApi from './api/FundHoldingsApi';
 import SecurityHoldersApi from './api/SecurityHoldersApi';
 
@@ -56,7 +56,7 @@ import SecurityHoldersApi from './api/SecurityHoldersApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -135,5 +135,6 @@ export {
     * The SecurityHoldersApi service constructor.
     * @property {module:api/SecurityHoldersApi}
     */
-    SecurityHoldersApi
+    SecurityHoldersApi,
+
 };

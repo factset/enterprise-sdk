@@ -48,6 +48,8 @@ public class InlineResponse200DataCreateRedeem implements Serializable {
   public static final String JSON_PROPERTY_UNIT_SIZE = "unitSize";
   private BigDecimal unitSize;
 
+  public InlineResponse200DataCreateRedeem() { 
+  }
 
   public InlineResponse200DataCreateRedeem unitCost(BigDecimal unitCost) {
     this.unitCost = unitCost;

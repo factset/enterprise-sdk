@@ -100,7 +100,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CommentDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
@@ -140,8 +140,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(CommentDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -192,19 +193,33 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
                 if (this.ParentCommentId != null)
-                    hashCode = hashCode * 59 + this.ParentCommentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ParentCommentId.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.Attachments != null)
-                    hashCode = hashCode * 59 + this.Attachments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attachments.GetHashCode();
+                }
                 if (this.Subcomments != null)
-                    hashCode = hashCode * 59 + this.Subcomments.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Subcomments.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -49,6 +49,8 @@ public class NRTCalls implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private NRTCallsMeta meta;
 
+  public NRTCalls() { 
+  }
 
   public NRTCalls data(java.util.List<NRTCallsData> data) {
     this.data = data;

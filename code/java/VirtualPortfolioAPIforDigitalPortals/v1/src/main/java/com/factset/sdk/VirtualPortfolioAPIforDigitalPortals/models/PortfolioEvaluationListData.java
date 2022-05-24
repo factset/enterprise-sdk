@@ -89,6 +89,18 @@ public class PortfolioEvaluationListData implements Serializable {
   public static final String JSON_PROPERTY_RESOLUTION = "resolution";
   private ResolutionEnum resolution = ResolutionEnum.DAILY;
 
+  public PortfolioEvaluationListData() { 
+  }
+
+  @JsonCreator
+  public PortfolioEvaluationListData(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
+    @JsonProperty(value=JSON_PROPERTY_RANGE, required=true) PortfolioEvaluationListDataRange range
+  ) {
+    this();
+    this.id = id;
+    this.range = range;
+  }
 
   public PortfolioEvaluationListData id(String id) {
     this.id = id;

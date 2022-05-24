@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import CreateUniverseRequest from './model/CreateUniverseRequest';
 import EntityDecisionsResponse from './model/EntityDecisionsResponse';
@@ -41,6 +40,7 @@ import UniverseMetaResponse from './model/UniverseMetaResponse';
 import UniverseStatistics from './model/UniverseStatistics';
 import UniversesResponse from './model/UniversesResponse';
 import UpdateUniverseRequest from './model/UpdateUniverseRequest';
+
 import EntityMatchApi from './api/EntityMatchApi';
 import EntityMatchBulkApi from './api/EntityMatchBulkApi';
 import MappingsApi from './api/MappingsApi';
@@ -77,7 +77,7 @@ import UniversesApi from './api/UniversesApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -282,5 +282,6 @@ export {
     * The UniversesApi service constructor.
     * @property {module:api/UniversesApi}
     */
-    UniversesApi
+    UniversesApi,
+
 };

@@ -22,9 +22,8 @@ paths:
         Current date data is not available.</p> PROD has data from 20120101 to
         current date &</p> **available IDs is limited to..**</p> US Equity -
         IBM-USA, F-USA, AAPL-USA, GOOG-USA</p> ASX - CBA-ASX, BHP-ASX</p> LSE -
-        HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Shenzhen OR
-        Shanghai - 300782-SHE, 300792-SHE</p> Swiss - NESN-SWX, COTN-SWX</p>
-        Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
+        HSBA-LON, VOD-LON</p> Tokyo - 7203-TKS, 4307-TKS</p> Swiss - NESN-SWX,
+        COTN-SWX</p> Singapore - J36-SES &</p> Hong Kong - 700-HKG</p>
       parameters:
         - $ref: '#/components/parameters/ticker'
         - $ref: '#/components/parameters/iso_code'
@@ -115,15 +114,12 @@ components:
           value: 7203,4307
           summary: Tokyo
         fieldname5:
-          value: 300782,300792
-          summary: Shenzhen Or Shanghai
-        fieldname6:
           value: NESN,COTN
           summary: Swiss
-        fieldname7:
+        fieldname6:
           value: J36
           summary: Singapore
-        fieldname8:
+        fieldname7:
           value: 700
           summary: HongKong
     iso_code:
@@ -149,15 +145,12 @@ components:
           value: TKS
           summary: Tokyo
         fieldname5:
-          value: SHE
-          summary: Shenzhen Or Shanghai
-        fieldname6:
           value: SWX
           summary: Swiss
-        fieldname7:
+        fieldname6:
           value: SES
           summary: Singapore
-        fieldname8:
+        fieldname7:
           value: HKG
           summary: HongKong
     fields:

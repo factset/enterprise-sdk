@@ -43,6 +43,8 @@ public class RegionResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Region> data = null;
 
+  public RegionResponse() { 
+  }
 
   public RegionResponse data(java.util.List<Region> data) {
     this.data = data;

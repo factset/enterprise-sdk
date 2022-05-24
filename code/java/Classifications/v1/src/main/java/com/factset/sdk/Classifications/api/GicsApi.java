@@ -7,6 +7,9 @@ import com.factset.sdk.Classifications.Configuration;
 import com.factset.sdk.Classifications.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Classifications.models.ErrorResponse;
 import com.factset.sdk.Classifications.models.GicsRequest;
@@ -23,6 +26,28 @@ public class GicsApi {
   public GicsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getGicsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getGicsResponseTypeMap.put(200, new GenericType<GicsResponse>(){});
+    getGicsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getGicsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getGicsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getGicsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getGicsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> postGicsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postGicsResponseTypeMap.put(200, new GenericType<GicsResponse>(){});
+    postGicsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    postGicsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    postGicsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    postGicsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    postGicsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -44,8 +69,8 @@ public class GicsApi {
 
   /**
    * Gets the GICS Direct Classifications
-   * Gets the The **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](http://us.spindices.com/resource-center/index-policies/) home pages. Coverage includes over 37,000 securities. *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
-   * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
+   * Gets the **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](https://www.spglobal.com/spdji/en/landing/topic/gics/) home pages. Coverage includes over 37,000 securities. *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
+   * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
    * @param startDate Requested start date expressed in YYYY-MM-DD format. (optional)
    * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to M)
@@ -69,8 +94,8 @@ public class GicsApi {
 
   /**
    * Gets the GICS Direct Classifications
-   * Gets the The **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](http://us.spindices.com/resource-center/index-policies/) home pages. Coverage includes over 37,000 securities. *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
-   * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
+   * Gets the **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](https://www.spglobal.com/spdji/en/landing/topic/gics/) home pages. Coverage includes over 37,000 securities. *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
+   * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
    * @param startDate Requested start date expressed in YYYY-MM-DD format. (optional)
    * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to M)
@@ -126,15 +151,21 @@ public class GicsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<GicsResponse> localVarReturnType = new GenericType<GicsResponse>() {};
 
-    return apiClient.invokeAPI("GicsApi.getGics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        GicsResponse
+      
+    > apiResponse = apiClient.invokeAPI("GicsApi.getGics", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getGicsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Returns the GICS classifications for the requested &#39;ids&#39; and date range.
-   * Gets the The **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](http://us.spindices.com/resource-center/index-policies/) home pages. Coverage includes over 37,000 secutries. *Licencing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
+   * Gets the **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](https://www.spglobal.com/spdji/en/landing/topic/gics/) home pages. Coverage includes over 37,000 securities. *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
    * @param gicsRequest Requests GICS Classifications for the given identifier and date range. (required)
    * @return GicsResponse
    * @throws ApiException if fails to make API call
@@ -155,7 +186,7 @@ public class GicsApi {
 
   /**
    * Returns the GICS classifications for the requested &#39;ids&#39; and date range.
-   * Gets the The **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](http://us.spindices.com/resource-center/index-policies/) home pages. Coverage includes over 37,000 secutries. *Licencing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
+   * Gets the **Global Industry Classification Standard (\&quot;GICS\&quot;)** Sectors, Industry Group, Industry, and Sub-Industry Names and Numbers for a requested list of ids and date range. All economic sectors have a two-digit identification code, all industry groups have a four-digit identification code, all industries have a six-digit identification code, and all sub-industries have an eight-digit identification code. To access the complete GICS structure and definitions, visit the [MSCI GICS](https://www.msci.com/gics) or [S&amp;P GICS](https://www.spglobal.com/spdji/en/landing/topic/gics/) home pages. Coverage includes over 37,000 securities. *Licensing for GICS Classifications, Regions, and History is required in addition to FactSet API license. Reach out to your FactSet Account Team for assistance.* 
    * @param gicsRequest Requests GICS Classifications for the given identifier and date range. (required)
    * @return ApiResponse&lt;GicsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -203,10 +234,16 @@ public class GicsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<GicsResponse> localVarReturnType = new GenericType<GicsResponse>() {};
 
-    return apiClient.invokeAPI("GicsApi.postGics", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        GicsResponse
+      
+    > apiResponse = apiClient.invokeAPI("GicsApi.postGics", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postGicsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

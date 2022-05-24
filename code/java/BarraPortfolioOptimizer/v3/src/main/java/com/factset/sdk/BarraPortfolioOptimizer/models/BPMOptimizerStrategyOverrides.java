@@ -56,6 +56,8 @@ public class BPMOptimizerStrategyOverrides implements Serializable {
   public static final String JSON_PROPERTY_TRANSACTION_COST = "transactionCost";
   private String transactionCost;
 
+  public BPMOptimizerStrategyOverrides() { 
+  }
 
   public BPMOptimizerStrategyOverrides constraints(java.util.List<ConstraintAction> constraints) {
     this.constraints = constraints;

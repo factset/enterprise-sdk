@@ -7,6 +7,9 @@ import com.factset.sdk.StocksAPIforDigitalPortals.Configuration;
 import com.factset.sdk.StocksAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineObject;
 import com.factset.sdk.StocksAPIforDigitalPortals.models.InlineObject1;
@@ -30,6 +33,54 @@ public class StockApi {
   public StockApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getStockDividendTypeListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStockDividendTypeListResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkYear1GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStockNotationKeyFiguresBenchmarkYear1GetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkYear3GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStockNotationKeyFiguresBenchmarkYear3GetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> getStockNotationKeyFiguresBenchmarkYear5GetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getStockNotationKeyFiguresBenchmarkYear5GetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> postStockDividendListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postStockDividendListResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> postStockNotationRankingIntradayListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postStockNotationRankingIntradayListResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> postStockNotationScreenerSearchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postStockNotationScreenerSearchResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+  }
+  private static final Map<Integer, GenericType> postStockNotationScreenerValueRangesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postStockNotationScreenerValueRangesGetResponseTypeMap.put(200, new GenericType<InlineResponse2005>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -109,11 +160,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("StockApi.getStockDividendTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.getStockDividendTypeList", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStockDividendTypeListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day (EOD) benchmark key figures of a stock for the time range of one month.
@@ -191,11 +248,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkMonth1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkMonth1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStockNotationKeyFiguresBenchmarkMonth1GetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day (EOD) benchmark key figures of a stock for the time range of three months.
@@ -273,11 +336,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkMonth3Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkMonth3Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStockNotationKeyFiguresBenchmarkMonth3GetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day (EOD) benchmark key figures of a stock for the time range of one week.
@@ -355,11 +424,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkWeek1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkWeek1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStockNotationKeyFiguresBenchmarkWeek1GetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day (EOD) benchmark key figures of a stock for the time range of one year.
@@ -437,11 +512,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkYear1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkYear1Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStockNotationKeyFiguresBenchmarkYear1GetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day (EOD) benchmark key figures of a stock for the time range of three years.
@@ -519,11 +600,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkYear3Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkYear3Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStockNotationKeyFiguresBenchmarkYear3GetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * End-of-day (EOD) benchmark key figures of a stock for the time range of five years.
@@ -601,11 +688,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkYear5Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.getStockNotationKeyFiguresBenchmarkYear5Get", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getStockNotationKeyFiguresBenchmarkYear5GetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * List of dividends for a stock.
@@ -668,11 +761,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("StockApi.postStockDividendList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.postStockDividendList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postStockDividendListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Ranking of stocks&#39; notations using intraday figures.
@@ -730,11 +829,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("StockApi.postStockNotationRankingIntradayList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.postStockNotationRankingIntradayList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postStockNotationRankingIntradayListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Screener for stocks&#39; notations based on stock-specific parameters.
@@ -792,11 +897,17 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
 
-    return apiClient.invokeAPI("StockApi.postStockNotationScreenerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2004
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.postStockNotationScreenerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postStockNotationScreenerSearchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/stock/notation/screener/search&#x60;.
@@ -854,10 +965,16 @@ public class StockApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2005> localVarReturnType = new GenericType<InlineResponse2005>() {};
 
-    return apiClient.invokeAPI("StockApi.postStockNotationScreenerValueRangesGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2005
+      
+    > apiResponse = apiClient.invokeAPI("StockApi.postStockNotationScreenerValueRangesGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postStockNotationScreenerValueRangesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

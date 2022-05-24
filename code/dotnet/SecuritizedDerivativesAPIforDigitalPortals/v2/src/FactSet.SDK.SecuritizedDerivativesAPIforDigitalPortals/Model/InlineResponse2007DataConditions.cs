@@ -69,7 +69,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataConditions {\n");
             sb.Append("  Observation: ").Append(Observation).Append("\n");
             sb.Append("  Barriers: ").Append(Barriers).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataConditions input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Observation == input.Observation ||
@@ -136,11 +137,17 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Observation != null)
-                    hashCode = hashCode * 59 + this.Observation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Observation.GetHashCode();
+                }
                 if (this.Barriers != null)
-                    hashCode = hashCode * 59 + this.Barriers.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Barriers.GetHashCode();
+                }
                 if (this.CashFlow != null)
-                    hashCode = hashCode * 59 + this.CashFlow.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CashFlow.GetHashCode();
+                }
                 return hashCode;
             }
         }

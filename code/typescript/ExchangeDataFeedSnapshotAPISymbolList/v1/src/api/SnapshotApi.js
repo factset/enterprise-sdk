@@ -19,7 +19,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Snapshot service.
 * @module api/SnapshotApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class SnapshotApi {
 
@@ -72,7 +72,10 @@ export default class SnapshotApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json', 'application/xml', 'text/csv'];
+
+
       let returnType = DFSnapshotResponse;
+
       return this.apiClient.callApi(
         '/DFSnapshot', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -91,7 +94,7 @@ export default class SnapshotApi {
      * @param {module:model/String} opts.format The format of the output file.<p>**Try it Out** - All formats available</p> (default to 'XML')
      * @param {module:model/String} opts.serv The Data Service that handles the request for the specified symbols. Available live services are -    * **FDS1** -Production Data Service   * **FDS_FUND** -Fundamental Data Service used for End-of-Day data.  **Try it Out** - use FDS1 
      * @param {String} opts.reqId Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.<p> **Try it Out** - any value can be passed through.</p>
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DFSnapshotResponse}
+     * @return { Promise.< module:model/DFSnapshotResponse > } a Promise, with data of type {@link module:model/DFSnapshotResponse }
      */
     getDFSnapshot(opts) {
       return this.getDFSnapshotWithHttpInfo(opts)
@@ -137,7 +140,10 @@ export default class SnapshotApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json', 'application/xml', 'text/csv'];
+
+
       let returnType = DFSnapshotResponse;
+
       return this.apiClient.callApi(
         '/DFSnapshot', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -156,7 +162,7 @@ export default class SnapshotApi {
      * @param {module:model/String} opts.format The format of the output file.<p>**Try it Out** - All formats available</p> (default to 'XML')
      * @param {module:model/String} opts.serv The Data Service that handles the request for the specified symbols. Available live services are -    * **FDS1** -Production Data Service   * **FDS_FUND** -Fundamental Data Service used for End-of-Day data.  **Try it Out** - use FDS1 
      * @param {String} opts.reqId Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the XML response.<p> **Try it Out** - any value can be passed through.</p>
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DFSnapshotResponse}
+     * @return { Promise.< module:model/DFSnapshotResponse > } a Promise, with data of type {@link module:model/DFSnapshotResponse }
      */
     postDFSnapshot(opts) {
       return this.postDFSnapshotWithHttpInfo(opts)
@@ -167,3 +173,8 @@ export default class SnapshotApi {
 
 
 }
+
+
+
+
+

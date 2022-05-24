@@ -63,7 +63,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse200DataFinancialReportSemiAnnual {\n");
             sb.Append("  IsAvailable: ").Append(IsAvailable).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse200DataFinancialReportSemiAnnual input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IsAvailable == input.IsAvailable ||
@@ -121,9 +122,11 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IsAvailable.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsAvailable.GetHashCode();
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 return hashCode;
             }
         }

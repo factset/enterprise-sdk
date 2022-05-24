@@ -7,6 +7,9 @@ import com.factset.sdk.IRNMeetings.Configuration;
 import com.factset.sdk.IRNMeetings.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IRNMeetings.models.AttachmentSummaryDto;
 import java.io.File;
@@ -24,6 +27,24 @@ public class AttachmentsApi {
   public AttachmentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createAttachmentResponseTypeMap.put(201, new GenericType<NewItemDto>(){});
+    createAttachmentResponseTypeMap.put(400, new GenericType<ProblemDetails>(){});
+    createAttachmentResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> downloadAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getAttachmentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAttachmentsResponseTypeMap.put(200, new GenericType<java.util.List<AttachmentSummaryDto>>(){});
+    getAttachmentsResponseTypeMap.put(404, new GenericType<ProblemDetails>(){});
+    getAttachmentsResponseTypeMap.put(0, new GenericType<ProblemDetails>(){});
+  }
+  private static final Map<Integer, GenericType> softDeleteMeetingAttachmentResponseTypeMap = new HashMap<Integer, GenericType>();
+
+   
+
 
   /**
    * Get the API client
@@ -44,10 +65,10 @@ public class AttachmentsApi {
   }
 
   /**
-   * Create an attachment for an existing meeting
+   * Create an attachment for a existing meeting
    * 
    * @param meetingId Meeting Id (required)
-   * @param file  (required)
+   * @param _file  (required)
    * @return NewItemDto
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -58,15 +79,15 @@ public class AttachmentsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public NewItemDto createAttachment(java.util.UUID meetingId, File file) throws ApiException {
-    return createAttachmentWithHttpInfo(meetingId, file).getData();
+  public NewItemDto createAttachment(java.util.UUID meetingId, File _file) throws ApiException {
+    return createAttachmentWithHttpInfo(meetingId, _file).getData();
   }
 
   /**
-   * Create an attachment for an existing meeting
+   * Create an attachment for a existing meeting
    * 
    * @param meetingId Meeting Id (required)
-   * @param file  (required)
+   * @param _file  (required)
    * @return ApiResponse&lt;NewItemDto&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -77,7 +98,7 @@ public class AttachmentsApi {
        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<NewItemDto> createAttachmentWithHttpInfo(java.util.UUID meetingId, File file) throws ApiException {
+  public ApiResponse<NewItemDto> createAttachmentWithHttpInfo(java.util.UUID meetingId, File _file) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'meetingId' is set
@@ -85,9 +106,9 @@ public class AttachmentsApi {
       throw new ApiException(400, "Missing the required parameter 'meetingId' when calling createAttachment");
     }
     
-    // verify the required parameter 'file' is set
-    if (file == null) {
-      throw new ApiException(400, "Missing the required parameter 'file' when calling createAttachment");
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling createAttachment");
     }
     
     // create path and map variables
@@ -103,8 +124,8 @@ public class AttachmentsApi {
 
     
     
-    if (file != null)
-      localVarFormParams.put("file", file);
+    if (_file != null)
+      localVarFormParams.put("file", _file);
 
     final String[] localVarAccepts = {
       "application/json"
@@ -118,14 +139,20 @@ public class AttachmentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<NewItemDto> localVarReturnType = new GenericType<NewItemDto>() {};
 
-    return apiClient.invokeAPI("AttachmentsApi.createAttachment", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        NewItemDto
+      
+    > apiResponse = apiClient.invokeAPI("AttachmentsApi.createAttachment", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, createAttachmentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
-   * Download an attachment from a meeting
+   * Download an attachment from a Meeting
    * 
    * @param meetingId  (required)
    * @param attachmentId  (required)
@@ -144,7 +171,7 @@ public class AttachmentsApi {
   }
 
   /**
-   * Download an attachment from a meeting
+   * Download an attachment from a Meeting
    * 
    * @param meetingId  (required)
    * @param attachmentId  (required)
@@ -199,15 +226,21 @@ public class AttachmentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("AttachmentsApi.downloadAttachment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("AttachmentsApi.downloadAttachment", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, downloadAttachmentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get all the attachments belonging to a meeting
    * 
    * @param meetingId Meeting Id (required)
-   * @return java.util.List&lt;AttachmentSummaryDto&gt;
+   * @return java.util.List<AttachmentSummaryDto>
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -225,7 +258,7 @@ public class AttachmentsApi {
    * Get all the attachments belonging to a meeting
    * 
    * @param meetingId Meeting Id (required)
-   * @return ApiResponse&lt;java.util.List&lt;AttachmentSummaryDto&gt;&gt;
+   * @return ApiResponse&lt;java.util.List<AttachmentSummaryDto>&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -269,11 +302,17 @@ public class AttachmentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<java.util.List<AttachmentSummaryDto>> localVarReturnType = new GenericType<java.util.List<AttachmentSummaryDto>>() {};
 
-    return apiClient.invokeAPI("AttachmentsApi.getAttachments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        java.util.List<AttachmentSummaryDto>
+      
+    > apiResponse = apiClient.invokeAPI("AttachmentsApi.getAttachments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAttachmentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete attachment from meeting
@@ -350,8 +389,14 @@ public class AttachmentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("AttachmentsApi.softDeleteMeetingAttachment", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("AttachmentsApi.softDeleteMeetingAttachment", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, softDeleteMeetingAttachmentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -43,6 +43,8 @@ public class RankedTableTemplateAllOf implements Serializable {
   public static final String JSON_PROPERTY_TABLE = "table";
   private RankedTable table;
 
+  public RankedTableTemplateAllOf() { 
+  }
 
   public RankedTableTemplateAllOf table(RankedTable table) {
     this.table = table;

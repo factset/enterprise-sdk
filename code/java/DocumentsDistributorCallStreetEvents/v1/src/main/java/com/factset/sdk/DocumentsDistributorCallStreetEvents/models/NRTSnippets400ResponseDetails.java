@@ -43,6 +43,8 @@ public class NRTSnippets400ResponseDetails implements Serializable {
   public static final String JSON_PROPERTY_VALID_PARAMETERS = "validParameters";
   private NRTSnippets400ResponseDetailsValidParameters validParameters;
 
+  public NRTSnippets400ResponseDetails() { 
+  }
 
   public NRTSnippets400ResponseDetails validParameters(NRTSnippets400ResponseDetailsValidParameters validParameters) {
     this.validParameters = validParameters;

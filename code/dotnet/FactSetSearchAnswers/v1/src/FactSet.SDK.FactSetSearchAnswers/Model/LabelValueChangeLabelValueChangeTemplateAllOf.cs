@@ -85,7 +85,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LabelValueChangeLabelValueChangeTemplateAllOf {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
@@ -123,8 +123,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(LabelValueChangeLabelValueChangeTemplateAllOf input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Value == input.Value ||
@@ -163,15 +164,25 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                }
                 if (this.Label != null)
-                    hashCode = hashCode * 59 + this.Label.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Label.GetHashCode();
+                }
                 if (this.ValueChange != null)
-                    hashCode = hashCode * 59 + this.ValueChange.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ValueChange.GetHashCode();
+                }
                 if (this.Value2 != null)
-                    hashCode = hashCode * 59 + this.Value2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Value2.GetHashCode();
+                }
                 if (this.Label2 != null)
-                    hashCode = hashCode * 59 + this.Label2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Label2.GetHashCode();
+                }
                 return hashCode;
             }
         }

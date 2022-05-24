@@ -89,7 +89,7 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001TriggerStatus {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
@@ -124,8 +124,9 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2001TriggerStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Code == input.Code ||
@@ -147,9 +148,11 @@ namespace FactSet.SDK.PriceAlertingAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Code.GetHashCode();
+                hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 if (this.Details != null)
-                    hashCode = hashCode * 59 + this.Details.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
                 return hashCode;
             }
         }

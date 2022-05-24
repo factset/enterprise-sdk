@@ -86,6 +86,8 @@ public class ReturnsSnapshot implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public ReturnsSnapshot() { 
+  }
 
   public ReturnsSnapshot fsymId(String fsymId) {
     this.fsymId = fsymId;

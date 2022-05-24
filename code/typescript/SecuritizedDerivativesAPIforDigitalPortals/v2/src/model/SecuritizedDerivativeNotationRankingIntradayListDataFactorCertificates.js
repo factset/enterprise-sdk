@@ -17,7 +17,7 @@ import SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificatesEff
 /**
  * The SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates model module.
  * @module model/SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates {
     /**

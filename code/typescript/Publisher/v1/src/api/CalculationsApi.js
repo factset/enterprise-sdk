@@ -20,7 +20,7 @@ import CalculationStatusSummary from '../model/CalculationStatusSummary';
 /**
 * Calculations service.
 * @module api/CalculationsApi
-* @version 0.8.1
+* @version 0.8.2
 */
 export default class CalculationsApi {
 
@@ -63,7 +63,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = [];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/v2/calculations/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -75,7 +78,7 @@ export default class CalculationsApi {
      * Cancel calculation by id
      * This is the endpoint to cancel a previously submitted calculation request.  Instead of doing a GET on the getCalculationById URL, cancel the calculation by doing a DELETE.  All individual calculation units within the calculation will be canceled if they have not already finished.
      * @param {String} id From url, provided from the location header in the Run Multiple Calculations endpoint.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     cancelCalculationById(id) {
       return this.cancelCalculationByIdWithHttpInfo(id)
@@ -111,7 +114,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CalculationStatus;
+
       return this.apiClient.callApi(
         '/analytics/engines/v2/calculations/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class CalculationsApi {
      * Get calculation status by id
      * This is the endpoint to check on the progress of a previous calculation request.  Response body contains status information of the entire request and each individual calculation unit.
      * @param {String} id From url, provided from the location header in the Run Multiple Calculations endpoint.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CalculationStatus}
+     * @return { Promise.< module:model/CalculationStatus > } a Promise, with data of type {@link module:model/CalculationStatus }
      */
     getCalculationStatusById(id) {
       return this.getCalculationStatusByIdWithHttpInfo(id)
@@ -153,7 +159,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = {'String': CalculationStatusSummary};
+
       return this.apiClient.callApi(
         '/analytics/engines/v2/calculations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -164,7 +173,7 @@ export default class CalculationsApi {
     /**
      * Get all calculation statuses
      * This endpoints returns all active calculation requests.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, module:model/{String: CalculationStatusSummary}>}
+     * @return { Promise.< Object.<String, module:model/{String: CalculationStatusSummary}> > } a Promise, with data of type {@link Object.<String, module:model/{String: CalculationStatusSummary}> }
      */
     getCalculationStatusSummaries() {
       return this.getCalculationStatusSummariesWithHttpInfo()
@@ -197,7 +206,10 @@ export default class CalculationsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = [];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/analytics/engines/v2/calculations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -210,7 +222,7 @@ export default class CalculationsApi {
      * This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
      * @param {Object} opts Optional parameters
      * @param {module:model/Calculation} opts.calculation 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     runCalculation(opts) {
       return this.runCalculationWithHttpInfo(opts)
@@ -221,3 +233,8 @@ export default class CalculationsApi {
 
 
 }
+
+
+
+
+

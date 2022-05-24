@@ -86,6 +86,8 @@ public class InlineResponse2006InstrumentUnderlyingNotationInstrument implements
   public static final String JSON_PROPERTY_TYPE_COMPOSITE = "typeComposite";
   private TypeCompositeEnum typeComposite;
 
+  public InlineResponse2006InstrumentUnderlyingNotationInstrument() { 
+  }
 
   public InlineResponse2006InstrumentUnderlyingNotationInstrument id(String id) {
     this.id = id;

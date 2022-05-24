@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataRecommendationCounts implements Seri
   public static final String JSON_PROPERTY_TOTAL = "total";
   private StockNotationScreenerSearchDataRecommendationCountsTotal total;
 
+  public StockNotationScreenerSearchDataRecommendationCounts() { 
+  }
 
   public StockNotationScreenerSearchDataRecommendationCounts total(StockNotationScreenerSearchDataRecommendationCountsTotal total) {
     this.total = total;

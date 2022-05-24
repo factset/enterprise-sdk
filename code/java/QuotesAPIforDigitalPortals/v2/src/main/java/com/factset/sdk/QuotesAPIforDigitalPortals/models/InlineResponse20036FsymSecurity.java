@@ -43,6 +43,8 @@ public class InlineResponse20036FsymSecurity implements Serializable {
   public static final String JSON_PROPERTY_PERMANENT_IDENTIFIER = "permanentIdentifier";
   private String permanentIdentifier;
 
+  public InlineResponse20036FsymSecurity() { 
+  }
 
   public InlineResponse20036FsymSecurity permanentIdentifier(String permanentIdentifier) {
     this.permanentIdentifier = permanentIdentifier;

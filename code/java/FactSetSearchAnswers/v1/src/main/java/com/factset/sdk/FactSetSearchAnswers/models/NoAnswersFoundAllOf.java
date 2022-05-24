@@ -46,6 +46,18 @@ public class NoAnswersFoundAllOf implements Serializable {
   public static final String JSON_PROPERTY_QUERY_SUGGESTIONS = "querySuggestions";
   private java.util.List<String> querySuggestions = new java.util.ArrayList<>();
 
+  public NoAnswersFoundAllOf() { 
+  }
+
+  @JsonCreator
+  public NoAnswersFoundAllOf(
+    @JsonProperty(value=JSON_PROPERTY_MESSAGE, required=true) String message, 
+    @JsonProperty(value=JSON_PROPERTY_QUERY_SUGGESTIONS, required=true) java.util.List<String> querySuggestions
+  ) {
+    this();
+    this.message = message;
+    this.querySuggestions = querySuggestions;
+  }
 
   public NoAnswersFoundAllOf message(String message) {
     this.message = message;

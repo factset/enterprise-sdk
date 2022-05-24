@@ -20,7 +20,7 @@ import ErrorResponse from '../model/ErrorResponse';
 /**
 * Countries service.
 * @module api/CountriesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CountriesApi {
 
@@ -75,7 +75,10 @@ export default class CountriesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CountryResponse;
+
       return this.apiClient.callApi(
         '/factset-georev/v1/countries', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -93,7 +96,7 @@ export default class CountriesApi {
      * @param {String} opts.endDate The end date requested for a given date range in **YYYY-MM-DD** format. Data is available on a Fiscal Annual periodicity and updated daily. If left blank, the API will default to latest available fiscal period. Future dates (T+1) are not accepted in this endpoint. 
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.     (default to 'FY')
      * @param {String} opts.currency Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CountryResponse}
+     * @return { Promise.< module:model/CountryResponse > } a Promise, with data of type {@link module:model/CountryResponse }
      */
     getCountries(ids, opts) {
       return this.getCountriesWithHttpInfo(ids, opts)
@@ -128,7 +131,10 @@ export default class CountriesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CountryResponse;
+
       return this.apiClient.callApi(
         '/factset-georev/v1/countries', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -140,7 +146,7 @@ export default class CountriesApi {
      * Gets the revenue details for the requested Countries. Use for large lists of ids.
      * Gets the **Countries'** Geographic Revenue, Percents, Confidence, and Ranks for a requested list of ids and country ISO codes, for a given start-date and end-date. Nearly 300 countries are supported. Countries represent the fourth and bottom level of the GeoRev taxonomy. The full list of countries and their related regional mappings can be found by using the /country-mappings endpoint or visit [OA 8754](https://my.apps.factset.com/oa/pages/8754) for a list of ISO2 Country codes. 
      * @param {module:model/CountryRequest} countryRequest The Country request body, allowing the user to specify a list of ids, time range, and regionIds.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CountryResponse}
+     * @return { Promise.< module:model/CountryResponse > } a Promise, with data of type {@link module:model/CountryResponse }
      */
     getCountriesForList(countryRequest) {
       return this.getCountriesForListWithHttpInfo(countryRequest)
@@ -151,3 +157,8 @@ export default class CountriesApi {
 
 
 }
+
+
+
+
+

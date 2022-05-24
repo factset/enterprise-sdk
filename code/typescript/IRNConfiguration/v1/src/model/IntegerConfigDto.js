@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IntegerConfigDto model module.
  * @module model/IntegerConfigDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class IntegerConfigDto {
     /**
@@ -47,8 +47,8 @@ class IntegerConfigDto {
         if (data) {
             obj = obj || new IntegerConfigDto();
 
-            if (data.hasOwnProperty('splitType')) {
-                obj['splitType'] = ApiClient.convertToType(data['splitType'], 'String');
+            if (data.hasOwnProperty('SplitType')) {
+                obj['SplitType'] = ApiClient.convertToType(data['SplitType'], 'String');
             }
         }
         return obj;
@@ -58,9 +58,9 @@ class IntegerConfigDto {
 }
 
 /**
- * @member {String} splitType
+ * @member {String} SplitType
  */
-IntegerConfigDto.prototype['splitType'] = undefined;
+IntegerConfigDto.prototype['SplitType'] = undefined;
 
 
 

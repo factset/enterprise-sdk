@@ -36,7 +36,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.FixedIncomeCalculation.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FI Calculation endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void CancelFICalculationById(string id);
 
         /// <summary>
@@ -195,6 +195,26 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
     {
         private FactSet.SDK.FixedIncomeCalculation.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CancelFICalculationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetFICalculationByIdResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Object) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> RunFICalculationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(Object) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FICalculationsApi"/> class.
         /// </summary>
@@ -302,7 +322,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.FixedIncomeCalculation.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FI Calculation endpoint</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void CancelFICalculationById(string id)
         {
             CancelFICalculationByIdWithHttpInfo(id);
@@ -314,11 +334,13 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <exception cref="FactSet.SDK.FixedIncomeCalculation.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FI Calculation endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object> CancelFICalculationByIdWithHttpInfo(string id)
+        public ApiResponse<Object> CancelFICalculationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FixedIncomeCalculation.Client.ApiException(400, "Missing required parameter 'id' when calling FICalculationsApi->CancelFICalculationById");
+            }
 
             FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions();
 
@@ -330,22 +352,28 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
             };
 
             var localVarContentType = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -357,15 +385,19 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/fi/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CancelFICalculationByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/analytics/engines/fi/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelFICalculationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -388,11 +420,14 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <param name="id">from url, provided from the location header in the Run FI Calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object>> CancelFICalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CancelFICalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FixedIncomeCalculation.Client.ApiException(400, "Missing required parameter 'id' when calling FICalculationsApi->CancelFICalculationById");
+            }
 
 
             FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions();
@@ -404,24 +439,29 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
             string[] _accepts = new string[] {
             };
 
-
             var localVarContentType = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -433,14 +473,18 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CancelFICalculationByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/fi/v1/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelFICalculationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -454,7 +498,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <returns>Object</returns>
         public Object GetFICalculationById(string id)
         {
-            FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object> localVarResponse = GetFICalculationByIdWithHttpInfo(id);
+            var localVarResponse = GetFICalculationByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -464,11 +508,13 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <exception cref="FactSet.SDK.FixedIncomeCalculation.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FI Calculation endpoint</param>
         /// <returns>ApiResponse of Object</returns>
-        public FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object> GetFICalculationByIdWithHttpInfo(string id)
+        public ApiResponse<Object> GetFICalculationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FixedIncomeCalculation.Client.ApiException(400, "Missing required parameter 'id' when calling FICalculationsApi->GetFICalculationById");
+            }
 
             FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions();
 
@@ -481,22 +527,28 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
             };
 
             var localVarContentType = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -508,15 +560,19 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/analytics/engines/fi/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetFICalculationByIdResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            Object>("/analytics/engines/fi/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFICalculationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -527,9 +583,9 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <param name="id">from url, provided from the location header in the Run FI Calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GetFICalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object>GetFICalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object> localVarResponse = await GetFICalculationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFICalculationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -540,11 +596,14 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <param name="id">from url, provided from the location header in the Run FI Calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object>> GetFICalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> GetFICalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.FixedIncomeCalculation.Client.ApiException(400, "Missing required parameter 'id' when calling FICalculationsApi->GetFICalculationById");
+            }
 
 
             FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions();
@@ -557,24 +616,29 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -586,14 +650,18 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetFICalculationByIdResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/analytics/engines/fi/v1/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFICalculationById", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -609,7 +677,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <returns>Object</returns>
         public Object RunFICalculation(string xFactSetContentOrganization = default(string), string xFactSetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters))
         {
-            FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object> localVarResponse = RunFICalculationWithHttpInfo(xFactSetContentOrganization, xFactSetContentType, fICalculationParameters);
+            var localVarResponse = RunFICalculationWithHttpInfo(xFactSetContentOrganization, xFactSetContentType, fICalculationParameters);
             return localVarResponse.Data;
         }
 
@@ -621,7 +689,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <param name="xFactSetContentType">FactSet content type (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object> RunFICalculationWithHttpInfo(string xFactSetContentOrganization = default(string), string xFactSetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters))
+        public ApiResponse<Object> RunFICalculationWithHttpInfo(string xFactSetContentOrganization = default(string), string xFactSetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters))
         {
             FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions();
 
@@ -635,10 +703,16 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
             };
 
             var localVarContentType = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xFactSetContentOrganization != null)
             {
@@ -652,13 +726,13 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -670,15 +744,19 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/analytics/engines/fi/v1/calculations", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = RunFICalculationResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            Object>("/analytics/engines/fi/v1/calculations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RunFICalculation", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -691,9 +769,9 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> RunFICalculationAsync(string xFactSetContentOrganization = default(string), string xFactSetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object>RunFICalculationAsync(string xFactSetContentOrganization = default(string), string xFactSetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object> localVarResponse = await RunFICalculationWithHttpInfoAsync(xFactSetContentOrganization, xFactSetContentType, fICalculationParameters, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await RunFICalculationWithHttpInfoAsync(xFactSetContentOrganization, xFactSetContentType, fICalculationParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -706,7 +784,8 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FixedIncomeCalculation.Client.ApiResponse<Object>> RunFICalculationWithHttpInfoAsync(string xFactSetContentOrganization = default(string), string xFactSetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> RunFICalculationWithHttpInfoAsync(string xFactSetContentOrganization = default(string), string xFactSetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FixedIncomeCalculation.Client.RequestOptions();
@@ -720,12 +799,17 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (xFactSetContentOrganization != null)
             {
@@ -739,13 +823,13 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FixedIncomeCalculation.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -757,14 +841,18 @@ namespace FactSet.SDK.FixedIncomeCalculation.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = RunFICalculationResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/fi/v1/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RunFICalculation", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

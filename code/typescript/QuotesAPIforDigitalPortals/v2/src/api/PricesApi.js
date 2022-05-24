@@ -26,7 +26,7 @@ import InlineResponse20086 from '../model/InlineResponse20086';
 /**
 * Prices service.
 * @module api/PricesApi
-* @version 0.9.1
+* @version 0.9.2
 */
 export default class PricesApi {
 
@@ -77,7 +77,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20081;
+
       return this.apiClient.callApi(
         '/prices/bidAsk/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -93,7 +96,7 @@ export default class PricesApi {
      * @param {module:model/String} opts.quality Quality of the price. (default to 'DLY')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {module:model/Number} opts.subscriptionMinimumInterval Minimum number of milliseconds at which updates are send. (default to 5000.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20081}
+     * @return { Promise.< module:model/InlineResponse20081 > } a Promise, with data of type {@link module:model/InlineResponse20081 }
      */
     getPricesBidAskGet(id, opts) {
       return this.getPricesBidAskGetWithHttpInfo(id, opts)
@@ -137,7 +140,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20082;
+
       return this.apiClient.callApi(
         '/prices/bidAsk/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -153,7 +159,7 @@ export default class PricesApi {
      * @param {module:model/String} opts.quality Quality of the price. (default to 'DLY')
      * @param {Boolean} opts.sameQuality Assure that the prices for all notations are of the same quality. (default to true)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20082}
+     * @return { Promise.< module:model/InlineResponse20082 > } a Promise, with data of type {@link module:model/InlineResponse20082 }
      */
     getPricesBidAskList(ids, opts) {
       return this.getPricesBidAskListWithHttpInfo(ids, opts)
@@ -197,7 +203,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20079;
+
       return this.apiClient.callApi(
         '/prices/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -213,7 +222,7 @@ export default class PricesApi {
      * @param {module:model/String} opts.quality Quality of the price. (default to 'DLY')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
      * @param {module:model/Number} opts.subscriptionMinimumInterval Minimum number of milliseconds at which updates are send. (default to 5000.0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20079}
+     * @return { Promise.< module:model/InlineResponse20079 > } a Promise, with data of type {@link module:model/InlineResponse20079 }
      */
     getPricesGet(id, opts) {
       return this.getPricesGetWithHttpInfo(id, opts)
@@ -257,7 +266,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20080;
+
       return this.apiClient.callApi(
         '/prices/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -273,7 +285,7 @@ export default class PricesApi {
      * @param {module:model/String} opts.quality Quality of the price. (default to 'DLY')
      * @param {Boolean} opts.sameQuality Assure that the prices for all notations are of the same quality. (default to true)
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20080}
+     * @return { Promise.< module:model/InlineResponse20080 > } a Promise, with data of type {@link module:model/InlineResponse20080 }
      */
     getPricesList(ids, opts) {
       return this.getPricesListWithHttpInfo(ids, opts)
@@ -315,7 +327,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20083;
+
       return this.apiClient.callApi(
         '/prices/orderbook/aggregated/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -330,7 +345,7 @@ export default class PricesApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.quality Quality of the price. (default to 'RLT')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20083}
+     * @return { Promise.< module:model/InlineResponse20083 > } a Promise, with data of type {@link module:model/InlineResponse20083 }
      */
     getPricesOrderbookAggregatedGet(id, opts) {
       return this.getPricesOrderbookAggregatedGetWithHttpInfo(id, opts)
@@ -372,7 +387,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20084;
+
       return this.apiClient.callApi(
         '/prices/orderbook/full/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -387,7 +405,7 @@ export default class PricesApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.quality Quality of the price. (default to 'RLT')
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20084}
+     * @return { Promise.< module:model/InlineResponse20084 > } a Promise, with data of type {@link module:model/InlineResponse20084 }
      */
     getPricesOrderbookFullGet(id, opts) {
       return this.getPricesOrderbookFullGetWithHttpInfo(id, opts)
@@ -421,7 +439,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20086;
+
       return this.apiClient.callApi(
         '/prices/tradingSchedule/event/type/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -434,7 +455,7 @@ export default class PricesApi {
      * Trading schedule event types define the events which may occur during any period of trading. Types of trading schedule events are for instance OPEN, CLOSE, END_OF_DAY.
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.attributes Limit the attributes returned in the response to the specified set.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20086}
+     * @return { Promise.< module:model/InlineResponse20086 > } a Promise, with data of type {@link module:model/InlineResponse20086 }
      */
     getPricesTradingScheduleEventTypeList(opts) {
       return this.getPricesTradingScheduleEventTypeListWithHttpInfo(opts)
@@ -469,7 +490,10 @@ export default class PricesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = InlineResponse20085;
+
       return this.apiClient.callApi(
         '/prices/tradingSchedule/event/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -481,7 +505,7 @@ export default class PricesApi {
      * Sequence of market-related events.
      * Sequence of market-related events like the opening time or closing time of a market of a specific notation.
      * @param {module:model/InlineObject21} body 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse20085}
+     * @return { Promise.< module:model/InlineResponse20085 > } a Promise, with data of type {@link module:model/InlineResponse20085 }
      */
     postPricesTradingScheduleEventList(body) {
       return this.postPricesTradingScheduleEventListWithHttpInfo(body)
@@ -492,3 +516,8 @@ export default class PricesApi {
 
 
 }
+
+
+
+
+

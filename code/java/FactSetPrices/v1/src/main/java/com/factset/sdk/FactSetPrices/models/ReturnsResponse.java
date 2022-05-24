@@ -43,6 +43,8 @@ public class ReturnsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<ModelReturn> data = null;
 
+  public ReturnsResponse() { 
+  }
 
   public ReturnsResponse data(java.util.List<ModelReturn> data) {
     this.data = data;

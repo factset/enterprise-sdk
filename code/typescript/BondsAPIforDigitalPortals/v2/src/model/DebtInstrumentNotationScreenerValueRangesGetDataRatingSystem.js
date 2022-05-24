@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerValueRangesGetDataRatingSystem model module.
  * @module model/DebtInstrumentNotationScreenerValueRangesGetDataRatingSystem
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerValueRangesGetDataRatingSystem {
     /**

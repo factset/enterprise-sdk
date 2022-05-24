@@ -43,6 +43,8 @@ public class InlineResponse2001Chain implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public InlineResponse2001Chain() { 
+  }
 
   public InlineResponse2001Chain id(String id) {
     this.id = id;

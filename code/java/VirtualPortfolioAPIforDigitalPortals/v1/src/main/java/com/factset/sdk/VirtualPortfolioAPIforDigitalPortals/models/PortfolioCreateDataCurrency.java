@@ -43,6 +43,8 @@ public class PortfolioCreateDataCurrency implements Serializable {
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private String isoCode = "EUR";
 
+  public PortfolioCreateDataCurrency() { 
+  }
 
   public PortfolioCreateDataCurrency isoCode(String isoCode) {
     this.isoCode = isoCode;

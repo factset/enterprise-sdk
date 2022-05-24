@@ -43,6 +43,8 @@ public class SplitsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Splits> data = null;
 
+  public SplitsResponse() { 
+  }
 
   public SplitsResponse data(java.util.List<Splits> data) {
     this.data = data;

@@ -41,11 +41,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new EventsApi();
-const meetingId = "meetingId_example"; // String | Meeting Id
+const meetingId = "meetingId_example"; // String | Meeting ID
 
 // Call api endpoint
 apiInstance.getEvents(meetingId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -62,7 +63,7 @@ apiInstance.getEvents(meetingId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **meetingId** | **String**| Meeting Id | 
+ **meetingId** | **String**| Meeting ID | 
 
 ### Return type
 
@@ -116,6 +117,7 @@ const recordEventId = "recordEventId_example"; // String | Record Event Id
 // Call api endpoint
 apiInstance.getRecordEvent(meetingId, recordEventId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

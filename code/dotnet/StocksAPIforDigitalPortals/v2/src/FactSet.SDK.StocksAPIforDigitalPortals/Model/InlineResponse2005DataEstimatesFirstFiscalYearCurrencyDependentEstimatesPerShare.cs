@@ -76,7 +76,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare {\n");
             sb.Append("  Sales: ").Append(Sales).Append("\n");
             sb.Append("  Earnings: ").Append(Earnings).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sales == input.Sales ||
@@ -148,13 +149,21 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Sales != null)
-                    hashCode = hashCode * 59 + this.Sales.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sales.GetHashCode();
+                }
                 if (this.Earnings != null)
-                    hashCode = hashCode * 59 + this.Earnings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Earnings.GetHashCode();
+                }
                 if (this.Dividends != null)
-                    hashCode = hashCode * 59 + this.Dividends.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dividends.GetHashCode();
+                }
                 if (this.CashFlow != null)
-                    hashCode = hashCode * 59 + this.CashFlow.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CashFlow.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -49,28 +49,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get the Fund's Primary and Segment Benchmark Details
         api_response = api_instance.get_funds_benchmark_details(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_benchmark_details: %s\n" % e)
 ```
@@ -141,30 +142,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     benchmark_details_request = BenchmarkDetailsRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # BenchmarkDetailsRequest | The Benchmark Details request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get the Fund's Primary and Segment Benchmark details for large list of ids.
         api_response = api_instance.get_funds_benchmark_details_for_list(benchmark_details_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_benchmark_details_for_list: %s\n" % e)
 ```
@@ -234,28 +236,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get basic Fund Classifications
         api_response = api_instance.get_funds_classifications(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_classifications: %s\n" % e)
 ```
@@ -326,30 +329,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     classifications_request = ClassificationsRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # ClassificationsRequest | The Classifications request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get basic Fund Classifications for a large list of ids.
         api_response = api_instance.get_funds_classifications_for_list(classifications_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_classifications_for_list: %s\n" % e)
 ```
@@ -419,39 +423,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
     date = "2019-12-31" # str | The date requested in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
-    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) if omitted the server will use the default value of "LOCAL"
+    currency = "USD" # str | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. (optional) (default to "LOCAL")
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get the Fund's Costs, Investment minimums and Risk, and Fees.
-        api_response = api_instance.get_funds_costs_fees(ids)
-        pprint(api_response)
-    except fds.sdk.FactSetFunds.ApiException as e:
-        print("Exception when calling ReferenceApi->get_funds_costs_fees: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get the Fund's Costs, Investment minimums and Risk, and Fees.
         api_response = api_instance.get_funds_costs_fees(ids, date=date, currency=currency)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_costs_fees: %s\n" % e)
 ```
@@ -524,32 +520,33 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     costs_fees_request = CostsFeesRequest(
         ids=CostsFeesIds(["MABAX","FCNTX"]),
         date="2019-12-31",
         currency="USD",
     ) # CostsFeesRequest | The Costs and Fees request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get the Fund's Costs, Investment minimums and Risk, and Fees for large list of ids.
         api_response = api_instance.get_funds_costs_fees_for_list(costs_fees_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_costs_fees_for_list: %s\n" % e)
 ```
@@ -619,28 +616,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a list of Fund Managers and related details for a list of ids.
         api_response = api_instance.get_funds_managers(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_managers: %s\n" % e)
 ```
@@ -711,30 +709,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     managers_request = ManagersRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # ManagersRequest | The Funds Managers request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a list of Fund Managers and related details for a large list of ids.
         api_response = api_instance.get_funds_managers_for_list(managers_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_managers_for_list: %s\n" % e)
 ```
@@ -804,28 +803,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get basic reference summary data for a Fund.
         api_response = api_instance.get_funds_summary(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_summary: %s\n" % e)
 ```
@@ -896,30 +896,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     summaries_request = SummariesRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # SummariesRequest | The Funds Summary request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get basic reference data for a large list of Fund ids.
         api_response = api_instance.get_funds_summary_for_list(summaries_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_funds_summary_for_list: %s\n" % e)
 ```
@@ -989,28 +990,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a list of Related Funds for a list of Fund ids.
         api_response = api_instance.get_related_funds(ids)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_related_funds: %s\n" % e)
 ```
@@ -1081,30 +1083,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetFunds.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetFunds.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reference_api.ReferenceApi(api_client)
+
     related_funds_request = RelatedFundsRequest(
         ids=Ids(["MABAX","FCNTX"]),
     ) # RelatedFundsRequest | The Related Funds request body, allowing the user to specify a list of ids.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a list of Related Funds for a large list of Fund ids.
         api_response = api_instance.get_related_funds_for_list(related_funds_request)
         pprint(api_response)
+
     except fds.sdk.FactSetFunds.ApiException as e:
         print("Exception when calling ReferenceApi->get_related_funds_for_list: %s\n" % e)
 ```

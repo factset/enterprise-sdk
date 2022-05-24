@@ -60,6 +60,8 @@ public class InlineResponse20028DataMainCurrency implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
+  public InlineResponse20028DataMainCurrency() { 
+  }
 
   public InlineResponse20028DataMainCurrency id(BigDecimal id) {
     this.id = id;

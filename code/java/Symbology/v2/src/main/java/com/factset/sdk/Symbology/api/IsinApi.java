@@ -7,6 +7,9 @@ import com.factset.sdk.Symbology.Configuration;
 import com.factset.sdk.Symbology.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.Symbology.models.ErrorResponse;
 import com.factset.sdk.Symbology.models.IsinHistoryTranslationRequest;
@@ -25,6 +28,46 @@ public class IsinApi {
   public IsinApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> batchIsinHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchIsinHistoryResponseTypeMap.put(200, new GenericType<IsinHistoryTranslationResponse>(){});
+    batchIsinHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchIsinHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchIsinHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchIsinHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchIsinHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> batchTranslateIsinResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    batchTranslateIsinResponseTypeMap.put(200, new GenericType<IsinTranslationResponse>(){});
+    batchTranslateIsinResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    batchTranslateIsinResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    batchTranslateIsinResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    batchTranslateIsinResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    batchTranslateIsinResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> isinHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    isinHistoryResponseTypeMap.put(200, new GenericType<IsinHistoryTranslationResponse>(){});
+    isinHistoryResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    isinHistoryResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    isinHistoryResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    isinHistoryResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    isinHistoryResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> translateIsinResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    translateIsinResponseTypeMap.put(200, new GenericType<IsinTranslationResponse>(){});
+    translateIsinResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    translateIsinResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    translateIsinResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    translateIsinResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    translateIsinResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +158,17 @@ public class IsinApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IsinHistoryTranslationResponse> localVarReturnType = new GenericType<IsinHistoryTranslationResponse>() {};
 
-    return apiClient.invokeAPI("IsinApi.batchIsinHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IsinHistoryTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("IsinApi.batchIsinHistory", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchIsinHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate market security symbols into ISIN. - Current Only
@@ -192,11 +241,17 @@ public class IsinApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IsinTranslationResponse> localVarReturnType = new GenericType<IsinTranslationResponse>() {};
 
-    return apiClient.invokeAPI("IsinApi.batchTranslateIsin", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IsinTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("IsinApi.batchTranslateIsin", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, batchTranslateIsinResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate Market IDs into ISINS as of a specific date or receive the full history of changes.
@@ -273,11 +328,17 @@ public class IsinApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IsinHistoryTranslationResponse> localVarReturnType = new GenericType<IsinHistoryTranslationResponse>() {};
 
-    return apiClient.invokeAPI("IsinApi.isinHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IsinHistoryTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("IsinApi.isinHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, isinHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Translate market security symbols into ISIN. - Current Only
@@ -351,10 +412,16 @@ public class IsinApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<IsinTranslationResponse> localVarReturnType = new GenericType<IsinTranslationResponse>() {};
 
-    return apiClient.invokeAPI("IsinApi.translateIsin", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        IsinTranslationResponse
+      
+    > apiResponse = apiClient.invokeAPI("IsinApi.translateIsin", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, translateIsinResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

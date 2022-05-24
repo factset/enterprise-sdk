@@ -59,6 +59,8 @@ public class NPOOptimizerStrategyOverrides implements Serializable {
   public static final String JSON_PROPERTY_ALPHA = "alpha";
   private String alpha;
 
+  public NPOOptimizerStrategyOverrides() { 
+  }
 
   public NPOOptimizerStrategyOverrides objective(java.util.Map<String, Object> objective) {
     this.objective = objective;

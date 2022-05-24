@@ -47,6 +47,8 @@ public class InlineResponse200DataVector implements Serializable {
   public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
   private String mimeType;
 
+  public InlineResponse200DataVector() { 
+  }
 
   public InlineResponse200DataVector url(String url) {
     this.url = url;

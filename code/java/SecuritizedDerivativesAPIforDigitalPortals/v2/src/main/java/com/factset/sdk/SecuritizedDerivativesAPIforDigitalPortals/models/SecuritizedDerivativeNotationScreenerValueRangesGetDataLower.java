@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataLower implem
   public static final String JSON_PROPERTY_LEVEL = "level";
   private SecuritizedDerivativeNotationScreenerValueRangesGetDataLevel level;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataLower() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataLower level(SecuritizedDerivativeNotationScreenerValueRangesGetDataLevel level) {
     this.level = level;

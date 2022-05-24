@@ -117,7 +117,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DetailRatings {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  EstimateDate: ").Append(EstimateDate).Append("\n");
@@ -158,8 +158,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public bool Equals(DetailRatings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -213,21 +214,37 @@ namespace FactSet.SDK.FactSetEstimates.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.EstimateDate != null)
-                    hashCode = hashCode * 59 + this.EstimateDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EstimateDate.GetHashCode();
+                }
                 if (this.AnalystId != null)
-                    hashCode = hashCode * 59 + this.AnalystId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AnalystId.GetHashCode();
+                }
                 if (this.AnalystName != null)
-                    hashCode = hashCode * 59 + this.AnalystName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AnalystName.GetHashCode();
+                }
                 if (this.BrokerId != null)
-                    hashCode = hashCode * 59 + this.BrokerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BrokerId.GetHashCode();
+                }
                 if (this.BrokerName != null)
-                    hashCode = hashCode * 59 + this.BrokerName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.BrokerName.GetHashCode();
+                }
                 if (this.RatingsNoteText != null)
-                    hashCode = hashCode * 59 + this.RatingsNoteText.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RatingsNoteText.GetHashCode();
+                }
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -78,6 +78,8 @@ public class InlineResponse2006InstrumentKnockOutObservation implements Serializ
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
+  public InlineResponse2006InstrumentKnockOutObservation() { 
+  }
 
   public InlineResponse2006InstrumentKnockOutObservation type(TypeEnum type) {
     this.type = type;

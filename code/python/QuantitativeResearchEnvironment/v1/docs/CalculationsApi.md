@@ -40,28 +40,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
+
     id = "id_example" # str | From url, provided by location header or response body in the calculation start endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get calculation status by id
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_get(id)
         pprint(api_response)
+
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
         print("Exception when calling CalculationsApi->analytics_quant_qre_v1_calculations_id_get: %s\n" % e)
 ```
@@ -127,28 +128,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
+
     id = "id_example" # str | From url, provided by location header or response body in the calculation start endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get calculation log for a specific calculation
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_log_get(id)
         pprint(api_response)
+
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
         print("Exception when calling CalculationsApi->analytics_quant_qre_v1_calculations_id_log_get: %s\n" % e)
 ```
@@ -214,28 +216,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
+
     id = "id_example" # str | From url, provided by location header or response body in the calculation start endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get calculation output for a specific calculation
         api_response = api_instance.analytics_quant_qre_v1_calculations_id_output_get(id)
         pprint(api_response)
+
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
         print("Exception when calling CalculationsApi->analytics_quant_qre_v1_calculations_id_output_get: %s\n" % e)
 ```
@@ -303,29 +306,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.QuantitativeResearchEnvironment.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.QuantitativeResearchEnvironment.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
+
     calculation = Calculation(None) # Calculation |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Starts a new script calculation
         api_response = api_instance.analytics_quant_qre_v1_calculations_post(calculation=calculation)
         pprint(api_response)
+
     except fds.sdk.QuantitativeResearchEnvironment.ApiException as e:
         print("Exception when calling CalculationsApi->analytics_quant_qre_v1_calculations_post: %s\n" % e)
 ```

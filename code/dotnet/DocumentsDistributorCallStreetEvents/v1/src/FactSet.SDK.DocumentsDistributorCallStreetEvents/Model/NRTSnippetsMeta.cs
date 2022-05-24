@@ -60,7 +60,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NRTSnippetsMeta {\n");
             sb.Append("  Pagination: ").Append(Pagination).Append("\n");
             sb.Append("  Partial: ").Append(Partial).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(NRTSnippetsMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Pagination == input.Pagination ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             {
                 int hashCode = 41;
                 if (this.Pagination != null)
-                    hashCode = hashCode * 59 + this.Pagination.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pagination.GetHashCode();
+                }
                 if (this.Partial != null)
-                    hashCode = hashCode * 59 + this.Partial.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Partial.GetHashCode();
+                }
                 return hashCode;
             }
         }

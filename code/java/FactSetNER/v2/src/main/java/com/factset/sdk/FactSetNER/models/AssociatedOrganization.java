@@ -50,6 +50,8 @@ public class AssociatedOrganization implements Serializable {
   public static final String JSON_PROPERTY_LOOKUP_URL = "lookupUrl";
   private String lookupUrl;
 
+  public AssociatedOrganization() { 
+  }
 
   public AssociatedOrganization name(String name) {
     this.name = name;

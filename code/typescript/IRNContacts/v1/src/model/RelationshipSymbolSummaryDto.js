@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -17,7 +17,7 @@ import SymbolType from './SymbolType';
 /**
  * The RelationshipSymbolSummaryDto model module.
  * @module model/RelationshipSymbolSummaryDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class RelationshipSymbolSummaryDto {
     /**
@@ -48,14 +48,14 @@ class RelationshipSymbolSummaryDto {
         if (data) {
             obj = obj || new RelationshipSymbolSummaryDto();
 
-            if (data.hasOwnProperty('identifier')) {
-                obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
+            if (data.hasOwnProperty('Identifier')) {
+                obj['Identifier'] = ApiClient.convertToType(data['Identifier'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('Name')) {
+                obj['Name'] = ApiClient.convertToType(data['Name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = SymbolType.constructFromObject(data['type']);
+            if (data.hasOwnProperty('Type')) {
+                obj['Type'] = SymbolType.constructFromObject(data['Type']);
             }
         }
         return obj;
@@ -65,19 +65,19 @@ class RelationshipSymbolSummaryDto {
 }
 
 /**
- * @member {String} identifier
+ * @member {String} Identifier
  */
-RelationshipSymbolSummaryDto.prototype['identifier'] = undefined;
+RelationshipSymbolSummaryDto.prototype['Identifier'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} Name
  */
-RelationshipSymbolSummaryDto.prototype['name'] = undefined;
+RelationshipSymbolSummaryDto.prototype['Name'] = undefined;
 
 /**
- * @member {module:model/SymbolType} type
+ * @member {module:model/SymbolType} Type
  */
-RelationshipSymbolSummaryDto.prototype['type'] = undefined;
+RelationshipSymbolSummaryDto.prototype['Type'] = undefined;
 
 
 

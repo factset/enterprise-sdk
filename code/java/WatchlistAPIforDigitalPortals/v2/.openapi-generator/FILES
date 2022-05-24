@@ -48,7 +48,6 @@ src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/ApiClient.java
 src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/ApiException.java
 src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/ApiResponse.java
 src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/Configuration.java
-src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/JSON.java
 src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/WatchlistAPIforDigitalPortals/Pair.java

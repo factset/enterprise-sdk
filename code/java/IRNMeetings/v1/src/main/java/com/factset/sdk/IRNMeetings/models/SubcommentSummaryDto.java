@@ -54,6 +54,8 @@ public class SubcommentSummaryDto implements Serializable {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private JsonNullable<String> createdAt = JsonNullable.<String>undefined();
 
+  public SubcommentSummaryDto() { 
+  }
 
   public SubcommentSummaryDto id(java.util.UUID id) {
     this.id = id;

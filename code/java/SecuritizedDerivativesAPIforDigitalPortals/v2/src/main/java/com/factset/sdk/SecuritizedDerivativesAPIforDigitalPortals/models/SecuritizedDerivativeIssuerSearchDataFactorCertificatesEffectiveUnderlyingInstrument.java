@@ -43,6 +43,8 @@ public class SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnd
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<String> ids = null;
 
+  public SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyingInstrument() { 
+  }
 
   public SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyingInstrument ids(java.util.Set<String> ids) {
     this.ids = ids;

@@ -48,6 +48,8 @@ public class InlineResponse2008DataCountry implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2008DataCountry() { 
+  }
 
   public InlineResponse2008DataCountry id(BigDecimal id) {
     this.id = id;

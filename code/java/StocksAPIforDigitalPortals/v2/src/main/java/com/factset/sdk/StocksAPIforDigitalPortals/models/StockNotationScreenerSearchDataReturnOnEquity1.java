@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataReturnOnEquity1 implements Serializa
   public static final String JSON_PROPERTY_MEAN = "mean";
   private StockNotationScreenerSearchDataReturnOnAssets1Mean mean;
 
+  public StockNotationScreenerSearchDataReturnOnEquity1() { 
+  }
 
   public StockNotationScreenerSearchDataReturnOnEquity1 mean(StockNotationScreenerSearchDataReturnOnAssets1Mean mean) {
     this.mean = mean;

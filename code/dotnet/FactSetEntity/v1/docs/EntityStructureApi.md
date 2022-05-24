@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **active** | **int?**| Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. | [optional] [default to -1]
 
 ### Return type
-
 [**EntityStructureResponse**](EntityStructureResponse.md)
 
 ### Authorization
@@ -181,7 +180,6 @@ Name | Type | Description  | Notes
  **active** | **int?**| Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive. | [optional] [default to -1]
 
 ### Return type
-
 [**UltimateEntityStructureResponse**](UltimateEntityStructureResponse.md)
 
 ### Authorization
@@ -275,7 +273,6 @@ Name | Type | Description  | Notes
  **entityStructureRequest** | [**EntityStructureRequest**](EntityStructureRequest.md)| Request Body to request a list of Entity Structure objects. | 
 
 ### Return type
-
 [**EntityStructureResponse**](EntityStructureResponse.md)
 
 ### Authorization
@@ -369,7 +366,6 @@ Name | Type | Description  | Notes
  **ultimateEntityStructureRequest** | [**UltimateEntityStructureRequest**](UltimateEntityStructureRequest.md)| Request Body to request a list of Ultimate Entity Structure objects. | 
 
 ### Return type
-
 [**UltimateEntityStructureResponse**](UltimateEntityStructureResponse.md)
 
 ### Authorization

@@ -55,6 +55,8 @@ public class InlineResponse20042DataNsin implements Serializable {
   public static final String JSON_PROPERTY_SEDOL = "sedol";
   private String sedol;
 
+  public InlineResponse20042DataNsin() { 
+  }
 
   public InlineResponse20042DataNsin wkn(String wkn) {
     this.wkn = wkn;

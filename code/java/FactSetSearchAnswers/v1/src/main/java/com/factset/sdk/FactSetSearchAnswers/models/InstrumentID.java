@@ -82,6 +82,8 @@ public class InstrumentID implements Serializable {
   public static final String JSON_PROPERTY_TICKER = "ticker";
   private String ticker;
 
+  public InstrumentID() { 
+  }
 
   public InstrumentID BBG(String BBG) {
     this.BBG = BBG;

@@ -47,6 +47,8 @@ public class PercentChange implements Serializable {
   public static final String JSON_PROPERTY_COLOR = "color";
   private ChangeColor color;
 
+  public PercentChange() { 
+  }
 
   public PercentChange change(String change) {
     this.change = change;

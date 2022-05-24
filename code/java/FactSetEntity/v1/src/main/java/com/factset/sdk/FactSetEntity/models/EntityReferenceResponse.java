@@ -43,6 +43,8 @@ public class EntityReferenceResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<EntityReference> data = null;
 
+  public EntityReferenceResponse() { 
+  }
 
   public EntityReferenceResponse data(java.util.List<EntityReference> data) {
     this.data = data;

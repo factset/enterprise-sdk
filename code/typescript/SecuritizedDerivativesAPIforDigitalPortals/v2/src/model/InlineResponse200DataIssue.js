@@ -17,7 +17,7 @@ import InlineResponse200DataIssueValueUnit from './InlineResponse200DataIssueVal
 /**
  * The InlineResponse200DataIssue model module.
  * @module model/InlineResponse200DataIssue
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse200DataIssue {
     /**

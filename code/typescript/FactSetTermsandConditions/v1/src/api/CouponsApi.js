@@ -21,7 +21,7 @@ import TermsAndConditionsScalarRequest from '../model/TermsAndConditionsScalarRe
 /**
 * Coupons service.
 * @module api/CouponsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CouponsApi {
 
@@ -64,7 +64,10 @@ export default class CouponsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CouponHistoryResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/coupon-history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +79,7 @@ export default class CouponsApi {
      * Return historical Coupon information for a Fixed Income security.
      * Returns historical Coupon information for the Fixed Income security. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CouponHistoryResponse}
+     * @return { Promise.< module:model/CouponHistoryResponse > } a Promise, with data of type {@link module:model/CouponHistoryResponse }
      */
     getCouponHistory(ids) {
       return this.getCouponHistoryWithHttpInfo(ids)
@@ -111,7 +114,10 @@ export default class CouponsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CouponHistoryResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/coupon-history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -123,7 +129,7 @@ export default class CouponsApi {
      * Return historical Coupon information for a list of Fixed Income securities.
      * Returns historical Coupon information for a list of Fixed Income securities. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Coupon History.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CouponHistoryResponse}
+     * @return { Promise.< module:model/CouponHistoryResponse > } a Promise, with data of type {@link module:model/CouponHistoryResponse }
      */
     getCouponHistoryForList(termsAndConditionsScalarRequest) {
       return this.getCouponHistoryForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -159,7 +165,10 @@ export default class CouponsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CouponSchedulesResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/coupon-schedules', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -171,7 +180,7 @@ export default class CouponsApi {
      * Return Coupon Sechedules for a Fixed Income security.
      * Returns Coupon Schedules information for the Fixed Income security. 
      * @param {Array.<String>} ids List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CouponSchedulesResponse}
+     * @return { Promise.< module:model/CouponSchedulesResponse > } a Promise, with data of type {@link module:model/CouponSchedulesResponse }
      */
     getCouponSchedules(ids) {
       return this.getCouponSchedulesWithHttpInfo(ids)
@@ -206,7 +215,10 @@ export default class CouponsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = CouponSchedulesResponse;
+
       return this.apiClient.callApi(
         '/factset-terms-and-conditions/v1/coupon-schedules', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -218,7 +230,7 @@ export default class CouponsApi {
      * Return Coupon Schedules information for a list of Fixed Income securities.
      * Returns historical Coupon Schedules information for a list of Fixed Income securities. 
      * @param {module:model/TermsAndConditionsScalarRequest} termsAndConditionsScalarRequest Request object for Fixed Income Coupon Schedules.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CouponSchedulesResponse}
+     * @return { Promise.< module:model/CouponSchedulesResponse > } a Promise, with data of type {@link module:model/CouponSchedulesResponse }
      */
     getCouponSchedulesForList(termsAndConditionsScalarRequest) {
       return this.getCouponSchedulesForListWithHttpInfo(termsAndConditionsScalarRequest)
@@ -229,3 +241,8 @@ export default class CouponsApi {
 
 
 }
+
+
+
+
+

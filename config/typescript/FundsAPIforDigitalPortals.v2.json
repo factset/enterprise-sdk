@@ -1,0 +1,15 @@
+{
+  "projectName": "@factset/sdk-fundsapifordigitalportals",
+  "projectVersion": "0.10.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Funds API for Digital Portals client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "fundsapifordigitalportals",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/FundsAPIforDigitalPortals/0.10.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

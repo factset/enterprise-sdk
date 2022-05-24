@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate implem
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataEbitMarginMaximum maximum;
 
+  public StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate() { 
+  }
 
   public StockNotationScreenerSearchDataPerformanceEndOfDayYearToDate minimum(StockNotationScreenerSearchDataEbitMarginMinimum minimum) {
     this.minimum = minimum;

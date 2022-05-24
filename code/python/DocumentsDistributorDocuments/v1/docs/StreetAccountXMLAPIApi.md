@@ -40,28 +40,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = street_account_xml_api_api.StreetAccountXMLAPIApi(api_client)
+
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to know the status and percentDone
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the status and percentDone of the requested jobID
         api_response = api_instance.asynch_streetaccount_v1_check_status_get(job_id)
         pprint(api_response)
+
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:
         print("Exception when calling StreetAccountXMLAPIApi->asynch_streetaccount_v1_check_status_get: %s\n" % e)
 ```
@@ -127,28 +128,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = street_account_xml_api_api.StreetAccountXMLAPIApi(api_client)
+
     job_id = "jobID_example" # str | jobID returned by the request-files endpoint to collect the results of the query
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the SA XML files for the specified daterange
         api_response = api_instance.asynch_streetaccount_v1_get_files_get(job_id)
         pprint(api_response)
+
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:
         print("Exception when calling StreetAccountXMLAPIApi->asynch_streetaccount_v1_get_files_get: %s\n" % e)
 ```
@@ -188,7 +190,7 @@ Name | Type | Description  | Notes
 
 Returns the jobID
 
-Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage) and Due to technical limitation, FactSet can only send out 10,000 files per request
+Give the startDate and endDate parameters as request parameters in the /request-files endpoint, it returns the jobID. startDate and endDate should be in YYYY-MM-DDTHH:MM:SSZ format  This API only supports adhoc requests to retrieve historical files and does not support real-time       files and if you interested in require real-time push should consider the other three methods         (pushed via SFTP, to QNT account, or your Azure Storage). Per API request able to query till 2 years of data
 
 ### Example
 
@@ -214,29 +216,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.DocumentsDistributorDocuments.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.DocumentsDistributorDocuments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = street_account_xml_api_api.StreetAccountXMLAPIApi(api_client)
+
     start_date = dateutil_parser('1970-01-01').date() # date | Date from which data is required. Should be YYYY-MM-DDTHH:MM:SSZ format
     end_date = dateutil_parser('1970-01-01').date() # date | The date until which the data is to be fetched. Should be YYYY-MM-DDTHH:MM:SSZ format
 
-    # example passing only required values which don't have defaults set
     try:
         # Returns the jobID
         api_response = api_instance.asynch_streetaccount_v1_request_files_get(start_date, end_date)
         pprint(api_response)
+
     except fds.sdk.DocumentsDistributorDocuments.ApiException as e:
         print("Exception when calling StreetAccountXMLAPIApi->asynch_streetaccount_v1_request_files_get: %s\n" % e)
 ```

@@ -48,6 +48,8 @@ public class InlineResponse2004Market implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2004Market() { 
+  }
 
   public InlineResponse2004Market id(BigDecimal id) {
     this.id = id;

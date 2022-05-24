@@ -88,6 +88,16 @@ public class StockNotationScreenerSearchDataReportedKeyFigures implements Serial
   public static final String JSON_PROPERTY_RATIOS = "ratios";
   private StockNotationScreenerSearchDataRatios ratios;
 
+  public StockNotationScreenerSearchDataReportedKeyFigures() { 
+  }
+
+  @JsonCreator
+  public StockNotationScreenerSearchDataReportedKeyFigures(
+    @JsonProperty(value=JSON_PROPERTY_FISCAL_YEAR, required=true) StockNotationScreenerSearchDataFiscalYear fiscalYear
+  ) {
+    this();
+    this.fiscalYear = fiscalYear;
+  }
 
   public StockNotationScreenerSearchDataReportedKeyFigures fiscalYear(StockNotationScreenerSearchDataFiscalYear fiscalYear) {
     this.fiscalYear = fiscalYear;

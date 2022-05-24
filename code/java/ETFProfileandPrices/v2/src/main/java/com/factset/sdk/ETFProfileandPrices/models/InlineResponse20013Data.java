@@ -17,6 +17,11 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20013DataBlockTrade;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20013DataImpedimentsToCreation;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20013DataPremiumDiscount;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20013DataSpread;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20013DataTrackingDifference;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,170 +29,171 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * Fund flows (i.e., the amount invested or divested from a fund) based on the creation/redemption process. The data returned may not be related to overall volume or price movement. All fund flow inputs use transaction-day values to ensure that all assets under management (AUM) and flows are fully comparable and reflective of the same, verified market conditions. This data is available for all the regions.
+ * Trade analytics.
  */
-@ApiModel(description = "Fund flows (i.e., the amount invested or divested from a fund) based on the creation/redemption process. The data returned may not be related to overall volume or price movement. All fund flow inputs use transaction-day values to ensure that all assets under management (AUM) and flows are fully comparable and reflective of the same, verified market conditions. This data is available for all the regions.")
+@ApiModel(description = "Trade analytics.")
 @JsonPropertyOrder({
-  InlineResponse20013Data.JSON_PROPERTY_FLOWS1_D,
-  InlineResponse20013Data.JSON_PROPERTY_FLOWS1_W,
-  InlineResponse20013Data.JSON_PROPERTY_FLOWS1_M,
-  InlineResponse20013Data.JSON_PROPERTY_FLOWS_Y_T_D,
-  InlineResponse20013Data.JSON_PROPERTY_FLOWS1_Y
+  InlineResponse20013Data.JSON_PROPERTY_IMPEDIMENTS_TO_CREATION,
+  InlineResponse20013Data.JSON_PROPERTY_PREMIUM_DISCOUNT,
+  InlineResponse20013Data.JSON_PROPERTY_BLOCK_TRADE,
+  InlineResponse20013Data.JSON_PROPERTY_SPREAD,
+  InlineResponse20013Data.JSON_PROPERTY_TRACKING_DIFFERENCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20013Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_FLOWS1_D = "flows1D";
-  private BigDecimal flows1D;
+  public static final String JSON_PROPERTY_IMPEDIMENTS_TO_CREATION = "impedimentsToCreation";
+  private InlineResponse20013DataImpedimentsToCreation impedimentsToCreation;
 
-  public static final String JSON_PROPERTY_FLOWS1_W = "flows1W";
-  private BigDecimal flows1W;
+  public static final String JSON_PROPERTY_PREMIUM_DISCOUNT = "premiumDiscount";
+  private InlineResponse20013DataPremiumDiscount premiumDiscount;
 
-  public static final String JSON_PROPERTY_FLOWS1_M = "flows1M";
-  private BigDecimal flows1M;
+  public static final String JSON_PROPERTY_BLOCK_TRADE = "blockTrade";
+  private InlineResponse20013DataBlockTrade blockTrade;
 
-  public static final String JSON_PROPERTY_FLOWS_Y_T_D = "flowsYTD";
-  private BigDecimal flowsYTD;
+  public static final String JSON_PROPERTY_SPREAD = "spread";
+  private InlineResponse20013DataSpread spread;
 
-  public static final String JSON_PROPERTY_FLOWS1_Y = "flows1Y";
-  private BigDecimal flows1Y;
+  public static final String JSON_PROPERTY_TRACKING_DIFFERENCE = "trackingDifference";
+  private InlineResponse20013DataTrackingDifference trackingDifference;
 
+  public InlineResponse20013Data() { 
+  }
 
-  public InlineResponse20013Data flows1D(BigDecimal flows1D) {
-    this.flows1D = flows1D;
+  public InlineResponse20013Data impedimentsToCreation(InlineResponse20013DataImpedimentsToCreation impedimentsToCreation) {
+    this.impedimentsToCreation = impedimentsToCreation;
     return this;
   }
 
    /**
-   * One-day fund flows. This data is available for all the regions.
-   * @return flows1D
+   * Get impedimentsToCreation
+   * @return impedimentsToCreation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "One-day fund flows. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_FLOWS1_D)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_IMPEDIMENTS_TO_CREATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getFlows1D() {
-    return flows1D;
+  public InlineResponse20013DataImpedimentsToCreation getImpedimentsToCreation() {
+    return impedimentsToCreation;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FLOWS1_D)
+  @JsonProperty(JSON_PROPERTY_IMPEDIMENTS_TO_CREATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlows1D(BigDecimal flows1D) {
-    this.flows1D = flows1D;
+  public void setImpedimentsToCreation(InlineResponse20013DataImpedimentsToCreation impedimentsToCreation) {
+    this.impedimentsToCreation = impedimentsToCreation;
   }
 
 
-  public InlineResponse20013Data flows1W(BigDecimal flows1W) {
-    this.flows1W = flows1W;
+  public InlineResponse20013Data premiumDiscount(InlineResponse20013DataPremiumDiscount premiumDiscount) {
+    this.premiumDiscount = premiumDiscount;
     return this;
   }
 
    /**
-   * One-week fund flows. This data is available for all the regions.
-   * @return flows1W
+   * Get premiumDiscount
+   * @return premiumDiscount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "One-week fund flows. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_FLOWS1_W)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PREMIUM_DISCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getFlows1W() {
-    return flows1W;
+  public InlineResponse20013DataPremiumDiscount getPremiumDiscount() {
+    return premiumDiscount;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FLOWS1_W)
+  @JsonProperty(JSON_PROPERTY_PREMIUM_DISCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlows1W(BigDecimal flows1W) {
-    this.flows1W = flows1W;
+  public void setPremiumDiscount(InlineResponse20013DataPremiumDiscount premiumDiscount) {
+    this.premiumDiscount = premiumDiscount;
   }
 
 
-  public InlineResponse20013Data flows1M(BigDecimal flows1M) {
-    this.flows1M = flows1M;
+  public InlineResponse20013Data blockTrade(InlineResponse20013DataBlockTrade blockTrade) {
+    this.blockTrade = blockTrade;
     return this;
   }
 
    /**
-   * One-month fund flows. This data is available for all the regions.
-   * @return flows1M
+   * Get blockTrade
+   * @return blockTrade
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "One-month fund flows. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_FLOWS1_M)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BLOCK_TRADE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getFlows1M() {
-    return flows1M;
+  public InlineResponse20013DataBlockTrade getBlockTrade() {
+    return blockTrade;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FLOWS1_M)
+  @JsonProperty(JSON_PROPERTY_BLOCK_TRADE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlows1M(BigDecimal flows1M) {
-    this.flows1M = flows1M;
+  public void setBlockTrade(InlineResponse20013DataBlockTrade blockTrade) {
+    this.blockTrade = blockTrade;
   }
 
 
-  public InlineResponse20013Data flowsYTD(BigDecimal flowsYTD) {
-    this.flowsYTD = flowsYTD;
+  public InlineResponse20013Data spread(InlineResponse20013DataSpread spread) {
+    this.spread = spread;
     return this;
   }
 
    /**
-   * Year-to-date fund flows. This data is available for all the regions.
-   * @return flowsYTD
+   * Get spread
+   * @return spread
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Year-to-date fund flows. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_FLOWS_Y_T_D)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SPREAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getFlowsYTD() {
-    return flowsYTD;
+  public InlineResponse20013DataSpread getSpread() {
+    return spread;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FLOWS_Y_T_D)
+  @JsonProperty(JSON_PROPERTY_SPREAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlowsYTD(BigDecimal flowsYTD) {
-    this.flowsYTD = flowsYTD;
+  public void setSpread(InlineResponse20013DataSpread spread) {
+    this.spread = spread;
   }
 
 
-  public InlineResponse20013Data flows1Y(BigDecimal flows1Y) {
-    this.flows1Y = flows1Y;
+  public InlineResponse20013Data trackingDifference(InlineResponse20013DataTrackingDifference trackingDifference) {
+    this.trackingDifference = trackingDifference;
     return this;
   }
 
    /**
-   * One-year fund flows. This data is available for all the regions.
-   * @return flows1Y
+   * Get trackingDifference
+   * @return trackingDifference
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "One-year fund flows. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_FLOWS1_Y)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRACKING_DIFFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getFlows1Y() {
-    return flows1Y;
+  public InlineResponse20013DataTrackingDifference getTrackingDifference() {
+    return trackingDifference;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FLOWS1_Y)
+  @JsonProperty(JSON_PROPERTY_TRACKING_DIFFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlows1Y(BigDecimal flows1Y) {
-    this.flows1Y = flows1Y;
+  public void setTrackingDifference(InlineResponse20013DataTrackingDifference trackingDifference) {
+    this.trackingDifference = trackingDifference;
   }
 
 
@@ -203,27 +209,27 @@ public class InlineResponse20013Data implements Serializable {
       return false;
     }
     InlineResponse20013Data inlineResponse20013Data = (InlineResponse20013Data) o;
-    return Objects.equals(this.flows1D, inlineResponse20013Data.flows1D) &&
-        Objects.equals(this.flows1W, inlineResponse20013Data.flows1W) &&
-        Objects.equals(this.flows1M, inlineResponse20013Data.flows1M) &&
-        Objects.equals(this.flowsYTD, inlineResponse20013Data.flowsYTD) &&
-        Objects.equals(this.flows1Y, inlineResponse20013Data.flows1Y);
+    return Objects.equals(this.impedimentsToCreation, inlineResponse20013Data.impedimentsToCreation) &&
+        Objects.equals(this.premiumDiscount, inlineResponse20013Data.premiumDiscount) &&
+        Objects.equals(this.blockTrade, inlineResponse20013Data.blockTrade) &&
+        Objects.equals(this.spread, inlineResponse20013Data.spread) &&
+        Objects.equals(this.trackingDifference, inlineResponse20013Data.trackingDifference);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(flows1D, flows1W, flows1M, flowsYTD, flows1Y);
+    return Objects.hash(impedimentsToCreation, premiumDiscount, blockTrade, spread, trackingDifference);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20013Data {\n");
-    sb.append("    flows1D: ").append(toIndentedString(flows1D)).append("\n");
-    sb.append("    flows1W: ").append(toIndentedString(flows1W)).append("\n");
-    sb.append("    flows1M: ").append(toIndentedString(flows1M)).append("\n");
-    sb.append("    flowsYTD: ").append(toIndentedString(flowsYTD)).append("\n");
-    sb.append("    flows1Y: ").append(toIndentedString(flows1Y)).append("\n");
+    sb.append("    impedimentsToCreation: ").append(toIndentedString(impedimentsToCreation)).append("\n");
+    sb.append("    premiumDiscount: ").append(toIndentedString(premiumDiscount)).append("\n");
+    sb.append("    blockTrade: ").append(toIndentedString(blockTrade)).append("\n");
+    sb.append("    spread: ").append(toIndentedString(spread)).append("\n");
+    sb.append("    trackingDifference: ").append(toIndentedString(trackingDifference)).append("\n");
     sb.append("}");
     return sb.toString();
   }

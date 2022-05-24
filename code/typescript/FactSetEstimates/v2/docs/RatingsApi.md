@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getConsensusRatings(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -129,6 +130,7 @@ const consensusRatingsRequest = new factsetestimates.ConsensusRatingsRequest(); 
 // Call api endpoint
 apiInstance.getConsensusRatingsForList(consensusRatingsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -204,6 +206,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getDetailRatings(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -277,6 +280,7 @@ const detailRatingsRequest = new factsetestimates.DetailRatingsRequest(); // Det
 // Call api endpoint
 apiInstance.getDetailRatingsForList(detailRatingsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

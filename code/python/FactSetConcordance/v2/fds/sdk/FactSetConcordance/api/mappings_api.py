@@ -11,6 +11,8 @@
 
 import re  # noqa: F401
 import sys  # noqa: F401
+from multiprocessing.pool import ApplyResult
+import typing
 
 from fds.sdk.FactSetConcordance.api_client import ApiClient, Endpoint as _Endpoint
 from fds.sdk.FactSetConcordance.model_utils import (  # noqa: F401
@@ -22,6 +24,7 @@ from fds.sdk.FactSetConcordance.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from fds.sdk.FactSetConcordance.exceptions import ApiException
 from fds.sdk.FactSetConcordance.model.entity_mapping_delete_request import EntityMappingDeleteRequest
 from fds.sdk.FactSetConcordance.model.entity_mapping_delete_response import EntityMappingDeleteResponse
 from fds.sdk.FactSetConcordance.model.entity_mapping_request import EntityMappingRequest
@@ -29,6 +32,9 @@ from fds.sdk.FactSetConcordance.model.entity_response import EntityResponse
 from fds.sdk.FactSetConcordance.model.entity_universe_request import EntityUniverseRequest
 from fds.sdk.FactSetConcordance.model.entity_universe_response import EntityUniverseResponse
 from fds.sdk.FactSetConcordance.model.error_response import ErrorResponse
+
+
+
 
 
 class MappingsApi(object):
@@ -44,7 +50,10 @@ class MappingsApi(object):
         self.api_client = api_client
         self.get_entity_mapping_delete_for_list_endpoint = _Endpoint(
             settings={
-                'response_type': (EntityMappingDeleteResponse,),
+                'response_type': (
+                  { 200: (EntityMappingDeleteResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -97,7 +106,10 @@ class MappingsApi(object):
         )
         self.get_entity_mapping_for_list_endpoint = _Endpoint(
             settings={
-                'response_type': (EntityResponse,),
+                'response_type': (
+                  { 200: (EntityResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -150,7 +162,10 @@ class MappingsApi(object):
         )
         self.get_entity_universe_endpoint = _Endpoint(
             settings={
-                'response_type': (EntityUniverseResponse,),
+                'response_type': (
+                  { 200: (EntityUniverseResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -231,7 +246,10 @@ class MappingsApi(object):
         )
         self.get_entity_universe_for_list_endpoint = _Endpoint(
             settings={
-                'response_type': (EntityUniverseResponse,),
+                'response_type': (
+                  { 200: (EntityUniverseResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  None
+                ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
@@ -283,26 +301,32 @@ class MappingsApi(object):
             api_client=api_client
         )
 
+    @staticmethod
+    def apply_kwargs_defaults(kwargs, return_http_data_only, async_req):
+        kwargs["async_req"] = async_req
+        kwargs["_return_http_data_only"] = return_http_data_only
+        kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+        kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+        kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+        kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+        kwargs["_spec_property_naming"] = kwargs.get("_spec_property_naming", False)
+        kwargs["_content_type"] = kwargs.get("_content_type")
+        kwargs["_host_index"] = kwargs.get("_host_index")
+
     def get_entity_mapping_delete_for_list(
         self,
         entity_mapping_delete_request,
         **kwargs
-    ):
+    ) -> EntityMappingDeleteResponse:
         """Deletes mapping specified by the client.  # noqa: E501
 
         Delete a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and universeId are required.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_entity_mapping_delete_for_list(entity_mapping_delete_request, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             entity_mapping_delete_request (EntityMappingDeleteRequest): A request to delete entity mappings specified by the client
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -316,35 +340,161 @@ class MappingsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             EntityMappingDeleteResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['entity_mapping_delete_request'] = \
+            entity_mapping_delete_request
+        return self.get_entity_mapping_delete_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_mapping_delete_for_list_with_http_info(
+        self,
+        entity_mapping_delete_request,
+        **kwargs
+    ) -> typing.Tuple[EntityMappingDeleteResponse, int, typing.MutableMapping]:
+        """Deletes mapping specified by the client.  # noqa: E501
+
+        Delete a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and universeId are required.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            entity_mapping_delete_request (EntityMappingDeleteRequest): A request to delete entity mappings specified by the client
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            EntityMappingDeleteResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['entity_mapping_delete_request'] = \
+            entity_mapping_delete_request
+        return self.get_entity_mapping_delete_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_mapping_delete_for_list_async(
+        self,
+        entity_mapping_delete_request,
+        **kwargs
+    ) -> "ApplyResult[EntityMappingDeleteResponse]":
+        """Deletes mapping specified by the client.  # noqa: E501
+
+        Delete a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and universeId are required.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            entity_mapping_delete_request (EntityMappingDeleteRequest): A request to delete entity mappings specified by the client
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[EntityMappingDeleteResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['entity_mapping_delete_request'] = \
+            entity_mapping_delete_request
+        return self.get_entity_mapping_delete_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_mapping_delete_for_list_with_http_info_async(
+        self,
+        entity_mapping_delete_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[EntityMappingDeleteResponse, int, typing.MutableMapping]]":
+        """Deletes mapping specified by the client.  # noqa: E501
+
+        Delete a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and universeId are required.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            entity_mapping_delete_request (EntityMappingDeleteRequest): A request to delete entity mappings specified by the client
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(EntityMappingDeleteResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['entity_mapping_delete_request'] = \
             entity_mapping_delete_request
         return self.get_entity_mapping_delete_for_list_endpoint.call_with_http_info(**kwargs)
@@ -353,22 +503,16 @@ class MappingsApi(object):
         self,
         entity_mapping_request,
         **kwargs
-    ):
+    ) -> EntityResponse:
         """Saves a single-mapping specified by the client.  # noqa: E501
 
         Saves a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and clientName are required.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_entity_mapping_for_list(entity_mapping_request, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             entity_mapping_request (EntityMappingRequest): A request to create a single mapping.
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -382,35 +526,161 @@ class MappingsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             EntityResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['entity_mapping_request'] = \
+            entity_mapping_request
+        return self.get_entity_mapping_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_mapping_for_list_with_http_info(
+        self,
+        entity_mapping_request,
+        **kwargs
+    ) -> typing.Tuple[EntityResponse, int, typing.MutableMapping]:
+        """Saves a single-mapping specified by the client.  # noqa: E501
+
+        Saves a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and clientName are required.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            entity_mapping_request (EntityMappingRequest): A request to create a single mapping.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            EntityResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['entity_mapping_request'] = \
+            entity_mapping_request
+        return self.get_entity_mapping_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_mapping_for_list_async(
+        self,
+        entity_mapping_request,
+        **kwargs
+    ) -> "ApplyResult[EntityResponse]":
+        """Saves a single-mapping specified by the client.  # noqa: E501
+
+        Saves a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and clientName are required.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            entity_mapping_request (EntityMappingRequest): A request to create a single mapping.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[EntityResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['entity_mapping_request'] = \
+            entity_mapping_request
+        return self.get_entity_mapping_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_mapping_for_list_with_http_info_async(
+        self,
+        entity_mapping_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[EntityResponse, int, typing.MutableMapping]]":
+        """Saves a single-mapping specified by the client.  # noqa: E501
+
+        Saves a Concordance Mapping to the client universe. When making a post, all exiting values are overwritten in the database with the values passed in the request. clientId and clientName are required.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            entity_mapping_request (EntityMappingRequest): A request to create a single mapping.
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(EntityResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['entity_mapping_request'] = \
             entity_mapping_request
         return self.get_entity_mapping_for_list_endpoint.call_with_http_info(**kwargs)
@@ -419,15 +689,11 @@ class MappingsApi(object):
         self,
         universe_id,
         **kwargs
-    ):
+    ) -> EntityUniverseResponse:
         """Retrieve all saved mappings within a requested universe  # noqa: E501
 
         Retrieves all entity mappings within a requested universe.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_entity_universe(universe_id, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
@@ -437,8 +703,6 @@ class MappingsApi(object):
             map_status ([str]): Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. . [optional]
             offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
             limit (int): Limits the number of records in the response.. [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -452,35 +716,173 @@ class MappingsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             EntityUniverseResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['universe_id'] = \
+            universe_id
+        return self.get_entity_universe_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_universe_with_http_info(
+        self,
+        universe_id,
+        **kwargs
+    ) -> typing.Tuple[EntityUniverseResponse, int, typing.MutableMapping]:
+        """Retrieve all saved mappings within a requested universe  # noqa: E501
+
+        Retrieves all entity mappings within a requested universe.   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+        Keyword Args:
+            client_id ([str]): Filter by the clientId(s) created by the user in a previous mapping. . [optional]
+            map_status ([str]): Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. . [optional]
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            EntityUniverseResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['universe_id'] = \
+            universe_id
+        return self.get_entity_universe_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_universe_async(
+        self,
+        universe_id,
+        **kwargs
+    ) -> "ApplyResult[EntityUniverseResponse]":
+        """Retrieve all saved mappings within a requested universe  # noqa: E501
+
+        Retrieves all entity mappings within a requested universe.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+        Keyword Args:
+            client_id ([str]): Filter by the clientId(s) created by the user in a previous mapping. . [optional]
+            map_status ([str]): Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. . [optional]
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[EntityUniverseResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['universe_id'] = \
+            universe_id
+        return self.get_entity_universe_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_universe_with_http_info_async(
+        self,
+        universe_id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[EntityUniverseResponse, int, typing.MutableMapping]]":
+        """Retrieve all saved mappings within a requested universe  # noqa: E501
+
+        Retrieves all entity mappings within a requested universe.   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            universe_id (int): Universe identifier. *To create a universe, use the `/universe' endpoint.*
+
+        Keyword Args:
+            client_id ([str]): Filter by the clientId(s) created by the user in a previous mapping. . [optional]
+            map_status ([str]): Filter by the Entity Decisions that have the specified mapStatus, where -   * MAPPED - The requested Entity Name is successfully mapped to a FactSet Entity Id (-E)   * UNMAPPED - The requested Entity Name is unmapped by FactSet.   * INDETERMINATE - The requested Entity Name was unable to make a mapping. . [optional]
+            offset (int): Starting row for records to return or rows to skip.. [optional] if omitted the server will use the default value of 0
+            limit (int): Limits the number of records in the response.. [optional]
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(EntityUniverseResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['universe_id'] = \
             universe_id
         return self.get_entity_universe_endpoint.call_with_http_info(**kwargs)
@@ -489,22 +891,16 @@ class MappingsApi(object):
         self,
         entity_universe_request,
         **kwargs
-    ):
+    ) -> EntityUniverseResponse:
         """Retrieve all saved mappings within a requested universe or large list of client ids  # noqa: E501
 
         Retrieves all entity mappings that were saved in a given universe. Supports filtering by a large number of `clientId`s   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_entity_universe_for_list(entity_universe_request, async_req=True)
-        >>> result = thread.get()
+        This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
             entity_universe_request (EntityUniverseRequest): A request to fetch all entities of a given universe
 
         Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True.
@@ -518,35 +914,161 @@ class MappingsApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
         Returns:
             EntityUniverseResponse
-                If the method is called asynchronously, returns the request
-                thread.
+                Response Object
         """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['entity_universe_request'] = \
+            entity_universe_request
+        return self.get_entity_universe_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_universe_for_list_with_http_info(
+        self,
+        entity_universe_request,
+        **kwargs
+    ) -> typing.Tuple[EntityUniverseResponse, int, typing.MutableMapping]:
+        """Retrieve all saved mappings within a requested universe or large list of client ids  # noqa: E501
+
+        Retrieves all entity mappings that were saved in a given universe. Supports filtering by a large number of `clientId`s   # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            entity_universe_request (EntityUniverseRequest): A request to fetch all entities of a given universe
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            EntityUniverseResponse
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['entity_universe_request'] = \
+            entity_universe_request
+        return self.get_entity_universe_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_universe_for_list_async(
+        self,
+        entity_universe_request,
+        **kwargs
+    ) -> "ApplyResult[EntityUniverseResponse]":
+        """Retrieve all saved mappings within a requested universe or large list of client ids  # noqa: E501
+
+        Retrieves all entity mappings that were saved in a given universe. Supports filtering by a large number of `clientId`s   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            entity_universe_request (EntityUniverseRequest): A request to fetch all entities of a given universe
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[EntityUniverseResponse]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['entity_universe_request'] = \
+            entity_universe_request
+        return self.get_entity_universe_for_list_endpoint.call_with_http_info(**kwargs)
+
+    def get_entity_universe_for_list_with_http_info_async(
+        self,
+        entity_universe_request,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[EntityUniverseResponse, int, typing.MutableMapping]]":
+        """Retrieve all saved mappings within a requested universe or large list of client ids  # noqa: E501
+
+        Retrieves all entity mappings that were saved in a given universe. Supports filtering by a large number of `clientId`s   # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            entity_universe_request (EntityUniverseRequest): A request to fetch all entities of a given universe
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(EntityUniverseResponse, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         kwargs['entity_universe_request'] = \
             entity_universe_request
         return self.get_entity_universe_for_list_endpoint.call_with_http_info(**kwargs)

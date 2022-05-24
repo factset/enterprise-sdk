@@ -48,6 +48,8 @@ public class InlineResponse2004DataTradedValueDays30Average implements Serializa
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataTradedValueDays30Average() { 
+  }
 
   public InlineResponse2004DataTradedValueDays30Average minimum(BigDecimal minimum) {
     this.minimum = minimum;

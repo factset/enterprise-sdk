@@ -23,7 +23,7 @@ import UpdateUniverseRequest from '../model/UpdateUniverseRequest';
 /**
 * Universes service.
 * @module api/UniversesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class UniversesApi {
 
@@ -66,7 +66,10 @@ export default class UniversesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = EntityUniverseStatisticsResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/entity-universe-statistics', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -78,7 +81,7 @@ export default class UniversesApi {
      * Get statistics on a given universe
      * Get the total number of mappings in a universe, as well as the number of mapped, unmapped and indeterminate mappings 
      * @param {Number} universeId Universe identifier. *To create a universe, use the `/universe' endpoint.*
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/EntityUniverseStatisticsResponse}
+     * @return { Promise.< module:model/EntityUniverseStatisticsResponse > } a Promise, with data of type {@link module:model/EntityUniverseStatisticsResponse }
      */
     getEntityUniverseStatistics(universeId) {
       return this.getEntityUniverseStatisticsWithHttpInfo(universeId)
@@ -113,7 +116,10 @@ export default class UniversesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = UniverseMetaResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/universe', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -125,7 +131,7 @@ export default class UniversesApi {
      * Create a new universe
      * Create a new universe that is distinct from any existing universe 
      * @param {module:model/CreateUniverseRequest} createUniverseRequest A request to create a user's universe
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UniverseMetaResponse}
+     * @return { Promise.< module:model/UniverseMetaResponse > } a Promise, with data of type {@link module:model/UniverseMetaResponse }
      */
     getUniverseForList(createUniverseRequest) {
       return this.getUniverseForListWithHttpInfo(createUniverseRequest)
@@ -159,7 +165,10 @@ export default class UniversesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = UniversesResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/universes', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -172,7 +181,7 @@ export default class UniversesApi {
      * Fetch information on active universes for the current user. Optionally filter for a specific universe given a `universeId` 
      * @param {Object} opts Optional parameters
      * @param {Number} opts.universeId Universe identifier. *To create a universe, use the `/universe' endpoint.*
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UniversesResponse}
+     * @return { Promise.< module:model/UniversesResponse > } a Promise, with data of type {@link module:model/UniversesResponse }
      */
     getUniverses(opts) {
       return this.getUniversesWithHttpInfo(opts)
@@ -207,7 +216,10 @@ export default class UniversesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = UniverseMetaResponse;
+
       return this.apiClient.callApi(
         '/factset-concordance/v2/update-universe', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -219,7 +231,7 @@ export default class UniversesApi {
      * Update metadata for an existing universe
      * Update metadata for an existing universe 
      * @param {module:model/UpdateUniverseRequest} updateUniverseRequest A request to update a user's universe
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UniverseMetaResponse}
+     * @return { Promise.< module:model/UniverseMetaResponse > } a Promise, with data of type {@link module:model/UniverseMetaResponse }
      */
     getUpdateUniverseForList(updateUniverseRequest) {
       return this.getUpdateUniverseForListWithHttpInfo(updateUniverseRequest)
@@ -230,3 +242,8 @@ export default class UniversesApi {
 
 
 }
+
+
+
+
+

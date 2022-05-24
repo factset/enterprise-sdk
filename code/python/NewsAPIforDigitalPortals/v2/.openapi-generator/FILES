@@ -22,6 +22,9 @@ docs/InlineResponse2001Categories.md
 docs/InlineResponse2001Chain.md
 docs/InlineResponse2001Data.md
 docs/InlineResponse2001Distributor.md
+docs/InlineResponse2001Fsym.md
+docs/InlineResponse2001FsymSecurity.md
+docs/InlineResponse2001Instruments.md
 docs/InlineResponse2001Language.md
 docs/InlineResponse2001Meta.md
 docs/InlineResponse2001Publisher.md
@@ -50,6 +53,8 @@ docs/InlineResponse2009Data.md
 docs/InlineResponse200Data.md
 docs/InlineResponse200DataCategories.md
 docs/InlineResponse200DataDistributor.md
+docs/InlineResponse200DataFsym.md
+docs/InlineResponse200DataFsymSecurity.md
 docs/InlineResponse200DataInstruments.md
 docs/InlineResponse200DataLanguage.md
 docs/InlineResponse200DataMedia.md
@@ -123,6 +128,9 @@ fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_categories.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_chain.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_data.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_distributor.py
+fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_fsym.py
+fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_fsym_security.py
+fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_instruments.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_language.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_meta.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response2001_publisher.py
@@ -151,6 +159,8 @@ fds/sdk/NewsAPIforDigitalPortals/model/inline_response2009_data.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data_categories.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data_distributor.py
+fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data_fsym.py
+fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data_fsym_security.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data_instruments.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data_language.py
 fds/sdk/NewsAPIforDigitalPortals/model/inline_response200_data_media.py

@@ -48,6 +48,8 @@ public class InlineResponse2005DataPerformanceSinceIssueBid implements Serializa
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2005DataPerformanceSinceIssueBid() { 
+  }
 
   public InlineResponse2005DataPerformanceSinceIssueBid minimum(BigDecimal minimum) {
     this.minimum = minimum;

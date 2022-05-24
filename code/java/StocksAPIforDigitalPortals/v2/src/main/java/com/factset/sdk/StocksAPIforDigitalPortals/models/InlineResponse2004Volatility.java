@@ -72,6 +72,8 @@ public class InlineResponse2004Volatility implements Serializable {
   public static final String JSON_PROPERTY_YEAR_TO_DATE = "yearToDate";
   private BigDecimal yearToDate;
 
+  public InlineResponse2004Volatility() { 
+  }
 
   public InlineResponse2004Volatility week1(BigDecimal week1) {
     this.week1 = week1;

@@ -38,6 +38,7 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <param name="date">date.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="authorId">authorId.</param>
+        /// <param name="contributorId">contributorId.</param>
         /// <param name="title">title.</param>
         /// <param name="identifier">identifier.</param>
         /// <param name="relatedSymbols">relatedSymbols.</param>
@@ -48,17 +49,19 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <param name="link">link.</param>
         /// <param name="body">body.</param>
         /// <param name="isPersonal">isPersonal.</param>
+        /// <param name="state">state.</param>
         /// <param name="approvalStatus">approvalStatus.</param>
         /// <param name="averageRating">averageRating.</param>
         /// <param name="relatedRecords">relatedRecords.</param>
         /// <param name="relatedContacts">relatedContacts.</param>
         /// <param name="customFields">customFields.</param>
-        public NoteDto(Guid id = default(Guid), string date = default(string), string createdAt = default(string), Guid authorId = default(Guid), string title = default(string), string identifier = default(string), List<string> relatedSymbols = default(List<string>), Guid subjectId = default(Guid), Guid? recommendationId = default(Guid?), Guid? sentimentId = default(Guid?), string source = default(string), string link = default(string), string body = default(string), bool isPersonal = default(bool), string approvalStatus = default(string), int? averageRating = default(int?), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<Guid> relatedContacts = default(List<Guid>), List<CustomFieldValueDto> customFields = default(List<CustomFieldValueDto>))
+        public NoteDto(Guid id = default(Guid), string date = default(string), string createdAt = default(string), Guid authorId = default(Guid), Guid contributorId = default(Guid), string title = default(string), string identifier = default(string), List<string> relatedSymbols = default(List<string>), Guid subjectId = default(Guid), Guid? recommendationId = default(Guid?), Guid? sentimentId = default(Guid?), string source = default(string), string link = default(string), string body = default(string), bool isPersonal = default(bool), string state = default(string), string approvalStatus = default(string), int? averageRating = default(int?), RelatedRecordsDto relatedRecords = default(RelatedRecordsDto), List<Guid> relatedContacts = default(List<Guid>), List<CustomFieldValueDto> customFields = default(List<CustomFieldValueDto>))
         {
             this.Id = id;
             this.Date = date;
             this.CreatedAt = createdAt;
             this.AuthorId = authorId;
+            this.ContributorId = contributorId;
             this.Title = title;
             this.Identifier = identifier;
             this.RelatedSymbols = relatedSymbols;
@@ -69,6 +72,7 @@ namespace FactSet.SDK.IRNNotes.Model
             this.Link = link;
             this.Body = body;
             this.IsPersonal = isPersonal;
+            this.State = state;
             this.ApprovalStatus = approvalStatus;
             this.AverageRating = averageRating;
             this.RelatedRecords = relatedRecords;
@@ -79,115 +83,127 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "Id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "date", EmitDefaultValue = true)]
+        [DataMember(Name = "Date", EmitDefaultValue = true)]
         public string Date { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        [DataMember(Name = "createdAt", EmitDefaultValue = true)]
+        [DataMember(Name = "CreatedAt", EmitDefaultValue = true)]
         public string CreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets AuthorId
         /// </summary>
-        [DataMember(Name = "authorId", EmitDefaultValue = false)]
+        [DataMember(Name = "AuthorId", EmitDefaultValue = false)]
         public Guid AuthorId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContributorId
+        /// </summary>
+        [DataMember(Name = "ContributorId", EmitDefaultValue = false)]
+        public Guid ContributorId { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "Title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Identifier
         /// </summary>
-        [DataMember(Name = "identifier", EmitDefaultValue = true)]
+        [DataMember(Name = "Identifier", EmitDefaultValue = true)]
         public string Identifier { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedSymbols
         /// </summary>
-        [DataMember(Name = "relatedSymbols", EmitDefaultValue = true)]
+        [DataMember(Name = "RelatedSymbols", EmitDefaultValue = true)]
         public List<string> RelatedSymbols { get; set; }
 
         /// <summary>
         /// Gets or Sets SubjectId
         /// </summary>
-        [DataMember(Name = "subjectId", EmitDefaultValue = false)]
+        [DataMember(Name = "SubjectId", EmitDefaultValue = false)]
         public Guid SubjectId { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendationId
         /// </summary>
-        [DataMember(Name = "recommendationId", EmitDefaultValue = true)]
+        [DataMember(Name = "RecommendationId", EmitDefaultValue = true)]
         public Guid? RecommendationId { get; set; }
 
         /// <summary>
         /// Gets or Sets SentimentId
         /// </summary>
-        [DataMember(Name = "sentimentId", EmitDefaultValue = true)]
+        [DataMember(Name = "SentimentId", EmitDefaultValue = true)]
         public Guid? SentimentId { get; set; }
 
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = true)]
+        [DataMember(Name = "Source", EmitDefaultValue = true)]
         public string Source { get; set; }
 
         /// <summary>
         /// Gets or Sets Link
         /// </summary>
-        [DataMember(Name = "link", EmitDefaultValue = true)]
+        [DataMember(Name = "Link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        [DataMember(Name = "body", EmitDefaultValue = true)]
+        [DataMember(Name = "Body", EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
         /// Gets or Sets IsPersonal
         /// </summary>
-        [DataMember(Name = "isPersonal", EmitDefaultValue = true)]
+        [DataMember(Name = "IsPersonal", EmitDefaultValue = true)]
         public bool IsPersonal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name = "State", EmitDefaultValue = true)]
+        public string State { get; set; }
 
         /// <summary>
         /// Gets or Sets ApprovalStatus
         /// </summary>
-        [DataMember(Name = "approvalStatus", EmitDefaultValue = true)]
+        [DataMember(Name = "ApprovalStatus", EmitDefaultValue = true)]
         public string ApprovalStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets AverageRating
         /// </summary>
-        [DataMember(Name = "averageRating", EmitDefaultValue = true)]
+        [DataMember(Name = "AverageRating", EmitDefaultValue = true)]
         public int? AverageRating { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedRecords
         /// </summary>
-        [DataMember(Name = "relatedRecords", EmitDefaultValue = false)]
+        [DataMember(Name = "RelatedRecords", EmitDefaultValue = false)]
         public RelatedRecordsDto RelatedRecords { get; set; }
 
         /// <summary>
         /// Gets or Sets RelatedContacts
         /// </summary>
-        [DataMember(Name = "relatedContacts", EmitDefaultValue = true)]
+        [DataMember(Name = "RelatedContacts", EmitDefaultValue = true)]
         public List<Guid> RelatedContacts { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomFields
         /// </summary>
-        [DataMember(Name = "customFields", EmitDefaultValue = true)]
+        [DataMember(Name = "CustomFields", EmitDefaultValue = true)]
         public List<CustomFieldValueDto> CustomFields { get; set; }
 
         /// <summary>
@@ -196,12 +212,13 @@ namespace FactSet.SDK.IRNNotes.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NoteDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
+            sb.Append("  ContributorId: ").Append(ContributorId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("  RelatedSymbols: ").Append(RelatedSymbols).Append("\n");
@@ -212,6 +229,7 @@ namespace FactSet.SDK.IRNNotes.Model
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  IsPersonal: ").Append(IsPersonal).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  ApprovalStatus: ").Append(ApprovalStatus).Append("\n");
             sb.Append("  AverageRating: ").Append(AverageRating).Append("\n");
             sb.Append("  RelatedRecords: ").Append(RelatedRecords).Append("\n");
@@ -248,8 +266,9 @@ namespace FactSet.SDK.IRNNotes.Model
         public bool Equals(NoteDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -270,6 +289,11 @@ namespace FactSet.SDK.IRNNotes.Model
                     this.AuthorId == input.AuthorId ||
                     (this.AuthorId != null &&
                     this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.ContributorId == input.ContributorId ||
+                    (this.ContributorId != null &&
+                    this.ContributorId.Equals(input.ContributorId))
                 ) && 
                 (
                     this.Title == input.Title ||
@@ -322,6 +346,11 @@ namespace FactSet.SDK.IRNNotes.Model
                     this.IsPersonal.Equals(input.IsPersonal)
                 ) && 
                 (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
+                ) && 
+                (
                     this.ApprovalStatus == input.ApprovalStatus ||
                     (this.ApprovalStatus != null &&
                     this.ApprovalStatus.Equals(input.ApprovalStatus))
@@ -360,42 +389,86 @@ namespace FactSet.SDK.IRNNotes.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.ContributorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContributorId.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.Identifier != null)
-                    hashCode = hashCode * 59 + this.Identifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Identifier.GetHashCode();
+                }
                 if (this.RelatedSymbols != null)
-                    hashCode = hashCode * 59 + this.RelatedSymbols.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedSymbols.GetHashCode();
+                }
                 if (this.SubjectId != null)
-                    hashCode = hashCode * 59 + this.SubjectId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SubjectId.GetHashCode();
+                }
                 if (this.RecommendationId != null)
-                    hashCode = hashCode * 59 + this.RecommendationId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RecommendationId.GetHashCode();
+                }
                 if (this.SentimentId != null)
-                    hashCode = hashCode * 59 + this.SentimentId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SentimentId.GetHashCode();
+                }
                 if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
                 if (this.Link != null)
-                    hashCode = hashCode * 59 + this.Link.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
+                }
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
-                hashCode = hashCode * 59 + this.IsPersonal.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsPersonal.GetHashCode();
+                if (this.State != null)
+                {
+                    hashCode = (hashCode * 59) + this.State.GetHashCode();
+                }
                 if (this.ApprovalStatus != null)
-                    hashCode = hashCode * 59 + this.ApprovalStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ApprovalStatus.GetHashCode();
+                }
                 if (this.AverageRating != null)
-                    hashCode = hashCode * 59 + this.AverageRating.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AverageRating.GetHashCode();
+                }
                 if (this.RelatedRecords != null)
-                    hashCode = hashCode * 59 + this.RelatedRecords.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedRecords.GetHashCode();
+                }
                 if (this.RelatedContacts != null)
-                    hashCode = hashCode * 59 + this.RelatedContacts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedContacts.GetHashCode();
+                }
                 if (this.CustomFields != null)
-                    hashCode = hashCode * 59 + this.CustomFields.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CustomFields.GetHashCode();
+                }
                 return hashCode;
             }
         }

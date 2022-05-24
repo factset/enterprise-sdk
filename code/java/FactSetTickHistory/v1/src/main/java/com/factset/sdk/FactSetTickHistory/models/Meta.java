@@ -49,6 +49,8 @@ public class Meta implements Serializable {
   public static final String JSON_PROPERTY_PARTIAL = "partial";
   private Partial partial;
 
+  public Meta() { 
+  }
 
   public Meta pagination(Pagination pagination) {
     this.pagination = pagination;

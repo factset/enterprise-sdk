@@ -47,6 +47,8 @@ public class InlineResponse2003Range implements Serializable {
   public static final String JSON_PROPERTY_LOWER_LIMIT = "lowerLimit";
   private Object lowerLimit;
 
+  public InlineResponse2003Range() { 
+  }
 
   public InlineResponse2003Range upperLimit(Object upperLimit) {
     this.upperLimit = upperLimit;

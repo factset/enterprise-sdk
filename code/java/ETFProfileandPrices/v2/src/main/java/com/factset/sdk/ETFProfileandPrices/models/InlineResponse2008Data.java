@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ETFProfileandPrices.models.InlineResponse2008DataRegions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,48 +25,90 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * InlineResponse2008Data
+ * ETP region allocation data.
  */
+@ApiModel(description = "ETP region allocation data.")
 @JsonPropertyOrder({
-  InlineResponse2008Data.JSON_PROPERTY_BROAD_CATEGORY
+  InlineResponse2008Data.JSON_PROPERTY_REPORT_DATE,
+  InlineResponse2008Data.JSON_PROPERTY_REGIONS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse2008Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_BROAD_CATEGORY = "broadCategory";
-  private String broadCategory;
+  public static final String JSON_PROPERTY_REPORT_DATE = "reportDate";
+  private LocalDate reportDate;
 
+  public static final String JSON_PROPERTY_REGIONS = "regions";
+  private java.util.Set<InlineResponse2008DataRegions> regions = null;
 
-  public InlineResponse2008Data broadCategory(String broadCategory) {
-    this.broadCategory = broadCategory;
+  public InlineResponse2008Data() { 
+  }
+
+  public InlineResponse2008Data reportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
     return this;
   }
 
    /**
-   * ETP class broad category.
-   * @return broadCategory
+   * Reporting date for the allocations.
+   * @return reportDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ETP class broad category.")
-  @JsonProperty(JSON_PROPERTY_BROAD_CATEGORY)
+  @ApiModelProperty(value = "Reporting date for the allocations.")
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBroadCategory() {
-    return broadCategory;
+  public LocalDate getReportDate() {
+    return reportDate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BROAD_CATEGORY)
+  @JsonProperty(JSON_PROPERTY_REPORT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBroadCategory(String broadCategory) {
-    this.broadCategory = broadCategory;
+  public void setReportDate(LocalDate reportDate) {
+    this.reportDate = reportDate;
+  }
+
+
+  public InlineResponse2008Data regions(java.util.Set<InlineResponse2008DataRegions> regions) {
+    this.regions = regions;
+    return this;
+  }
+
+  public InlineResponse2008Data addRegionsItem(InlineResponse2008DataRegions regionsItem) {
+    if (this.regions == null) {
+      this.regions = new java.util.LinkedHashSet<>();
+    }
+    this.regions.add(regionsItem);
+    return this;
+  }
+
+   /**
+   * List of allocations by region.
+   * @return regions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of allocations by region.")
+  @JsonProperty(JSON_PROPERTY_REGIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.Set<InlineResponse2008DataRegions> getRegions() {
+    return regions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REGIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRegions(java.util.Set<InlineResponse2008DataRegions> regions) {
+    this.regions = regions;
   }
 
 
@@ -81,19 +124,21 @@ public class InlineResponse2008Data implements Serializable {
       return false;
     }
     InlineResponse2008Data inlineResponse2008Data = (InlineResponse2008Data) o;
-    return Objects.equals(this.broadCategory, inlineResponse2008Data.broadCategory);
+    return Objects.equals(this.reportDate, inlineResponse2008Data.reportDate) &&
+        Objects.equals(this.regions, inlineResponse2008Data.regions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(broadCategory);
+    return Objects.hash(reportDate, regions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse2008Data {\n");
-    sb.append("    broadCategory: ").append(toIndentedString(broadCategory)).append("\n");
+    sb.append("    reportDate: ").append(toIndentedString(reportDate)).append("\n");
+    sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

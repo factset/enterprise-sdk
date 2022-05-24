@@ -61,7 +61,7 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ErrorSource {\n");
             sb.Append("  Pointer: ").Append(Pointer).Append("\n");
             sb.Append("  Parameter: ").Append(Parameter).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
         public bool Equals(ErrorSource input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Pointer == input.Pointer ||
@@ -121,9 +122,13 @@ namespace FactSet.SDK.AxiomaEquityOptimizer.Model
             {
                 int hashCode = 41;
                 if (this.Pointer != null)
-                    hashCode = hashCode * 59 + this.Pointer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pointer.GetHashCode();
+                }
                 if (this.Parameter != null)
-                    hashCode = hashCode * 59 + this.Parameter.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Parameter.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -50,7 +50,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new AccountsApi(config);
-            var path = path_example;  // string | The directory to get the accounts and sub-directories in (default to "Client:Foo/Bar")
+            var path = "\"Client:Foo/Bar\"";  // string | The directory to get the accounts and sub-directories in (default to "Client:Foo/Bar")
 
             try
             {
@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
  **path** | **string**| The directory to get the accounts and sub-directories in | [default to &quot;Client:Foo/Bar&quot;]
 
 ### Return type
-
 [**AccountDirectories**](AccountDirectories.md)
 
 ### Authorization

@@ -19,7 +19,7 @@ import SplitAdjust from './SplitAdjust';
 /**
  * The FundsPricesRequest model module.
  * @module model/FundsPricesRequest
- * @version 0.9.1
+ * @version 0.20.0
  */
 class FundsPricesRequest {
     /**

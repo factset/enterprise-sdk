@@ -116,7 +116,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataPerformanceEndOfDay {\n");
             sb.Append("  Day1: ").Append(Day1).Append("\n");
             sb.Append("  Week1: ").Append(Week1).Append("\n");
@@ -158,8 +158,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataPerformanceEndOfDay input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Day1 == input.Day1 ||
@@ -218,23 +219,41 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Day1 != null)
-                    hashCode = hashCode * 59 + this.Day1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Day1.GetHashCode();
+                }
                 if (this.Week1 != null)
-                    hashCode = hashCode * 59 + this.Week1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Week1.GetHashCode();
+                }
                 if (this.Month1 != null)
-                    hashCode = hashCode * 59 + this.Month1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Month1.GetHashCode();
+                }
                 if (this.Months3 != null)
-                    hashCode = hashCode * 59 + this.Months3.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Months3.GetHashCode();
+                }
                 if (this.Months6 != null)
-                    hashCode = hashCode * 59 + this.Months6.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Months6.GetHashCode();
+                }
                 if (this.Year1 != null)
-                    hashCode = hashCode * 59 + this.Year1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Year1.GetHashCode();
+                }
                 if (this.Years3 != null)
-                    hashCode = hashCode * 59 + this.Years3.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Years3.GetHashCode();
+                }
                 if (this.Years5 != null)
-                    hashCode = hashCode * 59 + this.Years5.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Years5.GetHashCode();
+                }
                 if (this.YearToDate != null)
-                    hashCode = hashCode * 59 + this.YearToDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.YearToDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

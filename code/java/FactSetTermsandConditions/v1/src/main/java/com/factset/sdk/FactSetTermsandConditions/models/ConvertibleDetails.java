@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetTermsandConditions.JSON;
@@ -112,6 +112,8 @@ public class ConvertibleDetails implements Serializable {
   public static final String JSON_PROPERTY_CONV_TYPE = "convType";
   private String convType;
 
+  public ConvertibleDetails() { 
+  }
 
   public ConvertibleDetails requestId(String requestId) {
     this.requestId = requestId;

@@ -51,6 +51,18 @@ public class EtfReferenceData implements Serializable {
   public static final String JSON_PROPERTY_FSYM_ID = "fsymId";
   private String fsymId;
 
+  public EtfReferenceData() { 
+  }
+
+  @JsonCreator
+  public EtfReferenceData(
+    @JsonProperty(value=JSON_PROPERTY_REQUEST_ID, required=true) String requestId, 
+    @JsonProperty(value=JSON_PROPERTY_FSYM_ID, required=true) String fsymId
+  ) {
+    this();
+    this.requestId = requestId;
+    this.fsymId = fsymId;
+  }
 
   public EtfReferenceData requestId(String requestId) {
     this.requestId = requestId;

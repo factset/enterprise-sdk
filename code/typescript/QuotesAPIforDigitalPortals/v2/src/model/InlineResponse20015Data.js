@@ -17,7 +17,7 @@ import InlineResponse20015DataNestedRegions from './InlineResponse20015DataNeste
 /**
  * The InlineResponse20015Data model module.
  * @module model/InlineResponse20015Data
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20015Data {
     /**

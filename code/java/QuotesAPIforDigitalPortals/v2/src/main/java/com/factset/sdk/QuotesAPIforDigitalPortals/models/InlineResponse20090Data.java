@@ -61,6 +61,8 @@ public class InlineResponse20090Data implements Serializable {
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse20090Instrument instrument;
 
+  public InlineResponse20090Data() { 
+  }
 
   public InlineResponse20090Data id(String id) {
     this.id = id;

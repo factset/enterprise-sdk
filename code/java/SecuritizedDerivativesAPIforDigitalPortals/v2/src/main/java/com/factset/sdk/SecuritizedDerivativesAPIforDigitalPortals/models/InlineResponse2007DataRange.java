@@ -49,6 +49,8 @@ public class InlineResponse2007DataRange implements Serializable {
   public static final String JSON_PROPERTY_LOWER = "lower";
   private InlineResponse2007DataRangeLower lower;
 
+  public InlineResponse2007DataRange() { 
+  }
 
   public InlineResponse2007DataRange upper(InlineResponse2007DataRangeUpper upper) {
     this.upper = upper;

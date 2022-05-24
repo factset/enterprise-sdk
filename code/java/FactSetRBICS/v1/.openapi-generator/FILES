@@ -29,7 +29,6 @@ src/main/java/com/factset/sdk/FactSetRBICS/ApiClient.java
 src/main/java/com/factset/sdk/FactSetRBICS/ApiException.java
 src/main/java/com/factset/sdk/FactSetRBICS/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetRBICS/Configuration.java
-src/main/java/com/factset/sdk/FactSetRBICS/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetRBICS/JSON.java
 src/main/java/com/factset/sdk/FactSetRBICS/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetRBICS/Pair.java

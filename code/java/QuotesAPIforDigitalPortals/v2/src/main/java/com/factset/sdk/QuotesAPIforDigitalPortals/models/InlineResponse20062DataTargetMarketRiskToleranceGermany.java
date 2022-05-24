@@ -43,6 +43,8 @@ public class InlineResponse20062DataTargetMarketRiskToleranceGermany implements 
   public static final String JSON_PROPERTY_LOWEST_RISK_TOLERANCE = "lowestRiskTolerance";
   private Boolean lowestRiskTolerance;
 
+  public InlineResponse20062DataTargetMarketRiskToleranceGermany() { 
+  }
 
   public InlineResponse20062DataTargetMarketRiskToleranceGermany lowestRiskTolerance(Boolean lowestRiskTolerance) {
     this.lowestRiskTolerance = lowestRiskTolerance;

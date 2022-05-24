@@ -44,6 +44,8 @@ public class InlineResponse2004DataRatingSystem1 implements Serializable {
   public static final String JSON_PROPERTY_RATING = "rating";
   private java.util.List<InlineResponse2004DataRatingSystem1Rating> rating = null;
 
+  public InlineResponse2004DataRatingSystem1() { 
+  }
 
   public InlineResponse2004DataRatingSystem1 rating(java.util.List<InlineResponse2004DataRatingSystem1Rating> rating) {
     this.rating = rating;

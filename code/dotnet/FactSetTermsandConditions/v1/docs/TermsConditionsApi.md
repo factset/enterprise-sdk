@@ -82,7 +82,6 @@ Name | Type | Description  | Notes
  **categories** | [**List&lt;string&gt;**](string.md)| Selects the Fixed Income metrics by major category. Use the &#x60;/fields&#x60; endpoint to get a list of all fields associated with each category.   * **SECURITY_DETAILS** &#x3D; Detailed information about the security.   * **COUPON_DETAILS** &#x3D; Coupon details.   * **CONVERTIBLE_FEATURES** &#x3D; Features of convertible instruments.   * **REDEMPTION_OPTIONS** &#x3D; Redemption options.  | [optional] 
 
 ### Return type
-
 [**TermsAndConditionsResponse**](TermsAndConditionsResponse.md)
 
 ### Authorization
@@ -150,7 +149,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new TermsConditionsApi(config);
-            var category = category_example;  // string | Filters the list of Fixed Income metrics by major category -   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options.  (optional) 
+            var category = "SECURITY_DETAILS";  // string | Filters the list of Fixed Income metrics by major category -   * **SECURITY_DETAILS** = Detailed information about the security.   * **COUPON_DETAILS** = Coupon details.   * **CONVERTIBLE_FEATURES** = Features of convertible instruments.   * **REDEMPTION_OPTIONS** = Redemption options.  (optional) 
 
             try
             {
@@ -176,7 +175,6 @@ Name | Type | Description  | Notes
  **category** | **string**| Filters the list of Fixed Income metrics by major category -   * **SECURITY_DETAILS** &#x3D; Detailed information about the security.   * **COUPON_DETAILS** &#x3D; Coupon details.   * **CONVERTIBLE_FEATURES** &#x3D; Features of convertible instruments.   * **REDEMPTION_OPTIONS** &#x3D; Redemption options.  | [optional] 
 
 ### Return type
-
 [**FieldsResponse**](FieldsResponse.md)
 
 ### Authorization
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **termsAndConditionsRequest** | [**TermsAndConditionsRequest**](TermsAndConditionsRequest.md)| Request object for Terms And Conditions | 
 
 ### Return type
-
 [**TermsAndConditionsResponse**](TermsAndConditionsResponse.md)
 
 ### Authorization

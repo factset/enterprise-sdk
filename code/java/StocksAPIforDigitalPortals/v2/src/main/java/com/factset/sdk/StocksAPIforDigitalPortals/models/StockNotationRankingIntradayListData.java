@@ -79,6 +79,8 @@ public class StockNotationRankingIntradayListData implements Serializable {
   public static final String JSON_PROPERTY_INDEX_MEMBERSHIP = "indexMembership";
   private StockNotationRankingIntradayListDataIndexMembership indexMembership;
 
+  public StockNotationRankingIntradayListData() { 
+  }
 
   public StockNotationRankingIntradayListData prices(StockNotationRankingIntradayListDataPrices prices) {
     this.prices = prices;

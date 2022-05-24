@@ -75,6 +75,8 @@ public class InlineResponse2007DataUnderlyings implements Serializable {
   public static final String JSON_PROPERTY_CALCULATION_LEVEL = "calculationLevel";
   private InlineResponse2007DataCalculationLevel calculationLevel;
 
+  public InlineResponse2007DataUnderlyings() { 
+  }
 
   public InlineResponse2007DataUnderlyings name(String name) {
     this.name = name;

@@ -60,6 +60,16 @@ public class SecurityHoldersRequest implements Serializable {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
+  public SecurityHoldersRequest() { 
+  }
+
+  @JsonCreator
+  public SecurityHoldersRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public SecurityHoldersRequest ids(java.util.List<String> ids) {
     this.ids = ids;

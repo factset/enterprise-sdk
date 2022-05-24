@@ -59,6 +59,8 @@ public class InlineResponse2006InstrumentKnockOut implements Serializable {
   public static final String JSON_PROPERTY_BREACH = "breach";
   private InlineResponse2006InstrumentKnockOutBreach breach;
 
+  public InlineResponse2006InstrumentKnockOut() { 
+  }
 
   public InlineResponse2006InstrumentKnockOut observation(InlineResponse2006InstrumentKnockOutObservation observation) {
     this.observation = observation;

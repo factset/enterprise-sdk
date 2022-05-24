@@ -67,10 +67,10 @@ public class CreateMeetingDto implements Serializable {
   private UserSerialDto author;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
-  private String identifier;
+  private JsonNullable<String> identifier = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_START = "start";
   private String start;
@@ -111,6 +111,20 @@ public class CreateMeetingDto implements Serializable {
   public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
   private JsonNullable<java.util.List<CreateCustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<CreateCustomFieldValueDto>>undefined();
 
+  public CreateMeetingDto() { 
+  }
+
+  @JsonCreator
+  public CreateMeetingDto(
+    @JsonProperty(value=JSON_PROPERTY_AUTHOR, required=true) UserSerialDto author, 
+    @JsonProperty(value=JSON_PROPERTY_START, required=true) String start, 
+    @JsonProperty(value=JSON_PROPERTY_END, required=true) String end
+  ) {
+    this();
+    this.author = author;
+    this.start = start;
+    this.end = end;
+  }
 
   public CreateMeetingDto author(UserSerialDto author) {
     this.author = author;
@@ -139,7 +153,7 @@ public class CreateMeetingDto implements Serializable {
 
 
   public CreateMeetingDto title(String title) {
-    this.title = title;
+    this.title = JsonNullable.<String>of(title);
     return this;
   }
 
@@ -148,24 +162,32 @@ public class CreateMeetingDto implements Serializable {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @ApiModelProperty(value = "")
+  @JsonIgnore
 
   public String getTitle() {
-    return title;
+        return title.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
     this.title = title;
+  }
+
+  public void setTitle(String title) {
+    this.title = JsonNullable.<String>of(title);
   }
 
 
   public CreateMeetingDto identifier(String identifier) {
-    this.identifier = identifier;
+    this.identifier = JsonNullable.<String>of(identifier);
     return this;
   }
 
@@ -174,19 +196,27 @@ public class CreateMeetingDto implements Serializable {
    * @return identifier
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @ApiModelProperty(value = "")
+  @JsonIgnore
 
   public String getIdentifier() {
-    return identifier;
+        return identifier.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIdentifier(String identifier) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIdentifier_JsonNullable() {
+    return identifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
+  public void setIdentifier_JsonNullable(JsonNullable<String> identifier) {
     this.identifier = identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = JsonNullable.<String>of(identifier);
   }
 
 
@@ -199,7 +229,7 @@ public class CreateMeetingDto implements Serializable {
    * Get start
    * @return start
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -225,7 +255,7 @@ public class CreateMeetingDto implements Serializable {
    * Get end
    * @return end
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -296,7 +326,9 @@ public class CreateMeetingDto implements Serializable {
    /**
    * Get organizer
    * @return organizer
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
@@ -649,8 +681,8 @@ public class CreateMeetingDto implements Serializable {
     }
     CreateMeetingDto createMeetingDto = (CreateMeetingDto) o;
     return Objects.equals(this.author, createMeetingDto.author) &&
-        Objects.equals(this.title, createMeetingDto.title) &&
-        Objects.equals(this.identifier, createMeetingDto.identifier) &&
+        equalsNullable(this.title, createMeetingDto.title) &&
+        equalsNullable(this.identifier, createMeetingDto.identifier) &&
         Objects.equals(this.start, createMeetingDto.start) &&
         Objects.equals(this.end, createMeetingDto.end) &&
         equalsNullable(this.locations, createMeetingDto.locations) &&
@@ -672,7 +704,7 @@ public class CreateMeetingDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, title, identifier, start, end, hashCodeNullable(locations), hashCodeNullable(organizer), organizerId, hashCodeNullable(attendees), alertAttendees, alertAuthor, relatedRecords, hashCodeNullable(relatedContacts), hashCodeNullable(relatedSymbols), body, hashCodeNullable(customFieldValues));
+    return Objects.hash(author, hashCodeNullable(title), hashCodeNullable(identifier), start, end, hashCodeNullable(locations), hashCodeNullable(organizer), organizerId, hashCodeNullable(attendees), alertAttendees, alertAuthor, relatedRecords, hashCodeNullable(relatedContacts), hashCodeNullable(relatedSymbols), body, hashCodeNullable(customFieldValues));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

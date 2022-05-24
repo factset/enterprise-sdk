@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse20062DataGeneralType model module.
  * @module model/InlineResponse20062DataGeneralType
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse20062DataGeneralType {
     /**

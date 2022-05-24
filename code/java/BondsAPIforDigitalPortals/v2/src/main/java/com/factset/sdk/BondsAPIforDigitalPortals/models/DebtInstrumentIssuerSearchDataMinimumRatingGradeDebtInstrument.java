@@ -44,6 +44,8 @@ public class DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument impl
   public static final String JSON_PROPERTY_IDS = "ids";
   private java.util.Set<BigDecimal> ids = null;
 
+  public DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument() { 
+  }
 
   public DebtInstrumentIssuerSearchDataMinimumRatingGradeDebtInstrument ids(java.util.Set<BigDecimal> ids) {
     this.ids = ids;

@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataIssueVolume implements Seri
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency currency;
 
+  public DebtInstrumentNotationScreenerSearchDataIssueVolume() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataIssueVolume currency(DebtInstrumentNotationScreenerSearchDataIssueVolumeCurrency currency) {
     this.currency = currency;

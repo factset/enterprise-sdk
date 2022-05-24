@@ -7,6 +7,9 @@ import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.PAEngine.models.ClientErrorResponse;
 import com.factset.sdk.PAEngine.models.ComponentSummaryRoot;
@@ -23,6 +26,22 @@ public class ComponentsApi {
   public ComponentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getPAComponentByIdResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAComponentByIdResponseTypeMap.put(200, new GenericType<PAComponentRoot>(){});
+    getPAComponentByIdResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getPAComponentByIdResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getPAComponentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPAComponentsResponseTypeMap.put(200, new GenericType<ComponentSummaryRoot>(){});
+    getPAComponentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getPAComponentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -120,11 +139,17 @@ public class ComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<PAComponentRoot> localVarReturnType = new GenericType<PAComponentRoot>() {};
 
-    return apiClient.invokeAPI("ComponentsApi.getPAComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        PAComponentRoot
+      
+    > apiResponse = apiClient.invokeAPI("ComponentsApi.getPAComponentById", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAComponentByIdResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get PA components
@@ -204,10 +229,16 @@ public class ComponentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ComponentSummaryRoot> localVarReturnType = new GenericType<ComponentSummaryRoot>() {};
 
-    return apiClient.invokeAPI("ComponentsApi.getPAComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ComponentSummaryRoot
+      
+    > apiResponse = apiClient.invokeAPI("ComponentsApi.getPAComponents", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getPAComponentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

@@ -46,6 +46,8 @@ public class RankedTableEntity implements Serializable {
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   private String identifier;
 
+  public RankedTableEntity() { 
+  }
 
   public RankedTableEntity name(String name) {
     this.name = name;

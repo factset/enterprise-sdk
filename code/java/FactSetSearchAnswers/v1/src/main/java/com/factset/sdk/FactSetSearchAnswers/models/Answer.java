@@ -53,6 +53,20 @@ public class Answer implements Serializable {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
+  public Answer() { 
+  }
+
+  @JsonCreator
+  public Answer(
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE, required=true) String template, 
+    @JsonProperty(value=JSON_PROPERTY_TEMPLATE_DATA, required=true) TemplateData templateData, 
+    @JsonProperty(value=JSON_PROPERTY_TITLE, required=true) String title
+  ) {
+    this();
+    this.template = template;
+    this.templateData = templateData;
+    this.title = title;
+  }
 
   public Answer template(String template) {
     this.template = template;

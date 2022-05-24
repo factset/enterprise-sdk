@@ -124,7 +124,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NotationSearchByTextMeta {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Language: ").Append(Language).Append("\n");
@@ -161,8 +161,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(NotationSearchByTextMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Attributes == input.Attributes ||
@@ -196,12 +197,18 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Attributes != null)
-                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
+                }
                 if (this.Language != null)
-                    hashCode = hashCode * 59 + this.Language.GetHashCode();
-                hashCode = hashCode * 59 + this.Sort.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Language.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Sort.GetHashCode();
                 if (this.Pagination != null)
-                    hashCode = hashCode * 59 + this.Pagination.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Pagination.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -214,13 +221,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Language (string) maxLength
-            if(this.Language != null && this.Language.Length > 2)
+            if (this.Language != null && this.Language.Length > 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Language, length must be less than 2.", new [] { "Language" });
             }
 
             // Language (string) minLength
-            if(this.Language != null && this.Language.Length < 2)
+            if (this.Language != null && this.Language.Length < 2)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Language, length must be greater than 2.", new [] { "Language" });
             }

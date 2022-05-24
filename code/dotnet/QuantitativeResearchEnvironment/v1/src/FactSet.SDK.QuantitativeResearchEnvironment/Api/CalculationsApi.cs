@@ -230,6 +230,32 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
     {
         private FactSet.SDK.QuantitativeResearchEnvironment.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsIdGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(CalculationStatus) },
+            { (HttpStatusCode)202, typeof(CalculationStatus) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsIdLogGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(System.IO.Stream) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsIdOutputGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(System.IO.Stream) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> AnalyticsQuantQreV1CalculationsPostResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)202, typeof(CalculationStatus) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationsApi"/> class.
         /// </summary>
@@ -340,7 +366,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <returns>CalculationStatus</returns>
         public CalculationStatus AnalyticsQuantQreV1CalculationsIdGet(string id)
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus> localVarResponse = AnalyticsQuantQreV1CalculationsIdGetWithHttpInfo(id);
+            var localVarResponse = AnalyticsQuantQreV1CalculationsIdGetWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -350,11 +376,13 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <exception cref="FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <returns>ApiResponse of CalculationStatus</returns>
-        public FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus> AnalyticsQuantQreV1CalculationsIdGetWithHttpInfo(string id)
+        public ApiResponse<CalculationStatus> AnalyticsQuantQreV1CalculationsIdGetWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->AnalyticsQuantQreV1CalculationsIdGet");
+            }
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
 
@@ -367,22 +395,28 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             };
 
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -394,15 +428,19 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<CalculationStatus>("/analytics/quant/qre/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsIdGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            CalculationStatus>("/analytics/quant/qre/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsIdGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -413,9 +451,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatus</returns>
-        public async System.Threading.Tasks.Task<CalculationStatus> AnalyticsQuantQreV1CalculationsIdGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalculationStatus>AnalyticsQuantQreV1CalculationsIdGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus> localVarResponse = await AnalyticsQuantQreV1CalculationsIdGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AnalyticsQuantQreV1CalculationsIdGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -426,11 +464,14 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatus)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus>> AnalyticsQuantQreV1CalculationsIdGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CalculationStatus>> AnalyticsQuantQreV1CalculationsIdGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->AnalyticsQuantQreV1CalculationsIdGet");
+            }
 
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
@@ -443,24 +484,29 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -472,14 +518,18 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsIdGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<CalculationStatus>("/analytics/quant/qre/v1/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsIdGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -493,7 +543,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream AnalyticsQuantQreV1CalculationsIdLogGet(string id)
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream> localVarResponse = AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfo(id);
+            var localVarResponse = AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -503,11 +553,13 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <exception cref="FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream> AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfo(string id)
+        public ApiResponse<System.IO.Stream> AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->AnalyticsQuantQreV1CalculationsIdLogGet");
+            }
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
 
@@ -520,22 +572,28 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             };
 
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -547,15 +605,19 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<System.IO.Stream>("/analytics/quant/qre/v1/calculations/{id}/log", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsIdLogGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            System.IO.Stream>("/analytics/quant/qre/v1/calculations/{id}/log", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsIdLogGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -566,9 +628,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> AnalyticsQuantQreV1CalculationsIdLogGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream>AnalyticsQuantQreV1CalculationsIdLogGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream> localVarResponse = await AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -579,11 +641,14 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream>> AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> AnalyticsQuantQreV1CalculationsIdLogGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->AnalyticsQuantQreV1CalculationsIdLogGet");
+            }
 
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
@@ -596,24 +661,29 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 "text/plain"
             };
 
-
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -625,14 +695,18 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsIdLogGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/analytics/quant/qre/v1/calculations/{id}/log", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsIdLogGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -646,7 +720,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <returns>System.IO.Stream</returns>
         public System.IO.Stream AnalyticsQuantQreV1CalculationsIdOutputGet(string id)
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream> localVarResponse = AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfo(id);
+            var localVarResponse = AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -656,11 +730,13 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <exception cref="FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream> AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfo(string id)
+        public ApiResponse<System.IO.Stream> AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->AnalyticsQuantQreV1CalculationsIdOutputGet");
+            }
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
 
@@ -673,22 +749,28 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             };
 
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -700,15 +782,19 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<System.IO.Stream>("/analytics/quant/qre/v1/calculations/{id}/output", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsIdOutputGetResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            System.IO.Stream>("/analytics/quant/qre/v1/calculations/{id}/output", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsIdOutputGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -719,9 +805,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> AnalyticsQuantQreV1CalculationsIdOutputGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream>AnalyticsQuantQreV1CalculationsIdOutputGetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream> localVarResponse = await AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -732,11 +818,14 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="id">From url, provided by location header or response body in the calculation start endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<System.IO.Stream>> AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> AnalyticsQuantQreV1CalculationsIdOutputGetWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
+            {
                 throw new FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->AnalyticsQuantQreV1CalculationsIdOutputGet");
+            }
 
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
@@ -749,24 +838,29 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 "*"
             };
 
-
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -778,14 +872,18 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsIdOutputGetResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/analytics/quant/qre/v1/calculations/{id}/output", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsIdOutputGet", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -799,7 +897,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <returns>CalculationStatus</returns>
         public CalculationStatus AnalyticsQuantQreV1CalculationsPost(Calculation calculation = default(Calculation))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus> localVarResponse = AnalyticsQuantQreV1CalculationsPostWithHttpInfo(calculation);
+            var localVarResponse = AnalyticsQuantQreV1CalculationsPostWithHttpInfo(calculation);
             return localVarResponse.Data;
         }
 
@@ -809,7 +907,7 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <exception cref="FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="calculation"> (optional)</param>
         /// <returns>ApiResponse of CalculationStatus</returns>
-        public FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus> AnalyticsQuantQreV1CalculationsPostWithHttpInfo(Calculation calculation = default(Calculation))
+        public ApiResponse<CalculationStatus> AnalyticsQuantQreV1CalculationsPostWithHttpInfo(Calculation calculation = default(Calculation))
         {
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
 
@@ -823,22 +921,28 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             };
 
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = calculation;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -850,15 +954,19 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<CalculationStatus>("/analytics/quant/qre/v1/calculations", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsPostResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            CalculationStatus>("/analytics/quant/qre/v1/calculations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -869,9 +977,9 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="calculation"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatus</returns>
-        public async System.Threading.Tasks.Task<CalculationStatus> AnalyticsQuantQreV1CalculationsPostAsync(Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalculationStatus>AnalyticsQuantQreV1CalculationsPostAsync(Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus> localVarResponse = await AnalyticsQuantQreV1CalculationsPostWithHttpInfoAsync(calculation, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AnalyticsQuantQreV1CalculationsPostWithHttpInfoAsync(calculation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -882,7 +990,8 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
         /// <param name="calculation"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatus)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.QuantitativeResearchEnvironment.Client.ApiResponse<CalculationStatus>> AnalyticsQuantQreV1CalculationsPostWithHttpInfoAsync(Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<CalculationStatus>> AnalyticsQuantQreV1CalculationsPostWithHttpInfoAsync(Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.QuantitativeResearchEnvironment.Client.RequestOptions();
@@ -896,24 +1005,29 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = calculation;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.QuantitativeResearchEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -925,14 +1039,18 @@ namespace FactSet.SDK.QuantitativeResearchEnvironment.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = AnalyticsQuantQreV1CalculationsPostResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<CalculationStatus>("/analytics/quant/qre/v1/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AnalyticsQuantQreV1CalculationsPost", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

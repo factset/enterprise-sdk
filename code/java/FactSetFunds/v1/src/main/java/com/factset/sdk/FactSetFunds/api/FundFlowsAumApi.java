@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetFunds.models.AumRequest;
 import com.factset.sdk.FactSetFunds.models.AumResponse;
@@ -25,6 +28,46 @@ public class FundFlowsAumApi {
   public FundFlowsAumApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFundsAumResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsAumResponseTypeMap.put(200, new GenericType<AumResponse>(){});
+    getFundsAumResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsAumResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsAumResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsAumResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsAumResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsAumForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsAumForListResponseTypeMap.put(200, new GenericType<AumResponse>(){});
+    getFundsAumForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsAumForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsAumForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsAumForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsAumForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsFlowsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsFlowsResponseTypeMap.put(200, new GenericType<FlowsResponse>(){});
+    getFundsFlowsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsFlowsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsFlowsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsFlowsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsFlowsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFundsFlowsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFundsFlowsForListResponseTypeMap.put(200, new GenericType<FlowsResponse>(){});
+    getFundsFlowsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFundsFlowsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFundsFlowsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFundsFlowsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFundsFlowsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -131,11 +174,17 @@ public class FundFlowsAumApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AumResponse> localVarReturnType = new GenericType<AumResponse>() {};
 
-    return apiClient.invokeAPI("FundFlowsAumApi.getFundsAum", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AumResponse
+      
+    > apiResponse = apiClient.invokeAPI("FundFlowsAumApi.getFundsAum", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsAumResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund AUM for a requested date range and large list of ids
@@ -208,11 +257,17 @@ public class FundFlowsAumApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<AumResponse> localVarReturnType = new GenericType<AumResponse>() {};
 
-    return apiClient.invokeAPI("FundFlowsAumApi.getFundsAumForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        AumResponse
+      
+    > apiResponse = apiClient.invokeAPI("FundFlowsAumApi.getFundsAumForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsAumForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Flows for a requested date range and list of ids
@@ -298,11 +353,17 @@ public class FundFlowsAumApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FlowsResponse> localVarReturnType = new GenericType<FlowsResponse>() {};
 
-    return apiClient.invokeAPI("FundFlowsAumApi.getFundsFlows", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FlowsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FundFlowsAumApi.getFundsFlows", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsFlowsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get Fund Flows for a requested date range and large list of ids
@@ -375,10 +436,16 @@ public class FundFlowsAumApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<FlowsResponse> localVarReturnType = new GenericType<FlowsResponse>() {};
 
-    return apiClient.invokeAPI("FundFlowsAumApi.getFundsFlowsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        FlowsResponse
+      
+    > apiResponse = apiClient.invokeAPI("FundFlowsAumApi.getFundsFlowsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFundsFlowsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

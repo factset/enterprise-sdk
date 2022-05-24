@@ -80,7 +80,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006DataPurchase {\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
@@ -117,8 +117,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006DataPurchase input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Price == input.Price ||
@@ -147,10 +148,10 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Price.GetHashCode();
-                hashCode = hashCode * 59 + this.ExchangeRate.GetHashCode();
-                hashCode = hashCode * 59 + this.Charges.GetHashCode();
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.Price.GetHashCode();
+                hashCode = (hashCode * 59) + this.ExchangeRate.GetHashCode();
+                hashCode = (hashCode * 59) + this.Charges.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 return hashCode;
             }
         }

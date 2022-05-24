@@ -48,6 +48,8 @@ public class InlineResponse2001DataProfitLossRealized implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2001DataProfitLossRealized() { 
+  }
 
   public InlineResponse2001DataProfitLossRealized absolute(BigDecimal absolute) {
     this.absolute = absolute;

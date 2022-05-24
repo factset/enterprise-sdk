@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataPerformanceIntraday implements Seria
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataEbitMarginMaximum maximum;
 
+  public StockNotationScreenerSearchDataPerformanceIntraday() { 
+  }
 
   public StockNotationScreenerSearchDataPerformanceIntraday minimum(StockNotationScreenerSearchDataEbitMarginMinimum minimum) {
     this.minimum = minimum;

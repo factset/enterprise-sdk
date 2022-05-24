@@ -49,6 +49,8 @@ public class InlineResponse2004Data implements Serializable {
   public static final String JSON_PROPERTY_KEYFIGURES = "keyfigures";
   private java.util.List<InlineResponse2004DataKeyfigures> keyfigures = null;
 
+  public InlineResponse2004Data() { 
+  }
 
   public InlineResponse2004Data currency(InlineResponse2002Currency currency) {
     this.currency = currency;

@@ -119,6 +119,7 @@ const id = "id_example"; // String | from url, provided from the location header
 // Call api endpoint
 apiInstance.getFICalculationById(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -194,6 +195,7 @@ const opts = {
 // Call api endpoint
 apiInstance.runFICalculation(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

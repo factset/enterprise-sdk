@@ -71,7 +71,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003Yield {\n");
             sb.Append("  Current: ").Append(Current).Append("\n");
             sb.Append("  ToMaturity: ").Append(ToMaturity).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003Yield input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Current == input.Current ||
@@ -133,9 +134,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Current.GetHashCode();
-                hashCode = hashCode * 59 + this.ToMaturity.GetHashCode();
-                hashCode = hashCode * 59 + this.Spread.GetHashCode();
+                hashCode = (hashCode * 59) + this.Current.GetHashCode();
+                hashCode = (hashCode * 59) + this.ToMaturity.GetHashCode();
+                hashCode = (hashCode * 59) + this.Spread.GetHashCode();
                 return hashCode;
             }
         }

@@ -48,6 +48,16 @@ public class InstrumentRatingGradeListData implements Serializable {
   public static final String JSON_PROPERTY_FILTER = "filter";
   private InstrumentRatingGradeListDataFilter filter;
 
+  public InstrumentRatingGradeListData() { 
+  }
+
+  @JsonCreator
+  public InstrumentRatingGradeListData(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.Set<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public InstrumentRatingGradeListData ids(java.util.Set<String> ids) {
     this.ids = ids;

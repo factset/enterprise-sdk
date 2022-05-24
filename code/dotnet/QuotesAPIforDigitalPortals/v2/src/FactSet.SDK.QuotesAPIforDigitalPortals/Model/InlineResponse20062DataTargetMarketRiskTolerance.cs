@@ -84,7 +84,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketRiskTolerance {\n");
             sb.Append("  Sri: ").Append(Sri).Append("\n");
             sb.Append("  Srri: ").Append(Srri).Append("\n");
@@ -122,8 +122,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketRiskTolerance input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sri == input.Sri ||
@@ -162,15 +163,25 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Sri != null)
-                    hashCode = hashCode * 59 + this.Sri.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sri.GetHashCode();
+                }
                 if (this.Srri != null)
-                    hashCode = hashCode * 59 + this.Srri.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Srri.GetHashCode();
+                }
                 if (this.InternalRiskRating != null)
-                    hashCode = hashCode * 59 + this.InternalRiskRating.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.InternalRiskRating.GetHashCode();
+                }
                 if (this.Spain != null)
-                    hashCode = hashCode * 59 + this.Spain.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Spain.GetHashCode();
+                }
                 if (this.Germany != null)
-                    hashCode = hashCode * 59 + this.Germany.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Germany.GetHashCode();
+                }
                 return hashCode;
             }
         }

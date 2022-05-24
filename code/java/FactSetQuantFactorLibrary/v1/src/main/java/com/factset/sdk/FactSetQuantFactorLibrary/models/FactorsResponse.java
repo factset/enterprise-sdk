@@ -43,6 +43,8 @@ public class FactorsResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Factors> data = null;
 
+  public FactorsResponse() { 
+  }
 
   public FactorsResponse data(java.util.List<Factors> data) {
     this.data = data;

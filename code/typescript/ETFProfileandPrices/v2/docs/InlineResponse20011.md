@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**[InlineResponse20011Data]**](InlineResponse20011Data.md) | List of class geographies. | [optional] 
+**data** | [**InlineResponse20011Data**](InlineResponse20011Data.md) |  | [optional] 
 **meta** | [**InlineResponse200Meta**](InlineResponse200Meta.md) |  | [optional] 
 
 

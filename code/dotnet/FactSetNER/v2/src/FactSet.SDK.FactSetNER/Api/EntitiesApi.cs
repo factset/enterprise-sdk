@@ -98,6 +98,19 @@ namespace FactSet.SDK.FactSetNER.Api
     {
         private FactSet.SDK.FactSetNER.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> PostEntitiesEntitiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(Response) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EntitiesApi"/> class.
         /// </summary>
@@ -208,7 +221,7 @@ namespace FactSet.SDK.FactSetNER.Api
         /// <returns>Response</returns>
         public Response PostEntitiesEntities(Input payload)
         {
-            FactSet.SDK.FactSetNER.Client.ApiResponse<Response> localVarResponse = PostEntitiesEntitiesWithHttpInfo(payload);
+            var localVarResponse = PostEntitiesEntitiesWithHttpInfo(payload);
             return localVarResponse.Data;
         }
 
@@ -218,11 +231,13 @@ namespace FactSet.SDK.FactSetNER.Api
         /// <exception cref="FactSet.SDK.FactSetNER.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payload"></param>
         /// <returns>ApiResponse of Response</returns>
-        public FactSet.SDK.FactSetNER.Client.ApiResponse<Response> PostEntitiesEntitiesWithHttpInfo(Input payload)
+        public ApiResponse<Response> PostEntitiesEntitiesWithHttpInfo(Input payload)
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
+            {
                 throw new FactSet.SDK.FactSetNER.Client.ApiException(400, "Missing required parameter 'payload' when calling EntitiesApi->PostEntitiesEntities");
+            }
 
             FactSet.SDK.FactSetNER.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetNER.Client.RequestOptions();
 
@@ -236,22 +251,28 @@ namespace FactSet.SDK.FactSetNER.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetNER.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetNER.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = payload;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetNER.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -263,15 +284,19 @@ namespace FactSet.SDK.FactSetNER.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Response>("/cognitive/ner/v2/entities", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostEntitiesEntitiesResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            Response>("/cognitive/ner/v2/entities", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostEntitiesEntities", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -282,9 +307,9 @@ namespace FactSet.SDK.FactSetNER.Api
         /// <param name="payload"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Response</returns>
-        public async System.Threading.Tasks.Task<Response> PostEntitiesEntitiesAsync(Input payload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Response>PostEntitiesEntitiesAsync(Input payload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetNER.Client.ApiResponse<Response> localVarResponse = await PostEntitiesEntitiesWithHttpInfoAsync(payload, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostEntitiesEntitiesWithHttpInfoAsync(payload, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -295,11 +320,14 @@ namespace FactSet.SDK.FactSetNER.Api
         /// <param name="payload"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Response)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetNER.Client.ApiResponse<Response>> PostEntitiesEntitiesWithHttpInfoAsync(Input payload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Response>> PostEntitiesEntitiesWithHttpInfoAsync(Input payload, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'payload' is set
             if (payload == null)
+            {
                 throw new FactSet.SDK.FactSetNER.Client.ApiException(400, "Missing required parameter 'payload' when calling EntitiesApi->PostEntitiesEntities");
+            }
 
 
             FactSet.SDK.FactSetNER.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetNER.Client.RequestOptions();
@@ -313,24 +341,29 @@ namespace FactSet.SDK.FactSetNER.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetNER.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetNER.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = payload;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetNER.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -342,14 +375,18 @@ namespace FactSet.SDK.FactSetNER.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostEntitiesEntitiesResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<Response>("/cognitive/ner/v2/entities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostEntitiesEntities", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2002Currency model module.
  * @module model/InlineResponse2002Currency
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2002Currency {
     /**

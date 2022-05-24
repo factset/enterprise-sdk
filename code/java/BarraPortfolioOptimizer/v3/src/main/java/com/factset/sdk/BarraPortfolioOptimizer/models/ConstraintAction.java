@@ -81,6 +81,8 @@ public class ConstraintAction implements Serializable {
   public static final String JSON_PROPERTY_ITEM2 = "item2";
   private Item2Enum item2;
 
+  public ConstraintAction() { 
+  }
 
   public ConstraintAction item1(String item1) {
     this.item1 = item1;

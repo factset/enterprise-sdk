@@ -47,6 +47,16 @@ public class SedolHistoryTranslationRequest implements Serializable {
   public static final String JSON_PROPERTY_AS_OF_DATE = "asOfDate";
   private String asOfDate;
 
+  public SedolHistoryTranslationRequest() { 
+  }
+
+  @JsonCreator
+  public SedolHistoryTranslationRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public SedolHistoryTranslationRequest ids(java.util.List<String> ids) {
     this.ids = ids;

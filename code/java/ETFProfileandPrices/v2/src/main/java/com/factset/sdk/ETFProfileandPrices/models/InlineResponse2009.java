@@ -43,42 +43,36 @@ public class InlineResponse2009 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private java.util.Set<InlineResponse2009Data> data = null;
+  private InlineResponse2009Data data;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse2001Meta meta;
 
+  public InlineResponse2009() { 
+  }
 
-  public InlineResponse2009 data(java.util.Set<InlineResponse2009Data> data) {
+  public InlineResponse2009 data(InlineResponse2009Data data) {
     this.data = data;
     return this;
   }
 
-  public InlineResponse2009 addDataItem(InlineResponse2009Data dataItem) {
-    if (this.data == null) {
-      this.data = new java.util.LinkedHashSet<>();
-    }
-    this.data.add(dataItem);
-    return this;
-  }
-
    /**
-   * List of focus categories.
+   * Get data
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of focus categories.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.Set<InlineResponse2009Data> getData() {
+  public InlineResponse2009Data getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(java.util.Set<InlineResponse2009Data> data) {
+  public void setData(InlineResponse2009Data data) {
     this.data = data;
   }
 

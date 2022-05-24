@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getTermsAndConditions(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -128,6 +129,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getTermsAndConditionsFields(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -199,6 +201,7 @@ const termsAndConditionsRequest = new factsettermsandconditions.TermsAndConditio
 // Call api endpoint
 apiInstance.getTermsAndConditionsForList(termsAndConditionsRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

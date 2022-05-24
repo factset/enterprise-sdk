@@ -48,6 +48,8 @@ public class InlineResponse2003TradePerformance implements Serializable {
   public static final String JSON_PROPERTY_RELATIVE = "relative";
   private BigDecimal relative;
 
+  public InlineResponse2003TradePerformance() { 
+  }
 
   public InlineResponse2003TradePerformance absolute(BigDecimal absolute) {
     this.absolute = absolute;

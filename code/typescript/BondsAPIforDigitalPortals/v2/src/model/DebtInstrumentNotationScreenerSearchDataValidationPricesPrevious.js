@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DebtInstrumentNotationScreenerSearchDataValidationPricesPrevious model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataValidationPricesPrevious
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataValidationPricesPrevious {
     /**

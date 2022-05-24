@@ -32,8 +32,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
-        /// <returns>List&lt;IdentifierResolutionDto&gt;</returns>
-        List<IdentifierResolutionDto> GetIdentifiers(string identifiers = default(string));
+        /// <returns>List<Object></returns>
+        List<Object> GetIdentifiers(string identifiers = default(string));
 
         /// <summary>
         /// Get all the identifier details for given identifiers
@@ -43,8 +43,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
-        /// <returns>ApiResponse of List&lt;IdentifierResolutionDto&gt;</returns>
-        ApiResponse<List<IdentifierResolutionDto>> GetIdentifiersWithHttpInfo(string identifiers = default(string));
+        /// <returns>ApiResponse of List<Object></returns>
+        ApiResponse<List<Object>> GetIdentifiersWithHttpInfo(string identifiers = default(string));
         #endregion Synchronous Operations
     }
 
@@ -63,8 +63,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;IdentifierResolutionDto&gt;</returns>
-        System.Threading.Tasks.Task<List<IdentifierResolutionDto>> GetIdentifiersAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        System.Threading.Tasks.Task<List<Object>> GetIdentifiersAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all the identifier details for given identifiers
@@ -75,8 +75,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;IdentifierResolutionDto&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IdentifierResolutionDto>>> GetIdentifiersWithHttpInfoAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List<Object>)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetIdentifiersWithHttpInfoAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -94,6 +94,20 @@ namespace FactSet.SDK.IRNNotes.Api
     public partial class IdentifiersApi : IIdentifiersApi
     {
         private FactSet.SDK.IRNNotes.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetIdentifiersResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<Object>) },
+            { (HttpStatusCode)400, typeof(ProblemDetails) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifiersApi"/> class.
@@ -202,10 +216,10 @@ namespace FactSet.SDK.IRNNotes.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
-        /// <returns>List&lt;IdentifierResolutionDto&gt;</returns>
-        public List<IdentifierResolutionDto> GetIdentifiers(string identifiers = default(string))
+        /// <returns>List<Object></returns>
+        public List<Object> GetIdentifiers(string identifiers = default(string))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<List<IdentifierResolutionDto>> localVarResponse = GetIdentifiersWithHttpInfo(identifiers);
+            var localVarResponse = GetIdentifiersWithHttpInfo(identifiers);
             return localVarResponse.Data;
         }
 
@@ -214,8 +228,8 @@ namespace FactSet.SDK.IRNNotes.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
-        /// <returns>ApiResponse of List&lt;IdentifierResolutionDto&gt;</returns>
-        public FactSet.SDK.IRNNotes.Client.ApiResponse<List<IdentifierResolutionDto>> GetIdentifiersWithHttpInfo(string identifiers = default(string))
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        public ApiResponse<List<Object>> GetIdentifiersWithHttpInfo(string identifiers = default(string))
         {
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
 
@@ -228,10 +242,16 @@ namespace FactSet.SDK.IRNNotes.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (identifiers != null)
             {
@@ -240,13 +260,13 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -258,15 +278,19 @@ namespace FactSet.SDK.IRNNotes.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<IdentifierResolutionDto>>("/v1/identifiers", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetIdentifiersResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<Object>>("/v1/identifiers", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetIdentifiers", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -276,10 +300,10 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;IdentifierResolutionDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<IdentifierResolutionDto>> GetIdentifiersAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Object>>GetIdentifiersAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNNotes.Client.ApiResponse<List<IdentifierResolutionDto>> localVarResponse = await GetIdentifiersWithHttpInfoAsync(identifiers, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetIdentifiersWithHttpInfoAsync(identifiers, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -289,8 +313,9 @@ namespace FactSet.SDK.IRNNotes.Api
         /// <exception cref="FactSet.SDK.IRNNotes.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifiers">Identifiers (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;IdentifierResolutionDto&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNNotes.Client.ApiResponse<List<IdentifierResolutionDto>>> GetIdentifiersWithHttpInfoAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetIdentifiersWithHttpInfoAsync(string identifiers = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNNotes.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNNotes.Client.RequestOptions();
@@ -303,12 +328,17 @@ namespace FactSet.SDK.IRNNotes.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNNotes.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (identifiers != null)
             {
@@ -317,13 +347,13 @@ namespace FactSet.SDK.IRNNotes.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNNotes.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -335,14 +365,18 @@ namespace FactSet.SDK.IRNNotes.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetIdentifiersResponseTypeDictionary;
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<IdentifierResolutionDto>>("/v1/identifiers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/v1/identifiers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetIdentifiers", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

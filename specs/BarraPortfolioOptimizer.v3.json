@@ -727,7 +727,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       }
     },
     "/analytics/engines/bpm/v3/optimizations/{id}": {
@@ -1178,7 +1179,8 @@
               }
             }
           }
-        }
+        },
+        "x-factset-different-success-responses": true
       },
       "get": {
         "tags": [

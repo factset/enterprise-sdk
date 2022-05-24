@@ -23,7 +23,7 @@ import UpdateNoteDto from '../model/UpdateNoteDto';
 /**
 * Notes service.
 * @module api/NotesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class NotesApi {
 
@@ -42,15 +42,19 @@ export default class NotesApi {
 
     /**
      * Create a note
+     * @param {module:model/CreateNoteDto} createNoteDto 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xIRNContributorUsername 
      * @param {String} opts.xIRNContributorSerial 
-     * @param {module:model/CreateNoteDto} opts.createNoteDto 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/NewItemDto} and HTTP response
      */
-    createNoteWithHttpInfo(opts) {
+    createNoteWithHttpInfo(createNoteDto, opts) {
       opts = opts || {};
-      let postBody = opts['createNoteDto'];
+      let postBody = createNoteDto;
+      // verify the required parameter 'createNoteDto' is set
+      if (createNoteDto === undefined || createNoteDto === null) {
+        throw new Error("Missing the required parameter 'createNoteDto' when calling createNote");
+      }
 
       let pathParams = {
       };
@@ -66,7 +70,10 @@ export default class NotesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
+
+
       let returnType = NewItemDto;
+
       return this.apiClient.callApi(
         '/v1/notes', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,14 +83,14 @@ export default class NotesApi {
 
     /**
      * Create a note
+     * @param {module:model/CreateNoteDto} createNoteDto 
      * @param {Object} opts Optional parameters
      * @param {String} opts.xIRNContributorUsername 
      * @param {String} opts.xIRNContributorSerial 
-     * @param {module:model/CreateNoteDto} opts.createNoteDto 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NewItemDto}
+     * @return { Promise.< module:model/NewItemDto > } a Promise, with data of type {@link module:model/NewItemDto }
      */
-    createNote(opts) {
-      return this.createNoteWithHttpInfo(opts)
+    createNote(createNoteDto, opts) {
+      return this.createNoteWithHttpInfo(createNoteDto, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -115,7 +122,10 @@ export default class NotesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/notes/{noteId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -126,7 +136,7 @@ export default class NotesApi {
     /**
      * Delete a Note
      * @param {String} noteId 
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     deleteNote(noteId) {
       return this.deleteNoteWithHttpInfo(noteId)
@@ -161,7 +171,10 @@ export default class NotesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = NoteDto;
+
       return this.apiClient.callApi(
         '/v1/notes/{noteId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -172,7 +185,7 @@ export default class NotesApi {
     /**
      * Get details of a note
      * @param {String} noteId Note Id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/NoteDto}
+     * @return { Promise.< module:model/NoteDto > } a Promise, with data of type {@link module:model/NoteDto }
      */
     getNote(noteId) {
       return this.getNoteWithHttpInfo(noteId)
@@ -195,6 +208,7 @@ export default class NotesApi {
      * @param {Number} opts.limit Limit on the number of notes retrieved
      * @param {Number} opts.offset Fetch notes after the offset
      * @param {String} opts.modifiedSince Only return notes which have been modified or created since a particular time
+     * @param {Array.<String>} opts.states Set of states to filter on
      * @param {Boolean} opts.filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (default to false)
      * @param {Boolean} opts.xIRNIncludeDeleted  (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/NoteSummaryDto>} and HTTP response
@@ -216,6 +230,7 @@ export default class NotesApi {
         'limit': opts['limit'],
         'offset': opts['offset'],
         'modifiedSince': opts['modifiedSince'],
+        'states': this.apiClient.buildCollectionParam(opts['states'], 'multi'),
         'filterOnRelatedSymbols': opts['filterOnRelatedSymbols']
       };
       let headerParams = {
@@ -227,7 +242,10 @@ export default class NotesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = [NoteSummaryDto];
+
       return this.apiClient.callApi(
         '/v1/notes', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -248,9 +266,10 @@ export default class NotesApi {
      * @param {Number} opts.limit Limit on the number of notes retrieved
      * @param {Number} opts.offset Fetch notes after the offset
      * @param {String} opts.modifiedSince Only return notes which have been modified or created since a particular time
+     * @param {Array.<String>} opts.states Set of states to filter on
      * @param {Boolean} opts.filterOnRelatedSymbols Include notes whose related symbols match the identifier filter (default to false)
      * @param {Boolean} opts.xIRNIncludeDeleted  (default to false)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/NoteSummaryDto>}
+     * @return { Promise.< Array.<module:model/NoteSummaryDto> > } a Promise, with data of type {@link Array.<module:model/NoteSummaryDto> }
      */
     getNotes(opts) {
       return this.getNotesWithHttpInfo(opts)
@@ -288,7 +307,10 @@ export default class NotesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json'];
       let accepts = ['application/json'];
+
+
       let returnType = null;
+
       return this.apiClient.callApi(
         '/v1/notes/{noteId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -301,7 +323,7 @@ export default class NotesApi {
      * @param {String} noteId Note Id
      * @param {Object} opts Optional parameters
      * @param {module:model/UpdateNoteDto} opts.updateNoteDto Note details to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     * @return { Promise } a Promise
      */
     updateNote(noteId, opts) {
       return this.updateNoteWithHttpInfo(noteId, opts)
@@ -312,3 +334,8 @@ export default class NotesApi {
 
 
 }
+
+
+
+
+

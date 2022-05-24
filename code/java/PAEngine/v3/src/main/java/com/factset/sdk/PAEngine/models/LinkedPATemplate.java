@@ -67,6 +67,8 @@ public class LinkedPATemplate implements Serializable {
   public static final String JSON_PROPERTY_PARENT_COMPONENT_ID = "parentComponentId";
   private String parentComponentId;
 
+  public LinkedPATemplate() { 
+  }
 
   public LinkedPATemplate directory(String directory) {
     this.directory = directory;

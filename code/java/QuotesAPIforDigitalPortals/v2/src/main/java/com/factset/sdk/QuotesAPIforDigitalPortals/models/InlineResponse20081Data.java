@@ -105,6 +105,8 @@ public class InlineResponse20081Data implements Serializable {
   public static final String JSON_PROPERTY_ASK = "ask";
   private InlineResponse20081DataAsk ask;
 
+  public InlineResponse20081Data() { 
+  }
 
   public InlineResponse20081Data valueUnit(InlineResponse20079DataValueUnit valueUnit) {
     this.valueUnit = valueUnit;

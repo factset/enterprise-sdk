@@ -48,6 +48,18 @@ public class OffsetBasedPaginationOutputObject implements Serializable {
   public static final String JSON_PROPERTY_IS_ESTIMATED_TOTAL = "isEstimatedTotal";
   private Boolean isEstimatedTotal;
 
+  public OffsetBasedPaginationOutputObject() { 
+  }
+
+  @JsonCreator
+  public OffsetBasedPaginationOutputObject(
+    @JsonProperty(value=JSON_PROPERTY_TOTAL, required=true) BigDecimal total, 
+    @JsonProperty(value=JSON_PROPERTY_IS_ESTIMATED_TOTAL, required=true) Boolean isEstimatedTotal
+  ) {
+    this();
+    this.total = total;
+    this.isEstimatedTotal = isEstimatedTotal;
+  }
 
   public OffsetBasedPaginationOutputObject total(BigDecimal total) {
     this.total = total;

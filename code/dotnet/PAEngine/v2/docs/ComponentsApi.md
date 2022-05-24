@@ -51,7 +51,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
-            var id = id_example;  // string | Unique identifier for a PA component (default to "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53")
+            var id = "\"782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53\"";  // string | Unique identifier for a PA component (default to "782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53")
 
             try
             {
@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Unique identifier for a PA component | [default to &quot;782DA0A0C9CCCA9F80C2F3622FC1373AED30E1B7C1CF58F4677FE8C4C4901A53&quot;]
 
 ### Return type
-
 [**PAComponent**](PAComponent.md)
 
 ### Authorization
@@ -148,7 +147,7 @@ namespace Example
             // config.Password = "API-KEY";
 
             var apiInstance = new ComponentsApi(config);
-            var document = document_example;  // string | Document Name (default to "Client:Foo")
+            var document = "\"Client:Foo\"";  // string | Document Name (default to "Client:Foo")
 
             try
             {
@@ -174,7 +173,6 @@ Name | Type | Description  | Notes
  **document** | **string**| Document Name | [default to &quot;Client:Foo&quot;]
 
 ### Return type
-
 [**Dictionary&lt;string, ComponentSummary&gt;**](ComponentSummary.md)
 
 ### Authorization

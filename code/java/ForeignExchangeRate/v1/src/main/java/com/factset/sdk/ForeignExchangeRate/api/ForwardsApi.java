@@ -7,6 +7,9 @@ import com.factset.sdk.ForeignExchangeRate.Configuration;
 import com.factset.sdk.ForeignExchangeRate.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.ForeignExchangeRate.models.ErrorResponse;
 import com.factset.sdk.ForeignExchangeRate.models.ForwardsRequest;
@@ -23,6 +26,28 @@ public class ForwardsApi {
   public ForwardsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFXForwardsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFXForwardsResponseTypeMap.put(200, new GenericType<ForwardsResponse>(){});
+    getFXForwardsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFXForwardsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFXForwardsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFXForwardsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFXForwardsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+  private static final Map<Integer, GenericType> getFXForwardsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFXForwardsForListResponseTypeMap.put(200, new GenericType<ForwardsResponse>(){});
+    getFXForwardsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getFXForwardsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getFXForwardsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getFXForwardsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFXForwardsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -126,11 +151,17 @@ public class ForwardsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ForwardsResponse> localVarReturnType = new GenericType<ForwardsResponse>() {};
 
-    return apiClient.invokeAPI("ForwardsApi.getFXForwards", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ForwardsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ForwardsApi.getFXForwards", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFXForwardsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Gets Forwards for a list of currency pairs
@@ -203,10 +234,16 @@ public class ForwardsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<ForwardsResponse> localVarReturnType = new GenericType<ForwardsResponse>() {};
 
-    return apiClient.invokeAPI("ForwardsApi.getFXForwardsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        ForwardsResponse
+      
+    > apiResponse = apiClient.invokeAPI("ForwardsApi.getFXForwardsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFXForwardsForListResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

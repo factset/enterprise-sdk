@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **status** | **Number** |  | [optional] 
 **detail** | **String** |  | [optional] 
 **instance** | **String** |  | [optional] 
-**extensions** | **{String: Object}** |  | [optional] [readonly] 
 
 

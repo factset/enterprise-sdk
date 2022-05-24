@@ -108,7 +108,7 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataPrices {\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  First: ").Append(First).Append("\n");
@@ -148,8 +148,9 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataPrices input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Date == input.Date ||
@@ -192,13 +193,15 @@ namespace FactSet.SDK.TimeSeriesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
-                hashCode = hashCode * 59 + this.First.GetHashCode();
-                hashCode = hashCode * 59 + this.Last.GetHashCode();
-                hashCode = hashCode * 59 + this.Low.GetHashCode();
-                hashCode = hashCode * 59 + this.High.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingVolume.GetHashCode();
-                hashCode = hashCode * 59 + this.TradingValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.First.GetHashCode();
+                hashCode = (hashCode * 59) + this.Last.GetHashCode();
+                hashCode = (hashCode * 59) + this.Low.GetHashCode();
+                hashCode = (hashCode * 59) + this.High.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradingVolume.GetHashCode();
+                hashCode = (hashCode * 59) + this.TradingValue.GetHashCode();
                 return hashCode;
             }
         }

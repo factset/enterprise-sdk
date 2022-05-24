@@ -58,13 +58,13 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <summary>
         /// Gets or Sets Username
         /// </summary>
-        [DataMember(Name = "username", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "username", IsRequired = true, EmitDefaultValue = false)]
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or Sets SerialNumber
         /// </summary>
-        [DataMember(Name = "serialNumber", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "serialNumber", IsRequired = true, EmitDefaultValue = false)]
         public string SerialNumber { get; set; }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class UserSerialDto {\n");
             sb.Append("  Username: ").Append(Username).Append("\n");
             sb.Append("  SerialNumber: ").Append(SerialNumber).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(UserSerialDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Username == input.Username ||
@@ -133,9 +134,13 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.Username != null)
-                    hashCode = hashCode * 59 + this.Username.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Username.GetHashCode();
+                }
                 if (this.SerialNumber != null)
-                    hashCode = hashCode * 59 + this.SerialNumber.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SerialNumber.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -148,25 +153,25 @@ namespace FactSet.SDK.IRNMeetings.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Username (string) maxLength
-            if(this.Username != null && this.Username.Length > 30)
+            if (this.Username != null && this.Username.Length > 30)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be less than 30.", new [] { "Username" });
             }
 
             // Username (string) minLength
-            if(this.Username != null && this.Username.Length < 0)
+            if (this.Username != null && this.Username.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Username, length must be greater than 0.", new [] { "Username" });
             }
 
             // SerialNumber (string) maxLength
-            if(this.SerialNumber != null && this.SerialNumber.Length > 8)
+            if (this.SerialNumber != null && this.SerialNumber.Length > 8)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SerialNumber, length must be less than 8.", new [] { "SerialNumber" });
             }
 
             // SerialNumber (string) minLength
-            if(this.SerialNumber != null && this.SerialNumber.Length < 0)
+            if (this.SerialNumber != null && this.SerialNumber.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SerialNumber, length must be greater than 0.", new [] { "SerialNumber" });
             }

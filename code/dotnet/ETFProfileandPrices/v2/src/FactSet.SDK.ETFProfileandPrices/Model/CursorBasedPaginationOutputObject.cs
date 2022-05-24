@@ -40,9 +40,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// Initializes a new instance of the <see cref="CursorBasedPaginationOutputObject" /> class.
         /// </summary>
         /// <param name="total">Total number of entries in the result set. (required).</param>
-        /// <param name="isEstimatedTotal">Flag indicating that the value of \&quot;total\&quot; is estimated. (required).</param>
-        /// <param name="next">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null. (required).</param>
-        /// <param name="previous">Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null. (required).</param>
+        /// <param name="isEstimatedTotal">Flag indicating that the value of &#x60;total&#x60; is estimated. (required).</param>
+        /// <param name="next">The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;. (required).</param>
+        /// <param name="previous">The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;. (required).</param>
         public CursorBasedPaginationOutputObject(decimal total = default(decimal), bool isEstimatedTotal = default(bool), string next = default(string), string previous = default(string))
         {
             this.Total = total;
@@ -67,23 +67,23 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public decimal Total { get; set; }
 
         /// <summary>
-        /// Flag indicating that the value of \&quot;total\&quot; is estimated.
+        /// Flag indicating that the value of &#x60;total&#x60; is estimated.
         /// </summary>
-        /// <value>Flag indicating that the value of \&quot;total\&quot; is estimated.</value>
+        /// <value>Flag indicating that the value of &#x60;total&#x60; is estimated.</value>
         [DataMember(Name = "isEstimatedTotal", IsRequired = true, EmitDefaultValue = true)]
         public bool IsEstimatedTotal { get; set; }
 
         /// <summary>
-        /// Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null.
+        /// The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;.
         /// </summary>
-        /// <value>Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the next page of results, if any, otherwise null.</value>
+        /// <value>The next cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination, otherwise &#x60;null&#x60;.</value>
         [DataMember(Name = "next", IsRequired = true, EmitDefaultValue = false)]
         public string Next { get; set; }
 
         /// <summary>
-        /// Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null.
+        /// The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;.
         /// </summary>
-        /// <value>Cursor position to use in the attribute &#x60;pagination.cursor&#x60; to retrieve the previous page of results, if any, otherwise null.</value>
+        /// <value>The previous cursor position to use in the parameter &#x60;pagination.cursor&#x60; for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, &#x60;previous&#x60; is &#x60;null&#x60;.</value>
         [DataMember(Name = "previous", IsRequired = true, EmitDefaultValue = false)]
         public string Previous { get; set; }
 
@@ -93,7 +93,7 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CursorBasedPaginationOutputObject {\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  IsEstimatedTotal: ").Append(IsEstimatedTotal).Append("\n");
@@ -130,8 +130,9 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(CursorBasedPaginationOutputObject input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Total == input.Total ||
@@ -162,12 +163,16 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Total.GetHashCode();
-                hashCode = hashCode * 59 + this.IsEstimatedTotal.GetHashCode();
+                hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsEstimatedTotal.GetHashCode();
                 if (this.Next != null)
-                    hashCode = hashCode * 59 + this.Next.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Next.GetHashCode();
+                }
                 if (this.Previous != null)
-                    hashCode = hashCode * 59 + this.Previous.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Previous.GetHashCode();
+                }
                 return hashCode;
             }
         }

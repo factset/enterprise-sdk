@@ -53,6 +53,8 @@ public class InlineResponse2002DataCalculationPrice implements Serializable {
   public static final String JSON_PROPERTY_DIRTY_PRICING = "dirtyPricing";
   private Boolean dirtyPricing;
 
+  public InlineResponse2002DataCalculationPrice() { 
+  }
 
   public InlineResponse2002DataCalculationPrice value(BigDecimal value) {
     this.value = value;

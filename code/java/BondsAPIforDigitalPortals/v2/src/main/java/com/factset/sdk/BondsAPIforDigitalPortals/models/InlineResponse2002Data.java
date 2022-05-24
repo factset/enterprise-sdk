@@ -59,6 +59,8 @@ public class InlineResponse2002Data implements Serializable {
   public static final String JSON_PROPERTY_SENSITIVITIES = "sensitivities";
   private InlineResponse2002DataSensitivities sensitivities;
 
+  public InlineResponse2002Data() { 
+  }
 
   public InlineResponse2002Data calculation(InlineResponse2002DataCalculation calculation) {
     this.calculation = calculation;

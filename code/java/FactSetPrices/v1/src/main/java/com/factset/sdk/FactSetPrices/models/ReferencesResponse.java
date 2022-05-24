@@ -43,6 +43,8 @@ public class ReferencesResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<References> data = null;
 
+  public ReferencesResponse() { 
+  }
 
   public ReferencesResponse data(java.util.List<References> data) {
     this.data = data;

@@ -7,6 +7,9 @@ import com.factset.sdk.IntradayTickHistory.Configuration;
 import com.factset.sdk.IntradayTickHistory.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.IntradayTickHistory.models.TickhistoryResponse;
 
@@ -21,6 +24,17 @@ public class TickHistoryApi {
   public TickHistoryApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getTickHistoryResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getTickHistoryResponseTypeMap.put(200, new GenericType<TickhistoryResponse>(){});
+    getTickHistoryResponseTypeMap.put(401, new GenericType<Object>(){});
+    getTickHistoryResponseTypeMap.put(403, new GenericType<Object>(){});
+    getTickHistoryResponseTypeMap.put(405, new GenericType<Object>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -138,10 +152,16 @@ public class TickHistoryApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<TickhistoryResponse> localVarReturnType = new GenericType<TickhistoryResponse>() {};
 
-    return apiClient.invokeAPI("TickHistoryApi.getTickHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        TickhistoryResponse
+      
+    > apiResponse = apiClient.invokeAPI("TickHistoryApi.getTickHistory", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getTickHistoryResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

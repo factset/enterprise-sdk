@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Library model module.
  * @module model/Library
- * @version 0.9.1
+ * @version 0.20.0
  */
 class Library {
     /**

@@ -159,6 +159,33 @@ namespace FactSet.SDK.FactSetOwnership.Api
     {
         private FactSet.SDK.FactSetOwnership.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> GetOwnershipHoldingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundHoldingsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> PostOwnershipHoldingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(FundHoldingsResponse) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FundHoldingsApi"/> class.
         /// </summary>
@@ -273,7 +300,7 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <returns>FundHoldingsResponse</returns>
         public FundHoldingsResponse GetOwnershipHoldings(List<string> ids, string date = default(string), string topn = default(string), string assetType = default(string), string currency = default(string))
         {
-            FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse> localVarResponse = GetOwnershipHoldingsWithHttpInfo(ids, date, topn, assetType, currency);
+            var localVarResponse = GetOwnershipHoldingsWithHttpInfo(ids, date, topn, assetType, currency);
             return localVarResponse.Data;
         }
 
@@ -287,11 +314,13 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <param name="assetType">Filter holdings by the following major asset classes -   * **EQ**  &#x3D; Equity   * **FI** &#x3D; Fixed Income   * **ALL** &#x3D; ALL  (optional, default to EQ)</param>
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <returns>ApiResponse of FundHoldingsResponse</returns>
-        public FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse> GetOwnershipHoldingsWithHttpInfo(List<string> ids, string date = default(string), string topn = default(string), string assetType = default(string), string currency = default(string))
+        public ApiResponse<FundHoldingsResponse> GetOwnershipHoldingsWithHttpInfo(List<string> ids, string date = default(string), string topn = default(string), string assetType = default(string), string currency = default(string))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetOwnership.Client.ApiException(400, "Missing required parameter 'ids' when calling FundHoldingsApi->GetOwnershipHoldings");
+            }
 
             FactSet.SDK.FactSetOwnership.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetOwnership.Client.RequestOptions();
 
@@ -304,10 +333,16 @@ namespace FactSet.SDK.FactSetOwnership.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnership.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -329,13 +364,13 @@ namespace FactSet.SDK.FactSetOwnership.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetOwnership.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -347,15 +382,19 @@ namespace FactSet.SDK.FactSetOwnership.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<FundHoldingsResponse>("/factset-ownership/v1/fund-holdings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetOwnershipHoldingsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            FundHoldingsResponse>("/factset-ownership/v1/fund-holdings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOwnershipHoldings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -370,9 +409,9 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundHoldingsResponse</returns>
-        public async System.Threading.Tasks.Task<FundHoldingsResponse> GetOwnershipHoldingsAsync(List<string> ids, string date = default(string), string topn = default(string), string assetType = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundHoldingsResponse>GetOwnershipHoldingsAsync(List<string> ids, string date = default(string), string topn = default(string), string assetType = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse> localVarResponse = await GetOwnershipHoldingsWithHttpInfoAsync(ids, date, topn, assetType, currency, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetOwnershipHoldingsWithHttpInfoAsync(ids, date, topn, assetType, currency, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -387,11 +426,14 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <param name="currency">Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundHoldingsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse>> GetOwnershipHoldingsWithHttpInfoAsync(List<string> ids, string date = default(string), string topn = default(string), string assetType = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundHoldingsResponse>> GetOwnershipHoldingsWithHttpInfoAsync(List<string> ids, string date = default(string), string topn = default(string), string assetType = default(string), string currency = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
+            {
                 throw new FactSet.SDK.FactSetOwnership.Client.ApiException(400, "Missing required parameter 'ids' when calling FundHoldingsApi->GetOwnershipHoldings");
+            }
 
 
             FactSet.SDK.FactSetOwnership.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetOwnership.Client.RequestOptions();
@@ -404,12 +446,17 @@ namespace FactSet.SDK.FactSetOwnership.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.QueryParameters.Add(FactSet.SDK.FactSetOwnership.Client.ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             if (date != null)
@@ -431,13 +478,13 @@ namespace FactSet.SDK.FactSetOwnership.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetOwnership.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -449,14 +496,18 @@ namespace FactSet.SDK.FactSetOwnership.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetOwnershipHoldingsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<FundHoldingsResponse>("/factset-ownership/v1/fund-holdings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetOwnershipHoldings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -470,7 +521,7 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <returns>FundHoldingsResponse</returns>
         public FundHoldingsResponse PostOwnershipHoldings(FundHoldingsRequest fundHoldingsRequest)
         {
-            FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse> localVarResponse = PostOwnershipHoldingsWithHttpInfo(fundHoldingsRequest);
+            var localVarResponse = PostOwnershipHoldingsWithHttpInfo(fundHoldingsRequest);
             return localVarResponse.Data;
         }
 
@@ -480,11 +531,13 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <exception cref="FactSet.SDK.FactSetOwnership.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fundHoldingsRequest">Requesting Underlying Holdings for a list of Fund Identifiers.</param>
         /// <returns>ApiResponse of FundHoldingsResponse</returns>
-        public FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse> PostOwnershipHoldingsWithHttpInfo(FundHoldingsRequest fundHoldingsRequest)
+        public ApiResponse<FundHoldingsResponse> PostOwnershipHoldingsWithHttpInfo(FundHoldingsRequest fundHoldingsRequest)
         {
             // verify the required parameter 'fundHoldingsRequest' is set
             if (fundHoldingsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetOwnership.Client.ApiException(400, "Missing required parameter 'fundHoldingsRequest' when calling FundHoldingsApi->PostOwnershipHoldings");
+            }
 
             FactSet.SDK.FactSetOwnership.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetOwnership.Client.RequestOptions();
 
@@ -498,22 +551,28 @@ namespace FactSet.SDK.FactSetOwnership.Api
             };
 
             var localVarContentType = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundHoldingsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetOwnership.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -525,15 +584,19 @@ namespace FactSet.SDK.FactSetOwnership.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<FundHoldingsResponse>("/factset-ownership/v1/fund-holdings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = PostOwnershipHoldingsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            FundHoldingsResponse>("/factset-ownership/v1/fund-holdings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostOwnershipHoldings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -544,9 +607,9 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <param name="fundHoldingsRequest">Requesting Underlying Holdings for a list of Fund Identifiers.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FundHoldingsResponse</returns>
-        public async System.Threading.Tasks.Task<FundHoldingsResponse> PostOwnershipHoldingsAsync(FundHoldingsRequest fundHoldingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FundHoldingsResponse>PostOwnershipHoldingsAsync(FundHoldingsRequest fundHoldingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse> localVarResponse = await PostOwnershipHoldingsWithHttpInfoAsync(fundHoldingsRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await PostOwnershipHoldingsWithHttpInfoAsync(fundHoldingsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -557,11 +620,14 @@ namespace FactSet.SDK.FactSetOwnership.Api
         /// <param name="fundHoldingsRequest">Requesting Underlying Holdings for a list of Fund Identifiers.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FundHoldingsResponse)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.FactSetOwnership.Client.ApiResponse<FundHoldingsResponse>> PostOwnershipHoldingsWithHttpInfoAsync(FundHoldingsRequest fundHoldingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<FundHoldingsResponse>> PostOwnershipHoldingsWithHttpInfoAsync(FundHoldingsRequest fundHoldingsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'fundHoldingsRequest' is set
             if (fundHoldingsRequest == null)
+            {
                 throw new FactSet.SDK.FactSetOwnership.Client.ApiException(400, "Missing required parameter 'fundHoldingsRequest' when calling FundHoldingsApi->PostOwnershipHoldings");
+            }
 
 
             FactSet.SDK.FactSetOwnership.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetOwnership.Client.RequestOptions();
@@ -575,24 +641,29 @@ namespace FactSet.SDK.FactSetOwnership.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.FactSetOwnership.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = fundHoldingsRequest;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetOwnership.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -604,14 +675,18 @@ namespace FactSet.SDK.FactSetOwnership.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = PostOwnershipHoldingsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<FundHoldingsResponse>("/factset-ownership/v1/fund-holdings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostOwnershipHoldings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

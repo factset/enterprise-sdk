@@ -48,6 +48,8 @@ public class InlineResponse20079DataPreviousClose implements Serializable {
   public static final String JSON_PROPERTY_PRICE = "price";
   private BigDecimal price;
 
+  public InlineResponse20079DataPreviousClose() { 
+  }
 
   public InlineResponse20079DataPreviousClose time(String time) {
     this.time = time;

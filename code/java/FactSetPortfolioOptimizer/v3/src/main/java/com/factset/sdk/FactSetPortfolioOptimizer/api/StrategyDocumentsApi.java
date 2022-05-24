@@ -7,6 +7,9 @@ import com.factset.sdk.FactSetPortfolioOptimizer.Configuration;
 import com.factset.sdk.FactSetPortfolioOptimizer.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.FactSetPortfolioOptimizer.models.DocumentDirectoriesRoot;
 
@@ -21,6 +24,14 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getFPOStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getFPOStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -118,10 +129,16 @@ public class StrategyDocumentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DocumentDirectoriesRoot> localVarReturnType = new GenericType<DocumentDirectoriesRoot>() {};
 
-    return apiClient.invokeAPI("StrategyDocumentsApi.getFPOStrategyDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DocumentDirectoriesRoot
+      
+    > apiResponse = apiClient.invokeAPI("StrategyDocumentsApi.getFPOStrategyDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getFPOStrategyDocumentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

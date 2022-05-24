@@ -52,7 +52,7 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2003InstrumentRatingSystem2 {\n");
             sb.Append("  Rating: ").Append(Rating).Append("\n");
             sb.Append("}\n");
@@ -86,8 +86,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2003InstrumentRatingSystem2 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Rating == input.Rating ||
@@ -106,7 +107,9 @@ namespace FactSet.SDK.BondsAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Rating != null)
-                    hashCode = hashCode * 59 + this.Rating.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Rating.GetHashCode();
+                }
                 return hashCode;
             }
         }

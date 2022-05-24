@@ -50,6 +50,8 @@ public class TemplateContentTypes implements Serializable {
   public static final String JSON_PROPERTY_LOCKED = "locked";
   private java.util.List<String> locked = null;
 
+  public TemplateContentTypes() { 
+  }
 
   public TemplateContentTypes mandatory(java.util.List<String> mandatory) {
     this.mandatory = mandatory;

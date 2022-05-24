@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -11,18 +11,10 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import AlternativeEmailAddressDto from './model/AlternativeEmailAddressDto';
 import ContactAddressDto from './model/ContactAddressDto';
-import ContactCustomFieldDto from './model/ContactCustomFieldDto';
-import ContactCustomFieldFormulaDto from './model/ContactCustomFieldFormulaDto';
-import ContactCustomFieldListDto from './model/ContactCustomFieldListDto';
-import ContactCustomFieldOptionDto from './model/ContactCustomFieldOptionDto';
-import ContactCustomFieldOptionSaveDto from './model/ContactCustomFieldOptionSaveDto';
 import ContactCustomFieldOptionValueDto from './model/ContactCustomFieldOptionValueDto';
-import ContactCustomFieldSaveDto from './model/ContactCustomFieldSaveDto';
-import ContactCustomFieldType from './model/ContactCustomFieldType';
 import ContactCustomFieldValueDto from './model/ContactCustomFieldValueDto';
 import ContactCustomFieldValueSaveDto from './model/ContactCustomFieldValueSaveDto';
 import ContactDto from './model/ContactDto';
@@ -40,29 +32,19 @@ import ContactSaveDto from './model/ContactSaveDto';
 import ContactSummaryDto from './model/ContactSummaryDto';
 import ContactTypeDto from './model/ContactTypeDto';
 import EmployerDto from './model/EmployerDto';
-import FormulaConfigDto from './model/FormulaConfigDto';
+import NewItemDto from './model/NewItemDto';
 import Operation from './model/Operation';
+import OperationType from './model/OperationType';
 import PhoneNumberTypeDto from './model/PhoneNumberTypeDto';
 import ProblemDetails from './model/ProblemDetails';
 import RecordPreviewDto from './model/RecordPreviewDto';
-import RelationshipCategoryDto from './model/RelationshipCategoryDto';
 import RelationshipCategoryIdNameDto from './model/RelationshipCategoryIdNameDto';
-import RelationshipCategoryListDto from './model/RelationshipCategoryListDto';
-import RelationshipCategorySaveDto from './model/RelationshipCategorySaveDto';
-import RelationshipDto from './model/RelationshipDto';
 import RelationshipIdNameDto from './model/RelationshipIdNameDto';
-import RelationshipSaveDto from './model/RelationshipSaveDto';
 import RelationshipSymbolSummaryDto from './model/RelationshipSymbolSummaryDto';
-import RelationshipType from './model/RelationshipType';
 import SymbolType from './model/SymbolType';
-import ContactCustomFieldsApi from './api/ContactCustomFieldsApi';
-import ContactRelationshipsApi from './api/ContactRelationshipsApi';
-import ContactRolesApi from './api/ContactRolesApi';
-import ContactTypesApi from './api/ContactTypesApi';
+
 import ContactsApi from './api/ContactsApi';
-import PhoneNumberTypesApi from './api/PhoneNumberTypesApi';
-import RelationshipCategoriesApi from './api/RelationshipCategoriesApi';
-import RelationshipsApi from './api/RelationshipsApi';
+import ContactsRelationshipsApi from './api/ContactsRelationshipsApi';
 
 
 /**
@@ -94,7 +76,7 @@ import RelationshipsApi from './api/RelationshipsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -116,52 +98,10 @@ export {
     ContactAddressDto,
 
     /**
-     * The ContactCustomFieldDto model constructor.
-     * @property {module:model/ContactCustomFieldDto}
-     */
-    ContactCustomFieldDto,
-
-    /**
-     * The ContactCustomFieldFormulaDto model constructor.
-     * @property {module:model/ContactCustomFieldFormulaDto}
-     */
-    ContactCustomFieldFormulaDto,
-
-    /**
-     * The ContactCustomFieldListDto model constructor.
-     * @property {module:model/ContactCustomFieldListDto}
-     */
-    ContactCustomFieldListDto,
-
-    /**
-     * The ContactCustomFieldOptionDto model constructor.
-     * @property {module:model/ContactCustomFieldOptionDto}
-     */
-    ContactCustomFieldOptionDto,
-
-    /**
-     * The ContactCustomFieldOptionSaveDto model constructor.
-     * @property {module:model/ContactCustomFieldOptionSaveDto}
-     */
-    ContactCustomFieldOptionSaveDto,
-
-    /**
      * The ContactCustomFieldOptionValueDto model constructor.
      * @property {module:model/ContactCustomFieldOptionValueDto}
      */
     ContactCustomFieldOptionValueDto,
-
-    /**
-     * The ContactCustomFieldSaveDto model constructor.
-     * @property {module:model/ContactCustomFieldSaveDto}
-     */
-    ContactCustomFieldSaveDto,
-
-    /**
-     * The ContactCustomFieldType model constructor.
-     * @property {module:model/ContactCustomFieldType}
-     */
-    ContactCustomFieldType,
 
     /**
      * The ContactCustomFieldValueDto model constructor.
@@ -266,16 +206,22 @@ export {
     EmployerDto,
 
     /**
-     * The FormulaConfigDto model constructor.
-     * @property {module:model/FormulaConfigDto}
+     * The NewItemDto model constructor.
+     * @property {module:model/NewItemDto}
      */
-    FormulaConfigDto,
+    NewItemDto,
 
     /**
      * The Operation model constructor.
      * @property {module:model/Operation}
      */
     Operation,
+
+    /**
+     * The OperationType model constructor.
+     * @property {module:model/OperationType}
+     */
+    OperationType,
 
     /**
      * The PhoneNumberTypeDto model constructor.
@@ -296,34 +242,10 @@ export {
     RecordPreviewDto,
 
     /**
-     * The RelationshipCategoryDto model constructor.
-     * @property {module:model/RelationshipCategoryDto}
-     */
-    RelationshipCategoryDto,
-
-    /**
      * The RelationshipCategoryIdNameDto model constructor.
      * @property {module:model/RelationshipCategoryIdNameDto}
      */
     RelationshipCategoryIdNameDto,
-
-    /**
-     * The RelationshipCategoryListDto model constructor.
-     * @property {module:model/RelationshipCategoryListDto}
-     */
-    RelationshipCategoryListDto,
-
-    /**
-     * The RelationshipCategorySaveDto model constructor.
-     * @property {module:model/RelationshipCategorySaveDto}
-     */
-    RelationshipCategorySaveDto,
-
-    /**
-     * The RelationshipDto model constructor.
-     * @property {module:model/RelationshipDto}
-     */
-    RelationshipDto,
 
     /**
      * The RelationshipIdNameDto model constructor.
@@ -332,22 +254,10 @@ export {
     RelationshipIdNameDto,
 
     /**
-     * The RelationshipSaveDto model constructor.
-     * @property {module:model/RelationshipSaveDto}
-     */
-    RelationshipSaveDto,
-
-    /**
      * The RelationshipSymbolSummaryDto model constructor.
      * @property {module:model/RelationshipSymbolSummaryDto}
      */
     RelationshipSymbolSummaryDto,
-
-    /**
-     * The RelationshipType model constructor.
-     * @property {module:model/RelationshipType}
-     */
-    RelationshipType,
 
     /**
      * The SymbolType model constructor.
@@ -356,50 +266,15 @@ export {
     SymbolType,
 
     /**
-    * The ContactCustomFieldsApi service constructor.
-    * @property {module:api/ContactCustomFieldsApi}
-    */
-    ContactCustomFieldsApi,
-
-    /**
-    * The ContactRelationshipsApi service constructor.
-    * @property {module:api/ContactRelationshipsApi}
-    */
-    ContactRelationshipsApi,
-
-    /**
-    * The ContactRolesApi service constructor.
-    * @property {module:api/ContactRolesApi}
-    */
-    ContactRolesApi,
-
-    /**
-    * The ContactTypesApi service constructor.
-    * @property {module:api/ContactTypesApi}
-    */
-    ContactTypesApi,
-
-    /**
     * The ContactsApi service constructor.
     * @property {module:api/ContactsApi}
     */
     ContactsApi,
 
     /**
-    * The PhoneNumberTypesApi service constructor.
-    * @property {module:api/PhoneNumberTypesApi}
+    * The ContactsRelationshipsApi service constructor.
+    * @property {module:api/ContactsRelationshipsApi}
     */
-    PhoneNumberTypesApi,
+    ContactsRelationshipsApi,
 
-    /**
-    * The RelationshipCategoriesApi service constructor.
-    * @property {module:api/RelationshipCategoriesApi}
-    */
-    RelationshipCategoriesApi,
-
-    /**
-    * The RelationshipsApi service constructor.
-    * @property {module:api/RelationshipsApi}
-    */
-    RelationshipsApi
 };

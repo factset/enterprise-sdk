@@ -1,0 +1,1576 @@
+openapi: 3.0.3
+info:
+  title: FactSet Overview Report Builder API
+  description: ''
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  version: 1.0.0
+servers:
+  - url: https://api.factset.com/report/overview/v1
+tags:
+  - name: Company
+paths:
+  /profile:
+    get:
+      tags:
+        - Company
+      operationId: getProfileProfile
+      summary: Overview Profile
+      parameters:
+        - name: id
+          in: query
+          description: Company ticker
+          required: true
+          schema:
+            type: string
+            example: FDS
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKProfile'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /peer-list:
+    get:
+      tags:
+        - Company
+      summary: Peer List
+      parameters:
+        - name: id
+          in: query
+          description: Company ticker
+          required: true
+          schema:
+            type: string
+            example: FDS
+        - name: topn
+          in: query
+          description: Limits the number of peers returned.
+          required: false
+          schema:
+            type: number
+            example: 5
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKPeerList'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /current-cap:
+    get:
+      tags:
+        - Company
+      summary: Current Capitalization
+      parameters:
+        - name: id
+          in: query
+          description: Company ticker
+          required: true
+          schema:
+            type: string
+            example: FDS
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKCurrentCapitalization'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /financial-highlights:
+    get:
+      tags:
+        - Company
+      summary: Financial / Estimate Highlights
+      parameters:
+        - name: id
+          in: query
+          description: Company ticker
+          required: true
+          schema:
+            type: string
+            example: FDS
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKFinancialHighlights'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+  /transactions:
+    get:
+      tags:
+        - Company
+      summary: Transactions
+      parameters:
+        - name: id
+          in: query
+          description: Company ticker
+          required: true
+          schema:
+            type: string
+            example: FDS
+      responses:
+        '200':
+          $ref: '#/components/responses/200OKTransactions'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '429':
+          $ref: '#/components/responses/429TooManyRequests'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+        '503':
+          $ref: '#/components/responses/503ServiceUnavailable'
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  responses:
+    200OKProfile:
+      description: Expected response; returns the JSON in a simple key-value format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProfileResponse'
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200ProfileResponse'
+    200OKPeerList:
+      description: Expected response; returns JSON data containing key-value format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PeerListResponse'
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200PeerListResponse'
+    200OKCurrentCapitalization:
+      description: >-
+        Expected response; returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StachTableResponse'
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200CurrentCapitalizationResponse'
+    200OKFinancialHighlights:
+      description: >-
+        Expected response; Returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StachTableResponse'
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200FinancialHighlightsResponse'
+            noDataresponse:
+              $ref: '#/components/examples/noData200FinancialHighlightsResponse'
+    200OKTransactions:
+      description: >-
+        Expected response; Returns JSON data containing STACH 2.0 row organized
+        package format
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StachTableResponse'
+          examples:
+            default200ResponseExample:
+              $ref: '#/components/examples/default200TransactionsResponse'
+            noDataresponse:
+              $ref: '#/components/examples/noData200TransactionsResponse'
+    400BadRequest:
+      description: >-
+        Bad Request. For further assistance, file an issue under "Workflow &
+        Throttling - 400 or 429 Response" using `Report Issue` at the top of
+        this page, including the X-DataDirect-Request-Key from the header to
+        assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          $ref: '#/components/headers/xDataDirectRequestKey'
+        Api-Supported-Versions:
+          $ref: '#/components/headers/apiSupportedVersions'
+        Api-Version:
+          $ref: '#/components/headers/apiVersion'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            idRequiredParameterError:
+              $ref: '#/components/examples/idRequiredParameterError'
+            idInvalidParameterError:
+              $ref: '#/components/examples/idInvalidParameterError'
+            unsupportedEntityParameterError:
+              $ref: '#/components/examples/unsupportedEntityParameterError'
+            parameterErrorTopn:
+              $ref: '#/components/examples/parameterErrorTopn'
+    401Unauthorized:
+      description: >-
+        Missing or invalid authentication. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For further assistance, file an issue under "Connectivty - 401 or
+        403 Responses" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+    404NotFound:
+      description: >-
+        Not found. For further assistance, file an issue under "Performance -
+        404 and 500 Responses" using `Report Issue` at the top of this page,
+        including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            endpointNotFound:
+              $ref: '#/components/examples/endpointNotFound'
+    429TooManyRequests:
+      description: >-
+        Too many requests - this API is rate-limited to 20 requests per second.
+        For further assistance, file an issue under "Workflow & Throttling - 400
+        or 429 Response" using `Report Issue` at the top of this page, including
+        the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+    500InternalServerError:
+      description: >-
+        Server error. For further assistance, file an issue under "Performance -
+        404 and 500 Responses" using `Report Issue` at the top of this page,
+        including the X-DataDirect-Request-Key from the header to assist in
+        troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+    503ServiceUnavailable:
+      description: >-
+        Service unavailable. Typically a timeout, or result of a rejected
+        request to prevent service overload. For further assistance, file an
+        issue under "Performance - 404 and 500 Responses" using `Report Issue`
+        at the top of this page, including the X-DataDirect-Request-Key from the
+        header to assist in troubleshooting.
+      headers:
+        X-DataDirect-Request-Key:
+          schema:
+            type: string
+          description: FactSet request ID
+  headers:
+    xDataDirectRequestKey:
+      description: FactSet request ID
+      schema:
+        type: string
+    apiSupportedVersions:
+      description: Supported API versions (semantic versioning)
+      schema:
+        type: string
+    apiVersion:
+      description: API version (semantic versioning)
+      schema:
+        type: string
+  examples:
+    default200CurrentCapitalizationResponse:
+      summary: (sample response)
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: lineItem
+                    type: string
+                    isDimension: true
+                  - id: lineItemChild1
+                    type: string
+                    parentId: lineItem
+                    isDimension: true
+                  - id: lineItemValue
+                    type: real
+              headersDefinition:
+                columns: []
+              data:
+                rows:
+                  - cells:
+                      - Price (As of 27 Jan '21)
+                      - null
+                      - 312.690002
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                  - cells:
+                      - Basic Shares
+                      - null
+                      - 37.978624
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                  - cells:
+                      - Basic Shares
+                      - Common Stock
+                      - 37.978624
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                  - cells:
+                      - Market Cap
+                      - null
+                      - 11875.535939
+                    rowMetadata:
+                      category:
+                        value: MAIN
+                  - cells:
+                      - Enterprise Value
+                      - null
+                      - 12241.212855
+                    rowMetadata:
+                      category:
+                        value: MAIN
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                columnMetadata:
+                  lineItemValue:
+                    items:
+                      scale:
+                        value: 6
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+          schema: table_parent_child_columns
+    default200FinancialHighlightsResponse:
+      summary: sample response
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: lineItem1
+                    type: string
+                  - id: lineItem2
+                    type: string
+                  - id: lineItem3
+                    type: string
+                  - id: lineItem4
+                    type: string
+                  - id: lineItem5
+                    type: string
+              headersDefinition:
+                columns: []
+              data:
+                rows:
+                  - cells:
+                      - null
+                      - Aug '19
+                      - Aug '20
+                      - Aug '21
+                      - Aug '22
+                  - cells:
+                      - Sales
+                      - '1435.351000'
+                      - '1494.111000'
+                      - '1591.445000'
+                      - '1725.152344'
+                    rowMetadata:
+                      metric:
+                        value: FIN
+                      units:
+                        value: M
+                  - cells:
+                      - EBITDA
+                      - '500.292000'
+                      - '558.515000'
+                      - '581.364000'
+                      - '622.972717'
+                    rowMetadata:
+                      metric:
+                        value: FIN
+                      category:
+                        value: M
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+                columnMetadata:
+                  '1':
+                    items:
+                      category:
+                        value: ACTUAL
+                  '2':
+                    items:
+                      category:
+                        value: ACTUAL
+                  '3':
+                    items:
+                      category:
+                        value: ACTUAL
+                  '4':
+                    items:
+                      category:
+                        value: ESTIMATE
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+    noData200FinancialHighlightsResponse:
+      summary: no coverage response
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: lineItem1
+                    type: string
+              headersDefinition:
+                columns: []
+              data:
+                rows: []
+                tableMetadata:
+                  currencyCode:
+                    value: GBP
+                  currencySymbol:
+                    value: £
+        meta:
+          requestId: 0KJ0NJ-E
+          fsymId: null
+          noCoverage: true
+          message: This identifier is not covered by this API.
+    default200PeerListResponse:
+      summary: (sample response)
+      value:
+        data:
+          peers:
+            - id: 000PLZ-E
+              name: S&P Global, Inc.
+            - id: 05TYNB-E
+              name: Morningstar, Inc.
+            - id: 06JP5R-E
+              name: MSCI Inc. Class A
+            - id: 002HJD-E
+              name: BlackRock, Inc.
+            - id: 0GCKWP-E
+              name: IHS Markit Ltd.
+            - id: 000HSZ-E
+              name: Moody's Corporation
+            - id: 06S1MZ-E
+              name: Nasdaq, Inc.
+            - id: 0G4Z2V-E
+              name: Donnelley Financial Solutions, Inc.
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+    default200ProfileResponse:
+      summary: (sample response)
+      value:
+        data:
+          business:
+            description:
+              value: >-
+                FactSet Research Systems Inc. (the "Company" or "FactSet") is a
+                global provider of integrated financial information, analytical
+                applications and services for the investment and corporate
+                communities. Since inception, global financial professionals
+                have utilized the Company's content and multi-asset class
+                solutions across each stage of the investment process. FactSet's
+                goal is to provide a seamless user experience spanning idea
+                generation, research, portfolio construction, trade execution,
+                performance measurement, risk management, reporting, and
+                portfolio analysis, in which the Company serves the front,
+                middle, and back offices to drive productivity and improved
+                performance. FactSet's flexible, open data and technology
+                solutions can be implemented both across the investment
+                portfolio lifecycle or as standalone components serving
+                different workflows in the organization. FactSet is focused on
+                growing the business throughout each of its three segments, the
+                Americas, EMEA (formerly known as Europe), and Asia Pacific. The
+                Company primarily delivers insight and information through the
+                workflow solutions of Research, Analytics and Trading, Content
+                and Technology Solutions ("CTS") and Wealth. FactSet currently
+                serves financial professionals, which include portfolio
+                managers, investment research professionals, investment bankers,
+                risk and performance analysts, wealth advisors and corporate
+                clients. FactSet provides both insights on global market trends
+                and intelligence on companies and industries, as well as
+                capabilities to monitor portfolio risk and performance and to
+                execute trades. The Company combines dedicated client service
+                with open and flexible technology offerings, such as a
+                configurable desktop and mobile platform, comprehensive data
+                feeds, an open marketplace and digital portals and application
+                programming interfaces ("APIs"). The Company’s revenue is
+                primarily derived from subscriptions to products and services
+                such as workstations, analytics, enterprise data, and research
+                management. FactSet Research Systems was founded by Howard E.
+                Wille and Charles J. Snyder in September 1978 and is
+                headquartered in Norwalk, CT.
+            industry:
+              value: Professional Content Providers
+            name:
+              value: FactSet Research Systems Inc.
+            sector:
+              value: Software and Consulting
+            crunchbaseCategories:
+              value:
+                - Analytics
+                - Finance
+                - Financial Services
+                - Software
+              note: >-
+                Displaying the Crunchbase logo is required for displaying any
+                Crunchbase-sourced data
+          size:
+            revenue:
+              label: Sales
+              value: 1494.111
+              meta:
+                currencyCode: USD
+                currencySymbol: $
+                scale: 6
+            employeeNumber:
+              value: null
+            ev:
+              value: 12783.238274
+              meta:
+                currencyCode: USD
+                currencySymbol: $
+                scale: 6
+            mcap:
+              value: 12814.061274
+              meta:
+                currencyCode: USD
+                currencySymbol: $
+                scale: 6
+          contact:
+            address:
+              value: 7th Floor 45 Glover Avenue
+            city:
+              value: Norwalk
+            phone:
+              value: +1.203.810.1000
+            zip:
+              value: '06850'
+            country:
+              value: UNITED STATES
+            email:
+              value: rima.hyder@factset.com
+            website:
+              value: http://www.factset.com
+            stateProvince:
+              value: Connecticut
+          stage:
+            tradeDateRange:
+              start:
+                value: '19960628'
+              end:
+                value: '20201001'
+            foundedYear:
+              value: '1978'
+            exchangePrimary:
+              value: NYSE
+            fundingDateRange:
+              first:
+                value: null
+              last:
+                value: null
+            pevcBacking:
+              value: null
+        meta:
+          requestId: FDS
+          fsymId: SQFMK3-R
+    default200TransactionsResponse:
+      summary: sample response
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: lineItem1
+                    type: string
+                    isDimension: true
+                  - id: lineItem2
+                    type: string
+                    isDimension: true
+                  - id: lineItem3
+                    type: real
+                    isDimension: true
+                  - id: lineItem4
+                    type: string
+                    isDimension: true
+                  - id: lineItem5
+                    type: real
+                    isDimension: true
+              headersDefinition:
+                columns: []
+              data:
+                rows:
+                  - cells:
+                      - Date
+                      - Type
+                      - Description
+                      - Amount
+                      - Status
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                  - cells:
+                      - '20211013'
+                      - Acquisition / Merger
+                      - >-
+                        FactSet Research Systems, Inc. acquires Cobalt Software,
+                        Inc. 
+                      - 51
+                      - Complete
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                      dealId:
+                        value: 4071979MM
+                  - cells:
+                      - '20210714'
+                      - Acquisition / Merger
+                      - >-
+                        FactSet Research Systems, Inc. acquires BTU Analytics
+                        LLC 
+                      - null
+                      - Complete
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                      dealId:
+                        value: 4054178MM
+                tableMetadata:
+                  currencyCode:
+                    value: USD
+                  currencySymbol:
+                    value: $
+        meta:
+          requestId: FDS-US
+          fsymId: SQFMK3-R
+    noData200TransactionsResponse:
+      summary: no data response
+      value:
+        data:
+          version: '2.0'
+          tables:
+            main:
+              definition:
+                columns:
+                  - id: lineItem1
+                    type: string
+                    isDimension: true
+                  - id: lineItem2
+                    type: string
+                    isDimension: true
+                  - id: lineItem3
+                    type: real
+                    isDimension: true
+                  - id: lineItem4
+                    type: string
+                    isDimension: true
+                  - id: lineItem5
+                    type: real
+                    isDimension: true
+              headersDefinition:
+                columns: []
+              data:
+                rows:
+                  - cells:
+                      - Date
+                      - Type
+                      - Description
+                      - Amount
+                      - Status
+                    rowMetadata:
+                      category:
+                        value: DETAIL
+                tableMetadata:
+                  currencyCode:
+                    value: null
+                  currencySymbol:
+                    value: null
+        meta:
+          requestId: 07ZXHF-E
+          fsymId: null
+          noData: true
+          message: There is no data for this request.
+    endpointNotFound:
+      summary: endpoint not found
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: endpointNotFound
+            title: The requested endpoint does not exist.
+    idRequiredParameterError:
+      summary: generic parameter error (missing parameter)
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Missing required parameter(s): ''id'''
+    idInvalidParameterError:
+      summary: generic parameter error (invalid parameter)
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Invalid parameter(s): ''id'''
+    unsupportedEntityParameterError:
+      summary: unsupported entity type
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: Unsupported entity type
+    parameterErrorTopn:
+      summary: topn parameter error
+      value:
+        errors:
+          - id: 39314614-e607-465a-ba95-5bb79c362e23
+            code: parameterError
+            title: 'Invalid parameter: ''topn'''
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    ErrorObject:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+        links:
+          type: object
+          properties:
+            about:
+              type: string
+        detail:
+          type: string
+        source:
+          type: object
+          properties:
+            parameter:
+              type: string
+    Meta:
+      type: object
+      additionalProperties:
+        type: string
+    ProfileResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ProfileData'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    ProfileData:
+      type: object
+      required:
+        - business
+        - contact
+        - size
+        - stage
+      properties:
+        business:
+          type: object
+          required:
+            - description
+            - industry
+            - name
+            - sector
+          properties:
+            description:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+                note:
+                  type: string
+            industry:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            sector:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            name:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            dbaName:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            crunchbaseCategories:
+              type: object
+              required:
+                - value
+                - note
+              properties:
+                value:
+                  type: array
+                  items:
+                    type: string
+                note:
+                  type: string
+            crunchbaseUrl:
+              type: object
+              required:
+                - value
+                - note
+              properties:
+                value:
+                  type: string
+                note:
+                  type: string
+        contact:
+          type: object
+          required:
+            - address
+            - city
+            - phone
+            - stateProvince
+            - zip
+            - country
+            - website
+            - email
+          properties:
+            address:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            city:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            phone:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            stateProvince:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            zip:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            country:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            website:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            email:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            people:
+              type: array
+              items:
+                type: object
+                required:
+                  - title
+                  - name
+                  - id
+                properties:
+                  title:
+                    type: object
+                    required:
+                      - value
+                    properties:
+                      value:
+                        type: string
+                        nullable: true
+                  name:
+                    type: object
+                    required:
+                      - value
+                    properties:
+                      value:
+                        type: string
+                        nullable: true
+                  id:
+                    type: object
+                    required:
+                      - value
+                    properties:
+                      value:
+                        type: string
+                        nullable: true
+        size:
+          type: object
+          required:
+            - employeeNumber
+            - ev
+            - mcap
+            - revenue
+          properties:
+            employeeNumber:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+            ev:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+                meta:
+                  $ref: '#/components/schemas/DataPointMeta'
+            mcap:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+                meta:
+                  $ref: '#/components/schemas/DataPointMeta'
+            revenue:
+              type: object
+              required:
+                - value
+                - label
+              properties:
+                label:
+                  type: string
+                  nullable: true
+                value:
+                  type: number
+                  nullable: true
+                meta:
+                  $ref: '#/components/schemas/DataPointMeta'
+        stage:
+          type: object
+          required:
+            - exchangePrimary
+            - tradeDateRange
+            - foundedYear
+            - pevcBacking
+          properties:
+            exchangePrimary:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            tradeDateRange:
+              type: object
+              properties:
+                start:
+                  type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                      nullable: true
+                end:
+                  type: object
+                  required:
+                    - value
+                  properties:
+                    value:
+                      type: string
+                      nullable: true
+            foundedYear:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            pevcBacking:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            pevcLatestPostMoneyValuation:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+                meta:
+                  $ref: '#/components/schemas/DataPointMeta'
+            peActiveFirmNumber:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            peActiveInvestmentNumber:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            peLastInvestmentDate:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            peActiveFirms:
+              type: array
+              items:
+                type: object
+                required:
+                  - name
+                properties:
+                  name:
+                    type: object
+                    required:
+                      - value
+                    properties:
+                      value:
+                        type: string
+                        nullable: true
+            peActiveAcqDate:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            peActiveAcqAmt:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+                meta:
+                  $ref: '#/components/schemas/DataPointMeta'
+            vcLastRound:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            vcLastRoundAmt:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+                meta:
+                  $ref: '#/components/schemas/DataPointMeta'
+            vcLastRoundInvestorNumber:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+            vcLastRoundDate:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  nullable: true
+            vcTotalEstRaised:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: number
+                  nullable: true
+                meta:
+                  $ref: '#/components/schemas/DataPointMeta'
+            crunchbaseRank:
+              type: object
+              required:
+                - value
+                - note
+              properties:
+                value:
+                  type: number
+                note:
+                  type: string
+    DataPointMeta:
+      type: object
+      anyOf:
+        - properties:
+            currencyCode:
+              type: string
+              description: Code for data currency
+            currencySymbol:
+              type: string
+              description: Symbol for data currency
+            scale:
+              type: integer
+              description: >
+                Integer power of 10 to which numbers have been scaled. For
+                example: 6 implies millions.
+
+                Default is 0.
+    StachTableResponse:
+      type: object
+      properties:
+        data:
+          title: STACH
+          description: Returns a STACH 2.0 row organized package
+        meta:
+          $ref: '#/components/schemas/Meta'
+    PeerListResponse:
+      type: object
+      properties:
+        data:
+          description: Returns a list of key-value pairs
+          $ref: '#/components/schemas/PeerListObject'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    PeerListObject:
+      type: object
+      required:
+        - peers
+      properties:
+        peers:
+          type: array
+          items:
+            $ref: '#/components/schemas/PeerListData'
+    PeerListData:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    MetadataEntry:
+      type: object
+      description: >
+        Restricted metadata entries. Restricts the possible key in the following
+        STACH schema:
+
+        - RowOrganizedPackage.CellDetail.CellMetadataEntry
+
+        - RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry
+
+        - RowOrganizedPackage.MapOfMetadata.ItemsEntry
+
+        - RowOrganizedPackage.Row.RowMetadataEntry
+
+        - RowOrganizedPackage.TableData.TableMetadataEntry
+
+
+        And sets restrictions on the possible values for a MetadataItem.
+      oneOf:
+        - $ref: '#/components/schemas/category'
+        - $ref: '#/components/schemas/currencyCode'
+        - $ref: '#/components/schemas/currencySymbol'
+        - $ref: '#/components/schemas/description'
+        - $ref: '#/components/schemas/frequency'
+        - $ref: '#/components/schemas/metric'
+        - $ref: '#/components/schemas/scale'
+        - $ref: '#/components/schemas/transactionId'
+        - $ref: '#/components/schemas/transactionType'
+        - $ref: '#/components/schemas/units'
+        - $ref: '#/components/schemas/valueType'
+    category:
+      type: object
+      properties:
+        category:
+          type: object
+          description: >
+            Describes data based on source or kind of value
+
+            - ACTUAL - Historical data collected directly from a press release
+            or a median consensus from brokers after a report date.
+
+            - ESTIMATE - Forward looking average of broker estimates within a
+            specific time horizon.
+
+            - GUIDANCE - Forward looking indication or estimate of future
+            performance issued by the company itself.
+
+            - DETAIL - Indicates data that is more granular and may be secondary
+            in focus.
+
+            - MAIN - Indicates data is of more impactful or higher importance
+            and may want to be emphasized.
+
+            - SECTION - Indicates data that is used in sectioning rows in group
+            level STACH format.
+          properties:
+            value:
+              type: string
+              enum:
+                - ACTUAL
+                - ESTIMATE
+                - GUIDANCE
+                - EXCLUDED
+                - CHANGE
+                - DETAIL
+                - MAIN
+                - SECTION
+    currencyCode:
+      type: object
+      properties:
+        currencyCode:
+          type: object
+          description: Code for data currency
+          properties:
+            value:
+              type: string
+    currencySymbol:
+      type: object
+      properties:
+        currencySymbol:
+          type: object
+          description: Symbol for data currency
+          properties:
+            value:
+              type: string
+    description:
+      type: object
+      properties:
+        description:
+          type: object
+          description: Text describing the data
+          properties:
+            value:
+              type: string
+    frequency:
+      type: object
+      properties:
+        frequency:
+          type: object
+          description: |
+            String with frequency of a data series. Allowed values:
+            - "D" (daily)
+            - "W" (weekly)
+            - "AW" (actual weekly)
+            - "M" (monthly)
+            - "AM" (actual monthly)
+            - "Q" (quarterly)
+            - "FQ" (fiscal quarterly)
+            - "CQ" (calendar quarterly)
+            - "AQ" (actual quarterly)
+            - "Y" (yearly)
+            - "FY" (fiscal yearly)
+            - "CY" (calendar yearly)
+            - "AY" (actual yearly)
+            - "MTD" (month-to-date)
+            - "QTD" (quarter-to-date)
+            - "YTD" (year-to-date)
+            - "FYTD" (fiscal-year-to-date)
+            - "CYTD" (calendar-year-to-date)
+          properties:
+            value:
+              type: string
+              enum:
+                - D
+                - W
+                - AW
+                - M
+                - AM
+                - Q
+                - FQ
+                - CQ
+                - AQ
+                - 'Y'
+                - FY
+                - CY
+                - AY
+                - MTD
+                - QTD
+                - YTD
+                - FYTD
+                - CYTD
+    metric:
+      type: object
+      properties:
+        metric:
+          type: object
+          description: >
+            Describes the entity's financial metrics category
+
+            - FIN - Financial; Numerical value taken from an entity's financial
+            statements.
+
+            - RAT - Ratio; A relative magnitude of two or more selected
+            numerical values taken from an entity's financial statements.
+
+
+            Exception: units = A (Actual) in combination with metric = RAT
+            (Ratio) should be treated similarly as units = RATIO; the value is
+            returned in the same format.
+          properties:
+            value:
+              type: string
+              enum:
+                - FIN
+                - RAT
+    scale:
+      type: object
+      properties:
+        scale:
+          type: object
+          description: >
+            Integer power of 10 to which numbers have been scaled. For example:
+            6 implies millions.
+
+            Default is 0.
+          properties:
+            value:
+              type: integer
+    transactionId:
+      type: object
+      properties:
+        transactionId:
+          type: object
+          description: Id for the transaction. Only used in /transactions
+          properties:
+            value:
+              type: string
+    transactionType:
+      type: object
+      properties:
+        transactionType:
+          type: object
+          description: |
+            Type of transaction. Only used in /transactions. Allowed values:
+            - "MA" (Mergers and Acquisitions)
+          properties:
+            value:
+              type: string
+              enum:
+                - MA
+    units:
+      type: object
+      properties:
+        units:
+          type: object
+          description: >
+            Represents the scale for the data, expresses the quantity.
+
+
+            Exception: units = A (Actual) in combination with metric = RAT
+            (Ratio) should be treated similarly as units = RATIO; the value is
+            returned in the same format.
+          properties:
+            value:
+              type: string
+              enum:
+                - A (Actual)
+                - B (Billions)
+                - M (Millions)
+                - PCT (Percent)
+                - RATIO (Ratio)
+                - T (Thousands)
+    valueType:
+      type: object
+      properties:
+        valueType:
+          type: object
+          description: Describes how to interpret numbers
+          properties:
+            value:
+              type: string
+              enum:
+                - PERCENTAGE
+                - RATIO
+                - TREND
+                - RANGE

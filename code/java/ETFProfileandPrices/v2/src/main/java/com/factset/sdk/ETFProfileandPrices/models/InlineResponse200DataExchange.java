@@ -53,7 +53,7 @@ public class InlineResponse200DataExchange implements Serializable {
   private String country;
 
   /**
-   * short region code where ETP exchange is located. This data is available for all the regions.
+   * Short region code where ETP exchange is located. This data is available for all the regions.
    */
   public enum RegionEnum {
     EUROPE("Europe"),
@@ -94,6 +94,8 @@ public class InlineResponse200DataExchange implements Serializable {
   public static final String JSON_PROPERTY_REGION = "region";
   private RegionEnum region;
 
+  public InlineResponse200DataExchange() { 
+  }
 
   public InlineResponse200DataExchange code(String code) {
     this.code = code;
@@ -179,11 +181,11 @@ public class InlineResponse200DataExchange implements Serializable {
   }
 
    /**
-   * short region code where ETP exchange is located. This data is available for all the regions.
+   * Short region code where ETP exchange is located. This data is available for all the regions.
    * @return region
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "short region code where ETP exchange is located. This data is available for all the regions.")
+  @ApiModelProperty(value = "Short region code where ETP exchange is located. This data is available for all the regions.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

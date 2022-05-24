@@ -47,6 +47,8 @@ public class InlineResponse2005DataUnderlyingEffectiveUnderlyingInstrument imple
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2005DataUnderlyingEffectiveUnderlyingInstrument() { 
+  }
 
   public InlineResponse2005DataUnderlyingEffectiveUnderlyingInstrument id(String id) {
     this.id = id;

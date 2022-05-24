@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **includeNames** | **bool?**| Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. | [optional] [default to true]
 
 ### Return type
-
 [**EntityFocusResponse**](EntityFocusResponse.md)
 
 ### Authorization
@@ -177,7 +176,6 @@ Name | Type | Description  | Notes
  **entityFocusRequest** | [**EntityFocusRequest**](EntityFocusRequest.md)| Request Body to request a list of RBICS Entity Focus objects. | 
 
 ### Return type
-
 [**EntityFocusResponse**](EntityFocusResponse.md)
 
 ### Authorization

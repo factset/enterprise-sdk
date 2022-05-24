@@ -62,7 +62,7 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005Description {\n");
             sb.Append("  Short: ").Append(Short).Append("\n");
             sb.Append("  Long: ").Append(Long).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005Description input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Short == input.Short ||
@@ -122,9 +123,13 @@ namespace FactSet.SDK.RecommendationListAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Short != null)
-                    hashCode = hashCode * 59 + this.Short.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Short.GetHashCode();
+                }
                 if (this.Long != null)
-                    hashCode = hashCode * 59 + this.Long.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Long.GetHashCode();
+                }
                 return hashCode;
             }
         }

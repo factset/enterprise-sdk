@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContactEventUpdateDto model module.
  * @module model/ContactEventUpdateDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class ContactEventUpdateDto {
     /**
@@ -47,14 +47,14 @@ class ContactEventUpdateDto {
         if (data) {
             obj = obj || new ContactEventUpdateDto();
 
-            if (data.hasOwnProperty('fieldName')) {
-                obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
+            if (data.hasOwnProperty('FieldName')) {
+                obj['FieldName'] = ApiClient.convertToType(data['FieldName'], 'String');
             }
-            if (data.hasOwnProperty('oldValue')) {
-                obj['oldValue'] = ApiClient.convertToType(data['oldValue'], 'String');
+            if (data.hasOwnProperty('OldValue')) {
+                obj['OldValue'] = ApiClient.convertToType(data['OldValue'], 'String');
             }
-            if (data.hasOwnProperty('newValue')) {
-                obj['newValue'] = ApiClient.convertToType(data['newValue'], 'String');
+            if (data.hasOwnProperty('NewValue')) {
+                obj['NewValue'] = ApiClient.convertToType(data['NewValue'], 'String');
             }
         }
         return obj;
@@ -64,19 +64,19 @@ class ContactEventUpdateDto {
 }
 
 /**
- * @member {String} fieldName
+ * @member {String} FieldName
  */
-ContactEventUpdateDto.prototype['fieldName'] = undefined;
+ContactEventUpdateDto.prototype['FieldName'] = undefined;
 
 /**
- * @member {String} oldValue
+ * @member {String} OldValue
  */
-ContactEventUpdateDto.prototype['oldValue'] = undefined;
+ContactEventUpdateDto.prototype['OldValue'] = undefined;
 
 /**
- * @member {String} newValue
+ * @member {String} NewValue
  */
-ContactEventUpdateDto.prototype['newValue'] = undefined;
+ContactEventUpdateDto.prototype['NewValue'] = undefined;
 
 
 

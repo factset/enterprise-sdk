@@ -50,6 +50,7 @@ const ids = ["30231GBJ","88579EAA"]; // [String] | List of Fixed Income Security
 // Call api endpoint
 apiInstance.getCouponHistory(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const termsAndConditionsScalarRequest = new factsettermsandconditions.TermsAndCo
 // Call api endpoint
 apiInstance.getCouponHistoryForList(termsAndConditionsScalarRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -192,6 +194,7 @@ const ids = ["30231GBJ","88579EAA"]; // [String] | List of Fixed Income Security
 // Call api endpoint
 apiInstance.getCouponSchedules(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -263,6 +266,7 @@ const termsAndConditionsScalarRequest = new factsettermsandconditions.TermsAndCo
 // Call api endpoint
 apiInstance.getCouponSchedulesForList(termsAndConditionsScalarRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

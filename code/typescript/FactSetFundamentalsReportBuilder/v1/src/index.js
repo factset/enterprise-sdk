@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Category from './model/Category';
 import CategoryCategory from './model/CategoryCategory';
@@ -37,6 +36,7 @@ import Scale from './model/Scale';
 import ScaleScale from './model/ScaleScale';
 import ValueType from './model/ValueType';
 import ValueTypeValueType from './model/ValueTypeValueType';
+
 import FinancialsApi from './api/FinancialsApi';
 
 
@@ -69,7 +69,7 @@ import FinancialsApi from './api/FinancialsApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -226,5 +226,6 @@ export {
     * The FinancialsApi service constructor.
     * @property {module:api/FinancialsApi}
     */
-    FinancialsApi
+    FinancialsApi,
+
 };

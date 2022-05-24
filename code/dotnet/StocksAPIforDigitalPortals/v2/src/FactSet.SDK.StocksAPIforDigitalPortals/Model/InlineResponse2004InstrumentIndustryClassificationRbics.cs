@@ -92,7 +92,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2004InstrumentIndustryClassificationRbics {\n");
             sb.Append("  Level1: ").Append(Level1).Append("\n");
             sb.Append("  Level2: ").Append(Level2).Append("\n");
@@ -131,8 +131,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2004InstrumentIndustryClassificationRbics input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Level1 == input.Level1 ||
@@ -176,17 +177,29 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Level1 != null)
-                    hashCode = hashCode * 59 + this.Level1.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level1.GetHashCode();
+                }
                 if (this.Level2 != null)
-                    hashCode = hashCode * 59 + this.Level2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level2.GetHashCode();
+                }
                 if (this.Level3 != null)
-                    hashCode = hashCode * 59 + this.Level3.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level3.GetHashCode();
+                }
                 if (this.Level4 != null)
-                    hashCode = hashCode * 59 + this.Level4.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level4.GetHashCode();
+                }
                 if (this.Level5 != null)
-                    hashCode = hashCode * 59 + this.Level5.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level5.GetHashCode();
+                }
                 if (this.Level6 != null)
-                    hashCode = hashCode * 59 + this.Level6.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Level6.GetHashCode();
+                }
                 return hashCode;
             }
         }

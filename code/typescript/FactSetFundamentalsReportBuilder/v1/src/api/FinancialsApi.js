@@ -19,7 +19,7 @@ import Response from '../model/Response';
 /**
 * Financials service.
 * @module api/FinancialsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class FinancialsApi {
 
@@ -72,7 +72,10 @@ export default class FinancialsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/balance-sheet', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -89,7 +92,7 @@ export default class FinancialsApi {
      * @param {module:model/String} opts.schema The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (default to 'table_parent_child_columns')
      * @param {module:model/String} opts.reportStatus Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (default to 'RESTATED')
      * @param {String} opts.currency Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (default to 'LOCAL')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     getFinancialsBalanceSheet(id, opts) {
       return this.getFinancialsBalanceSheetWithHttpInfo(id, opts)
@@ -135,7 +138,10 @@ export default class FinancialsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/cash-flow', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -152,7 +158,7 @@ export default class FinancialsApi {
      * @param {module:model/String} opts.schema The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (default to 'table_parent_child_columns')
      * @param {module:model/String} opts.reportStatus Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (default to 'RESTATED')
      * @param {String} opts.currency Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (default to 'LOCAL')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     getFinancialsCashFlow(id, opts) {
       return this.getFinancialsCashFlowWithHttpInfo(id, opts)
@@ -198,7 +204,10 @@ export default class FinancialsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/income-statement', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -215,7 +224,7 @@ export default class FinancialsApi {
      * @param {module:model/String} opts.schema The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (default to 'table_parent_child_columns')
      * @param {module:model/String} opts.reportStatus Return historical periods as originally reported or retroactively restated (for M&A, accounting changes, and other events). The following are descriptions for the accepted values: - RESTATED - retroactively restated data. - NON-RESTATED - originally reported data.   (default to 'RESTATED')
      * @param {String} opts.currency Currency code for currency values. \"LOCAL\" will return the security's pricing currency. \"RPT\" will return the company's reporting currency (which may differ from \"LOCAL\" for some companies). For a list of other currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (default to 'LOCAL')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     getFinancialsIncomeStatement(id, opts) {
       return this.getFinancialsIncomeStatementWithHttpInfo(id, opts)
@@ -226,3 +235,8 @@ export default class FinancialsApi {
 
 
 }
+
+
+
+
+

@@ -44,6 +44,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlowCurr
   public static final String JSON_PROPERTY_ID = "id";
   private BigDecimal id;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlowCurrency() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataCashFlowCurrency id(BigDecimal id) {
     this.id = id;

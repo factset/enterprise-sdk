@@ -51,6 +51,8 @@ public class InlineResponse2004DataIssueVolumeCurrency implements Serializable {
   public static final String JSON_PROPERTY_COUNT = "count";
   private BigDecimal count;
 
+  public InlineResponse2004DataIssueVolumeCurrency() { 
+  }
 
   public InlineResponse2004DataIssueVolumeCurrency id(BigDecimal id) {
     this.id = id;

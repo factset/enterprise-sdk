@@ -36,7 +36,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// </summary>
         /// <param name="minimum">minimum.</param>
         /// <param name="maximum">maximum.</param>
-        public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6(SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum minimum = default(SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum), SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum maximum = default(SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum))
+        public SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6(SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum minimum = default(SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum), SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum maximum = default(SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum))
         {
             this.Minimum = minimum;
             this.Maximum = maximum;
@@ -46,13 +46,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// Gets or Sets Minimum
         /// </summary>
         [DataMember(Name = "minimum", EmitDefaultValue = false)]
-        public SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMinimum Minimum { get; set; }
+        public SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMinimum Minimum { get; set; }
 
         /// <summary>
         /// Gets or Sets Maximum
         /// </summary>
         [DataMember(Name = "maximum", EmitDefaultValue = false)]
-        public SecuritizedDerivativeNotationScreenerValueRangesGetDataCapitalProtectionMaximum Maximum { get; set; }
+        public SecuritizedDerivativeNotationRankingIntradayListDataPerformanceRelativeMaximum Maximum { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6 {\n");
             sb.Append("  Minimum: ").Append(Minimum).Append("\n");
             sb.Append("  Maximum: ").Append(Maximum).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataPerformanceEndOfDayMonths6 input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Minimum == input.Minimum ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Minimum != null)
-                    hashCode = hashCode * 59 + this.Minimum.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Minimum.GetHashCode();
+                }
                 if (this.Maximum != null)
-                    hashCode = hashCode * 59 + this.Maximum.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Maximum.GetHashCode();
+                }
                 return hashCode;
             }
         }

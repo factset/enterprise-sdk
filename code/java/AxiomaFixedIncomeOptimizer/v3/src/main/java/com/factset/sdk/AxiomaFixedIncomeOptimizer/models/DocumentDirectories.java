@@ -46,6 +46,8 @@ public class DocumentDirectories implements Serializable {
   public static final String JSON_PROPERTY_DIRECTORIES = "directories";
   private java.util.List<String> directories = null;
 
+  public DocumentDirectories() { 
+  }
 
   public DocumentDirectories documents(java.util.List<String> documents) {
     this.documents = documents;

@@ -18,7 +18,7 @@ import VendorChartIQTimeSeriesIntradaySubsampleListData from './VendorChartIQTim
 /**
  * The InlineObject8 model module.
  * @module model/InlineObject8
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineObject8 {
     /**

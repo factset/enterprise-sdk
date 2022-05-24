@@ -51,6 +51,8 @@ public class LeadUnderwriter implements Serializable {
   public static final String JSON_PROPERTY_FACTSET_LEAD_UWRITR_ENTITY_ID = "factsetLeadUwritrEntityId";
   private String factsetLeadUwritrEntityId;
 
+  public LeadUnderwriter() { 
+  }
 
   public LeadUnderwriter requestId(String requestId) {
     this.requestId = requestId;

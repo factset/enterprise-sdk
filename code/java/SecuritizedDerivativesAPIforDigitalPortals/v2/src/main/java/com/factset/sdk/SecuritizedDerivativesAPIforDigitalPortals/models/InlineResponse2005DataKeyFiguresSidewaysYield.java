@@ -54,6 +54,8 @@ public class InlineResponse2005DataKeyFiguresSidewaysYield implements Serializab
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private InlineResponse2005DataKeyFiguresSidewaysYieldAnnualized annualized;
 
+  public InlineResponse2005DataKeyFiguresSidewaysYield() { 
+  }
 
   public InlineResponse2005DataKeyFiguresSidewaysYield absolute(InlineResponse2005DataKeyFiguresSidewaysYieldAbsolute absolute) {
     this.absolute = absolute;

@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2004InstrumentFsym from './InlineResponse2004InstrumentFsym';
 
 /**
  * The InlineResponse2007DataNotationInstrument model module.
  * @module model/InlineResponse2007DataNotationInstrument
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2007DataNotationInstrument {
     /**
@@ -51,6 +52,9 @@ class InlineResponse2007DataNotationInstrument {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2004InstrumentFsym.constructFromObject(data['fsym']);
+            }
             if (data.hasOwnProperty('typeComposite')) {
                 obj['typeComposite'] = ApiClient.convertToType(data['typeComposite'], 'String');
             }
@@ -66,6 +70,11 @@ class InlineResponse2007DataNotationInstrument {
  * @member {String} id
  */
 InlineResponse2007DataNotationInstrument.prototype['id'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2004InstrumentFsym} fsym
+ */
+InlineResponse2007DataNotationInstrument.prototype['fsym'] = undefined;
 
 /**
  * Type of composite instrument, in case the underlying is a composite instrument.

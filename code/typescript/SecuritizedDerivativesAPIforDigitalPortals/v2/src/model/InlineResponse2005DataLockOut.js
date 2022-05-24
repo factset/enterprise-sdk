@@ -20,7 +20,7 @@ import InlineResponse2005DataLockOutValue from './InlineResponse2005DataLockOutV
 /**
  * The InlineResponse2005DataLockOut model module.
  * @module model/InlineResponse2005DataLockOut
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005DataLockOut {
     /**

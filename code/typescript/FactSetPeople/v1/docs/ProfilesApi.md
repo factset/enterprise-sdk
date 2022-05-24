@@ -48,6 +48,7 @@ const ids = ["0DPHLH-E","07MZV9-E"]; // [String] | List of FactSet Person Entity
 // Call api endpoint
 apiInstance.getPeopleProfiles(ids).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -117,6 +118,7 @@ const peopleProfilesRequest = new factsetpeople.PeopleProfilesRequest(); // Peop
 // Call api endpoint
 apiInstance.getPeopleProfilesForList(peopleProfilesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

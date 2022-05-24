@@ -48,6 +48,8 @@ public class InlineResponse2007DataBarrierType implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse2007DataBarrierType() { 
+  }
 
   public InlineResponse2007DataBarrierType id(BigDecimal id) {
     this.id = id;

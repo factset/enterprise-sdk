@@ -77,7 +77,6 @@ Name | Type | Description  | Notes
  **bloombergTranslationRequest** | [**BloombergTranslationRequest**](BloombergTranslationRequest.md)| Request Body for Bloomberg FIGIs. | 
 
 ### Return type
-
 [**BloombergTranslationResponse**](BloombergTranslationResponse.md)
 
 ### Authorization
@@ -171,7 +170,6 @@ Name | Type | Description  | Notes
  **ids** | [**List&lt;string&gt;**](string.md)| Requested market securities or entities. Accepted identifiers include all FactSet Permanent Identifiers types, CUSIP, SEDOL, ISIN, and Tickers. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  3000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* | 
 
 ### Return type
-
 [**BloombergTranslationResponse**](BloombergTranslationResponse.md)
 
 ### Authorization

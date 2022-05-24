@@ -43,6 +43,16 @@ public class AdaptiveCardAnswerSuccessResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<AdaptiveCardDataItem> data = new java.util.ArrayList<>();
 
+  public AdaptiveCardAnswerSuccessResponse() { 
+  }
+
+  @JsonCreator
+  public AdaptiveCardAnswerSuccessResponse(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) java.util.List<AdaptiveCardDataItem> data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public AdaptiveCardAnswerSuccessResponse data(java.util.List<AdaptiveCardDataItem> data) {
     this.data = data;

@@ -50,7 +50,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void DeleteMeeting(Guid meetingId);
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
-        /// <returns>List&lt;MeetingSummaryDto&gt;</returns>
+        /// <returns>List<MeetingSummaryDto></returns>
         List<MeetingSummaryDto> GetMeetings(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?));
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
-        /// <returns>ApiResponse of List&lt;MeetingSummaryDto&gt;</returns>
+        /// <returns>ApiResponse of List<MeetingSummaryDto></returns>
         ApiResponse<List<MeetingSummaryDto>> GetMeetingsWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?));
         /// <summary>
         /// Update meeting
@@ -115,7 +115,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="updateMeetingDto">Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         void UpdateMeeting(Guid meetingId, UpdateMeetingDto updateMeetingDto = default(UpdateMeetingDto));
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;MeetingSummaryDto&gt;)</returns>
+        /// <returns>Task of ApiResponse (List<MeetingSummaryDto>)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<MeetingSummaryDto>>> GetMeetingsWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update meeting
@@ -282,6 +282,38 @@ namespace FactSet.SDK.IRNMeetings.Api
     public partial class MeetingsApi : IMeetingsApi
     {
         private FactSet.SDK.IRNMeetings.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+
+        # region Response Type Disctionaries
+                private static readonly Dictionary<HttpStatusCode, System.Type> CreateMeetingResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)201, typeof(NewItemDto) },
+            { (HttpStatusCode)400, typeof(ProblemDetails) },
+            { (HttpStatusCode)0, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteMeetingResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetMeetingResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(MeetingDto) },
+            { (HttpStatusCode)404, typeof(ProblemDetails) },
+            { (HttpStatusCode)0, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> GetMeetingsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+            { (HttpStatusCode)200, typeof(List<MeetingSummaryDto>) },
+            { (HttpStatusCode)400, typeof(ProblemDetails) },
+        };
+        private static readonly Dictionary<HttpStatusCode, System.Type> UpdateMeetingResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
+        };
+
+        # endregion Response Type Disctionaries
+
+        # region Api Response Objects
+         
+
+        # endregion Api Response Objects
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MeetingsApi"/> class.
@@ -393,7 +425,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <returns>NewItemDto</returns>
         public NewItemDto CreateMeeting(CreateMeetingDto createMeetingDto = default(CreateMeetingDto))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto> localVarResponse = CreateMeetingWithHttpInfo(createMeetingDto);
+            var localVarResponse = CreateMeetingWithHttpInfo(createMeetingDto);
             return localVarResponse.Data;
         }
 
@@ -403,7 +435,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createMeetingDto">Note: The organizer property is deprecated in favor of organizerId (optional)</param>
         /// <returns>ApiResponse of NewItemDto</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto> CreateMeetingWithHttpInfo(CreateMeetingDto createMeetingDto = default(CreateMeetingDto))
+        public ApiResponse<NewItemDto> CreateMeetingWithHttpInfo(CreateMeetingDto createMeetingDto = default(CreateMeetingDto))
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -420,22 +452,28 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = createMeetingDto;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -447,15 +485,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<NewItemDto>("/v1/meetings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = CreateMeetingResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<
+            NewItemDto>("/v1/meetings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -466,9 +508,9 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="createMeetingDto">Note: The organizer property is deprecated in favor of organizerId (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of NewItemDto</returns>
-        public async System.Threading.Tasks.Task<NewItemDto> CreateMeetingAsync(CreateMeetingDto createMeetingDto = default(CreateMeetingDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<NewItemDto>CreateMeetingAsync(CreateMeetingDto createMeetingDto = default(CreateMeetingDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto> localVarResponse = await CreateMeetingWithHttpInfoAsync(createMeetingDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await CreateMeetingWithHttpInfoAsync(createMeetingDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -479,7 +521,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="createMeetingDto">Note: The organizer property is deprecated in favor of organizerId (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (NewItemDto)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<NewItemDto>> CreateMeetingWithHttpInfoAsync(CreateMeetingDto createMeetingDto = default(CreateMeetingDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<NewItemDto>> CreateMeetingWithHttpInfoAsync(CreateMeetingDto createMeetingDto = default(CreateMeetingDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -496,24 +539,29 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.Data = createMeetingDto;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -525,14 +573,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = CreateMeetingResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PostAsync<NewItemDto>("/v1/meetings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -543,7 +595,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void DeleteMeeting(Guid meetingId)
         {
             DeleteMeetingWithHttpInfo(meetingId);
@@ -555,7 +607,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<Object> DeleteMeetingWithHttpInfo(Guid meetingId)
+        public ApiResponse<Object> DeleteMeetingWithHttpInfo(Guid meetingId)
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -568,22 +620,28 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -595,15 +653,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = DeleteMeetingResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -626,7 +688,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<Object>> DeleteMeetingWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteMeetingWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -639,24 +702,29 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -668,14 +736,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = DeleteMeetingResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -689,7 +761,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <returns>MeetingDto</returns>
         public MeetingDto GetMeeting(Guid meetingId)
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingDto> localVarResponse = GetMeetingWithHttpInfo(meetingId);
+            var localVarResponse = GetMeetingWithHttpInfo(meetingId);
             return localVarResponse.Data;
         }
 
@@ -699,7 +771,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <returns>ApiResponse of MeetingDto</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingDto> GetMeetingWithHttpInfo(Guid meetingId)
+        public ApiResponse<MeetingDto> GetMeetingWithHttpInfo(Guid meetingId)
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -712,22 +784,28 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -739,15 +817,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<MeetingDto>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetMeetingResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            MeetingDto>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -758,9 +840,9 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of MeetingDto</returns>
-        public async System.Threading.Tasks.Task<MeetingDto> GetMeetingAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MeetingDto>GetMeetingAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingDto> localVarResponse = await GetMeetingWithHttpInfoAsync(meetingId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetMeetingWithHttpInfoAsync(meetingId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -771,7 +853,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (MeetingDto)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<MeetingDto>> GetMeetingWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<MeetingDto>> GetMeetingWithHttpInfoAsync(Guid meetingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -784,24 +867,29 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -813,14 +901,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetMeetingResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<MeetingDto>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -836,10 +928,10 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="limit">Limit on the number of meetings retrieved (optional)</param>
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
-        /// <returns>List&lt;MeetingSummaryDto&gt;</returns>
+        /// <returns>List<MeetingSummaryDto></returns>
         public List<MeetingSummaryDto> GetMeetings(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<List<MeetingSummaryDto>> localVarResponse = GetMeetingsWithHttpInfo(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted);
+            var localVarResponse = GetMeetingsWithHttpInfo(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted);
             return localVarResponse.Data;
         }
 
@@ -854,7 +946,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="modifiedSince">Only return meetings which have been modified or created since a particular time (optional)</param>
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;MeetingSummaryDto&gt;</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<List<MeetingSummaryDto>> GetMeetingsWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?))
+        public ApiResponse<List<MeetingSummaryDto>> GetMeetingsWithHttpInfo(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?))
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -867,10 +959,16 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (start != null)
             {
@@ -899,13 +997,13 @@ namespace FactSet.SDK.IRNMeetings.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -917,15 +1015,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<MeetingSummaryDto>>("/v1/meetings", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = GetMeetingsResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<
+            List<MeetingSummaryDto>>("/v1/meetings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMeetings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -941,9 +1043,9 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;MeetingSummaryDto&gt;</returns>
-        public async System.Threading.Tasks.Task<List<MeetingSummaryDto>> GetMeetingsAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<MeetingSummaryDto>>GetMeetingsAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.SDK.IRNMeetings.Client.ApiResponse<List<MeetingSummaryDto>> localVarResponse = await GetMeetingsWithHttpInfoAsync(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetMeetingsWithHttpInfoAsync(start, end, identifiers, limit, modifiedSince, xIRNIncludeDeleted, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -959,7 +1061,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="xIRNIncludeDeleted">Includes deleted meetings in results when set to true (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;MeetingSummaryDto&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<List<MeetingSummaryDto>>> GetMeetingsWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<List<MeetingSummaryDto>>> GetMeetingsWithHttpInfoAsync(string start = default(string), string end = default(string), List<string> identifiers = default(List<string>), int? limit = default(int?), string modifiedSince = default(string), bool? xIRNIncludeDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -972,12 +1075,17 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             if (start != null)
             {
@@ -1006,13 +1114,13 @@ namespace FactSet.SDK.IRNMeetings.Api
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1024,14 +1132,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = GetMeetingsResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<List<MeetingSummaryDto>>("/v1/meetings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetMeetings", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;
@@ -1043,7 +1155,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <exception cref="FactSet.SDK.IRNMeetings.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="updateMeetingDto">Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)</param>
-        /// <returns></returns>
+        /// <returns>void</returns>
         public void UpdateMeeting(Guid meetingId, UpdateMeetingDto updateMeetingDto = default(UpdateMeetingDto))
         {
             UpdateMeetingWithHttpInfo(meetingId, updateMeetingDto);
@@ -1056,7 +1168,7 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="meetingId">Meeting Id</param>
         /// <param name="updateMeetingDto">Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.SDK.IRNMeetings.Client.ApiResponse<Object> UpdateMeetingWithHttpInfo(Guid meetingId, UpdateMeetingDto updateMeetingDto = default(UpdateMeetingDto))
+        public ApiResponse<Object> UpdateMeetingWithHttpInfo(Guid meetingId, UpdateMeetingDto updateMeetingDto = default(UpdateMeetingDto))
         {
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
 
@@ -1073,23 +1185,29 @@ namespace FactSet.SDK.IRNMeetings.Api
             };
 
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.Data = updateMeetingDto;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1101,15 +1219,19 @@ namespace FactSet.SDK.IRNMeetings.Api
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
             }
 
-            // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration);
+            localVarRequestOptions.ResponseTypeDictionary = UpdateMeetingResponseTypeDictionary;
 
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<
+            Object>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
-
             return localVarResponse;
         }
 
@@ -1134,7 +1256,8 @@ namespace FactSet.SDK.IRNMeetings.Api
         /// <param name="updateMeetingDto">Meeting details to update. Note: The organizer property is deprecated in favor of organizerId (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.SDK.IRNMeetings.Client.ApiResponse<Object>> UpdateMeetingWithHttpInfoAsync(Guid meetingId, UpdateMeetingDto updateMeetingDto = default(UpdateMeetingDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMeetingWithHttpInfoAsync(Guid meetingId, UpdateMeetingDto updateMeetingDto = default(UpdateMeetingDto), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.SDK.IRNMeetings.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.IRNMeetings.Client.RequestOptions();
@@ -1151,25 +1274,30 @@ namespace FactSet.SDK.IRNMeetings.Api
                 "application/json"
             };
 
-
             var localVarContentType = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
 
             var localVarAccept = FactSet.SDK.IRNMeetings.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
 
             localVarRequestOptions.PathParameters.Add("meetingId", FactSet.SDK.IRNMeetings.Client.ClientUtils.ParameterToString(meetingId)); // path parameter
             localVarRequestOptions.Data = updateMeetingDto;
 
             // authentication (FactSetApiKey) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.IRNMeetings.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
             // authentication (FactSetOAuth2) required
             // oauth required
-            if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
@@ -1181,14 +1309,18 @@ namespace FactSet.SDK.IRNMeetings.Api
             }
 
 
-            // make the HTTP request
+            localVarRequestOptions.ResponseTypeDictionary = UpdateMeetingResponseTypeDictionary;
 
+            // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/v1/meetings/{meetingId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateMeeting", localVarResponse);
-                if (_exception != null) throw _exception;
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
             }
 
             return localVarResponse;

@@ -46,6 +46,8 @@ public class ReturnType implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public ReturnType() { 
+  }
 
   public ReturnType name(String name) {
     this.name = name;

@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.FactSetQuantFactorLibrary.JSON;
@@ -55,6 +55,20 @@ public class Factors implements Serializable {
   public static final String JSON_PROPERTY_DATE = "date";
   private LocalDate date;
 
+  public Factors() { 
+  }
+
+  @JsonCreator
+  public Factors(
+    @JsonProperty(value=JSON_PROPERTY_REQUEST_ID, required=true) String requestId, 
+    @JsonProperty(value=JSON_PROPERTY_FSYM_ID, required=true) String fsymId, 
+    @JsonProperty(value=JSON_PROPERTY_DATE, required=true) LocalDate date
+  ) {
+    this();
+    this.requestId = requestId;
+    this.fsymId = fsymId;
+    this.date = date;
+  }
 
   public Factors requestId(String requestId) {
     this.requestId = requestId;

@@ -48,6 +48,8 @@ public class InlineResponse2003DataNotation implements Serializable {
   public static final String JSON_PROPERTY_INSTRUMENT = "instrument";
   private InlineResponse2003DataNotationInstrument instrument;
 
+  public InlineResponse2003DataNotation() { 
+  }
 
   public InlineResponse2003DataNotation id(String id) {
     this.id = id;

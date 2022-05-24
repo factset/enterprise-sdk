@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyingInstrument model module.
  * @module model/SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyingInstrument
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeIssuerSearchDataFactorCertificatesEffectiveUnderlyingInstrument {
     /**

@@ -43,6 +43,8 @@ import com.factset.sdk.IRNNotes.JSON;
 @JsonPropertyOrder({
   UpdateNoteDto.JSON_PROPERTY_AUTHOR,
   UpdateNoteDto.JSON_PROPERTY_TITLE,
+  UpdateNoteDto.JSON_PROPERTY_SUBJECT_ID,
+  UpdateNoteDto.JSON_PROPERTY_NOTE_DATE,
   UpdateNoteDto.JSON_PROPERTY_RECOMMENDATION_ID,
   UpdateNoteDto.JSON_PROPERTY_SENTIMENT_ID,
   UpdateNoteDto.JSON_PROPERTY_BODY,
@@ -52,48 +54,60 @@ import com.factset.sdk.IRNNotes.JSON;
   UpdateNoteDto.JSON_PROPERTY_RELATED_CONTACTS,
   UpdateNoteDto.JSON_PROPERTY_RELATED_RECORDS,
   UpdateNoteDto.JSON_PROPERTY_CUSTOM_FIELD_VALUES,
-  UpdateNoteDto.JSON_PROPERTY_IS_PERSONAL
+  UpdateNoteDto.JSON_PROPERTY_IS_PERSONAL,
+  UpdateNoteDto.JSON_PROPERTY_IDENTIFIER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateNoteDto implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_AUTHOR = "author";
+  public static final String JSON_PROPERTY_AUTHOR = "Author";
   private UserSerialDto author;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
+  public static final String JSON_PROPERTY_TITLE = "Title";
   private JsonNullable<String> title = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "recommendationId";
+  public static final String JSON_PROPERTY_SUBJECT_ID = "SubjectId";
+  private java.util.UUID subjectId;
+
+  public static final String JSON_PROPERTY_NOTE_DATE = "NoteDate";
+  private JsonNullable<String> noteDate = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_RECOMMENDATION_ID = "RecommendationId";
   private JsonNullable<java.util.UUID> recommendationId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_SENTIMENT_ID = "sentimentId";
+  public static final String JSON_PROPERTY_SENTIMENT_ID = "SentimentId";
   private JsonNullable<java.util.UUID> sentimentId = JsonNullable.<java.util.UUID>undefined();
 
-  public static final String JSON_PROPERTY_BODY = "body";
+  public static final String JSON_PROPERTY_BODY = "Body";
   private CreateBodyDto body;
 
-  public static final String JSON_PROPERTY_SOURCE = "source";
+  public static final String JSON_PROPERTY_SOURCE = "Source";
   private JsonNullable<String> source = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_LINK = "link";
+  public static final String JSON_PROPERTY_LINK = "Link";
   private JsonNullable<String> link = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "relatedSymbols";
+  public static final String JSON_PROPERTY_RELATED_SYMBOLS = "RelatedSymbols";
   private JsonNullable<java.util.List<String>> relatedSymbols = JsonNullable.<java.util.List<String>>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_CONTACTS = "relatedContacts";
+  public static final String JSON_PROPERTY_RELATED_CONTACTS = "RelatedContacts";
   private JsonNullable<java.util.List<java.util.UUID>> relatedContacts = JsonNullable.<java.util.List<java.util.UUID>>undefined();
 
-  public static final String JSON_PROPERTY_RELATED_RECORDS = "relatedRecords";
+  public static final String JSON_PROPERTY_RELATED_RECORDS = "RelatedRecords";
   private RelatedRecordsDto relatedRecords;
 
-  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "customFieldValues";
+  public static final String JSON_PROPERTY_CUSTOM_FIELD_VALUES = "CustomFieldValues";
   private JsonNullable<java.util.List<CreateCustomFieldValueDto>> customFieldValues = JsonNullable.<java.util.List<CreateCustomFieldValueDto>>undefined();
 
-  public static final String JSON_PROPERTY_IS_PERSONAL = "isPersonal";
+  public static final String JSON_PROPERTY_IS_PERSONAL = "IsPersonal";
   private JsonNullable<Boolean> isPersonal = JsonNullable.<Boolean>undefined();
 
+  public static final String JSON_PROPERTY_IDENTIFIER = "Identifier";
+  private JsonNullable<String> identifier = JsonNullable.<String>undefined();
+
+  public UpdateNoteDto() { 
+  }
 
   public UpdateNoteDto author(UserSerialDto author) {
     this.author = author;
@@ -152,6 +166,66 @@ public class UpdateNoteDto implements Serializable {
 
   public void setTitle(String title) {
     this.title = JsonNullable.<String>of(title);
+  }
+
+
+  public UpdateNoteDto subjectId(java.util.UUID subjectId) {
+    this.subjectId = subjectId;
+    return this;
+  }
+
+   /**
+   * Get subjectId
+   * @return subjectId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SUBJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.UUID getSubjectId() {
+    return subjectId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUBJECT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubjectId(java.util.UUID subjectId) {
+    this.subjectId = subjectId;
+  }
+
+
+  public UpdateNoteDto noteDate(String noteDate) {
+    this.noteDate = JsonNullable.<String>of(noteDate);
+    return this;
+  }
+
+   /**
+   * Get noteDate
+   * @return noteDate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getNoteDate() {
+        return noteDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NOTE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getNoteDate_JsonNullable() {
+    return noteDate;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NOTE_DATE)
+  public void setNoteDate_JsonNullable(JsonNullable<String> noteDate) {
+    this.noteDate = noteDate;
+  }
+
+  public void setNoteDate(String noteDate) {
+    this.noteDate = JsonNullable.<String>of(noteDate);
   }
 
 
@@ -515,6 +589,40 @@ public class UpdateNoteDto implements Serializable {
   }
 
 
+  public UpdateNoteDto identifier(String identifier) {
+    this.identifier = JsonNullable.<String>of(identifier);
+    return this;
+  }
+
+   /**
+   * Get identifier
+   * @return identifier
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public String getIdentifier() {
+        return identifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIdentifier_JsonNullable() {
+    return identifier;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IDENTIFIER)
+  public void setIdentifier_JsonNullable(JsonNullable<String> identifier) {
+    this.identifier = identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = JsonNullable.<String>of(identifier);
+  }
+
+
   /**
    * Return true if this UpdateNoteDto object is equal to o.
    */
@@ -529,6 +637,8 @@ public class UpdateNoteDto implements Serializable {
     UpdateNoteDto updateNoteDto = (UpdateNoteDto) o;
     return Objects.equals(this.author, updateNoteDto.author) &&
         equalsNullable(this.title, updateNoteDto.title) &&
+        Objects.equals(this.subjectId, updateNoteDto.subjectId) &&
+        equalsNullable(this.noteDate, updateNoteDto.noteDate) &&
         equalsNullable(this.recommendationId, updateNoteDto.recommendationId) &&
         equalsNullable(this.sentimentId, updateNoteDto.sentimentId) &&
         Objects.equals(this.body, updateNoteDto.body) &&
@@ -538,7 +648,8 @@ public class UpdateNoteDto implements Serializable {
         equalsNullable(this.relatedContacts, updateNoteDto.relatedContacts) &&
         Objects.equals(this.relatedRecords, updateNoteDto.relatedRecords) &&
         equalsNullable(this.customFieldValues, updateNoteDto.customFieldValues) &&
-        equalsNullable(this.isPersonal, updateNoteDto.isPersonal);
+        equalsNullable(this.isPersonal, updateNoteDto.isPersonal) &&
+        equalsNullable(this.identifier, updateNoteDto.identifier);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -547,7 +658,7 @@ public class UpdateNoteDto implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, hashCodeNullable(title), hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), body, hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(relatedSymbols), hashCodeNullable(relatedContacts), relatedRecords, hashCodeNullable(customFieldValues), hashCodeNullable(isPersonal));
+    return Objects.hash(author, hashCodeNullable(title), subjectId, hashCodeNullable(noteDate), hashCodeNullable(recommendationId), hashCodeNullable(sentimentId), body, hashCodeNullable(source), hashCodeNullable(link), hashCodeNullable(relatedSymbols), hashCodeNullable(relatedContacts), relatedRecords, hashCodeNullable(customFieldValues), hashCodeNullable(isPersonal), hashCodeNullable(identifier));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -563,6 +674,8 @@ public class UpdateNoteDto implements Serializable {
     sb.append("class UpdateNoteDto {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
+    sb.append("    noteDate: ").append(toIndentedString(noteDate)).append("\n");
     sb.append("    recommendationId: ").append(toIndentedString(recommendationId)).append("\n");
     sb.append("    sentimentId: ").append(toIndentedString(sentimentId)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
@@ -573,6 +686,7 @@ public class UpdateNoteDto implements Serializable {
     sb.append("    relatedRecords: ").append(toIndentedString(relatedRecords)).append("\n");
     sb.append("    customFieldValues: ").append(toIndentedString(customFieldValues)).append("\n");
     sb.append("    isPersonal: ").append(toIndentedString(isPersonal)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

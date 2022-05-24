@@ -44,6 +44,8 @@ public class NotationSearchByTextDataMarket implements Serializable {
   public static final String JSON_PROPERTY_ORDER = "order";
   private NotationSearchByTextDataMarketOrder order;
 
+  public NotationSearchByTextDataMarket() { 
+  }
 
   public NotationSearchByTextDataMarket order(NotationSearchByTextDataMarketOrder order) {
     this.order = order;

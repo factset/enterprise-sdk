@@ -30,373 +30,74 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * Structure.
+ * InlineResponse20020Data
  */
-@ApiModel(description = "Structure.")
 @JsonPropertyOrder({
-  InlineResponse20020Data.JSON_PROPERTY_IS_ETN,
-  InlineResponse20020Data.JSON_PROPERTY_TYPE,
-  InlineResponse20020Data.JSON_PROPERTY_IS_ACTIVELY_MANAGED,
-  InlineResponse20020Data.JSON_PROPERTY_BACKING,
-  InlineResponse20020Data.JSON_PROPERTY_SYNTHETIC_TYPE,
-  InlineResponse20020Data.JSON_PROPERTY_LEGAL_STRUCTURE,
-  InlineResponse20020Data.JSON_PROPERTY_IS_UCITS_COMPLIANT,
-  InlineResponse20020Data.JSON_PROPERTY_IS_HOLDINGS_TRANSPARENT,
-  InlineResponse20020Data.JSON_PROPERTY_PORTFOLIO_DISCLOSURE,
-  InlineResponse20020Data.JSON_PROPERTY_CASH_FLOW_FREQUENCY,
-  InlineResponse20020Data.JSON_PROPERTY_IS_ELIGIBLE_FOR_REGISTERED_ACCOUNTS,
-  InlineResponse20020Data.JSON_PROPERTY_IS_DRIP_ELIGIBLE
+  InlineResponse20020Data.JSON_PROPERTY_SYMBOL,
+  InlineResponse20020Data.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20020Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_IS_ETN = "isEtn";
-  private Boolean isEtn;
+  public static final String JSON_PROPERTY_SYMBOL = "symbol";
+  private String symbol;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_IS_ACTIVELY_MANAGED = "isActivelyManaged";
-  private Boolean isActivelyManaged;
+  public InlineResponse20020Data() { 
+  }
 
-  public static final String JSON_PROPERTY_BACKING = "backing";
-  private String backing;
-
-  public static final String JSON_PROPERTY_SYNTHETIC_TYPE = "syntheticType";
-  private String syntheticType;
-
-  public static final String JSON_PROPERTY_LEGAL_STRUCTURE = "legalStructure";
-  private String legalStructure;
-
-  public static final String JSON_PROPERTY_IS_UCITS_COMPLIANT = "isUcitsCompliant";
-  private Boolean isUcitsCompliant;
-
-  public static final String JSON_PROPERTY_IS_HOLDINGS_TRANSPARENT = "isHoldingsTransparent";
-  private Boolean isHoldingsTransparent;
-
-  public static final String JSON_PROPERTY_PORTFOLIO_DISCLOSURE = "portfolioDisclosure";
-  private String portfolioDisclosure;
-
-  public static final String JSON_PROPERTY_CASH_FLOW_FREQUENCY = "cashFlowFrequency";
-  private String cashFlowFrequency;
-
-  public static final String JSON_PROPERTY_IS_ELIGIBLE_FOR_REGISTERED_ACCOUNTS = "isEligibleForRegisteredAccounts";
-  private Boolean isEligibleForRegisteredAccounts;
-
-  public static final String JSON_PROPERTY_IS_DRIP_ELIGIBLE = "isDripEligible";
-  private Boolean isDripEligible;
-
-
-  public InlineResponse20020Data isEtn(Boolean isEtn) {
-    this.isEtn = isEtn;
+  public InlineResponse20020Data symbol(String symbol) {
+    this.symbol = symbol;
     return this;
   }
 
    /**
-   * Flags exchange-traded notes. This data is available for all the regions.
-   * @return isEtn
+   * Ticker-region as defined by FactSet.
+   * @return symbol
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Flags exchange-traded notes. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_IS_ETN)
+  @ApiModelProperty(value = "Ticker-region as defined by FactSet.")
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getIsEtn() {
-    return isEtn;
+  public String getSymbol() {
+    return symbol;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_IS_ETN)
+  @JsonProperty(JSON_PROPERTY_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsEtn(Boolean isEtn) {
-    this.isEtn = isEtn;
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
   }
 
 
-  public InlineResponse20020Data type(String type) {
-    this.type = type;
+  public InlineResponse20020Data name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions.
-   * @return type
+   * Name of the competitor.
+   * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes the legal structure of the ETP, text and standardized value available This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @ApiModelProperty(value = "Name of the competitor.")
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
-    return type;
+  public String getName() {
+    return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public InlineResponse20020Data isActivelyManaged(Boolean isActivelyManaged) {
-    this.isActivelyManaged = isActivelyManaged;
-    return this;
-  }
-
-   /**
-   * Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.
-   * @return isActivelyManaged
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Flags ETPs that are actively managed as per SEC guidelines. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVELY_MANAGED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsActivelyManaged() {
-    return isActivelyManaged;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_ACTIVELY_MANAGED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsActivelyManaged(Boolean isActivelyManaged) {
-    this.isActivelyManaged = isActivelyManaged;
-  }
-
-
-  public InlineResponse20020Data backing(String backing) {
-    this.backing = backing;
-    return this;
-  }
-
-   /**
-   * Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions.
-   * @return backing
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes whether the ETP holds underlying securities or uses derivatives to gain its desired exposure, text and standardized value available.  This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_BACKING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBacking() {
-    return backing;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BACKING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBacking(String backing) {
-    this.backing = backing;
-  }
-
-
-  public InlineResponse20020Data syntheticType(String syntheticType) {
-    this.syntheticType = syntheticType;
-    return this;
-  }
-
-   /**
-   * Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.
-   * @return syntheticType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates whether the synthetic ETP is “unfunded” (collateral or substitute basket of securities for the swap agreement is owned by ETP), or “funded” (collateral for swap agreement is held by a custodian in the name of the ETP or in the name of the counterparty, pledged to the ETP issuer), text and standardized value available. This data is available for Europe only.")
-  @JsonProperty(JSON_PROPERTY_SYNTHETIC_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSyntheticType() {
-    return syntheticType;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SYNTHETIC_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSyntheticType(String syntheticType) {
-    this.syntheticType = syntheticType;
-  }
-
-
-  public InlineResponse20020Data legalStructure(String legalStructure) {
-    this.legalStructure = legalStructure;
-    return this;
-  }
-
-   /**
-   * The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.
-   * @return legalStructure
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The organizational structure of the ETP, text and standardized value available. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_LEGAL_STRUCTURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getLegalStructure() {
-    return legalStructure;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LEGAL_STRUCTURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLegalStructure(String legalStructure) {
-    this.legalStructure = legalStructure;
-  }
-
-
-  public InlineResponse20020Data isUcitsCompliant(Boolean isUcitsCompliant) {
-    this.isUcitsCompliant = isUcitsCompliant;
-    return this;
-  }
-
-   /**
-   * The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.
-   * @return isUcitsCompliant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The counterparty for derivative exposure for synthetic ETPs. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_IS_UCITS_COMPLIANT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsUcitsCompliant() {
-    return isUcitsCompliant;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_UCITS_COMPLIANT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsUcitsCompliant(Boolean isUcitsCompliant) {
-    this.isUcitsCompliant = isUcitsCompliant;
-  }
-
-
-  public InlineResponse20020Data isHoldingsTransparent(Boolean isHoldingsTransparent) {
-    this.isHoldingsTransparent = isHoldingsTransparent;
-    return this;
-  }
-
-   /**
-   * States whether or not the ETP&#39;s issuer discloses its positions on its website daily. This data is available for all the regions.
-   * @return isHoldingsTransparent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "States whether or not the ETP's issuer discloses its positions on its website daily. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_IS_HOLDINGS_TRANSPARENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsHoldingsTransparent() {
-    return isHoldingsTransparent;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_HOLDINGS_TRANSPARENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsHoldingsTransparent(Boolean isHoldingsTransparent) {
-    this.isHoldingsTransparent = isHoldingsTransparent;
-  }
-
-
-  public InlineResponse20020Data portfolioDisclosure(String portfolioDisclosure) {
-    this.portfolioDisclosure = portfolioDisclosure;
-    return this;
-  }
-
-   /**
-   * The frequency of an issuer&#39;s disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.
-   * @return portfolioDisclosure
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The frequency of an issuer's disclosure of all ETP holdings on its website, text and standardized value available. This data is available for all the regions.")
-  @JsonProperty(JSON_PROPERTY_PORTFOLIO_DISCLOSURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getPortfolioDisclosure() {
-    return portfolioDisclosure;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PORTFOLIO_DISCLOSURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPortfolioDisclosure(String portfolioDisclosure) {
-    this.portfolioDisclosure = portfolioDisclosure;
-  }
-
-
-  public InlineResponse20020Data cashFlowFrequency(String cashFlowFrequency) {
-    this.cashFlowFrequency = cashFlowFrequency;
-    return this;
-  }
-
-   /**
-   * States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.
-   * @return cashFlowFrequency
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "States how often the ETP makes regular distributions, text and standardized value available. This data is available only for US and Europe.")
-  @JsonProperty(JSON_PROPERTY_CASH_FLOW_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getCashFlowFrequency() {
-    return cashFlowFrequency;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CASH_FLOW_FREQUENCY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCashFlowFrequency(String cashFlowFrequency) {
-    this.cashFlowFrequency = cashFlowFrequency;
-  }
-
-
-  public InlineResponse20020Data isEligibleForRegisteredAccounts(Boolean isEligibleForRegisteredAccounts) {
-    this.isEligibleForRegisteredAccounts = isEligibleForRegisteredAccounts;
-    return this;
-  }
-
-   /**
-   * Product can be held in tax-advantaged investment accounts. This data is available for Canada only.
-   * @return isEligibleForRegisteredAccounts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Product can be held in tax-advantaged investment accounts. This data is available for Canada only.")
-  @JsonProperty(JSON_PROPERTY_IS_ELIGIBLE_FOR_REGISTERED_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsEligibleForRegisteredAccounts() {
-    return isEligibleForRegisteredAccounts;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_ELIGIBLE_FOR_REGISTERED_ACCOUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsEligibleForRegisteredAccounts(Boolean isEligibleForRegisteredAccounts) {
-    this.isEligibleForRegisteredAccounts = isEligibleForRegisteredAccounts;
-  }
-
-
-  public InlineResponse20020Data isDripEligible(Boolean isDripEligible) {
-    this.isDripEligible = isDripEligible;
-    return this;
-  }
-
-   /**
-   * Ability to have dividends reinvested. This data is available for Canada only.
-   * @return isDripEligible
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ability to have dividends reinvested. This data is available for Canada only.")
-  @JsonProperty(JSON_PROPERTY_IS_DRIP_ELIGIBLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getIsDripEligible() {
-    return isDripEligible;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IS_DRIP_ELIGIBLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIsDripEligible(Boolean isDripEligible) {
-    this.isDripEligible = isDripEligible;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -412,41 +113,21 @@ public class InlineResponse20020Data implements Serializable {
       return false;
     }
     InlineResponse20020Data inlineResponse20020Data = (InlineResponse20020Data) o;
-    return Objects.equals(this.isEtn, inlineResponse20020Data.isEtn) &&
-        Objects.equals(this.type, inlineResponse20020Data.type) &&
-        Objects.equals(this.isActivelyManaged, inlineResponse20020Data.isActivelyManaged) &&
-        Objects.equals(this.backing, inlineResponse20020Data.backing) &&
-        Objects.equals(this.syntheticType, inlineResponse20020Data.syntheticType) &&
-        Objects.equals(this.legalStructure, inlineResponse20020Data.legalStructure) &&
-        Objects.equals(this.isUcitsCompliant, inlineResponse20020Data.isUcitsCompliant) &&
-        Objects.equals(this.isHoldingsTransparent, inlineResponse20020Data.isHoldingsTransparent) &&
-        Objects.equals(this.portfolioDisclosure, inlineResponse20020Data.portfolioDisclosure) &&
-        Objects.equals(this.cashFlowFrequency, inlineResponse20020Data.cashFlowFrequency) &&
-        Objects.equals(this.isEligibleForRegisteredAccounts, inlineResponse20020Data.isEligibleForRegisteredAccounts) &&
-        Objects.equals(this.isDripEligible, inlineResponse20020Data.isDripEligible);
+    return Objects.equals(this.symbol, inlineResponse20020Data.symbol) &&
+        Objects.equals(this.name, inlineResponse20020Data.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isEtn, type, isActivelyManaged, backing, syntheticType, legalStructure, isUcitsCompliant, isHoldingsTransparent, portfolioDisclosure, cashFlowFrequency, isEligibleForRegisteredAccounts, isDripEligible);
+    return Objects.hash(symbol, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20020Data {\n");
-    sb.append("    isEtn: ").append(toIndentedString(isEtn)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    isActivelyManaged: ").append(toIndentedString(isActivelyManaged)).append("\n");
-    sb.append("    backing: ").append(toIndentedString(backing)).append("\n");
-    sb.append("    syntheticType: ").append(toIndentedString(syntheticType)).append("\n");
-    sb.append("    legalStructure: ").append(toIndentedString(legalStructure)).append("\n");
-    sb.append("    isUcitsCompliant: ").append(toIndentedString(isUcitsCompliant)).append("\n");
-    sb.append("    isHoldingsTransparent: ").append(toIndentedString(isHoldingsTransparent)).append("\n");
-    sb.append("    portfolioDisclosure: ").append(toIndentedString(portfolioDisclosure)).append("\n");
-    sb.append("    cashFlowFrequency: ").append(toIndentedString(cashFlowFrequency)).append("\n");
-    sb.append("    isEligibleForRegisteredAccounts: ").append(toIndentedString(isEligibleForRegisteredAccounts)).append("\n");
-    sb.append("    isDripEligible: ").append(toIndentedString(isDripEligible)).append("\n");
+    sb.append("    symbol: ").append(toIndentedString(symbol)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

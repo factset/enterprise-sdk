@@ -27,14 +27,13 @@ import com.factset.sdk.ModelPortfolio.ApiClient;
 import com.factset.sdk.ModelPortfolio.ApiException;
 import com.factset.sdk.ModelPortfolio.Configuration;
 import com.factset.sdk.ModelPortfolio.auth.*;
-import com.factset.sdk.ModelPortfolio.model.*;
+import com.factset.sdk.ModelPortfolio.models.*;
 import com.factset.sdk.ModelPortfolio.api.ModelAccountsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -44,20 +43,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
         String name = "name_example"; // String | The path and filename of the model account to create or update
         ModelAccountFieldsRoot modelAccountFieldsRoot = new ModelAccountFieldsRoot(); // ModelAccountFieldsRoot | The object containing the input values
         try {
             apiInstance.createOrUpdateModelAccount(name, modelAccountFieldsRoot);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModelAccountsApi#createOrUpdateModelAccount");
             System.err.println("Status code: " + e.getCode());
@@ -118,14 +118,13 @@ import com.factset.sdk.ModelPortfolio.ApiClient;
 import com.factset.sdk.ModelPortfolio.ApiException;
 import com.factset.sdk.ModelPortfolio.Configuration;
 import com.factset.sdk.ModelPortfolio.auth.*;
-import com.factset.sdk.ModelPortfolio.model.*;
+import com.factset.sdk.ModelPortfolio.models.*;
 import com.factset.sdk.ModelPortfolio.api.ModelAccountsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,19 +134,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
         String name = "name_example"; // String | The path and filename of model account to delete
         try {
             apiInstance.deleteAModelAccount(name);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModelAccountsApi#deleteAModelAccount");
             System.err.println("Status code: " + e.getCode());
@@ -204,14 +204,13 @@ import com.factset.sdk.ModelPortfolio.ApiClient;
 import com.factset.sdk.ModelPortfolio.ApiException;
 import com.factset.sdk.ModelPortfolio.Configuration;
 import com.factset.sdk.ModelPortfolio.auth.*;
-import com.factset.sdk.ModelPortfolio.model.*;
+import com.factset.sdk.ModelPortfolio.models.*;
 import com.factset.sdk.ModelPortfolio.api.ModelAccountsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -221,14 +220,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
         String name = "name_example"; // String | The path and filename of the account to get
@@ -237,6 +236,7 @@ public class Example {
         try {
             String result = apiInstance.getAccountForDate(name, date, format);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModelAccountsApi#getAccountForDate");
             System.err.println("Status code: " + e.getCode());
@@ -297,14 +297,13 @@ import com.factset.sdk.ModelPortfolio.ApiClient;
 import com.factset.sdk.ModelPortfolio.ApiException;
 import com.factset.sdk.ModelPortfolio.Configuration;
 import com.factset.sdk.ModelPortfolio.auth.*;
-import com.factset.sdk.ModelPortfolio.model.*;
+import com.factset.sdk.ModelPortfolio.models.*;
 import com.factset.sdk.ModelPortfolio.api.ModelAccountsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -314,14 +313,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
         String name = "name_example"; // String | The path and filename of the account to get
@@ -331,6 +330,7 @@ public class Example {
         try {
             String result = apiInstance.getAccountForDateAndSymbol(name, symbol, date, format);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModelAccountsApi#getAccountForDateAndSymbol");
             System.err.println("Status code: " + e.getCode());
@@ -392,14 +392,13 @@ import com.factset.sdk.ModelPortfolio.ApiClient;
 import com.factset.sdk.ModelPortfolio.ApiException;
 import com.factset.sdk.ModelPortfolio.Configuration;
 import com.factset.sdk.ModelPortfolio.auth.*;
-import com.factset.sdk.ModelPortfolio.model.*;
+import com.factset.sdk.ModelPortfolio.models.*;
 import com.factset.sdk.ModelPortfolio.api.ModelAccountsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -409,14 +408,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
         String name = "name_example"; // String | The path and filename of the account to get
@@ -425,6 +424,7 @@ public class Example {
         try {
             String result = apiInstance.getAccountForSymbol(name, symbol, format);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModelAccountsApi#getAccountForSymbol");
             System.err.println("Status code: " + e.getCode());
@@ -485,14 +485,13 @@ import com.factset.sdk.ModelPortfolio.ApiClient;
 import com.factset.sdk.ModelPortfolio.ApiException;
 import com.factset.sdk.ModelPortfolio.Configuration;
 import com.factset.sdk.ModelPortfolio.auth.*;
-import com.factset.sdk.ModelPortfolio.model.*;
+import com.factset.sdk.ModelPortfolio.models.*;
 import com.factset.sdk.ModelPortfolio.api.ModelAccountsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -502,20 +501,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         ModelAccountsApi apiInstance = new ModelAccountsApi(defaultClient);
         String name = "name_example"; // String | The path and filename of the account to get its schema
         try {
             String result = apiInstance.getAccountSchema(name);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling ModelAccountsApi#getAccountSchema");
             System.err.println("Status code: " + e.getCode());

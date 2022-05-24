@@ -44,6 +44,8 @@ public class FactsetTranslationAdvancedResponse implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<FactsetTranslationAdvanced> data = null;
 
+  public FactsetTranslationAdvancedResponse() { 
+  }
 
   public FactsetTranslationAdvancedResponse data(java.util.List<FactsetTranslationAdvanced> data) {
     this.data = data;

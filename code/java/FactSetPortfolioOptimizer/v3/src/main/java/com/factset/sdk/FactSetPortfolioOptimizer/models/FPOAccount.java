@@ -52,6 +52,16 @@ public class FPOAccount implements Serializable {
   public static final String JSON_PROPERTY_OVERRIDES = "overrides";
   private OptimizerAccountOverrides overrides;
 
+  public FPOAccount() { 
+  }
+
+  @JsonCreator
+  public FPOAccount(
+    @JsonProperty(value=JSON_PROPERTY_PA_DOCUMENT, required=true) PaDoc paDocument
+  ) {
+    this();
+    this.paDocument = paDocument;
+  }
 
   public FPOAccount paDocument(PaDoc paDocument) {
     this.paDocument = paDocument;

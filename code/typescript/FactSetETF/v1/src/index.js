@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import Category from './model/Category';
 import ErrorResponse from './model/ErrorResponse';
@@ -21,6 +20,7 @@ import EtfReferenceDataRequest from './model/EtfReferenceDataRequest';
 import EtfReferenceDataResponse from './model/EtfReferenceDataResponse';
 import Metric from './model/Metric';
 import MetricsResponse from './model/MetricsResponse';
+
 import DataItemsApi from './api/DataItemsApi';
 import ReferenceApi from './api/ReferenceApi';
 
@@ -54,7 +54,7 @@ import ReferenceApi from './api/ReferenceApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -121,5 +121,6 @@ export {
     * The ReferenceApi service constructor.
     * @property {module:api/ReferenceApi}
     */
-    ReferenceApi
+    ReferenceApi,
+
 };

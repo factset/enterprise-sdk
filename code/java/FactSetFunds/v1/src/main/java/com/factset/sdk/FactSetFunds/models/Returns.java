@@ -58,6 +58,8 @@ public class Returns implements Serializable {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
 
+  public Returns() { 
+  }
 
   public Returns fsymId(String fsymId) {
     this.fsymId = fsymId;

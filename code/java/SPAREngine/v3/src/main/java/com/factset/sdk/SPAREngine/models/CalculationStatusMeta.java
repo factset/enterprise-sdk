@@ -43,6 +43,8 @@ public class CalculationStatusMeta implements Serializable {
   public static final String JSON_PROPERTY_UNITS = "units";
   private java.util.Map<String, CalculationUnitStatusMeta> units = null;
 
+  public CalculationStatusMeta() { 
+  }
 
   public CalculationStatusMeta units(java.util.Map<String, CalculationUnitStatusMeta> units) {
     this.units = units;

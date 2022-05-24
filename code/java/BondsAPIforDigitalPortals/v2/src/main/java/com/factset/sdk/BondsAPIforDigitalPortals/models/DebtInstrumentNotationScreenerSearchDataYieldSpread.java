@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataYieldSpread implements Seri
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMaximum maximum;
 
+  public DebtInstrumentNotationScreenerSearchDataYieldSpread() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataYieldSpread minimum(DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValueMinimum minimum) {
     this.minimum = minimum;

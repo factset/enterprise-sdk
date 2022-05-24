@@ -52,6 +52,8 @@ public class InlineResponse2003DataMaximumYield implements Serializable {
   public static final String JSON_PROPERTY_ANNUALIZED = "annualized";
   private BigDecimal annualized;
 
+  public InlineResponse2003DataMaximumYield() { 
+  }
 
   public InlineResponse2003DataMaximumYield absolute(BigDecimal absolute) {
     this.absolute = absolute;

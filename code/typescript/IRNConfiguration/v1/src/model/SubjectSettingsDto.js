@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SubjectSettingsDto model module.
  * @module model/SubjectSettingsDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class SubjectSettingsDto {
     /**
@@ -47,8 +47,8 @@ class SubjectSettingsDto {
         if (data) {
             obj = obj || new SubjectSettingsDto();
 
-            if (data.hasOwnProperty('defaultId')) {
-                obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
+            if (data.hasOwnProperty('DefaultId')) {
+                obj['DefaultId'] = ApiClient.convertToType(data['DefaultId'], 'String');
             }
         }
         return obj;
@@ -58,9 +58,9 @@ class SubjectSettingsDto {
 }
 
 /**
- * @member {String} defaultId
+ * @member {String} DefaultId
  */
-SubjectSettingsDto.prototype['defaultId'] = undefined;
+SubjectSettingsDto.prototype['DefaultId'] = undefined;
 
 
 

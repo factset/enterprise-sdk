@@ -1,6 +1,6 @@
 {
   "packageName": "FactSet.SDK.WatchlistAPIforDigitalPortals",
-  "packageVersion": "0.9.1",
+  "packageVersion": "0.9.2",
   "packageGuid": "{9bf8589c-ae1a-5d6b-81c1-3443cf7f176f}",
   "targetFramework": "netstandard2.0",
   "caseInsensitiveResponseHeaders": true,
@@ -16,8 +16,9 @@
   "licenseId": "Apache-2.0",
   "releaseNote": "Refer to Changelog on GitHub source repository",
   "packageTags": "FactSet;API;SDK",
-  "httpUserAgent": "fds-sdk/dotnet/WatchlistAPIforDigitalPortals/0.9.1",
+  "httpUserAgent": "fds-sdk/dotnet/WatchlistAPIforDigitalPortals/0.9.2",
   "files": {
     "LICENSE": {}
-  }
+  },
+  "useOneOfDiscriminatorLookup": true
 }

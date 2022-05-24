@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **jobID** | **String** | Unique id to get the xml files for the requested date |  [optional]
 **status** | **String** | Defines the status of the request |  [optional]
 **url** | **String** | Link to download the zip file which contains xml files |  [optional]
+**part** | **Integer** | Returns the part number of the jobID |  [optional]
 
 
 ## Implemented Interfaces

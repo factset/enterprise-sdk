@@ -43,34 +43,44 @@ public class InlineResponse20016 implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private InlineResponse20016Data data;
+  private java.util.Set<InlineResponse20016Data> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private InlineResponse200Meta meta;
 
+  public InlineResponse20016() { 
+  }
 
-  public InlineResponse20016 data(InlineResponse20016Data data) {
+  public InlineResponse20016 data(java.util.Set<InlineResponse20016Data> data) {
     this.data = data;
     return this;
   }
 
+  public InlineResponse20016 addDataItem(InlineResponse20016Data dataItem) {
+    if (this.data == null) {
+      this.data = new java.util.LinkedHashSet<>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
    /**
-   * Get data
+   * List of ETP class broad categories.
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "List of ETP class broad categories.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20016Data getData() {
+  public java.util.Set<InlineResponse20016Data> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(InlineResponse20016Data data) {
+  public void setData(java.util.Set<InlineResponse20016Data> data) {
     this.data = data;
   }
 

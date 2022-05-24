@@ -52,9 +52,9 @@ namespace Example
 
             var apiInstance = new JobHistoryApi(config);
             var ids = new List<string>(); // List<string> | List of FactSet Person Entity identifier.
-            var status = status_example;  // string | Select only Jobs with a certain status primary, active, or inactive. (optional)  (default to ALL)
-            var level = level_example;  // string | Select the level of detail only main Jobs or include other Jobs at a company. (optional)  (default to DETAIL)
-            var type = type_example;  // string | Select only Jobs of a certain type board member or employee. (optional)  (default to ALL)
+            var status = "ALL";  // string | Select only Jobs with a certain status primary, active, or inactive. (optional)  (default to ALL)
+            var level = "SUMMARY";  // string | Select the level of detail only main Jobs or include other Jobs at a company. (optional)  (default to DETAIL)
+            var type = "ALL";  // string | Select only Jobs of a certain type board member or employee. (optional)  (default to ALL)
 
             try
             {
@@ -83,7 +83,6 @@ Name | Type | Description  | Notes
  **type** | **string**| Select only Jobs of a certain type board member or employee. | [optional] [default to ALL]
 
 ### Return type
-
 [**PeopleJobsResponse**](PeopleJobsResponse.md)
 
 ### Authorization
@@ -177,7 +176,6 @@ Name | Type | Description  | Notes
  **peopleJobsRequest** | [**PeopleJobsRequest**](PeopleJobsRequest.md)|  | 
 
 ### Return type
-
 [**PeopleJobsResponse**](PeopleJobsResponse.md)
 
 ### Authorization

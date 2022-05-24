@@ -48,6 +48,8 @@ public class InlineResponse2003TradedValueDays30 implements Serializable {
   public static final String JSON_PROPERTY_AVERAGE = "average";
   private BigDecimal average;
 
+  public InlineResponse2003TradedValueDays30() { 
+  }
 
   public InlineResponse2003TradedValueDays30 sum(BigDecimal sum) {
     this.sum = sum;

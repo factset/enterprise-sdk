@@ -44,6 +44,8 @@ public class StockNotationScreenerSearchDataCompany implements Serializable {
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private StockNotationScreenerSearchDataCompanyCountry country;
 
+  public StockNotationScreenerSearchDataCompany() { 
+  }
 
   public StockNotationScreenerSearchDataCompany country(StockNotationScreenerSearchDataCompanyCountry country) {
     this.country = country;

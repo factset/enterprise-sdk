@@ -38,38 +38,30 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.FactSetEstimatesReportBuilder.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.FactSetEstimatesReportBuilder.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = estimate_tables_api.EstimateTablesApi(api_client)
+
     id = "FDS" # str | Company Ticker
     metric = "EPS" # str | Requested metric. For more details, visit [Online Assitant Page #15034](https://oa.apps.factset.com/pages/15034). (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Interim/Annual Estimate Table
-        api_response = api_instance.get_estimate_tables_table(id)
-        pprint(api_response)
-    except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
-        print("Exception when calling EstimateTablesApi->get_estimate_tables_table: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Interim/Annual Estimate Table
         api_response = api_instance.get_estimate_tables_table(id, metric=metric)
         pprint(api_response)
+
     except fds.sdk.FactSetEstimatesReportBuilder.ApiException as e:
         print("Exception when calling EstimateTablesApi->get_estimate_tables_table: %s\n" % e)
 ```

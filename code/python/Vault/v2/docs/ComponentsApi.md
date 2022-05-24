@@ -38,15 +38,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -54,11 +54,13 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    id = "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935" # str | Unique identifier for a vault component (default to "7CF4BCEB46020A5D3C78344108905FF73A4937F5E37CFF6BD97EC29545341935")
+
     try:
         # Get Vault component by id
-        api_response = api_instance.get_vault_component_by_id()
+        api_response = api_instance.get_vault_component_by_id(id)
         pprint(api_response)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling ComponentsApi->get_vault_component_by_id: %s\n" % e)
 ```
@@ -130,15 +132,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -146,11 +148,13 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = components_api.ComponentsApi(api_client)
 
-    # example passing only required values which don't have defaults set
+    document = "Client:Foo" # str | Document Name (default to "Client:Foo")
+
     try:
         # Get Vault components
-        api_response = api_instance.get_vault_components()
+        api_response = api_instance.get_vault_components(document)
         pprint(api_response)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling ComponentsApi->get_vault_components: %s\n" % e)
 ```

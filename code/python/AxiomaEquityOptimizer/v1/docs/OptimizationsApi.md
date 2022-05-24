@@ -38,24 +38,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaEquityOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.AxiomaEquityOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Run Optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel Axioma optimization by id
         api_instance.cancel_axioma_optimization_by_id(id)
@@ -127,24 +127,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaEquityOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.AxiomaEquityOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Run Optimization endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Axioma optimization by id
         api_instance.get_axioma_optimization_by_id(id)
@@ -218,21 +218,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.AxiomaEquityOptimizer.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.AxiomaEquityOptimizer.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = optimizations_api.OptimizationsApi(api_client)
+
     axioma_equity_optimization_parameters = AxiomaEquityOptimizationParameters(
         strategy=OptimizerStrategy(
             id="id_example",
@@ -280,8 +281,6 @@ with fds.sdk.AxiomaEquityOptimizer.ApiClient(configuration) as api_client:
         ),
     ) # AxiomaEquityOptimizationParameters |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Run Axioma optimization
         api_instance.run_axioma_optimization(axioma_equity_optimization_parameters=axioma_equity_optimization_parameters)

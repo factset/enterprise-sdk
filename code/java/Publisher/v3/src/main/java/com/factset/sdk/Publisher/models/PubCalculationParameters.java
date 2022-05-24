@@ -52,6 +52,20 @@ public class PubCalculationParameters implements Serializable {
   public static final String JSON_PROPERTY_DATES = "dates";
   private PubDateParameters dates;
 
+  public PubCalculationParameters() { 
+  }
+
+  @JsonCreator
+  public PubCalculationParameters(
+    @JsonProperty(value=JSON_PROPERTY_DOCUMENT, required=true) String document, 
+    @JsonProperty(value=JSON_PROPERTY_ACCOUNT, required=true) PubIdentifier account, 
+    @JsonProperty(value=JSON_PROPERTY_DATES, required=true) PubDateParameters dates
+  ) {
+    this();
+    this.document = document;
+    this.account = account;
+    this.dates = dates;
+  }
 
   public PubCalculationParameters document(String document) {
     this.document = document;

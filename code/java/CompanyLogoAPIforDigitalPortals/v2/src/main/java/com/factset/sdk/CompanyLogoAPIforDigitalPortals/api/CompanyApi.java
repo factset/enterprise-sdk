@@ -7,6 +7,9 @@ import com.factset.sdk.CompanyLogoAPIforDigitalPortals.Configuration;
 import com.factset.sdk.CompanyLogoAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.CompanyLogoAPIforDigitalPortals.models.InlineResponse200;
 
@@ -21,6 +24,14 @@ public class CompanyApi {
   public CompanyApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getCompanyLogoGetByInstrumentResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getCompanyLogoGetByInstrumentResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -105,10 +116,16 @@ public class CompanyApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("CompanyApi.getCompanyLogoGetByInstrument", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("CompanyApi.getCompanyLogoGetByInstrument", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getCompanyLogoGetByInstrumentResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

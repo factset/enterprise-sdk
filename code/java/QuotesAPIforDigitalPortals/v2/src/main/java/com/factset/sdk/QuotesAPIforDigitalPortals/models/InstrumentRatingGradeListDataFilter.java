@@ -44,6 +44,8 @@ public class InstrumentRatingGradeListDataFilter implements Serializable {
   public static final String JSON_PROPERTY_RATING_SYSTEM = "ratingSystem";
   private InstrumentRatingGradeListDataFilterRatingSystem ratingSystem;
 
+  public InstrumentRatingGradeListDataFilter() { 
+  }
 
   public InstrumentRatingGradeListDataFilter ratingSystem(InstrumentRatingGradeListDataFilterRatingSystem ratingSystem) {
     this.ratingSystem = ratingSystem;

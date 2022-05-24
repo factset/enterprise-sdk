@@ -90,6 +90,8 @@ public class CalculationStatus implements Serializable {
   public static final String JSON_PROPERTY_UNITS = "units";
   private java.util.Map<String, CalculationUnitStatus> units = null;
 
+  public CalculationStatus() { 
+  }
 
   public CalculationStatus calculationid(String calculationid) {
     this.calculationid = calculationid;

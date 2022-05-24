@@ -85,6 +85,8 @@ public class InlineResponse20054DataOccurrence implements Serializable {
   public static final String JSON_PROPERTY_FREQUENCY = "frequency";
   private InlineResponse20054DataOccurrenceFrequency frequency;
 
+  public InlineResponse20054DataOccurrence() { 
+  }
 
   public InlineResponse20054DataOccurrence type(TypeEnum type) {
     this.type = type;

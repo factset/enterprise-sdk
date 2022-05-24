@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2005DataRecommendationConsensus model module.
  * @module model/InlineResponse2005DataRecommendationConsensus
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2005DataRecommendationConsensus {
     /**

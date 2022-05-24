@@ -53,6 +53,7 @@ const date = 56; // Number | Date in YYYYMMDD format
 // Call api endpoint
 apiInstance.v1DatabasePathDatesDateDelete(path, date).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const inlineObject3 = new ofdb.InlineObject3(); // InlineObject3 |
 // Call api endpoint
 apiInstance.v1DatabasePathDatesDatePut(path, date, inlineObject3).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -202,6 +204,7 @@ const symbol = "symbol_example"; // String | Symbol with in the ofdb
 // Call api endpoint
 apiInstance.v1DatabasePathDatesDateSymbolsSymbolDelete(path, date, symbol).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -278,6 +281,7 @@ const inlineObject5 = new ofdb.InlineObject5(); // InlineObject5 |
 // Call api endpoint
 apiInstance.v1DatabasePathDatesDateSymbolsSymbolPut(path, date, symbol, inlineObject5).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -353,6 +357,7 @@ const symbol = "symbol_example"; // String | Symbol with in the ofdb
 // Call api endpoint
 apiInstance.v1DatabasePathSymbolsSymbolDelete(path, symbol).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -427,6 +432,7 @@ const inlineObject1 = new ofdb.InlineObject1(); // InlineObject1 |
 // Call api endpoint
 apiInstance.v1DatabasePathSymbolsSymbolPut(path, symbol, inlineObject1).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

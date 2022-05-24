@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentCompliancePropertyListDataFilter model module.
  * @module model/InstrumentCompliancePropertyListDataFilter
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InstrumentCompliancePropertyListDataFilter {
     /**

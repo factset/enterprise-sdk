@@ -86,7 +86,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FICalculationParameters {\n");
             sb.Append("  Securities: ").Append(Securities).Append("\n");
             sb.Append("  Calculations: ").Append(Calculations).Append("\n");
@@ -122,8 +122,9 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         public bool Equals(FICalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Securities == input.Securities ||
@@ -154,11 +155,17 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
             {
                 int hashCode = 41;
                 if (this.Securities != null)
-                    hashCode = hashCode * 59 + this.Securities.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Securities.GetHashCode();
+                }
                 if (this.Calculations != null)
-                    hashCode = hashCode * 59 + this.Calculations.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Calculations.GetHashCode();
+                }
                 if (this.JobSettings != null)
-                    hashCode = hashCode * 59 + this.JobSettings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobSettings.GetHashCode();
+                }
                 return hashCode;
             }
         }

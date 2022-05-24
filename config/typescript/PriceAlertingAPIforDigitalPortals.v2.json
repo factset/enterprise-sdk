@@ -1,12 +1,12 @@
 {
   "projectName": "@factset/sdk-pricealertingapifordigitalportals",
-  "projectVersion": "0.9.1",
+  "projectVersion": "0.10.0",
   "projectAuthor": "FactSet Research Systems",
   "projectDescription": "Price Alerting API for Digital Portals client library for JavaScript",
   "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
   "moduleName": "pricealertingapifordigitalportals",
   "disallowAdditionalPropertiesIfNotPresent": false,
-  "httpUserAgent": "fds-sdk/javascript/PriceAlertingAPIforDigitalPortals/0.9.1",
+  "httpUserAgent": "fds-sdk/javascript/PriceAlertingAPIforDigitalPortals/0.10.0",
   "usePromises": true,
   "licenseName": "Apache-2.0",
   "files": {

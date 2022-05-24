@@ -47,6 +47,8 @@ public class Data implements Serializable {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
+  public Data() { 
+  }
 
   public Data fileName(String fileName) {
     this.fileName = fileName;

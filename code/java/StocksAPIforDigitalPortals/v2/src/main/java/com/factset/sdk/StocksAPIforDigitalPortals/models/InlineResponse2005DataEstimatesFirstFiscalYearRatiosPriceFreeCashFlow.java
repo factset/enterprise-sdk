@@ -44,6 +44,8 @@ public class InlineResponse2005DataEstimatesFirstFiscalYearRatiosPriceFreeCashFl
   public static final String JSON_PROPERTY_MEAN = "mean";
   private InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesEbitMean mean;
 
+  public InlineResponse2005DataEstimatesFirstFiscalYearRatiosPriceFreeCashFlow() { 
+  }
 
   public InlineResponse2005DataEstimatesFirstFiscalYearRatiosPriceFreeCashFlow mean(InlineResponse2005DataEstimatesFirstFiscalYearCurrencyDependentEstimatesEbitMean mean) {
     this.mean = mean;

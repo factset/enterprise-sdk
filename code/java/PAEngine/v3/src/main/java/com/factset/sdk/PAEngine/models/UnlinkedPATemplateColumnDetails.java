@@ -50,6 +50,8 @@ public class UnlinkedPATemplateColumnDetails implements Serializable {
   public static final String JSON_PROPERTY_STATISTICS = "statistics";
   private java.util.List<String> statistics = null;
 
+  public UnlinkedPATemplateColumnDetails() { 
+  }
 
   public UnlinkedPATemplateColumnDetails name(String name) {
     this.name = name;

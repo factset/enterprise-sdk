@@ -24,14 +24,10 @@ from fds.sdk.DocumentsDistributorCallStreetEvents.model_utils import (  # noqa: 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.DocumentsDistributorCallStreetEvents.exceptions import ApiAttributeError
 
-
-def lazy_import():
-    from fds.sdk.DocumentsDistributorCallStreetEvents.model.nrt_snippets_metadata import NRTSnippetsMetadata
-    globals()['NRTSnippetsMetadata'] = NRTSnippetsMetadata
 
 
 class NRTSnippetsSnippetData(ModelNormal):
@@ -70,7 +66,6 @@ class NRTSnippetsSnippetData(ModelNormal):
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
         """
-        lazy_import()
         return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
@@ -85,9 +80,10 @@ class NRTSnippetsSnippetData(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
-            'metadata': (NRTSnippetsMetadata,),  # noqa: E501
+            'transcript': (str,),  # noqa: E501
+            'end_time': (float,),  # noqa: E501
+            'start_time': (float,),  # noqa: E501
         }
 
     @cached_property
@@ -96,7 +92,9 @@ class NRTSnippetsSnippetData(ModelNormal):
 
 
     attribute_map = {
-        'metadata': 'metadata',  # noqa: E501
+        'transcript': 'transcript',  # noqa: E501
+        'end_time': 'endTime',  # noqa: E501
+        'start_time': 'startTime',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,7 +138,9 @@ class NRTSnippetsSnippetData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            metadata (NRTSnippetsMetadata): [optional]  # noqa: E501
+            transcript (str): The actual transcript snippet. [optional]  # noqa: E501
+            end_time (float): The number of seconds into the call, when the transcript snippet ended. [optional]  # noqa: E501
+            start_time (float): The number of seconds into the call,when the transcript snippet started. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,7 +222,9 @@ class NRTSnippetsSnippetData(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            metadata (NRTSnippetsMetadata): [optional]  # noqa: E501
+            transcript (str): The actual transcript snippet. [optional]  # noqa: E501
+            end_time (float): The number of seconds into the call, when the transcript snippet ended. [optional]  # noqa: E501
+            start_time (float): The number of seconds into the call,when the transcript snippet started. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,6 +1,6 @@
 /**
  * IRN API v1
- * Allows users to create, update and configure IRN data.
+ * Allows users to extract, create, update and configure IRN data.
  *
  * The version of the OpenAPI document: 1
  * 
@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AlternativeEmailAddressDto model module.
  * @module model/AlternativeEmailAddressDto
- * @version 0.9.1
+ * @version 0.20.0
  */
 class AlternativeEmailAddressDto {
     /**
@@ -47,11 +47,11 @@ class AlternativeEmailAddressDto {
         if (data) {
             obj = obj || new AlternativeEmailAddressDto();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('Id')) {
+                obj['Id'] = ApiClient.convertToType(data['Id'], 'String');
             }
-            if (data.hasOwnProperty('emailAddress')) {
-                obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
+            if (data.hasOwnProperty('EmailAddress')) {
+                obj['EmailAddress'] = ApiClient.convertToType(data['EmailAddress'], 'String');
             }
         }
         return obj;
@@ -61,14 +61,14 @@ class AlternativeEmailAddressDto {
 }
 
 /**
- * @member {String} id
+ * @member {String} Id
  */
-AlternativeEmailAddressDto.prototype['id'] = undefined;
+AlternativeEmailAddressDto.prototype['Id'] = undefined;
 
 /**
- * @member {String} emailAddress
+ * @member {String} EmailAddress
  */
-AlternativeEmailAddressDto.prototype['emailAddress'] = undefined;
+AlternativeEmailAddressDto.prototype['EmailAddress'] = undefined;
 
 
 

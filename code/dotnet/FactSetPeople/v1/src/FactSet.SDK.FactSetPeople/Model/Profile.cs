@@ -225,7 +225,7 @@ namespace FactSet.SDK.FactSetPeople.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Profile {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  PersonId: ").Append(PersonId).Append("\n");
@@ -278,8 +278,9 @@ namespace FactSet.SDK.FactSetPeople.Model
         public bool Equals(Profile input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RequestId == input.RequestId ||
@@ -390,42 +391,76 @@ namespace FactSet.SDK.FactSetPeople.Model
             {
                 int hashCode = 41;
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 if (this.PersonId != null)
-                    hashCode = hashCode * 59 + this.PersonId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PersonId.GetHashCode();
+                }
                 if (this.LastName != null)
-                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
+                }
                 if (this.FactsetName != null)
-                    hashCode = hashCode * 59 + this.FactsetName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FactsetName.GetHashCode();
+                }
                 if (this.FirstName != null)
-                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
+                }
                 if (this.MiddleName != null)
-                    hashCode = hashCode * 59 + this.MiddleName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.MiddleName.GetHashCode();
+                }
                 if (this.FormalName != null)
-                    hashCode = hashCode * 59 + this.FormalName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FormalName.GetHashCode();
+                }
                 if (this.ProperName != null)
-                    hashCode = hashCode * 59 + this.ProperName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ProperName.GetHashCode();
+                }
                 if (this.Salutation != null)
-                    hashCode = hashCode * 59 + this.Salutation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Salutation.GetHashCode();
+                }
                 if (this.HighestDegree != null)
-                    hashCode = hashCode * 59 + this.HighestDegree.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HighestDegree.GetHashCode();
+                }
                 if (this.HighestDegreeInst != null)
-                    hashCode = hashCode * 59 + this.HighestDegreeInst.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.HighestDegreeInst.GetHashCode();
+                }
                 if (this.Suffix != null)
-                    hashCode = hashCode * 59 + this.Suffix.GetHashCode();
-                hashCode = hashCode * 59 + this.Age.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Suffix.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Age.GetHashCode();
                 if (this.Gender != null)
-                    hashCode = hashCode * 59 + this.Gender.GetHashCode();
-                hashCode = hashCode * 59 + this.Salary.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalCompensation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Gender.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Salary.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalCompensation.GetHashCode();
                 if (this.PrimaryCompanyId != null)
-                    hashCode = hashCode * 59 + this.PrimaryCompanyId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PrimaryCompanyId.GetHashCode();
+                }
                 if (this.PrimaryCompanyName != null)
-                    hashCode = hashCode * 59 + this.PrimaryCompanyName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PrimaryCompanyName.GetHashCode();
+                }
                 if (this.PrimaryTitle != null)
-                    hashCode = hashCode * 59 + this.PrimaryTitle.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PrimaryTitle.GetHashCode();
+                }
                 if (this.Biography != null)
-                    hashCode = hashCode * 59 + this.Biography.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Biography.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -76,7 +76,7 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class NRTSpeakerids400ResponseDetailsValidParameters {\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  PaginationLimit: ").Append(PaginationLimit).Append("\n");
@@ -113,8 +113,9 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
         public bool Equals(NRTSpeakerids400ResponseDetailsValidParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Sort == input.Sort ||
@@ -152,13 +153,21 @@ namespace FactSet.SDK.DocumentsDistributorCallStreetEvents.Model
             {
                 int hashCode = 41;
                 if (this.Sort != null)
-                    hashCode = hashCode * 59 + this.Sort.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Sort.GetHashCode();
+                }
                 if (this.PaginationLimit != null)
-                    hashCode = hashCode * 59 + this.PaginationLimit.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationLimit.GetHashCode();
+                }
                 if (this.PaginationOffset != null)
-                    hashCode = hashCode * 59 + this.PaginationOffset.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaginationOffset.GetHashCode();
+                }
                 if (this.AudioSourceId != null)
-                    hashCode = hashCode * 59 + this.AudioSourceId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AudioSourceId.GetHashCode();
+                }
                 return hashCode;
             }
         }

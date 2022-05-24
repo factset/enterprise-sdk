@@ -48,7 +48,6 @@ src/main/java/com/factset/sdk/BarraPortfolioOptimizer/ApiClient.java
 src/main/java/com/factset/sdk/BarraPortfolioOptimizer/ApiException.java
 src/main/java/com/factset/sdk/BarraPortfolioOptimizer/ApiResponse.java
 src/main/java/com/factset/sdk/BarraPortfolioOptimizer/Configuration.java
-src/main/java/com/factset/sdk/BarraPortfolioOptimizer/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/BarraPortfolioOptimizer/JSON.java
 src/main/java/com/factset/sdk/BarraPortfolioOptimizer/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/BarraPortfolioOptimizer/Pair.java

@@ -71,7 +71,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2007DataCashFlowRelative {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Minimum: ").Append(Minimum).Append("\n");
@@ -107,8 +107,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2007DataCashFlowRelative input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Value == input.Value ||
@@ -133,9 +134,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
-                hashCode = hashCode * 59 + this.Minimum.GetHashCode();
-                hashCode = hashCode * 59 + this.Maximum.GetHashCode();
+                hashCode = (hashCode * 59) + this.Value.GetHashCode();
+                hashCode = (hashCode * 59) + this.Minimum.GetHashCode();
+                hashCode = (hashCode * 59) + this.Maximum.GetHashCode();
                 return hashCode;
             }
         }

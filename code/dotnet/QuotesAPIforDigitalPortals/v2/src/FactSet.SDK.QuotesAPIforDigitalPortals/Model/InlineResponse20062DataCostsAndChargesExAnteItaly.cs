@@ -60,7 +60,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataCostsAndChargesExAnteItaly {\n");
             sb.Append("  OneOffMaximumFixedEntryCost: ").Append(OneOffMaximumFixedEntryCost).Append("\n");
             sb.Append("  OneOffMaximumFixedExitCost: ").Append(OneOffMaximumFixedExitCost).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataCostsAndChargesExAnteItaly input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.OneOffMaximumFixedEntryCost == input.OneOffMaximumFixedEntryCost ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.OneOffMaximumFixedEntryCost != null)
-                    hashCode = hashCode * 59 + this.OneOffMaximumFixedEntryCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffMaximumFixedEntryCost.GetHashCode();
+                }
                 if (this.OneOffMaximumFixedExitCost != null)
-                    hashCode = hashCode * 59 + this.OneOffMaximumFixedExitCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OneOffMaximumFixedExitCost.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -18,7 +18,7 @@ import NRTSpeakeridsMetaPagination from './NRTSpeakeridsMetaPagination';
 /**
  * The NRTSpeakeridsMeta model module.
  * @module model/NRTSpeakeridsMeta
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSpeakeridsMeta {
     /**

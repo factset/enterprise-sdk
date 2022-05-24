@@ -24,8 +24,8 @@ from fds.sdk.VirtualPortfolioAPIforDigitalPortals.model_utils import (  # noqa: 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.VirtualPortfolioAPIforDigitalPortals.exceptions import ApiAttributeError
 
 

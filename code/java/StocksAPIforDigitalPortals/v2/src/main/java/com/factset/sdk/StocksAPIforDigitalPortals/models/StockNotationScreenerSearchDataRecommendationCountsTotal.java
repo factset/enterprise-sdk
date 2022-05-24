@@ -49,6 +49,8 @@ public class StockNotationScreenerSearchDataRecommendationCountsTotal implements
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private StockNotationScreenerSearchDataRecommendationCountsTotalMaximum maximum;
 
+  public StockNotationScreenerSearchDataRecommendationCountsTotal() { 
+  }
 
   public StockNotationScreenerSearchDataRecommendationCountsTotal minimum(StockNotationScreenerSearchDataRecommendationCountsTotalMinimum minimum) {
     this.minimum = minimum;

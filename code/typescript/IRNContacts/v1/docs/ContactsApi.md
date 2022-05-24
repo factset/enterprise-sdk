@@ -4,23 +4,23 @@ All URIs are relative to *https://api-sandbox.factset.com/research/irn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1ContactsContactIdAboutGet**](ContactsApi.md#v1ContactsContactIdAboutGet) | **GET** /v1/contacts/{contactId}/about | Get the About field content for a specific contact
-[**v1ContactsContactIdDelete**](ContactsApi.md#v1ContactsContactIdDelete) | **DELETE** /v1/contacts/{contactId} | Delete a contact
-[**v1ContactsContactIdEventsGet**](ContactsApi.md#v1ContactsContactIdEventsGet) | **GET** /v1/contacts/{contactId}/events | Get a contact’s audit history
-[**v1ContactsContactIdGet**](ContactsApi.md#v1ContactsContactIdGet) | **GET** /v1/contacts/{contactId} | Get all custom field and standard field details on a specific contact
-[**v1ContactsContactIdPatch**](ContactsApi.md#v1ContactsContactIdPatch) | **PATCH** /v1/contacts/{contactId} | Edit a contact’s standard field and custom field data
-[**v1ContactsContactIdRecordsGet**](ContactsApi.md#v1ContactsContactIdRecordsGet) | **GET** /v1/contacts/{contactId}/records | Get all notes and meetings where a specific contact was tagged
-[**v1ContactsContactIdRelationshipsGet**](ContactsApi.md#v1ContactsContactIdRelationshipsGet) | **GET** /v1/contacts/{contactId}/relationships | Returns a list of a contact’s relationships
-[**v1ContactsGet**](ContactsApi.md#v1ContactsGet) | **GET** /v1/contacts | Get list of all contacts in your group along with some of their standard field data
-[**v1ContactsPost**](ContactsApi.md#v1ContactsPost) | **POST** /v1/contacts | Create a contact
+[**createContact**](ContactsApi.md#createContact) | **POST** /v1/contacts | Create a contact
+[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /v1/contacts/{contactId} | Delete a contact
+[**getContact**](ContactsApi.md#getContact) | **GET** /v1/contacts/{contactId} | Get all custom field and standard field details on a specific contact
+[**getContactEvents**](ContactsApi.md#getContactEvents) | **GET** /v1/contacts/{contactId}/events | Get a contact’s audit history
+[**getContactNotes**](ContactsApi.md#getContactNotes) | **GET** /v1/contacts/{contactId}/about | Get the About field content for a specific contact
+[**getContactRecords**](ContactsApi.md#getContactRecords) | **GET** /v1/contacts/{contactId}/records | Get all notes and meetings where a specific contact was tagged
+[**getContactRelationships**](ContactsApi.md#getContactRelationships) | **GET** /v1/contacts/{contactId}/relationships | Returns a list of a contact’s relationships
+[**getContacts**](ContactsApi.md#getContacts) | **GET** /v1/contacts | Get list of all contacts in your group along with some of their standard field data
+[**patchContact**](ContactsApi.md#patchContact) | **PATCH** /v1/contacts/{contactId} | Edit a contact’s standard field and custom field data
 
 
 
-## v1ContactsContactIdAboutGet
+## createContact
 
-> String v1ContactsContactIdAboutGet(contactId)
+> NewItemDto createContact(opts)
 
-Get the About field content for a specific contact
+Create a contact
 
 ### Example
 
@@ -48,11 +48,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ContactsApi();
-const contactId = "contactId_example"; // String | contactId of associated record
+const opts = {
+  'contactSaveDto': new irncontacts.ContactSaveDto() // ContactSaveDto | contactSaveDto object to save
+};
 
 // Call api endpoint
-apiInstance.v1ContactsContactIdAboutGet(contactId).then(
+apiInstance.createContact(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -69,11 +72,11 @@ apiInstance.v1ContactsContactIdAboutGet(contactId).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactId** | **String**| contactId of associated record | 
+ **contactSaveDto** | [**ContactSaveDto**](ContactSaveDto.md)| contactSaveDto object to save | [optional] 
 
 ### Return type
 
-**String**
+[**NewItemDto**](NewItemDto.md)
 
 ### Authorization
 
@@ -81,13 +84,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
 - **Accept**: application/json
 
 
-## v1ContactsContactIdDelete
+## deleteContact
 
-> v1ContactsContactIdDelete(contactId)
+> deleteContact(contactId)
 
 Delete a contact
 
@@ -120,7 +123,7 @@ const apiInstance = new ContactsApi();
 const contactId = "contactId_example"; // String | contactId to delete associated record
 
 // Call api endpoint
-apiInstance.v1ContactsContactIdDelete(contactId).then(
+apiInstance.deleteContact(contactId).then(
   () => {
     console.log('API called successfully.');
   },
@@ -153,78 +156,9 @@ null (empty response body)
 - **Accept**: application/json
 
 
-## v1ContactsContactIdEventsGet
+## getContact
 
-> [ContactEventDto] v1ContactsContactIdEventsGet(contactId)
-
-Get a contact’s audit history
-
-### Example
-
-```javascript
-const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
-const { ConfidentialClient } = require('@factset/sdk-utils');
-
-const apiClient = ApiClient.instance;
-
-// Examples for each supported authentication method are below,
-// choose one that satisfies your use case.
-
-// (Preferred) OAuth 2.0: FactSetOAuth2
-// See https://github.com/FactSet/enterprise-sdk#oauth-20
-// for information on how to create the app-config.json file
-// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
-// for more information on using the ConfidentialClient class
-apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
-
-// Basic authentication: FactSetApiKey
-// See https://github.com/FactSet/enterprise-sdk#api-key
-// for information how to create an API key
-// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
-// FactSetApiKey.username = 'USERNAME-SERIAL';
-// FactSetApiKey.password = 'API-KEY';
-
-const apiInstance = new ContactsApi();
-const contactId = "contactId_example"; // String | contactId to get associated records
-
-// Call api endpoint
-apiInstance.v1ContactsContactIdEventsGet(contactId).then(
-  data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
-  },
-  error => {
-    console.error(error);
-  },
-);
-
-```
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contactId** | **String**| contactId to get associated records | 
-
-### Return type
-
-[**[ContactEventDto]**](ContactEventDto.md)
-
-### Authorization
-
-[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## v1ContactsContactIdGet
-
-> ContactDto v1ContactsContactIdGet(contactId)
+> ContactDto getContact(contactId)
 
 Get all custom field and standard field details on a specific contact
 
@@ -257,8 +191,9 @@ const apiInstance = new ContactsApi();
 const contactId = "contactId_example"; // String | contactId to get associated record
 
 // Call api endpoint
-apiInstance.v1ContactsContactIdGet(contactId).then(
+apiInstance.getContact(contactId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -291,11 +226,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1ContactsContactIdPatch
+## getContactEvents
 
-> v1ContactsContactIdPatch(contactId, opts)
+> [ContactEventDto] getContactEvents(contactId)
 
-Edit a contact’s standard field and custom field data
+Get a contact’s audit history
 
 ### Example
 
@@ -323,15 +258,14 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ContactsApi();
-const contactId = "contactId_example"; // String | contactId to update associated record
-const opts = {
-  'operation': [new irncontacts.Operation()] // [Operation] | contactSaveDtoPatch object to update
-};
+const contactId = "contactId_example"; // String | contactId to get associated records
 
 // Call api endpoint
-apiInstance.v1ContactsContactIdPatch(contactId, opts).then(
-  () => {
-    console.log('API called successfully.');
+apiInstance.getContactEvents(contactId).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
   },
   error => {
     console.error(error);
@@ -346,12 +280,11 @@ apiInstance.v1ContactsContactIdPatch(contactId, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactId** | **String**| contactId to update associated record | 
- **operation** | [**[Operation]**](Operation.md)| contactSaveDtoPatch object to update | [optional] 
+ **contactId** | **String**| contactId to get associated records | 
 
 ### Return type
 
-null (empty response body)
+[**[ContactEventDto]**](ContactEventDto.md)
 
 ### Authorization
 
@@ -359,13 +292,83 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/_*+json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
-## v1ContactsContactIdRecordsGet
+## getContactNotes
 
-> [RecordPreviewDto] v1ContactsContactIdRecordsGet(contactId)
+> String getContactNotes(contactId)
+
+Get the About field content for a specific contact
+
+### Example
+
+```javascript
+const { ApiClient, ContactsApi } = require('@factset/sdk-irncontacts');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new ContactsApi();
+const contactId = "contactId_example"; // String | contactId of associated record
+
+// Call api endpoint
+apiInstance.getContactNotes(contactId).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contactId** | **String**| contactId of associated record | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getContactRecords
+
+> [RecordPreviewDto] getContactRecords(contactId)
 
 Get all notes and meetings where a specific contact was tagged
 
@@ -398,8 +401,9 @@ const apiInstance = new ContactsApi();
 const contactId = "contactId_example"; // String | contactId to get associated records
 
 // Call api endpoint
-apiInstance.v1ContactsContactIdRecordsGet(contactId).then(
+apiInstance.getContactRecords(contactId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -432,9 +436,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1ContactsContactIdRelationshipsGet
+## getContactRelationships
 
-> [ContactRelationshipDto] v1ContactsContactIdRelationshipsGet(contactId)
+> [ContactRelationshipDto] getContactRelationships(contactId)
 
 Returns a list of a contact’s relationships
 
@@ -467,8 +471,9 @@ const apiInstance = new ContactsApi();
 const contactId = "contactId_example"; // String | contactId to get associated records
 
 // Call api endpoint
-apiInstance.v1ContactsContactIdRelationshipsGet(contactId).then(
+apiInstance.getContactRelationships(contactId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -501,9 +506,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1ContactsGet
+## getContacts
 
-> [ContactSummaryDto] v1ContactsGet(opts)
+> [ContactSummaryDto] getContacts(opts)
 
 Get list of all contacts in your group along with some of their standard field data
 
@@ -546,8 +551,9 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.v1ContactsGet(opts).then(
+apiInstance.getContacts(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -588,11 +594,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## v1ContactsPost
+## patchContact
 
-> String v1ContactsPost(opts)
+> patchContact(contactId, opts)
 
-Create a contact
+Edit a contact’s standard field and custom field data
 
 ### Example
 
@@ -620,15 +626,15 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new ContactsApi();
+const contactId = "contactId_example"; // String | contactId to update associated record
 const opts = {
-  'contactSaveDto': new irncontacts.ContactSaveDto() // ContactSaveDto | contactSaveDto object to save
+  'operation': [new irncontacts.Operation()] // [Operation] | contactSaveDtoPatch object to update
 };
 
 // Call api endpoint
-apiInstance.v1ContactsPost(opts).then(
-  data => {
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+apiInstance.patchContact(contactId, opts).then(
+  () => {
+    console.log('API called successfully.');
   },
   error => {
     console.error(error);
@@ -643,11 +649,12 @@ apiInstance.v1ContactsPost(opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactSaveDto** | [**ContactSaveDto**](ContactSaveDto.md)| contactSaveDto object to save | [optional] 
+ **contactId** | **String**| contactId to update associated record | 
+ **operation** | [**[Operation]**](Operation.md)| contactSaveDtoPatch object to update | [optional] 
 
 ### Return type
 
-**String**
+null (empty response body)
 
 ### Authorization
 

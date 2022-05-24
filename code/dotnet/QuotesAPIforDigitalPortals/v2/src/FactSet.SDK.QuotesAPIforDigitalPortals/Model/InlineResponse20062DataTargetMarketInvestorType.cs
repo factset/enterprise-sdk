@@ -170,7 +170,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20062DataTargetMarketInvestorType {\n");
             sb.Append("  Retail: ").Append(Retail).Append("\n");
             sb.Append("  Professional: ").Append(Professional).Append("\n");
@@ -206,8 +206,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20062DataTargetMarketInvestorType input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Retail == input.Retail ||
@@ -232,9 +233,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Retail.GetHashCode();
-                hashCode = hashCode * 59 + this.Professional.GetHashCode();
-                hashCode = hashCode * 59 + this.EligibleCounterParty.GetHashCode();
+                hashCode = (hashCode * 59) + this.Retail.GetHashCode();
+                hashCode = (hashCode * 59) + this.Professional.GetHashCode();
+                hashCode = (hashCode * 59) + this.EligibleCounterParty.GetHashCode();
                 return hashCode;
             }
         }

@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TextBlockFootingTemplateAllOf {\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Footing: ").Append(Footing).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(TextBlockFootingTemplateAllOf input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Body == input.Body ||
@@ -121,9 +122,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
+                }
                 if (this.Footing != null)
-                    hashCode = hashCode * 59 + this.Footing.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Footing.GetHashCode();
+                }
                 return hashCode;
             }
         }

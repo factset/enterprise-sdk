@@ -46,6 +46,8 @@ public class InlineObject2 implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private java.util.List<Object> data = null;
 
+  public InlineObject2() { 
+  }
 
   public InlineObject2 date(String date) {
     this.date = date;

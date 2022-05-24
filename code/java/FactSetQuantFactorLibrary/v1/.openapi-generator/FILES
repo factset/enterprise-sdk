@@ -30,7 +30,6 @@ src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/ApiClient.java
 src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/ApiException.java
 src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/Configuration.java
-src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/JSON.java
 src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetQuantFactorLibrary/Pair.java

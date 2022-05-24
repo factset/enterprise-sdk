@@ -24,6 +24,7 @@ docs/FactsetTranslationAdvancedRequest.md
 docs/FactsetTranslationAdvancedResponse.md
 docs/FactsetTranslationRequest.md
 docs/FactsetTranslationResponse.md
+docs/GetAdvancedIds.md
 docs/GetIds.md
 docs/GetSymbolType.md
 docs/ISINApi.md
@@ -78,6 +79,7 @@ fds/sdk/Symbology/model/factset_translation_advanced_request.py
 fds/sdk/Symbology/model/factset_translation_advanced_response.py
 fds/sdk/Symbology/model/factset_translation_request.py
 fds/sdk/Symbology/model/factset_translation_response.py
+fds/sdk/Symbology/model/get_advanced_ids.py
 fds/sdk/Symbology/model/get_ids.py
 fds/sdk/Symbology/model/get_symbol_type.py
 fds/sdk/Symbology/model/isin_history_translation.py

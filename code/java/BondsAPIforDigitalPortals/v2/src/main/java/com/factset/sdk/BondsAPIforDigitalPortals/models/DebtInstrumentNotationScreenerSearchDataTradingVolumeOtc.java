@@ -44,6 +44,8 @@ public class DebtInstrumentNotationScreenerSearchDataTradingVolumeOtc implements
   public static final String JSON_PROPERTY_MINIMUM = "minimum";
   private DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum minimum;
 
+  public DebtInstrumentNotationScreenerSearchDataTradingVolumeOtc() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataTradingVolumeOtc minimum(DebtInstrumentNotationScreenerSearchDataTradingVolumeOtcMinimum minimum) {
     this.minimum = minimum;

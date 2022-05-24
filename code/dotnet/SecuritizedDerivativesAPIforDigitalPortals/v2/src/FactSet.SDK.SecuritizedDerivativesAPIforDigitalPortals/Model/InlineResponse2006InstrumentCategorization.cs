@@ -60,7 +60,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2006InstrumentCategorization {\n");
             sb.Append("  Ddv: ").Append(Ddv).Append("\n");
             sb.Append("  Eusipa: ").Append(Eusipa).Append("\n");
@@ -95,8 +95,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2006InstrumentCategorization input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Ddv == input.Ddv ||
@@ -120,9 +121,13 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.Ddv != null)
-                    hashCode = hashCode * 59 + this.Ddv.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Ddv.GetHashCode();
+                }
                 if (this.Eusipa != null)
-                    hashCode = hashCode * 59 + this.Eusipa.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Eusipa.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -47,6 +47,16 @@ public class ModelAccountFieldsRoot implements Serializable {
   public static final String JSON_PROPERTY_META = "meta";
   private java.util.Map<String, String> meta = null;
 
+  public ModelAccountFieldsRoot() { 
+  }
+
+  @JsonCreator
+  public ModelAccountFieldsRoot(
+    @JsonProperty(value=JSON_PROPERTY_DATA, required=true) ModelAccountFields data
+  ) {
+    this();
+    this.data = data;
+  }
 
   public ModelAccountFieldsRoot data(ModelAccountFields data) {
     this.data = data;

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = FactSet.SDK.ETFProfileandPrices.Client.OpenAPIDateC
 namespace FactSet.SDK.ETFProfileandPrices.Model
 {
     /// <summary>
-    /// InlineResponse20022Data
+    /// Fund flows (i.e., the amount invested or divested from a fund) based on the creation/redemption process. The data returned may not be related to overall volume or price movement. All fund flow inputs use transaction-day values to ensure that all assets under management (AUM) and flows are fully comparable and reflective of the same, verified market conditions. This data is available for all the regions.
     /// </summary>
     [DataContract(Name = "inline_response_200_22_data")]
     public partial class InlineResponse20022Data : IEquatable<InlineResponse20022Data>, IValidatableObject
@@ -34,73 +34,54 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20022Data" /> class.
         /// </summary>
-        /// <param name="navDate">Historice NAV date value..</param>
-        /// <param name="nav">Returns historic Net Asset Value of the ETP..</param>
-        /// <param name="navChange">Absolute change in NAV value..</param>
-        /// <param name="navChangePercent">Related change in the NAV value..</param>
-        /// <param name="fundFlows">This value returns factset&#39;s ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close..</param>
-        /// <param name="sharesOutstanding">Returns the historic share Outstanding values of the ETP..</param>
-        /// <param name="aum">Returns the historic Total Asset Value of the ETP..</param>
-        public InlineResponse20022Data(DateTime navDate = default(DateTime), decimal nav = default(decimal), decimal navChange = default(decimal), decimal navChangePercent = default(decimal), decimal fundFlows = default(decimal), decimal sharesOutstanding = default(decimal), decimal aum = default(decimal))
+        /// <param name="flows1D">One-day fund flows. This data is available for all the regions..</param>
+        /// <param name="flows1W">One-week fund flows. This data is available for all the regions..</param>
+        /// <param name="flows1M">One-month fund flows. This data is available for all the regions..</param>
+        /// <param name="flowsYTD">Year-to-date fund flows. This data is available for all the regions..</param>
+        /// <param name="flows1Y">One-year fund flows. This data is available for all the regions..</param>
+        public InlineResponse20022Data(decimal flows1D = default(decimal), decimal flows1W = default(decimal), decimal flows1M = default(decimal), decimal flowsYTD = default(decimal), decimal flows1Y = default(decimal))
         {
-            this.NavDate = navDate;
-            this.Nav = nav;
-            this.NavChange = navChange;
-            this.NavChangePercent = navChangePercent;
-            this.FundFlows = fundFlows;
-            this.SharesOutstanding = sharesOutstanding;
-            this.Aum = aum;
+            this.Flows1D = flows1D;
+            this.Flows1W = flows1W;
+            this.Flows1M = flows1M;
+            this.FlowsYTD = flowsYTD;
+            this.Flows1Y = flows1Y;
         }
 
         /// <summary>
-        /// Historice NAV date value.
+        /// One-day fund flows. This data is available for all the regions.
         /// </summary>
-        /// <value>Historice NAV date value.</value>
-        [DataMember(Name = "navDate", EmitDefaultValue = false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime NavDate { get; set; }
+        /// <value>One-day fund flows. This data is available for all the regions.</value>
+        [DataMember(Name = "flows1D", EmitDefaultValue = false)]
+        public decimal Flows1D { get; set; }
 
         /// <summary>
-        /// Returns historic Net Asset Value of the ETP.
+        /// One-week fund flows. This data is available for all the regions.
         /// </summary>
-        /// <value>Returns historic Net Asset Value of the ETP.</value>
-        [DataMember(Name = "nav", EmitDefaultValue = false)]
-        public decimal Nav { get; set; }
+        /// <value>One-week fund flows. This data is available for all the regions.</value>
+        [DataMember(Name = "flows1W", EmitDefaultValue = false)]
+        public decimal Flows1W { get; set; }
 
         /// <summary>
-        /// Absolute change in NAV value.
+        /// One-month fund flows. This data is available for all the regions.
         /// </summary>
-        /// <value>Absolute change in NAV value.</value>
-        [DataMember(Name = "navChange", EmitDefaultValue = false)]
-        public decimal NavChange { get; set; }
+        /// <value>One-month fund flows. This data is available for all the regions.</value>
+        [DataMember(Name = "flows1M", EmitDefaultValue = false)]
+        public decimal Flows1M { get; set; }
 
         /// <summary>
-        /// Related change in the NAV value.
+        /// Year-to-date fund flows. This data is available for all the regions.
         /// </summary>
-        /// <value>Related change in the NAV value.</value>
-        [DataMember(Name = "navChangePercent", EmitDefaultValue = false)]
-        public decimal NavChangePercent { get; set; }
+        /// <value>Year-to-date fund flows. This data is available for all the regions.</value>
+        [DataMember(Name = "flowsYTD", EmitDefaultValue = false)]
+        public decimal FlowsYTD { get; set; }
 
         /// <summary>
-        /// This value returns factset&#39;s ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close.
+        /// One-year fund flows. This data is available for all the regions.
         /// </summary>
-        /// <value>This value returns factset&#39;s ETF fundflow history. Rolling one day fund flows are calculated using the difference of shares outstanding at previous close and shares outstanding one day prior to close mulitplied by the NAV of one day prior to close.</value>
-        [DataMember(Name = "fundFlows", EmitDefaultValue = false)]
-        public decimal FundFlows { get; set; }
-
-        /// <summary>
-        /// Returns the historic share Outstanding values of the ETP.
-        /// </summary>
-        /// <value>Returns the historic share Outstanding values of the ETP.</value>
-        [DataMember(Name = "sharesOutstanding", EmitDefaultValue = false)]
-        public decimal SharesOutstanding { get; set; }
-
-        /// <summary>
-        /// Returns the historic Total Asset Value of the ETP.
-        /// </summary>
-        /// <value>Returns the historic Total Asset Value of the ETP.</value>
-        [DataMember(Name = "aum", EmitDefaultValue = false)]
-        public decimal Aum { get; set; }
+        /// <value>One-year fund flows. This data is available for all the regions.</value>
+        [DataMember(Name = "flows1Y", EmitDefaultValue = false)]
+        public decimal Flows1Y { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,15 +89,13 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20022Data {\n");
-            sb.Append("  NavDate: ").Append(NavDate).Append("\n");
-            sb.Append("  Nav: ").Append(Nav).Append("\n");
-            sb.Append("  NavChange: ").Append(NavChange).Append("\n");
-            sb.Append("  NavChangePercent: ").Append(NavChangePercent).Append("\n");
-            sb.Append("  FundFlows: ").Append(FundFlows).Append("\n");
-            sb.Append("  SharesOutstanding: ").Append(SharesOutstanding).Append("\n");
-            sb.Append("  Aum: ").Append(Aum).Append("\n");
+            sb.Append("  Flows1D: ").Append(Flows1D).Append("\n");
+            sb.Append("  Flows1W: ").Append(Flows1W).Append("\n");
+            sb.Append("  Flows1M: ").Append(Flows1M).Append("\n");
+            sb.Append("  FlowsYTD: ").Append(FlowsYTD).Append("\n");
+            sb.Append("  Flows1Y: ").Append(Flows1Y).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,37 +127,29 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
         public bool Equals(InlineResponse20022Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
-                    this.NavDate == input.NavDate ||
-                    (this.NavDate != null &&
-                    this.NavDate.Equals(input.NavDate))
+                    this.Flows1D == input.Flows1D ||
+                    this.Flows1D.Equals(input.Flows1D)
                 ) && 
                 (
-                    this.Nav == input.Nav ||
-                    this.Nav.Equals(input.Nav)
+                    this.Flows1W == input.Flows1W ||
+                    this.Flows1W.Equals(input.Flows1W)
                 ) && 
                 (
-                    this.NavChange == input.NavChange ||
-                    this.NavChange.Equals(input.NavChange)
+                    this.Flows1M == input.Flows1M ||
+                    this.Flows1M.Equals(input.Flows1M)
                 ) && 
                 (
-                    this.NavChangePercent == input.NavChangePercent ||
-                    this.NavChangePercent.Equals(input.NavChangePercent)
+                    this.FlowsYTD == input.FlowsYTD ||
+                    this.FlowsYTD.Equals(input.FlowsYTD)
                 ) && 
                 (
-                    this.FundFlows == input.FundFlows ||
-                    this.FundFlows.Equals(input.FundFlows)
-                ) && 
-                (
-                    this.SharesOutstanding == input.SharesOutstanding ||
-                    this.SharesOutstanding.Equals(input.SharesOutstanding)
-                ) && 
-                (
-                    this.Aum == input.Aum ||
-                    this.Aum.Equals(input.Aum)
+                    this.Flows1Y == input.Flows1Y ||
+                    this.Flows1Y.Equals(input.Flows1Y)
                 );
         }
 
@@ -191,14 +162,11 @@ namespace FactSet.SDK.ETFProfileandPrices.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NavDate != null)
-                    hashCode = hashCode * 59 + this.NavDate.GetHashCode();
-                hashCode = hashCode * 59 + this.Nav.GetHashCode();
-                hashCode = hashCode * 59 + this.NavChange.GetHashCode();
-                hashCode = hashCode * 59 + this.NavChangePercent.GetHashCode();
-                hashCode = hashCode * 59 + this.FundFlows.GetHashCode();
-                hashCode = hashCode * 59 + this.SharesOutstanding.GetHashCode();
-                hashCode = hashCode * 59 + this.Aum.GetHashCode();
+                hashCode = (hashCode * 59) + this.Flows1D.GetHashCode();
+                hashCode = (hashCode * 59) + this.Flows1W.GetHashCode();
+                hashCode = (hashCode * 59) + this.Flows1M.GetHashCode();
+                hashCode = (hashCode * 59) + this.FlowsYTD.GetHashCode();
+                hashCode = (hashCode * 59) + this.Flows1Y.GetHashCode();
                 return hashCode;
             }
         }

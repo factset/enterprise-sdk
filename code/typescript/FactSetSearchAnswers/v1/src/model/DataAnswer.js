@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DataAnswer model module.
  * @module model/DataAnswer
- * @version 0.9.1
+ * @version 0.20.0
  */
 class DataAnswer {
     /**

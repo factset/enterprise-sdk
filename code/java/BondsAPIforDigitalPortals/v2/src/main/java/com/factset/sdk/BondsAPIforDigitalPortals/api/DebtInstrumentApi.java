@@ -7,6 +7,9 @@ import com.factset.sdk.BondsAPIforDigitalPortals.Configuration;
 import com.factset.sdk.BondsAPIforDigitalPortals.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.BondsAPIforDigitalPortals.models.InlineObject;
 import com.factset.sdk.BondsAPIforDigitalPortals.models.InlineObject1;
@@ -28,6 +31,30 @@ public class DebtInstrumentApi {
   public DebtInstrumentApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getDebtInstrumentGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDebtInstrumentGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+  }
+  private static final Map<Integer, GenericType> getDebtInstrumentKeyFiguresNotationGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getDebtInstrumentKeyFiguresNotationGetResponseTypeMap.put(200, new GenericType<InlineResponse2002>(){});
+  }
+  private static final Map<Integer, GenericType> postDebtInstrumentIssuerSearchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postDebtInstrumentIssuerSearchResponseTypeMap.put(200, new GenericType<InlineResponse2001>(){});
+  }
+  private static final Map<Integer, GenericType> postDebtInstrumentNotationScreenerSearchResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postDebtInstrumentNotationScreenerSearchResponseTypeMap.put(200, new GenericType<InlineResponse2003>(){});
+  }
+  private static final Map<Integer, GenericType> postDebtInstrumentNotationScreenerValueRangesGetResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    postDebtInstrumentNotationScreenerValueRangesGetResponseTypeMap.put(200, new GenericType<InlineResponse2004>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -115,11 +142,17 @@ public class DebtInstrumentApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse200> localVarReturnType = new GenericType<InlineResponse200>() {};
 
-    return apiClient.invokeAPI("DebtInstrumentApi.getDebtInstrumentGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse200
+      
+    > apiResponse = apiClient.invokeAPI("DebtInstrumentApi.getDebtInstrumentGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDebtInstrumentGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Key figures of a debt instrument.
@@ -186,11 +219,17 @@ public class DebtInstrumentApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2002> localVarReturnType = new GenericType<InlineResponse2002>() {};
 
-    return apiClient.invokeAPI("DebtInstrumentApi.getDebtInstrumentKeyFiguresNotationGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2002
+      
+    > apiResponse = apiClient.invokeAPI("DebtInstrumentApi.getDebtInstrumentKeyFiguresNotationGet", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getDebtInstrumentKeyFiguresNotationGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Search for issuers of debt instruments.
@@ -248,11 +287,17 @@ public class DebtInstrumentApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2001> localVarReturnType = new GenericType<InlineResponse2001>() {};
 
-    return apiClient.invokeAPI("DebtInstrumentApi.postDebtInstrumentIssuerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2001
+      
+    > apiResponse = apiClient.invokeAPI("DebtInstrumentApi.postDebtInstrumentIssuerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postDebtInstrumentIssuerSearchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Screener for debt instruments&#39; notations based on debt instrument-specific parameters.
@@ -310,11 +355,17 @@ public class DebtInstrumentApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2003> localVarReturnType = new GenericType<InlineResponse2003>() {};
 
-    return apiClient.invokeAPI("DebtInstrumentApi.postDebtInstrumentNotationScreenerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2003
+      
+    > apiResponse = apiClient.invokeAPI("DebtInstrumentApi.postDebtInstrumentNotationScreenerSearch", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postDebtInstrumentNotationScreenerSearchResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Possible values and value ranges for the parameters used in the endpoint &#x60;/debtInstrument/notation/screener/search.&#x60;
@@ -372,10 +423,16 @@ public class DebtInstrumentApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<InlineResponse2004> localVarReturnType = new GenericType<InlineResponse2004>() {};
 
-    return apiClient.invokeAPI("DebtInstrumentApi.postDebtInstrumentNotationScreenerValueRangesGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        InlineResponse2004
+      
+    > apiResponse = apiClient.invokeAPI("DebtInstrumentApi.postDebtInstrumentNotationScreenerValueRangesGet", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, postDebtInstrumentNotationScreenerValueRangesGetResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

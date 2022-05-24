@@ -17,7 +17,7 @@ import InlineResponse2006InstrumentBonusLevelDistance from './InlineResponse2006
 /**
  * The InlineResponse2006InstrumentBonusLevel model module.
  * @module model/InlineResponse2006InstrumentBonusLevel
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006InstrumentBonusLevel {
     /**

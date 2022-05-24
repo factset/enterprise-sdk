@@ -85,6 +85,8 @@ public class SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMat
   public static final String JSON_PROPERTY_PERPETUAL = "perpetual";
   private PerpetualEnum perpetual;
 
+  public SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturity() { 
+  }
 
   public SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturity restriction(SecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityRestriction restriction) {
     this.restriction = restriction;

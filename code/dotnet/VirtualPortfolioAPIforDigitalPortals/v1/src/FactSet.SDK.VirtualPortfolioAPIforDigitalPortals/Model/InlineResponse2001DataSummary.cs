@@ -87,7 +87,7 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2001DataSummary {\n");
             sb.Append("  TotalValue: ").Append(TotalValue).Append("\n");
             sb.Append("  PurchaseValue: ").Append(PurchaseValue).Append("\n");
@@ -125,8 +125,9 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2001DataSummary input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.TotalValue == input.TotalValue ||
@@ -161,13 +162,17 @@ namespace FactSet.SDK.VirtualPortfolioAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TotalValue.GetHashCode();
-                hashCode = hashCode * 59 + this.PurchaseValue.GetHashCode();
-                hashCode = hashCode * 59 + this.NumberPositions.GetHashCode();
+                hashCode = (hashCode * 59) + this.TotalValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.PurchaseValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.NumberPositions.GetHashCode();
                 if (this.Transactions != null)
-                    hashCode = hashCode * 59 + this.Transactions.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Transactions.GetHashCode();
+                }
                 if (this.Cash != null)
-                    hashCode = hashCode * 59 + this.Cash.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Cash.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2001Meta from './InlineResponse2001Meta';
 import InlineResponse20022Data from './InlineResponse20022Data';
+import InlineResponse200Meta from './InlineResponse200Meta';
 
 /**
  * The InlineResponse20022 model module.
  * @module model/InlineResponse20022
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse20022 {
     /**
@@ -50,10 +50,10 @@ class InlineResponse20022 {
             obj = obj || new InlineResponse20022();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], [InlineResponse20022Data]);
+                obj['data'] = InlineResponse20022Data.constructFromObject(data['data']);
             }
             if (data.hasOwnProperty('meta')) {
-                obj['meta'] = InlineResponse2001Meta.constructFromObject(data['meta']);
+                obj['meta'] = InlineResponse200Meta.constructFromObject(data['meta']);
             }
         }
         return obj;
@@ -63,13 +63,12 @@ class InlineResponse20022 {
 }
 
 /**
- * Time series.
- * @member {Array.<module:model/InlineResponse20022Data>} data
+ * @member {module:model/InlineResponse20022Data} data
  */
 InlineResponse20022.prototype['data'] = undefined;
 
 /**
- * @member {module:model/InlineResponse2001Meta} meta
+ * @member {module:model/InlineResponse200Meta} meta
  */
 InlineResponse20022.prototype['meta'] = undefined;
 

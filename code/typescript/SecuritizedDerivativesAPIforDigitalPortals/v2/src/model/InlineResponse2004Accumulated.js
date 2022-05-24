@@ -17,7 +17,7 @@ import InlineResponse2004AccumulatedCurrency from './InlineResponse2004Accumulat
 /**
  * The InlineResponse2004Accumulated model module.
  * @module model/InlineResponse2004Accumulated
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004Accumulated {
     /**

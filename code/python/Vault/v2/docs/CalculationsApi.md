@@ -39,24 +39,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
+
     id = "id_example" # str | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel calculation by id
         api_instance.cancel_calculation_by_id(id)
@@ -130,28 +130,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
+
     id = "id_example" # str | From url, provided from the location header in the Run Multiple Calculations endpoint.
 
-    # example passing only required values which don't have defaults set
     try:
         # Get calculation status by id
         api_response = api_instance.get_calculation_status_by_id(id)
         pprint(api_response)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling CalculationsApi->get_calculation_status_by_id: %s\n" % e)
 ```
@@ -223,15 +224,15 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
@@ -239,11 +240,12 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
+
     try:
         # Get all calculation statuses
         api_response = api_instance.get_calculation_status_summaries()
         pprint(api_response)
+
     except fds.sdk.Vault.ApiException as e:
         print("Exception when calling CalculationsApi->get_calculation_status_summaries: %s\n" % e)
 ```
@@ -310,21 +312,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Vault.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Vault.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Vault.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calculations_api.CalculationsApi(api_client)
+
     calculation = Calculation(
         pa={
             "key": PACalculationParameters(
@@ -415,8 +418,6 @@ with fds.sdk.Vault.ApiClient(configuration) as api_client:
         },
     ) # Calculation |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Run calculation
         api_instance.run_calculation(calculation=calculation)

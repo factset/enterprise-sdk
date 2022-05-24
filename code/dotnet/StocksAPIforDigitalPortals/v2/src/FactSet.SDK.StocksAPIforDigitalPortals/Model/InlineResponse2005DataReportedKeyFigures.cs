@@ -68,7 +68,7 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse2005DataReportedKeyFigures {\n");
             sb.Append("  FirstFiscalYear: ").Append(FirstFiscalYear).Append("\n");
             sb.Append("  SecondFiscalYear: ").Append(SecondFiscalYear).Append("\n");
@@ -104,8 +104,9 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
         public bool Equals(InlineResponse2005DataReportedKeyFigures input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FirstFiscalYear == input.FirstFiscalYear ||
@@ -134,11 +135,17 @@ namespace FactSet.SDK.StocksAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.FirstFiscalYear != null)
-                    hashCode = hashCode * 59 + this.FirstFiscalYear.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FirstFiscalYear.GetHashCode();
+                }
                 if (this.SecondFiscalYear != null)
-                    hashCode = hashCode * 59 + this.SecondFiscalYear.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecondFiscalYear.GetHashCode();
+                }
                 if (this.ThirdFiscalYear != null)
-                    hashCode = hashCode * 59 + this.ThirdFiscalYear.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ThirdFiscalYear.GetHashCode();
+                }
                 return hashCode;
             }
         }

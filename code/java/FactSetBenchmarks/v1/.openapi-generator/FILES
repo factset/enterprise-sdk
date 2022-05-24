@@ -24,6 +24,7 @@ docs/FixedIncomeBenchmarkConstituent.md
 docs/FixedIncomeBenchmarkConstituentsRequest.md
 docs/FixedIncomeBenchmarkConstituentsResponse.md
 docs/Frequency.md
+docs/HedgeType.md
 docs/HelperApi.md
 docs/IndexHistory.md
 docs/IndexHistoryRequest.md
@@ -47,7 +48,6 @@ src/main/java/com/factset/sdk/FactSetBenchmarks/ApiClient.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/ApiException.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/ApiResponse.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/Configuration.java
-src/main/java/com/factset/sdk/FactSetBenchmarks/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/JSON.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/Pair.java
@@ -83,6 +83,7 @@ src/main/java/com/factset/sdk/FactSetBenchmarks/models/FixedIncomeBenchmarkConst
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/FixedIncomeBenchmarkConstituentsRequest.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/FixedIncomeBenchmarkConstituentsResponse.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/Frequency.java
+src/main/java/com/factset/sdk/FactSetBenchmarks/models/HedgeType.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistory.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistoryRequest.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistoryResponse.java

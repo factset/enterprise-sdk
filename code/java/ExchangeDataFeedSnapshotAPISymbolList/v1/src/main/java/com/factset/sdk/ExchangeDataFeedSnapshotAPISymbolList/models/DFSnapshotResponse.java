@@ -56,6 +56,8 @@ public class DFSnapshotResponse implements Serializable {
   public static final String JSON_PROPERTY_SYMBOL2 = "symbol2";
   private String symbol2;
 
+  public DFSnapshotResponse() { 
+  }
 
   public DFSnapshotResponse error(Integer error) {
     this.error = error;

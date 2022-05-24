@@ -55,6 +55,8 @@ public class CovenantDetail implements Serializable {
   public static final String JSON_PROPERTY_FIN_COV_DESC = "finCovDesc";
   private String finCovDesc;
 
+  public CovenantDetail() { 
+  }
 
   public CovenantDetail requestId(String requestId) {
     this.requestId = requestId;

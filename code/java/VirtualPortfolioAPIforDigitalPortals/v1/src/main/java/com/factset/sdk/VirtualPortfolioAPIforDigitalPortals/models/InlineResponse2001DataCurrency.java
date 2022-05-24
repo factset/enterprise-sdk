@@ -48,6 +48,8 @@ public class InlineResponse2001DataCurrency implements Serializable {
   public static final String JSON_PROPERTY_ISO_CODE = "isoCode";
   private String isoCode;
 
+  public InlineResponse2001DataCurrency() { 
+  }
 
   public InlineResponse2001DataCurrency id(BigDecimal id) {
     this.id = id;

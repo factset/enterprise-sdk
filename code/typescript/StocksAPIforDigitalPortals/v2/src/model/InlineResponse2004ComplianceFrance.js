@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InlineResponse2004ComplianceFrance model module.
  * @module model/InlineResponse2004ComplianceFrance
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2004ComplianceFrance {
     /**

@@ -24,8 +24,8 @@ from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model_utils import (  # 
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.exceptions import ApiAttributeError
 
 
@@ -39,6 +39,7 @@ def lazy_import():
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_life_cycle import SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_market import SecuritizedDerivativeNotationRankingIntradayListDataMarket
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_notation_restriction_list import SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList
+    from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_performance import SecuritizedDerivativeNotationRankingIntradayListDataPerformance
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_prices import SecuritizedDerivativeNotationRankingIntradayListDataPrices
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_registration_country import SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry
     from fds.sdk.SecuritizedDerivativesAPIforDigitalPortals.model.securitized_derivative_notation_ranking_intraday_list_data_underlying import SecuritizedDerivativeNotationRankingIntradayListDataUnderlying
@@ -52,6 +53,7 @@ def lazy_import():
     globals()['SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle'] = SecuritizedDerivativeNotationRankingIntradayListDataLifeCycle
     globals()['SecuritizedDerivativeNotationRankingIntradayListDataMarket'] = SecuritizedDerivativeNotationRankingIntradayListDataMarket
     globals()['SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList'] = SecuritizedDerivativeNotationRankingIntradayListDataNotationRestrictionList
+    globals()['SecuritizedDerivativeNotationRankingIntradayListDataPerformance'] = SecuritizedDerivativeNotationRankingIntradayListDataPerformance
     globals()['SecuritizedDerivativeNotationRankingIntradayListDataPrices'] = SecuritizedDerivativeNotationRankingIntradayListDataPrices
     globals()['SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry'] = SecuritizedDerivativeNotationRankingIntradayListDataRegistrationCountry
     globals()['SecuritizedDerivativeNotationRankingIntradayListDataUnderlying'] = SecuritizedDerivativeNotationRankingIntradayListDataUnderlying
@@ -136,6 +138,7 @@ class SecuritizedDerivativeNotationRankingIntradayListData(ModelNormal):
             'factor_certificates': (SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates,),  # noqa: E501
             'knocked_out': (str,),  # noqa: E501
             'knocked_in': (str,),  # noqa: E501
+            'performance': (SecuritizedDerivativeNotationRankingIntradayListDataPerformance,),  # noqa: E501
         }
 
     @cached_property
@@ -159,6 +162,7 @@ class SecuritizedDerivativeNotationRankingIntradayListData(ModelNormal):
         'factor_certificates': 'factorCertificates',  # noqa: E501
         'knocked_out': 'knockedOut',  # noqa: E501
         'knocked_in': 'knockedIn',  # noqa: E501
+        'performance': 'performance',  # noqa: E501
     }
 
     read_only_vars = {
@@ -219,6 +223,7 @@ class SecuritizedDerivativeNotationRankingIntradayListData(ModelNormal):
             factor_certificates (SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates): [optional]  # noqa: E501
             knocked_out (str): Specifies whether knocked-out securitized derivatives are included in the response. Particularly relevant for knock-out certificates.. [optional] if omitted the server will use the default value of "exclude"  # noqa: E501
             knocked_in (str): Specifies whether knocked-in securitized derivatives are included in the response. Particularly relevant for bonus certificates but also for securitized derivatives that might have additional protection such as reverse convertible bonds, discount certificates, and capital-protection certificates.. [optional] if omitted the server will use the default value of "exclude"  # noqa: E501
+            performance (SecuritizedDerivativeNotationRankingIntradayListDataPerformance): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,6 +323,7 @@ class SecuritizedDerivativeNotationRankingIntradayListData(ModelNormal):
             factor_certificates (SecuritizedDerivativeNotationRankingIntradayListDataFactorCertificates): [optional]  # noqa: E501
             knocked_out (str): Specifies whether knocked-out securitized derivatives are included in the response. Particularly relevant for knock-out certificates.. [optional] if omitted the server will use the default value of "exclude"  # noqa: E501
             knocked_in (str): Specifies whether knocked-in securitized derivatives are included in the response. Particularly relevant for bonus certificates but also for securitized derivatives that might have additional protection such as reverse convertible bonds, discount certificates, and capital-protection certificates.. [optional] if omitted the server will use the default value of "exclude"  # noqa: E501
+            performance (SecuritizedDerivativeNotationRankingIntradayListDataPerformance): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

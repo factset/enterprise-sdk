@@ -51,6 +51,16 @@ public class EntityStructureRequest implements Serializable {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Integer active = -1;
 
+  public EntityStructureRequest() { 
+  }
+
+  @JsonCreator
+  public EntityStructureRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public EntityStructureRequest ids(java.util.List<String> ids) {
     this.ids = ids;

@@ -109,7 +109,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MarketValue {\n");
             sb.Append("  FsymId: ").Append(FsymId).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
@@ -149,8 +149,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(MarketValue input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.FsymId == input.FsymId ||
@@ -196,16 +197,24 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.FsymId != null)
-                    hashCode = hashCode * 59 + this.FsymId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.FsymId.GetHashCode();
+                }
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 if (this.Currency != null)
-                    hashCode = hashCode * 59 + this.Currency.GetHashCode();
-                hashCode = hashCode * 59 + this.EntityMarketValue.GetHashCode();
-                hashCode = hashCode * 59 + this.EntityMarketValueExNonTraded.GetHashCode();
-                hashCode = hashCode * 59 + this.SecurityMarketValue.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EntityMarketValue.GetHashCode();
+                hashCode = (hashCode * 59) + this.EntityMarketValueExNonTraded.GetHashCode();
+                hashCode = (hashCode * 59) + this.SecurityMarketValue.GetHashCode();
                 if (this.RequestId != null)
-                    hashCode = hashCode * 59 + this.RequestId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RequestId.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -44,6 +44,8 @@ public class InlineResponse20079DataLatestPerformance implements Serializable {
   public static final String JSON_PROPERTY_INTRADAY = "intraday";
   private InlineResponse20079DataLatestPerformanceIntraday intraday;
 
+  public InlineResponse20079DataLatestPerformance() { 
+  }
 
   public InlineResponse20079DataLatestPerformance intraday(InlineResponse20079DataLatestPerformanceIntraday intraday) {
     this.intraday = intraday;

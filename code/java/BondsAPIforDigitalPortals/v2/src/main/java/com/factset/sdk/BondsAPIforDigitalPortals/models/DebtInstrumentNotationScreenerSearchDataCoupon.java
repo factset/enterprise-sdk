@@ -49,6 +49,8 @@ public class DebtInstrumentNotationScreenerSearchDataCoupon implements Serializa
   public static final String JSON_PROPERTY_CURRENT_INTEREST_RATE = "currentInterestRate";
   private DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRate currentInterestRate;
 
+  public DebtInstrumentNotationScreenerSearchDataCoupon() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataCoupon occurrence(DebtInstrumentNotationScreenerSearchDataCouponOccurrence occurrence) {
     this.occurrence = occurrence;

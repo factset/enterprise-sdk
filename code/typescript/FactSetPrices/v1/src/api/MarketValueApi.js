@@ -20,7 +20,7 @@ import MarketValueResponse from '../model/MarketValueResponse';
 /**
 * MarketValue service.
 * @module api/MarketValueApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class MarketValueApi {
 
@@ -75,7 +75,10 @@ export default class MarketValueApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = MarketValueResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/market-value', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -93,7 +96,7 @@ export default class MarketValueApi {
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.  (default to 'D')
      * @param {module:model/String} opts.calendar Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods. (default to 'FIVEDAY')
      * @param {String} opts.currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MarketValueResponse}
+     * @return { Promise.< module:model/MarketValueResponse > } a Promise, with data of type {@link module:model/MarketValueResponse }
      */
     getMarketValue(ids, opts) {
       return this.getMarketValueWithHttpInfo(ids, opts)
@@ -128,7 +131,10 @@ export default class MarketValueApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = MarketValueResponse;
+
       return this.apiClient.callApi(
         '/factset-prices/v1/market-value', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -140,7 +146,7 @@ export default class MarketValueApi {
      * Requests the market value for a list of `ids` as of given date range.
      * Requests the market value for a list of `ids` as of given date range.
      * @param {module:model/MarketValueRequest} marketValueRequest Request object for `Security` market values.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MarketValueResponse}
+     * @return { Promise.< module:model/MarketValueResponse > } a Promise, with data of type {@link module:model/MarketValueResponse }
      */
     getMarketValueForList(marketValueRequest) {
       return this.getMarketValueForListWithHttpInfo(marketValueRequest)
@@ -151,3 +157,8 @@ export default class MarketValueApi {
 
 
 }
+
+
+
+
+

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_note**
-> NewItemDto create_note()
+> NewItemDto create_note(create_note_dto)
 
 Create a note
 
@@ -41,23 +41,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
-    x_irn_contributor_username = "X-IRN-Contributor-Username_example" # str |  (optional)
-    x_irn_contributor_serial = "X-IRN-Contributor-Serial_example" # str |  (optional)
+
     create_note_dto = CreateNoteDto(
         author=UserSerialDto(
             username="username_example",
@@ -106,15 +105,16 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
                 ],
             ),
         ],
-        is_personal=True,
-    ) # CreateNoteDto |  (optional)
+        is_personal=False,
+    ) # CreateNoteDto | 
+    x_irn_contributor_username = "X-IRN-Contributor-Username_example" # str |  (optional)
+    x_irn_contributor_serial = "X-IRN-Contributor-Serial_example" # str |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a note
-        api_response = api_instance.create_note(x_irn_contributor_username=x_irn_contributor_username, x_irn_contributor_serial=x_irn_contributor_serial, create_note_dto=create_note_dto)
+        api_response = api_instance.create_note(create_note_dto, x_irn_contributor_username=x_irn_contributor_username, x_irn_contributor_serial=x_irn_contributor_serial)
         pprint(api_response)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling NotesApi->create_note: %s\n" % e)
 ```
@@ -124,9 +124,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **create_note_dto** | [**CreateNoteDto**](CreateNoteDto.md)|  |
  **x_irn_contributor_username** | **str**|  | [optional]
  **x_irn_contributor_serial** | **str**|  | [optional]
- **create_note_dto** | [**CreateNoteDto**](CreateNoteDto.md)|  | [optional]
 
 ### Return type
 
@@ -179,24 +179,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
+
     note_id = "noteId_example" # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a Note
         api_instance.delete_note(note_id)
@@ -265,28 +265,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
+
     note_id = "noteId_example" # str | Note Id
 
-    # example passing only required values which don't have defaults set
     try:
         # Get details of a note
         api_response = api_instance.get_note(note_id)
         pprint(api_response)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling NotesApi->get_note: %s\n" % e)
 ```
@@ -351,21 +352,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
+
     start = "start_example" # str | StartDate (optional)
     end = "end_example" # str | EndDate (optional)
     identifiers = [
@@ -386,15 +388,17 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     limit = 1 # int | Limit on the number of notes retrieved (optional)
     offset = 1 # int | Fetch notes after the offset (optional)
     modified_since = "modifiedSince_example" # str | Only return notes which have been modified or created since a particular time (optional)
-    filter_on_related_symbols = False # bool | Include notes whose related symbols match the identifier filter (optional) if omitted the server will use the default value of False
-    x_irn_include_deleted = False # bool |  (optional) if omitted the server will use the default value of False
+    states = [
+        "states_example",
+    ] # [str] | Set of states to filter on (optional)
+    filter_on_related_symbols = False # bool | Include notes whose related symbols match the identifier filter (optional) (default to False)
+    x_irn_include_deleted = False # bool |  (optional) (default to False)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get all the notes in the specified date range filtered on the given identifiers
-        api_response = api_instance.get_notes(start=start, end=end, identifiers=identifiers, authors=authors, subjects=subjects, recommendations=recommendations, sentiments=sentiments, limit=limit, offset=offset, modified_since=modified_since, filter_on_related_symbols=filter_on_related_symbols, x_irn_include_deleted=x_irn_include_deleted)
+        api_response = api_instance.get_notes(start=start, end=end, identifiers=identifiers, authors=authors, subjects=subjects, recommendations=recommendations, sentiments=sentiments, limit=limit, offset=offset, modified_since=modified_since, states=states, filter_on_related_symbols=filter_on_related_symbols, x_irn_include_deleted=x_irn_include_deleted)
         pprint(api_response)
+
     except fds.sdk.IRNNotes.ApiException as e:
         print("Exception when calling NotesApi->get_notes: %s\n" % e)
 ```
@@ -414,6 +418,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Limit on the number of notes retrieved | [optional]
  **offset** | **int**| Fetch notes after the offset | [optional]
  **modified_since** | **str**| Only return notes which have been modified or created since a particular time | [optional]
+ **states** | **[str]**| Set of states to filter on | [optional]
  **filter_on_related_symbols** | **bool**| Include notes whose related symbols match the identifier filter | [optional] if omitted the server will use the default value of False
  **x_irn_include_deleted** | **bool**|  | [optional] if omitted the server will use the default value of False
 
@@ -469,21 +474,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.IRNNotes.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.IRNNotes.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notes_api.NotesApi(api_client)
+
     note_id = "noteId_example" # str | Note Id
     update_note_dto = UpdateNoteDto(
         author=UserSerialDto(
@@ -491,6 +497,8 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
             serial_number="serial_number_example",
         ),
         title="title_example",
+        subject_id="subject_id_example",
+        note_date="note_date_example",
         recommendation_id="recommendation_id_example",
         sentiment_id="sentiment_id_example",
         body=CreateBodyDto(
@@ -531,17 +539,9 @@ with fds.sdk.IRNNotes.ApiClient(configuration) as api_client:
             ),
         ],
         is_personal=True,
+        identifier="identifier_example",
     ) # UpdateNoteDto | Note details to update (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a note
-        api_instance.update_note(note_id)
-    except fds.sdk.IRNNotes.ApiException as e:
-        print("Exception when calling NotesApi->update_note: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update a note
         api_instance.update_note(note_id, update_note_dto=update_note_dto)

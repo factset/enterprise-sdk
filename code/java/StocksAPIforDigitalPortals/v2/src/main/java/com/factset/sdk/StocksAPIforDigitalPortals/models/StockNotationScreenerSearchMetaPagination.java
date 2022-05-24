@@ -48,6 +48,8 @@ public class StockNotationScreenerSearchMetaPagination implements Serializable {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private BigDecimal limit;
 
+  public StockNotationScreenerSearchMetaPagination() { 
+  }
 
   public StockNotationScreenerSearchMetaPagination offset(BigDecimal offset) {
     this.offset = offset;

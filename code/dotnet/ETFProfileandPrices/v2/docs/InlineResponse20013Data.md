@@ -1,15 +1,15 @@
 # FactSet.SDK.ETFProfileandPrices.Model.InlineResponse20013Data
-Fund flows (i.e., the amount invested or divested from a fund) based on the creation/redemption process. The data returned may not be related to overall volume or price movement. All fund flow inputs use transaction-day values to ensure that all assets under management (AUM) and flows are fully comparable and reflective of the same, verified market conditions. This data is available for all the regions.
+Trade analytics.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Flows1D** | **decimal** | One-day fund flows. This data is available for all the regions. | [optional] 
-**Flows1W** | **decimal** | One-week fund flows. This data is available for all the regions. | [optional] 
-**Flows1M** | **decimal** | One-month fund flows. This data is available for all the regions. | [optional] 
-**FlowsYTD** | **decimal** | Year-to-date fund flows. This data is available for all the regions. | [optional] 
-**Flows1Y** | **decimal** | One-year fund flows. This data is available for all the regions. | [optional] 
+**ImpedimentsToCreation** | [**InlineResponse20013DataImpedimentsToCreation**](InlineResponse20013DataImpedimentsToCreation.md) |  | [optional] 
+**PremiumDiscount** | [**InlineResponse20013DataPremiumDiscount**](InlineResponse20013DataPremiumDiscount.md) |  | [optional] 
+**BlockTrade** | [**InlineResponse20013DataBlockTrade**](InlineResponse20013DataBlockTrade.md) |  | [optional] 
+**Spread** | [**InlineResponse20013DataSpread**](InlineResponse20013DataSpread.md) |  | [optional] 
+**TrackingDifference** | [**InlineResponse20013DataTrackingDifference**](InlineResponse20013DataTrackingDifference.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

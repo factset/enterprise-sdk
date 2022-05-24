@@ -18,12 +18,12 @@ import NRTSnippetsMeta from './NRTSnippetsMeta';
 /**
  * The NRTSnippets model module.
  * @module model/NRTSnippets
- * @version 0.9.1
+ * @version 0.20.0
  */
 class NRTSnippets {
     /**
      * Constructs a new <code>NRTSnippets</code>.
-     * Metadata of the snippets of active calls happening at that moment are returned
+     * Transcript snippet metadata of active calls happening at that moment are returned
      * @alias module:model/NRTSnippets
      */
     constructor() { 

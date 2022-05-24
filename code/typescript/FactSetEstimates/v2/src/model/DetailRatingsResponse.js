@@ -17,7 +17,7 @@ import DetailRatings from './DetailRatings';
 /**
  * The DetailRatingsResponse model module.
  * @module model/DetailRatingsResponse
- * @version 0.9.1
+ * @version 0.20.0
  */
 class DetailRatingsResponse {
     /**

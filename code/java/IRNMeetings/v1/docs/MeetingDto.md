@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **organizerId** | **java.util.UUID** |  |  [optional]
 **body** | **String** |  |  [optional]
 **averageRating** | **Integer** |  |  [optional]
+**alertAttendees** | **Boolean** |  |  [optional]
+**alertAuthor** | **Boolean** |  |  [optional]
 **locations** | [**java.util.List&lt;LocationDto&gt;**](LocationDto.md) |  |  [optional]
 **attendees** | [**java.util.List&lt;AttendeeDto&gt;**](AttendeeDto.md) |  |  [optional]
 **customFields** | [**java.util.List&lt;CustomFieldValueDto&gt;**](CustomFieldValueDto.md) |  |  [optional]

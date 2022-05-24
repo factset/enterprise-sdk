@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getSecurityShares(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -131,6 +132,7 @@ const sharesRequest = new factsetprices.SharesRequest(); // SharesRequest | Requ
 // Call api endpoint
 apiInstance.getSecuritySharesForList(sharesRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

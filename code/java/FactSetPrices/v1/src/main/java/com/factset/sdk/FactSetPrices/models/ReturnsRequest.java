@@ -75,6 +75,16 @@ public class ReturnsRequest implements Serializable {
   public static final String JSON_PROPERTY_ROLLING_PERIOD = "rollingPeriod";
   private RollingPeriod rollingPeriod;
 
+  public ReturnsRequest() { 
+  }
+
+  @JsonCreator
+  public ReturnsRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public ReturnsRequest ids(java.util.List<String> ids) {
     this.ids = ids;

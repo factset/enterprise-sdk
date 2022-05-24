@@ -43,6 +43,8 @@ public class AccountDirectoriesRoot implements Serializable {
   public static final String JSON_PROPERTY_DATA = "data";
   private AccountDirectories data;
 
+  public AccountDirectoriesRoot() { 
+  }
 
   public AccountDirectoriesRoot data(AccountDirectories data) {
     this.data = data;

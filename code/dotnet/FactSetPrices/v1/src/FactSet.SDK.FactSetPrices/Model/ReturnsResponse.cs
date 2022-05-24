@@ -36,7 +36,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// Initializes a new instance of the <see cref="ReturnsResponse" /> class.
         /// </summary>
         /// <param name="data">Array of Returns Objects.</param>
-        public ReturnsResponse(List<ModelReturn> data = default(List<ModelReturn>))
+        public ReturnsResponse(List<Return> data = default(List<Return>))
         {
             this.Data = data;
         }
@@ -46,7 +46,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// </summary>
         /// <value>Array of Returns Objects</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
-        public List<ModelReturn> Data { get; set; }
+        public List<Return> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,7 +54,7 @@ namespace FactSet.SDK.FactSetPrices.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ReturnsResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.SDK.FactSetPrices.Model
         public bool Equals(ReturnsResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
@@ -109,7 +110,9 @@ namespace FactSet.SDK.FactSetPrices.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 return hashCode;
             }
         }

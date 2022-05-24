@@ -53,6 +53,7 @@ const opts = {
 // Call api endpoint
 apiInstance.getRbicsEntityFocus(ids, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const entityFocusRequest = new factsetrbics.EntityFocusRequest(); // EntityFocus
 // Call api endpoint
 apiInstance.getRbicsEntityFocusForList(entityFocusRequest).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

@@ -47,7 +47,8 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// <param name="relatedSymbols">relatedSymbols.</param>
         /// <param name="locations">locations.</param>
         /// <param name="attendees">attendees.</param>
-        public MeetingSummaryDto(Guid id = default(Guid), string start = default(string), string end = default(string), string createdAt = default(string), Guid authorId = default(Guid), string title = default(string), string identifier = default(string), string organizer = default(string), Guid organizerId = default(Guid), List<Guid> attachmentIds = default(List<Guid>), List<string> relatedSymbols = default(List<string>), List<LocationDto> locations = default(List<LocationDto>), List<AttendeeDto> attendees = default(List<AttendeeDto>))
+        /// <param name="customFieldValues">customFieldValues.</param>
+        public MeetingSummaryDto(Guid id = default(Guid), string start = default(string), string end = default(string), string createdAt = default(string), Guid authorId = default(Guid), string title = default(string), string identifier = default(string), string organizer = default(string), Guid organizerId = default(Guid), List<Guid> attachmentIds = default(List<Guid>), List<string> relatedSymbols = default(List<string>), List<LocationDto> locations = default(List<LocationDto>), List<AttendeeDto> attendees = default(List<AttendeeDto>), List<CustomFieldValueDto> customFieldValues = default(List<CustomFieldValueDto>))
         {
             this.Id = id;
             this.Start = start;
@@ -62,6 +63,7 @@ namespace FactSet.SDK.IRNMeetings.Model
             this.RelatedSymbols = relatedSymbols;
             this.Locations = locations;
             this.Attendees = attendees;
+            this.CustomFieldValues = customFieldValues;
         }
 
         /// <summary>
@@ -110,6 +112,7 @@ namespace FactSet.SDK.IRNMeetings.Model
         /// Gets or Sets Organizer
         /// </summary>
         [DataMember(Name = "organizer", EmitDefaultValue = true)]
+        [Obsolete]
         public string Organizer { get; set; }
 
         /// <summary>
@@ -143,12 +146,18 @@ namespace FactSet.SDK.IRNMeetings.Model
         public List<AttendeeDto> Attendees { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustomFieldValues
+        /// </summary>
+        [DataMember(Name = "customFieldValues", EmitDefaultValue = true)]
+        public List<CustomFieldValueDto> CustomFieldValues { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class MeetingSummaryDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Start: ").Append(Start).Append("\n");
@@ -163,6 +172,7 @@ namespace FactSet.SDK.IRNMeetings.Model
             sb.Append("  RelatedSymbols: ").Append(RelatedSymbols).Append("\n");
             sb.Append("  Locations: ").Append(Locations).Append("\n");
             sb.Append("  Attendees: ").Append(Attendees).Append("\n");
+            sb.Append("  CustomFieldValues: ").Append(CustomFieldValues).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -194,8 +204,9 @@ namespace FactSet.SDK.IRNMeetings.Model
         public bool Equals(MeetingSummaryDto input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -265,6 +276,12 @@ namespace FactSet.SDK.IRNMeetings.Model
                     this.Attendees != null &&
                     input.Attendees != null &&
                     this.Attendees.SequenceEqual(input.Attendees)
+                ) && 
+                (
+                    this.CustomFieldValues == input.CustomFieldValues ||
+                    this.CustomFieldValues != null &&
+                    input.CustomFieldValues != null &&
+                    this.CustomFieldValues.SequenceEqual(input.CustomFieldValues)
                 );
         }
 
@@ -278,31 +295,61 @@ namespace FactSet.SDK.IRNMeetings.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Start != null)
-                    hashCode = hashCode * 59 + this.Start.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
+                }
                 if (this.End != null)
-                    hashCode = hashCode * 59 + this.End.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.End.GetHashCode();
+                }
                 if (this.CreatedAt != null)
-                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                }
                 if (this.AuthorId != null)
-                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
                 if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
                 if (this.Identifier != null)
-                    hashCode = hashCode * 59 + this.Identifier.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Identifier.GetHashCode();
+                }
                 if (this.Organizer != null)
-                    hashCode = hashCode * 59 + this.Organizer.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Organizer.GetHashCode();
+                }
                 if (this.OrganizerId != null)
-                    hashCode = hashCode * 59 + this.OrganizerId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OrganizerId.GetHashCode();
+                }
                 if (this.AttachmentIds != null)
-                    hashCode = hashCode * 59 + this.AttachmentIds.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AttachmentIds.GetHashCode();
+                }
                 if (this.RelatedSymbols != null)
-                    hashCode = hashCode * 59 + this.RelatedSymbols.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RelatedSymbols.GetHashCode();
+                }
                 if (this.Locations != null)
-                    hashCode = hashCode * 59 + this.Locations.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Locations.GetHashCode();
+                }
                 if (this.Attendees != null)
-                    hashCode = hashCode * 59 + this.Attendees.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Attendees.GetHashCode();
+                }
+                if (this.CustomFieldValues != null)
+                {
+                    hashCode = (hashCode * 59) + this.CustomFieldValues.GetHashCode();
+                }
                 return hashCode;
             }
         }

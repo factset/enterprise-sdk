@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **include_all** | **bool** | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  | [optional]  if omitted the server will use the default value of False
 **relative_fiscal_start** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
 **relative_fiscal_end** | **int** | Relative fiscal period, expressed as an integer, used to filter results. | [optional] 
-**periodicity** | [**Periodicity**](Periodicity.md) |  | [optional] 
+**periodicity** | [**PeriodicityDetail**](PeriodicityDetail.md) |  | [optional] 
 **currency** | **str** | Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -81,7 +81,7 @@ namespace FactSet.SDK.FactSetRBICS.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class StructureRequest {\n");
             sb.Append("  RbicsIds: ").Append(RbicsIds).Append("\n");
             sb.Append("  Level: ").Append(Level).Append("\n");
@@ -118,8 +118,9 @@ namespace FactSet.SDK.FactSetRBICS.Model
         public bool Equals(StructureRequest input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.RbicsIds == input.RbicsIds ||
@@ -152,11 +153,15 @@ namespace FactSet.SDK.FactSetRBICS.Model
             {
                 int hashCode = 41;
                 if (this.RbicsIds != null)
-                    hashCode = hashCode * 59 + this.RbicsIds.GetHashCode();
-                hashCode = hashCode * 59 + this.Level.GetHashCode();
-                hashCode = hashCode * 59 + this.IncludeNames.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.RbicsIds.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Level.GetHashCode();
+                hashCode = (hashCode * 59) + this.IncludeNames.GetHashCode();
                 if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Date.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -169,13 +174,13 @@ namespace FactSet.SDK.FactSetRBICS.Model
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             // Level (int) maximum
-            if(this.Level > (int)6)
+            if (this.Level > (int)6)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Level, must be a value less than or equal to 6.", new [] { "Level" });
             }
 
             // Level (int) minimum
-            if(this.Level < (int)1)
+            if (this.Level < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Level, must be a value greater than or equal to 1.", new [] { "Level" });
             }

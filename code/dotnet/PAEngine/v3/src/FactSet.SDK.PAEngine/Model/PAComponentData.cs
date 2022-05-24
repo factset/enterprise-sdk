@@ -40,15 +40,17 @@ namespace FactSet.SDK.PAEngine.Model
         /// <param name="groups">List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document..</param>
         /// <param name="columns">List of columns for the PA calculation. This will take precedence over the columns saved in the PA document..</param>
         /// <param name="dates">dates.</param>
+        /// <param name="datasources">datasources.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="componentdetail">PA Storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
-        public PAComponentData(List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationGroup> groups = default(List<PACalculationGroup>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), string currencyisocode = default(string), string componentdetail = default(string))
+        public PAComponentData(List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationGroup> groups = default(List<PACalculationGroup>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), PACalculationDataSources datasources = default(PACalculationDataSources), string currencyisocode = default(string), string componentdetail = default(string))
         {
             this.Accounts = accounts;
             this.Benchmarks = benchmarks;
             this.Groups = groups;
             this.Columns = columns;
             this.Dates = dates;
+            this.Datasources = datasources;
             this.Currencyisocode = currencyisocode;
             this.Componentdetail = componentdetail;
         }
@@ -88,6 +90,12 @@ namespace FactSet.SDK.PAEngine.Model
         public PADateParameters Dates { get; set; }
 
         /// <summary>
+        /// Gets or Sets Datasources
+        /// </summary>
+        [DataMember(Name = "datasources", EmitDefaultValue = false)]
+        public PACalculationDataSources Datasources { get; set; }
+
+        /// <summary>
         /// Currency ISO code for calculation.
         /// </summary>
         /// <value>Currency ISO code for calculation.</value>
@@ -107,13 +115,14 @@ namespace FactSet.SDK.PAEngine.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PAComponentData {\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  Benchmarks: ").Append(Benchmarks).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  Columns: ").Append(Columns).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Datasources: ").Append(Datasources).Append("\n");
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Componentdetail: ").Append(Componentdetail).Append("\n");
             sb.Append("}\n");
@@ -147,8 +156,9 @@ namespace FactSet.SDK.PAEngine.Model
         public bool Equals(PAComponentData input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Accounts == input.Accounts ||
@@ -180,6 +190,11 @@ namespace FactSet.SDK.PAEngine.Model
                     this.Dates.Equals(input.Dates))
                 ) && 
                 (
+                    this.Datasources == input.Datasources ||
+                    (this.Datasources != null &&
+                    this.Datasources.Equals(input.Datasources))
+                ) && 
+                (
                     this.Currencyisocode == input.Currencyisocode ||
                     (this.Currencyisocode != null &&
                     this.Currencyisocode.Equals(input.Currencyisocode))
@@ -201,19 +216,37 @@ namespace FactSet.SDK.PAEngine.Model
             {
                 int hashCode = 41;
                 if (this.Accounts != null)
-                    hashCode = hashCode * 59 + this.Accounts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
+                }
                 if (this.Benchmarks != null)
-                    hashCode = hashCode * 59 + this.Benchmarks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Benchmarks.GetHashCode();
+                }
                 if (this.Groups != null)
-                    hashCode = hashCode * 59 + this.Groups.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Groups.GetHashCode();
+                }
                 if (this.Columns != null)
-                    hashCode = hashCode * 59 + this.Columns.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Columns.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
+                if (this.Datasources != null)
+                {
+                    hashCode = (hashCode * 59) + this.Datasources.GetHashCode();
+                }
                 if (this.Currencyisocode != null)
-                    hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currencyisocode.GetHashCode();
+                }
                 if (this.Componentdetail != null)
-                    hashCode = hashCode * 59 + this.Componentdetail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Componentdetail.GetHashCode();
+                }
                 return hashCode;
             }
         }

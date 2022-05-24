@@ -42,24 +42,24 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Publisher.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Publisher.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Cancel Pub calculation by id
         api_instance.cancel_calculation_by_id(id)
@@ -133,28 +133,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Publisher.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Publisher.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Pub calculation parameters by id
         api_response = api_instance.get_calculation_parameters(id)
         pprint(api_response)
+
     except fds.sdk.Publisher.ApiException as e:
         print("Exception when calling PubCalculationsApi->get_calculation_parameters: %s\n" % e)
 ```
@@ -225,28 +226,29 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Publisher.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Publisher.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Pub calculation status by id
         api_response = api_instance.get_calculation_status_by_id(id)
         pprint(api_response)
+
     except fds.sdk.Publisher.ApiException as e:
         print("Exception when calling PubCalculationsApi->get_calculation_status_by_id: %s\n" % e)
 ```
@@ -318,39 +320,31 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Publisher.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Publisher.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Get Pub calculation status by id endpoint
     unit_id = "unitId_example" # str | from url, provided from the location header in the Get Pub calculation status by id endpoint
     accept = "Accept_example" # str | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Get Pub calculation result by id
-        api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id)
-        pprint(api_response)
-    except fds.sdk.Publisher.ApiException as e:
-        print("Exception when calling PubCalculationsApi->get_calculation_unit_result_by_id: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Get Pub calculation result by id
         api_response = api_instance.get_calculation_unit_result_by_id(id, unit_id, accept=accept)
         pprint(api_response)
+
     except fds.sdk.Publisher.ApiException as e:
         print("Exception when calling PubCalculationsApi->get_calculation_unit_result_by_id: %s\n" % e)
 ```
@@ -425,21 +419,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Publisher.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Publisher.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
+
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the POST body. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
     pub_calculation_parameters_root = PubCalculationParametersRoot(
@@ -459,12 +454,16 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
         meta={},
     ) # PubCalculationParametersRoot | Calculation Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create and Run Pub calculation
         api_response = api_instance.post_and_calculate(x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, pub_calculation_parameters_root=pub_calculation_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            200: api_response.get_response_200,
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.Publisher.ApiException as e:
         print("Exception when calling PubCalculationsApi->post_and_calculate: %s\n" % e)
 ```
@@ -543,21 +542,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.Publisher.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.Publisher.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.Publisher.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pub_calculations_api.PubCalculationsApi(api_client)
+
     id = "id_example" # str | from url, provided from the location header in the Create and Run Pub calculation endpoint
     x_fact_set_api_long_running_deadline = 1 # int | Long running deadline in seconds when only one unit is passed in the PUT body. (optional)
     cache_control = "Cache-Control_example" # str | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)
@@ -578,20 +578,16 @@ with fds.sdk.Publisher.ApiClient(configuration) as api_client:
         meta={},
     ) # PubCalculationParametersRoot | Calculation Parameters (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create or Update Pub calculation and run it.
-        api_response = api_instance.put_and_calculate(id)
-        pprint(api_response)
-    except fds.sdk.Publisher.ApiException as e:
-        print("Exception when calling PubCalculationsApi->put_and_calculate: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create or Update Pub calculation and run it.
         api_response = api_instance.put_and_calculate(id, x_fact_set_api_long_running_deadline=x_fact_set_api_long_running_deadline, cache_control=cache_control, pub_calculation_parameters_root=pub_calculation_parameters_root)
-        pprint(api_response)
+        responseWrapper = {
+            200: api_response.get_response_200,
+            201: api_response.get_response_201,
+            202: api_response.get_response_202,
+        }
+        pprint(responseWrapper[api_response.status_code]())
+
     except fds.sdk.Publisher.ApiException as e:
         print("Exception when calling PubCalculationsApi->put_and_calculate: %s\n" % e)
 ```

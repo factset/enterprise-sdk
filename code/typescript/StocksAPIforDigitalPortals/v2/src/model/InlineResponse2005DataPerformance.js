@@ -18,7 +18,7 @@ import InlineResponse2005DataPerformanceIntraday from './InlineResponse2005DataP
 /**
  * The InlineResponse2005DataPerformance model module.
  * @module model/InlineResponse2005DataPerformance
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2005DataPerformance {
     /**

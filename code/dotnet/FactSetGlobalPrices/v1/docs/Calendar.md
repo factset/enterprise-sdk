@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetGlobalPrices.Model.Calendar
-Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities' trading calendar which excludes date records for respective holiday periods.
+Calendar of data returned. SEVENDAY includes weekends.
 
 ## Properties
 

@@ -48,6 +48,8 @@ public class InlineResponse2004DataTradedValueDays30Sum implements Serializable 
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private BigDecimal maximum;
 
+  public InlineResponse2004DataTradedValueDays30Sum() { 
+  }
 
   public InlineResponse2004DataTradedValueDays30Sum minimum(BigDecimal minimum) {
     this.minimum = minimum;

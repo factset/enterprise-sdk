@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Columns** | [**List&lt;PACalculationColumn&gt;**](PACalculationColumn.md) | List of columns for the PA calculation | [optional] 
 **Dates** | [**PADateParameters**](PADateParameters.md) |  | [optional] 
 **Groups** | [**List&lt;PACalculationGroup&gt;**](PACalculationGroup.md) | List of groupings for the PA calculation | [optional] 
+**Datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  | [optional] 
 **Currencyisocode** | **string** | Currency ISO code for calculation. | [optional] 
 **Componentdetail** | **string** | PA storage type. It can be GROUPS or TOTALS or SECURITIES. | [optional] 
 **Content** | [**TemplateContentTypes**](TemplateContentTypes.md) |  | [optional] 

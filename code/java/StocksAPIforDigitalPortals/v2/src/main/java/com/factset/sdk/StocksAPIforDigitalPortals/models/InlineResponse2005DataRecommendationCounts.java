@@ -44,6 +44,8 @@ public class InlineResponse2005DataRecommendationCounts implements Serializable 
   public static final String JSON_PROPERTY_TOTAL = "total";
   private InlineResponse2005DataRecommendationCountsTotal total;
 
+  public InlineResponse2005DataRecommendationCounts() { 
+  }
 
   public InlineResponse2005DataRecommendationCounts total(InlineResponse2005DataRecommendationCountsTotal total) {
     this.total = total;

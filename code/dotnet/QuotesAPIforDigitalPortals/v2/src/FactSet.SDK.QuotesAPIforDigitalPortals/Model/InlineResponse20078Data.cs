@@ -70,7 +70,7 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class InlineResponse20078Data {\n");
             sb.Append("  Suspended: ").Append(Suspended).Append("\n");
             sb.Append("  TradingStatus: ").Append(TradingStatus).Append("\n");
@@ -106,8 +106,9 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
         public bool Equals(InlineResponse20078Data input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Suspended == input.Suspended ||
@@ -134,11 +135,15 @@ namespace FactSet.SDK.QuotesAPIforDigitalPortals.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Suspended.GetHashCode();
+                hashCode = (hashCode * 59) + this.Suspended.GetHashCode();
                 if (this.TradingStatus != null)
-                    hashCode = hashCode * 59 + this.TradingStatus.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TradingStatus.GetHashCode();
+                }
                 if (this.Market != null)
-                    hashCode = hashCode * 59 + this.Market.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Market.GetHashCode();
+                }
                 return hashCode;
             }
         }

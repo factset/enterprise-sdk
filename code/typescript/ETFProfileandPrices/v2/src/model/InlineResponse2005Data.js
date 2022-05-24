@@ -12,17 +12,17 @@
  */
 
 import ApiClient from '../ApiClient';
-import InlineResponse2005DataSectors from './InlineResponse2005DataSectors';
+import InlineResponse2005DataExchanges from './InlineResponse2005DataExchanges';
 
 /**
  * The InlineResponse2005Data model module.
  * @module model/InlineResponse2005Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2005Data {
     /**
      * Constructs a new <code>InlineResponse2005Data</code>.
-     * ETP sector allocation data.
+     * ETP exchange allocation data.
      * @alias module:model/InlineResponse2005Data
      */
     constructor() { 
@@ -52,8 +52,8 @@ class InlineResponse2005Data {
             if (data.hasOwnProperty('reportDate')) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('sectors')) {
-                obj['sectors'] = ApiClient.convertToType(data['sectors'], [InlineResponse2005DataSectors]);
+            if (data.hasOwnProperty('exchanges')) {
+                obj['exchanges'] = ApiClient.convertToType(data['exchanges'], [InlineResponse2005DataExchanges]);
             }
         }
         return obj;
@@ -69,10 +69,10 @@ class InlineResponse2005Data {
 InlineResponse2005Data.prototype['reportDate'] = undefined;
 
 /**
- * List of allocations by sector.
- * @member {Array.<module:model/InlineResponse2005DataSectors>} sectors
+ * List of allocations by exchange.
+ * @member {Array.<module:model/InlineResponse2005DataExchanges>} exchanges
  */
-InlineResponse2005Data.prototype['sectors'] = undefined;
+InlineResponse2005Data.prototype['exchanges'] = undefined;
 
 
 

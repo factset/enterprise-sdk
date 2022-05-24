@@ -39,21 +39,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = view_api.ViewApi(api_client)
+
     path = "path_example" # str | Encode database path
     symbol = "symbol_example" # str | Returns data for the symbol mentioned. e.g:sym1 (optional)
     date = "date_example" # str | Return data for the specific date or range of dates mentioned.e.g:[date1,date2] (optional)
@@ -67,14 +68,6 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     sort_field_name = "sortFieldName_example" # str | Can specify the name of field with respect to which user wants to sort data   Note: The request will respond with 400, If a field which doesn't exist in the OFDB is requested (optional)
     sort_field_order = "ASC" # str | Can specify the order in which user wants to sort data with respect to sortFieldName query parameter   Note: The request will respond with 400, If value other than asc or desc is requested (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        api_instance.get_database(path)
-    except fds.sdk.OFDB.ApiException as e:
-        print("Exception when calling ViewApi->get_database: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         api_instance.get_database(path, symbol=symbol, date=date, filter_fields=filter_fields, filter_ops=filter_ops, filter_values=filter_values, filter_dates_ops=filter_dates_ops, filter_dates_values=filter_dates_values, filter_symbols_ops=filter_symbols_ops, filter_symbols_values=filter_symbols_values, sort_field_name=sort_field_name, sort_field_order=sort_field_order)
     except fds.sdk.OFDB.ApiException as e:
@@ -158,21 +151,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = view_api.ViewApi(api_client)
+
     path = "path_example" # str | Encode database path
     between = "between_example" # str | Returns list of dates which are between [start,end], dates should be in the respective order of start and end (optional)
     equals = "equals_example" # str | Returns the date which matches given date (optional)
@@ -180,18 +174,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     after = "after_example" # str | Returns list of dates which are after mentioned date (optional)
     order_by = "asc" # str | Returns dates in the mentioned sorted order, should provide asc or desc (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        api_response = api_instance.v1_database_path_dates_get(path)
-        pprint(api_response)
-    except fds.sdk.OFDB.ApiException as e:
-        print("Exception when calling ViewApi->v1_database_path_dates_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         api_response = api_instance.v1_database_path_dates_get(path, between=between, equals=equals, before=before, after=after, order_by=order_by)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ViewApi->v1_database_path_dates_get: %s\n" % e)
 ```
@@ -267,27 +253,28 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = view_api.ViewApi(api_client)
+
     path = "path_example" # str | Encode database path
 
-    # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.v1_database_path_fields_get(path)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ViewApi->v1_database_path_fields_get: %s\n" % e)
 ```
@@ -358,21 +345,22 @@ from pprint import pprint
 # See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
 # for more information on using the ConfidentialClient class
 configuration = fds.sdk.OFDB.Configuration(
-    fds_oauth_client = ConfidentialClient('/path/to/app-config.json')
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
 )
 
 # Basic authentication: FactSetApiKey
 # See https://github.com/FactSet/enterprise-sdk#api-key
 # for information how to create an API key
 # configuration = fds.sdk.OFDB.Configuration(
-#     username = 'USERNAME-SERIAL',
-#     password = 'API-KEY'
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
 # )
 
 # Enter a context with an instance of the API client
 with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = view_api.ViewApi(api_client)
+
     path = "path_example" # str | Encode database path
     starts_with = "startsWith_example" # str | Returns list of symbols which starts with mentioned string (optional)
     ends_with = "endsWith_example" # str | Returns list of symbols which ends with mentioned string (optional)
@@ -380,18 +368,10 @@ with fds.sdk.OFDB.ApiClient(configuration) as api_client:
     equals = "equals_example" # str | Returns symbol which matches mentioned string (optional)
     order_by = "asc" # str | Returns symbols in the mentioned sorted order, should provide asc or desc (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        api_response = api_instance.v1_database_path_symbols_get(path)
-        pprint(api_response)
-    except fds.sdk.OFDB.ApiException as e:
-        print("Exception when calling ViewApi->v1_database_path_symbols_get: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         api_response = api_instance.v1_database_path_symbols_get(path, starts_with=starts_with, ends_with=ends_with, contains=contains, equals=equals, order_by=order_by)
         pprint(api_response)
+
     except fds.sdk.OFDB.ApiException as e:
         print("Exception when calling ViewApi->v1_database_path_symbols_get: %s\n" % e)
 ```

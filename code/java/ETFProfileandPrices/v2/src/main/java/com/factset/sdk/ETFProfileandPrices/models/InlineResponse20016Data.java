@@ -17,8 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20016DataNav;
-import com.factset.sdk.ETFProfileandPrices.models.InlineResponse20016DataSharesOutstanding;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,73 +30,44 @@ import com.factset.sdk.ETFProfileandPrices.JSON;
 
 
 /**
- * Price.
+ * InlineResponse20016Data
  */
-@ApiModel(description = "Price.")
 @JsonPropertyOrder({
-  InlineResponse20016Data.JSON_PROPERTY_NAV,
-  InlineResponse20016Data.JSON_PROPERTY_SHARES_OUTSTANDING
+  InlineResponse20016Data.JSON_PROPERTY_BROAD_CATEGORY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InlineResponse20016Data implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String JSON_PROPERTY_NAV = "nav";
-  private InlineResponse20016DataNav nav;
+  public static final String JSON_PROPERTY_BROAD_CATEGORY = "broadCategory";
+  private String broadCategory;
 
-  public static final String JSON_PROPERTY_SHARES_OUTSTANDING = "sharesOutstanding";
-  private InlineResponse20016DataSharesOutstanding sharesOutstanding;
+  public InlineResponse20016Data() { 
+  }
 
-
-  public InlineResponse20016Data nav(InlineResponse20016DataNav nav) {
-    this.nav = nav;
+  public InlineResponse20016Data broadCategory(String broadCategory) {
+    this.broadCategory = broadCategory;
     return this;
   }
 
    /**
-   * Get nav
-   * @return nav
+   * ETP class broad category.
+   * @return broadCategory
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_NAV)
+  @ApiModelProperty(value = "ETP class broad category.")
+  @JsonProperty(JSON_PROPERTY_BROAD_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InlineResponse20016DataNav getNav() {
-    return nav;
+  public String getBroadCategory() {
+    return broadCategory;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAV)
+  @JsonProperty(JSON_PROPERTY_BROAD_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNav(InlineResponse20016DataNav nav) {
-    this.nav = nav;
-  }
-
-
-  public InlineResponse20016Data sharesOutstanding(InlineResponse20016DataSharesOutstanding sharesOutstanding) {
-    this.sharesOutstanding = sharesOutstanding;
-    return this;
-  }
-
-   /**
-   * Get sharesOutstanding
-   * @return sharesOutstanding
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InlineResponse20016DataSharesOutstanding getSharesOutstanding() {
-    return sharesOutstanding;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SHARES_OUTSTANDING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSharesOutstanding(InlineResponse20016DataSharesOutstanding sharesOutstanding) {
-    this.sharesOutstanding = sharesOutstanding;
+  public void setBroadCategory(String broadCategory) {
+    this.broadCategory = broadCategory;
   }
 
 
@@ -114,21 +83,19 @@ public class InlineResponse20016Data implements Serializable {
       return false;
     }
     InlineResponse20016Data inlineResponse20016Data = (InlineResponse20016Data) o;
-    return Objects.equals(this.nav, inlineResponse20016Data.nav) &&
-        Objects.equals(this.sharesOutstanding, inlineResponse20016Data.sharesOutstanding);
+    return Objects.equals(this.broadCategory, inlineResponse20016Data.broadCategory);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nav, sharesOutstanding);
+    return Objects.hash(broadCategory);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse20016Data {\n");
-    sb.append("    nav: ").append(toIndentedString(nav)).append("\n");
-    sb.append("    sharesOutstanding: ").append(toIndentedString(sharesOutstanding)).append("\n");
+    sb.append("    broadCategory: ").append(toIndentedString(broadCategory)).append("\n");
     sb.append("}");
     return sb.toString();
   }

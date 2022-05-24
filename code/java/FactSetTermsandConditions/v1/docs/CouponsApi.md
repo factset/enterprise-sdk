@@ -28,14 +28,13 @@ import com.factset.sdk.FactSetTermsandConditions.ApiClient;
 import com.factset.sdk.FactSetTermsandConditions.ApiException;
 import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.auth.*;
-import com.factset.sdk.FactSetTermsandConditions.model.*;
+import com.factset.sdk.FactSetTermsandConditions.models.*;
 import com.factset.sdk.FactSetTermsandConditions.api.CouponsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -45,20 +44,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CouponsApi apiInstance = new CouponsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
         try {
             CouponHistoryResponse result = apiInstance.getCouponHistory(ids);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CouponsApi#getCouponHistory");
             System.err.println("Status code: " + e.getCode());
@@ -118,14 +118,13 @@ import com.factset.sdk.FactSetTermsandConditions.ApiClient;
 import com.factset.sdk.FactSetTermsandConditions.ApiException;
 import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.auth.*;
-import com.factset.sdk.FactSetTermsandConditions.model.*;
+import com.factset.sdk.FactSetTermsandConditions.models.*;
 import com.factset.sdk.FactSetTermsandConditions.api.CouponsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -135,20 +134,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CouponsApi apiInstance = new CouponsApi(defaultClient);
         TermsAndConditionsScalarRequest termsAndConditionsScalarRequest = new TermsAndConditionsScalarRequest(); // TermsAndConditionsScalarRequest | Request object for Fixed Income Coupon History.
         try {
             CouponHistoryResponse result = apiInstance.getCouponHistoryForList(termsAndConditionsScalarRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CouponsApi#getCouponHistoryForList");
             System.err.println("Status code: " + e.getCode());
@@ -208,14 +208,13 @@ import com.factset.sdk.FactSetTermsandConditions.ApiClient;
 import com.factset.sdk.FactSetTermsandConditions.ApiException;
 import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.auth.*;
-import com.factset.sdk.FactSetTermsandConditions.model.*;
+import com.factset.sdk.FactSetTermsandConditions.models.*;
 import com.factset.sdk.FactSetTermsandConditions.api.CouponsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -225,20 +224,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CouponsApi apiInstance = new CouponsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | List of Fixed Income Security identifiers. Supported symbol types include CUSIP, SEDOL, ISIN, and FactSet Security Permanent Identifier (-S).  **ID LIMIT = 250** *per request*. 
         try {
             CouponSchedulesResponse result = apiInstance.getCouponSchedules(ids);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CouponsApi#getCouponSchedules");
             System.err.println("Status code: " + e.getCode());
@@ -298,14 +298,13 @@ import com.factset.sdk.FactSetTermsandConditions.ApiClient;
 import com.factset.sdk.FactSetTermsandConditions.ApiException;
 import com.factset.sdk.FactSetTermsandConditions.Configuration;
 import com.factset.sdk.FactSetTermsandConditions.auth.*;
-import com.factset.sdk.FactSetTermsandConditions.model.*;
+import com.factset.sdk.FactSetTermsandConditions.models.*;
 import com.factset.sdk.FactSetTermsandConditions.api.CouponsApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -315,20 +314,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         CouponsApi apiInstance = new CouponsApi(defaultClient);
         TermsAndConditionsScalarRequest termsAndConditionsScalarRequest = new TermsAndConditionsScalarRequest(); // TermsAndConditionsScalarRequest | Request object for Fixed Income Coupon Schedules.
         try {
             CouponSchedulesResponse result = apiInstance.getCouponSchedulesForList(termsAndConditionsScalarRequest);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling CouponsApi#getCouponSchedulesForList");
             System.err.println("Status code: " + e.getCode());

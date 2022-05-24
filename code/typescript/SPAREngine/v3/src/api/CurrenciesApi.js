@@ -18,7 +18,7 @@ import CurrencyRoot from '../model/CurrencyRoot';
 /**
 * Currencies service.
 * @module api/CurrenciesApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CurrenciesApi {
 
@@ -55,7 +55,10 @@ export default class CurrenciesApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = CurrencyRoot;
+
       return this.apiClient.callApi(
         '/analytics/lookups/v3/currencies', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -66,7 +69,7 @@ export default class CurrenciesApi {
     /**
      * Get currencies
      * This endpoint lists all the currencies that can be applied to any calculation.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CurrencyRoot}
+     * @return { Promise.< module:model/CurrencyRoot > } a Promise, with data of type {@link module:model/CurrencyRoot }
      */
     getCurrencies() {
       return this.getCurrenciesWithHttpInfo()
@@ -77,3 +80,8 @@ export default class CurrenciesApi {
 
 
 }
+
+
+
+
+

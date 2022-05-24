@@ -89,7 +89,6 @@ Name | Type | Description  | Notes
  **restated** | **string**| Update Status Flag:   * **RP** &#x3D; Include preliminary data,   * **RF** &#x3D; Only final data  | [optional] [default to RP]
 
 ### Return type
-
 [**FundamentalsResponse**](FundamentalsResponse.md)
 
 ### Authorization
@@ -183,7 +182,6 @@ Name | Type | Description  | Notes
  **fundamentalsRequest** | [**FundamentalsRequest**](FundamentalsRequest.md)| Request object for requesting fundamentals data | 
 
 ### Return type
-
 [**FundamentalsResponse**](FundamentalsResponse.md)
 
 ### Authorization

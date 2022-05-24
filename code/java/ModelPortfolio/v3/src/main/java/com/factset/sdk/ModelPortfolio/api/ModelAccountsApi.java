@@ -7,6 +7,9 @@ import com.factset.sdk.ModelPortfolio.Configuration;
 import com.factset.sdk.ModelPortfolio.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.ModelPortfolio.models.ModelAccountFieldsRoot;
 
@@ -21,6 +24,28 @@ public class ModelAccountsApi {
   public ModelAccountsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> createOrUpdateModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> deleteAModelAccountResponseTypeMap = new HashMap<Integer, GenericType>();
+  private static final Map<Integer, GenericType> getAccountForDateResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAccountForDateResponseTypeMap.put(200, new GenericType<String>(){});
+  }
+  private static final Map<Integer, GenericType> getAccountForDateAndSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAccountForDateAndSymbolResponseTypeMap.put(200, new GenericType<String>(){});
+  }
+  private static final Map<Integer, GenericType> getAccountForSymbolResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAccountForSymbolResponseTypeMap.put(200, new GenericType<String>(){});
+  }
+  private static final Map<Integer, GenericType> getAccountSchemaResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getAccountSchemaResponseTypeMap.put(200, new GenericType<String>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,9 +144,15 @@ public class ModelAccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("ModelAccountsApi.createOrUpdateModelAccount", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("ModelAccountsApi.createOrUpdateModelAccount", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, createOrUpdateModelAccountResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Delete model account, takes an account path and name and deletes it.
@@ -194,9 +225,15 @@ public class ModelAccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    return apiClient.invokeAPI("ModelAccountsApi.deleteAModelAccount", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("ModelAccountsApi.deleteAModelAccount", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, deleteAModelAccountResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get account endpoint, takes an account name, date and returns underlying data for that date
@@ -285,11 +322,17 @@ public class ModelAccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
 
-    return apiClient.invokeAPI("ModelAccountsApi.getAccountForDate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        String
+      
+    > apiResponse = apiClient.invokeAPI("ModelAccountsApi.getAccountForDate", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAccountForDateResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get account endpoint, takes an account name and returns underlying data
@@ -386,11 +429,17 @@ public class ModelAccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
 
-    return apiClient.invokeAPI("ModelAccountsApi.getAccountForDateAndSymbol", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        String
+      
+    > apiResponse = apiClient.invokeAPI("ModelAccountsApi.getAccountForDateAndSymbol", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAccountForDateAndSymbolResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get account endpoint, takes an account name, symbol and returns underlying data for that symbol
@@ -479,11 +528,17 @@ public class ModelAccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
 
-    return apiClient.invokeAPI("ModelAccountsApi.getAccountForSymbol", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        String
+      
+    > apiResponse = apiClient.invokeAPI("ModelAccountsApi.getAccountForSymbol", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAccountForSymbolResponseTypeMap, false);
+
+    return apiResponse;
+
   }
   /**
    * Get account schema endpoint, takes an account name and returns its schema
@@ -561,10 +616,16 @@ public class ModelAccountsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
 
-    return apiClient.invokeAPI("ModelAccountsApi.getAccountSchema", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        String
+      
+    > apiResponse = apiClient.invokeAPI("ModelAccountsApi.getAccountSchema", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getAccountSchemaResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

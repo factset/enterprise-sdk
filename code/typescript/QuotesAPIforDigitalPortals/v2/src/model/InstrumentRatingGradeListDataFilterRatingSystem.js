@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InstrumentRatingGradeListDataFilterRatingSystem model module.
  * @module model/InstrumentRatingGradeListDataFilterRatingSystem
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InstrumentRatingGradeListDataFilterRatingSystem {
     /**

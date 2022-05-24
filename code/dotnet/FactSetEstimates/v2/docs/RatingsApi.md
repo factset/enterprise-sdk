@@ -85,7 +85,6 @@ Name | Type | Description  | Notes
  **frequency** | **string**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to D]
 
 ### Return type
-
 [**ConsensusRatingsResponse**](ConsensusRatingsResponse.md)
 
 ### Authorization
@@ -179,7 +178,6 @@ Name | Type | Description  | Notes
  **consensusRatingsRequest** | [**ConsensusRatingsRequest**](ConsensusRatingsRequest.md)| Request object for Estimate Data Items. | 
 
 ### Return type
-
 [**ConsensusRatingsResponse**](ConsensusRatingsResponse.md)
 
 ### Authorization
@@ -277,7 +275,6 @@ Name | Type | Description  | Notes
  **endDate** | **string**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
 
 ### Return type
-
 [**DetailRatingsResponse**](DetailRatingsResponse.md)
 
 ### Authorization
@@ -371,7 +368,6 @@ Name | Type | Description  | Notes
  **detailRatingsRequest** | [**DetailRatingsRequest**](DetailRatingsRequest.md)| Request object for Detail Reatings Data Items. | 
 
 ### Return type
-
 [**DetailRatingsResponse**](DetailRatingsResponse.md)
 
 ### Authorization

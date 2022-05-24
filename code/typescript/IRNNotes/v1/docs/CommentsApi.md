@@ -55,6 +55,7 @@ const opts = {
 // Call api endpoint
 apiInstance.createComment(noteId, opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -127,6 +128,7 @@ const file = "/path/to/file"; // File |
 // Call api endpoint
 apiInstance.createCommentAttachment(noteId, commentId, file).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -341,6 +343,7 @@ const commentId = "commentId_example"; // String |
 // Call api endpoint
 apiInstance.getComment(noteId, commentId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -412,6 +415,7 @@ const commentId = "commentId_example"; // String |
 // Call api endpoint
 apiInstance.getCommentAttachments(noteId, commentId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -482,6 +486,7 @@ const noteId = "noteId_example"; // String |
 // Call api endpoint
 apiInstance.getComments(noteId).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

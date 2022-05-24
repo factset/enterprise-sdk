@@ -21,7 +21,7 @@ import SecuritizedDerivativeNotationScreenerValueRangesGetDataObservation from '
 /**
  * The SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriers model module.
  * @module model/SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriers
- * @version 0.9.1
+ * @version 0.10.0
  */
 class SecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriers {
     /**

@@ -19,7 +19,7 @@ import InlineResponse2004DataLifeCycleMaturityPerpetual from './InlineResponse20
 /**
  * The InlineResponse2004DataLifeCycle model module.
  * @module model/InlineResponse2004DataLifeCycle
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2004DataLifeCycle {
     /**

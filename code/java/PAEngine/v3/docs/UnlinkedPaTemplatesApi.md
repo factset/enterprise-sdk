@@ -27,7 +27,7 @@ Remarks:
 *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. 
     If no mandatory fields are passed, then we can use the template as a component and skip the component creation.
     
-*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "dates", "currencyisocode" and "componentdetail".
+*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "datasources", "dates", "currencyisocode" and "componentdetail".
 
 *   We cannot override the Locked fields when creating the Component.
 
@@ -39,6 +39,11 @@ Remarks:
 
 *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
 
+*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also 
+    overriding the default frequency of the Beginning of Period to whatever we pass in the request body.
+    
+*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+
 ### Example
 
 ```java
@@ -47,14 +52,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.UnlinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -64,20 +68,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         UnlinkedPaTemplatesApi apiInstance = new UnlinkedPaTemplatesApi(defaultClient);
         UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot = new UnlinkedPATemplateParametersRoot(); // UnlinkedPATemplateParametersRoot | Request Parameters
         try {
             UnlinkedPATemplatePostSummaryRoot result = apiInstance.createUnlinkedPATemplates(unlinkedPATemplateParametersRoot);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling UnlinkedPaTemplatesApi#createUnlinkedPATemplates");
             System.err.println("Status code: " + e.getCode());
@@ -138,14 +143,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.UnlinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -155,19 +159,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         UnlinkedPaTemplatesApi apiInstance = new UnlinkedPaTemplatesApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for an unlinked PA template
         try {
             apiInstance.deleteUnlinkedPATemplates(id);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling UnlinkedPaTemplatesApi#deleteUnlinkedPATemplates");
             System.err.println("Status code: " + e.getCode());
@@ -229,14 +234,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.UnlinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -246,19 +250,20 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         UnlinkedPaTemplatesApi apiInstance = new UnlinkedPaTemplatesApi(defaultClient);
         try {
             UnlinkedPATemplateCategoryAndTypeRoot result = apiInstance.getDefaultUnlinkedPATemplateTypes();
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling UnlinkedPaTemplatesApi#getDefaultUnlinkedPATemplateTypes");
             System.err.println("Status code: " + e.getCode());
@@ -315,14 +320,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.UnlinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -332,20 +336,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         UnlinkedPaTemplatesApi apiInstance = new UnlinkedPaTemplatesApi(defaultClient);
         String id = "id_example"; // String | Unique identifier for an unlinked PA template type
         try {
             UnlinkedPATemplateCategoryAndTypeDetailsRoot result = apiInstance.getDetailsType(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling UnlinkedPaTemplatesApi#getDetailsType");
             System.err.println("Status code: " + e.getCode());
@@ -407,14 +412,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.UnlinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -424,14 +428,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         UnlinkedPaTemplatesApi apiInstance = new UnlinkedPaTemplatesApi(defaultClient);
         String directory = "Personal:UninkedPATemplates/"; // String | Get unlinked PA templates in path.
@@ -439,6 +443,7 @@ public class Example {
         try {
             UnlinkedPATemplateSummaryRoot result = apiInstance.getUnlinkedPATemplates(directory, category);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling UnlinkedPaTemplatesApi#getUnlinkedPATemplates");
             System.err.println("Status code: " + e.getCode());
@@ -500,14 +505,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.UnlinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -517,20 +521,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         UnlinkedPaTemplatesApi apiInstance = new UnlinkedPaTemplatesApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for an unlinked PA template
         try {
             UnlinkedPATemplateRoot result = apiInstance.getUnlinkedPATemplatesById(id);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling UnlinkedPaTemplatesApi#getUnlinkedPATemplatesById");
             System.err.println("Status code: " + e.getCode());
@@ -589,7 +594,7 @@ Remarks:
 *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary. 
     If no mandatory fields are passed, then we can use the template as a component and skip the component creation.
     
-*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "dates", "currencyisocode" and "componentdetail".
+*   Mandatory, optional and locked fields can be  "accounts", "benchmarks", "groups", "columns", "datasources", "dates", "currencyisocode" and "componentdetail".
 
 *   We cannot override the Locked fields when creating the Component.
 
@@ -601,6 +606,11 @@ Remarks:
 
 *   Componentdetail supports securities, groups, and totals as well but if we don't pass anything that defaults to securities.
 
+*   If we are overriding the grouping with a frequency, we will be overriding the grouping saved to the original component and also overriding 
+    the default frequency of the Beginning of Period to whatever we pass in the request body.
+    
+*   If we are overriding gouping frequency without overriding the group id it will not be applied to the default groupings saved to the original component.
+
 ### Example
 
 ```java
@@ -609,14 +619,13 @@ import com.factset.sdk.PAEngine.ApiClient;
 import com.factset.sdk.PAEngine.ApiException;
 import com.factset.sdk.PAEngine.Configuration;
 import com.factset.sdk.PAEngine.auth.*;
-import com.factset.sdk.PAEngine.model.*;
+import com.factset.sdk.PAEngine.models.*;
 import com.factset.sdk.PAEngine.api.UnlinkedPaTemplatesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -626,14 +635,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         UnlinkedPaTemplatesApi apiInstance = new UnlinkedPaTemplatesApi(defaultClient);
         String id = "01234567890123456789012345678901"; // String | Unique identifier for an unlinked PA template
@@ -641,6 +650,7 @@ public class Example {
         try {
             UnlinkedPATemplatePostSummaryRoot result = apiInstance.updateUnlinkedPATemplates(id, unlinkedPATemplateUpdateParametersRoot);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling UnlinkedPaTemplatesApi#updateUnlinkedPATemplates");
             System.err.println("Status code: " + e.getCode());

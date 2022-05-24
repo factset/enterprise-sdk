@@ -75,6 +75,16 @@ public class PricesRequest implements Serializable {
   public static final String JSON_PROPERTY_BATCH = "batch";
   private Batch batch = Batch.N;
 
+  public PricesRequest() { 
+  }
+
+  @JsonCreator
+  public PricesRequest(
+    @JsonProperty(value=JSON_PROPERTY_IDS, required=true) java.util.List<String> ids
+  ) {
+    this();
+    this.ids = ids;
+  }
 
   public PricesRequest ids(java.util.List<String> ids) {
     this.ids = ids;

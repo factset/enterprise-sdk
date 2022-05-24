@@ -7,6 +7,9 @@ import com.factset.sdk.BarraPortfolioOptimizer.Configuration;
 import com.factset.sdk.BarraPortfolioOptimizer.Pair;
 
 import javax.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import com.factset.sdk.BarraPortfolioOptimizer.models.ClientErrorResponse;
 import com.factset.sdk.BarraPortfolioOptimizer.models.DocumentDirectoriesRoot;
@@ -22,6 +25,16 @@ public class StrategyDocumentsApi {
   public StrategyDocumentsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
+
+    private static final Map<Integer, GenericType> getBarraStrategyDocumentsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getBarraStrategyDocumentsResponseTypeMap.put(200, new GenericType<DocumentDirectoriesRoot>(){});
+    getBarraStrategyDocumentsResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
+    getBarraStrategyDocumentsResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
+  }
+
+   
+
 
   /**
    * Get the API client
@@ -119,10 +132,16 @@ public class StrategyDocumentsApi {
 
     String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
 
-    GenericType<DocumentDirectoriesRoot> localVarReturnType = new GenericType<DocumentDirectoriesRoot>() {};
 
-    return apiClient.invokeAPI("StrategyDocumentsApi.getBarraStrategyDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+    ApiResponse<
+        
+        DocumentDirectoriesRoot
+      
+    > apiResponse = apiClient.invokeAPI("StrategyDocumentsApi.getBarraStrategyDocuments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+                               localVarAuthNames, getBarraStrategyDocumentsResponseTypeMap, false);
+
+    return apiResponse;
+
   }
 }

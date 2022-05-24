@@ -18,7 +18,7 @@ import InlineResponse2005DataLevel from './InlineResponse2005DataLevel';
 /**
  * The InlineResponse2005DataIndustryClassification model module.
  * @module model/InlineResponse2005DataIndustryClassification
- * @version 0.9.1
+ * @version 0.9.2
  */
 class InlineResponse2005DataIndustryClassification {
     /**

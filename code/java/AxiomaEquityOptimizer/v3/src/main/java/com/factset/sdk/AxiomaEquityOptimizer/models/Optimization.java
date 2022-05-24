@@ -50,6 +50,8 @@ public class Optimization implements Serializable {
   public static final String JSON_PROPERTY_CASHFLOW = "cashflow";
   private String cashflow;
 
+  public Optimization() { 
+  }
 
   public Optimization riskModelDate(String riskModelDate) {
     this.riskModelDate = riskModelDate;

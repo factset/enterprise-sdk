@@ -61,7 +61,7 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class LinkTextBlockTemplateAllOf {\n");
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  Blurb: ").Append(Blurb).Append("\n");
@@ -96,8 +96,9 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
         public bool Equals(LinkTextBlockTemplateAllOf input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Link == input.Link ||
@@ -121,9 +122,13 @@ namespace FactSet.SDK.FactSetSearchAnswers.Model
             {
                 int hashCode = 41;
                 if (this.Link != null)
-                    hashCode = hashCode * 59 + this.Link.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
+                }
                 if (this.Blurb != null)
-                    hashCode = hashCode * 59 + this.Blurb.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Blurb.GetHashCode();
+                }
                 return hashCode;
             }
         }

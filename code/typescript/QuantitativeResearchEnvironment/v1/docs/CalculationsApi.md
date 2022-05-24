@@ -50,6 +50,7 @@ const id = "id_example"; // String | From url, provided by location header or re
 // Call api endpoint
 apiInstance.analyticsQuantQreV1CalculationsIdGet(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -121,6 +122,7 @@ const id = "id_example"; // String | From url, provided by location header or re
 // Call api endpoint
 apiInstance.analyticsQuantQreV1CalculationsIdLogGet(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -192,6 +194,7 @@ const id = "id_example"; // String | From url, provided by location header or re
 // Call api endpoint
 apiInstance.analyticsQuantQreV1CalculationsIdOutputGet(id).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },
@@ -265,6 +268,7 @@ const opts = {
 // Call api endpoint
 apiInstance.analyticsQuantQreV1CalculationsPost(opts).then(
   data => {
+
     console.log('API called successfully. Returned data:');
     console.log(data);
   },

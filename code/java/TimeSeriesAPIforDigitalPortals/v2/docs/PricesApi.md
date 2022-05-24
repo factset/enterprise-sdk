@@ -29,14 +29,13 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.TimeSeriesAPIforDigitalPortals.model.*;
+import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.*;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -46,14 +45,14 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         String id = "id_example"; // String | Identifier of the notation.
@@ -65,6 +64,7 @@ public class Example {
         try {
             InlineResponse2009 result = apiInstance.getPricesTimeSeriesIntradaySubsampleGet(id, from, type, quality, granularity, attributes);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#getPricesTimeSeriesIntradaySubsampleGet");
             System.err.println("Status code: " + e.getCode());
@@ -123,14 +123,13 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.TimeSeriesAPIforDigitalPortals.model.*;
+import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.*;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -140,20 +139,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         InlineObject4 body = new InlineObject4(); // InlineObject4 | 
         try {
             InlineResponse2005 result = apiInstance.postPricesTimeSeriesEodList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#postPricesTimeSeriesEodList");
             System.err.println("Status code: " + e.getCode());
@@ -207,14 +207,13 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.TimeSeriesAPIforDigitalPortals.model.*;
+import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.*;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -224,20 +223,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         InlineObject5 body = new InlineObject5(); // InlineObject5 | 
         try {
             InlineResponse2006 result = apiInstance.postPricesTimeSeriesEodSubsampleGet(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#postPricesTimeSeriesEodSubsampleGet");
             System.err.println("Status code: " + e.getCode());
@@ -291,14 +291,13 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.TimeSeriesAPIforDigitalPortals.model.*;
+import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.*;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -308,20 +307,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         InlineObject6 body = new InlineObject6(); // InlineObject6 | 
         try {
             InlineResponse2007 result = apiInstance.postPricesTimeSeriesEodSubsampleList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#postPricesTimeSeriesEodSubsampleList");
             System.err.println("Status code: " + e.getCode());
@@ -375,14 +375,13 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.TimeSeriesAPIforDigitalPortals.model.*;
+import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.*;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -392,20 +391,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         InlineObject7 body = new InlineObject7(); // InlineObject7 | 
         try {
             InlineResponse2008 result = apiInstance.postPricesTimeSeriesIntradayList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#postPricesTimeSeriesIntradayList");
             System.err.println("Status code: " + e.getCode());
@@ -459,14 +459,13 @@ import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiClient;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.ApiException;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.Configuration;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.auth.*;
-import com.factset.sdk.TimeSeriesAPIforDigitalPortals.model.*;
+import com.factset.sdk.TimeSeriesAPIforDigitalPortals.models.*;
 import com.factset.sdk.TimeSeriesAPIforDigitalPortals.api.PricesApi;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
-
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // Examples for each supported authentication method are below,
         // choose one that satisfies your use case.
 
@@ -476,20 +475,21 @@ public class Example {
         // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
         // for more information on using the ConfidentialClient class
         ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
-        ApiClient defaultClient = new ApiClient(confidentialClient);
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
 
         /* Basic authentication: FactSetApiKey */
         // See https://github.com/FactSet/enterprise-sdk#api-key
-        // ApiClient defaultClient = new ApiClient();
-        // HttpBasicAuth FactSetApiKey = (HttpBasicAuth) defaultClient.getAuthentication("FactSetApiKey");
-        // FactSetApiKey.setUsername("YOUR USERNAME");
-        // FactSetApiKey.setPassword("YOUR PASSWORD");
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
 
         PricesApi apiInstance = new PricesApi(defaultClient);
         InlineObject8 body = new InlineObject8(); // InlineObject8 | 
         try {
             InlineResponse20010 result = apiInstance.postPricesTimeSeriesIntradaySubsampleList(body);
             System.out.println(result);
+
         } catch (ApiException e) {
             System.err.println("Exception when calling PricesApi#postPricesTimeSeriesIntradaySubsampleList");
             System.err.println("Status code: " + e.getCode());

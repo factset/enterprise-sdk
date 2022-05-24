@@ -54,6 +54,8 @@ public class InlineResponse2002Data implements Serializable {
   public static final String JSON_PROPERTY_ARTICLES = "articles";
   private java.util.List<InlineResponse2002DataArticles> articles = null;
 
+  public InlineResponse2002Data() { 
+  }
 
   public InlineResponse2002Data distributor(InlineResponse2002DataDistributor distributor) {
     this.distributor = distributor;

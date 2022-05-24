@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Global Prices API provides end of day market pricing content using cloud and microservices technology, encompassing both pricing as well as corporate actions and events data.</p>
   title: FactSet Global Prices API
-  version: 1.0.1
+  version: 1.2.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -17,6 +17,8 @@ tags:
 - description: Get Security Open, High, Low, Close, Volume for a list of ids and date
     range
   name: Prices
+- description: Gets the returns data for the list of ids, date range and currency
+  name: Returns
 paths:
   /factset-global-prices/v1/prices:
     get:
@@ -401,7 +403,14 @@ paths:
             |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
             |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
             |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+            |dividendStatus|Identifies the cancelled dividends status( Active, Cancelled, Postponed, Partial Information) and helps to evaluate their price and portfolio performance.Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
+            |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
             |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+            |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
+            |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
+            |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+            |frankDefDecUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+            |frankPct|Percent of total dividend that is franked (subject to tax credit). **Only applicable for Australian Securities**.|
             |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
           <h3>Distribution Fields</h3>
             |field|description|
@@ -424,6 +433,7 @@ paths:
             |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
             |distOldTerm|Component of distribution ratio- Number of shares held.|
             |distNewTerm|Component of distribution ratio - Number of shares received.|
+            |distInstFsymId|Helps to identify an instrument representing the distributed company or security associated with ca event identifier. Its applicable for types like Bonus issue(BNS),Stock dividend(DVS),Rights issue (DSR), and spin off(SPO).|
             |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
         examples:
           Dividends Fields:
@@ -469,6 +479,19 @@ paths:
         name: currency
         required: false
         schema:
+          type: string
+        style: form
+      - description: |
+          The cancelled dividend returns the dividend details whether they are cancelled or active.
+        example: exclude
+        explode: true
+        in: query
+        name: cancelledDividend
+        required: false
+        schema:
+          enum:
+          - include
+          - exclude
           type: string
         style: form
       responses:
@@ -589,6 +612,203 @@ paths:
       summary: Requests Corporate Actions information.
       tags:
       - Corporate Actions
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-global-prices/v1/returns:
+    get:
+      description: "Returns for the requested ids and currency for the given dates.\
+        \ Depending on the input parameters the return data is provided. \n"
+      operationId: getReturns
+      parameters:
+      - description: The requested list of security identifiers. Accepted ID types
+          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          <p>***ids limit** =  50 per request*</p> *<p>Make note, GET Method URL request
+          lines are also limited to a total length of 8192 bytes (8KB). In cases where
+          the service allows for thousands of ids, which may lead to exceeding this
+          request line limit of 8KB, its advised for any requests with large request
+          lines to be requested through the respective "POST" method.</p>*
+        examples:
+          oneEquityId:
+            summary: One Equity Market Identifier
+            value:
+            - AAPL-USA
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          The start date requested for a given date range in **YYYY-MM-DD** format. The input start date must be before the input end date. Future dates (T+1) are not accepted in this endpoint.
+        example: 2021-08-27
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: |
+          The end date requested for a given date range in **YYYY-MM-DD** format. The input end date must be after the input start date. Future dates (T+1) are not accepted in this endpoint.
+        example: 2021-08-27
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Currency code for adjusting prices. Default is Local. For a list
+          of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+        example: USD
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Controls the display frequency of the data returned.
+            * **D** = Daily
+            * **AD** = Actual Daily
+            * **W** = Weekly, based on the last day of the week of the start date.
+            * **M** = Monthly, based on the last trading day of the month.
+            * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+            * **AQ** =  Actual Quarterly
+            * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
+            * **ASA** = Actual Semi-annual
+            * **CSA** = Calendar Semi-annual
+            * **AY** = Actual Annual, based on the start date.
+            * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          default: D
+          enum:
+          - D
+          - AD
+          - W
+          - M
+          - AM
+          - AQ
+          - CQ
+          - ASA
+          - CSA
+          - AY
+          - CY
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Returns:
+                  $ref: '#/components/examples/returnsResponseAll'
+              schema:
+                $ref: '#/components/schemas/returnsResponse'
+          description: Array of Returns Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Gets Returns for a list of `ids` as of given date range.
+      tags:
+      - Returns
+      x-accepts: application/json
+    post:
+      description: Returns for the requested ids and currency for the given dates.
+        Depending on the input parameters the return data is provided.
+      operationId: getReturnsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/returnsRequest'
+        description: Request object for `Returns`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnsResponse'
+          description: Array of security prices
+      summary: Gets Returns for a list of `ids` as of given date range.
+      tags:
+      - Returns
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -996,6 +1216,20 @@ components:
           rightsIssuePrice: null
           shortDesc: 'Reverse Split(Mandatory): 25 for 29'
           requestId: GPOR-GB
+    returnsResponseAll:
+      summary: Return
+      value:
+        data:
+        - fsymId: WFJYTJ-R
+          date: 2019-10-03
+          currency: USD
+          totalReturn: 0.927077
+          requestId: GOOGL
+        - fsymId: MH33D6-R
+          date: 2019-10-03
+          currency: USD
+          totalReturn: 1.782245
+          requestId: AAPL
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
@@ -1252,6 +1486,20 @@ components:
       schema:
         type: string
       style: form
+    cancelledDividend:
+      description: |
+        The cancelled dividend returns the dividend details whether they are cancelled or active.
+      example: exclude
+      explode: true
+      in: query
+      name: cancelledDividend
+      required: false
+      schema:
+        enum:
+        - include
+        - exclude
+        type: string
+      style: form
     frequency:
       description: |
         Controls the display frequency of the data returned.
@@ -1406,7 +1654,14 @@ components:
           |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
           |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
           |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
+          |dividendStatus|Identifies the cancelled dividends status( Active, Cancelled, Postponed, Partial Information) and helps to evaluate their price and portfolio performance.Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
+          |dividendActiveFlag|Identifies whether the dividend record is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|
           |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
+          |frankDefTradingAdj|Split amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
+          |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the trading currency of the input ID. Amount is translated to the trading currency based on the exchange rate as of the effective date.**Only applicable for Australian Securities**.|
+          |frankDefDecAdj|Split amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankDefDecUnadj|Unsplit amount of dividend that is franked (subject to tax credit). Published in the currency the dividend was declared in.Amount is translated to the trading currency based on the exchange rate as of the effective date. **Only applicable for Australian Securities**.|
+          |frankPct|Percent of total dividend that is franked (subject to tax credit). **Only applicable for Australian Securities**.|
           |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
         <h3>Distribution Fields</h3>
           |field|description|
@@ -1429,6 +1684,7 @@ components:
           |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
           |distOldTerm|Component of distribution ratio- Number of shares held.|
           |distNewTerm|Component of distribution ratio - Number of shares received.|
+          |distInstFsymId|Helps to identify an instrument representing the distributed company or security associated with ca event identifier. Its applicable for types like Bonus issue(BNS),Stock dividend(DVS),Rights issue (DSR), and spin off(SPO).|
           |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
       examples:
         Dividends Fields:
@@ -1785,68 +2041,102 @@ components:
         eventCategory:
           $ref: '#/components/schemas/eventCategory'
         fields:
-          description: |
-            Request available Corporate Actions data fields to be included in the response.
-            Default is all fields. _fsymId_, _effectiveDate_, _eventTypeCode_ and _requestId_ are always included.
-
-              |field|description|
-              |---|---|
-              |fsymId|Factset Regional Security Identifier|
-              |eventTypeCode|Character code that denotes the type of event|
-              |effectiveDate|The date when security is traded ex-dividend|
-              |requestId|Identifier that was used for the request.|
-
-            <h3>Common Fields</h3>
-              |field|description|
-              |---|---|
-              |eventId|Uniquely Identifies the event|
-              |eventTypeDesc|Description of the type of event|
-              |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|
-              |announcementDate|Date the event was publicly announced|
-              |recordDate|Record date of the event|
-              |payDate|Payment date of the event|
-            <h3>Dividend Fields</h3>
-              |field|description|
-              |---|---|
-              |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
-              |amtDefNetGrossIndicator|Indicates whether the default amount is net or gross. G=Gross; N=Net.|
-              |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
-              |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
-              |amtNetTradingAdj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date.  The value is adjusted for splits.|
-              |amtNetTradingUnadj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
-              |amtGrossTradingAdj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
-              |amtGrossTradingUnadj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
-              |declaredCurrency|Currency ISO code associated with the declared amount. |
-              |amtDefDecAdj|Cash distribution amount (net or gross) in the currency it was declared in. The value is adjusted for splits.|
-              |amtDefDecUnadj|Cash distribution amount (net or gross) in the currency it was declared in. The value is not adjusted for splits.|
-              |amtNetDecAdj|Net cash distribution amount in the currency it was declared in. The value is adjusted for splits. |
-              |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
-              |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
-              |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
-              |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
-              |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
-            <h3>Distribution Fields</h3>
-              |field|description|
-              |---|---|
-              |adjFactor|Factor applied to adjust historical prices. Calculation formulas are available on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|
-              |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
-              |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
-              |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
-              |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
-              |distPct|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
-              |distOldTerm|Component of distribution ratio- Number of shares held.|
-              |distNewTerm|Component of distribution ratio - Number of shares received.|
-              |rightsIssuePrice|Price of the rights issue. |
-              |rightsIssueCurrency|Currency the rights issue price was declared in.|
-              |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
-            <h3>Splits Fields</h3>
-              |field|description|
-              |---|---|
-              |adjFactor|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
-              |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
-              |distOldTerm|Component of distribution ratio- Number of shares held.|
-              |distNewTerm|Component of distribution ratio - Number of shares received.|
-              |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+          description: "Request available Corporate Actions data fields to be included\
+            \ in the response.\nDefault is all fields. _fsymId_, _effectiveDate_,\
+            \ _eventTypeCode_ and _requestId_ are always included.\n\n  |field|description|\n\
+            \  |---|---|\n  |fsymId|Factset Regional Security Identifier|\n  |eventTypeCode|Character\
+            \ code that denotes the type of event|\n  |effectiveDate|The date when\
+            \ security is traded ex-dividend|\n  |requestId|Identifier that was used\
+            \ for the request.|\n\n<h3>Common Fields</h3>\n  |field|description|\n\
+            \  |---|---|\n  |eventId|Uniquely Identifies the event|\n  |eventTypeDesc|Description\
+            \ of the type of event|\n  |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|\n\
+            \  |announcementDate|Date the event was publicly announced|\n  |recordDate|Record\
+            \ date of the event|\n  |payDate|Payment date of the event|\n<h3>Dividend\
+            \ Fields</h3>\n  |field|description|\n  |---|---|\n  |currency|Currency\
+            \ ISO code associated with distribution amount converted into trading\
+            \ currency of the record.|\n  |amtDefNetGrossIndicator|Indicates whether\
+            \ the default amount is net or gross. G=Gross; N=Net.|\n  |amtDefTradingAdj|Cash\
+            \ distribution amount (net or gross) in the trading currency of the record.\
+            \ Amount is translated to the trading currency based on the exchange rate\
+            \ as of the effective date. The value is adjusted for splits.|\n  |amtDefTradingUnadj|Cash\
+            \ distribution amount (net or gross) in the trading currency of the record.\
+            \ Amount is translated to the trading currency based on the exchange rate\
+            \ as of the effective date. The value is not adjusted for splits. |\n\
+            \  |amtNetTradingAdj|Net distribution amount in the trading currency of\
+            \ the record. Amount is translated to the trading currency based on the\
+            \ exchange rate as of the effective date.  The value is adjusted for splits.|\n\
+            \  |amtNetTradingUnadj|Net distribution amount in the trading currency\
+            \ of the record. Amount is translated to the trading currency based on\
+            \ the exchange rate as of the effective date. The value is not adjusted\
+            \ for splits.|\n  |amtGrossTradingAdj|Gross distribution amount in the\
+            \ trading currency of the record. Amount is translated to the trading\
+            \ currency based on the exchange rate as of the effective date. The value\
+            \ is adjusted for splits.|\n  |amtGrossTradingUnadj|Gross distribution\
+            \ amount in the trading currency of the record. Amount is translated to\
+            \ the trading currency based on the exchange rate as of the effective\
+            \ date. The value is not adjusted for splits.|\n  |declaredCurrency|Currency\
+            \ ISO code associated with the declared amount. |\n  |amtDefDecAdj|Cash\
+            \ distribution amount (net or gross) in the currency it was declared in.\
+            \ The value is adjusted for splits.|\n  |amtDefDecUnadj|Cash distribution\
+            \ amount (net or gross) in the currency it was declared in. The value\
+            \ is not adjusted for splits.|\n  |amtNetDecAdj|Net cash distribution\
+            \ amount in the currency it was declared in. The value is adjusted for\
+            \ splits. |\n  |amtNetDecUnadj|Net cash distribution amount in the currency\
+            \ it was declared in. The value is not adjusted for splits.|\n  |amtGrossDecAdj|Gross\
+            \ cash distribution amount in the currency it was declared in. N/A is\
+            \ returned if the gross amount is not available. The value is adjusted\
+            \ for splits.|\n  |amtGrossDecUnadj|Gross cash distribution amount in\
+            \ the currency it was declared in. The value is not adjusted for splits.|\n\
+            \  |dividendStatus|Identifies the cancelled dividents and helps to evaluate\
+            \ their price and portfolio performance.|\n  |dividendActiveFlag|Identifies\
+            \ whether the dividend record is currently active(1) or inactive(0).Its\
+            \ applicable to Dividend(DVC) and Dividend with DRP option(DVCD)|\n  |dividendsSpecFlag|Indicates\
+            \ a special price implications exists, which may or may not include special\
+            \ dividends. Indicates whether an adjustment should be made to historical\
+            \ pricing.|\n  |frankDefTradingAdj|Split amount of dividend that is franked\
+            \ (subject to tax credit). Published in the trading currency of the input\
+            \ ID.Amount is translated to the trading currency based on the exchange\
+            \ rate as of the effective date. **Only applicable for Australian Securities**.|\n\
+            \  |frankDefTradingUnadj|Unsplit amount of dividend that is franked (subject\
+            \ to tax credit). Published in the trading currency of the input ID.Amount\
+            \ is translated to the trading currency based on the exchange rate as\
+            \ of the effective date. **Only applicable for Australian Securities**.|\n\
+            \  |frankDefDecAdj|Split amount of dividend that is franked (subject to\
+            \ tax credit). Published in the currency the dividend was declared in.**Only\
+            \ applicable for Australian Securities**.|\n  |frankDefDecUnadj|Unsplit\
+            \ amount of dividend that is franked (subject to tax credit). Published\
+            \ in the currency the dividend was declared in.**Only applicable for Australian\
+            \ Securities**.|\n  |frankPct|Percent of total dividend that is franked\
+            \ (subject to tax credit). **Only applicable for Australian Securities**.|\
+            \          \n  |taxRate|Domestic Withholding Tax Rate for a Resident Individual|\n\
+            <h3>Distribution Fields</h3>\n  |field|description|\n  |---|---|\n  |adjFactor|Factor\
+            \ applied to adjust historical prices. Calculation formulas are available\
+            \ on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|\n  |adjFactorCombined|Combined\
+            \ adjustment factor for all distribution events on that day.|\n  |amtDefTradingAdj|Cash\
+            \ distribution amount (net or gross) in the trading currency of the record.\
+            \ Amount is translated to the trading currency based on the exchange rate\
+            \ as of the effective date. The value is adjusted for splits.|\n  |amtDefTradingUnadj|Cash\
+            \ distribution amount (net or gross) in the trading currency of the record.\
+            \ Amount is translated to the trading currency based on the exchange rate\
+            \ as of the effective date. The value is not adjusted for splits. |\n\
+            \  |currency|Currency ISO code associated with distribution amount converted\
+            \ into trading currency of the record.|\n  |distPct|Distribution percentage\
+            \ of the event  (i.e. 10%). Typical for stock distributions.|\n  |distOldTerm|Component\
+            \ of distribution ratio- Number of shares held.|\n  |distNewTerm|Component\
+            \ of distribution ratio - Number of shares received.|\n  |rightsIssuePrice|Price\
+            \ of the rights issue. |\n  |rightsIssueCurrency|Currency the rights issue\
+            \ price was declared in.|\n  |shortDesc|Textual description identifying\
+            \ the event. Example- Split (Mandatory): 3 for 1.|\n<h3>Splits Fields</h3>\n\
+            \  |field|description|\n  |---|---|\n  |adjFactor|Distribution percentage\
+            \ of the event  (i.e. 10%). Typical for stock distributions.|\n  |adjFactorCombined|Combined\
+            \ adjustment factor for all distribution events on that day.|\n  |distOldTerm|Component\
+            \ of distribution ratio- Number of shares held.|\n  |distNewTerm|Component\
+            \ of distribution ratio - Number of shares received.|\n  |distInstFsymId|Helps\
+            \ to identify an instrument representing the distributed company or security\
+            \ associated with ca event identifier. Its applicable for types like Bonus\
+            \ issue(BNS),Stock dividend(DVS),Rights issue (DSR), and spin off(SPO).\
+            \ |\n  |shortDesc|Textual description identifying the event. Example-\
+            \ Split (Mandatory): 3 for 1.|\n"
           example:
           - eventId
           - eventTypeDesc
@@ -1877,6 +2167,8 @@ components:
           example: USD
           title: Request Currency
           type: string
+        cancelledDividend:
+          $ref: '#/components/schemas/cancelledDividend'
       required:
       - ids
       title: Corporate Actions Request Body
@@ -1925,68 +2217,99 @@ components:
       title: eventCategory
       type: string
     fieldsCorporateActions:
-      description: |
-        Request available Corporate Actions data fields to be included in the response.
-        Default is all fields. _fsymId_, _effectiveDate_, _eventTypeCode_ and _requestId_ are always included.
-
-          |field|description|
-          |---|---|
-          |fsymId|Factset Regional Security Identifier|
-          |eventTypeCode|Character code that denotes the type of event|
-          |effectiveDate|The date when security is traded ex-dividend|
-          |requestId|Identifier that was used for the request.|
-
-        <h3>Common Fields</h3>
-          |field|description|
-          |---|---|
-          |eventId|Uniquely Identifies the event|
-          |eventTypeDesc|Description of the type of event|
-          |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|
-          |announcementDate|Date the event was publicly announced|
-          |recordDate|Record date of the event|
-          |payDate|Payment date of the event|
-        <h3>Dividend Fields</h3>
-          |field|description|
-          |---|---|
-          |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
-          |amtDefNetGrossIndicator|Indicates whether the default amount is net or gross. G=Gross; N=Net.|
-          |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
-          |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
-          |amtNetTradingAdj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date.  The value is adjusted for splits.|
-          |amtNetTradingUnadj|Net distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
-          |amtGrossTradingAdj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
-          |amtGrossTradingUnadj|Gross distribution amount in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits.|
-          |declaredCurrency|Currency ISO code associated with the declared amount. |
-          |amtDefDecAdj|Cash distribution amount (net or gross) in the currency it was declared in. The value is adjusted for splits.|
-          |amtDefDecUnadj|Cash distribution amount (net or gross) in the currency it was declared in. The value is not adjusted for splits.|
-          |amtNetDecAdj|Net cash distribution amount in the currency it was declared in. The value is adjusted for splits. |
-          |amtNetDecUnadj|Net cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
-          |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared in. N/A is returned if the gross amount is not available. The value is adjusted for splits.|
-          |amtGrossDecUnadj|Gross cash distribution amount in the currency it was declared in. The value is not adjusted for splits.|
-          |dividendsSpecFlag|Indicates a special price implications exists, which may or may not include special dividends. Indicates whether an adjustment should be made to historical pricing.|
-          |taxRate|Domestic Withholding Tax Rate for a Resident Individual|
-        <h3>Distribution Fields</h3>
-          |field|description|
-          |---|---|
-          |adjFactor|Factor applied to adjust historical prices. Calculation formulas are available on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|
-          |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
-          |amtDefTradingAdj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is adjusted for splits.|
-          |amtDefTradingUnadj|Cash distribution amount (net or gross) in the trading currency of the record. Amount is translated to the trading currency based on the exchange rate as of the effective date. The value is not adjusted for splits. |
-          |currency|Currency ISO code associated with distribution amount converted into trading currency of the record.|
-          |distPct|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
-          |distOldTerm|Component of distribution ratio- Number of shares held.|
-          |distNewTerm|Component of distribution ratio - Number of shares received.|
-          |rightsIssuePrice|Price of the rights issue. |
-          |rightsIssueCurrency|Currency the rights issue price was declared in.|
-          |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
-        <h3>Splits Fields</h3>
-          |field|description|
-          |---|---|
-          |adjFactor|Distribution percentage of the event  (i.e. 10%). Typical for stock distributions.|
-          |adjFactorCombined|Combined adjustment factor for all distribution events on that day.|
-          |distOldTerm|Component of distribution ratio- Number of shares held.|
-          |distNewTerm|Component of distribution ratio - Number of shares received.|
-          |shortDesc|Textual description identifying the event. Example- Split (Mandatory): 3 for 1.|
+      description: "Request available Corporate Actions data fields to be included\
+        \ in the response.\nDefault is all fields. _fsymId_, _effectiveDate_, _eventTypeCode_\
+        \ and _requestId_ are always included.\n\n  |field|description|\n  |---|---|\n\
+        \  |fsymId|Factset Regional Security Identifier|\n  |eventTypeCode|Character\
+        \ code that denotes the type of event|\n  |effectiveDate|The date when security\
+        \ is traded ex-dividend|\n  |requestId|Identifier that was used for the request.|\n\
+        \n<h3>Common Fields</h3>\n  |field|description|\n  |---|---|\n  |eventId|Uniquely\
+        \ Identifies the event|\n  |eventTypeDesc|Description of the type of event|\n\
+        \  |divTypeCode|Dividend type code. [OA#8764](https://my.apps.factset.com/oa/pages/8764)|\n\
+        \  |announcementDate|Date the event was publicly announced|\n  |recordDate|Record\
+        \ date of the event|\n  |payDate|Payment date of the event|\n<h3>Dividend\
+        \ Fields</h3>\n  |field|description|\n  |---|---|\n  |currency|Currency ISO\
+        \ code associated with distribution amount converted into trading currency\
+        \ of the record.|\n  |amtDefNetGrossIndicator|Indicates whether the default\
+        \ amount is net or gross. G=Gross; N=Net.|\n  |amtDefTradingAdj|Cash distribution\
+        \ amount (net or gross) in the trading currency of the record. Amount is translated\
+        \ to the trading currency based on the exchange rate as of the effective date.\
+        \ The value is adjusted for splits.|\n  |amtDefTradingUnadj|Cash distribution\
+        \ amount (net or gross) in the trading currency of the record. Amount is translated\
+        \ to the trading currency based on the exchange rate as of the effective date.\
+        \ The value is not adjusted for splits. |\n  |amtNetTradingAdj|Net distribution\
+        \ amount in the trading currency of the record. Amount is translated to the\
+        \ trading currency based on the exchange rate as of the effective date.  The\
+        \ value is adjusted for splits.|\n  |amtNetTradingUnadj|Net distribution amount\
+        \ in the trading currency of the record. Amount is translated to the trading\
+        \ currency based on the exchange rate as of the effective date. The value\
+        \ is not adjusted for splits.|\n  |amtGrossTradingAdj|Gross distribution amount\
+        \ in the trading currency of the record. Amount is translated to the trading\
+        \ currency based on the exchange rate as of the effective date. The value\
+        \ is adjusted for splits.|\n  |amtGrossTradingUnadj|Gross distribution amount\
+        \ in the trading currency of the record. Amount is translated to the trading\
+        \ currency based on the exchange rate as of the effective date. The value\
+        \ is not adjusted for splits.|\n  |declaredCurrency|Currency ISO code associated\
+        \ with the declared amount. |\n  |amtDefDecAdj|Cash distribution amount (net\
+        \ or gross) in the currency it was declared in. The value is adjusted for\
+        \ splits.|\n  |amtDefDecUnadj|Cash distribution amount (net or gross) in the\
+        \ currency it was declared in. The value is not adjusted for splits.|\n  |amtNetDecAdj|Net\
+        \ cash distribution amount in the currency it was declared in. The value is\
+        \ adjusted for splits. |\n  |amtNetDecUnadj|Net cash distribution amount in\
+        \ the currency it was declared in. The value is not adjusted for splits.|\n\
+        \  |amtGrossDecAdj|Gross cash distribution amount in the currency it was declared\
+        \ in. N/A is returned if the gross amount is not available. The value is adjusted\
+        \ for splits.|\n  |amtGrossDecUnadj|Gross cash distribution amount in the\
+        \ currency it was declared in. The value is not adjusted for splits.|\n  |dividendStatus|Identifies\
+        \ the cancelled dividents and helps to evaluate their price and portfolio\
+        \ performance.|\n  |dividendActiveFlag|Identifies whether the dividend record\
+        \ is currently active(1) or inactive(0).Its applicable to Dividend(DVC) and\
+        \ Dividend with DRP option(DVCD)|\n  |dividendsSpecFlag|Indicates a special\
+        \ price implications exists, which may or may not include special dividends.\
+        \ Indicates whether an adjustment should be made to historical pricing.|\n\
+        \  |frankDefTradingAdj|Split amount of dividend that is franked (subject to\
+        \ tax credit). Published in the trading currency of the input ID.Amount is\
+        \ translated to the trading currency based on the exchange rate as of the\
+        \ effective date. **Only applicable for Australian Securities**.|\n  |frankDefTradingUnadj|Unsplit\
+        \ amount of dividend that is franked (subject to tax credit). Published in\
+        \ the trading currency of the input ID.Amount is translated to the trading\
+        \ currency based on the exchange rate as of the effective date. **Only applicable\
+        \ for Australian Securities**.|\n  |frankDefDecAdj|Split amount of dividend\
+        \ that is franked (subject to tax credit). Published in the currency the dividend\
+        \ was declared in.**Only applicable for Australian Securities**.|\n  |frankDefDecUnadj|Unsplit\
+        \ amount of dividend that is franked (subject to tax credit). Published in\
+        \ the currency the dividend was declared in.**Only applicable for Australian\
+        \ Securities**.|\n  |frankPct|Percent of total dividend that is franked (subject\
+        \ to tax credit). **Only applicable for Australian Securities**.|        \
+        \  \n  |taxRate|Domestic Withholding Tax Rate for a Resident Individual|\n\
+        <h3>Distribution Fields</h3>\n  |field|description|\n  |---|---|\n  |adjFactor|Factor\
+        \ applied to adjust historical prices. Calculation formulas are available\
+        \ on [OA#12619](https://my.apps.factset.com/oa/pages/12619)|\n  |adjFactorCombined|Combined\
+        \ adjustment factor for all distribution events on that day.|\n  |amtDefTradingAdj|Cash\
+        \ distribution amount (net or gross) in the trading currency of the record.\
+        \ Amount is translated to the trading currency based on the exchange rate\
+        \ as of the effective date. The value is adjusted for splits.|\n  |amtDefTradingUnadj|Cash\
+        \ distribution amount (net or gross) in the trading currency of the record.\
+        \ Amount is translated to the trading currency based on the exchange rate\
+        \ as of the effective date. The value is not adjusted for splits. |\n  |currency|Currency\
+        \ ISO code associated with distribution amount converted into trading currency\
+        \ of the record.|\n  |distPct|Distribution percentage of the event  (i.e.\
+        \ 10%). Typical for stock distributions.|\n  |distOldTerm|Component of distribution\
+        \ ratio- Number of shares held.|\n  |distNewTerm|Component of distribution\
+        \ ratio - Number of shares received.|\n  |rightsIssuePrice|Price of the rights\
+        \ issue. |\n  |rightsIssueCurrency|Currency the rights issue price was declared\
+        \ in.|\n  |shortDesc|Textual description identifying the event. Example- Split\
+        \ (Mandatory): 3 for 1.|\n<h3>Splits Fields</h3>\n  |field|description|\n\
+        \  |---|---|\n  |adjFactor|Distribution percentage of the event  (i.e. 10%).\
+        \ Typical for stock distributions.|\n  |adjFactorCombined|Combined adjustment\
+        \ factor for all distribution events on that day.|\n  |distOldTerm|Component\
+        \ of distribution ratio- Number of shares held.|\n  |distNewTerm|Component\
+        \ of distribution ratio - Number of shares received.|\n  |distInstFsymId|Helps\
+        \ to identify an instrument representing the distributed company or security\
+        \ associated with ca event identifier. Its applicable for types like Bonus\
+        \ issue(BNS),Stock dividend(DVS),Rights issue (DSR), and spin off(SPO). |\n\
+        \  |shortDesc|Textual description identifying the event. Example- Split (Mandatory):\
+        \ 3 for 1.|\n"
       example:
       - eventId
       - eventTypeDesc
@@ -2083,15 +2406,22 @@ components:
       type: string
     calendar:
       default: FIVEDAY
-      description: Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
-        will default to the securities' trading calendar which excludes date records
-        for respective holiday periods.
+      description: Calendar of data returned. SEVENDAY includes weekends.
       enum:
       - FIVEDAY
       - SEVENDAY
-      - LOCAL
       example: FIVEDAY
       title: Calendar
+      type: string
+    cancelledDividend:
+      default: exclude
+      description: The cancelled dividend returns the dividend details whether they
+        are cancelled or active.
+      enum:
+      - include
+      - exclude
+      example: exclude
+      title: cancelledDividend
       type: string
     requestCurrency:
       description: Currency code for adjusting prices. Default is Local. For a list
@@ -2267,12 +2597,54 @@ components:
           type: number
           x-fds-sdf: amt_net_dec_unadj
           x-fds-dh: NET_DEC_UNSPLIT
+        dividendStatus:
+          description: Dividend Status Flag - 1=Yes, 0=No
+          example: 0
+          type: integer
+          x-fds-sdf: dividend_status
+          x-fds-dh: DIV_STATUS
+        dividendActiveFlag:
+          description: Dividend active Flag - 1=Yes, 0=No
+          example: 1
+          type: integer
+          x-fds-sdf: dividend_active_flag
+          x-fds-dh: ISACTIVE_FLAG
         dividendsSpecFlag:
           description: Special Dividend Flag - 1=Yes, 0=No
           example: 0
           type: integer
           x-fds-sdf: dividend_spec_flag
           x-fds-dh: SPEC_FLAG
+        frankDefTradingAdj:
+          description: Default Frank - Trading Currency, Split Adjusted
+          format: double
+          type: number
+          x-fds-sdf: frank_amt_trading_adj
+          x-fds-dh: FRANK_DEF_SPLIT
+        frankDefTradingUnadj:
+          description: Default Frank - Trading Currency, Unadjusted
+          format: double
+          type: number
+          x-fds-sdf: frank_amt_trading_unadj
+          x-fds-dh: FRANK_DEF_UNSPLIT
+        frankDefDecAdj:
+          description: Default Frank - Declared Currency, Split Adjusted
+          format: double
+          type: number
+          x-fds-sdf: frank_amt_dec_adj
+          x-fds-dh: FRANK_DEC_SPLIT
+        frankDefDecUnadj:
+          description: Default Frank - Declared Currency, Unadjusted
+          format: double
+          type: number
+          x-fds-sdf: frank_amt_dec_unadj
+          x-fds-dh: FRANK_DEC_UNSPLIT
+        frankPct:
+          description: Default Amount - Declared Currency, Unadjusted
+          format: double
+          type: number
+          x-fds-sdf: frank_pct
+          x-fds-dh: FRANK_PCT
         taxRate:
           description: Tax Rate for on gross dividend for net dividend.
           format: double
@@ -2512,6 +2884,12 @@ components:
           type: number
           x-fds-sdf: dist_new_term
           x-fds-dh: DIST_RATIO_TERM_NEW
+        distInstFsymId:
+          description: Parent Spin-Off for a company
+          example: RGW4H5-S
+          type: string
+          x-fds-sdf: dist_inst_fsym_id
+          x-fds-dh: DIST_INST_ID
         shortDesc:
           description: Textual description identifying the event.
           example: 'Split (Mandatory): 3 for 1.'
@@ -2523,6 +2901,103 @@ components:
           example: IBM-US
           type: string
       title: Split Object
+      type: object
+    returnsRequest:
+      description: Returns Request Body
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+          example:
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          title: ids
+          type: array
+        startDate:
+          description: |
+            The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2020-06-30
+          title: Start Date
+          type: string
+        endDate:
+          description: |
+            The end date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2021-06-30
+          title: End Date
+          type: string
+        currency:
+          description: Currency code for adjusting prices. Default is Local. For a
+            list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          title: Request Currency
+          type: string
+        frequency:
+          $ref: '#/components/schemas/frequency'
+      required:
+      - endDate
+      - ids
+      - startDate
+      title: Returns Request Body
+      type: object
+    returnsResponse:
+      example:
+        data:
+        - date: 2020-11-19T00:00:00.000+0000
+          totalReturn: 0.927077
+          requestId: DDD-USA
+          fsymId: LCV42P-L
+          currency: USD
+        - date: 2020-11-19T00:00:00.000+0000
+          totalReturn: 0.927077
+          requestId: DDD-USA
+          fsymId: LCV42P-L
+          currency: USD
+      properties:
+        data:
+          description: Array of Returns Objects
+          items:
+            $ref: '#/components/schemas/returns'
+          type: array
+      title: Returns Response
+      type: object
+    returns:
+      example:
+        date: 2020-11-19T00:00:00.000+0000
+        totalReturn: 0.927077
+        requestId: DDD-USA
+        fsymId: LCV42P-L
+        currency: USD
+      properties:
+        fsymId:
+          description: FactSet Permanent Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R) or a -L Suffix (XXXXXX-L).
+          example: LCV42P-L
+          type: string
+        totalReturn:
+          description: Returns the data for the given input parameters.
+          example: 0.927077
+          format: double
+          type: number
+        date:
+          description: End date of the return. Date in YYYY-MM-DD format. Depending
+            on Frequency and Calendar settings, this could represent the entire return
+            period requested.
+          example: 2020-11-19
+          format: date
+          type: string
+        currency:
+          description: 'Currency ISO code. For more details, visit [Online Assistant
+            Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          type: string
+        requestId:
+          description: Identifier that was used for the request.
+          example: DDD-USA
+          type: string
+      title: Returns Object
       type: object
     errorResponse:
       properties:

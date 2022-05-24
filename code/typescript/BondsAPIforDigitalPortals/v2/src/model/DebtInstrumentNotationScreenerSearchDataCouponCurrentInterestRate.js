@@ -18,7 +18,7 @@ import DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRateValue fr
 /**
  * The DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRate model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRate
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataCouponCurrentInterestRate {
     /**

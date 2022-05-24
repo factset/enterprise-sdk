@@ -11,7 +11,6 @@
  *
  */
 
-
 import ApiClient from './ApiClient';
 import ErrorResponse from './model/ErrorResponse';
 import ErrorResponseSubErrors from './model/ErrorResponseSubErrors';
@@ -22,6 +21,7 @@ import Frequency from './model/Frequency';
 import Library from './model/Library';
 import LibraryRequest from './model/LibraryRequest';
 import LibraryResponse from './model/LibraryResponse';
+
 import FactorsApi from './api/FactorsApi';
 import HelperApi from './api/HelperApi';
 
@@ -55,7 +55,7 @@ import HelperApi from './api/HelperApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.9.1
+* @version 0.20.0
 */
 export {
     /**
@@ -128,5 +128,6 @@ export {
     * The HelperApi service constructor.
     * @property {module:api/HelperApi}
     */
-    HelperApi
+    HelperApi,
+
 };

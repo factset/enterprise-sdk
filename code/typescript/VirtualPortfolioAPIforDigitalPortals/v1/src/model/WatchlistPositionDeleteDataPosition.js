@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The WatchlistPositionDeleteDataPosition model module.
  * @module model/WatchlistPositionDeleteDataPosition
- * @version 0.9.1
+ * @version 0.9.2
  */
 class WatchlistPositionDeleteDataPosition {
     /**

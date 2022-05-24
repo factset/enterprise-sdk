@@ -30,7 +30,6 @@ src/main/java/com/factset/sdk/IDLookup/ApiClient.java
 src/main/java/com/factset/sdk/IDLookup/ApiException.java
 src/main/java/com/factset/sdk/IDLookup/ApiResponse.java
 src/main/java/com/factset/sdk/IDLookup/Configuration.java
-src/main/java/com/factset/sdk/IDLookup/CustomInstantDeserializer.java
 src/main/java/com/factset/sdk/IDLookup/JSON.java
 src/main/java/com/factset/sdk/IDLookup/JavaTimeFormatter.java
 src/main/java/com/factset/sdk/IDLookup/Pair.java

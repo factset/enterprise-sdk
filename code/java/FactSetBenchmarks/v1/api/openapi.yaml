@@ -6,7 +6,7 @@ info:
   description: |
     FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.
   title: FactSet Benchmarks API
-  version: 1.4.0
+  version: 1.5.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -803,6 +803,20 @@ paths:
           enum:
           - GROSS
           - NET
+          type: string
+        style: form
+      - description: The hedge type adjustment used in returns response items. Adjustment
+          can be made for HEDGED and UNHEDGED values that will be included in the
+          return calculation. The service will default to UNHEDGED.
+        explode: true
+        in: query
+        name: hedgeType
+        required: false
+        schema:
+          default: UNHEDGED
+          enum:
+          - UNHEDGED
+          - HEDGED
           type: string
         style: form
       - description: Currency for response.
@@ -1874,6 +1888,7 @@ components:
           priceReturnPercent: 0.643080929116979
           requestId: SP50
           returnType: GROSS
+          hedgeType: UNHEDGED
           totalReturnLevel: 6826.22108948631
           totalReturnPercent: 0.643080929117001
         - currency: LOCAL
@@ -1885,6 +1900,7 @@ components:
           priceReturnPercent: 0.642620385795123
           requestId: SP50
           returnType: GROSS
+          hedgeType: UNHEDGED
           totalReturnLevel: 6870.86168040129
           totalReturnPercent: 0.653957589855003
         - currency: LOCAL
@@ -1896,6 +1912,7 @@ components:
           priceReturnPercent: 0.751585489130235
           requestId: R.3000
           returnType: GROSS
+          hedgeType: UNHEDGED
           totalReturnLevel: 10542.973182
           totalReturnPercent: 0.751900743100942
         - currency: LOCAL
@@ -1907,6 +1924,7 @@ components:
           priceReturnPercent: 0.502392266457519
           requestId: R.3000
           returnType: GROSS
+          hedgeType: UNHEDGED
           totalReturnLevel: 10597.086657
           totalReturnPercent: 0.513265793869122
     allRatiosRequest:
@@ -2491,6 +2509,21 @@ components:
         enum:
         - GROSS
         - NET
+        type: string
+      style: form
+    hedgeType:
+      description: The hedge type adjustment used in returns response items. Adjustment
+        can be made for HEDGED and UNHEDGED values that will be included in the return
+        calculation. The service will default to UNHEDGED.
+      explode: true
+      in: query
+      name: hedgeType
+      required: false
+      schema:
+        default: UNHEDGED
+        enum:
+        - UNHEDGED
+        - HEDGED
         type: string
       style: form
     calendar:
@@ -3216,6 +3249,8 @@ components:
           $ref: '#/components/schemas/frequency'
         returnType:
           $ref: '#/components/schemas/returnType'
+        hedgeType:
+          $ref: '#/components/schemas/hedgeType'
         currency:
           description: Currency for response.
           example: USD
@@ -3232,27 +3267,29 @@ components:
         data:
         - date: 2020-07-01T00:00:00.000+0000
           totalReturnLevel: 6870.86168040129
+          fsymId: SP50
+          marketValue: 27696158.012077
+          priceReturnPercent: 0.642620385795123
+          hedgeType: UNHEDGED
           constituentNumber: 502
           price: 3349.15600690205
           requestId: SP50
-          fsymId: SP50
           name: S&P 500
-          marketValue: 27696158.012077
           currency: USD
           totalReturnPercent: 0.653957589855003
-          priceReturnPercent: 0.642620385795123
           returnType: GROSS
         - date: 2020-07-01T00:00:00.000+0000
           totalReturnLevel: 6870.86168040129
+          fsymId: SP50
+          marketValue: 27696158.012077
+          priceReturnPercent: 0.642620385795123
+          hedgeType: UNHEDGED
           constituentNumber: 502
           price: 3349.15600690205
           requestId: SP50
-          fsymId: SP50
           name: S&P 500
-          marketValue: 27696158.012077
           currency: USD
           totalReturnPercent: 0.653957589855003
-          priceReturnPercent: 0.642620385795123
           returnType: GROSS
       properties:
         data:
@@ -3267,15 +3304,16 @@ components:
       example:
         date: 2020-07-01T00:00:00.000+0000
         totalReturnLevel: 6870.86168040129
+        fsymId: SP50
+        marketValue: 27696158.012077
+        priceReturnPercent: 0.642620385795123
+        hedgeType: UNHEDGED
         constituentNumber: 502
         price: 3349.15600690205
         requestId: SP50
-        fsymId: SP50
         name: S&P 500
-        marketValue: 27696158.012077
         currency: USD
         totalReturnPercent: 0.653957589855003
-        priceReturnPercent: 0.642620385795123
         returnType: GROSS
       properties:
         fsymId:
@@ -3331,6 +3369,10 @@ components:
         returnType:
           description: The requested Return Type - GROSS or NET
           example: GROSS
+          type: string
+        hedgeType:
+          description: The requested Hedge Type - HEDGED or UNHEDGED
+          example: UNHEDGED
           type: string
         requestId:
           description: Benchmark Identifier specified in the request
@@ -3621,6 +3663,17 @@ components:
       - NET
       example: GROSS
       title: Return Type
+      type: string
+    hedgeType:
+      default: UNHEDGED
+      description: The hedge type adjustment used in returns response items. Adjustment
+        can be made for HEDGED and UNHEDGED values that will be included in the return
+        calculation. The service weill default to UNHEDGED.
+      enum:
+      - UNHEDGED
+      - HEDGED
+      example: UNHEDGED
+      title: Hedge Type
       type: string
     calendar:
       default: FIVEDAY

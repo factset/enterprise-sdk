@@ -70,7 +70,7 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FIJobSettings {\n");
             sb.Append("  YieldCurveDate: ").Append(YieldCurveDate).Append("\n");
             sb.Append("  PartialDurationMonths: ").Append(PartialDurationMonths).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
         public bool Equals(FIJobSettings input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.YieldCurveDate == input.YieldCurveDate ||
@@ -131,9 +132,13 @@ namespace FactSet.SDK.FixedIncomeCalculation.Model
             {
                 int hashCode = 41;
                 if (this.YieldCurveDate != null)
-                    hashCode = hashCode * 59 + this.YieldCurveDate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.YieldCurveDate.GetHashCode();
+                }
                 if (this.PartialDurationMonths != null)
-                    hashCode = hashCode * 59 + this.PartialDurationMonths.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PartialDurationMonths.GetHashCode();
+                }
                 return hashCode;
             }
         }

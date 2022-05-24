@@ -19,7 +19,7 @@ import Response from '../model/Response';
 /**
 * CapitalStructure service.
 * @module api/CapitalStructureApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class CapitalStructureApi {
 
@@ -65,7 +65,10 @@ export default class CapitalStructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/dcs-detail', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -78,7 +81,7 @@ export default class CapitalStructureApi {
      * @param {String} id Company ticker
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.schema The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (default to 'table_parent_child_columns')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     getDcsDetail(id, opts) {
       return this.getDcsDetailWithHttpInfo(id, opts)
@@ -117,7 +120,10 @@ export default class CapitalStructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/dcs-summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -130,7 +136,7 @@ export default class CapitalStructureApi {
      * @param {String} id Company ticker
      * @param {Object} opts Optional parameters
      * @param {module:model/String} opts.schema The schema that the data is returned as. The following are descriptions for the accepted values: - table_group_level - STACH 2.0 row organized package format with parent-child relationships represented using STACH group level cell metadata - table_parent_child_columns - STACH 2.0 row organized package format with parent-child relationships represented using STACH parent-child columns  (default to 'table_parent_child_columns')
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     getDcsSummary(id, opts) {
       return this.getDcsSummaryWithHttpInfo(id, opts)
@@ -165,7 +171,10 @@ export default class CapitalStructureApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = Response;
+
       return this.apiClient.callApi(
         '/source-of-capital', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -176,7 +185,7 @@ export default class CapitalStructureApi {
     /**
      * Source of Capital
      * @param {String} id Company ticker
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Response}
+     * @return { Promise.< module:model/Response > } a Promise, with data of type {@link module:model/Response }
      */
     getSourceOfCapital(id) {
       return this.getSourceOfCapitalWithHttpInfo(id)
@@ -187,3 +196,8 @@ export default class CapitalStructureApi {
 
 
 }
+
+
+
+
+

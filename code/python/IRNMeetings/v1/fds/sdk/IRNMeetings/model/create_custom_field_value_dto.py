@@ -24,8 +24,8 @@ from fds.sdk.IRNMeetings.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from fds.sdk.IRNMeetings.exceptions import ApiAttributeError
 
 
@@ -75,7 +75,7 @@ class CreateCustomFieldValueDto(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'code': (str, none_type,),  # noqa: E501
+            'code': (str,),  # noqa: E501
             'integer_value': (int, none_type,),  # noqa: E501
             'text_value': (str, none_type,),  # noqa: E501
             'file_path_value': (str, none_type,),  # noqa: E501
@@ -116,7 +116,7 @@ class CreateCustomFieldValueDto(ModelNormal):
         """CreateCustomFieldValueDto - a model defined in OpenAPI
 
         Args:
-            code (str, none_type):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -210,7 +210,7 @@ class CreateCustomFieldValueDto(ModelNormal):
         """CreateCustomFieldValueDto - a model defined in OpenAPI
 
         Args:
-            code (str, none_type):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

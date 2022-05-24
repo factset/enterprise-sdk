@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**broadCategory** | **String** | ETP class broad category. | [optional] 
+**reportDate** | **Date** | Reporting date for the allocations. | [optional] 
+**regions** | [**[InlineResponse2008DataRegions]**](InlineResponse2008DataRegions.md) | List of allocations by region. | [optional] 
 
 

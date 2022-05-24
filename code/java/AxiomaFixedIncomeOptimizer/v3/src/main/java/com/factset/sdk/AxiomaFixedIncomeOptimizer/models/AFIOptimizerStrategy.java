@@ -47,6 +47,16 @@ public class AFIOptimizerStrategy implements Serializable {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public AFIOptimizerStrategy() { 
+  }
+
+  @JsonCreator
+  public AFIOptimizerStrategy(
+    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id
+  ) {
+    this();
+    this.id = id;
+  }
 
   public AFIOptimizerStrategy overrides(AFIOptimizerStrategyOverrides overrides) {
     this.overrides = overrides;

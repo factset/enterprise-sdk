@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.fi_calculations_api import FICalculationsApi
+#   from .api.discount_curves_api import DiscountCurvesApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from fds.sdk.FixedIncomeCalculation.api.discount_curves_api import DiscountCurvesApi
 from fds.sdk.FixedIncomeCalculation.api.fi_calculations_api import FICalculationsApi

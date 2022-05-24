@@ -312,6 +312,7 @@ paths:
       summary: Gets end-of-day Open, High, Low, Close for a list of securities.
       tags:
       - Prices
+      x-factset-different-success-responses: true
       x-accepts: application/json
     post:
       description: |2
@@ -438,6 +439,7 @@ paths:
       summary: Requests end-of-day Open, High, Low, Close for a large list of securities.
       tags:
       - Prices
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /factset-prices/v1/fixed-income:

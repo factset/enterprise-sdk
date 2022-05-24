@@ -17,7 +17,7 @@ import DebtInstrumentNotationScreenerSearchDataRatingGrade from './DebtInstrumen
 /**
  * The DebtInstrumentNotationScreenerSearchDataRating model module.
  * @module model/DebtInstrumentNotationScreenerSearchDataRating
- * @version 0.9.1
+ * @version 0.10.0
  */
 class DebtInstrumentNotationScreenerSearchDataRating {
     /**

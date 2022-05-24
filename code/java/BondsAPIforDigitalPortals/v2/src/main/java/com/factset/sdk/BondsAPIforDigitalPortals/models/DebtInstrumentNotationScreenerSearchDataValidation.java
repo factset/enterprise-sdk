@@ -77,6 +77,8 @@ public class DebtInstrumentNotationScreenerSearchDataValidation implements Seria
   public static final String JSON_PROPERTY_CATEGORIZATION = "categorization";
   private DebtInstrumentNotationScreenerSearchDataValidationCategorization categorization;
 
+  public DebtInstrumentNotationScreenerSearchDataValidation() { 
+  }
 
   public DebtInstrumentNotationScreenerSearchDataValidation onlyActive(Boolean onlyActive) {
     this.onlyActive = onlyActive;

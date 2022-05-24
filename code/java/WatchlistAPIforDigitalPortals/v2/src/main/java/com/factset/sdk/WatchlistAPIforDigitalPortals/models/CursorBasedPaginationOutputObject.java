@@ -56,6 +56,22 @@ public class CursorBasedPaginationOutputObject implements Serializable {
   public static final String JSON_PROPERTY_PREVIOUS = "previous";
   private String previous;
 
+  public CursorBasedPaginationOutputObject() { 
+  }
+
+  @JsonCreator
+  public CursorBasedPaginationOutputObject(
+    @JsonProperty(value=JSON_PROPERTY_TOTAL, required=true) BigDecimal total, 
+    @JsonProperty(value=JSON_PROPERTY_IS_ESTIMATED_TOTAL, required=true) Boolean isEstimatedTotal, 
+    @JsonProperty(value=JSON_PROPERTY_NEXT, required=true) String next, 
+    @JsonProperty(value=JSON_PROPERTY_PREVIOUS, required=true) String previous
+  ) {
+    this();
+    this.total = total;
+    this.isEstimatedTotal = isEstimatedTotal;
+    this.next = next;
+    this.previous = previous;
+  }
 
   public CursorBasedPaginationOutputObject total(BigDecimal total) {
     this.total = total;

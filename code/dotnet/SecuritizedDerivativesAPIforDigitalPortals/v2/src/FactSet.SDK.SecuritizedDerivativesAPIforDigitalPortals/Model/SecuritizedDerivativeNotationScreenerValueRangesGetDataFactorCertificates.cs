@@ -90,7 +90,7 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates {\n");
             sb.Append("  EffectiveUnderlying: ").Append(EffectiveUnderlying).Append("\n");
             sb.Append("  Participation: ").Append(Participation).Append("\n");
@@ -126,8 +126,9 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
         public bool Equals(SecuritizedDerivativeNotationScreenerValueRangesGetDataFactorCertificates input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.EffectiveUnderlying == input.EffectiveUnderlying ||
@@ -155,10 +156,14 @@ namespace FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.Model
             {
                 int hashCode = 41;
                 if (this.EffectiveUnderlying != null)
-                    hashCode = hashCode * 59 + this.EffectiveUnderlying.GetHashCode();
-                hashCode = hashCode * 59 + this.Participation.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveUnderlying.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Participation.GetHashCode();
                 if (this.ConstantLeverage != null)
-                    hashCode = hashCode * 59 + this.ConstantLeverage.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ConstantLeverage.GetHashCode();
+                }
                 return hashCode;
             }
         }

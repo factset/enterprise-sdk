@@ -20,7 +20,7 @@ import RegionResponse from '../model/RegionResponse';
 /**
 * Regions service.
 * @module api/RegionsApi
-* @version 0.9.1
+* @version 0.20.0
 */
 export default class RegionsApi {
 
@@ -75,7 +75,10 @@ export default class RegionsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = [];
       let accepts = ['application/json'];
+
+
       let returnType = RegionResponse;
+
       return this.apiClient.callApi(
         '/factset-georev/v1/regions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -93,7 +96,7 @@ export default class RegionsApi {
      * @param {String} opts.endDate The end date requested for a given date range in **YYYY-MM-DD** format. Data is available on a Fiscal Annual periodicity and updated daily. If left blank, the API will default to latest available fiscal period. Future dates (T+1) are not accepted in this endpoint. 
      * @param {module:model/String} opts.frequency Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.     (default to 'FY')
      * @param {String} opts.currency Currency code for adjusting the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RegionResponse}
+     * @return { Promise.< module:model/RegionResponse > } a Promise, with data of type {@link module:model/RegionResponse }
      */
     getRegions(ids, opts) {
       return this.getRegionsWithHttpInfo(ids, opts)
@@ -128,7 +131,10 @@ export default class RegionsApi {
       let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
+
+
       let returnType = RegionResponse;
+
       return this.apiClient.callApi(
         '/factset-georev/v1/regions', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -140,7 +146,7 @@ export default class RegionsApi {
      * Gets the revenue details for the requested Regions. Use for large lists of company ids.
      * Gets the Geographic Revenue, Percents, Confidence, and Ranks for a requested list of ids and Regions, for a given start-date and end-date. Regions represent a taxonomy of Super Regions, Regions, and Areas, with Super Regions being the largest collection. *Country specific revenue can be requested in the /countries endpoint.* 
      * @param {module:model/RegionRequest} regionRequest The Region request body, allowing the user to specify a list of ids, time range, and regionIds.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RegionResponse}
+     * @return { Promise.< module:model/RegionResponse > } a Promise, with data of type {@link module:model/RegionResponse }
      */
     getRegionsForList(regionRequest) {
       return this.getRegionsForListWithHttpInfo(regionRequest)
@@ -151,3 +157,8 @@ export default class RegionsApi {
 
 
 }
+
+
+
+
+

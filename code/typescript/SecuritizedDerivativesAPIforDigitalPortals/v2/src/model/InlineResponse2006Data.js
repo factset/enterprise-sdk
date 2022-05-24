@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import InlineResponse2004Fsym from './InlineResponse2004Fsym';
 import InlineResponse2004ValueUnit from './InlineResponse2004ValueUnit';
 import InlineResponse2006Instrument from './InlineResponse2006Instrument';
 import InlineResponse2006KeyFigures from './InlineResponse2006KeyFigures';
@@ -22,7 +23,7 @@ import InlineResponse2006Volatility from './InlineResponse2006Volatility';
 /**
  * The InlineResponse2006Data model module.
  * @module model/InlineResponse2006Data
- * @version 0.9.1
+ * @version 0.10.0
  */
 class InlineResponse2006Data {
     /**
@@ -58,6 +59,9 @@ class InlineResponse2006Data {
             }
             if (data.hasOwnProperty('symbol')) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
+            }
+            if (data.hasOwnProperty('fsym')) {
+                obj['fsym'] = InlineResponse2004Fsym.constructFromObject(data['fsym']);
             }
             if (data.hasOwnProperty('valueUnit')) {
                 obj['valueUnit'] = InlineResponse2004ValueUnit.constructFromObject(data['valueUnit']);
@@ -95,6 +99,11 @@ InlineResponse2006Data.prototype['id'] = undefined;
  * @member {String} symbol
  */
 InlineResponse2006Data.prototype['symbol'] = undefined;
+
+/**
+ * @member {module:model/InlineResponse2004Fsym} fsym
+ */
+InlineResponse2006Data.prototype['fsym'] = undefined;
 
 /**
  * @member {module:model/InlineResponse2004ValueUnit} valueUnit

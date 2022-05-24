@@ -48,6 +48,8 @@ public class InlineResponse20089InstrumentAssetClass implements Serializable {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public InlineResponse20089InstrumentAssetClass() { 
+  }
 
   public InlineResponse20089InstrumentAssetClass id(BigDecimal id) {
     this.id = id;
